@@ -1,11 +1,11 @@
-Simulation Systems Working Practices
-====================================
-
 About the Working Practices
----------------------------
+===========================
 
-* and lists
-* of important things
+Link to what's changed
+
+* It will be too long
+* and too short
+* depending on your perspective
 
 1. numbered items
 

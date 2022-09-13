@@ -13,6 +13,12 @@ Simulation Systems Working Practices
    WorkingPractices/working_practices
    WorkingPractices/tickets
    WorkingPractices/branches
+   WorkingPractices/developing_change
+   WorkingPractices/multi_repository
+   WorkingPractices/testing
+   WorkingPractices/approvals
+   WorkingPractices/reviews
+   WorkingPractices/final_steps
 
 
 Indices and tables
