@@ -7,7 +7,7 @@ Simulation Systems Working Practices
 ====================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
 
    WorkingPractices/working_practices

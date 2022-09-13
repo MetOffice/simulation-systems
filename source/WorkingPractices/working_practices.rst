@@ -14,4 +14,11 @@ Quotations:
 
 Before You Start
 ----------------
-Links here to Planning/Do's/Don'ts/Terms of Reference/etc
+.. toctree::
+   :maxdepth: 2
+
+   planning_your_change
+   dos_donts
+   terms_of_reference
+
+
