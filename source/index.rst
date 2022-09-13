@@ -10,6 +10,9 @@ Simulation Systems Working Practices
    :maxdepth: 2
    :caption: Contents:
 
+   WorkingPractices/working_practices
+   WorkingPractices/tickets
+   WorkingPractices/branches
 
 
 Indices and tables

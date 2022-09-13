@@ -4,12 +4,15 @@
    contain the root `toctree` directive.
 
 Simulation Systems Working Practices
-============================================
+====================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+   WorkingPractices/working_practices
+   WorkingPractices/tickets
+   WorkingPractices/branches
 
 
 Indices and tables
