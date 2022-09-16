@@ -91,6 +91,8 @@ Further thoughts before you begin
 .. toctree::
    :maxdepth: 1
 
+   code_of_conduct
+   glossary
    planning_your_change
    dos_donts
    terms_of_reference
