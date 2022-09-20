@@ -85,8 +85,8 @@ Common 'specials' include:
     * Documentation
     * Wholesale
 
-Further thoughts before you begin
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Further details
+---------------
 
 .. toctree::
    :maxdepth: 1
