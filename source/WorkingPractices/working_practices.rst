@@ -18,7 +18,7 @@ other scientific software. However, the details are tuned to meet the needs of
 the community as a whole. A key feature is the use of versions as a way of
 periodically bringing everything together. Although many elements of Continuous
 Integration and related approaches to software management can be found, the
-nature of LFRic and UM makes following these impractical.
+nature of LFRic and UM development makes following these impractical.
 
 The release cycle follows a semi-regular cadence, balancing flexibility to
 facilitate high priority goals against stability for the broader developer pool.
@@ -31,7 +31,7 @@ closed release to facilitate an intense or disruptive development.
 .. Todo - make a diagram of rough release schedule (pictures to help break up text!)
 
 The release cycle is overseen by the Simulation Systems and Deployment Team with
-the oversight and support of the **Atmos Project Board??**, and impartially consider
+the oversight and support of the Atmos Project Board, and impartially consider
 the needs of all developers and users.
 
 
@@ -95,7 +95,8 @@ Further details
    glossary
    planning_your_change
    dos_donts
-   terms_of_reference
+   support
+   who
 
 .. toctree::
    :hidden:
