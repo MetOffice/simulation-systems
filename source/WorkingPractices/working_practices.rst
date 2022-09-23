@@ -30,7 +30,7 @@ submissions will be processed culminating in the release of the next release.
 From time to time, some or all parts of a repository may be subject to an agreed
 closed release to facilitate an intense or disruptive development.
 
-.. image:: development_cycle.png
+.. image:: images/development_cycle.png
 
 The release cycle is overseen by the Simulation Systems and Deployment Team with
 the oversight and support of the Atmos Project Board, and impartially consider
