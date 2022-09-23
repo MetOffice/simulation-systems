@@ -118,6 +118,8 @@ Capability Development Team
 The Capability Development Team are responsible for the LFRic Infrastructure to
 support the Next Generation Modelling Systems.
 
+.. todo: flesh out the description here
+
 HPC Optimisation Team
 ---------------------
 

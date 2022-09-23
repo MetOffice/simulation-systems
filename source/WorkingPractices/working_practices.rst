@@ -1,15 +1,17 @@
 About the Working Practices
 ===========================
 
-The Working Practices (WPs) are to be followed for all LFRic, UM, JULES, and
-UKCA developments.
+The Working Practices (WPs) are to be followed for all LFRic, UM, JULES, UKCA,
+and Shumlib developments.
 
 If this is your first development we highly recommend following these pages
 through in sequence. Note that we get regular feedback that the WPs are both too
 long and too short. What may be overwhelming detail for one person may be
 insufficient detail for another.
 
-**Details of recent changes to these practices can be found here:** :ref:`changes`
+.. note::
+
+    Details of recent changes to these practices can be found :ref:`here <changes>`
 
 Development Cycle Overview
 --------------------------
@@ -28,7 +30,7 @@ submissions will be processed culminating in the release of the next release.
 From time to time, some or all parts of a repository may be subject to an agreed
 closed release to facilitate an intense or disruptive development.
 
-.. Todo - make a diagram of rough release schedule (pictures to help break up text!)
+.. image:: development_cycle.png
 
 The release cycle is overseen by the Simulation Systems and Deployment Team with
 the oversight and support of the Atmos Project Board, and impartially consider
@@ -69,8 +71,11 @@ Consider the timing of your work:
 Consider bringing planning together using an overarching ticket. It can be very
 helpful for documenting and monitoring progress of your work.
 
-Early planning and consultation is strongly recommended to prevent
-disappointment later. More detailed guidance is provided on the :ref:`planning` page.
+.. tip::
+
+    Early planning and consultation is strongly recommended to prevent
+    disappointment later. More detailed guidance is provided on the
+    :ref:`planning` page.
 
 Special Types of change
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -97,9 +102,5 @@ Further details
    dos_donts
    support
    who
-
-.. toctree::
-   :hidden:
-
    change_notes
 

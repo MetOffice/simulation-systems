@@ -15,13 +15,13 @@ Level 1- Yammer
 ---------------
 If your problem persists, then use the relevant Yammer groups:
 
-    ​LFRic
-    ​UM Yammer group
-    ​JULES
-    ​Mule
+    * `LFRic <https://web.yammer.com/main/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIxMDkwNTczMiJ9/all>`_
+    * `UM <https://www.yammer.com/metoffice.gov.uk/#/threads/inGroup?type=in_group&feedId=15288192&view=all>`_
+    * `JULES <https://web.yammer.com/main/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIxMTEzMzk5NiJ9/all>`_
+    * `Mule <https://web.yammer.com/main/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIxMDQwODU5MCJ9/all>`_
 
 Non Met Office users can request access via the partnerships team:
-​Scientific_Partnerships@metoffice.gov.uk. Some institutions are presently
+Scientific_Partnerships@metoffice.gov.uk. Some institutions are presently
 unable to access these due to GDPR issues.
 
 Level 2- Support Teams
