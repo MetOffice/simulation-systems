@@ -19,7 +19,7 @@ atmosphere code in the UM will require LFRic testing.
 
 .. image:: images/repo_circles.png
     :width: 300
-    :centre:
+    :align: center
 
 Preparing Linked Tickets
 ------------------------
