@@ -8,4 +8,4 @@ of Met Office Simulation Systems.
 2. Be tolerant of others but do not abuse the tolerance of others.
 3. Respond to others constructively and in a reasonable time frame.
 4. Communicate inclusively and contribute to the community.
-5. Focus on outcomes, not process.
+5. Focus on outcomes, not processes.

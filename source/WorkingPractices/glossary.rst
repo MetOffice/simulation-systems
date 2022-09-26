@@ -17,12 +17,12 @@ Code Review Deadline:
     moved into code review.
 
 Colon Keyword:
-    The formatting pattern for certain ticket keywords such as CR:user to
+    The formatting pattern for certain ticket keywords. For example CR:user to
     indicate that "user" will be performing the Code System Review.
 
 CodeSys Review:
     A technical review of the changes involved in the ticket, including checks
-    on that code standards have been upheld and that the working practices have
+    that code standards have been upheld and that the working practices have
     been followed. These reviews are generally completed by a member of the
     Simulation Systems and Deployment Team.
     Once a review has been approved the Code Systems Reviewer is then
@@ -40,7 +40,7 @@ Further Commit:
     way.
 
 Known Good Output (KGO):
-    In order to verify that the model output hasn't changed by a set of changes
+    In order to verify that the model output hasn't been modified by a set of changes
     the test suite contains a stored set of output as a reference. This is known
     as the KGO and changes that alter this require special treatment. For more
     information see :ref:`kgo`.
@@ -56,10 +56,13 @@ Linked Ticket:
 
 Overarching Ticket:
     Where a piece of work has been split into multiple sections and tickets an
-    extra ticket can be used to track this work and should be closed when the
+    extra ticket can be used to track this work. It should be closed when the
     whole arc has been completed.
 
 Regression:
+    A set of tests that prove that a set of code changes have not degraded the
+    model output. Comparisons are made between the results produced and the
+    Known Good Output.
 
 SciTech Review:
     A science or technical review, completed by someone who is familiar with
@@ -75,4 +78,4 @@ Version:
     Each release of the codebase is completed by tagging the latest revision of
     the trunk with a version number. This version should be used for creating
     code branches from and will also be used by the parallel suite teams as a
-    starting point for creating the next operation suite.
+    starting point for creating the next operational suite.
