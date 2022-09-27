@@ -22,7 +22,7 @@ the version number):
 
 .. code-block::
 
-    fcm bc -k NNN -t dev branchname fcm:project.x_tr@vnXX.Y
+    fcm bc -k NNN branchname fcm:project.x_tr@vnXX.Y
 
 .. tip::
 
