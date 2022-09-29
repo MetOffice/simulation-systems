@@ -98,6 +98,7 @@ Further details
 
    code_of_conduct
    glossary
+   common_keywords
    planning_your_change
    dos_donts
    support

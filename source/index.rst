@@ -25,5 +25,4 @@ through in sequence.
    WorkingPractices/approvals
    WorkingPractices/reviews
    WorkingPractices/final_steps
-   WorkingPractices/common_keywords
 
