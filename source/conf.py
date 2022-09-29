@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'WorkingPractices'
+project = 'Simulation Systems'
 copyright = '2022, Simulation Systems and Deployment Team'
 author = 'Simulation Systems and Deployment Team'
 

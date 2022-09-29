@@ -5,6 +5,13 @@ Approval Process
 Every ticket will need to get approval from a group of people. These approvals
 are marked on the Ticket Summary wiki pages by those signing off the approval.
 
+.. tip::
+    Make it really clear and easy for approvers to understand your change and
+    know what needs approving - some get a lot of requests!
+
+    You may need to chase up approvals occasionally. People are not perfect and
+    remember to :ref:`be kind <code_of_conduct>`.
+
 Code Owners
 -----------
 Every file in the code bases has a :ref:`code_owner`, and every file changed
@@ -35,6 +42,10 @@ science settings.
 
 A list of current config owners for the UM is found in `trunk/ConfigOwners.txt`.
 Others are combined with the Code Owner lists above.
+
+.. tip::
+    From UM vn13.1, a rose-stem test suite with KGO failures will produce a list
+    of the Configuration Owners affected in the cylc-run directory for that suite.
 
 Optimisation Approvals
 ----------------------
