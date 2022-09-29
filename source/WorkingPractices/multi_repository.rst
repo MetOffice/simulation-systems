@@ -20,6 +20,7 @@ atmosphere code in the UM will require LFRic testing.
     :width: 300
     :align: center
 
+.. _linked:
 
 Preparing Linked Tickets
 ------------------------

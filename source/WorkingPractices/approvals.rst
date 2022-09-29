@@ -3,7 +3,8 @@
 Approval Process
 ================
 Every ticket will need to get approval from a group of people. These approvals
-are marked on the Ticket Summary wiki pages by those signing off the approval.
+are marked on the :ref:`Ticket Summary wiki pages <template>` by those signing
+off the approval.
 
 .. tip::
     Make it really clear and easy for approvers to understand your change and
@@ -14,7 +15,7 @@ are marked on the Ticket Summary wiki pages by those signing off the approval.
 
 Code Owners
 -----------
-Every file in the code bases has a :ref:`code_owner`, and every file changed
+Every file in the codebases has a :ref:`code_owner`, and every file changed
 will need checking by the code owners - no matter how small the change.
 
 A list of current code owners for each project can be found in

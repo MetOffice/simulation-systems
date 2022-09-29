@@ -121,11 +121,16 @@ codebases that comprise the Simulation Systems.
 All efforts are delivered on a best-endeavors basis, with all requests being
 triaged. Team members contribute to work outside of this project.
 
+The team can be contacted at umsysteam@metoffice.gov.uk.
+
+.. _cap_dev_team:
+
 Capability Development Team
 ---------------------------
 The Capability Development Team are responsible for the LFRic Infrastructure to
 support the Next Generation Modelling Systems.
 
+LFRic questions can be directed to meto-lfric@metoffice.gov.uk.
 .. todo: flesh out the description here
 
 .. _hpc_opt_team:
@@ -142,6 +147,7 @@ performance of the UM, LFRic and other systems.
     * Benchmarking UM software for HPC evaluations/procurement.
     * Act as 'code' owners for performance-related aspects of the UM, notably OpenMP and compiler directives
 
+The team can be contacted at Sci_Weath_hpc_opt@metoffice.gov.uk.
 
 Partnerships Team
 -----------------
