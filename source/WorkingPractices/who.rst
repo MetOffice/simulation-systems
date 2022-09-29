@@ -27,6 +27,8 @@ Notably, the Working Practices encourage and require engagement with other
 roles. This helps promote cohesion and consistency, ultimately underpinning
 confidence in the models as a whole.
 
+.. _code_owner:
+
 Code Owner
 ----------
 Code Owners and their deputies take responsibility for defined parts of the codebase:
@@ -40,6 +42,8 @@ Code Owners and their deputies take responsibility for defined parts of the code
       timescale
     * In some cases they may make suggestions regarding changes outside of their section
     * Often act as the Sci/Tech reviewer if their section is the primary focus of a change
+
+.. _config_owner:
 
 Configuration Owner
 -------------------
@@ -60,6 +64,8 @@ rose-stem test harness.
 
 Importantly, rose-stem are the single source of truth for pass/fail protection of model evolution.
 
+.. _scitech_reviewer:
+
 Sci/Tech Reviewer
 -----------------
 
@@ -74,6 +80,8 @@ review guidance.
 It is the responsibility of the developer to identify and arrange the
 Sci/Tech reviewer. Often they will be someone in the same team as the developer
 or the most relevant code owner.
+
+.. _code_reviewer:
 
 Code Reviewer
 -------------
@@ -119,6 +127,8 @@ The Capability Development Team are responsible for the LFRic Infrastructure to
 support the Next Generation Modelling Systems.
 
 .. todo: flesh out the description here
+
+.. _hpc_opt_team:
 
 HPC Optimisation Team
 ---------------------
