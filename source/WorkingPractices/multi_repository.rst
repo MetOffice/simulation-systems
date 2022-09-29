@@ -1,9 +1,9 @@
 Working with Multiple Repositories
 ==================================
 
-The repositories covered by these WP's all interact with and have dependencies
-on each other. This means that changes that affect multiple repositories need
-handling with extra care.
+The repositories covered by these working practices all interact with and have
+dependencies on each other. This means that changes that affect multiple
+repositories need handling with extra care.
 
 To think about how the repositories work together it's useful to think about
 them as almost concentric circles. The child repositories such as JULES or UKCA
