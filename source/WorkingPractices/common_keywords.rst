@@ -6,21 +6,36 @@ Commonly-used keywords
 The following table lists some common keywords you may sometimes
 see:
 
-+----------+----------------+----------------------------------+
-| Keyword  | Usage          | Notes                            |
-+==========+================+==================================+
-| collab:  |                |                                  |
-+----------+----------------+----------------------------------+
-| blocks:  |                | Not used by LFRic                |
-+----------+----------------+----------------------------------+
-| kgo      |                |                                  |
-+----------+----------------+----------------------------------+
-| macro    |                |                                  |
-+----------+----------------+----------------------------------+
-| doc      |                |                                  |
-+----------+----------------+----------------------------------+
-| SR:<name>|                | Optional outside of the SSD Team |
-|          |                | Added later in development       |
-+----------+----------------+----------------------------------+
-| CR:<name>|                | Added later in development       |
-+----------+----------------+----------------------------------+
++----------+------------------------------------------------+-----------------------------------------------+
+| Keyword  | Usage                                          | Notes                                         |
++==========+================================================+===============================================+
+| collab:  | Indicates that the ticket has been authored    | Use form ``collab:<orgname>``                 |
+|          |                                                |                                               |
+|          | by someone who is not 100% employed            | e.g. ``collab:niwa``, ``collab:oxford``       |
+|          |                                                |                                               |
+|          | by the Met Office                              |                                               |
++----------+------------------------------------------------+-----------------------------------------------+
+| blocks:  | Code change is blocked from going on           | Not used by LFRic                             |
+|          |                                                |                                               |
+|          | to the project's trunk by another ticket       |                                               |
++----------+------------------------------------------------+-----------------------------------------------+
+| kgo      | Indicates the change requires new kgo          | Includes when a new job is added to the       |
+|          |                                                |                                               |
+|          | installing (change in answers); See :ref:`kgo` | project's rose stem suite                     |
++----------+------------------------------------------------+-----------------------------------------------+
+| macro    | Indicates the change includes an               |                                               |
+|          |                                                |                                               |
+|          | upgrade macro                                  |                                               |
++----------+------------------------------------------------+-----------------------------------------------+
+| doc      | Indicates that the change includes             |                                               |
+|          |                                                |                                               |
+|          | documentation updates                          |                                               |
++----------+------------------------------------------------+-----------------------------------------------+
+| SR:<name>| Denotes person who will SciTech                | Optional for reviews outside of the SSD       |
+|          |                                                |                                               |
+|          | review the change                              | team; Added later in development              |
++----------+------------------------------------------------+-----------------------------------------------+
+| CR:<name>| Denotes person who will CodeSys                | Added only by SSD team                        |
+|          |                                                |                                               |
+|          | review the change                              |                                               |
++----------+------------------------------------------------+-----------------------------------------------+

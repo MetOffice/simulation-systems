@@ -10,6 +10,15 @@ methodology, if one aspect of the code doesn't work, there is
 always the option to ``fcm revert`` the local changes and quickly return
 to a checkpoint in your development that did work.
 
+Commits to your branch should take the following form in their log messages:
+
+.. code-block::
+
+  #<ticket_number> - A useful message of what the commit entails
+
+..
+  Anyone know how to display the '#' symbol in Sphinx properly?
+
 .. tip::
   Before embarking on a medium-sized or significant model change,
   it is useful to have an appropriate coding plan in place.
@@ -28,7 +37,7 @@ These are as follows:
  * :ref:`develop_docs`
  * :ref:`develop_metadata`
  * :ref:`develop_rosestem`
- * :ref:`develop_kgo`
+ * :ref:`kgo`
  * :ref:`develop_diagnostics`
 
 .. note::
@@ -51,14 +60,70 @@ Small changes and bug fixes rarely need documentation to be updated, but when ne
 added to a project, the documentation must be updated to ensure that it remains contemporary
 with the code.
 
+.. tip ::
+  Searching the relevant documentation for words related to your change is often useful when
+  deciding whether to update the documentation.
+
 ..
   Link to page here for updating UMDPs
   Link to page here for updating JULES docs.
+  (JW: These can be added later if required, but I will leave it for now to get the rest of
+  the change development section done. We can open an issue if required.)
 
 .. _develop_metadata:
 
-Rose metadata and upgrade macros
---------------------------------
+Input Variables, Rose metadata and upgrade macros
+-------------------------------------------------
+
+Sometimes the developer needs to alter model namelists and input variables.
+A common reason is for the inclusion of a new piece of code which has to be
+turned off by default.
+
+If a developer changes the namelist inputs they are also expected to alter the
+following areas of the code:
+
+ * The inclusion of appropriate defensive checks.
+ * Changes to Rose metadata.
+ * Upgrade macros.
+
+Defensive checks abort the model run if the user sets variables outside of
+their expected range or a combination of variables that will lead to an error.
+Most namelist modules contain a subroutine which performs this checking and
+which can be modified.
+
+The UM metadata can be found in the following location:
+
+.. code-block::
+
+  vnXX.Y_<_branch_name>/rose-meta/um-atmos/HEAD/rose-meta.conf
+
+..
+  Location of LFRic metadata needs adding and possibly centralization.
+
+All new namelist variables need a new entry so that the metadata loads into the
+Rose GUI for users to switch it on. Additionally, sometimes the metadata needs
+to be modified without changing a namelist variable. Guidance for updating the
+UM's metdata :ref:`is available <metadata_guidance>`.
+
+.. important::
+  All changes which alter namelists require an upgrade macro for them to
+  work with the model.
+
+Changes to the metadata which don't involve namelist changes may or may not
+require an upgrade macro. If you are unsure whether a UM change needs an
+upgrade macro, then run the following command on your branch:
+
+.. code-block::
+
+  rose stem --group=scripts
+
+If all of the tests pass then there is no requirement to add an upgrade macro.
+If any of the tests fail, then the developer should add a blank upgrade macro
+which contains no upgrade commands but simply points the rose stem suite to
+the new metadata.
+
+..
+  The above should probably be extended to LFRic eventually.
 
 .. tip::
   When developing a change that updates the input and/or user interface,
@@ -67,24 +132,47 @@ Rose metadata and upgrade macros
   change with the new options hard-coded in until such time as you are ready
   to connect up to the input for real.
 
+.. important::
+  If your development includes am upgrade macro, you **must** add the
+  ``macro`` keyword to your ticket.
+
 .. _develop_rosestem:
 
 Rose stem suite changes
 -----------------------
 
-Blah
+Periodically, the developer may wish to update the rose stem suite to add
+a new change to protect their code. Configuration owners may also wish
+to update the suite to ensure that important configurations are protected
+by the rose stem suite.
 
 .. warning::
   If you find that you need to update all the apps in the rose stem suite
   purely to get your change to work, you are probably doing something wrong.
   Most likey, you need an upgrade macro. See :ref:`develop_metadata` above.
 
-.. _develop_kgo:
+.. _kgo:
 
 Changes to answers/known good output (KGO)
 ------------------------------------------
 
-Sometimes, a KGO update may be required to add a new job to the test suite.
+Normally it is to be expected that code changes regress (i.e. all prognostic
+variables **and** diagnostics maintain the same answers with your code included
+but switched off).
+
+The most common reason why a code change does not regress is when a bug is
+discovered and fixed.
+
+.. important::
+  Where a change in answers occurs, the developer must contact the configuration
+  owners of all affected configurations. See :ref:`approvals` for details.
+
+Configuration owners will review the change and will either accept the change
+as it is, or will request the use of a temporary variable to switch the
+change off. See :ref:`templogicals` for details of this process.
+
+Sometimes, a KGO update may also be required to simply add a new job to the
+test suite or to port the rose stem suite to new HPC architecture.
 
 .. important::
   If your development includes updates to the KGO, you **must** add the
@@ -100,37 +188,7 @@ Diagnostic systems
 The diagnostic systems vary between projects. Please follow the guidance
 for whichever system you are developing.
 
-**UM:** The UM outputs diagnostics using an old, but reliable and flexible
-system named STASH [#f1]_ . Information on every diagnostic available to the
-model is stored in a single file named ``STASHmaster_A``, which is read into
-the model at the start of the run.
-
-The UM's ``STASHmaster_A`` and associated help text file ``STASHmaster-meta.conf``
-are available in your branch at
-``vnXX.Y_<branch_name>/rose-meta/um-atmos/HEAD/etc/stash/STASHmaster/``.
-
-.. note::
-  When running the UM rose stem suite, the suite will automatically use the
-  ``STASHmaster_A file`` from your branch when testing your code.
-
-The following principles apply when altering the STASHmaster:
-
-..
-  JW suggest need to include STASH entry guidance.
-
-* If you add a new diagnostic to the ``STASHmaster_A`` file then you **must** also add to the stash master help text in ``STASHmaster-meta.conf``.
-* If you are altering the stashmaster, this may be referred to the FFPP governance board by the sci/tech or code reviewers - see the STASH entry guidelines.
-* If your change has new stash items or changed/added attributes as an option code, versions mask etc., then first you have to get them reserved and recorded (published) on the reservation web page STASH/ReservedCodes 
-* Note that every reservation should be linked to a ticket with the correct explanation and a milestone. This rule applies to all stash related tables placed on this page.
-* Although reservations could be some kind of self-service, contact the section owner first nevertheless. This could help to organise new items (when possible) in some logical groups.
-* For new option code numbers contact the STASH code owner.
-
-
-
-.. note::
-  Complete details of the STASH system (including the syntax used in the
-  ``STASHmaster_A`` file) can be found in
-  `UMDP C04 <https://code.metoffice.gov.uk/doc/um/latest/papers/umdp_C04.pdf>`_
+**UM:** See :ref:`stash`.
 
 **LFRic:** The LFRic diagnostic system is currently in development.
 Please follow `the guidance here <https://code.metoffice.gov.uk/trac/lfric/wiki/GhaspSupport/Diagnostics_porting>`_
@@ -142,8 +200,3 @@ to make changes to the diagnostic system.
 ..
   Do UKCA/SOCRATES/JULES have their own diagnostic systems and are they worth mentioning here?
   CASIM does not, but the MONC model which builds CASIM does; code is shared between them both.
-
-
-.. rubric:: Footnotes
-
-.. [#f1] This is an acronym for 'Spatial and Temporal Averaging and Storage Handling'.
