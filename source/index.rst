@@ -13,8 +13,8 @@ If this is your first development we highly recommend following these pages
 through in sequence.
 
 .. toctree::
-   :maxdepth: 3
-   :caption: Contents:
+   :maxdepth: 2
+   :caption: Working Practices
 
    WorkingPractices/working_practices
    WorkingPractices/tickets
@@ -26,3 +26,11 @@ through in sequence.
    WorkingPractices/reviews
    WorkingPractices/final_steps
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Guides for Reviewers
+
+   Reviewers/scitechreview
+   Reviewers/codereview
+   Reviewers/howtocommit
+   Reviewers/curaterelease

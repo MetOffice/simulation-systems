@@ -1,3 +1,5 @@
+.. _ticket:
+
 Create a ticket
 ===============
 Every change requires an associated ticket. This helps the developer
