@@ -43,7 +43,7 @@ and things to avoid, so it is useful for the developer to be aware of these. For
   or non-existant?
 
 **Who will SciTech review the change?** This is a useful consideration as not everyone who uses the
-repository has the knowledge or to review every ticket that is being developed. It can be worth
+repository has the knowledge or experience to review every ticket that is being developed. It can be worth
 identifying a SciTech reviewer before starting work to avoid having developed the ticket, only to
 find nobody is available to review it.
 
@@ -57,13 +57,12 @@ take place.
 If it's over multiple repositories you need to consider linked tickets. See :ref:`multirepo` for
 further details.
 
-
-Specific Tips for Scientific changes
-------------------------------------
-
 **Does similar code functionality already exist in the model?** It's a good idea **not** to re-invent
 the wheel or have code duplication! Speaking to code owners of the appropriate sections can help in
 this instance.
+
+Specific Tips for Scientific changes
+------------------------------------
 
 **Does the change add a new option or feature to the code?** If so, you probably need a new namelist
 variable to switch the new option off and maintain regression. This will also imply changes to the

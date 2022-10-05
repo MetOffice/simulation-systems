@@ -1,11 +1,14 @@
 .. _metadata_guidance:
 
+..
+  This section will need some thought and revisiting after CA2 is completed.
+
 Some basic guidance on Rose metadata
 ====================================
 
-We would like to ensure some conformity to the appearance of UM inputs across the GUI panels and thus request the following is observed:
-
-* Apply the following approach for each UM input the user will be presented with a consistent set of information:
+It is important that the appearance of inputs across the GUI panels conform to the same standards.
+This ensures that users of each model become familiar with how the panels work and are present
+with a consistent set of information, such as follows:
 
 .. code-block::
 
@@ -15,49 +18,86 @@ We would like to ensure some conformity to the appearance of UM inputs across th
     sort-key=<XY>
     etc
 
-then each UM input is presented as:
+then each input is presented as:
+
 .. code-block::
 
     variable name
-    short description of the variable name - also displayed when hovering on the variable name
-                                           - help is displayed when one clicks the variable name.
+    short description of the variable name
 
-Please use sort-keys to order the appearance of items in your panels, otherwise they appear in alphabetical order which is
-inappropriate for items that are triggered on and off if they appear far away from the item that triggered them.
+Help text is displayed when one clicks the variable name.
+
+..
+ We need to check if this is all still the case with cylc 8.
+
+The following sections provide some general guidance as to how to structure your metadata.
+
+..
+  This is largely based on how the UM does everything, so should be revisited after the CA2
+  activity is finished. The following sections have been
+
+Number of panels
+----------------
+If you have a particularly long namelist, consider diving up the number of panels to ensure
+that the user doesn't have to deal with a particularly long panel with lots of switches.
+However, switches which relate to each other should always be on the same panel.
 
 
-Please provide triggers for all variables where possible. It is much better and cleaner to only see inputs that need to be set rather than all. 
+Sort Keys and triggers
+----------------------
+Please use sort-keys to order the appearance of items in your panels, otherwise they will appear
+in alphabetical order. This means that sometimesitems that are triggered on and off will appear
+far away from the item that triggered them.
 
-The gui provides an option to un-hide triggered variables if one wants to see them all. AND logic is possible for triggers but OR is not.
+Please provide triggers for all variables where possible. It is much better and cleaner to only
+see inputs that need to be set rather than everything.
 
-Please set compulsory=true for items and use triggers for when it is not required.
+.. tip::
+  The GUI provides an option to un-hide triggered variables if one wants to see them all.
 
-The settings of all variables will then be present, in all UM apps to aid configuration management. When they are triggered off they will be commented out, !!variable, of the UM apps. If any variable (new or existing) has received a new compulsory=true setting please use an upgrade macro to add that variable to apps with a valid value.
+Please set ``compulsory=true`` for items and use triggers for when it is not required.The settings
+of all variables will then be present, in all apps to aid configuration management. When a variable
+is triggered off, it will be commented out in the apps e.g. ``!!variable``.
 
-As well as sort-keys one could apply hard-wired hierarchical namespaces to detail where an entry should appear in the GUI. 
+..
+  I think from memory that JULES doesn't do the compulsory=true, which is something for CA2 to look at.
 
-Rather than making major use of this functionality please consider whether it is actually more appropriate to relocate the variable itself to another namelist or even create a new namelist for it so that it appears in a suitable panel. If one alters the namelist inputs then the change will require upgrade macros to be provided; see the working practices.
+.. important::
+  If any variable (new or existing) has received a new compulsory=true setting please use an upgrade macro to
+  add that variable to apps with a valid value.
 
-Other than the above, we are not imposing an appearance for all panels, deferring that to code owners to take ownership of how they would like the layout to be. 
+.. note::
+  While it is possible to trigger a variable based on ``AND`` logic (e.g. where some condition on ``variable1``
+  and another condition on ``variable2`` trigger ``variable3``), cumbersome triggering of this nature is best
+  avoided.
 
-Even so like all UM changes the meta-data will be reviewed and thus if we see something very different, obscure or fundamentally ugly we will then add further guidance to avoid such usage!
+  It is not possible to trigger a variable based on ``OR`` logic.
 
-If you are adding a new STASH diagnostic you must also add help text to the STASHmaster-meta.conf. This will provide others with help on your diagnostic. You will need to identify the stash entry with a [stashmaster:code(xyz)] section header, where the xyz is the stash code in the form section number * 1000 + item number. 
+STASH diagnostics (UM metadata only)
+------------------------------------
 
-Include a full name, any units and explanatory text. You should also add a description field that matches the full name of the diagnostic. For example:
+If you are adding a new UM STASH diagnostic you must also add help text to the STASHmaster-meta.conf.
+This will provide others with help on your diagnostic. You will need to identify the stash entry with
+a ``[stashmaster:code(xyz)]`` section header, where the xyz is the stash code in the form
+``section number * 1000 + item number``.
+
+Include a full name, any units and explanatory text. You should also add a description field that matches
+the full name of the diagnostic. For example:
 
 .. code-block::
 
     [stashmaster:code(1050)]
     description=NO2 Dry Deposition Rate (3D)
     help=NO2 Dry Deposition Rate (3D)
-        =moles/s 
-        = 
-        =This is the total dry deposition flux of NO2 in each gridbox 
-        = 
-        =The sum of this deposition flux over all model gridboxes gives the total  
-        =number of moles of NO2 removed by this process per second in the  
+        =moles/s
+        =
+        =This is the total dry deposition flux of NO2 in each gridbox
+        =
+        =The sum of this deposition flux over all model gridboxes gives the total
+        =number of moles of NO2 removed by this process per second in the
         =whole model.
+
+This assists the model user in being able to find useful help text on their diagnostic.
 
 Viewing meta-data changes as you go along
 -----------------------------------------

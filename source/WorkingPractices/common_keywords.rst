@@ -21,7 +21,9 @@ see:
 +----------+------------------------------------------------+-----------------------------------------------+
 | kgo      | Indicates the change requires new kgo          | Includes when a new job is added to the       |
 |          |                                                |                                               |
-|          | installing (change in answers); See :ref:`kgo` | project's rose stem suite                     |
+|          | installing (change in answers);                | project's rose stem suite                     |
+|          |                                                |                                               |
+|          | See :ref:`KGO <kgo>`.                          |                                               |
 +----------+------------------------------------------------+-----------------------------------------------+
 | macro    | Indicates the change includes an               |                                               |
 |          |                                                |                                               |
@@ -38,4 +40,19 @@ see:
 | CR:<name>| Denotes person who will CodeSys                | Added only by SSD team                        |
 |          |                                                |                                               |
 |          | review the change                              |                                               |
++----------+------------------------------------------------+-----------------------------------------------+
+| um       | Indicates that the change has a linked         |                                               |
+|          |                                                |                                               |
+| jules    | ticket with the code base specified by         |                                               |
+|          |                                                |                                               |
+| lfric    | the keyword.                                   |                                               |
+|          |                                                |                                               |
+| socrates |                                                |                                               |
+|          |                                                |                                               |
+| casim    |                                                |                                               |
+|          |                                                |                                               |
+| ukca     |                                                |                                               |
+|          |                                                |                                               |
+|          |                                                |                                               |
+|          |                                                |                                               |
 +----------+------------------------------------------------+-----------------------------------------------+

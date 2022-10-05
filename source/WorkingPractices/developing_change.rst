@@ -52,9 +52,10 @@ Most notably:
 
 * `The UM has documentation papers <https://code.metoffice.gov.uk/doc/um/latest/umdp.html>`_
 * `JULES has a user guide and documentation <https://jules-lsm.github.io/latest/index.html>`_
+* `LFRic has some basic documentation <https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicTechnical#Documentation>`_
 
 ..
-  Any other documentations to be aware of?
+  Any other documentation to be aware of could be added above.
 
 Small changes and bug fixes rarely need documentation to be updated, but when new science is
 added to a project, the documentation must be updated to ensure that it remains contemporary
@@ -67,12 +68,13 @@ with the code.
 ..
   Link to page here for updating UMDPs
   Link to page here for updating JULES docs.
+  Link to details as to how to update LFRic documentation.
   (JW: These can be added later if required, but I will leave it for now to get the rest of
   the change development section done. We can open an issue if required.)
 
 .. _develop_metadata:
 
-Input Variables, Rose metadata and upgrade macros
+Input Variables, Rose Metadata and Upgrade Macros
 -------------------------------------------------
 
 Sometimes the developer needs to alter model namelists and input variables.
@@ -93,17 +95,25 @@ which can be modified.
 
 The UM metadata can be found in the following location:
 
-.. code-block::
-
-  vnXX.Y_<_branch_name>/rose-meta/um-atmos/HEAD/rose-meta.conf
-
-..
-  Location of LFRic metadata needs adding and possibly centralization.
++----------+-----------------------------------------------------------------------+
+| Project  | Metadata Location                                                     |
++==========+=======================================================================+
+| UM       | ``vnXX.Y_<_branch_name>/rose-meta/um-atmos/HEAD/rose-meta.conf``      |
++----------+-----------------------------------------------------------------------+
+| JULES    | ``vnXX.Y_<_branch_name>/rose-meta/*/*/HEAD/rose-meta.conf``           |
++----------+-----------------------------------------------------------------------+
+| LFRic    | ``vnXX.Y_<branch_name>/<sub-module>/rose-meta/*/HEAD/rose-meta.conf`` |
++----------+-----------------------------------------------------------------------+
 
 All new namelist variables need a new entry so that the metadata loads into the
 Rose GUI for users to switch it on. Additionally, sometimes the metadata needs
 to be modified without changing a namelist variable. Guidance for updating the
 UM's metdata :ref:`is available <metadata_guidance>`.
+
+..
+  Could do with thinking about how the JULES metadata could be included in this
+  document in the future, rather than the JULES wiki page
+  (https://code.metoffice.gov.uk/trac/jules/wiki/WorkingPractices#NamelistsUpgradeMacrosMetadata)
 
 .. important::
   All changes which alter namelists require an upgrade macro for them to
@@ -136,13 +146,16 @@ the new metadata.
   If your development includes am upgrade macro, you **must** add the
   ``macro`` keyword to your ticket.
 
+  **Do not** apply the upgrade macro to your dev branch prior to the review
+  process. Instead you must create a test branch. See :ref:`testing`.
+
 .. _develop_rosestem:
 
 Rose stem suite changes
 -----------------------
 
-Periodically, the developer may wish to update the rose stem suite to add
-a new change to protect their code. Configuration owners may also wish
+All new changes are strongly encouraged to come with an update to the
+rose stem suite to protect any new functionlity. Configuration owners may also wish
 to update the suite to ensure that important configurations are protected
 by the rose stem suite.
 
