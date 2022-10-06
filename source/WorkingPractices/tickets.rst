@@ -175,3 +175,8 @@ This box can be used to list other tickets which block this change. This
 allows the SSD team to prioritise the commit order of the tickets on to
 the trunk.
 
+
+.. toctree::
+    :hidden:
+
+    common_keywords

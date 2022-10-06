@@ -17,6 +17,7 @@ through in sequence.
    :caption: Working Practices
 
    WorkingPractices/working_practices
+   WorkingPractices/planning_your_change
    WorkingPractices/tickets
    WorkingPractices/branches
    WorkingPractices/developing_change

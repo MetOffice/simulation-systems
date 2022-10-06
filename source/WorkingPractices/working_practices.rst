@@ -84,9 +84,9 @@ Every change is different, but there are a few key attributes that increase the
 complexity of a particular change. Extra guidance is provided where appropriate.
 Common 'specials' include:
 
-    * Changing Known Good Output (KGO tickets).
+    * :ref:`Changing Known Good Output (KGO tickets) <kgo>`
     * Changing Inputs
-    * Linked change across multiple repositories (Linked tickets)
+    * :ref:`Linked change across multiple repositories (Linked tickets) <multirepo>`
     * Documentation
     * Wholesale
 
@@ -101,15 +101,20 @@ Further details
 .. toctree::
    :maxdepth: 1
 
-   code_of_conduct
+   who
+   support
    glossary
-   common_keywords
-   planning_your_change
-   um_stashmaster
+   code_of_conduct
+
+    um_stashmaster
    metadata_guidance
    temp_logicals
    dos_donts
-   support
-   who
-   change_notes
+
+
+
+.. toctree::
+    :hidden:
+
+    change_notes
 
