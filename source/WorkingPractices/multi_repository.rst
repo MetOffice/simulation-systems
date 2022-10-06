@@ -2,7 +2,6 @@
 
 Working with Multiple Repositories
 ==================================
-
 The repositories covered by these working practices all interact with and have
 dependencies on each other. This means that changes that affect multiple
 repositories need handling with extra care.
