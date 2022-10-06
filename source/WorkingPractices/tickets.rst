@@ -15,8 +15,8 @@ back to.
 
 The ticket information can then be filled in. A description of each item in the ticket is as follows:
 
-Summary:
---------
+Summary
+-------
 
 This should be a single-line, top-level summary of your change. Do not make
 it too generic (e.g. ``fix bug``) as this doesn't help identify your ticket
@@ -24,8 +24,8 @@ from potentially thousands in the Trac system. Try and use something more
 descriptive (e.g. ``Fix out-of-bounds issue in subroutine radar_wavelength``).
 
 
-Description:
-------------
+Description
+-----------
 
 This box allows for a more verbose description of what the issue is and
 supporting information. The description box can be modified during the
@@ -40,8 +40,8 @@ development process to include additional information about the change.
   repository name and a colon before the ticket number, e.g. ``um:#1``,
   ``lfric:#23``,
 
-Type:
------
+Type
+----
 
 Most repositories have a set of standard types, e.g.:
 
@@ -56,8 +56,8 @@ You should choose whichever type is most appropriate to your code change.
 based on your change or seek guidance from a member of the LFRic development
 team or an experienced LFRic developer.
 
-Milestone:
-----------
+Milestone
+---------
 
 This is used to indicate the release or version of the model your change will
 be included at. These vary between projects, but it's common to choose either
@@ -74,8 +74,8 @@ a milestone for the next release, or a milestone without a deadline date.
 All tickets for a particular milestone are visible either from the Roadmap
 feature in Trac or via a custom query in View Tickets.
 
-Cc:
----
+Cc
+--
 
 **Optional:** Enter the usernames of others who wish to receive email
 updates with the ticket status (e.g. co-developers). If in doubt, it's

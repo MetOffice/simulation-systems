@@ -77,44 +77,9 @@ helpful for documenting and monitoring progress of your work.
     disappointment later. More detailed guidance is provided on the
     :ref:`planning` page.
 
-Special Types of change
-^^^^^^^^^^^^^^^^^^^^^^^
-
-Every change is different, but there are a few key attributes that increase the
-complexity of a particular change. Extra guidance is provided where appropriate.
-Common 'specials' include:
-
-    * :ref:`Changing Known Good Output (KGO tickets) <kgo>`
-    * Changing Inputs
-    * :ref:`Linked change across multiple repositories (Linked tickets) <multirepo>`
-    * Documentation
-    * Wholesale
-
-..
- JW: I could link to aspects of developing your change in the list above, or link to
- the 'developing your change' page here, but I'm not sure whether this would just
- confuse the reader or not. Hence this comment so we can consider it at a later date.
-
-Further details
----------------
-
-.. toctree::
-   :maxdepth: 1
-
-   who
-   support
-   glossary
-   code_of_conduct
-
-   um_stashmaster
-   metadata_guidance
-   temp_logicals
-
-
-
 
 .. toctree::
     :hidden:
 
     change_notes
-    dos_donts
+
