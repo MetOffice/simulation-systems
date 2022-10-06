@@ -105,8 +105,7 @@ Further details
    support
    glossary
    code_of_conduct
-
-    um_stashmaster
+   um_stashmaster
    metadata_guidance
    temp_logicals
    dos_donts

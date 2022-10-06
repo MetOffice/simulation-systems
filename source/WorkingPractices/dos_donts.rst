@@ -19,6 +19,11 @@ your future-self understand your work. "My_Branch", "Fix" are not helpful.
 
 **Be considerate** of other users/developers. Their skill-sets and working days may be very different to yours. All changes are visible to all users worldwide.
 
+**Keep the ticket status up to date.** This enables the Simulation Systems
+and Deployment Team to monitor the progress of your ticket and potential conflicts.
+
+**Link to tickets in other MOSRS repositories**, eg jules:#1, ukca:#72
+
 Please Do Not
 -------------
 
@@ -44,20 +49,3 @@ text from books. Our repositiories must not infringe copyright.
 
 **Request support by raising a ticket**. Newly raised tickets are not monitored.
 Use the appropriate :ref:`support` channels.
-
-Little Things
--------------
-
-    * Keep the ticket status up to date, as this enables the Simulation Systems
-      and Deployment Team to monitor the progress of your ticket and potential conflicts.
-
-    * Stick to coding styles:
-
-        * `UMDP3 (UM and JULES FORTRAN) <https://code.metoffice.gov.uk/doc/um/latest/umdp.html#003>`_,
-        * `LFRic Coding Styles <https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicTechnical/CodingStandards>`_
-        * `PEP 8 (Python) <https://legacy.python.org/dev/peps/pep-0008/>`_
-
-    * Link to tickets in other MOSRS repositories, eg jules:#1
-
-    * All tickets for a particular milestone are visible either from the Roadmap
-      feature in Trac or via a custom query in View Tickets.

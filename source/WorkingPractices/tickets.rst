@@ -71,6 +71,9 @@ a milestone for the next release, or a milestone without a deadline date.
   release cycle your change will make. This prevents you from being chased
   by the SSD team when the release deadline draws near.
 
+All tickets for a particular milestone are visible either from the Roadmap
+feature in Trac or via a custom query in View Tickets.
+
 Cc:
 ---
 
