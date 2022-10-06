@@ -16,7 +16,7 @@ Standard suites:
     As well as the rose-stem tests you should also consider how best to prove that
     your change does what it says it does, and not what it doesn't. There may be
     other standard suites that will exercise your change in a scientific or technical
-    way. If you're unsure on what that is then talk to the code owner's involved for
+    way. If you're unsure on what that is then talk to the code owners involved for
     advice.
 
 Bespoke:
@@ -42,7 +42,7 @@ Test branches & Upgrade Macros
 ------------------------------
 There are a few cases where testing your change will require you to make changes
 to your branch that don't want committing to trunk. To do this you can create a
-test branch. This is a branch of branch from your development branch and allows
+test branch. This is a branch-of-branch from your development branch and allows
 you to make those changes in an isolated environment while leaving your original
 development clean.
 
@@ -68,17 +68,23 @@ If you have updated the model inputs and included an upgrade macro with your
 change then this macro will be run by your code reviewer as part of the commit
 process. In order to prove that the upgrade macro will be successful, and to
 make those new model inputs available to your tests, you should create a test
-branch as described above and run the upgrade macro with with following command
+branch as described above and run the upgrade macro with one of the following
+commands
 
-.. code-block::
+    +-------+----------------------------------------------------------------------------------------+
+    | UM    | $UMDIR/bin/update_all.py --path=/path/to/working/copy/of/test/branch --um=vnX.X_tXXXX  |
+    +-------+----------------------------------------------------------------------------------------+
+    | JULES | ./bin/upgrade_jules_test_apps vnX.X_tXXXX                                              |
+    +-------+----------------------------------------------------------------------------------------+
 
-    $UMDIR/bin/update_all.py --path=/path/to/working/copy/of/test/branch --um=vn13.0_tXXXX
+.. todo: add an LFRic upgrade macro command... and make these more consistent?
 
 .. Note::
     The update_all.py script suppresses warnings produced by upgrade macros.
     You can test these separately by upgrading a single app. A single app can be
-    upgraded for testing using rose app-upgrade -M ../../../rose-meta -a
-    <version> inside the app's directory.
+    upgraded for testing using ``rose app-upgrade -M /path/to/rose-meta -C /path/
+    to rose-stem/app/<app_name> -a <trunk_metadata_version>`` inside the app's
+    directory.
 
 trac.log
 --------
