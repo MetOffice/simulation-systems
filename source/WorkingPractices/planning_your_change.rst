@@ -20,6 +20,9 @@ and hopefully understand what potential issues could arise before development wo
 
 The following are some general hints and tips in planning code changes successfully.
 
+.. seealso::
+    :ref:`dos_donts`
+
 General Considerations
 ----------------------
 

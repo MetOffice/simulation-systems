@@ -105,10 +105,11 @@ Further details
    support
    glossary
    code_of_conduct
+
    um_stashmaster
    metadata_guidance
    temp_logicals
-   dos_donts
+
 
 
 
@@ -116,4 +117,4 @@ Further details
     :hidden:
 
     change_notes
-
+    dos_donts
