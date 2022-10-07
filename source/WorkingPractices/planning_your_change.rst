@@ -20,6 +20,9 @@ and hopefully understand what potential issues could arise before development wo
 
 The following are some general hints and tips in planning code changes successfully.
 
+.. seealso::
+    :ref:`dos_donts`
+
 General Considerations
 ----------------------
 
@@ -38,9 +41,9 @@ are that you're doing something wrong. Please do seek advice.
 and things to avoid, so it is useful for the developer to be aware of these. For the UM, a
 *umpd3* checker is available along with a code styling script.
 
-..
-  Could we link one or more code standards document here? Or are they too model-specific,
-  or non-existant?
+* `UMDP3 (UM and JULES FORTRAN) <https://code.metoffice.gov.uk/doc/um/latest/umdp.html#003>`_,
+* `LFRic Coding Styles <https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicTechnical/CodingStandards>`_
+* `PEP 8 (Python) <https://legacy.python.org/dev/peps/pep-0008/>`_
 
 **Who will SciTech review the change?** This is a useful consideration as not everyone who uses the
 repository has the knowledge or experience to review every ticket that is being developed. It can be worth

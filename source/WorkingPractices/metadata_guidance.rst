@@ -73,32 +73,6 @@ is triggered off, it will be commented out in the apps e.g. ``!!variable``.
 
   It is not possible to trigger a variable based on ``OR`` logic.
 
-STASH diagnostics (UM metadata only)
-------------------------------------
-
-If you are adding a new UM STASH diagnostic you must also add help text to the STASHmaster-meta.conf.
-This will provide others with help on your diagnostic. You will need to identify the stash entry with
-a ``[stashmaster:code(xyz)]`` section header, where the xyz is the stash code in the form
-``section number * 1000 + item number``.
-
-Include a full name, any units and explanatory text. You should also add a description field that matches
-the full name of the diagnostic. For example:
-
-.. code-block::
-
-    [stashmaster:code(1050)]
-    description=NO2 Dry Deposition Rate (3D)
-    help=NO2 Dry Deposition Rate (3D)
-        =moles/s
-        =
-        =This is the total dry deposition flux of NO2 in each gridbox
-        =
-        =The sum of this deposition flux over all model gridboxes gives the total
-        =number of moles of NO2 removed by this process per second in the
-        =whole model.
-
-This assists the model user in being able to find useful help text on their diagnostic.
-
 Viewing meta-data changes as you go along
 -----------------------------------------
 

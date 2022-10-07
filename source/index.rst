@@ -13,24 +13,35 @@ If this is your first development we highly recommend following these pages
 through in sequence.
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Working Practices
+    :maxdepth: 2
+    :caption: Working Practices
 
-   WorkingPractices/working_practices
-   WorkingPractices/tickets
-   WorkingPractices/branches
-   WorkingPractices/developing_change
-   WorkingPractices/multi_repository
-   WorkingPractices/testing
-   WorkingPractices/approvals
-   WorkingPractices/reviews
-   WorkingPractices/final_steps
+    WorkingPractices/working_practices
+    WorkingPractices/planning_your_change
+    WorkingPractices/tickets
+    WorkingPractices/branches
+    WorkingPractices/developing_change
+    WorkingPractices/testing
+    WorkingPractices/approvals
+    WorkingPractices/reviews
+    WorkingPractices/final_steps
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Guides for Reviewers
+    :maxdepth: 2
+    :caption: Guides for Reviewers
 
-   Reviewers/scitechreview
-   Reviewers/codereview
-   Reviewers/howtocommit
-   Reviewers/curaterelease
+    Reviewers/scitechreview
+    Reviewers/codereview
+    Reviewers/howtocommit
+    Reviewers/curaterelease
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Further Details
+
+    WorkingPractices/who
+    WorkingPractices/support
+    WorkingPractices/glossary
+    WorkingPractices/code_of_conduct
+    WorkingPractices/dos_donts
+    WorkingPractices/change_notes
