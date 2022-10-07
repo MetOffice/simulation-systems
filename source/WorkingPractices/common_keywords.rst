@@ -1,6 +1,6 @@
 .. _keywords:
 
-Commonly-used keywords
+Commonly-Used Keywords
 ======================
 
 The following table lists some common keywords you may sometimes
