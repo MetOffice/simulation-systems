@@ -1,7 +1,7 @@
 .. _kgo:
 
-Known Good Output
-------------------------------------------
+Known Good Output (KGO)
+=======================
 
 Normally it is to be expected that code changes regress (i.e. all prognostic
 variables **and** diagnostics maintain the same answers with your code included

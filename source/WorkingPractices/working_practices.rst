@@ -76,10 +76,3 @@ helpful for documenting and monitoring progress of your work.
     Early planning and consultation is strongly recommended to prevent
     disappointment later. More detailed guidance is provided on the
     :ref:`planning` page.
-
-
-.. toctree::
-    :hidden:
-
-    change_notes
-

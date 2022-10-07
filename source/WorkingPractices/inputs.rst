@@ -1,7 +1,7 @@
 .. _inputs:
 
 Input Variables, Rose Metadata and Upgrade Macros
--------------------------------------------------
+=================================================
 Sometimes the developer needs to alter model namelists and input variables.
 A common reason is for the inclusion of a new piece of code which has to be
 turned off by default.

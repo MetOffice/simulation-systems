@@ -138,6 +138,11 @@ project's trunk.
 
 A list of :ref:`keywords` is available.
 
+.. toctree::
+    :hidden:
+
+    common_keywords
+
 .. tip::
   Usually there's no particular need to add keywords which are synonyms
   for items in the title or description. However, project keywords may
@@ -177,9 +182,3 @@ Blocked by (LFRic only)
 This box can be used to list other tickets which block this change. This
 allows the SSD team to prioritise the commit order of the tickets on to
 the trunk.
-
-
-.. toctree::
-    :hidden:
-
-    common_keywords

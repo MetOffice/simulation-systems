@@ -1,5 +1,5 @@
-Rose stem suite changes
------------------------
+Rose Stem Suite
+===============
 
 All new changes are strongly encouraged to come with an update to the
 rose stem suite to protect any new functionality. Configuration owners may also

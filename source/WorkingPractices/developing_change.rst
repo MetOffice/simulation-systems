@@ -29,14 +29,17 @@ Remember to ensure that your changes are easy to read and follow, using
 comments to explain what the code is doing.
 
 The vast majority of changes will be based around a project's source
-code. Every change is different, but there are a few key attributes that
-increase the complexity of a particular change. Rarely, the developer
-may alter one of these *without* modifying the source code.
+code, though there are other infrastructure areas involved. Rarely, the
+developer may alter one of these *without* modifying the source code.
+
+Every change is different, but there are a few key attributes that
+increase the complexity of a particular change and should be considered
+carefully:
 
 
 
 .. toctree::
-    :caption: Things to Consider
+    :caption: Development Checklist
     :maxdepth: 1
 
     documentation
@@ -45,6 +48,7 @@ may alter one of these *without* modifying the source code.
     diagnostics
     rose_stem
     multi_repository
+
 
 .. note::
   **Remember: Develop, Test, Commit**

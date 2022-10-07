@@ -44,3 +44,4 @@ through in sequence.
     WorkingPractices/glossary
     WorkingPractices/code_of_conduct
     WorkingPractices/dos_donts
+    WorkingPractices/change_notes
