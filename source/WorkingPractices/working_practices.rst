@@ -36,7 +36,6 @@ The release cycle is overseen by the Simulation Systems and Deployment Team with
 the oversight and support of the Atmos Project Board, and impartially consider
 the needs of all developers and users.
 
-
 Before You Start
 ----------------
 All developments should be planned using a risk-based approach. Before starting,
