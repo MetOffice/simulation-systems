@@ -1,3 +1,5 @@
+.. _docs:
+
 Documentation
 -------------
 Some projects have their own scientific and technical documentation.

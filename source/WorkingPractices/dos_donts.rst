@@ -13,8 +13,8 @@ sometimes years later.
     * Coherent parts of the overall change are contained in a single ticket
     * Consider using an overarching ticket to link everything together
 
-**Document your work** using tickets, TRAC pages, UMDP documents and code
-comments. These help others and your future-self understand your work.
+**Document your work** using tickets, TRAC pages, :ref:`formal documentation <docs>`
+and code comments. These help others and your future-self understand your work.
 
 **Meaningful names** for tickets, branches and variables. These help others and
 your future-self understand your work. "My_Branch", "Fix" are not helpful.
@@ -31,13 +31,13 @@ Please Do Not
 
 **Do not use svn commands.** Please use `FCM <http://metomi.github.io/fcm/doc/user_guide/>`_ for all development work.
 
-**Do not merge the trunk into your branch** as this breaks many aspects of how
+**Do not merge the trunk into your branch** for UM, JULES or UKCA changes as this breaks many aspects of how
 TRAC and fcm work. This will cause diffs to display incorrectly and causes
 database problems when merging. Instead, please create a head of trunk branch
 and merge in your old branch.
 
 **Do not develop using head of trunk branching if not needed.** Many aspects of
-the workflow rely on version branching.
+the UM, JULES and UKCA workflows rely on version branching.
 
 **Licensing** - Don't add code to any project (or to any branch thereof) that
 has been developed under a different license without agreement from the
