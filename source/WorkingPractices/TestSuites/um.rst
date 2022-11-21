@@ -25,43 +25,54 @@ Below is a (by no means comprehensive) set of groups that you may wish to use.
 Note that there is a lot of overlap between these groups, and that you can
 specify more than one at once, e.g. ``--group=developer,jules,ukca``.
 
-+--------------------+----------------------------------------------------------+
-| Group              | Description                                              |
-+====================+==========================================================+
-| developer          | Standard group of tests that every change is expected    |
-|                    | to pass before commit. It is a useful checkpoint during  |
-|                    | development.                                             |
-+--------------------+----------------------------------------------------------+
-| nightly            | More thorough testing group. This includes everything in |
-|                    | developer plus some longer and more complex tests. It is |
-|                    | run automatically every night and monitored by the SSD   |
-|                    | team.                                                    |
-+--------------------+----------------------------------------------------------+
-| all                | The complete test suite, including all longer runs and   |
-|                    | less commonly used utilites. This is run automatically   |
-|                    | every week and monitored by the SSD team. All            |
-|                    | :ref:`KGO <kgo>` changing tickets need to run this group.|
-+--------------------+----------------------------------------------------------+
-+--------------------+----------------------------------------------------------+
-| rigorous_compile   | A build-only group that will sense-check the code for a  |
-|                    | wider range of compile errors than the usual builds.     |
-+--------------------+----------------------------------------------------------+
-| jules              | A set of tests that exercise the UM/JULES interface.     |
-+--------------------+----------------------------------------------------------+
-| casim              | A set of tests that exercise the UM/CASIM interface.     |
-+--------------------+----------------------------------------------------------+
-| ukca               | A set of tests that exercise the UM/UKCA interface.      |
-+--------------------+----------------------------------------------------------+
-| recon              | A set of tests that exercise the reconfiguration system. |
-+--------------------+----------------------------------------------------------+
-| uk_lams            | Testing for the limited area models                      |
-+--------------------+----------------------------------------------------------+
-| xc40/spice         | All tests designed to run on the named platform.         |
-+--------------------+----------------------------------------------------------+
-| scripts            | All of the auxillary scripts that are designed to check  |
-|                    | the code standards in ways that aren't tested by the     |
-|                    | compiler.                                                |
-+--------------------+----------------------------------------------------------+
+    +--------------------+----------------------------------------------------------+
+    | Group              | Description                                              |
+    +====================+==========================================================+
+    | developer          | Standard group of tests that every change is expected    |
+    |                    |                                                          |
+    |                    | to pass before commit. It is a useful checkpoint during  |
+    |                    |                                                          |
+    |                    | development.                                             |
+    +--------------------+----------------------------------------------------------+
+    | nightly            | More thorough testing group. This includes everything in |
+    |                    |                                                          |
+    |                    | developer plus some longer and more complex tests. It is |
+    |                    |                                                          |
+    |                    | run automatically every night and monitored by the SSD   |
+    |                    |                                                          |
+    |                    | team.                                                    |
+    +--------------------+----------------------------------------------------------+
+    | all                | The complete test suite, including all longer runs and   |
+    |                    |                                                          |
+    |                    | less commonly used utilites. This is run automatically   |
+    |                    |                                                          |
+    |                    | every week and monitored by the SSD team. All            |
+    |                    |                                                          |
+    |                    | :ref:`KGO <kgo>` changing tickets need to run this group.|
+    +--------------------+----------------------------------------------------------+
+    +--------------------+----------------------------------------------------------+
+    | rigorous_compile   | A build-only group that will sense-check the code for a  |
+    |                    |                                                          |
+    |                    | wider range of compile errors than the usual builds.     |
+    +--------------------+----------------------------------------------------------+
+    | jules              | A set of tests that exercise the UM/JULES interface.     |
+    +--------------------+----------------------------------------------------------+
+    | casim              | A set of tests that exercise the UM/CASIM interface.     |
+    +--------------------+----------------------------------------------------------+
+    | ukca               | A set of tests that exercise the UM/UKCA interface.      |
+    +--------------------+----------------------------------------------------------+
+    | recon              | A set of tests that exercise the reconfiguration system. |
+    +--------------------+----------------------------------------------------------+
+    | uk_lams            | Testing for the limited area models                      |
+    +--------------------+----------------------------------------------------------+
+    | xc40/spice         | All tests designed to run on the named platform.         |
+    +--------------------+----------------------------------------------------------+
+    | scripts            | All of the auxillary scripts that are designed to check  |
+    |                    |                                                          |
+    |                    | the code standards in ways that aren't tested by the     |
+    |                    |                                                          |
+    |                    | compiler.                                                |
+    +--------------------+----------------------------------------------------------+
 
 .. tip::
     The `standard jobs <https://code.metoffice.gov.uk/trac/um/wiki/StandardJobs>`_

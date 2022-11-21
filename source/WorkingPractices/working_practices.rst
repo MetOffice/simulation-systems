@@ -36,6 +36,20 @@ The release cycle is overseen by the Simulation Systems and Deployment Team with
 the oversight and support of the Atmos Project Board, and impartially consider
 the needs of all developers and users.
 
+.. note::
+
+    LFRic doesn't follow the same release process as the other repositories,
+    with continuous testing such that all versions of the LFRic trunk should be
+    valid releases. Periodic milestones are used to help with scheduling of work.
+
+Development Process
+-------------------
+The process of developing a change for each repository is described through these
+Working Practices. A flowchart of this process for the UM is included below, but
+the process is very comparable to that of the other repositories too.
+
+.. image:: images/UMDWP_no_links.jpg
+
 Before You Start
 ----------------
 All developments should be planned using a risk-based approach. Before starting,
@@ -48,6 +62,7 @@ As you begin, there are various people you might consider consulting:
 
     * Consult relevant :ref:`Code and Configuration Owners <approvals>`
     * Consult the Simulation Systems and Deployment Team
+    * Consult the Capability Development Team
     * Less experienced developers may benefit from a 'buddy'
 
 Technical Considerations
