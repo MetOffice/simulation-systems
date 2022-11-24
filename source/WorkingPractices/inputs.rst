@@ -33,7 +33,7 @@ The project metadata can be found in the following locations:
 All new namelist variables need a new entry so that the metadata loads into the
 Rose GUI for users to switch it on. Additionally, sometimes the metadata needs
 to be modified without changing a namelist variable. Guidance for updating the
-UM's metadata :ref:`is available <metadata_guidance>`.
+metadata :ref:`is available <metadata_guidance>`.
 
 ..
   Could do with thinking about how the JULES metadata could be included in this

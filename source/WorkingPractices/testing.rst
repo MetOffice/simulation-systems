@@ -32,6 +32,8 @@ Bespoke:
    TestSuites/lfric
    TestSuites/jules
    TestSuites/ukca
+
+.. todo:
    TestSuites/casim
    TestSuites/shumlib
 
@@ -75,6 +77,8 @@ commands
     | UM    | $UMDIR/bin/update_all.py --path=/path/to/working/copy/of/test/branch --um=vnX.X_tXXXX  |
     +-------+----------------------------------------------------------------------------------------+
     | JULES | ./bin/upgrade_jules_test_apps vnX.X_tXXXX                                              |
+    +-------+----------------------------------------------------------------------------------------+
+    | LFRic | *Macro capabilities are currently in development*                                      |
     +-------+----------------------------------------------------------------------------------------+
 
 .. todo: add an LFRic upgrade macro command... and make these more consistent?

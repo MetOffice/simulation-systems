@@ -1,8 +1,9 @@
 About the Working Practices
 ===========================
 
-The Working Practices (WPs) are to be followed for all LFRic, UM, JULES, UKCA,
-and Shumlib developments.
+The Working Practices (WPs) are to be followed for all LFRic, UM, JULES, and
+UKCA developments (though reference is also made to CASIM, SOCRATES and Shumlib
+where relevant).
 
 If this is your first development we highly recommend following these pages
 through in sequence. Note that we get regular feedback that the WPs are both too
