@@ -21,9 +21,9 @@ that have stared from a cold start and those that have had their state saved and
 restarted.
 
 
-Below is a (by no means comprehensive) set of groups that you may wish to use.
-Note that there is a lot of overlap between these groups, and that you can
-specify more than one at once, e.g. ``--group=developer,jules,ukca``.
+Below is a (by no means comprehensive) set of groups that you may wish to use on
+Met Office systems. Note that there is a lot of overlap between these groups,
+and that you can specify more than one at once, e.g. ``--group=developer,jules,ukca``.
 
     +--------------------+----------------------------------------------------------+
     | Group              | Description                                              |

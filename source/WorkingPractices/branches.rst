@@ -3,14 +3,22 @@ Create a branch
 The source management tool is `FCM <http://metomi.github.io/fcm/doc/>`_, which is based on subversion
 but with some subtle differences, both of which are very different from git.
 
-.. Important::
-
+.. todo:
+    .. Important::
     All projects now use a version branching approach because it exhibits attributes that are well
     aligned to how the models are used.
 
-By exception, head-of-trunk developments will be accepted.
-The prime reason for this is to pick up and build on a specific development that
-has already been committed since the last version. Needless head of trunk branches may be rejected.
+.. todo:
+    By exception, head-of-trunk developments will be accepted.
+    The prime reason for this is to pick up and build on a specific development that
+    has already been committed since the last version. Needless head of trunk branches may be rejected.
+
+**LFRic** branches are usually taken from the head of trunk to allow all changes
+to build on each other.
+
+**UM, JULES and UKCA** branches are taken from the last released revision. By
+exception Head of Trunk branches are accepted for picking up and building on a
+specific development that has already been committed since the last revision.
 
 Branch Management using FCM
 ---------------------------
