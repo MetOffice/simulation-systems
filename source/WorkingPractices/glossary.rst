@@ -23,11 +23,15 @@ Colon Keyword:
 CodeSys Review:
     A technical review of the changes involved in the ticket, including checks
     that code standards have been upheld and that the working practices have
-    been followed. These reviews are generally completed by a member of either
-    the Simulation Systems and Deployment Team or the Capability Development
-    Team (for LFRic only reviews).
-    Once a review has been approved the Code Systems Reviewer is then
-    responsible for committing the change to the trunk.
+    been followed. These reviews are generally completed by a member of
+    the Simulation Systems and Deployment Team. Once a review has been approved
+    the Code Systems Reviewer is then responsible for committing the change to
+    the trunk.
+
+..
+    or the Capability Development Team (for LFRic only reviews).
+
+
 
 Development Window:
     The period of time between the release of one software version and the

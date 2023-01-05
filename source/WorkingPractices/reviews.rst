@@ -83,7 +83,8 @@ the status as Code Review. If major changes are needed then the ticket may be
 rejected which will put it back to `In Progress` and a further SciTech Review
 will be needed in this case.
 
-.. note::
+..
+    .. note::
     For LFRic only developments you can also contact the :ref:`cap_dev_team`
     directly or use the *request a code review* option on the ticket to
     move your ticket into `ready_for_code_review` status. Once a week tickets

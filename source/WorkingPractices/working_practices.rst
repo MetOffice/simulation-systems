@@ -1,14 +1,17 @@
 About the Working Practices
 ===========================
 
-The Working Practices (WPs) are to be followed for all LFRic, UM, JULES, and
-UKCA developments (though reference is also made to CASIM, SOCRATES and Shumlib
-where relevant).
+The Working Practices (WPs) are to be followed for all UM, JULES, and
+UKCA developments (though reference is also made to LFRic, CASIM, SOCRATES
+and Shumlib where relevant).
 
 If this is your first development we highly recommend following these pages
-through in sequence. Note that we get regular feedback that the WPs are both too
-long and too short. What may be overwhelming detail for one person may be
-insufficient detail for another.
+through in sequence.
+
+Suggestions for changes to these WPs are always gratefully received, though
+note that we get regular feedback that the WPs are both too long and too short.
+What may be overwhelming detail for one person may be insufficient detail for
+another.
 
 .. note::
 
@@ -34,11 +37,11 @@ closed release to facilitate an intense or disruptive development.
 .. image:: images/development_cycle.png
 
 The release cycle is overseen by the Simulation Systems and Deployment Team with
-the oversight and support of the Atmos Project Board, and impartially consider
+the oversight and support of the Atmos Project Board, who impartially consider
 the needs of all developers and users.
 
-.. note::
-
+..
+    .. note::
     LFRic doesn't follow the same release process as the other repositories,
     with continuous testing such that all versions of the LFRic trunk should be
     valid releases. Periodic milestones are used to help with scheduling of work.
@@ -66,10 +69,7 @@ As you begin, there are various people you might consider consulting:
     * Consult the Capability Development Team
     * Less experienced developers may benefit from a 'buddy'
 
-Technical Considerations
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-Consider splitting work over multiple tickets:
+For larger changes, consider splitting the work over multiple tickets:
 
     * Tickets laying foundations for later are OK
     * Tickets should make sense on their own with a clear scope

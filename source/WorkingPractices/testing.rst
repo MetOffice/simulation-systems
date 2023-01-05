@@ -78,6 +78,8 @@ commands
     +-------+----------------------------------------------------------------------------------------+
     | JULES | ./bin/upgrade_jules_test_apps vnX.X_tXXXX                                              |
     +-------+----------------------------------------------------------------------------------------+
+
+..
     | LFRic | *Macro capabilities are currently in development*                                      |
     +-------+----------------------------------------------------------------------------------------+
 
@@ -92,10 +94,10 @@ commands
 
 trac.log
 --------
-The output of rose-stem from each repository (excluding LFRic at present)
-includes a trac.log. This is a wiki formatted file that can be copied into the
-ticket summary as a record of testing run. Please make sure that the results of
-your latest testing are included when passing a ticket for review.
+The output of rose-stem from each repository includes a trac.log. This is a wiki
+formatted file that can be copied into the ticket summary as a record of
+testing run. Please make sure that the results of your latest testing are
+included when passing a ticket for review.
 
 .. code-block::
 
