@@ -70,7 +70,8 @@ Guidance for the SciTech reviewer can be found :ref:`here <scitech_review>`.
 Code and System Review
 ----------------------
 Organising the code reviewer is the responsibility of the developer and is
-done by emailing the :ref:`ssd`.
+done by emailing the :ref:`ssd`. Reviewers are assigned to email requests a
+couple of times a week.
 
 The code reviewer will check that the change meets the coding standards and fits
 with the overall system design. They will also fill in a :ref:`Code Review
