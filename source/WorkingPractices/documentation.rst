@@ -1,14 +1,26 @@
+.. _docs:
+
 Documentation
 -------------
-Some projects have their own scientific and technical documentation.
+All projects have their own scientific and technical documentation.
 Most notably:
 
-* `The UM has documentation papers <https://code.metoffice.gov.uk/doc/um/latest/umdp.html>`_
-* `JULES has a user guide and documentation <https://jules-lsm.github.io/latest/index.html>`_
-* `LFRic has some basic documentation <https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicTechnical#Documentation>`_
++----------------------------+--------------+---------------+
+| UM Documentation Papers    |`view UM`_    | `edit UM`_    |
++----------------------------+--------------+---------------+
+| JULES User Guide           |`view JULES`_ | `edit JULES`_ |
++----------------------------+--------------+---------------+
 
 ..
-  Any other documentation to be aware of could be added above.
+    | LFRic Documentation Papers |`view LFRic`_ | `edit LFRIc`_ |
+    +----------------------------+--------------+---------------+
+
+.. _view UM: https://code.metoffice.gov.uk/doc/um/latest/umdp.html
+.. _edit UM: https://code.metoffice.gov.uk/trac/um/wiki/WorkingPractices/Documentation/UpdatingUMDPs
+.. _view JULES: https://jules-lsm.github.io/latest/index.html
+.. _edit JULES: https://code.metoffice.gov.uk/trac/jules/wiki/BuildingEditingUserGuide
+.. _view LFRic: https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicDocumentationPapers
+.. _edit LFRIc: https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicTechnical#Documentation
 
 Small changes and bug fixes rarely need documentation to be updated, but when new science is
 added to a project, the documentation must be updated to ensure that it remains contemporary
@@ -18,9 +30,6 @@ with the code.
   Searching the relevant documentation for words related to your change is often useful when
   deciding whether to update the documentation.
 
-..
-  Link to page here for updating UMDPs
-  Link to page here for updating JULES docs.
-  Link to details as to how to update LFRic documentation.
-  (JW: These can be added later if required, but I will leave it for now to get the rest of
-  the change development section done. We can open an issue if required.)
+Documentation changes that are held within a repository are formally reviewed,
+and should be included on the same ticket as the code changes - making sure both
+code and docs branches are clearly listed and the `doc` keyword is applied.

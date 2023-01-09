@@ -6,19 +6,23 @@ Planning Your Change
 There's often a tendency to jump straight into a change. This is fine for small and
 simple changes where the purpose of the change is well-understood. However, for more complex
 changes having a plan for the change before developing it can be very beneficial and a well-thought
-plan improves the chances of a successful code change. Writing code
-without a plan can lead to ill-thought out development and in some cases leads to a time-consuming
-rewrite of the code during the development process. This is also a good time to consult with code owners
-(and also with configuration owners, if necessary). Use the appropriate :ref:`support` channels.
+plan improves the chances of a successful code change.
 
-Planning a change should not take long and should take no more than a few minutes.
-A plan is there to assist the developer; there is no requirement to submit your plan for review
-as the final code should speak for itself. A plan can be entirely within the developer's head,
-on paper or in electronic format. The most important aspect is for the developer to work though
-a thought process about what the code change will involve, so that they understand the task
-and hopefully understand what potential issues could arise before development work starts.
+Planning a change
+ * should not take long
+ * does not require submission for a review - the final code should speak for itself
+ * should help you understand the task and what it will involve
+ * should highlight some potential issues before development work starts
+
+This is also a good time to consult with code owners
+(and also with configuration owners, if necessary).
+Use the appropriate :ref:`support` channels.
 
 The following are some general hints and tips in planning code changes successfully.
+
+.. tip::
+    For more complex LFRic changes you can submit your plan to the Capability
+    Development team for a Design Review.
 
 .. seealso::
     :ref:`dos_donts`
@@ -38,8 +42,7 @@ areas of code in other, unrelated sections of the model purely to get your chang
 are that you're doing something wrong. Please do seek advice.
 
 **Ensure that your code change meets coding standards** All models have various coding standards
-and things to avoid, so it is useful for the developer to be aware of these. For the UM, a
-*umpd3* checker is available along with a code styling script.
+and things to avoid, so it is useful for the developer to be aware of these.
 
 * `UMDP3 (UM and JULES FORTRAN) <https://code.metoffice.gov.uk/doc/um/latest/umdp.html#003>`_,
 * `LFRic Coding Styles <https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicTechnical/CodingStandards>`_
@@ -57,7 +60,7 @@ should be planned well in advance of the code review deadline to allow time for 
 take place.
 
 **Is the code you need to alter on a single repository or is it spread over multiple repositories?**
-If it's over multiple repositories you need to consider linked tickets. See :ref:`multirepo` for
+If it's over multiple repositories you need to use linked tickets. See :ref:`multirepo` for
 further details.
 
 **Does similar code functionality already exist in the model?** It's a good idea **not** to re-invent

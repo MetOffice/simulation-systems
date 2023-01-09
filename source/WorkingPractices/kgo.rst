@@ -27,6 +27,15 @@ test suite or to port the rose stem suite to new HPC architecture.
   install the new KGO. Failure to do so may lead to delays in your
   ticket making the project's trunk.
 
+**LFRic** KGO checksums are stored in the repository. As such with LFRic tickets
+the expectation is that you, as the developer, will include updated KGO files
+as part of your branch.
+
+**UM and JULES** KGO output files are stored outside of the repository. Access
+to this area is restricted to members of the Simulation Systems and Deployment
+Team and they will update the KGO files to include your new answers as part of
+the commit process.
+
 .. toctree::
     :hidden:
 

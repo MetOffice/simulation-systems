@@ -58,7 +58,7 @@ repository is handled can be found :ref:`here <testing>`.
 
     .. code-block::
 
-        rose stem --group=developer,jules --source=. --source=/path/to/jules/changes --source=/path/to/ukca/changes
+        rose stem --group=developer,jules,ukca --source=. --source=/path/to/jules/changes --source=/path/to/ukca/changes
 
     The source paths involved can either be to local working copies or links to the
     fcm source control e.g. ``fcm:jules.x_br/dev/user/branch_name``. As many source

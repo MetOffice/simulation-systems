@@ -70,7 +70,8 @@ Guidance for the SciTech reviewer can be found :ref:`here <scitech_review>`.
 Code and System Review
 ----------------------
 Organising the code reviewer is the responsibility of the developer and is
-done by emailing the :ref:`ssd`.
+done by emailing the :ref:`ssd`. Reviewers are assigned to email requests a
+couple of times a week.
 
 The code reviewer will check that the change meets the coding standards and fits
 with the overall system design. They will also fill in a :ref:`Code Review
@@ -82,7 +83,8 @@ the status as Code Review. If major changes are needed then the ticket may be
 rejected which will put it back to `In Progress` and a further SciTech Review
 will be needed in this case.
 
-.. note::
+..
+    .. note::
     For LFRic only developments you can also contact the :ref:`cap_dev_team`
     directly or use the *request a code review* option on the ticket to
     move your ticket into `ready_for_code_review` status. Once a week tickets
