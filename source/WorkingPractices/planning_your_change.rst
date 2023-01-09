@@ -10,7 +10,7 @@ plan improves the chances of a successful code change.
 
 Planning a change
  * should not take long
- * does not submission for require a review - the final code should speak for itself
+ * does not require submission for a review - the final code should speak for itself
  * should help you understand the task and what it will involve
  * should highlight some potential issues before development work starts
 
