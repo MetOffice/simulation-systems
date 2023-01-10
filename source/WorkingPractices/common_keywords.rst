@@ -15,9 +15,9 @@ see:
 |          |                                                |                                               |
 |          | by the Met Office                              |                                               |
 +----------+------------------------------------------------+-----------------------------------------------+
-| blocks:  | Code change is blocked from going on           | Not used by LFRic                             |
+| blocks:  | Code change is blocking the numbered ticket    | Not used by LFRic                             |
 |          |                                                |                                               |
-|          | to the project's trunk by another ticket       |                                               |
+|          | from going on to the project's trunk           | e.g. blocks:#1234                             |
 +----------+------------------------------------------------+-----------------------------------------------+
 | kgo      | Indicates the change requires new kgo          | Includes when a new job is added to the       |
 |          |                                                |                                               |
