@@ -4,8 +4,10 @@ Temporary Logical Variables
 ===========================
 
 Temporary logical variables are intended to add a layer of protection in instances where a
-*bug fix* produces a **significant** change in results in a scientific configuration. They
-are used primarily for two reasons:
+*bug fix* produces a **significant** change in results in a scientific configuration. The
+purpose of the temporary logical is to maintain results in scientific configurations. However,
+the bug fix could either be due to a scientific or a technical issue. Temporary logicals are
+used primarily for two reasons:
 
   #. To maintain consistency in an important scientific configuration (e.g. global/regional atmosphere/land) when upgrading between model versions. If the logical was not used then different model versions may lead to very different scientific answers.
 
@@ -25,6 +27,13 @@ In such cases, the following guidance is followed:
   * Small changes (within the noise) can usually be included as a :ref:`kgo` update and would **not** usually have a temporary logical associated with them.
 
   * Anything which has a large impact (especially on key variables used for weather and climate) and which extends beyond the 'noise' of the model **would be expected to include a temporary logical**.
+
+  * There may be a few specific cases, where only certain platforms or builds are affected due to a technical bug fix.
+
+.. important::
+   There isn't a precise definition of what 'being in the noise' consists of, so the configuration
+   owner should always be contacted in the first instance to provide guidance of what is or is not
+   important to that particular configuration.
 
 .. important::
    Remember that any new piece of science code or new scientific option would normally be switched
@@ -68,8 +77,12 @@ Details are as follows:
 |            | logicals.                                                                         |
 +------------+-----------------------------------------------------------------------------------+
 
-By default, the logical should be set to ``.false.``, with the fix switched **off**, unless
-instructed otherwise by the Configuration Owner. The developer should remember to add the variable
+.. hint::
+
+  By default, the logical should be set to ``.false.``, with the fix switched **off**, unless
+  instructed otherwise by the Configuration Owner.
+
+The developer should remember to add the variable
 to the namelist, including any namelist printing and reading subroutines present in the module.
 In addition, they should also include a warning for when the fix is not included in a configuration.
 Examples of the various components can be found by examining existing variables in the subroutines
