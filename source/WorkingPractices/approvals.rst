@@ -13,6 +13,11 @@ off the approval.
     You may need to chase up approvals occasionally. People are not perfect and
     remember to :ref:`be kind <code_of_conduct>`.
 
+.. tip::
+    From vn13.2 the :ref:`trac.log <traclog>` summary of your testing will also
+    list all the Code and Config Owner approvals required in a handy table to
+    make it easy to see what is required.
+
 Code Owners
 -----------
 Every file in the codebases has a :ref:`code_owner`, and every file changed
@@ -43,10 +48,6 @@ science settings.
 
 A list of current config owners for the UM is found in `trunk/ConfigOwners.txt`.
 Others are combined with the Code Owner lists above.
-
-.. tip::
-    From UM vn13.2, a rose-stem test suite with KGO failures will produce a list
-    of the Configuration Owners affected in the :ref:`trac.log <traclog>`.
 
 Optimisation Approvals
 ----------------------
