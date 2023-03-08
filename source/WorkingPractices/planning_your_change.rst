@@ -53,7 +53,7 @@ repository has the knowledge or experience to review every ticket that is being 
 identifying a SciTech reviewer before starting work to avoid having developed the ticket, only to
 find nobody is available to review it.
 
-**Does your change fix a bug or are you investigating a bug in the code?** If so, be aware than any
+**Does your change fix a bug or are you investigating a bug in the code?** If so, be aware that any
 changes to answers will require a KGO update and configuration owners to approve the change, which
 can take longer. Code changes which require a change in answers and configuration owner approval
 should be planned well in advance of the code review deadline to allow time for the approvals to
@@ -81,7 +81,7 @@ including them on your ticket can aid your SciTech reviewer in showing that your
 properly.
 
 **Does the change need any new diagnostics to make sense of the code?** Many changes will be able
-to use the existing diagnostics available, but if some novel functionality being developed it may
+to use the existing diagnostics available, but if some novel functionality is being developed it may
 require new diagnostics to be added. The developer needs to check that new diagnostics output
 correctly and look sensible.
 

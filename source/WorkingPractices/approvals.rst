@@ -45,8 +45,8 @@ A list of current config owners for the UM is found in `trunk/ConfigOwners.txt`.
 Others are combined with the Code Owner lists above.
 
 .. tip::
-    From UM vn13.1, a rose-stem test suite with KGO failures will produce a list
-    of the Configuration Owners affected in the cylc-run directory for that suite.
+    From UM vn13.2, a rose-stem test suite with KGO failures will produce a list
+    of the Configuration Owners affected in the :ref:`trac.log <traclog>`.
 
 Optimisation Approvals
 ----------------------

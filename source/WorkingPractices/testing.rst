@@ -92,6 +92,8 @@ commands
     to rose-stem/app/<app_name> -a <trunk_metadata_version>`` inside the app's
     directory.
 
+.. _traclog:
+
 trac.log
 --------
 The output of rose-stem from each repository includes a trac.log. This is a wiki
