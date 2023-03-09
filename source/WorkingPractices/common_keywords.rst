@@ -17,11 +17,15 @@ see:
 +------------+------------------------------------------------+-----------------------------------------------+
 | blocks:    | Code change is blocking the numbered ticket    | e.g. blocks:#1234                             |
 |            |                                                |                                               |
-|            | from going on to the project's trunk           | Not used by LFRic                             |
+|            | from going on to the project's trunk           | Not used by LFRic as they have a "blocked by" |
+|            |                                                |                                               |
+|            |                                                | item in their ticket options.                 |
 +------------+------------------------------------------------+-----------------------------------------------+
 | blockedby: | Code change is blocked by the numbered ticket  | e.g. blockedby:#6789                          |
 |            |                                                |                                               |
-|            | from going on to the project's trunk           | Not used by LFRic                             |
+|            | from going on to the project's trunk           | Not used by LFRic as they have a "blocked by" |
+|            |                                                |                                               |
+|            |                                                | item in their ticket options.                 |
 +------------+------------------------------------------------+-----------------------------------------------+
 | kgo        | Indicates the change requires new kgo          | Includes when a new job is added to the       |
 |            |                                                |                                               |
