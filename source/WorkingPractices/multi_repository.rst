@@ -61,13 +61,18 @@ repository is handled can be found :ref:`here <testing>`.
         rose stem --group=developer,jules,ukca --source=. --source=/path/to/jules/changes --source=/path/to/ukca/changes
 
     The source paths involved can either be to local working copies or links to the
-    fcm source control e.g. ``fcm:jules.x_br/dev/user/branch_name``. As many source
+    fcm source control e.g. ``fcm:jules.xm_br/dev/user/branch_name``. As many source
     paths as needed can be added to the list.
 
     3. Finally LFRic testing needs to encompass all of the other repositories
     affected. Paths to the other codebases involved should be added to
     ``fcm-make/parameters.sh`` under each of the ``*_sources`` variables. Again
     these paths can either be to local changes or those in the repository.
+
+.. tip::
+    Links to changes stored in fcm source control should point at the mirror
+    repository (note `jules.xm` rather than `jules.x` above). Links to local
+    changes provided to the LFRic build should start with `<hostname>:`.
 
 .. note::
     If any of the testing shows up failures then there are two possible ways to

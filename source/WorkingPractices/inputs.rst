@@ -59,9 +59,9 @@ upgrade macro, then run the following command on your branch:
   rose stem --group=scripts
 
 If all of the tests pass then there is no requirement to add an upgrade macro.
-If any of the tests fail, then the developer should add a blank upgrade macro
-which contains no upgrade commands but simply points the rose stem suite to
-the new metadata.
+If any of the metadata tests fail, then the developer should add a blank upgrade
+macro which contains no upgrade commands but simply points the rose stem suite
+to the new metadata.
 
 ..
   The above should probably be extended to LFRic eventually.

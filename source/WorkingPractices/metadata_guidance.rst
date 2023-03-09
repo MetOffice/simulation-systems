@@ -38,7 +38,7 @@ The following sections provide some general guidance as to how to structure your
 
 Number of panels
 ----------------
-If you have a particularly long namelist, consider diving up the number of panels to ensure
+If you have a particularly long namelist, consider dividing up the number of panels to ensure
 that the user doesn't have to deal with a particularly long panel with lots of switches.
 However, switches which relate to each other should always be on the same panel.
 
@@ -46,7 +46,7 @@ However, switches which relate to each other should always be on the same panel.
 Sort Keys and triggers
 ----------------------
 Please use sort-keys to order the appearance of items in your panels, otherwise they will appear
-in alphabetical order. This means that sometimesitems that are triggered on and off will appear
+in alphabetical order. This means that sometimes items that are triggered on and off will appear
 far away from the item that triggered them.
 
 Please provide triggers for all variables where possible. It is much better and cleaner to only

@@ -72,9 +72,10 @@ As you begin, there are various people you might consider consulting:
 For larger changes, consider splitting the work over multiple tickets:
 
     * Tickets laying foundations for later are OK
-    * Tickets should make sense on their own with a clear scope
+    * Tickets should make sense on their own, with a clear scope, to allow for separate testing, review and commit
     * Tickets should not be too small or too large
     * Beware of the 'also trap'- the 'also' bits can swamp the main aim of your change!
+    * An overarching ticket that sets out the overall picture and tracks the progress of the work is recommended and all sub-tickets should link back to it
 
 Consider the timing of your work:
 
