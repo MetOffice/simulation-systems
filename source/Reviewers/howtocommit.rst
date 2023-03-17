@@ -5,7 +5,7 @@ How To Commit
 
 .. div:: sd-fs-5
 
-    **1. Linked Tickets?**
+    **1. Linked Tickets?**g
 
 If this ticket has linked tickets in JULES (and/or SOCRATES, AUX etc.), commit those first then update the “HOST_SOURCE_JULES” or “HOST_SOURCE_SOCRATES” etc variables in the UM rose-stem/rose-suite.conf file to include JULES/Socrates etc revision number.
 
