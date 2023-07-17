@@ -1,1 +1,0 @@
-# UMDIR-Scripts
