@@ -13,7 +13,7 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-
+#sys.path.append(os.path.abspath(''))
 
 # -- Project information -----------------------------------------------------
 
@@ -30,6 +30,9 @@ author = 'Simulation Systems and Deployment Team'
 # extensions = [
 #     'sphinx_toolbox'
 # ]
+
+# Added to use dropdowns with command: pip install sphinx-design
+extensions = ['sphinx_design']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

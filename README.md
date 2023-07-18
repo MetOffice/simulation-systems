@@ -4,7 +4,8 @@ This repository contains documentation that is common across the many simulation
 
 To build this documentation from the top level of the project run:
 ```
-module load scitools
+conda env create -f env.yml
+conda activate sphinx_doc_env
 make html
 firefox build/html/index.html
 ```
