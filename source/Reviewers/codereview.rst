@@ -20,7 +20,7 @@ the ticket once you are finished.
 Work through the code review template considering each question in turn. These
 will include areas such as:
 
-**Is the ticket and testing complete?**
+.. dropdown:: Is the ticket and testing complete?
 
     * A Ticket Summary should be attached and filled in. This includes:
         * Proof of :ref:`testing <testing>` completed.
@@ -50,31 +50,47 @@ will include areas such as:
         * had the reconfiguration been altered? If so the UM testing must include the `recon` group
         * is there another rose-stem group that covers this area of code? See :ref:`um_testing` for common examples
 
-**Is this a :ref:`multi-repository <multirepo>` ticket?**
+.. dropdown:: Is this a :ref:`multi-repository <multirepo>` ticket?
 
-    Each of the repositories involved have overlapping use of code. There are
-    details in the Ticket Summary and Code Reviewer templates of when testing
-    is required for tickets that may interact with other repositories.
+    Each of the repositories covered by these WPs have overlapping use of code.
 
-    If this testing doesn't pass then a ticket with code change will be required
-    in that other repository and the ticket is considered linked to the one you
-    are reviewing.
-    * If this is a multi-repository change then links to all those tickets should be present along with the relevant keywords.
-      Care is needed when :ref:`committing these tickets <committinglinkedtickets>`.
-    * What does LFRic testing mean?
+    The Ticket Summary/Code Review templates in each repository contain the details
+    of when testing against other repositories are required. These highlight where
+    the code is likely to interact. *e.g. if code in the shared/science folder in*
+    *JULES is modified then both the UM and LFRIc test suites will need to be run with that change.*
 
-**Is the code up to scratch?**
+    If this testing doesn't pass then either
+        a) the change in ticket will need modifying so that the parent repository's test suite passes
+        b) this change requires a linked ticket in that repository so that all tests can pass.
+
+    .. tip::
+        All linked tickets are reviewed as a group. Each ticket in the group should
+        contain links to all the others and the correct keywords applied to make it
+        easier to keep track of them all.
+
+        Care is needed when :ref:`committing these tickets <committinglinkedtickets>`.
+
+.. dropdown:: Is the code up to scratch?
 
     Generally this is about making sure the code complies with the relevant
     style guides, and is consistent with the design of the code it sits in.
 
-    It's impossible to provide a complete checklist for this, but below are some
-    common things to confirm.
+    It's impossible to provide a complete checklist for this, but
+    `this page <https://code.metoffice.gov.uk/trac/um/wiki/CodeReviewCribSheet>`_
+    provides some common things to confirm.
 
-    UM:
-    * Are the default settings for any new inputs `.FALSE.`, `imdi` or `rmdi`?
-    * Have any change to the `atmos_physics` routines in `atm_step` been replicated in `scm_main`?
-    * Do all new `ALLOCATE` statements have a counterpart `DEALLOCATE`?
-    *
+Final decision points and actions
+---------------------------------
 
+The ticket will likely iterate between the reviewer and the developer during the
+review process while retaining it's code review status. However, the reviewer
+has the option to "reject and assign" back to the code author should the
+documentation or code not meet the required standards and major alterations/improvements
+are required. In this case the change will need a further SciTech review before
+it can be returned to the code reviewer.
 
+Once you are happy that the change is appropriate and correct, complete the
+approval section of the Code/System review template and change the ticket status
+to **approved**.
+
+From here follow the :ref:`How To Commit<howtocommit>` guide through to ticket closure.

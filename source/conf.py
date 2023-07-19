@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Simulation Systems'
-copyright = '2022, Simulation Systems and Deployment Team'
+copyright = '2023, Simulation Systems and Deployment Team'
 author = 'Simulation Systems and Deployment Team'
 
 
