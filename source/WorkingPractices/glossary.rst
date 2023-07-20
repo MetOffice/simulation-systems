@@ -2,7 +2,7 @@ Simulation Systems Glossary
 ===========================
 Please suggest new entries to the Simulation Systems and Deployment Team
 
-Atmos Project Board:
+UM Project Board:
     The governing body that oversees the work of the Simulation Systems and
     Deployment Team.
 
