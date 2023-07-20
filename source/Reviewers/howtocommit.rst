@@ -148,7 +148,7 @@ then you will need to upgrade the test-suite.
 
                 ./bin/upgrade_jules_test_apps vnX.Y_tZZZZ
 
-            where vnX.Y_tZZZZ is the AFTER_TAG of the latest upgrade macro.
+            where `vnX.Y_tZZZZ` is the `AFTER_TAG` of the latest upgrade macro.
 
 .. dropdown:: New rose-stem app?
 
