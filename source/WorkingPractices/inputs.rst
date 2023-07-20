@@ -20,17 +20,19 @@ which can be modified.
 
 The project metadata can be found in the following locations:
 
-+----------+-----------------------------------------------------------------------+
-| Project  | Metadata Location                                                     |
-+==========+=======================================================================+
-| UM       | ``vnXX.Y_<_branch_name>/rose-meta/um-atmos/HEAD/rose-meta.conf``      |
-+----------+-----------------------------------------------------------------------+
-| JULES    | ``vnXX.Y_<_branch_name>/rose-meta/*/*/HEAD/rose-meta.conf``           |
-+----------+-----------------------------------------------------------------------+
+    .. tab-set::
 
-..
-    | LFRic    | ``vnXX.Y_<branch_name>/<sub-module>/rose-meta/*/HEAD/rose-meta.conf`` |
-    +----------+-----------------------------------------------------------------------+
+        .. tab-item:: UM
+
+            ``vnXX.Y_<_branch_name>/rose-meta/um-atmos/HEAD/rose-meta.conf``
+
+        .. tab-item:: JULES
+
+            ``vnXX.Y_<_branch_name>/rose-meta/*/*/HEAD/rose-meta.conf``
+
+        .. tab-item:: LFRic
+
+            ``vnXX.Y_<branch_name>/<sub-module>/rose-meta/*/HEAD/rose-meta.conf``
 
 All new namelist variables need a new entry so that the metadata loads into the
 Rose GUI for users to switch it on. Additionally, sometimes the metadata needs

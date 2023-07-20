@@ -7,10 +7,8 @@ for whichever system you are developing.
 +-------+----------------------+
 | UM    | :ref:`STASH <stash>` |
 +-------+----------------------+
-
-..
-    | LFRic | :ref:`lfric_diag`    |
-    +-------+----------------------+
+| LFRic | :ref:`lfric_diag`    |
++-------+----------------------+
 
 ..
   Do UKCA/SOCRATES/JULES have their own diagnostic systems and are they worth mentioning here?

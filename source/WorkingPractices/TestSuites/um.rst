@@ -20,6 +20,15 @@ decompositions and comparing the results, and by looking at the outputs of runs
 that have stared from a cold start and those that have had their state saved and
 restarted.
 
+.. tip::
+
+    The UM rose-stem suite can take a long time to run. When in the initial stages
+    of developing a change choosing a single compile and run task to test with
+    may be helpful. e.g.
+
+    .. code-block::
+
+        rose stem --group=xc40_gnu_um_rigorous_omp-n48
 
 Below is a (by no means comprehensive) set of groups that you may wish to use on
 Met Office systems. Note that there is a lot of overlap between these groups,
@@ -78,3 +87,4 @@ and that you can specify more than one at once, e.g. ``--group=developer,jules,u
     The `standard jobs <https://code.metoffice.gov.uk/trac/um/wiki/StandardJobs>`_
     page for each release includes details of which of ``developer``,
     ``nightly`` and ``all`` a configuration is tested at.
+

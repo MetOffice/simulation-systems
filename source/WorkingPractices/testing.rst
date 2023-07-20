@@ -52,7 +52,7 @@ To create one:
 
 .. code-block::
 
-    fcm bc -t test -bob testbranchname fcm:project.x_br/dev/yourname/devbranchname
+    fcm bc -t test --bob testbranchname fcm:project.x_br/dev/yourname/devbranchname
 
 Then check this out and use it for running any tests you'd like to carry out.
 
