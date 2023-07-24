@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testing Your Change &mdash; Simulation Systems  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Testing the UM" href="TestSuites/um.html" />
+    <link rel="prev" title="Working with Multiple Repositories" href="multi_repository.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Simulation Systems
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Working Practices</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="working_practices.html">About the Working Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="planning_your_change.html">Planning Your Change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tickets.html">Create a ticket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="branches.html">Create a branch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developing_change.html">Developing Your Change</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Testing Your Change</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="TestSuites/um.html">Testing the UM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TestSuites/lfric.html">Testing LFRic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TestSuites/jules.html">Testing JULES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TestSuites/ukca.html">Testing UKCA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test-branches-upgrade-macros">Test branches &amp; Upgrade Macros</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#macros">Macros</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#trac-log">trac.log</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="approvals.html">Approval Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reviews.html">Reviews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="final_steps.html">Final Steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guides for Reviewers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/scitechreview.html">Science and Technical Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/codereview.html">Code and System Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/howtocommit.html">How To Commit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/committinglinkedtickets.html">Committing Linked Tickets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/curaterelease.html">Curating a Release</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Further Details</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="who.html">Who’s Who</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Simulation Systems Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dos_donts.html">Do’s and Don’ts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="change_notes.html">Recent Changes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Simulation Systems</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Testing Your Change</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/WorkingPractices/testing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="testing-your-change">
+<span id="testing"></span><h1>Testing Your Change<a class="headerlink" href="#testing-your-change" title="Permalink to this headline"></a></h1>
+<p>Every change should be thoroughly tested, using your judgement as to what this
+involves based on the complexity of your change. There are three main methods
+for you to choose from:</p>
+<dl class="simple">
+<dt>Rose-stem:</dt><dd><p>Every repository has a rose-stem test suite that provides integration and
+regression testing - and in some cases unit tests as well. Committing changes
+to the trunk of each repository is dependant on these tests passing; they
+are there to ensure the integrity of the codebase.</p>
+</dd>
+<dt>Standard suites:</dt><dd><p>As well as the rose-stem tests you should also consider how best to prove that
+your change does what it says it does, and not what it doesn’t. There may be
+other standard suites that will exercise your change in a scientific or technical
+way. If you’re unsure on what that is then talk to the code owners involved for
+advice.</p>
+</dd>
+<dt>Bespoke:</dt><dd><p>If the above hasn’t satisfied you (or your SciTech reviewer) then you may
+wish to consider further evaluation by creating your own tests.</p>
+</dd>
+</dl>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Test Suites</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="TestSuites/um.html">Testing the UM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TestSuites/lfric.html">Testing LFRic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TestSuites/jules.html">Testing JULES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TestSuites/ukca.html">Testing UKCA</a></li>
+</ul>
+</div>
+<p>Changes that affect multiple repositories will need testing together as detailed
+<a class="reference internal" href="multi_repository.html#multirepo"><span class="std std-ref">here</span></a>.</p>
+<div class="section" id="test-branches-upgrade-macros">
+<h2>Test branches &amp; Upgrade Macros<a class="headerlink" href="#test-branches-upgrade-macros" title="Permalink to this headline"></a></h2>
+<p>There are a few cases where testing your change will require you to make changes
+to your branch that don’t want committing to trunk. To do this you can create a
+test branch. This is a branch-of-branch from your development branch and allows
+you to make those changes in an isolated environment while leaving your original
+development clean.</p>
+<p>To create one:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fcm</span> <span class="n">bc</span> <span class="o">-</span><span class="n">t</span> <span class="n">test</span> <span class="o">-</span><span class="n">bob</span> <span class="n">testbranchname</span> <span class="n">fcm</span><span class="p">:</span><span class="n">project</span><span class="o">.</span><span class="n">x_br</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">yourname</span><span class="o">/</span><span class="n">devbranchname</span>
+</pre></div>
+</div>
+<p>Then check this out and use it for running any tests you’d like to carry out.</p>
+<p>If using a test branch then do list this on your ticket and include the results
+of this testing alongside those from your dev branch.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your tests fail then you will need to make and commit the fixes to the
+development branch and create a new test branch from that latest revision to
+test them.</p>
+</div>
+<div class="section" id="macros">
+<h3>Macros<a class="headerlink" href="#macros" title="Permalink to this headline"></a></h3>
+<p>If you have updated the model inputs and included an upgrade macro with your
+change then this macro will be run by your code reviewer as part of the commit
+process. In order to prove that the upgrade macro will be successful, and to
+make those new model inputs available to your tests, you should create a test
+branch as described above and run the upgrade macro with one of the following
+commands</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 93%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>UM</p></td>
+<td><p>$UMDIR/bin/update_all.py –path=/path/to/working/copy/of/test/branch –um=vnX.X_tXXXX</p></td>
+</tr>
+<tr class="row-even"><td><p>JULES</p></td>
+<td><p>./bin/upgrade_jules_test_apps vnX.X_tXXXX</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The update_all.py script suppresses warnings produced by upgrade macros.
+You can test these separately by upgrading a single app. A single app can be
+upgraded for testing using <code class="docutils literal notranslate"><span class="pre">rose</span> <span class="pre">app-upgrade</span> <span class="pre">-M</span> <span class="pre">/path/to/rose-meta</span> <span class="pre">-C</span> <span class="pre">/path/</span>
+<span class="pre">to</span> <span class="pre">rose-stem/app/&lt;app_name&gt;</span> <span class="pre">-a</span> <span class="pre">&lt;trunk_metadata_version&gt;</span></code> inside the app’s
+directory.</p>
+</div>
+</div>
+</div>
+<div class="section" id="trac-log">
+<span id="traclog"></span><h2>trac.log<a class="headerlink" href="#trac-log" title="Permalink to this headline"></a></h2>
+<p>The output of rose-stem from each repository includes a trac.log. This is a wiki
+formatted file that can be copied into the ticket summary as a record of
+testing run. Please make sure that the results of your latest testing are
+included when passing a ticket for review.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/</span><span class="n">cylc</span><span class="o">-</span><span class="n">run</span><span class="o">/&lt;</span><span class="n">suite_name</span><span class="o">&gt;/</span><span class="n">trac</span><span class="o">.</span><span class="n">log</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="multi_repository.html" class="btn btn-neutral float-left" title="Working with Multiple Repositories" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="TestSuites/um.html" class="btn btn-neutral float-right" title="Testing the UM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Simulation Systems and Deployment Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

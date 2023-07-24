@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temporary Logical Variables &mdash; Simulation Systems  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Diagnostic Systems" href="diagnostics.html" />
+    <link rel="prev" title="Known Good Output (KGO)" href="kgo.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Simulation Systems
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Working Practices</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="working_practices.html">About the Working Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="planning_your_change.html">Planning Your Change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tickets.html">Create a ticket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="branches.html">Create a branch</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="developing_change.html">Developing Your Change</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html">Input Variables, Rose Metadata and Upgrade Macros</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="kgo.html">Known Good Output (KGO)</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Temporary Logical Variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adding-a-temporary-logical-to-the-code-base">Adding a temporary logical to the code base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#after-the-release-cycle">After the release cycle</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diagnostics.html">Diagnostic Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rose_stem.html">Rose Stem Suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi_repository.html">Working with Multiple Repositories</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing Your Change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="approvals.html">Approval Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reviews.html">Reviews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="final_steps.html">Final Steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guides for Reviewers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/scitechreview.html">Science and Technical Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/codereview.html">Code and System Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/howtocommit.html">How To Commit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/committinglinkedtickets.html">Committing Linked Tickets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/curaterelease.html">Curating a Release</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Further Details</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="who.html">Who’s Who</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Simulation Systems Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dos_donts.html">Do’s and Don’ts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="change_notes.html">Recent Changes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Simulation Systems</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="developing_change.html">Developing Your Change</a></li>
+          <li class="breadcrumb-item"><a href="kgo.html">Known Good Output (KGO)</a></li>
+      <li class="breadcrumb-item active">Temporary Logical Variables</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/WorkingPractices/temp_logicals.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="temporary-logical-variables">
+<span id="templogicals"></span><h1>Temporary Logical Variables<a class="headerlink" href="#temporary-logical-variables" title="Permalink to this headline"></a></h1>
+<p>Temporary logical variables are intended to add a layer of protection in instances where a
+<em>bug fix</em> produces a <strong>significant</strong> change in results in a scientific configuration. The
+purpose of the temporary logical is to maintain results in scientific configurations. However,
+the bug fix could either be due to a scientific or a technical issue. Temporary logicals are
+used primarily for two reasons:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>To maintain consistency in an important scientific configuration (e.g. global/regional atmosphere/land) when upgrading between model versions. If the logical was not used then different model versions may lead to very different scientific answers.</p></li>
+<li><p>To give the configuration owner time to assess the impact of a significant change in answers on their configuration. The usual release cycle window is often too short to fully assess the impact of anything other than a small change.</p></li>
+</ol>
+</div></blockquote>
+<p>Neither of these statements suggest that the fix shouldn’t be included — in fact the opposite is true.
+The decision as to whether to include a temporary logical normally rests with the
+configuration owner, but with guidance from the CodeSys reviewer and the Simulation Systems and Deployment team.
+In such cases, the following guidance is followed:</p>
+<blockquote>
+<div><ul>
+<li><p>Essential bug fixes (e.g. something which would on occasions cause the model to crash) should be switched on by default and would <strong>not</strong> have a temporary logical.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>This includes any bug fixes which restores bit comparison across different processor decomposition where it has been previously broken.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Any bug fix which does not lead to a change in answers should be switched on by default (not with a temporary logical).</p></li>
+<li><p>Small changes (within the noise) can usually be included as a <a class="reference internal" href="kgo.html#kgo"><span class="std std-ref">Known Good Output (KGO)</span></a> update and would <strong>not</strong> usually have a temporary logical associated with them.</p></li>
+<li><p>Anything which has a large impact (especially on key variables used for weather and climate) and which extends beyond the ‘noise’ of the model <strong>would be expected to include a temporary logical</strong>.</p></li>
+<li><p>There may be a few specific cases, where only certain platforms or builds are affected due to a technical bug fix.</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>There isn’t a precise definition of what ‘being in the noise’ consists of, so the configuration
+owner should always be contacted in the first instance to provide guidance of what is or is not
+important to that particular configuration.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Remember that any new piece of science code or new scientific option would normally be switched
+off by default by a variable in the most appropriate scientific namelist. A temporary logical
+would not be used in this instance. See <a class="reference internal" href="inputs.html#inputs"><span class="std std-ref">input variables</span></a> for further details.</p>
+</div>
+<div class="section" id="adding-a-temporary-logical-to-the-code-base">
+<h2>Adding a temporary logical to the code base<a class="headerlink" href="#adding-a-temporary-logical-to-the-code-base" title="Permalink to this headline"></a></h2>
+<p>When adding a new temporary logical, the developer must protect <strong>only</strong> the portion of code
+which changes answers by placing an <cite>IF</cite> statement around it, e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>IF (l_fix_something) THEN
+
+  ... piece of code which changes answers ...
+
+END IF ! l_fix_something
+</pre></div>
+</div>
+<p>The new logical should be added in a specified subroutine for short-term fixes and <strong>not</strong> in
+a usual scientific or technical namelist. The location of the temporary logical routine varies
+by repository, with not all repositories requiring their own temporary logical subroutine.
+Details are as follows:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 87%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Project</p></th>
+<th class="head"><p>Location</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>UM</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">src/control/misc/science_fixes_mod.F90</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>JULES</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">src/control/shared/jules_science_fixes_mod.F90</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>LFRic</p></td>
+<td><p>Currently reads <code class="docutils literal notranslate"><span class="pre">science_fixes_mod.F90</span></code> (see UM above) into</p>
+<p><code class="docutils literal notranslate"><span class="pre">um_physics/source/support/um_physics_init_mod.f90</span></code></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>UKCA/CASIM</p>
+<p>SOCRATES</p>
+</td>
+<td><p>No temporary logical routine currently in place for these projects. Consult with</p>
+<p>Code Owners or check the UM <code class="docutils literal notranslate"><span class="pre">science_fixes_mod.F90</span></code> for existing temporary</p>
+<p>logicals.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>By default, the logical should be set to <code class="docutils literal notranslate"><span class="pre">.false.</span></code>, with the fix switched <strong>off</strong>, unless
+instructed otherwise by the Configuration Owner.</p>
+</div>
+<p>The developer should remember to add the variable
+to the namelist, including any namelist printing and reading subroutines present in the module.
+In addition, they should also include a warning for when the fix is not included in a configuration.
+Examples of the various components can be found by examining existing variables in the subroutines
+listed in the table above.</p>
+<p>An upgrade macro and Rose metadata will be required to add the temporary logical into the GUI
+and make it available to model users. See <a class="reference internal" href="inputs.html#inputs"><span class="std std-ref">Input Variables, Rose Metadata and Upgrade Macros</span></a> for further information. UM developers
+are also expected to fill in a
+<a class="reference external" href="https://code.metoffice.gov.uk/trac/um/wiki/PageTemplates/TempFixesSummary">temporary fixes summary template</a>
+and
+<a class="reference external" href="https://code.metoffice.gov.uk/trac/um/wiki/TempUMlogicals">the temporary logical table</a> prior to the
+review process.</p>
+</div>
+<div class="section" id="after-the-release-cycle">
+<h2>After the release cycle<a class="headerlink" href="#after-the-release-cycle" title="Permalink to this headline"></a></h2>
+<p>Normally, configuration owners would be expected to switch on all temporary logicals present as
+part of developing their latest configuration. This includes any which do not impact their
+configuration, as it allows them to be retired from the code base. Depending on when the next
+configuration is being developed, this could be some time after the code is released.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Very rarely</strong>, switching on a bug fix may have an undesired impact (e.g. it leads to the discovery
+of a bug elsewhere in the code). In these cases, the configuration owner may keep the temporary
+logical set to <code class="docutils literal notranslate"><span class="pre">.false.</span></code> until the issue is resolved and may consult with the Code Owners and the
+developers of the fix for further guidance. This does not imply that the bug fix wasn’t sensible in
+the first place!</p>
+</div>
+<p>Each temporary logical has a review and retention period attached to it. Once the fix is included within
+the various configurations it affects, the temporary logical should be removed from the code base.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Prior to a ticket containing a temporary logical being committed to the trunk, the developers is
+expected to open a new ticket which removes the logical after a fixed period. This acts as an
+aide memoire that the logical needs to be removed in due course.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="kgo.html" class="btn btn-neutral float-left" title="Known Good Output (KGO)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="diagnostics.html" class="btn btn-neutral float-right" title="Diagnostic Systems" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Simulation Systems and Deployment Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rose Stem Suite &mdash; Simulation Systems  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Working with Multiple Repositories" href="multi_repository.html" />
+    <link rel="prev" title="LFRic Diagnostics" href="Diagnostics/lfric_diagnostics.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Simulation Systems
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Working Practices</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="working_practices.html">About the Working Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="planning_your_change.html">Planning Your Change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tickets.html">Create a ticket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="branches.html">Create a branch</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="developing_change.html">Developing Your Change</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html">Input Variables, Rose Metadata and Upgrade Macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kgo.html">Known Good Output (KGO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diagnostics.html">Diagnostic Systems</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Rose Stem Suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi_repository.html">Working with Multiple Repositories</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing Your Change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="approvals.html">Approval Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reviews.html">Reviews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="final_steps.html">Final Steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guides for Reviewers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/scitechreview.html">Science and Technical Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/codereview.html">Code and System Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/howtocommit.html">How To Commit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/committinglinkedtickets.html">Committing Linked Tickets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/curaterelease.html">Curating a Release</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Further Details</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="who.html">Who’s Who</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Simulation Systems Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dos_donts.html">Do’s and Don’ts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="change_notes.html">Recent Changes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Simulation Systems</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="developing_change.html">Developing Your Change</a></li>
+      <li class="breadcrumb-item active">Rose Stem Suite</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/WorkingPractices/rose_stem.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="rose-stem-suite">
+<h1>Rose Stem Suite<a class="headerlink" href="#rose-stem-suite" title="Permalink to this headline"></a></h1>
+<p>All new changes are strongly encouraged to come with an update to the
+rose stem suite to protect any new functionality. Configuration owners may also
+wish to update the suite to ensure that important configurations are protected
+by the rose stem suite.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you find that you need to update all the apps in the rose stem suite
+purely to get your change to work, you are probably doing something wrong.
+Most likely, you need an upgrade macro. See <a class="reference internal" href="inputs.html#inputs"><span class="std std-ref">Input Variables, Rose Metadata and Upgrade Macros</span></a>.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Diagnostics/lfric_diagnostics.html" class="btn btn-neutral float-left" title="LFRic Diagnostics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="multi_repository.html" class="btn btn-neutral float-right" title="Working with Multiple Repositories" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Simulation Systems and Deployment Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

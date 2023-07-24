@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Working with Multiple Repositories &mdash; Simulation Systems  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Testing Your Change" href="testing.html" />
+    <link rel="prev" title="Rose Stem Suite" href="rose_stem.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Simulation Systems
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Working Practices</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="working_practices.html">About the Working Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="planning_your_change.html">Planning Your Change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tickets.html">Create a ticket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="branches.html">Create a branch</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="developing_change.html">Developing Your Change</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html">Input Variables, Rose Metadata and Upgrade Macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kgo.html">Known Good Output (KGO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diagnostics.html">Diagnostic Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rose_stem.html">Rose Stem Suite</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Working with Multiple Repositories</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#preparing-linked-tickets">Preparing Linked Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-changes-together">Testing Changes Together</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing Your Change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="approvals.html">Approval Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reviews.html">Reviews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="final_steps.html">Final Steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guides for Reviewers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/scitechreview.html">Science and Technical Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/codereview.html">Code and System Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/howtocommit.html">How To Commit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/committinglinkedtickets.html">Committing Linked Tickets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/curaterelease.html">Curating a Release</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Further Details</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="who.html">Who’s Who</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Simulation Systems Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dos_donts.html">Do’s and Don’ts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="change_notes.html">Recent Changes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Simulation Systems</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="developing_change.html">Developing Your Change</a></li>
+      <li class="breadcrumb-item active">Working with Multiple Repositories</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/WorkingPractices/multi_repository.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="working-with-multiple-repositories">
+<span id="multirepo"></span><h1>Working with Multiple Repositories<a class="headerlink" href="#working-with-multiple-repositories" title="Permalink to this headline"></a></h1>
+<p>The repositories covered by these working practices all interact with and have
+dependencies on each other. This means that changes that affect multiple
+repositories need handling with extra care.</p>
+<p>To think about how the repositories work together it’s useful to think about
+them as almost concentric circles. The child repositories such as JULES or UKCA
+sit in the centre and are mostly independent of anything else. The UM
+is a parent of those repositories and is dependant on changes in it’s own code
+base and on those in the children. LFRic is then another layer again and is
+dependant on both the UM physics and the other child repositories.</p>
+<p>This means that changes to the science code in JULES etc will need testing with
+both the UM and LFRic to check for any interactions. Likewise, changes to the
+atmosphere code in the UM will require LFRic testing.</p>
+<a class="reference internal image-reference" href="../_images/repo_circles.svg"><img alt="../_images/repo_circles.svg" class="align-center" src="../_images/repo_circles.svg" width="300" /></a>
+<div class="section" id="preparing-linked-tickets">
+<span id="linked"></span><h2>Preparing Linked Tickets<a class="headerlink" href="#preparing-linked-tickets" title="Permalink to this headline"></a></h2>
+<p>Every repository in a set of linked changes requires a ticket. Guidance on
+setting these up can be found in <a class="reference internal" href="tickets.html#ticket"><span class="std std-ref">Create a ticket</span></a>. These tickets will be treated
+as a group with the same reviewers and committed at the same time.</p>
+<dl class="simple">
+<dt>Do:</dt><dd><ul class="simple">
+<li><p>Make sure every ticket has a cross reference to the others in the set, e.g. <code class="docutils literal notranslate"><span class="pre">um:#1234</span></code></p></li>
+<li><p>Use keywords to show which other repositories are involved</p></li>
+<li><p>Get the tickets ready for review at the same time</p></li>
+<li><p>Ask for help testing if you don’t have access to all the codebases involved</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Code branches in linked tickets will require branching from compatible revisions
+to ensure they work together. The last released revisions will all be tagged
+with suitable keywords, or for head of trunk revisions please contact the
+Simulation Systems and Deployment Team for advice.</p>
+</div>
+</div>
+<div class="section" id="testing-changes-together">
+<h2>Testing Changes Together<a class="headerlink" href="#testing-changes-together" title="Permalink to this headline"></a></h2>
+<p>Multi-repository changes are expected to pass the regression tests for all the
+repositories involved. To carry out the tests involved in a linked ticket it can
+be helpful to refer to the semi-concentric circles above; layering the testing
+from the inside out as needed. Further details of how testing in each
+repository is handled can be found <a class="reference internal" href="testing.html#testing"><span class="std std-ref">here</span></a>.</p>
+<blockquote>
+<div><p>1. Firstly, testing changes in JULES, UKCA, or any other child repositories is
+as simple as running the standalone test proceedures for these codebases.</p>
+<p>2. Next, to test the UM, any changes to JULES etc will also need to be included.
+This is done by adding another source to the rose stem command line. So from a UM
+working copy:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rose</span> <span class="n">stem</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">developer</span><span class="p">,</span><span class="n">jules</span><span class="p">,</span><span class="n">ukca</span> <span class="o">--</span><span class="n">source</span><span class="o">=.</span> <span class="o">--</span><span class="n">source</span><span class="o">=/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">jules</span><span class="o">/</span><span class="n">changes</span> <span class="o">--</span><span class="n">source</span><span class="o">=/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">ukca</span><span class="o">/</span><span class="n">changes</span>
+</pre></div>
+</div>
+<p>The source paths involved can either be to local working copies or links to the
+fcm source control e.g. <code class="docutils literal notranslate"><span class="pre">fcm:jules.xm_br/dev/user/branch_name</span></code>. As many source
+paths as needed can be added to the list.</p>
+<p>3. Finally LFRic testing needs to encompass all of the other repositories
+affected. Paths to the other codebases involved should be added to
+<code class="docutils literal notranslate"><span class="pre">fcm-make/parameters.sh</span></code> under each of the <code class="docutils literal notranslate"><span class="pre">*_sources</span></code> variables. Again
+these paths can either be to local changes or those in the repository.</p>
+</div></blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Links to changes stored in fcm source control should point at the mirror
+repository (note <cite>jules.xm</cite> rather than <cite>jules.x</cite> above). Links to local
+changes provided to the LFRic build should start with <cite>&lt;hostname&gt;:</cite>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If any of the testing shows up failures then there are two possible ways to
+proceed:</p>
+<ol class="arabic simple">
+<li><p>The changes made should be re-written to avoid breaking the dependant
+repositories</p></li>
+<li><p>The changes made directly affect the interface between repositories and
+therefore a change is also needed to the parent repository to adapt to that change.</p></li>
+</ol>
+<p>If you’re uncertain which route to take then the Code Owners involved will
+hopefully be able to advise.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rose_stem.html" class="btn btn-neutral float-left" title="Rose Stem Suite" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="testing.html" class="btn btn-neutral float-right" title="Testing Your Change" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Simulation Systems and Deployment Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

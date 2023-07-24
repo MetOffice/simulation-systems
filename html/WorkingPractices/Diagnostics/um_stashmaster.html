@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STASH &mdash; Simulation Systems  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="LFRic Diagnostics" href="lfric_diagnostics.html" />
+    <link rel="prev" title="Diagnostic Systems" href="../diagnostics.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Simulation Systems
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Working Practices</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../working_practices.html">About the Working Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../planning_your_change.html">Planning Your Change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tickets.html">Create a ticket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../branches.html">Create a branch</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../developing_change.html">Developing Your Change</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../inputs.html">Input Variables, Rose Metadata and Upgrade Macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kgo.html">Known Good Output (KGO)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../diagnostics.html">Diagnostic Systems</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">STASH </a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#stashmaster-meta-conf">STASHmaster-meta.conf</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lfric_diagnostics.html">LFRic Diagnostics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../rose_stem.html">Rose Stem Suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multi_repository.html">Working with Multiple Repositories</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing Your Change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../approvals.html">Approval Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reviews.html">Reviews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../final_steps.html">Final Steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guides for Reviewers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Reviewers/scitechreview.html">Science and Technical Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Reviewers/codereview.html">Code and System Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Reviewers/howtocommit.html">How To Commit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Reviewers/committinglinkedtickets.html">Committing Linked Tickets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Reviewers/curaterelease.html">Curating a Release</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Further Details</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../who.html">Who’s Who</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Simulation Systems Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_of_conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dos_donts.html">Do’s and Don’ts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../change_notes.html">Recent Changes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Simulation Systems</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../developing_change.html">Developing Your Change</a></li>
+          <li class="breadcrumb-item"><a href="../diagnostics.html">Diagnostic Systems</a></li>
+      <li class="breadcrumb-item active">STASH </li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/WorkingPractices/Diagnostics/um_stashmaster.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="stash">
+<span id="id2"></span><h1>STASH <a class="footnote-reference brackets" href="#f1" id="id1">1</a><a class="headerlink" href="#stash" title="Permalink to this headline"></a></h1>
+<p>Information on every diagnostic available to the
+model is stored in a single file named <code class="docutils literal notranslate"><span class="pre">STASHmaster_A</span></code>, which is read into
+the model at the start of the run.</p>
+<p>The UM’s <code class="docutils literal notranslate"><span class="pre">STASHmaster_A</span></code> and associated help text file <code class="docutils literal notranslate"><span class="pre">STASHmaster-meta.conf</span></code>
+are available in your branch at
+<code class="docutils literal notranslate"><span class="pre">vnXX.Y_&lt;branch_name&gt;/rose-meta/um-atmos/HEAD/etc/stash/STASHmaster/</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When running the UM rose stem suite, the suite will automatically use the
+<code class="docutils literal notranslate"><span class="pre">STASHmaster_A</span> <span class="pre">file</span></code> from your branch when testing your code.</p>
+</div>
+<p>The following principles apply when altering the STASHmaster:</p>
+<ul class="simple">
+<li><p>If you add a new diagnostic to the <code class="docutils literal notranslate"><span class="pre">STASHmaster_A</span></code> file then you <strong>must</strong> also add to the stash master help text in <a class="reference internal" href="#stashmaster-meta"><span class="std std-ref">STASHmaster-meta.conf</span></a>.</p></li>
+<li><p>If you are altering the stashmaster, this may be referred to the FFPP governance board by the sci/tech or code reviewers - see the STASH entry guidelines.</p></li>
+<li><p>If your change has new stash items or changed/added attributes as an option code, versions mask etc., then first you have to get them reserved and recorded (published) on the reservation web page STASH/ReservedCodes</p></li>
+<li><p>Note that every reservation should be linked to a ticket with the correct explanation and a milestone. This rule applies to all stash related tables placed on this page.</p></li>
+<li><p>Although reservations could be some kind of self-service, contact the section owner first nevertheless. This could help to organise new items (when possible) in some logical groups.</p></li>
+<li><p>For new option code numbers contact the STASH code owner.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Complete details of the STASH system (including the syntax used in the
+<code class="docutils literal notranslate"><span class="pre">STASHmaster_A</span></code> file) can be found in
+<a class="reference external" href="https://code.metoffice.gov.uk/doc/um/latest/papers/umdp_C04.pdf">UMDP C04</a></p>
+</div>
+<div class="section" id="stashmaster-meta-conf">
+<span id="stashmaster-meta"></span><h2>STASHmaster-meta.conf<a class="headerlink" href="#stashmaster-meta-conf" title="Permalink to this headline"></a></h2>
+<p>If you are adding a new UM STASH diagnostic you must also add help text to the STASHmaster-meta.conf.
+This will provide others with help on your diagnostic. You will need to identify the stash entry with
+a <code class="docutils literal notranslate"><span class="pre">[stashmaster:code(xyz)]</span></code> section header, where the xyz is the stash code in the form
+<code class="docutils literal notranslate"><span class="pre">section</span> <span class="pre">number</span> <span class="pre">*</span> <span class="pre">1000</span> <span class="pre">+</span> <span class="pre">item</span> <span class="pre">number</span></code>.</p>
+<p>Include a full name, any units and explanatory text. You should also add a description field that matches
+the full name of the diagnostic. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">stashmaster</span><span class="p">:</span><span class="n">code</span><span class="p">(</span><span class="mi">1050</span><span class="p">)]</span>
+<span class="n">description</span><span class="o">=</span><span class="n">NO2</span> <span class="n">Dry</span> <span class="n">Deposition</span> <span class="n">Rate</span> <span class="p">(</span><span class="mi">3</span><span class="n">D</span><span class="p">)</span>
+<span class="n">help</span><span class="o">=</span><span class="n">NO2</span> <span class="n">Dry</span> <span class="n">Deposition</span> <span class="n">Rate</span> <span class="p">(</span><span class="mi">3</span><span class="n">D</span><span class="p">)</span>
+    <span class="o">=</span><span class="n">moles</span><span class="o">/</span><span class="n">s</span>
+    <span class="o">=</span>
+    <span class="o">=</span><span class="n">This</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">total</span> <span class="n">dry</span> <span class="n">deposition</span> <span class="n">flux</span> <span class="n">of</span> <span class="n">NO2</span> <span class="ow">in</span> <span class="n">each</span> <span class="n">gridbox</span>
+    <span class="o">=</span>
+    <span class="o">=</span><span class="n">The</span> <span class="nb">sum</span> <span class="n">of</span> <span class="n">this</span> <span class="n">deposition</span> <span class="n">flux</span> <span class="n">over</span> <span class="nb">all</span> <span class="n">model</span> <span class="n">gridboxes</span> <span class="n">gives</span> <span class="n">the</span> <span class="n">total</span>
+    <span class="o">=</span><span class="n">number</span> <span class="n">of</span> <span class="n">moles</span> <span class="n">of</span> <span class="n">NO2</span> <span class="n">removed</span> <span class="n">by</span> <span class="n">this</span> <span class="n">process</span> <span class="n">per</span> <span class="n">second</span> <span class="ow">in</span> <span class="n">the</span>
+    <span class="o">=</span><span class="n">whole</span> <span class="n">model</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>This assists the model user in being able to find useful help text on their diagnostic.</p>
+<p class="rubric">Footnotes</p>
+<dl class="footnote brackets">
+<dt class="label" id="f1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>This is an acronym for ‘Spatial and Temporal Averaging and Storage Handling’.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../diagnostics.html" class="btn btn-neutral float-left" title="Diagnostic Systems" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lfric_diagnostics.html" class="btn btn-neutral float-right" title="LFRic Diagnostics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Simulation Systems and Deployment Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

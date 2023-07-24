@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create a ticket &mdash; Simulation Systems  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Commonly-Used Keywords" href="common_keywords.html" />
+    <link rel="prev" title="Planning Your Change" href="planning_your_change.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Simulation Systems
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Working Practices</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="working_practices.html">About the Working Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="planning_your_change.html">Planning Your Change</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Create a ticket</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#type">Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#milestone">Milestone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cc">Cc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#priority-lfric-jules-ukca-casim">Priority (LFRic/JULES/UKCA/CASIM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#severity-um-socrates">Severity (UM/SOCRATES)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#keywords">Keywords</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common_keywords.html">Commonly-Used Keywords</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#component-all-repositories-except-jules-and-ukca">Component (all repositories except JULES and UKCA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#owner">Owner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#associated-with-lfric-only">Associated With (LFRic only)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#blocked-by-lfric-only">Blocked by (LFRic only)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="branches.html">Create a branch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developing_change.html">Developing Your Change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing Your Change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="approvals.html">Approval Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reviews.html">Reviews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="final_steps.html">Final Steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guides for Reviewers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/scitechreview.html">Science and Technical Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/codereview.html">Code and System Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/howtocommit.html">How To Commit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/committinglinkedtickets.html">Committing Linked Tickets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/curaterelease.html">Curating a Release</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Further Details</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="who.html">Who’s Who</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Simulation Systems Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dos_donts.html">Do’s and Don’ts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="change_notes.html">Recent Changes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Simulation Systems</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Create a ticket</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/WorkingPractices/tickets.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="create-a-ticket">
+<span id="ticket"></span><h1>Create a ticket<a class="headerlink" href="#create-a-ticket" title="Permalink to this headline"></a></h1>
+<p>Every change requires an associated ticket. This helps the developer
+organise and document their work and the reviewers to perform and
+document their tasks. It also provides a permanent record to refer
+back to.</p>
+<ol class="arabic simple">
+<li><p>Log in to the Science Repository Service with your username and password.</p></li>
+<li><p>Navigate to the project you wish to create a ticket in.</p></li>
+<li><p>Click the <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">ticket</span></code> button in the ribbon which appears at the top right of the Trac webpage.</p></li>
+</ol>
+<img alt="../_images/new_ticket.png" src="../_images/new_ticket.png" />
+<p>The ticket information can then be filled in. A description of each item in the ticket is as follows:</p>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline"></a></h2>
+<p>This should be a single-line, top-level summary of your change. Do not make
+it too generic (e.g. <code class="docutils literal notranslate"><span class="pre">fix</span> <span class="pre">bug</span></code>) as this doesn’t help identify your ticket
+from potentially thousands in the Trac system. Try and use something more
+descriptive (e.g. <code class="docutils literal notranslate"><span class="pre">Fix</span> <span class="pre">out-of-bounds</span> <span class="pre">issue</span> <span class="pre">in</span> <span class="pre">subroutine</span> <span class="pre">radar_wavelength</span></code>).</p>
+</div>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline"></a></h2>
+<p>This box allows for a more verbose description of what the issue is and
+supporting information. The description box can be modified during the
+development process to include additional information about the change.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If your ticket follows-on from an earlier development, you can mention
+this in the description by linking the ticket e.g.
+<code class="docutils literal notranslate"><span class="pre">Further</span> <span class="pre">changes</span> <span class="pre">following</span> <span class="pre">#1234</span></code>.</p>
+<p>Tickets in other repositories can also be linked by including their
+repository name and a colon before the ticket number, e.g. <code class="docutils literal notranslate"><span class="pre">um:#1</span></code>,
+<code class="docutils literal notranslate"><span class="pre">lfric:#23</span></code>,</p>
+</div>
+</div>
+<div class="section" id="type">
+<h2>Type<a class="headerlink" href="#type" title="Permalink to this headline"></a></h2>
+<p>Most repositories have a set of standard types, e.g.:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Defect (e.g. bug fix or issue)</p></li>
+<li><p>Enhancement (e.g. new scientific functionality)</p></li>
+<li><p>Optimisation (to use less resources)</p></li>
+<li><p>Task (for any other code change; e.g. delete unused code).</p></li>
+</ul>
+</div></blockquote>
+<p>You should choose whichever type is most appropriate to your code change.</p>
+<p><strong>LFRic</strong> has a number of different types. Either choose the most appropriate
+based on your change or seek guidance from a member of the LFRic development
+team or an experienced LFRic developer.</p>
+</div>
+<div class="section" id="milestone">
+<h2>Milestone<a class="headerlink" href="#milestone" title="Permalink to this headline"></a></h2>
+<p>This is used to indicate the release or version of the model your change will
+be included at. These vary between projects, but it’s common to choose either
+a milestone for the next release, or a milestone without a deadline date.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Most projects also have a <code class="docutils literal notranslate"><span class="pre">hopefully</span></code> or <code class="docutils literal notranslate"><span class="pre">somewhen</span></code> milestone for changes
+which don’t yet have a milestone assigned. If you are developing
+a change, it’s a good idea to set the milestone to this while
+doing the early development and especially if you are unsure as to which
+release cycle your change will make. This prevents you from being chased
+by the SSD team when the release deadline draws near.</p>
+</div>
+<p>All tickets for a particular milestone are visible either from the Roadmap
+feature in Trac or via a custom query in View Tickets.</p>
+</div>
+<div class="section" id="cc">
+<h2>Cc<a class="headerlink" href="#cc" title="Permalink to this headline"></a></h2>
+<p><strong>Optional:</strong> Enter the usernames of others who wish to receive email
+updates with the ticket status (e.g. co-developers). If in doubt, it’s
+best to leave this box blank.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use the cc box sparingly as the Trac system does generate an email
+every time the ticket is updated. Trac will also send an email to
+<strong>anyone</strong> who has edited a ticket.</p>
+<p>Therefore if someone includes your name in the cc box, editing
+the ticket yourself to take your name out of the cc list will mean
+you get the same amount of email from Trac as you have ‘touched’ the
+ticket.</p>
+</div>
+</div>
+<div class="section" id="priority-lfric-jules-ukca-casim">
+<h2>Priority (LFRic/JULES/UKCA/CASIM)<a class="headerlink" href="#priority-lfric-jules-ukca-casim" title="Permalink to this headline"></a></h2>
+<p>This is a list of options to show how important that the change is
+committed to your project, including:</p>
+<ul class="simple">
+<li><p>blocker (LFRic only)</p></li>
+<li><p>critical</p></li>
+<li><p>major</p></li>
+<li><p>normal (not used in LFRic)</p></li>
+<li><p>minor</p></li>
+<li><p>trivial</p></li>
+</ul>
+<p>Again, the developer should choose whichever they feel is the most
+appropriate setting.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It’s best to use the higher priority categories sparingly and with
+prior consultation (e.g. for an urgent bug fix). If in doubt, just
+select <code class="docutils literal notranslate"><span class="pre">normal</span></code> or <code class="docutils literal notranslate"><span class="pre">minor</span></code>.</p>
+</div>
+</div>
+<div class="section" id="severity-um-socrates">
+<h2>Severity (UM/SOCRATES)<a class="headerlink" href="#severity-um-socrates" title="Permalink to this headline"></a></h2>
+<p>The UM and SOCRATES have a ticket severity menu instead of a priority
+menu. These are as follows:</p>
+<ul class="simple">
+<li><p><strong>Wholesale</strong>: A code change which alters a huge number of files. Use only with prior consultation of the SSD team.</p></li>
+<li><p><strong>Significant</strong>: Any code change which touches more than one repository, updates KGO or changes both source code and metadata.</p></li>
+<li><p><strong>Minor</strong>: A change which touches source code <em>or</em> metadata, <strong>but not both</strong>.</p></li>
+<li><p><strong>Trivial</strong>: A small change of only a couple of lines of code.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Trivial tickets do not need a SciTech review; they should be simple
+and small enough that a CodeSys reviewer can understand them without
+any major scientific or technical changes.</p>
+</div>
+</div>
+<div class="section" id="keywords">
+<h2>Keywords<a class="headerlink" href="#keywords" title="Permalink to this headline"></a></h2>
+<p><strong>Optional:</strong> Keywords are generally used to identify specific aspects
+for certain tickets and for managing the way tickets are added to a
+project’s trunk.</p>
+<p>A list of <a class="reference internal" href="common_keywords.html#keywords"><span class="std std-ref">Commonly-Used Keywords</span></a> is available.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Usually there’s no particular need to add keywords which are synonyms
+for items in the title or description. However, project keywords may
+be useful for some people.</p>
+<p>If in doubt, it’s best to leave the keywords box blank initially, as
+keywords can always be added at a later date.</p>
+</div>
+</div>
+<div class="section" id="component-all-repositories-except-jules-and-ukca">
+<h2>Component (all repositories except JULES and UKCA)<a class="headerlink" href="#component-all-repositories-except-jules-and-ukca" title="Permalink to this headline"></a></h2>
+<p>Components vary significantly between different modelling systems. Please
+review the list of options and select the one most appropriate to your change,
+seeking advice from an experienced developer if you are unsure.</p>
+<p>For the UM, selecting <code class="docutils literal notranslate"><span class="pre">general</span></code> is probably the best option if your change does
+not fit into any of the existing categories.</p>
+</div>
+<div class="section" id="owner">
+<h2>Owner<a class="headerlink" href="#owner" title="Permalink to this headline"></a></h2>
+<blockquote>
+<div><p>Set yourself to be the owner of the ticket. Alternatively, with prior
+agreement you can set it to be any user of the SRS.</p>
+</div></blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not leave the Owner box as <code class="docutils literal notranslate"><span class="pre">&lt;default&gt;</span></code>. This will often result in
+your ticket becoming lost in the system! It’s always best to assign it
+to yourself, even if you know that someone else will eventually make
+the change.</p>
+</div>
+</div>
+<div class="section" id="associated-with-lfric-only">
+<h2>Associated With (LFRic only)<a class="headerlink" href="#associated-with-lfric-only" title="Permalink to this headline"></a></h2>
+<p>This box is used to link branches and wiki page templates as the ticket is
+developed. It is safe to leave it blank when first creating the ticket.</p>
+</div>
+<div class="section" id="blocked-by-lfric-only">
+<h2>Blocked by (LFRic only)<a class="headerlink" href="#blocked-by-lfric-only" title="Permalink to this headline"></a></h2>
+<p>This box can be used to list other tickets which block this change. This
+allows the SSD team to prioritise the commit order of the tickets on to
+the trunk.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="planning_your_change.html" class="btn btn-neutral float-left" title="Planning Your Change" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common_keywords.html" class="btn btn-neutral float-right" title="Commonly-Used Keywords" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Simulation Systems and Deployment Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

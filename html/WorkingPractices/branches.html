@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create a branch &mdash; Simulation Systems  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Developing Your Change" href="developing_change.html" />
+    <link rel="prev" title="Commonly-Used Keywords" href="common_keywords.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Simulation Systems
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Working Practices</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="working_practices.html">About the Working Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="planning_your_change.html">Planning Your Change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tickets.html">Create a ticket</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Create a branch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#branch-management-using-fcm">Branch Management using FCM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#checking-out-a-branch-to-a-working-copy">Checking out a branch to a working copy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developing_change.html">Developing Your Change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing Your Change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="approvals.html">Approval Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reviews.html">Reviews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="final_steps.html">Final Steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guides for Reviewers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/scitechreview.html">Science and Technical Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/codereview.html">Code and System Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/howtocommit.html">How To Commit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/committinglinkedtickets.html">Committing Linked Tickets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/curaterelease.html">Curating a Release</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Further Details</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="who.html">Who’s Who</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Simulation Systems Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dos_donts.html">Do’s and Don’ts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="change_notes.html">Recent Changes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Simulation Systems</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Create a branch</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/WorkingPractices/branches.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="create-a-branch">
+<h1>Create a branch<a class="headerlink" href="#create-a-branch" title="Permalink to this headline"></a></h1>
+<p>The source management tool is <a class="reference external" href="http://metomi.github.io/fcm/doc/">FCM</a>, which is based on subversion
+but with some subtle differences, both of which are very different from git.</p>
+<p><strong>LFRic</strong> branches are usually taken from the head of trunk to allow all changes
+to build on each other.</p>
+<p><strong>UM, JULES and UKCA</strong> branches are taken from the last released revision. By
+exception Head of Trunk branches are accepted for picking up and building on a
+specific development that has already been committed since the last revision.</p>
+<div class="section" id="branch-management-using-fcm">
+<h2>Branch Management using FCM<a class="headerlink" href="#branch-management-using-fcm" title="Permalink to this headline"></a></h2>
+<p>To create a branch using fcm, use the following command, replacing <code class="docutils literal notranslate"><span class="pre">NNN</span></code> with your ticket number,
+<code class="docutils literal notranslate"><span class="pre">project</span></code> with your project identifier (e.g. <code class="docutils literal notranslate"><span class="pre">um</span></code>, <code class="docutils literal notranslate"><span class="pre">jules</span></code>, <code class="docutils literal notranslate"><span class="pre">lfric</span></code>), <code class="docutils literal notranslate"><span class="pre">XX.Y</span></code> with your
+version number (e.g. <code class="docutils literal notranslate"><span class="pre">11.1</span></code>) and <code class="docutils literal notranslate"><span class="pre">branchname</span></code> with a suitable branch name (not including
+the version number):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fcm</span> <span class="n">bc</span> <span class="o">-</span><span class="n">k</span> <span class="n">NNN</span> <span class="o">-</span><span class="n">t</span> <span class="n">dev</span> <span class="n">branchname</span> <span class="n">fcm</span><span class="p">:</span><span class="n">project</span><span class="o">.</span><span class="n">x_tr</span><span class="nd">@vnXX</span><span class="o">.</span><span class="n">Y</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Choose a sensible, descriptive and preferably unique name for your branch, while being relatively
+short (less than 50 characters).</p>
+<p>Branches named <code class="docutils literal notranslate"><span class="pre">vn1.0_fix_bug</span></code> or <code class="docutils literal notranslate"><span class="pre">vn12.3_my_test</span></code> aren’t especially helpful.</p>
+<p>If you have to create a new branch at a different version to include the same feature, it is a good
+idea to keep the branch names the same; that way it is easier for someone to know that the branches
+are related in the trac repository.</p>
+</div>
+<p>Upon running the <code class="docutils literal notranslate"><span class="pre">fcm</span> <span class="pre">bc</span></code> command, the user is provided with a text editor window in which to make
+comments about their change. The first comment is usually one indicating that a branch has been
+created and a brief summary of what it will do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#NNN: Creates a branch to &lt;insert description of change you intend to make&gt;</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">NNN</span></code> should be replaced by the ticket number. Saving and exiting the text editor
+will produce a message in the terminal asking whether the user really wants to create the branch.
+Enter <code class="docutils literal notranslate"><span class="pre">y</span></code> to continue.</p>
+</div>
+<div class="section" id="checking-out-a-branch-to-a-working-copy">
+<h2>Checking out a branch to a working copy<a class="headerlink" href="#checking-out-a-branch-to-a-working-copy" title="Permalink to this headline"></a></h2>
+<p>To check out your branch immediately after creating it, look for the line in the terminal
+which starts with <code class="docutils literal notranslate"><span class="pre">[info]</span> <span class="pre">Created:</span> <span class="pre">https://code.metoffice.gov.uk/</span></code>. Copy the full URL and
+it can then be checked out with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fcm</span> <span class="n">co</span> <span class="o">&lt;</span><span class="n">full</span> <span class="n">branch</span> <span class="n">URL</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Alternatively, or to check out your branch at a later date, use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fcm</span> <span class="n">co</span> <span class="n">fcm</span><span class="p">:</span><span class="n">project</span><span class="o">.</span><span class="n">x_br</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">mosrsuser</span><span class="o">/</span><span class="n">vnXX</span><span class="o">.</span><span class="n">Y_branchname</span>
+</pre></div>
+</div>
+<p>Here, in addition to the project and version numbers, the user should include their Met Office
+SRS user name (e.g. <code class="docutils literal notranslate"><span class="pre">joebloggs</span></code>) in place of <code class="docutils literal notranslate"><span class="pre">mosrsuser</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>FCM allows the creation of branches in one of three types: development (abbreviated to dev),
+test and package (abbreviated to pkg). Branches which contain code intended for the
+trunk of a project should be of the dev type. Package branches are intended for grouping
+multiple code changes together into a single package, while the use of test branches will
+be covered later in <a class="reference internal" href="testing.html#testing"><span class="std std-ref">Testing Your Change</span></a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common_keywords.html" class="btn btn-neutral float-left" title="Commonly-Used Keywords" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="developing_change.html" class="btn btn-neutral float-right" title="Developing Your Change" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Simulation Systems and Deployment Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

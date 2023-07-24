@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Some basic guidance on Rose metadata &mdash; Simulation Systems  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Upgrade Macros" href="macros.html" />
+    <link rel="prev" title="Input Variables, Rose Metadata and Upgrade Macros" href="inputs.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Simulation Systems
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Working Practices</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="working_practices.html">About the Working Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="planning_your_change.html">Planning Your Change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tickets.html">Create a ticket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="branches.html">Create a branch</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="developing_change.html">Developing Your Change</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="inputs.html">Input Variables, Rose Metadata and Upgrade Macros</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="inputs.html#how-to-add-an-upgrade-macro-to-your-branch">How to add an upgrade macro to your branch</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Some basic guidance on Rose metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="macros.html">Upgrade Macros</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="kgo.html">Known Good Output (KGO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diagnostics.html">Diagnostic Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rose_stem.html">Rose Stem Suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi_repository.html">Working with Multiple Repositories</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing Your Change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="approvals.html">Approval Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reviews.html">Reviews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="final_steps.html">Final Steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guides for Reviewers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/scitechreview.html">Science and Technical Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/codereview.html">Code and System Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/howtocommit.html">How To Commit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/committinglinkedtickets.html">Committing Linked Tickets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/curaterelease.html">Curating a Release</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Further Details</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="who.html">Who’s Who</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Simulation Systems Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dos_donts.html">Do’s and Don’ts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="change_notes.html">Recent Changes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Simulation Systems</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="developing_change.html">Developing Your Change</a></li>
+          <li class="breadcrumb-item"><a href="inputs.html">Input Variables, Rose Metadata and Upgrade Macros</a></li>
+      <li class="breadcrumb-item active">Some basic guidance on Rose metadata</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/WorkingPractices/metadata_guidance.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <span class="target" id="metadata-guidance"></span><div class="section" id="some-basic-guidance-on-rose-metadata">
+<h1>Some basic guidance on Rose metadata<a class="headerlink" href="#some-basic-guidance-on-rose-metadata" title="Permalink to this headline"></a></h1>
+<p>It is important that the appearance of inputs across the GUI panels conform to the same standards.
+This ensures that users of each model become familiar with how the panels work and are present
+with a consistent set of information, such as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[namelist:&lt;namelist&gt;=&lt;variable&gt;]
+description=&lt;what is the variable for?&gt;
+help=&lt;detailed information about the variable&gt;
+sort-key=&lt;XY&gt;
+etc
+</pre></div>
+</div>
+<p>then each input is presented as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">variable</span> <span class="n">name</span>
+<span class="n">short</span> <span class="n">description</span> <span class="n">of</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">name</span>
+</pre></div>
+</div>
+<p>Help text is displayed when one clicks the variable name.</p>
+<p>The following sections provide some general guidance as to how to structure your metadata.</p>
+<div class="section" id="number-of-panels">
+<h2>Number of panels<a class="headerlink" href="#number-of-panels" title="Permalink to this headline"></a></h2>
+<p>If you have a particularly long namelist, consider dividing up the number of panels to ensure
+that the user doesn’t have to deal with a particularly long panel with lots of switches.
+However, switches which relate to each other should always be on the same panel.</p>
+</div>
+<div class="section" id="sort-keys-and-triggers">
+<h2>Sort Keys and triggers<a class="headerlink" href="#sort-keys-and-triggers" title="Permalink to this headline"></a></h2>
+<p>Please use sort-keys to order the appearance of items in your panels, otherwise they will appear
+in alphabetical order. This means that sometimes items that are triggered on and off will appear
+far away from the item that triggered them.</p>
+<p>Please provide triggers for all variables where possible. It is much better and cleaner to only
+see inputs that need to be set rather than everything.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The GUI provides an option to un-hide triggered variables if one wants to see them all.</p>
+</div>
+<p>Please set <code class="docutils literal notranslate"><span class="pre">compulsory=true</span></code> for items and use triggers for when it is not required.The settings
+of all variables will then be present, in all apps to aid configuration management. When a variable
+is triggered off, it will be commented out in the apps e.g. <code class="docutils literal notranslate"><span class="pre">!!variable</span></code>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If any variable (new or existing) has received a new compulsory=true setting please use an upgrade macro to
+add that variable to apps with a valid value.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>While it is possible to trigger a variable based on <code class="docutils literal notranslate"><span class="pre">AND</span></code> logic (e.g. where some condition on <code class="docutils literal notranslate"><span class="pre">variable1</span></code>
+and another condition on <code class="docutils literal notranslate"><span class="pre">variable2</span></code> trigger <code class="docutils literal notranslate"><span class="pre">variable3</span></code>), cumbersome triggering of this nature is best
+avoided.</p>
+<p>It is not possible to trigger a variable based on <code class="docutils literal notranslate"><span class="pre">OR</span></code> logic.</p>
+</div>
+</div>
+<div class="section" id="viewing-meta-data-changes-as-you-go-along">
+<h2>Viewing meta-data changes as you go along<a class="headerlink" href="#viewing-meta-data-changes-as-you-go-along" title="Permalink to this headline"></a></h2>
+<p>One can easily review their meta-data changes with the rose config editor, opening up an example app file. For example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">&lt;</span><span class="n">path</span> <span class="n">of</span> <span class="n">working</span> <span class="n">copy</span> <span class="n">of</span> <span class="n">branch</span><span class="o">&gt;/</span><span class="n">rose</span><span class="o">-</span><span class="n">stem</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">um_n48_eg</span>
+<span class="n">rose</span> <span class="n">config</span><span class="o">-</span><span class="n">edit</span> <span class="o">-</span><span class="n">M</span> <span class="o">&lt;</span><span class="n">path</span> <span class="n">of</span> <span class="n">working</span> <span class="n">copy</span> <span class="n">of</span> <span class="n">branch</span><span class="o">/</span><span class="n">rose</span><span class="o">-</span><span class="n">meta</span><span class="o">/&gt;</span>
+</pre></div>
+</div>
+<p>then once the app opens click on the LHS appname to being up the app meta panel. Update this to HEAD rather than the version number and apply.</p>
+<p>Please note that if you have used an upgrade macro on the app then the meta line at the top of the app file will have changed (i.e. meta=um-atmos/vn11.0_t46). Since no meta-data exists at this version rose edit will produce an error saying that it cannot find it, instead it will use the meta-data in um-atmos/HEAD. Please click OK and continue.</p>
+<p>Your updates should now appear.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="inputs.html" class="btn btn-neutral float-left" title="Input Variables, Rose Metadata and Upgrade Macros" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="macros.html" class="btn btn-neutral float-right" title="Upgrade Macros" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Simulation Systems and Deployment Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

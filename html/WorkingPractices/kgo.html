@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Known Good Output (KGO) &mdash; Simulation Systems  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Temporary Logical Variables" href="temp_logicals.html" />
+    <link rel="prev" title="Upgrade Macros" href="macros.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Simulation Systems
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Working Practices</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="working_practices.html">About the Working Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="planning_your_change.html">Planning Your Change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tickets.html">Create a ticket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="branches.html">Create a branch</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="developing_change.html">Developing Your Change</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html">Input Variables, Rose Metadata and Upgrade Macros</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Known Good Output (KGO)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="temp_logicals.html">Temporary Logical Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diagnostics.html">Diagnostic Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rose_stem.html">Rose Stem Suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi_repository.html">Working with Multiple Repositories</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing Your Change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="approvals.html">Approval Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reviews.html">Reviews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="final_steps.html">Final Steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guides for Reviewers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/scitechreview.html">Science and Technical Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/codereview.html">Code and System Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/howtocommit.html">How To Commit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/committinglinkedtickets.html">Committing Linked Tickets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reviewers/curaterelease.html">Curating a Release</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Further Details</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="who.html">Who’s Who</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Simulation Systems Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dos_donts.html">Do’s and Don’ts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="change_notes.html">Recent Changes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Simulation Systems</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="developing_change.html">Developing Your Change</a></li>
+      <li class="breadcrumb-item active">Known Good Output (KGO)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/WorkingPractices/kgo.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="known-good-output-kgo">
+<span id="kgo"></span><h1>Known Good Output (KGO)<a class="headerlink" href="#known-good-output-kgo" title="Permalink to this headline"></a></h1>
+<p>Normally it is to be expected that code changes regress (i.e. all prognostic
+variables <strong>and</strong> diagnostics maintain the same answers with your code included
+but switched off).</p>
+<p>The most common reason why a code change does not regress is when a bug is
+discovered and fixed.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Where a change in answers occurs, the developer must contact the configuration
+owners of all affected configurations. See <a class="reference internal" href="approvals.html#approvals"><span class="std std-ref">Approval Process</span></a> for details.</p>
+</div>
+<p>Configuration owners will review the change and will either accept the change
+as it is, or will request the use of a temporary variable to switch the
+change off. See <a class="reference internal" href="temp_logicals.html#templogicals"><span class="std std-ref">Temporary Logical Variables</span></a> for details of this process.</p>
+<p>Sometimes, a KGO update may also be required to simply add a new job to the
+test suite or to port the rose stem suite to new HPC architecture.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If your development includes updates to the KGO, you <strong>must</strong> add the
+<code class="docutils literal notranslate"><span class="pre">kgo</span></code> keyword to your ticket so that your CodeSys reviewer knows to
+install the new KGO. Failure to do so may lead to delays in your
+ticket making the project’s trunk.</p>
+</div>
+<p><strong>LFRic</strong> KGO checksums are stored in the repository. As such with LFRic tickets
+the expectation is that you, as the developer, will include updated KGO files
+as part of your branch.</p>
+<p><strong>UM and JULES</strong> KGO output files are stored outside of the repository. Access
+to this area is restricted to members of the Simulation Systems and Deployment
+Team and they will update the KGO files to include your new answers as part of
+the commit process.</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="macros.html" class="btn btn-neutral float-left" title="Upgrade Macros" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="temp_logicals.html" class="btn btn-neutral float-right" title="Temporary Logical Variables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Simulation Systems and Deployment Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
