@@ -1,2 +1,0 @@
-Curating a Release
-==================
