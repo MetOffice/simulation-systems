@@ -4,6 +4,7 @@ on:
   push:
     branches:
     - main
+    - jennyhickson-patch-1
     
   workflow_dispatch:
   
