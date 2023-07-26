@@ -8,7 +8,8 @@ How do linked tickets work?
 Linked tickets contain changes that all need to be committed together to work
 successfully. With only some of the changes committed the repositories are
 considered "out of sync", with some of the test suites likely to fail as the
-api between the codebases is broken.
+api between the codebases is broken. For this reason, where possible, all parts of
+a linked ticket should be committed on the same day to avoid nightly tests failing.
 
 :ref:`Multi-repository <multirepo>` changes are nested, and the different branches
 will need approaching in the correct order. The UM and LFRIc are the key places where
@@ -22,7 +23,7 @@ these overlap.
 
     While it is possible to work through the commit process for each repository in turn,
     following this list in order, this can take a lot of time and so it is prudent to
-    parallelize the process where possible.
+    parallelise the process where possible.
 
     A suggested sequence would be as follows:
 

@@ -414,6 +414,12 @@ for all affected tests before you commit to the trunk.
            trunk and run the test-suite as described above to confirm that all
            is working.
 
+.. tip::
+    Between running any required testing and installing the KGO check that the
+    failing rose-ana tasks match those in the developers trac.log. If any have
+    failed for other reasons (e.g. timeout) then these should be re-triggered
+    before attempting to install the KGO files.
+
 5. Commit
 ---------
 

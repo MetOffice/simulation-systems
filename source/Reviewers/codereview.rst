@@ -23,7 +23,8 @@ will include areas such as:
 .. dropdown:: Is the ticket and testing complete?
 
     * A Ticket Summary should be attached and filled in. This includes:
-        * Proof of :ref:`testing <testing>` completed.
+        * Proof of :ref:`testing <testing>` completed. All tests should pass
+          with the exception of any known changes in answers.
         * Approvals from the code owners for every file changed.
         * If the change affects answers then approval from the owners of the affected configurations.
         * If the change modifies OMP code sections then approval from the optimisation team.
