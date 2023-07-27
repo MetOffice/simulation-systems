@@ -19,6 +19,6 @@ jobs:
       with:
         python-version: '3.x'
     - run: |
-         $CONDA/bin/conda env update -f env.yml --name base
-         #conda activate sphynx_doc_env
-         #make clean html
+         pip install Sphinx==4.5.0
+         pip install sphinx-design==0.0.13
+         pip install sphinx-rtd-theme==1.2.0
