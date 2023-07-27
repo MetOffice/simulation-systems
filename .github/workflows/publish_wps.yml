@@ -32,6 +32,7 @@ jobs:
       run: |
         git worktree add ../publish_wps
         cd ../publish_wps
+        git fetch origin gh-pages 
         git checkout gh-pages
         
         cp -r ../simulation-systems/build/html .
