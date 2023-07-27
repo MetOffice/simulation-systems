@@ -19,6 +19,6 @@ jobs:
       with:
         python-version: '3.x'
     - run: |
-         conda env create -f env.yml
-         conda activate sphynx_doc_env
-         make clean html
+         $CONDA/bin/conda env update -f env.yml --name base
+         #conda activate sphynx_doc_env
+         #make clean html
