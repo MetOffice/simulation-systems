@@ -39,5 +39,6 @@ jobs:
         git fetch origin gh-pages 
         git checkout gh-pages
         cp -r ../simulation-systems/build/html .
+        git status
         git commit -m "Docs build"
         git push -u origin gh-pages
