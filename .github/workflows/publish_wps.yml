@@ -15,7 +15,9 @@ jobs:
     steps:
     - name: Check out source
       uses: actions/checkout@v3
-
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
     - run: |
          conda env create -f env.yml
          conda activate sphynx_doc_env
