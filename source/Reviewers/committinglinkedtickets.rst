@@ -3,169 +3,134 @@
 Committing Linked Tickets
 =========================
 
-.. div:: sd-fs-5
+How do linked tickets work?
+---------------------------
+Linked tickets contain changes that all need to be committed together to work
+successfully. With only some of the changes committed the repositories are
+considered "out of sync", with some of the test suites likely to fail as the
+api between the codebases is broken. For this reason, where possible, all parts of
+a linked ticket should be committed on the same day to avoid nightly tests failing.
 
-    First, checkout, merge and test all branches. Tests for each branch can run simultaneously, but give the Jules-ticket as a source to the UM, and give the UM and Jules tickets as sources to LFRic:
+:ref:`Multi-repository <multirepo>` changes are nested, and the different branches
+will need approaching in the correct order. The UM and LFRIc are the key places where
+these overlap.
 
-.. div:: sd-fs-5
+    1. Everything except UM and LFRic can be worked on seperately and should be committed first.
+    2. The UM relies on code from all of the above code bases, and will need that code for both testing and committing.
+    3. LFRic relies on code from all of the above, and will need that code for both testing and committing.
 
-    **1. Checkout trunks, merge in tickets and test:**
+.. tip::
 
-.. tab-set::
+    While it is possible to work through the commit process for each repository in turn,
+    following this list in order, this can take a lot of time and so it is prudent to
+    parallelise the process where possible.
 
-    .. tab-item:: Jules
+    A suggested sequence would be as follows:
 
-        Check out Jules trunk and merge:
+        1. Complete the merge and macro stages for every repository. These steps are entirely
+           isolated and so order doesn't matter.
 
-        .. code-block:: RST
+        2. Test all of the changes together as described below.
 
-            fcm co fcm:jules.x_tr@HEAD your_directory_name
-            cd your_directory_name
-            fcm merge fcm:jules.x_br/dev/dev_name/branch_name
-            fcm conflicts
+        3. Install KGO files for all repositories requiring them
 
-        The before and after tag always cause conflicts in the versions.py file and need manually adjusting.
-        If this is the only conflict, you can edit with the GUI or manually afterwards. To edit manually, accept changes in the pop-up GUI window and put “y” in terminal when prompted.
-        Manually go to the “versions.py” file, add the old class back in/edit the file so both the old and new class are in, and change the before tag to be equal to the previous update’s after tag.
-
-       .. dropdown:: Upgrade macros, new rose stem app or KGO update?
-
-            Upgrade macros:
-
-            .. code-block:: RST
-
-                ./bin/upgrade_jules_test_apps vnX.X_txxx
-
-       Test the Jules ticket:
-
-        .. code-block:: RST
-
-            rose stem --group=scripts
-            rose stem --group=all
+        4. Commit the tickets as described below.
 
 
-    .. tab-item:: Jules docs
+.. _tesinglinked:
 
-        Checkout Jules doc trunk and merge:
+Testing linked tickets
+----------------------
+With the branches from all the tickets merged into a working copy of their
+respective Head of Trunk these can all be used together to test the change.
 
-        .. code-block:: RST
+Details for testing multi-repository tickets are included :ref:`here <multirepo>`.
 
-            fcm co fcm:jules_doc.x_tr@HEAD jules_doc
-            cd jules_doc
-            fcm merge fcm:jules_doc.x_br/dev/dev_name/branch_name
+**In summary:**
 
-        Check the documentation builds correctly:
+* JULES, UKCA and other child repositories can be tested using their standalone
+  test suites as described on the How to Commit page.
 
-        .. code-block:: RST
+* Local working copies can be passed to the UM on the command line
 
-            module load scitools
-            cd docs/user_guide
-            make clean html
-            firefox build/html/index.html &
+    .. code-block:: RST
 
-            make clean latexpdf
-            evince build/latex/JULES_User_Guide.pdf &
+        rose stem --group=developer,ukca,jules --source=. --source=/path/to/jules/working/copy --source=/path/to/ukca/working/copy
+
+    Make sure you test the group that will exercise the interface between those repositories
+    (e.g. in the above example the jules and ukca groups are tested).
+
+* Local working copies of any linked UM, JULES, UKCA or other repositories
+  can be passed to LFRic through <lfric_trunk>/lfric_atm/fcm-make/parameters.sh.
+
+    .. code-block:: RST
+
+        um_sources=vldXXX:/path/to/um/working/copy
 
 
-    .. tab-item:: UM
+.. tip::
 
-        Checkout the UM trunk, merge with the ticket, check for conflicts:
+    It is always important that branches and working copies used for testing
+    multiple repositories together have been taken at the same point in time. If
+    this isn't the case then API breaking changes may be included in one repository
+    but not another which will cause tests to break.
 
-        .. code-block:: RST
+    The developer will likely have used branches taken from the last releases which
+    are a known set of stable revisions which work together.
 
-            fcm co fcm:um.x_tr chosen_name
-            cd chosen_name
-            fcm merge fcm:um.x_br/dev/dev_name/branch_name
-            fcm cf
+    Make sure the testing done here (just prior to commit) is using the latest
+    head of all the trunks. Assuming nightly tests are passing then this is
+    also a known set of revisions that work together.
 
-        The before and after tag always cause conflicts in the versions.py file and need manually adjusting.
-        If this is the only conflict, you can edit with the GUI or manually afterwards. To edit manually, accept changes in the pop-up GUI window and put “y” in terminal when prompted.
-        Manually go to the “versions.py” file, add the old class back in/edit the file so both the old and new class are in, and change the before tag to be equal to the previous update’s after tag.
+.. tip::
 
-        Update the test suite for an upgrade macro, where *xx.x* is the UM version and *xxxxx* is the AFTER_TAG of the upgrade macro:
+    If some of the changes in this set of tickets have already been committed
+    then see steps 2, 4 and 5 below on how to include those changes in your testing.
+    This is instead of the steps described above.
 
-        .. code-block:: RST
+    e.g. If JULES changes have been committed and the revision number modified in
+    rose-suite.conf then the working copy no longer needs supplying as a `source`
+    to the UM testing.
 
-            ~frum/bin/update_all.py /path/to/working/copy/of/trunk --um=xx.x_xxxxx
+.. _committinglinked:
 
-        Test UM with a source pointing to Jules, to include the Jules updates in the testing:
+Committing linked tickets
+-------------------------
 
-        .. code-block:: RST
+Once you are happy with all your testing then the commit sequence is as follows:
 
-            rose stem --group=developer,jules --source=. --source=/path/to/merged/jules/working/copy
+1. Commit all trunks **except** UM and LFRic. Make note of the commit revision numbers.
 
-    .. tab-item:: LFRic
+2. Update <um_trunk>/rose-stem/rose-suite.conf
 
-        Checkout the UM trunk, merge with the ticket, check for conflicts:
+    * Modify ``HOST_SOURCE_*`` for all child repositories involved to point to the new commit revisions.
 
-        .. code-block:: RST
-
-            fcm co fcm:lfric.x_tr your_lfric_trunk_name
-            cd your_lfric_trunk_name
-            fcm merge fcm:lfric.x_br/dev/dev_name/branch_name
-            fcm cf
-
-        Navigate into: chosen_name/lfric atm/fcm-make/parameters.sh and temporarily change the UM and Jules sources to:
-
-        .. code-block:: RST
-
-            vldxxx:/path/to/um _ticket
-            vldxxx:/path/to/ jules_ticket
-
-        Back in the terminal, test the changes:
+    * e.g. If a JULES ticket has just been committed at revision 12345
 
         .. code-block:: RST
 
-            cd lfric_atm
-            module use /data/users/lfric/modules/modulefiles.rhel7
-            module load environment/lfric/intel
-            make test-suite
+            HOST_SOURCE_JULES='fcm:jules.xm_tr@12345'
 
+3. Commit UM
 
-.. div:: sd-fs-5
+4. Update <lfric_trunk>/lfric_atm/fcm-make/parameters.sh
 
-    **2. Committing tickets**
+    * Modify ``*_rev`` variables for all other repositories you have updated to point to the the new commit revisions.
+    * Remove any branch references from the ``*_sources`` variables.
+    * e.g. If a JULES ticket has been committed at revision 12345 and a UM ticket at 123456
 
-N.B. Tickets must be committed in the correct order: Jules, then UM, then LFRic:
+        .. code-block:: RST
 
-1) Commit Jules ticket (and then Jules documentation)
+            export um_rev=123456
+            export jules_rev=12345
 
-.. code-block:: RST
+            export um_sources=
+            export jules_sources=
 
-    fcm commit
+5. **For changes including JULES and LFRic** also update <lfric_trunk>/miniapps/lfric_coupled/rose-stem/app/fcm_make_river/rose-app.conf
 
-2) Put JULES revision number into UM rose-stem/rose-suite.conf
+    * Modify ``JULES_SOURCE_VN`` to also point to the same revision as parameters.sh.
 
-.. code-block:: RST
+5. Commit LFRic
 
-    cd ticket_folder/rose-stem/rose-suite.conf
-
-.. code-block:: RST
-
-    BASE_JULES_REV='xxxxx'
-
-3) Commit UM ticket
-
-.. code-block:: RST
-
-    fcm commit
-
-4) Put JULES and UM revision numbers into LFRic’s lfric_atm/fcm-make/parameters.sh file, and remove paths to working copies in that file.
-
-.. code-block:: RST
-
-    export um_rev=xxxxx
-    export jules_rev=xxxxxx
-
-    export um_sources=
-    export jules_sources=
-
-
-5) Commit LFRic ticket
-
-.. code-block:: RST
-
-    fcm commit
-
-Now remember to:  Update the ticket with the revision number the change was merged back into the trunk at, e.g. [500] for revision 500, and comment whether the change is expected to alter results or not and update the ticket status to committed.
-
+You may choose to run a subset of tests before completing the UM and LFRic commits in turn to validate your changes.

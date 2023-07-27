@@ -33,7 +33,6 @@ through in sequence.
     Reviewers/scitechreview
     Reviewers/codereview
     Reviewers/howtocommit
-    Reviewers/committinglinkedtickets
     Reviewers/curaterelease
 
 .. toctree::

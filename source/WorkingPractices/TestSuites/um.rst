@@ -1,3 +1,5 @@
+.. _um_testing:
+
 Testing the UM
 ==============
 
@@ -71,6 +73,8 @@ and that you can specify more than one at once, e.g. ``--group=developer,jules,u
     | ukca               | A set of tests that exercise the UM/UKCA interface.      |
     +--------------------+----------------------------------------------------------+
     | recon              | A set of tests that exercise the reconfiguration system. |
+    +--------------------+----------------------------------------------------------+
+    | coupled            | A set of tests that exercise the coupled and hybrid code.|
     +--------------------+----------------------------------------------------------+
     | uk_lams            | Testing for the limited area models                      |
     +--------------------+----------------------------------------------------------+
