@@ -34,13 +34,6 @@ jobs:
         cd ../publish_wps
         git fetch origin gh-pages 
         git checkout gh-pages
-        
         cp -r ../simulation-systems/build/html .
-
-# push
-#git commit -am "sensible message"
-#git push
-
-# create a pull request from your branch to the gh-pages branch.
-
-
+        git commit -m "Docs build"
+        git push -u origin gh-pages
