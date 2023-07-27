@@ -18,7 +18,12 @@ jobs:
     - uses: actions/setup-python@v4
       with:
         python-version: '3.x'
-    - run: |
+    - name: Install Sphinx packages
+      run: |
          pip install Sphinx==4.5.0
          pip install sphinx-design==0.0.13
          pip install sphinx-rtd-theme==1.2.0
+         
+    - name: build docs
+      run: |
+        make clean html
