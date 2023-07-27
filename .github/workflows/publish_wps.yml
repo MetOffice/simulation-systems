@@ -27,3 +27,19 @@ jobs:
     - name: build docs
       run: |
         make clean html
+        
+    - name: commit docs to gh-pages branch
+      run: |
+        git worktree add ../publish_wps
+        cd ../publish_wps
+        git checkout origin/gh-pages
+        
+        cp -r ../simulation-systems/build/html .
+
+# push
+#git commit -am "sensible message"
+#git push
+
+# create a pull request from your branch to the gh-pages branch.
+
+
