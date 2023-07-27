@@ -1,0 +1,42 @@
+name: Build Docs
+
+on:
+  push:
+    branches:
+    - main
+    
+  workflow_dispatch:
+  
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: set git user
+      run: |
+        git config --global user.email "umsysteam@metoffice.gov.uk"
+        git config --global user.name "SSD Developers"
+    - name: Check out source
+      uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+    - name: Install Sphinx packages
+      run: |
+         pip install Sphinx==4.5.0
+         pip install sphinx-design==0.0.13
+         pip install sphinx-rtd-theme==1.2.0
+         
+    - name: build docs
+      run: |
+        make clean html
+        
+    - name: commit docs to gh-pages branch
+      run: |
+        git worktree add ../publish_wps
+        cd ../publish_wps
+        git fetch origin gh-pages 
+        git checkout gh-pages
+        cp -r ../simulation-systems/build/html/. .
+        git commit -am "Docs build"
+        git push -u origin gh-pages
