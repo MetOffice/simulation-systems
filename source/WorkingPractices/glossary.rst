@@ -2,10 +2,6 @@ Simulation Systems Glossary
 ===========================
 Please suggest new entries to the Simulation Systems and Deployment Team
 
-Atmos Project Board:
-    The governing body that oversees the work of the Simulation Systems and
-    Deployment Team.
-
 Closed Release:
     A release cycle where the only accepted changes to the trunk relate to a
     particular piece of work, either technical or scientific. A release can
@@ -78,6 +74,10 @@ SciTech Review:
 Simulation Systems and Deployment Team:
     The team responsible for the oversight of these working practices. For
     more information see here :ref:`ssd`
+
+UM Project Board:
+    The governing body that oversees the work of the Simulation Systems and
+    Deployment Team.
 
 Version:
     Each release of the codebase is completed by tagging the latest revision of

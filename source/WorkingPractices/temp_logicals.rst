@@ -59,23 +59,25 @@ a usual scientific or technical namelist. The location of the temporary logical 
 by repository, with not all repositories requiring their own temporary logical subroutine.
 Details are as follows:
 
-+------------+-----------------------------------------------------------------------------------+
-| Project    | Location                                                                          |
-+============+===================================================================================+
-| UM         | ``src/control/misc/science_fixes_mod.F90``                                        |
-+------------+-----------------------------------------------------------------------------------+
-| JULES      | ``src/control/shared/jules_science_fixes_mod.F90``                                |
-+------------+-----------------------------------------------------------------------------------+
-| LFRic      | Currently reads ``science_fixes_mod.F90`` (see UM above) into                     |
-|            |                                                                                   |
-|            | ``um_physics/source/support/um_physics_init_mod.f90``                             |
-+------------+-----------------------------------------------------------------------------------+
-| UKCA/CASIM | No temporary logical routine currently in place for these projects. Consult with  |
-|            |                                                                                   |
-| SOCRATES   | Code Owners or check the UM ``science_fixes_mod.F90`` for existing temporary      |
-|            |                                                                                   |
-|            | logicals.                                                                         |
-+------------+-----------------------------------------------------------------------------------+
+.. tab-set::
+
+    .. tab-item:: UM
+
+        ``src/control/misc/science_fixes_mod.F90``
+
+    .. tab-item:: JULES
+
+        ``src/control/shared/jules_science_fixes_mod.F90``
+
+    .. tab-item:: LFRic
+
+        Currently reads ``science_fixes_mod.F90`` (see UM) into ``um_physics/source/support/um_physics_init_mod.f90``
+
+    .. tab-item:: UKCA/CASIM/SOCRATES
+
+        No temporary logical routine currently in place for these projects.
+        Consult with Code Owners or check the UM ``science_fixes_mod.F90`` for
+        existing temporary logicals.
 
 .. hint::
 

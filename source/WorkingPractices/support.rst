@@ -46,4 +46,4 @@ should be escalated to the manager of the Simulation Systems and Deployment Team
 in the first instance. They will consult appropriately to make the best balanced
 and impartial decision. If this is unsuccessful, the ultimate (but very rarely
 used) decision authority about code that may be committed to the trunk lies with
-the Atmos Project Board.
+the UM Project Board.

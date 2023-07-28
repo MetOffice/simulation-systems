@@ -26,7 +26,7 @@ Small changes and bug fixes rarely need documentation to be updated, but when ne
 added to a project, the documentation must be updated to ensure that it remains contemporary
 with the code.
 
-.. tip ::
+.. tip::
   Searching the relevant documentation for words related to your change is often useful when
   deciding whether to update the documentation.
 
