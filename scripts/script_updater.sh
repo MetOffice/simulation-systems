@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# *****************************COPYRIGHT*******************************
+# (C) Crown copyright Met Office. All rights reserved.
+# For further details please refer to the file COPYRIGHT.txt
+# which you should have received as part of this distribution.
+# *****************************COPYRIGHT*******************************
+
 #set -eu
 
 github_url="https://github.com/MetOffice/simulation-systems.git"
