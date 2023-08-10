@@ -15,6 +15,12 @@ several configurations, and rose-ana tasks to check the output.
 The output is checked for correctness both by comparing the output to a set of
 stored :ref:`KGO files <kgo>`.
 
+.. note::
+    If there are JULES changes to shared science code or metadata then these
+    changes will need to be tested using the UM and LFRic test-suites too.
+
+    See :ref:`multirepo` for details on how to carry out this testing.
+
 Below is a (by no means comprehensive) set of groups that you may wish to use on
 Met Office systems.
 
@@ -45,4 +51,3 @@ Met Office systems.
     |                    |                                                          |
     |                    | compiler.                                                |
     +--------------------+----------------------------------------------------------+
-
