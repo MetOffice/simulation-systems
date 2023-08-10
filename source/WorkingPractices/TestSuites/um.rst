@@ -32,6 +32,12 @@ restarted.
 
         rose stem --group=xc40_gnu_um_rigorous_omp-n48
 
+.. note::
+    If there are UM changes to src/atmosphere code or metadata then these
+    changes will need to be tested using the LFRic test-suites too.
+
+    See :ref:`multirepo` for details on how to carry out this testing.
+
 Below is a (by no means comprehensive) set of groups that you may wish to use on
 Met Office systems. Note that there is a lot of overlap between these groups,
 and that you can specify more than one at once, e.g. ``--group=developer,jules,ukca``.
@@ -91,4 +97,3 @@ and that you can specify more than one at once, e.g. ``--group=developer,jules,u
     The `standard jobs <https://code.metoffice.gov.uk/trac/um/wiki/StandardJobs>`_
     page for each release includes details of which of ``developer``,
     ``nightly`` and ``all`` a configuration is tested at.
-

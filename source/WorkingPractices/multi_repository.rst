@@ -35,7 +35,7 @@ Do:
     * Get the tickets ready for review at the same time
     * Ask for help testing if you don't have access to all the codebases involved
 
-.. note::
+.. important::
     Code branches in linked tickets will require branching from compatible revisions
     to ensure they work together.
 
@@ -66,11 +66,19 @@ Testing the UM with other repositories
 
 To test the UM, any changes to JULES, UKCA, Socrates, CASIM etc will also need
 to be included. This is done by adding another source to the rose stem command
-line. So from a UM working copy at a suitable revision:
+line.
 
-    .. code-block::
+    1. :ref:`Checkout<checkout>` a UM working copy
 
-        rose stem --group=developer,jules,ukca --source=. --source=/path/to/jules/changes --source=/path/to/ukca/changes
+        - this may be your branch from a linked ticket, or a clean trunk copy
+          at either the last release or a suitable head of trunk revision.
+
+    2. Run rose stem, including groups that cover the repositories being tested
+       and a source code path to every branch involved.
+
+        .. code-block::
+
+            rose stem --group=developer,jules,ukca --source=. --source=/path/to/jules/changes --source=/path/to/ukca/changes
 
 The source paths involved can either be to local working copies or links to the
 fcm source control e.g. ``fcm:jules.xm_br/dev/user/branch_name``. As many source
@@ -84,14 +92,23 @@ to the other codebases involved should be added to
 ``lfric_atm/fcm-make/parameters.sh`` under each of the ``*_sources`` variables. Again
 these paths can either be to local changes or those in the repository.
 
-e.g. from an LFRic working copy at a suitable revision:
+    1. :ref:`Checkout<checkout>` an LFRic working copy
 
-    .. code-block:: RST
+        - this may be your branch from a linked ticket, or a clean trunk copy
+          at either the last release or a suitable head of trunk revision.
 
-        um_sources=vldXXX:/path/to/um/working/copy
+    2. Update parameters.sh to point to all other code changes
 
-Once parameters.sh has been updated you can run `make test-suite` as described
-:ref:`here <lfric_test>`.
+        .. code-block:: RST
+
+            um_sources=vldXXX:/path/to/um/working/copy
+            jules_source=vldXXX:/path/to/jules/working/copy
+
+    3. Run test-suite
+
+        .. code-block::
+
+            `make test-suite`
 
 
 .. tip::

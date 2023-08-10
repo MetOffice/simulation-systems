@@ -55,6 +55,8 @@ Where ``NNN`` should be replaced by the ticket number. Saving and exiting the te
 will produce a message in the terminal asking whether the user really wants to create the branch.
 Enter ``y`` to continue.
 
+.. _checkout:
+
 Checking out a branch to a working copy
 ---------------------------------------
 
