@@ -1,3 +1,5 @@
+.. _lfric_test:
+
 Testing LFRic
 =============
 

@@ -37,9 +37,17 @@ Do:
 
 .. note::
     Code branches in linked tickets will require branching from compatible revisions
-    to ensure they work together. The last released revisions will all be tagged
-    with suitable keywords, or for head of trunk revisions please contact the
-    Simulation Systems and Deployment Team for advice.
+    to ensure they work together.
+
+    If working with branches from a release then all repositories will  be tagged
+    with suitable keywords, e.g. for UM vn13.0, other repositories are also tagged
+    with um13.0.
+
+    For head of trunk revisions make sure that all branches/revisions being used
+    are at least as recent as the versions listed in the `_rev` parameter of
+    `<lfric_trunk>/lfric_atm/fcm-make/parameters.sh`, or `<um_trunk>/rose-stem/rose-suite.conf`.
+
+    If in doubt, please contact the Simulation Systems and Deployment Team for advice.
 
 Testing Changes Together
 ------------------------
@@ -47,27 +55,44 @@ Multi-repository changes are expected to pass the regression tests for all the
 repositories involved. To carry out the tests involved in a linked ticket it can
 be helpful to refer to the semi-concentric circles above; layering the testing
 from the inside out as needed. Further details of how testing in each
-repository is handled can be found :ref:`here <testing>`.
+repository is handled can be found :ref:`here <testing>`. Compatible
+code revisions are needed for testing across repositories as described above.
 
-    1. Firstly, testing changes in JULES, UKCA, or any other child repositories is
-    as simple as running the standalone test proceedures for these codebases.
+Testing changes in JULES, UKCA, or any other child repositories is
+as simple as running the standalone test procedures for these codebases.
 
-    2. Next, to test the UM, any changes to JULES etc will also need to be included.
-    This is done by adding another source to the rose stem command line. So from a UM
-    working copy:
+Testing the UM with other repositories
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To test the UM, any changes to JULES, UKCA, Socrates, CASIM etc will also need
+to be included. This is done by adding another source to the rose stem command
+line. So from a UM working copy at a suitable revision:
 
     .. code-block::
 
         rose stem --group=developer,jules,ukca --source=. --source=/path/to/jules/changes --source=/path/to/ukca/changes
 
-    The source paths involved can either be to local working copies or links to the
-    fcm source control e.g. ``fcm:jules.xm_br/dev/user/branch_name``. As many source
-    paths as needed can be added to the list.
+The source paths involved can either be to local working copies or links to the
+fcm source control e.g. ``fcm:jules.xm_br/dev/user/branch_name``. As many source
+paths as needed can be added to the list.
 
-    3. Finally LFRic testing needs to encompass all of the other repositories
-    affected. Paths to the other codebases involved should be added to
-    ``fcm-make/parameters.sh`` under each of the ``*_sources`` variables. Again
-    these paths can either be to local changes or those in the repository.
+Testing LFRic with other repositories
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+LFRic testing needs to encompass all of the other repositories affected. Paths
+to the other codebases involved should be added to
+``lfric_atm/fcm-make/parameters.sh`` under each of the ``*_sources`` variables. Again
+these paths can either be to local changes or those in the repository.
+
+e.g. from an LFRic working copy at a suitable revision:
+
+    .. code-block:: RST
+
+        um_sources=vldXXX:/path/to/um/working/copy
+
+Once parameters.sh has been updated you can run `make test-suite` as described
+:ref:`here <lfric_test>`.
+
 
 .. tip::
     Links to changes stored in fcm source control should point at the mirror
