@@ -97,18 +97,35 @@ these paths can either be to local changes or those in the repository.
         - this may be your branch from a linked ticket, or a clean trunk copy
           at either the last release or a suitable head of trunk revision.
 
-    2. Update parameters.sh to point to all other code changes
+    2. Update parameters.sh to point to all other code changes, e.g.
 
         .. code-block:: RST
 
             um_sources=vldXXX:/path/to/um/working/copy
             jules_source=vldXXX:/path/to/jules/working/copy
 
-    3. Run test-suite
+    3a. Run the lfric_atm test-suite
+
+        - suitable for testing changes in other repositories that do not
+          include any LFRic changes
 
         .. code-block::
 
-            `make test-suite`
+            cd <working_copy>/lfric_atm
+            make test-suite
+
+    3b. Run the full test-suite
+
+        - suitable for testing LFRic changes with other repositories, or expanding
+          testing if lfric_atm tests have shown errors.
+
+        .. code-block::
+
+            cd <working_copy>
+            make test-suite
+
+        More details on LFRic testing are found :ref:`here<lfric_test>`.
+
 
 
 .. tip::
