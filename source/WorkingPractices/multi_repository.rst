@@ -106,6 +106,9 @@ these paths can either be to local changes or those in the repository.
 
     3a. Run the lfric_atm test-suite
 
+        - suitable for testing changes in other repositories that do not
+          include any LFRic changes
+
         .. code-block::
 
             cd <working_copy>/lfric_atm
@@ -113,9 +116,8 @@ these paths can either be to local changes or those in the repository.
 
     3b. Run the full test-suite
 
-        If lfric_atm testing shows failures or an LFRic change is included in
-        the ticket then a wider set of tests should be run by launching the
-        test-suite from the top of your working copy.
+        - suitable for testing LFRic changes with other repositories, or expanding
+          testing if lfric_atm tests have shown errors.
 
         .. code-block::
 
