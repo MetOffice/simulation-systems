@@ -108,15 +108,21 @@ these paths can either be to local changes or those in the repository.
 
         .. code-block::
 
-            cd lfric_atm
+            cd <working_copy>/lfric_atm
             make test-suite
 
-    3b. Further testing
+    3b. Run the full test-suite
 
         If lfric_atm testing shows failures or an LFRic change is included in
-        the ticket then a wider set of tests should be run. This is achieved by
-        calling `make test-suite` from the top of your working copy. More
-        details on LFRic testing are found :ref:`here<lfric_test>`.
+        the ticket then a wider set of tests should be run by launching the
+        test-suite from the top of your working copy.
+
+        .. code-block::
+
+            cd <working_copy>
+            make test-suite
+
+        More details on LFRic testing are found :ref:`here<lfric_test>`.
 
 
 
