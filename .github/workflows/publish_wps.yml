@@ -33,7 +33,7 @@ jobs:
         make clean html
         
     - name: commit docs to gh-pages branch
-      if: ${{ github.event_name == 'push' $$ github.ref_name == 'main' }}
+      if: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
       run: |
         git worktree add ../publish_wps
         cd ../publish_wps
