@@ -1,10 +1,9 @@
-name: Build Docs
+name: Build and Deploy Docs
 
 on:
   push:
     branches:
     - main
-    
   workflow_dispatch:
   
 jobs:
