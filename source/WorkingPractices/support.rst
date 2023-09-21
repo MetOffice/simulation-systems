@@ -11,18 +11,14 @@ it.
 
 Consider contacting relevant Code, Configuration or Suite Owners.
 
-Level 1- Yammer
----------------
-If your problem persists, then use the relevant Yammer groups:
+Level 1- GitHub Discussions
+---------------------------
+If your problem persists, then describe and discuss it on GitHub Discussions:
 
-    * `LFRic <https://web.yammer.com/main/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIxMDkwNTczMiJ9/all>`_
-    * `UM <https://www.yammer.com/metoffice.gov.uk/#/threads/inGroup?type=in_group&feedId=15288192&view=all>`_
-    * `JULES <https://web.yammer.com/main/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIxMTEzMzk5NiJ9/all>`_
-    * `Mule <https://web.yammer.com/main/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIxMDQwODU5MCJ9/all>`_
-
-Non Met Office users can request access via the partnerships team:
-Scientific_Partnerships@metoffice.gov.uk. Some institutions are presently
-unable to access these due to GDPR issues.
+    * `LFRic <https://github.com/MetOffice/simulation-systems/discussions/categories/lfric>`_
+    * `UM <https://github.com/MetOffice/simulation-systems/discussions/categories/um>`_
+    * `JULES <https://github.com/MetOffice/simulation-systems/discussions/categories/jules>`_
+    * `Mule <https://github.com/MetOffice/simulation-systems/discussions/categories/mule>`_
 
 Level 2- Support Teams
 ----------------------
