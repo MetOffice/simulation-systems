@@ -13,7 +13,7 @@ Consider contacting relevant Code, Configuration or Suite Owners.
 
 Level 1- GitHub Discussions
 ---------------------------
-If your problem persists, then use the relevant GitHub Discussions Categories:
+If your problem persists, then describe and discuss it on GitHub Discussions:
 
     * `LFRic <https://github.com/MetOffice/simulation-systems/discussions/categories/lfric>`_
     * `UM <https://github.com/MetOffice/simulation-systems/discussions/categories/um>`_
