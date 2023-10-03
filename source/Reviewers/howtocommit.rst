@@ -317,7 +317,7 @@ for all affected tests before you commit to the trunk.
 
         3. Check that the new KGO has been installed correctly by restarting your suite, retriggering the failed rose-ana tasks and checking they now pass.
 
-          * e.g. add `--reload` to the rose-stem command ran previously.
+          * e.g. add `--reload` or `--restart` to the rose-stem command ran previously.
 
         4. Once committed, update the `bit comparison table <https://code.metoffice.gov.uk/trac/um/wiki/LoseBitComparison>`_.
 
@@ -491,7 +491,7 @@ An editor will open requesting a log message which should be in this format:
 
         .. code-block::
 
-            #<ticket number> for <original author>: <ticket title>``
+            #<ticket number> for <original author>: <ticket title>
 
         where original author is the authors proper name.
 
