@@ -266,6 +266,7 @@ are no clashes with what else has gone on trunk.
 
         .. code-block:: RST
 
+            cd docs/user_guide
             module load scitools
             make clean html
             firefox build/html/index.html
