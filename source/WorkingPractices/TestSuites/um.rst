@@ -33,8 +33,11 @@ restarted.
         rose stem --group=xc40_gnu_um_rigorous_omp-n48
 
 .. note::
-    If there are UM changes to src/atmosphere code or metadata then these
-    changes will need to be tested using the LFRic test-suites too.
+    Changes to code in src/atmosphere may require
+    :ref:`testing with LFRic<lfric_test>`.If you have access to LFRic, the
+    :ref:`traclog` will state whether LFRic testing is required based on the branch
+    diff. If you do not have LFRic access, this testing will need to be completed by
+    your Met Office contact.
 
     See :ref:`multirepo` for details on how to carry out this testing.
 
