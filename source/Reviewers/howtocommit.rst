@@ -149,6 +149,7 @@ then you will need to upgrade the test-suite.
                 ./bin/upgrade_jules_test_apps vnX.Y_tZZZZ
 
             where `vnX.Y_tZZZZ` is the `AFTER_TAG` of the latest upgrade macro.
+            The upgrade is expected to fail for the `fab_jules`, `metadata_checker` and `umdp3_checker` apps.
 
 .. dropdown:: New rose-stem app?
 
@@ -265,6 +266,7 @@ are no clashes with what else has gone on trunk.
 
         .. code-block:: RST
 
+            cd docs/user_guide
             module load scitools
             make clean html
             firefox build/html/index.html
