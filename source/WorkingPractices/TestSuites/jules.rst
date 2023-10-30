@@ -16,8 +16,9 @@ The output is checked for correctness both by comparing the output to a set of
 stored :ref:`KGO files <kgo>`.
 
 .. note::
-    Changes to code in src/atmosphere may require
-    :ref:`testing with LFRic<lfric_test>`.If you have access to LFRic, the
+    If there are JULES changes to shared science code or metadata then these
+    changes will need to be tested :ref:`with the UM<um_testing>` and
+    :ref:`with LFRic<lfric_test>`. If you have access to LFRic, the
     :ref:`traclog` will state whether LFRic testing is required based on the branch
     diff. If you do not have LFRic access, this testing will need to be completed by
     your Met Office contact.
