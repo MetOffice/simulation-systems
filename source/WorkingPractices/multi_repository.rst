@@ -73,7 +73,7 @@ line.
         - this may be your branch from a linked ticket, or a clean trunk copy
           at either the last release or a suitable head of trunk revision.
 
-    2. Run rose stem, and a source code path to every branch involved. As a minimum
+    2. Run rose stem, including a source code path to every branch involved. As a minimum
        run ``developer`` group and all groups that cover the repositories being tested.
 
         .. code-block::
