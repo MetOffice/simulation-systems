@@ -37,8 +37,8 @@ already in the code.
 
     .. note::
         The app should validate (i.e. be consistent with the Rose metadata, and
-        produce no warnings or errors). This can be checked by running ```rose macro
-        --validate --no-warn version -M path/to/rose-meta``` from within your new
+        produce no warnings or errors). This can be checked by running ``rose macro
+        --validate --no-warn version -M path/to/rose-meta`` from within your new
         app directory, or selecting Metadata -> Check fail-if, warn-if from the
         drop-down menu of the rose edit gui.
 
@@ -64,7 +64,7 @@ such as JULES.
             within that same dictionary entry.
 
             Details of the available options are listed in the template files
-            in ```rose-stem/templates``` for each suite and looking at existing examples
+            in ``rose-stem/templates`` for each suite and looking at existing examples
             is encouraged.
 
     .. tab-item:: Manual
