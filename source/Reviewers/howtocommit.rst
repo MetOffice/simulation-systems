@@ -87,12 +87,7 @@ resolve any conflicts.
 
     .. tab-item:: JULES docs
 
-        .. code-block:: RST
-
-            fcm co fcm:jules_doc.x_tr chosen_name
-            cd chosen_name
-            fcm merge fcm:jules_doc.x_br/dev/dev_name/branch_name
-            fcm cf
+        See :doc:`JULES documentation changes </WorkingPractices/jules_docs>`
 
 Always merge in the developers **dev** branch, not the **test** branch.
 
