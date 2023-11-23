@@ -45,8 +45,8 @@ metadata :ref:`is available <metadata_guidance>`.
   (https://code.metoffice.gov.uk/trac/jules/wiki/WorkingPractices#NamelistsUpgradeMacrosMetadata)
 
 .. note::
-  JULES developers also need to update the JULES documentation whenever they add or remove
-  namelist variables.
+  JULES developers also need to :doc:`update the JULES documentation
+  </WorkingPractices/jules_docs>` whenever they add or remove namelist variables.
 
 .. important::
   All changes which alter namelists require an upgrade macro for them to
