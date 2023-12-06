@@ -31,6 +31,7 @@ The process for committing a ticket follows this sequence with details for each 
         :hidden:
 
         committinglinkedtickets
+        checkthenightlies
 
 1. Merge
 --------
