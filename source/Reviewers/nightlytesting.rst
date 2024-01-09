@@ -39,13 +39,19 @@ Rose-stem testing is controlled by a config file located at ``~/testing_configs.
 
 The cronjobs are installed by running the ``generate_test_suite_cron.py`` script with the ``--install`` command line option. This script is stored in the SimSys_Scripts github repo. It will read a config file, generate a cron file and then install the cronjobs from all files with extension .cron in a specified location. The script has the following command line arguments:
 
-* ``-c --config``: Required, the path to a yaml file with the testing configurations.
+* ``-c --config``: Required, the path to a yaml file with the testing configurations. For the meto testing user this file is located at ``~/ccc.yaml``.
 
 * ``-f --cron_file``: The file the cronjobs will be written to. Defaults to ``~/Crontabs/auto-gen_testing.cron``.
 
 * ``-l --cron_log``: The file cron task output will be piped to. Defaults to ``~/cron.log``.
 
 * ``--install``: If included will install the cronjobs from files with extension .cron in the location defined by the cron_file argument.
+
+To update and install at meto:
+
+.. code-block:: bash
+
+    python3 generate_test_suite_cron.py -c ~/nightly_testing_configs.yaml --install
 
 Retriggering Nightlies
 ----------------------
