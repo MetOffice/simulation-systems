@@ -3,34 +3,34 @@ Create a branch
 The source management tool is `FCM <http://metomi.github.io/fcm/doc/>`_, which is based on subversion
 but with some subtle differences, both of which are very different from git.
 
-.. todo:
-    .. Important::
-    All projects now use a version branching approach because it exhibits attributes that are well
-    aligned to how the models are used.
-
-.. todo:
-    By exception, head-of-trunk developments will be accepted.
-    The prime reason for this is to pick up and build on a specific development that
-    has already been committed since the last version. Needless head of trunk branches may be rejected.
-
-**LFRic** branches are usually taken from the head of trunk to allow all changes
+**LFRic Core** branches are usually taken from the head of trunk to allow all changes
 to build on each other.
 
-**UM, JULES and UKCA** branches are taken from the last released revision. By
-exception Head of Trunk branches are accepted for picking up and building on a
+**UM, LFRic Apps, JULES and UKCA** branches are taken from the last released revision.
+Head of Trunk branches are accepted for picking up and building on a
 specific development that has already been committed since the last revision.
 
 Branch Management using FCM
 ---------------------------
 
 To create a branch using fcm, use the following command, replacing ``NNN`` with your ticket number,
-``project`` with your project identifier (e.g. ``um``, ``jules``, ``lfric``), ``XX.Y`` with your
+``project`` with your project identifier, ``XX.Y`` with your
 version number (e.g. ``11.1``) and ``branchname`` with a suitable branch name (not including
 the version number):
 
 .. code-block::
 
-    fcm bc -k NNN -t dev branchname fcm:project.x_tr@vnXX.Y
+    fcm bc --ticket=NNN --type=dev branchname fcm:project.x_tr@vnXX.Y
+
+.. note::
+    **Project Identifiers**
+    Most project identifiers are the same as the name of the project, including:
+    UM: um
+    UM Docs: um_doc
+    LFRic Apps: lfric_apps
+    LFRic Core: lfric
+    JULES: jules
+    UKCA: ukca
 
 .. tip::
 
@@ -41,7 +41,7 @@ the version number):
 
     If you have to create a new branch at a different version to include the same feature, it is a good
     idea to keep the branch names the same; that way it is easier for someone to know that the branches
-    are related in the trac repository.
+    are related in the trac repository.so yo
 
 Upon running the ``fcm bc`` command, the user is provided with a text editor window in which to make
 comments about their change. The first comment is usually one indicating that a branch has been

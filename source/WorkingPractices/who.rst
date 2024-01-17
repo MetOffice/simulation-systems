@@ -125,9 +125,9 @@ The team can be contacted at umsysteam@metoffice.gov.uk.
 
 .. _cap_dev_team:
 
-Capability Development Team
+Core Capability Development Team
 ---------------------------
-The Capability Development Team are responsible for the LFRic Infrastructure to
+The Core Capability Development Team are responsible for the LFRic Infrastructure to
 support the Next Generation Modelling Systems.
 
 LFRic questions can be directed to meto-lfric@metoffice.gov.uk.

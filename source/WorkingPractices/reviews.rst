@@ -3,7 +3,7 @@ Reviews
 Changes will usually go through a 2-stage review process:
 
     1. SciTech review; carried out by someone that understands the area of code being developed
-    2. CodeSys review; carried out by a member of the Simulation Systems and Deployment Team or the Capability Development Team
+    2. CodeSys review; carried out by a member of the Simulation Systems and Deployment Team or the Core Capability Development Team
 
 Trivial tickets are an exception and do not require a SciTech review.
 

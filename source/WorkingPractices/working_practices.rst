@@ -1,9 +1,9 @@
 About the Working Practices
 ===========================
 
-The Working Practices (WPs) are to be followed for all UM, JULES, and
-UKCA developments (though reference is also made to LFRic, CASIM, SOCRATES
-and Shumlib where relevant).
+The Working Practices (WPs) are to be followed for all UM, LFRic Applications,
+JULES, and UKCA developments (though reference is also made to LFRic Core, CASIM,
+SOCRATES and Shumlib where relevant).
 
 If this is your first development we highly recommend following these pages
 through in sequence.
@@ -64,9 +64,9 @@ judgement.
 
 As you begin, there are various people you might consider consulting:
 
-    * Consult relevant :ref:`Code and Configuration Owners <approvals>`
-    * Consult the Simulation Systems and Deployment Team
-    * Consult the Capability Development Team
+    * Relevant :ref:`Code and Configuration Owners <approvals>`
+    * Simulation Systems and Deployment Team
+    * Core Capability Development Team
     * Less experienced developers may benefit from a 'buddy'
 
 For larger changes, consider splitting the work over multiple tickets:

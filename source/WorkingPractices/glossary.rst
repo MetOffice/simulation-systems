@@ -25,7 +25,7 @@ CodeSys Review:
     the trunk.
 
 ..
-    or the Capability Development Team (for LFRic only reviews).
+    or the Core Capability Development Team (for LFRic only reviews).
 
 
 

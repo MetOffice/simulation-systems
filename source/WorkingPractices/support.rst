@@ -25,7 +25,7 @@ Level 2- Support Teams
 If you still require assistance, then contact the appropriate support team.
 Please respect the clear demarcations between the scope for different teams.
 
-Capability Development Team (formally LFRic Team):
+Core Capability Development Team (formally LFRic Team):
    * Support windows for LFRic releases TBC
 
 Simulation Systems and Deployment Team (formerly UM System Team and CRUM team) supports:
