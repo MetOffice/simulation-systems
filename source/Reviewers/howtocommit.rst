@@ -299,24 +299,29 @@ for all affected tests before you commit to the trunk.
         KGO files are stored in `$UMDIR/standard_jobs/kgo` and are installed there
         using a script.
 
-        1. Run the rose stem tasks that require a KGO update, plus any other testing required (see above) - if unsure run the `all` group.
+        1. Run the rose stem tasks that require a KGO update, plus any other testing required (see above) - if unsure run the `all,ex1a` group.
 
             .. code-block::
 
                 rose stem --group=all,ex1a --new
 
-        2. **As yourself**, in your merged Head of Trunk working copy move to ``admin/rose-stem``.
-        3. Run ``meto_update_kgo.sh``. This script will ask you to enter some details regarding the ticket.
+        2. You will need access to both your merged working copy and the SimSys_Scripts github repo. Run the script ``kgo_updates/meto_update_kgo.sh`` which is located in SimSys_Scripts.
+
+        3. The script will ask you to enter some details regarding the ticket.
 
           * Platforms: enter each platform which has a kgo change, lower case and space seperated, e.g. `spice xc40 ex1a`
+          * Path to your merged working copy - the script will check this exists and will fail if it can't be found.
+          * The file extension of the variables file. Currently this should be ``.rc`` for the UM and ``.cylc`` for lfricinputs.
           * KGO directory: this will default to vnXX.X_tYYYY where XX.X is the version number and YYYY is the ticket number.
           * There are further prompts to the user through the script - in particular to check the shell script produced.
 
-        3. Check that the new KGO has been installed correctly by restarting your suite, retriggering the failed rose-ana tasks and checking they now pass.
+        4. If running on xc40s the script will ask whether to rsync UM files or lfricinputs files to the XCS. Select the appropriate option.
+
+        5. Check that the new KGO has been installed correctly by restarting your suite, retriggering the failed rose-ana tasks and checking they now pass.
 
           * e.g. add `--reload` or `--restart` to the rose-stem command ran previously.
 
-        4. Once committed, update the `bit comparison table <https://code.metoffice.gov.uk/trac/um/wiki/LoseBitComparison>`_.
+        6. Once committed, update the `bit comparison table <https://code.metoffice.gov.uk/trac/um/wiki/LoseBitComparison>`_.
 
         .. dropdown:: More details on KGO update script
 
