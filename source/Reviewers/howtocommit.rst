@@ -311,7 +311,6 @@ for all affected tests before you commit to the trunk.
 
           * Platforms: enter each platform which has a kgo change, lower case and space seperated, e.g. `spice xc40 ex1a`
           * Path to your merged working copy - the script will check this exists and will fail if it can't be found.
-          * The file extension of the variables file. Currently this should be ``.rc`` for the UM and ``.cylc`` for lfricinputs.
           * KGO directory: this will default to vnXX.X_tYYYY where XX.X is the version number and YYYY is the ticket number.
           * There are further prompts to the user through the script - in particular to check the shell script produced.
 
