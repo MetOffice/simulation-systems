@@ -305,7 +305,7 @@ for all affected tests before you commit to the trunk.
 
                 rose stem --group=all,ex1a --new
 
-        2. You will need access to both your merged working copy and a clone of the `SimSys_Scripts github repo <https://github.com/MetOffice/SimSys_Scripts>`_. Run the script ``kgo_updates/meto_update_kgo.sh`` which is located in SimSys_Scripts.
+        2. You will need access to both your merged working copy and a clone of the `SimSys_Scripts github repo <https://github.com/MetOffice/SimSys_Scripts>`_ (one is available in $UMDIR). Run the script ``kgo_updates/meto_update_kgo.sh`` which is located in SimSys_Scripts.
 
         3. The script will ask you to enter some details regarding the ticket.
 
