@@ -294,18 +294,18 @@ for all affected tests before you commit to the trunk.
 
 .. tab-set::
 
-    .. tab-item:: UM
+    .. tab-item:: UM + LFRic Inputs
 
-        KGO files are stored in `$UMDIR/standard_jobs/kgo` and are installed there
+        KGO files are stored in `$UMDIR/standard_jobs/kgo` or `$UMDIR/standard_jobs/lfricinputs/kgo` and are installed there
         using a script.
 
-        1. Run the rose stem tasks that require a KGO update, plus any other testing required (see above) - if unsure run the `all,ex1a` group.
+        1. Run the rose stem tasks that require a KGO update, plus any other testing required (see above) - if unsure run the `all,ex1a`.
 
             .. code-block::
 
                 rose stem --group=all,ex1a --new
 
-        2. You will need access to both your merged working copy and the SimSys_Scripts github repo. Run the script ``kgo_updates/meto_update_kgo.sh`` which is located in SimSys_Scripts.
+        2. You will need access to both your merged working copy and a clone of the `SimSys_Scripts github repo <https://github.com/MetOffice/SimSys_Scripts>`_. Run the script ``kgo_updates/meto_update_kgo.sh`` which is located in SimSys_Scripts.
 
         3. The script will ask you to enter some details regarding the ticket.
 
