@@ -71,26 +71,56 @@ change then this macro will be run by your code reviewer as part of the commit
 process. In order to prove that the upgrade macro will be successful, and to
 make those new model inputs available to your tests, you should create a test
 branch as described above and run the upgrade macro with one of the following
-commands
+commands, noting that ``--jules-path`` is only required if you have `jules-shared
+<https://code.metoffice.gov.uk/trac/jules/browser/main/trunk/rose-meta/jules-shared>`_
+metadata changes. Please see `Sharing JULES metadata
+<https://code.metoffice.gov.uk/trac/jules/wiki/SharingJULESmetadata>`_
+wiki for more information on the sharing of JULES metadata.
 
-    +-------+----------------------------------------------------------------------------------------+
-    | UM    | $UMDIR/bin/update_all.py --path=/path/to/working/copy/of/test/branch --um=vnX.X_tXXXX  |
-    +-------+----------------------------------------------------------------------------------------+
-    | JULES | ./bin/upgrade_jules_test_apps vnX.X_tXXXX                                              |
-    +-------+----------------------------------------------------------------------------------------+
+    +-------+----------------------------------------------------------------------------------------------------------------------------------------------+
+    | UM    | ``$UMDIR/bin/update_all.py --path=/path/to/working/copy/of/test/branch --um=vnX.X_tXXXX --jules-path=/path/to/jules/working/copy/of/branch`` |
+    +-------+----------------------------------------------------------------------------------------------------------------------------------------------+
+    | JULES | ``./bin/upgrade_jules_test_apps vnX.X_tXXXX``                                                                                                |
+    +-------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 ..
-    | LFRic | *Macro capabilities are currently in development*                                      |
-    +-------+----------------------------------------------------------------------------------------+
+    | LFRic | *Macro capabilities are currently in development*                                                                                            |
+    +-------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. todo: add an LFRic upgrade macro command... and make these more consistent?
 
 .. Note::
-    The update_all.py script suppresses warnings produced by upgrade macros.
-    You can test these separately by upgrading a single app. A single app can be
-    upgraded for testing using ``rose app-upgrade -M /path/to/rose-meta -C /path/
-    to rose-stem/app/<app_name> -a <trunk_metadata_version>`` inside the app's
-    directory.
+   The update_all.py script suppresses warnings produced by upgrade macros.
+   You can test these separately by upgrading a single app. A single app can be
+   upgraded for testing using:
+
+   .. code-block::
+
+      rose app-upgrade -M /path/to/rose-meta -C /path/to/rose-stem/app/<app_name> -a <trunk_metadata_version>
+
+   where the ``-C`` option can be omitted if inside the app's
+   directory.
+
+   If there are **jules-shared** metadata changes these will need to
+   be added to the metadata path, either by adding it to the ``-M``
+   option using a colon separated list or by setting the
+   ``ROSE_META_PATH`` environment variable.
+
+   .. code-block::
+
+      rose app-upgrade -M /path/to/rose-meta:/path/to/jules/working/copy/rose-meta -C /path/to/rose-stem/app/<app_name> -a <trunk_metadata_version>
+
+   OR
+
+   .. code-block::
+
+      export ROSE_META_PATH=/path/to/jules/working/copy/rose-meta
+      rose app-upgrade -M /path/to/rose-meta -C /path/to/rose-stem/app/<app_name> -a <trunk_metadata_version>
+
+   Please refer to `rose app-upgrade
+   <https://metomi.github.io/rose/doc/html/api/command-reference.html#rose-app-upgrade>`_
+   command reference for more details.
+
 
 .. _traclog:
 
