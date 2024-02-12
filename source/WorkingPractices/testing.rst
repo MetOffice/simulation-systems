@@ -71,11 +71,9 @@ change then this macro will be run by your code reviewer as part of the commit
 process. In order to prove that the upgrade macro will be successful, and to
 make those new model inputs available to your tests, you should create a test
 branch as described above and run the upgrade macro with one of the following
-commands, noting that ``--jules-path`` is only required if you have `jules-shared
-<https://code.metoffice.gov.uk/trac/jules/browser/main/trunk/rose-meta/jules-shared>`_
-metadata changes. Please see `Sharing JULES metadata
-<https://code.metoffice.gov.uk/trac/jules/wiki/SharingJULESmetadata>`_
-wiki for more information on the sharing of JULES metadata.
+commands, noting that ``--jules-path`` is only required if you have
+**jules-shared** metadata changes. Please see the shared metadata
+:ref:`guidance<shared-namelists>`.
 
     +-------+----------------------------------------------------------------------------------------------------------------------------------------------+
     | UM    | ``$UMDIR/bin/update_all.py --path=/path/to/working/copy/of/test/branch --um=vnX.X_tXXXX --jules-path=/path/to/jules/working/copy/of/branch`` |
@@ -101,26 +99,14 @@ wiki for more information on the sharing of JULES metadata.
    where the ``-C`` option can be omitted if inside the app's
    directory.
 
-   If there are **jules-shared** metadata changes these will need to
-   be added to the metadata path, either by adding it to the ``-M``
-   option using a colon separated list or by setting the
-   ``ROSE_META_PATH`` environment variable.
+   .. Important::
+      If there are **jules-shared** metadata changes these will need to
+      be added to the metadata path. Please see the :ref:`rose
+      config-edit example<metadata_changes>`.
 
-   .. code-block::
-
-      rose app-upgrade -M /path/to/rose-meta:/path/to/jules/working/copy/rose-meta -C /path/to/rose-stem/app/<app_name> -a <trunk_metadata_version>
-
-   OR
-
-   .. code-block::
-
-      export ROSE_META_PATH=/path/to/jules/working/copy/rose-meta
-      rose app-upgrade -M /path/to/rose-meta -C /path/to/rose-stem/app/<app_name> -a <trunk_metadata_version>
-
-   Please refer to `rose app-upgrade
-   <https://metomi.github.io/rose/doc/html/api/command-reference.html#rose-app-upgrade>`_
-   command reference for more details.
-
+      Please refer to `rose app-upgrade
+      <https://metomi.github.io/rose/doc/html/api/command-reference.html#rose-app-upgrade>`_
+      command reference for more details.
 
 .. _traclog:
 

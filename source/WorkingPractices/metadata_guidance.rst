@@ -45,10 +45,12 @@ metadata). The only caveats are where a ``trigger`` or a ``fail-if``
 reference a namelist item from the parent model (e.g. UM).
 
 Shared JULES metadata is in the process of being migrated to
-**rose-meta/jules-shared**, which resides in the JULES
-repository. The sub-directories are imported by **rose-meta/um-atmos**
-and **rose-meta/jules-standalone** and is manually synced with
-a copy in LFRic. Please see the `Sharing JULES metadata
+`rose-meta/jules-shared
+<https://code.metoffice.gov.uk/trac/jules/browser/main/trunk/rose-meta/jules-shared>`_,
+which resides in the JULES repository. The sub-directories are
+imported by **rose-meta/um-atmos** and **rose-meta/jules-standalone**
+and is manually synced with a copy in LFRic. Please see the `Sharing
+JULES metadata
 <https://code.metoffice.gov.uk/trac/jules/wiki/SharingJULESmetadata>`_
 for more details including what should be in `jules-shared
 <https://code.metoffice.gov.uk/trac/jules/wiki/SharingJULESmetadata#Whatsinjules-shared>`_
