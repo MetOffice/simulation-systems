@@ -8,7 +8,8 @@ by the rose stem suite.
 
 .. warning::
   If you find that you need to update all the apps in the rose stem suite
-  to get your change to work then you should use an upgrade macro. See :ref:`inputs`.
+  to get your change to work then you should use an upgrade macro. See
+  :ref:`inputs`.
 
 .. tip::
   Familiarise yourself with the `Rose documentation
@@ -41,6 +42,12 @@ already in the code.
         --validate --no-warn version -M path/to/rose-meta`` from within your new
         app directory, or selecting Metadata -> Check fail-if, warn-if from the
         drop-down menu of the rose edit gui.
+
+	.. note::
+	   If you are working in a UM branch and have made
+	   **jules-shared** changes these will need adding to the
+	   metadata path. Please see the shared metadata
+	   :ref:`guidance<shared-namelists>`.
 
 The next steps are site and rose-stem specific, but fall broadly into two
 categories - those using a jinja2 templated design which populate runtime and graph

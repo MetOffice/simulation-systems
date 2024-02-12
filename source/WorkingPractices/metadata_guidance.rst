@@ -33,6 +33,8 @@ the variable name. If both fields exist the Web help is opened
 preferentially. If a ``url=`` is present the ``help=`` field should be
 removed to avoid duplication.
 
+.. _shared-namelists:
+
 Shared namelists
 ----------------
 
@@ -59,7 +61,7 @@ source of truth.
 
 Please see the :ref:`rose config-edit example<metadata_changes>` for
 an illustration of how to pick up **jules-shared** changes from a
-JULES working.
+JULES working copy.
 
 ..
  We need to check if this is all still the case with cylc 8.
