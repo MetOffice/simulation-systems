@@ -19,23 +19,28 @@ with a consistent set of information, such as follows:
    url=<http://jules-lsm.github.io/latest/namelists/<namelist>.nml.html#<NAMELIST>::<item>>
    etc
 
-then each input is presented as:
+where JULES namelist items should only contain the ``url=`` field and
+not the ``help=`` field regardless of the repository they reside
+in. Each input is presented in the GUI as:
 
 .. code-block::
 
     variable name
     short description of the variable name
 
-Shared JULES namelist items should have identical metadata regardless
-of the repository where the only caveats are where a ``trigger`` or a
-``fail-if`` reference a namelist item from the parent model (e.g. UM or
-LFRic). Shared namelist items should only contain the ``url=`` field and
-not the ``help=`` field.
-
 Either the help text is displayed or web help opened when one clicks
 the variable name. If both fields exist the Web help is opened
 preferentially. If a ``url=`` is present the ``help=`` field should be
-removed to reduce duplication.
+removed to avoid duplication.
+
+Shared namelists
+----------------
+
+Shared namelist items, or items which exist in more than one
+repository, should have identical metadata regardless of the
+repository where they reside (e.g. JULES items in the UM
+metadata). The only caveats are where a ``trigger`` or a ``fail-if``
+reference a namelist item from the parent model (e.g. UM).
 
 Shared JULES metadata is in the process of being migrated to
 **rose-meta/jules-shared**, which resides in the JULES
@@ -129,7 +134,9 @@ or add the path instead as a colon separated list:
 
    rose config-edit -M <path of working copy of branch/rose-meta/>:<path of working copy of JULES branch/rose-meta/>
 
-then once the app opens click on the LHS appname to being up the app meta panel. Update this to HEAD rather than the version number and apply.
+then once the app opens click on the LHS appname to display the app
+meta panel. Update this to HEAD rather than the version number and
+apply.
 
 Please note that if you have used an upgrade macro on the app then the
 meta line at the top of the app file will have changed
