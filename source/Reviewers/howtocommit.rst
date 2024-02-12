@@ -100,7 +100,7 @@ If there are conflicts in versions.py then see the details in the macro section 
 
 2. Macros (if required)
 -----------------------
-**If** the ticket includes meta-data changes, upgrade macro changes or a new rose-stem app
+**If** the ticket includes metadata changes, upgrade macro changes or a new rose-stem app
 then you will need to upgrade the test-suite.
 
 .. dropdown:: versions.py

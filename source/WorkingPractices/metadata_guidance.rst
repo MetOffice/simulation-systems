@@ -114,10 +114,10 @@ is triggered off, it will be commented out in the apps e.g. ``!!variable``.
 
 .. _metadata_changes:
 
-Viewing meta-data changes as you go along
+Viewing metadata changes as you go along
 -----------------------------------------
 
-One can easily review their meta-data changes with the rose config editor, opening up an example app file. For example:
+One can easily review their metadata changes with the rose config editor, opening up an example app file. For example:
 
 .. code-block::
 
@@ -144,9 +144,32 @@ apply.
 
 Please note that if you have used an upgrade macro on the app then the
 meta line at the top of the app file will have changed
-(e.g. meta=um-atmos/vn11.0_t46). Since no meta-data exists at this
+(e.g. meta=um-atmos/vn11.0_t46). Since no metadata exists at this
 version rose edit will produce an error saying that it cannot find it,
-instead it will use the meta-data in e.g. um-atmos/HEAD. Please click
+instead it will use the metadata in e.g. um-atmos/HEAD. Please click
 OK and continue.
 
 Your updates should now appear.
+
+Ensuring metadata changes are valid
+-----------------------------------
+
+Developments to the metadata can be checked for errors by running
+`rose metadata-check <https://metomi.github.io/rose/doc/html/api/command-reference.html#rose-metadata-check>`_
+
+.. code-block::
+
+   rose metadata-check -C /path/to/rose-meta/<config>/HEAD
+
+where the ``-C`` option can be omitted if inside the directory containing the metadata file.
+
+.. note::
+   If there are **jules-shared** changes then these need to be
+   added to the metadata path even in the JULES repository. As the
+   metadata checker does not have the ``-M`` option, this has to be
+   done using the `ROSE_META_PATH` environnment variable as in the
+   :ref:`previous example<metadata_changes>`.
+
+   If the metadata checker returns "not a configuration metadata
+   directory" then this may indicate that the wrong path has been
+   set.
