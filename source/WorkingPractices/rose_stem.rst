@@ -43,10 +43,10 @@ already in the code.
         app directory, or selecting Metadata -> Check fail-if, warn-if from the
         drop-down menu of the rose edit gui.
 
-	.. note::
-	   If you are working in a UM branch and have made
-	   **jules-shared** changes these will need adding to the
-	   metadata path. Please see the shared metadata
+	.. important::
+	   If you are working in a UM branch and have **jules-shared**
+	   changes, the JULES metadata path will also need
+	   adding. Please see the shared metadata
 	   :ref:`guidance<shared-namelists>`.
 
 The next steps are site and rose-stem specific, but fall broadly into two
