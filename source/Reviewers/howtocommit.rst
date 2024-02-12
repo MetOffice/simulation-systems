@@ -129,13 +129,20 @@ then you will need to upgrade the test-suite.
 
             .. code-block:: RST
 
-                ~frum/bin/update_all.py --path=/path/to/working/copy/of/trunk --um=vnXX.Y_tZZZZ
+                ~frum/bin/update_all.py --path=/path/to/working/copy/of/trunk --um=vnXX.Y_tZZZZ --jules-path=/path/to/working/copy/of/jules/trunk
 
-            where `--um=vnXX.Y_tZZZZ` is the `AFTER_TAG` of the latest upgrade macro.
+            where `-\-um=vnXX.Y_tZZZZ` is the `AFTER_TAG` of the latest
+	    upgrade macro.
 
             If there is a macro for fcm_make or createbc then check that the makes `version*_*.py` has the
-            correct BEFORE and AFTER tags and append `--makeum=vnXX.Y_tZZZZ` and/or `--createbc=vnXX.Y_tZZZZ`
+            correct BEFORE and AFTER tags and append `-\-makeum=vnXX.Y_tZZZZ` and/or `-\-createbc=vnXX.Y_tZZZZ`
             to the above command.
+
+	    .. note::
+	       The `-\-jules-path` option is only required if there
+	       are linked `jules-shared
+	       <https://code.metoffice.gov.uk/trac/jules/browser/main/trunk/rose-meta/jules-shared>`_
+	       metadata changes.
 
         .. tab-item:: JULES
 
@@ -169,6 +176,14 @@ then you will need to upgrade the test-suite.
         .. code-block:: RST
 
             rose macro --validate -M path/to/working_copy/rose-meta
+
+    .. note::
+       For UM tickets, if there are linked `jules-shared
+       <https://code.metoffice.gov.uk/trac/jules/browser/main/trunk/rose-meta/jules-shared>`_
+       metadata changes these will need to be added to the metadata
+       path. Please see the :ref:`rose config-edit
+       example<metadata_changes>`.
+
 
 .. dropdown:: Temporary Logical?
 
