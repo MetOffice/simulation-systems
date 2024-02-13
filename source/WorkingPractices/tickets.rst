@@ -92,7 +92,7 @@ best to leave this box blank.
   ticket.
 
 Priority (LFRic Core/JULES/UKCA/CASIM)
----------------------------------
+--------------------------------------
 
 This is a list of options to show how important that the change is
 committed to your project, including:
@@ -114,7 +114,7 @@ appropriate setting.
 
 
 Severity (UM/LFRic Apps/SOCRATES)
-----------------------
+---------------------------------
 
 The UM, LFRic Apps and SOCRATES have a ticket severity menu instead of a priority
 menu. These are as follows:
@@ -152,7 +152,7 @@ A list of :ref:`keywords` is available.
   keywords can always be added at a later date.
 
 Component (all repositories except LFRic Apps, JULES and UKCA)
---------------------------------------------------
+--------------------------------------------------------------
 
 Components vary significantly between different modelling systems. Please
 review the list of options and select the one most appropriate to your change,
@@ -173,12 +173,12 @@ Owner
   the change.
 
 Associated With (LFRic Core only)
-----------------------------
+---------------------------------
 This box is used to link branches and wiki page templates as the ticket is
 developed. It is safe to leave it blank when first creating the ticket.
 
 Blocked by (LFRic Core only)
------------------------
+----------------------------
 This box can be used to list other tickets which block this change. This
 allows the SSD team to prioritise the commit order of the tickets on to
 the trunk.

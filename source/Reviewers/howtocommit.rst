@@ -445,43 +445,7 @@ An editor will open requesting a log message which should be in this format:
 
 .. tab-set::
 
-    .. tab-item:: UM
-
-        .. code-block::
-
-            #ticket_number : Author : Reason for the change : ticket_type : code_area : regression : severity
-
-        This layout enables a script to parse the commits that make up each release.
-
-        1. Ticket number
-        2. Author : SRS username
-        3. Reason for the change : Title of the ticket
-        4. Ticket Type
-
-          * enhancement, defect, task, optimisation
-
-        5. Code Area -  Select the most appropriate from:
-
-          * technical, dynamics, ukca, bl_jules, convection, radiation, gwd, lsp_cloud, stochastic_physics, coupling, idealised, rose_stem, fcm_make, meta_data, utils, fieldcalc, other
-
-        6. Regression:
-
-          * kgo_and_macro, update_kgo, upgrade_macro, regression
-
-        7. Severity
-
-          * wholesale, significant, minor, trivial
-
-
-    .. tab-item:: JULES & JULES docs
-
-        .. code-block::
-
-            #<ticket number> for <original author> - <ticket title>
-
-        where original author is the srs username.
-
-    .. tab-item:: UKCA
+    .. tab-item:: All others
 
         .. code-block::
 
@@ -489,21 +453,13 @@ An editor will open requesting a log message which should be in this format:
 
         where author is the srs username.
 
-    .. tab-item:: LFRic
+    .. tab-item:: LFRic Core
 
         .. code-block::
 
             #<ticket number> for <original author>: <ticket title>
 
         where original author is the authors proper name.
-
-    .. tab-item:: UM docs
-
-        .. code-block::
-
-            #ticket_number : Author : Description : XXX (YYY ZZZ etc)
-
-        where XXX, YYY etc are the three letter codes for any UMDPs modified.
 
 .. note::
      New!! Remove any **blocks:** and **blockedby:** keywords from this ticket and any referenced. Comment on any unblocked tickets to alert the developers.

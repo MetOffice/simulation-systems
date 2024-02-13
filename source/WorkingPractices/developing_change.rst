@@ -47,7 +47,6 @@ carefully:
     kgo
     diagnostics
     rose_stem
-    multi_repository
 
 
 .. note::

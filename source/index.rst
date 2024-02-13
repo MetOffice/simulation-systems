@@ -22,6 +22,7 @@ through in sequence.
     WorkingPractices/branches
     WorkingPractices/developing_change
     WorkingPractices/testing
+    WorkingPractices/multi_repository
     WorkingPractices/approvals
     WorkingPractices/reviews
     WorkingPractices/final_steps

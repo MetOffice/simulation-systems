@@ -25,12 +25,13 @@ the version number):
 .. note::
     **Project Identifiers**
     Most project identifiers are the same as the name of the project, including:
-    UM: um
-    UM Docs: um_doc
-    LFRic Apps: lfric_apps
-    LFRic Core: lfric
-    JULES: jules
-    UKCA: ukca
+
+    * UM: um
+    * UM Docs: um_doc
+    * LFRic Apps: lfric_apps
+    * LFRic Core: lfric
+    * JULES: jules
+    * UKCA: ukca
 
 .. tip::
 
