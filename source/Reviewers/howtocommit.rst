@@ -257,17 +257,25 @@ are no clashes with what else has gone on trunk.
 
     .. tab-item:: JULES docs
 
-        Check the documentation builds correctly:
+        JULES documentation is hosted within the `JULES GitHub repository <https://github.com/jules-lsm/jules-lsm.github.io>`_.
+        To review and build the documentation branch locally, move to your 
+        local clone of the JULES GitHub, then:
 
         .. code-block:: RST
 
-            cd docs/user_guide
-            module load scitools
-            make clean html
+            git pull
+            git checkout <branch name> 
+            cd <path_to>/user_guide/doc
+            conda activate jules-user-guide    
+            make html
             firefox build/html/index.html
 
-            make clean latexpdf
-            evince build/latex/JULES_User_Guide.pdf &
+        To build and check the LaTeX PDF:
+
+        .. code-block:: RST
+
+            make latexpdf
+            evince build/latex/JULES_User_Guide.pdf
 
 
 
