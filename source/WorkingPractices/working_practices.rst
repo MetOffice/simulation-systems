@@ -37,8 +37,8 @@ closed release to facilitate an intense or disruptive development.
 .. image:: images/development_cycle.png
 
 The release cycle is overseen by the Simulation Systems and Deployment Team with
-the oversight and support of the UM Project Board, who impartially consider
-the needs of all developers and users.
+the oversight and support of the Simulation Systems Governance Group, who
+impartially consider the needs of all developers and users.
 
 ..
     .. note::

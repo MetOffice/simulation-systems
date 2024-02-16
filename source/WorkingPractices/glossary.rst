@@ -75,7 +75,7 @@ Simulation Systems and Deployment Team:
     The team responsible for the oversight of these working practices. For
     more information see here :ref:`ssd`
 
-UM Project Board:
+Simulation Systems Governance Group:
     The governing body that oversees the work of the Simulation Systems and
     Deployment Team.
 

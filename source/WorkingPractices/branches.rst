@@ -42,7 +42,7 @@ the version number):
 
     If you have to create a new branch at a different version to include the same feature, it is a good
     idea to keep the branch names the same; that way it is easier for someone to know that the branches
-    are related in the trac repository.so yo
+    are related in the trac repository.
 
 Upon running the ``fcm bc`` command, the user is provided with a text editor window in which to make
 comments about their change. The first comment is usually one indicating that a branch has been

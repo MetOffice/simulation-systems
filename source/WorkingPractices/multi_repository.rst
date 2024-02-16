@@ -50,6 +50,8 @@ Do:
 
     If in doubt, please contact the Simulation Systems and Deployment Team for advice.
 
+.. _multirepo_testing:
+
 Testing Changes Together
 ------------------------
 Multi-repository changes are expected to pass the regression tests for all the
@@ -88,8 +90,8 @@ paths as needed can be added to the list.
 Testing LFRic Apps with other repositories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-LFRic Apps testing needs to encompass all of the other repositories affected. Paths
-to the other codebases involved should be added to
+LFRic Apps testing needs to encompass all of the other repositories affected.
+Paths to the other codebases involved should be added to
 ``dependencies.sh`` under each of the ``*_sources`` variables. Again
 these paths can either be to local changes or those in the repository.
 
