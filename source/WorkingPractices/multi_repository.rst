@@ -129,7 +129,7 @@ these paths can either be to local changes or those in the repository.
             rose stem --group=developer
             cylc play <working copy name>
 
-        More details on LFRic Apps testing are found :ref:`here<lfric_test>`.
+        More details on LFRic Apps testing are found :ref:`here<lfric_apps_test>`.
 
 
 

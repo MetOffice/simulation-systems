@@ -18,6 +18,13 @@ off the approval.
     list all the Code and Config Owner approvals required in a handy table to
     make it easy to see what is required.
 
+.. note::
+
+   LFRic Apps does not yet have a list of configuration or code owners. Instead
+   science owners are responsible for signing off configuration answer changes,
+   and developers can talk to SSEs for a design review to get input into the
+   wider context of their changes.
+
 Code Owners
 -----------
 Every file in the codebases has a :ref:`code_owner`, and every file changed

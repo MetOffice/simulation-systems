@@ -1,49 +1,25 @@
-.. _um_testing:
+.. _lfric_apps_test:
 
-Testing the UM
-==============
+Testing LFRic Apps
+==================
 
-UM testing is run with the following command from a working copy:
+LFRic Apps testing is run with the following commands from a working copy:
 
     .. code-block::
 
-        rose stem --group=developer --new
+        export CYLC_VERSION=8
+        rose stem --group=developer
+        cylc play <working copy name>
 
 -----
 
-The UM rose stem testing includes a range of builds using a variety of compilers,
-both reconfiguration and atmosphere tests, and rose-ana tasks to check the output.
-As well as testing the UM, there are also tests for createBC, mule, Shumlib and
-a variety of other utilities.
-
-The output is checked for correctness both by comparing the output to a set of
-stored :ref:`KGO files <kgo>`, but also by running different processor
-decompositions and comparing the results, and by looking at the outputs of runs
-that have stared from a cold start and those that have had their state saved and
-restarted.
-
-.. tip::
-
-    The UM rose-stem suite can take a long time to run. When in the initial stages
-    of developing a change choosing a single compile and run task to test with
-    may be helpful. e.g.
-
-    .. code-block::
-
-        rose stem --group=xc40_gnu_um_rigorous_omp-n48
-
-.. note::
-    Changes to code in src/atmosphere may require
-    :ref:`testing with LFRic Apps<lfric_apps_test>`.If you have access to LFRic, the
-    :ref:`traclog` will state whether LFRic testing is required based on the branch
-    diff. If you do not have LFRic access, this testing will need to be completed by
-    your Met Office contact.
-
-    See :ref:`multirepo` for details on how to carry out this testing.
+The LFRic Apps rose stem includes a range of tests to exercise all the applications
+stored in this repository, using multiple compilers, and checksum and plot tasks to
+confirm the outputs.
 
 Below is a (by no means comprehensive) set of groups that you may wish to use on
 Met Office systems. Note that there is a lot of overlap between these groups,
-and that you can specify more than one at once, e.g. ``--group=developer,jules,ukca``.
+and that you can specify more than one at once, e.g. ``--group=developer,gungho_model``.
 
     +--------------------+----------------------------------------------------------+
     | Group              | Description                                              |
@@ -71,23 +47,13 @@ and that you can specify more than one at once, e.g. ``--group=developer,jules,u
     |                    | :ref:`KGO <kgo>` changing tickets need to run this group.|
     +--------------------+----------------------------------------------------------+
     +--------------------+----------------------------------------------------------+
-    | rigorous_compile   | A build-only group that will sense-check the code for a  |
-    |                    |                                                          |
-    |                    | wider range of compile errors than the usual builds.     |
+    | build              | Compile tasks for all applications and science areas     |
     +--------------------+----------------------------------------------------------+
-    | jules              | A set of tests that exercise the UM/JULES interface.     |
+    | unit_tests         | Unit tests for all applications and science areas        |
     +--------------------+----------------------------------------------------------+
-    | casim              | A set of tests that exercise the UM/CASIM interface.     |
+    | integration_tests  | Integration tests for all applications and science areas |
     +--------------------+----------------------------------------------------------+
-    | ukca               | A set of tests that exercise the UM/UKCA interface.      |
-    +--------------------+----------------------------------------------------------+
-    | recon              | A set of tests that exercise the reconfiguration system. |
-    +--------------------+----------------------------------------------------------+
-    | coupled            | A set of tests that exercise the coupled and hybrid code.|
-    +--------------------+----------------------------------------------------------+
-    | uk_lams            | Testing for the limited area models                      |
-    +--------------------+----------------------------------------------------------+
-    | xc40/spice         | All tests designed to run on the named platform.         |
+    | xc40/spice/monsoon | All tests designed to run on the named platform.         |
     +--------------------+----------------------------------------------------------+
     | scripts            | All of the auxillary scripts that are designed to check  |
     |                    |                                                          |
@@ -96,7 +62,17 @@ and that you can specify more than one at once, e.g. ``--group=developer,jules,u
     |                    | compiler.                                                |
     +--------------------+----------------------------------------------------------+
 
-.. tip::
-    The `standard jobs <https://code.metoffice.gov.uk/trac/um/wiki/StandardJobs>`_
-    page for each release includes details of which of ``developer``,
-    ``nightly`` and ``all`` a configuration is tested at.
+As well as these general groups, each area in ``<lfric_apps>/applications`` and
+``<lfric_apps>/science`` have a set of specific groups that are structured as below,
+with ``name`` matching the directory name of the area.
+
+    +--------------------+----------------------------------------------------------+
+    | Group              | Description                                              |
+    +====================+==========================================================+
+    | <name>             | Full set of tests for this area                          |
+    +--------------------+----------------------------------------------------------+
+    | <name>_<group>     | Tests for this area that are part of this group          |
+    |                    |                                                          |
+    |                    | e.g. gungho_developer or lfric_atm_spice                 |
+    +--------------------+----------------------------------------------------------+
+

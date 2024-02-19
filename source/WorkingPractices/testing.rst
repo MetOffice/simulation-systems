@@ -29,7 +29,8 @@ Bespoke:
    :caption: Test Suites
 
    TestSuites/um
-   TestSuites/lfric
+   TestSuites/lfric_apps
+   TestSuites/lfric_core
    TestSuites/jules
    TestSuites/ukca
 
