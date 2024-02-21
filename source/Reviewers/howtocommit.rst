@@ -31,6 +31,7 @@ The process for committing a ticket follows this sequence with details for each 
         :hidden:
 
         committinglinkedtickets
+        nightlytesting
 
 1. Merge
 --------
@@ -96,12 +97,7 @@ resolve any conflicts.
 
     .. tab-item:: JULES docs
 
-        .. code-block:: RST
-
-            fcm co fcm:jules_doc.x_tr chosen_name
-            cd chosen_name
-            fcm merge fcm:jules_doc.x_br/dev/dev_name/branch_name
-            fcm cf
+        See :doc:`JULES documentation changes </WorkingPractices/jules_docs>`
 
 Always merge in the developers **dev** branch, not the **test** branch.
 
@@ -284,17 +280,25 @@ are no clashes with what else has gone on trunk.
 
     .. tab-item:: JULES docs
 
-        Check the documentation builds correctly:
+        JULES documentation is hosted within the `JULES GitHub repository <https://github.com/jules-lsm/jules-lsm.github.io>`_.
+        To review and build the documentation branch locally, move to your 
+        local clone of the JULES GitHub, then:
 
         .. code-block:: RST
 
-            cd docs/user_guide
-            module load scitools
-            make clean html
+            git pull
+            git checkout <branch name> 
+            cd <path_to>/user_guide/doc
+            conda activate jules-user-guide    
+            make html
             firefox build/html/index.html
 
-            make clean latexpdf
-            evince build/latex/JULES_User_Guide.pdf &
+        To build and check the LaTeX PDF:
+
+        .. code-block:: RST
+
+            make latexpdf
+            evince build/latex/JULES_User_Guide.pdf
 
 
 
@@ -321,29 +325,33 @@ for all affected tests before you commit to the trunk.
 
 .. tab-set::
 
-    .. tab-item:: UM
+    .. tab-item:: UM + LFRic Inputs
 
-        KGO files are stored in `$UMDIR/standard_jobs/kgo` and are installed there
+        KGO files are stored in `$UMDIR/standard_jobs/kgo` or `$UMDIR/standard_jobs/lfricinputs/kgo` and are installed there
         using a script.
 
-        1. Run the rose stem tasks that require a KGO update, plus any other testing required (see above) - if unsure run the `all` group.
+        1. Run the rose stem tasks that require a KGO update, plus any other testing required (see above) - if unsure run the `all,ex1a`.
 
             .. code-block::
 
                 rose stem --group=all,ex1a --new
 
-        2. **As yourself**, in your merged Head of Trunk working copy move to ``admin/rose-stem``.
-        3. Run ``meto_update_kgo.sh``. This script will ask you to enter some details regarding the ticket.
+        2. You will need access to both your merged working copy and a clone of the `SimSys_Scripts github repo <https://github.com/MetOffice/SimSys_Scripts>`_ (one is available in $UMDIR). Run the script ``kgo_updates/meto_update_kgo.sh`` which is located in SimSys_Scripts.
+
+        3. The script will ask you to enter some details regarding the ticket.
 
           * Platforms: enter each platform which has a kgo change, lower case and space seperated, e.g. `spice xc40 ex1a`
+          * Path to your merged working copy - the script will check this exists and will fail if it can't be found.
           * KGO directory: this will default to vnXX.X_tYYYY where XX.X is the version number and YYYY is the ticket number.
           * There are further prompts to the user through the script - in particular to check the shell script produced.
 
-        3. Check that the new KGO has been installed correctly by restarting your suite, retriggering the failed rose-ana tasks and checking they now pass.
+        4. If running on xc40s the script will ask whether to rsync UM files or lfricinputs files to the XCS. Select the appropriate option.
+
+        5. Check that the new KGO has been installed correctly by restarting your suite, retriggering the failed rose-ana tasks and checking they now pass.
 
           * e.g. add `--reload` or `--restart` to the rose-stem command ran previously.
 
-        4. Once committed, update the `bit comparison table <https://code.metoffice.gov.uk/trac/um/wiki/LoseBitComparison>`_.
+        6. Once committed, update the `bit comparison table <https://code.metoffice.gov.uk/trac/um/wiki/LoseBitComparison>`_.
 
         .. dropdown:: More details on KGO update script
 

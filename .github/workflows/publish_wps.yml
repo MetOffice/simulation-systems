@@ -18,14 +18,14 @@ jobs:
         git config --global user.email "umsysteam@metoffice.gov.uk"
         git config --global user.name "SSD Developers"
     - name: Check out source
-      uses: actions/checkout@v3
-    - uses: actions/setup-python@v4
+      uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
       with:
         python-version: '3.x'
     - name: Install Sphinx packages
       run: |
-         pip install Sphinx==4.5.0
-         pip install sphinx-design==0.0.13
+         pip install Sphinx==6.2.1
+         pip install sphinx-design==0.5.0
          pip install sphinx-rtd-theme==1.2.0
          
     - name: build docs
@@ -40,5 +40,6 @@ jobs:
         git fetch origin gh-pages 
         git checkout gh-pages
         cp -r ../simulation-systems/build/html/. .
+        git add .
         git commit -am "Docs build"
         git push -u origin gh-pages

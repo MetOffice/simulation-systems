@@ -16,7 +16,7 @@ by the rose stem suite.
   before continuing with this section.
 
 .. note::
-  Migration to cylc8 and rose2 is currently in progress. UM and JULES suites will
+  Migration to cylc8 and rose2 is currently in progress. UM, JULES and UKCA suites will
   work with the latest versions as well as cylc7. The LFRic Apps rose-stem
   has been written for cylc8 and is not backwards compatible.
 

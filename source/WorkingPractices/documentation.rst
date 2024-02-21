@@ -5,18 +5,22 @@ Documentation
 All projects have their own scientific and technical documentation.
 Most notably:
 
-+----------------------------+--------------+---------------+
-| UM Documentation Papers    |`view UM`_    | `edit UM`_    |
-+----------------------------+--------------+---------------+
-| JULES User Guide           |`view JULES`_ | `edit JULES`_ |
-+----------------------------+--------------+---------------+
-| LFRic Documentation Papers |`view LFRic`_ | `edit LFRIc`_ |
-+----------------------------+--------------+---------------+
++----------------------------+-----------------------------+-------------------------------------------------+
+| UM Documentation Papers    |`view UM`_                   | `edit UM`_                                      |
++----------------------------+-----------------------------+-------------------------------------------------+
+| JULES User Guide           |`view JULES`_                | :doc:`edit JULES </WorkingPractices/jules_docs>`|
++----------------------------+-----------------------------+-------------------------------------------------+
+| LFRic Documentation Papers |`view LFRic`_                | `edit LFRIc`_                                   |
++----------------------------+-----------------------------+-------------------------------------------------+
 
 LFRic Apps and Core also use doxygen to document the code and all changes should
 include appropriate doxygen changes to go with them. Doxygen guidelines are
 available `here <https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicTechnical/DoxygenUsage>`_.
 
+.. toctree::
+    :hidden:
+
+    jules_docs
 
 .. _view UM: https://code.metoffice.gov.uk/doc/um/latest/umdp.html
 .. _edit UM: https://code.metoffice.gov.uk/trac/um/wiki/WorkingPractices/Documentation/UpdatingUMDPs
