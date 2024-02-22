@@ -17,9 +17,9 @@ see:
 +--------------+------------------------------------------------+-----------------------------------------------+
 | blocks:      | Code change is blocking the numbered ticket    | e.g. blocks:#1234                             |
 |              |                                                |                                               |
-|              | from going on to the project's trunk           | Not used by LFRic as they have a "blocked by" |
+|              | from going on to the project's trunk           | Not used by LFRic Core as they have a         |
 |              |                                                |                                               |
-|              |                                                | item in their ticket options.                 |
+|              |                                                | "blocked by" item in their ticket options.    |
 +--------------+------------------------------------------------+-----------------------------------------------+
 | blockedby:   | Code change is blocked by the numbered ticket  | e.g. blockedby:#6789                          |
 |              |                                                |                                               |
