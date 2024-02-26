@@ -323,6 +323,8 @@ for all affected tests before you commit to the trunk.
         [rose-ana]
         kgo-database=.true.
 
+.. _kgo_instructions:
+
 .. tab-set::
 
     .. tab-item:: UM + LFRic Inputs
