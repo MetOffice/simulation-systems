@@ -20,7 +20,14 @@ confirm the outputs.
 .. tip::
 
     For LFRic Apps it is possible to update the checksum files on your branch to
-    aid with testing and development. Instructions for doing so can be found
+    aid with testing and development. To do so run the rose-stem suite as described
+    to cover all failing tests, then run the following from your working copy
+
+    .. code-block::
+
+        python3 ./rose-stem/bin/update_branch_kgos.py -s <suite name> -w <path to working copy>
+
+    More details on the KGO update proceedures for all repositories can be found
     :ref:`here <kgo_instructions>`.
 
 Below is a (by no means comprehensive) set of groups that you may wish to use on
