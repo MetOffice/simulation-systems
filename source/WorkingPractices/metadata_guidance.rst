@@ -49,9 +49,8 @@ Shared JULES metadata is in the process of being migrated to
 <https://code.metoffice.gov.uk/trac/jules/browser/main/trunk/rose-meta/jules-shared>`_,
 which resides in the JULES repository. The sub-directories are
 imported by **rose-meta/um-atmos** and **rose-meta/jules-standalone**
-and is manually synced with a copy in LFRic. Please see the `Sharing
-JULES metadata
-<https://code.metoffice.gov.uk/trac/jules/wiki/SharingJULESmetadata>`_
+and is manually synced with a copy in LFRic. Please see `Sharing JULES
+metadata <https://code.metoffice.gov.uk/trac/jules/wiki/SharingJULESmetadata>`_
 for more details including what should be in `jules-shared
 <https://code.metoffice.gov.uk/trac/jules/wiki/SharingJULESmetadata#Whatsinjules-shared>`_
 and in `jules-standalone, jules-lfric or um-atmos
