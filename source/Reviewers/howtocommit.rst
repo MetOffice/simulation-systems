@@ -129,7 +129,7 @@ then you will need to upgrade the test-suite.
 
             .. code-block:: RST
 
-                ~frum/bin/update_all.py --path=/path/to/working/copy/of/trunk --um=vnXX.Y_tZZZZ --jules-path=/path/to/working/copy/of/jules/trunk
+                ~frum/bin/update_all.py --path=/path/to/working/copy/of/trunk --um=vnXX.Y_tZZZZ [--jules-path=/path/to/working/copy/of/jules/trunk]
 
             where `-\-um=vnXX.Y_tZZZZ` is the `AFTER_TAG` of the latest
 	    upgrade macro.
@@ -137,6 +137,9 @@ then you will need to upgrade the test-suite.
             If there is a macro for fcm_make or createbc then check that the makes `version*_*.py` has the
             correct BEFORE and AFTER tags and append `-\-makeum=vnXX.Y_tZZZZ` and/or `-\-createbc=vnXX.Y_tZZZZ`
             to the above command.
+
+	    .. warning::
+	       Please ensure that Cylc7 is used with `update_all.py` @vn13.5.
 
 	    .. note::
 	       The `-\-jules-path` option is only required if there
