@@ -69,7 +69,7 @@ Details are as follows:
 
         ``src/control/shared/jules_science_fixes_mod.F90``
 
-    .. tab-item:: LFRic
+    .. tab-item:: LFRic Apps
 
         Currently reads ``science_fixes_mod.F90`` (see UM) into ``um_physics/source/support/um_physics_init_mod.f90``
 

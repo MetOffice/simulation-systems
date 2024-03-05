@@ -58,7 +58,7 @@ will include areas such as:
     The Ticket Summary/Code Review templates in each repository contain the details
     of when testing against other repositories are required. These highlight where
     the code is likely to interact. *e.g. if code in the shared/science folder in*
-    *JULES is modified then both the UM and LFRIc test suites will need to be run with that change.*
+    *JULES is modified then both the UM and LFRIc Apps test suites will need to be run with that change.*
 
     If this testing doesn't pass then either
         a) the change in ticket will need modifying so that the parent repository's test suite passes

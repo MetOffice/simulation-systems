@@ -7,7 +7,7 @@ Simulation Systems Working Practices
 ====================================
 
 These pages describe the working practices of some of the various simulation and
-model codes owned by the Met Office; UM, JULES and UKCA.
+model codes owned by the Met Office; UM, LFRic Applications, JULES and UKCA.
 
 If this is your first development we highly recommend following these pages
 through in sequence.
@@ -22,6 +22,7 @@ through in sequence.
     WorkingPractices/branches
     WorkingPractices/developing_change
     WorkingPractices/testing
+    WorkingPractices/multi_repository
     WorkingPractices/approvals
     WorkingPractices/reviews
     WorkingPractices/final_steps

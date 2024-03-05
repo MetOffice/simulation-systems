@@ -34,7 +34,7 @@ restarted.
 
 .. note::
     Changes to code in src/atmosphere may require
-    :ref:`testing with LFRic<lfric_test>`.If you have access to LFRic, the
+    :ref:`testing with LFRic Apps<lfric_apps_test>`.If you have access to LFRic, the
     :ref:`traclog` will state whether LFRic testing is required based on the branch
     diff. If you do not have LFRic access, this testing will need to be completed by
     your Met Office contact.

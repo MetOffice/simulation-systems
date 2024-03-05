@@ -11,8 +11,8 @@ The process for committing a ticket follows this sequence with details for each 
     Before You Start:
       * Is anyone else committing?
 
-        * `Trunk Status`_ is used to coordinate trunk commits for UM, JULES and UKCA.
-        * LFRic Trunk commits are coordinated through the dashboard in the Model Systems Teams Chat.
+        * `Trunk Status`_ is used to coordinate trunk commits for UM, JULES, LFRic Apps and UKCA.
+        * LFRic Core Trunk commits are coordinated through the dashboard in the Model Systems Teams Chat.
         * Simple, not conflicting commits can be done in parallel if reviewers all agree.
         * Changes with KGO or Macros usually require sole access to the trunk.
       * Check how many commits have happened today. Suggested limit per day, per repository is 4.
@@ -68,7 +68,16 @@ resolve any conflicts.
             fcm merge fcm:ukca.x_br/dev/dev_name/branch_name
             fcm cf
 
-    .. tab-item:: LFRic
+    .. tab-item:: LFRic Apps
+
+        .. code-block:: RST
+
+            fcm co fcm:lfric_apps.x_tr chosen_name
+            cd chosen_name
+            fcm merge fcm:lfric_apps.x_br/dev/dev_name/branch_name
+            fcm cf
+
+    .. tab-item:: LFRic Core
 
         .. code-block:: RST
 
@@ -197,8 +206,8 @@ are no clashes with what else has gone on trunk.
         .. code-block:: RST
 
             rose stem --group=debug_compile
-            rose stem --group=developer,ex1a_developer
-            rose stem --group=all,ex1a
+            OR rose stem --group=developer,ex1a_developer
+            OR rose stem --group=all,ex1a
 
         If there is a change to the build configs then you may need to turn off
         prebuilds. To do so update `rose-stem/site/meto/variables.rc` such that
@@ -234,17 +243,30 @@ are no clashes with what else has gone on trunk.
             rose stem --group=developer,ukca --source=. --source=/path/to/UKCA/working/copy
 
 
-    .. tab-item:: LFRic
+    .. tab-item:: LFRic Apps
 
-        LFRic has many rose-stem suites for its different applications. Run the
-        test suite command from the top level of the repository to run a complete
-        set of the rose-stem suites.
+        LFRic Apps rose-stem contains tests spanning all the applications
+        included in the repository. At the very least run the developer group
+        which gives a basic level of tests spanning everything. The full set of
+        tests may be warranted for any application that has had more complex changes.
+
+        .. code-block::
+
+            export CYLC_VERSION=8
+
+            rose-stem --group=developer
+            OR e.g. rose-stem --group=developer,gungho_model
+
+            cylc play <working copy name>
+
+    .. tab-item:: LFRic Core
+
+        Run the test suite command from the top level of the repository to run
+        a complete set of the rose-stem developer suites.
 
         .. code-block::
 
             make test-suite
-                and
-            make test-suite SUITE_GROUP=nightly
 
     .. tab-item:: UM docs
 
@@ -300,6 +322,8 @@ for all affected tests before you commit to the trunk.
 
         [rose-ana]
         kgo-database=.true.
+
+.. _kgo_instructions:
 
 .. tab-set::
 
@@ -409,7 +433,31 @@ for all affected tests before you commit to the trunk.
 
         4. Rerun the rose-stem tests to make sure nothing is broken.
 
-    .. tab-item:: LFRic
+
+    .. tab-item:: LFRic Apps
+
+        KGO Checksums are stored in the repository alongside the code and can
+        be updated using a script. This can be done by either the code reviewer
+        or by the developer (before submitting their changes for review). In the
+        latter case, the update will need redoing by the reviewer before commit
+        if there are merge conflicts in the checksum files.
+
+        1. Run the rose stem tasks that require a KGO update, plus any other testing required (see above) - if unsure run the `all` group.
+
+        .. code-block:: RST
+
+            export CYLC_VERSION=8
+            rose stem --group=all
+            cylc play <suite name>
+
+        2. Run the checksum update script stored in `<working copy>/rose-stem/bin`.
+
+        .. code-block::
+
+            python3 ./rose-stem/bin/update_branch_kgos.py -s <suite name> -w <path to working copy>
+
+
+    .. tab-item:: LFRic Core
 
         KGO Checksums are stored in the repository alongside the code. If there
         is a merge conflict within these files it is the developers responsibility
@@ -453,43 +501,7 @@ An editor will open requesting a log message which should be in this format:
 
 .. tab-set::
 
-    .. tab-item:: UM
-
-        .. code-block::
-
-            #ticket_number : Author : Reason for the change : ticket_type : code_area : regression : severity
-
-        This layout enables a script to parse the commits that make up each release.
-
-        1. Ticket number
-        2. Author : SRS username
-        3. Reason for the change : Title of the ticket
-        4. Ticket Type
-
-          * enhancement, defect, task, optimisation
-
-        5. Code Area -  Select the most appropriate from:
-
-          * technical, dynamics, ukca, bl_jules, convection, radiation, gwd, lsp_cloud, stochastic_physics, coupling, idealised, rose_stem, fcm_make, meta_data, utils, fieldcalc, other
-
-        6. Regression:
-
-          * kgo_and_macro, update_kgo, upgrade_macro, regression
-
-        7. Severity
-
-          * wholesale, significant, minor, trivial
-
-
-    .. tab-item:: JULES & JULES docs
-
-        .. code-block::
-
-            #<ticket number> for <original author> - <ticket title>
-
-        where original author is the srs username.
-
-    .. tab-item:: UKCA
+    .. tab-item:: All others
 
         .. code-block::
 
@@ -497,21 +509,13 @@ An editor will open requesting a log message which should be in this format:
 
         where author is the srs username.
 
-    .. tab-item:: LFRic
+    .. tab-item:: LFRic Core
 
         .. code-block::
 
             #<ticket number> for <original author>: <ticket title>
 
         where original author is the authors proper name.
-
-    .. tab-item:: UM docs
-
-        .. code-block::
-
-            #ticket_number : Author : Description : XXX (YYY ZZZ etc)
-
-        where XXX, YYY etc are the three letter codes for any UMDPs modified.
 
 .. note::
      New!! Remove any **blocks:** and **blockedby:** keywords from this ticket and any referenced. Comment on any unblocked tickets to alert the developers.

@@ -1,7 +1,7 @@
-.. _lfric_test:
+.. _lfric_core_test:
 
-Testing LFRic
-=============
+Testing LFRic Core
+==================
 
 LFRic testing is run with the following command from a working copy:
 
