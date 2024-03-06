@@ -13,8 +13,13 @@ by the rose stem suite.
 
 .. tip::
   Familiarise yourself with the `Rose documentation
-  <https://metomi.github.io/rose/2019.01.8/html/tutorial/rose/furthertopics/rose-stem.html>`_
+  <https://metomi.github.io/rose/doc/html/tutorial/rose/furthertopics/rose-stem.html#>`_
   before continuing with this section.
+
+.. note::
+  Migration to cylc8 and rose2 is currently in progress. UM, JULES and UKCA suites will
+  work with the latest versions as well as cylc7. The LFRic Apps rose-stem
+  has been written for cylc8 and is not backwards compatible.
 
 Adding a new app
 ----------------
@@ -74,6 +79,12 @@ such as JULES.
             in ``rose-stem/templates`` for each suite and looking at existing examples
             is encouraged.
 
+            .. note::
+                LFRic Apps has a `detailed set of wiki pages
+                <https://code.metoffice.gov.uk/trac/lfric_apps/wiki/rose-stem>`_
+                that document the structure and options available for their suite.
+
+
     .. tab-item:: Manual
 
         2. Task definitions
@@ -94,11 +105,11 @@ such as JULES.
 .. tip::
     The site specific information is held in:
         * JULES: rose-stem/include
-        * UM: rose-stem/site
+        * LFRic Apps & UM: rose-stem/site
 
 .. tip::
-    All `*.rc` files mentioned are frequently split into platform specific
-    variants depending on the complexity of the sites suite.
+    All `*.rc` or `.cylc` files mentioned are frequently split into platform
+    specific variants depending on the complexity of the sites suite.
 
     e.g. `runtime.rc` may be spread across `runtime-platform1.rc` and `runtime-platform2.rc`.
     If a task should be run on both platform1 and platform2 then both of these

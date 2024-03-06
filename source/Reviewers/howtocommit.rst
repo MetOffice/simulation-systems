@@ -11,8 +11,8 @@ The process for committing a ticket follows this sequence with details for each 
     Before You Start:
       * Is anyone else committing?
 
-        * `Trunk Status`_ is used to coordinate trunk commits for UM, JULES and UKCA.
-        * LFRic Trunk commits are coordinated through the dashboard in the Model Systems Teams Chat.
+        * `Trunk Status`_ is used to coordinate trunk commits for UM, JULES, LFRic Apps and UKCA.
+        * LFRic Core Trunk commits are coordinated through the dashboard in the Model Systems Teams Chat.
         * Simple, not conflicting commits can be done in parallel if reviewers all agree.
         * Changes with KGO or Macros usually require sole access to the trunk.
       * Check how many commits have happened today. Suggested limit per day, per repository is 4.
@@ -31,6 +31,7 @@ The process for committing a ticket follows this sequence with details for each 
         :hidden:
 
         committinglinkedtickets
+        nightlytesting
 
 1. Merge
 --------
@@ -67,7 +68,16 @@ resolve any conflicts.
             fcm merge fcm:ukca.x_br/dev/dev_name/branch_name
             fcm cf
 
-    .. tab-item:: LFRic
+    .. tab-item:: LFRic Apps
+
+        .. code-block:: RST
+
+            fcm co fcm:lfric_apps.x_tr chosen_name
+            cd chosen_name
+            fcm merge fcm:lfric_apps.x_br/dev/dev_name/branch_name
+            fcm cf
+
+    .. tab-item:: LFRic Core
 
         .. code-block:: RST
 
@@ -214,8 +224,8 @@ are no clashes with what else has gone on trunk.
         .. code-block:: RST
 
             rose stem --group=debug_compile
-            rose stem --group=developer,ex1a_developer
-            rose stem --group=all,ex1a
+            OR rose stem --group=developer,ex1a_developer
+            OR rose stem --group=all,ex1a
 
         If there is a change to the build configs then you may need to turn off
         prebuilds. To do so update `rose-stem/site/meto/variables.rc` such that
@@ -251,17 +261,30 @@ are no clashes with what else has gone on trunk.
             rose stem --group=developer,ukca --source=. --source=/path/to/UKCA/working/copy
 
 
-    .. tab-item:: LFRic
+    .. tab-item:: LFRic Apps
 
-        LFRic has many rose-stem suites for its different applications. Run the
-        test suite command from the top level of the repository to run a complete
-        set of the rose-stem suites.
+        LFRic Apps rose-stem contains tests spanning all the applications
+        included in the repository. At the very least run the developer group
+        which gives a basic level of tests spanning everything. The full set of
+        tests may be warranted for any application that has had more complex changes.
+
+        .. code-block::
+
+            export CYLC_VERSION=8
+
+            rose-stem --group=developer
+            OR e.g. rose-stem --group=developer,gungho_model
+
+            cylc play <working copy name>
+
+    .. tab-item:: LFRic Core
+
+        Run the test suite command from the top level of the repository to run
+        a complete set of the rose-stem developer suites.
 
         .. code-block::
 
             make test-suite
-                and
-            make test-suite SUITE_GROUP=nightly
 
     .. tab-item:: UM docs
 
@@ -275,17 +298,25 @@ are no clashes with what else has gone on trunk.
 
     .. tab-item:: JULES docs
 
-        Check the documentation builds correctly:
+        JULES documentation is hosted within the `JULES GitHub repository <https://github.com/jules-lsm/jules-lsm.github.io>`_.
+        To review and build the documentation branch locally, move to your 
+        local clone of the JULES GitHub, then:
 
         .. code-block:: RST
 
-            cd docs/user_guide
-            module load scitools
-            make clean html
+            git pull
+            git checkout <branch name> 
+            cd <path_to>/user_guide/doc
+            conda activate jules-user-guide    
+            make html
             firefox build/html/index.html
 
-            make clean latexpdf
-            evince build/latex/JULES_User_Guide.pdf &
+        To build and check the LaTeX PDF:
+
+        .. code-block:: RST
+
+            make latexpdf
+            evince build/latex/JULES_User_Guide.pdf
 
 
 
@@ -310,31 +341,37 @@ for all affected tests before you commit to the trunk.
         [rose-ana]
         kgo-database=.true.
 
+.. _kgo_instructions:
+
 .. tab-set::
 
-    .. tab-item:: UM
+    .. tab-item:: UM + LFRic Inputs
 
-        KGO files are stored in `$UMDIR/standard_jobs/kgo` and are installed there
+        KGO files are stored in `$UMDIR/standard_jobs/kgo` or `$UMDIR/standard_jobs/lfricinputs/kgo` and are installed there
         using a script.
 
-        1. Run the rose stem tasks that require a KGO update, plus any other testing required (see above) - if unsure run the `all` group.
+        1. Run the rose stem tasks that require a KGO update, plus any other testing required (see above) - if unsure run the `all,ex1a`.
 
             .. code-block::
 
                 rose stem --group=all,ex1a --new
 
-        2. **As yourself**, in your merged Head of Trunk working copy move to ``admin/rose-stem``.
-        3. Run ``meto_update_kgo.sh``. This script will ask you to enter some details regarding the ticket.
+        2. You will need access to both your merged working copy and a clone of the `SimSys_Scripts github repo <https://github.com/MetOffice/SimSys_Scripts>`_ (one is available in $UMDIR). Run the script ``kgo_updates/meto_update_kgo.sh`` which is located in SimSys_Scripts.
+
+        3. The script will ask you to enter some details regarding the ticket.
 
           * Platforms: enter each platform which has a kgo change, lower case and space seperated, e.g. `spice xc40 ex1a`
+          * Path to your merged working copy - the script will check this exists and will fail if it can't be found.
           * KGO directory: this will default to vnXX.X_tYYYY where XX.X is the version number and YYYY is the ticket number.
           * There are further prompts to the user through the script - in particular to check the shell script produced.
 
-        3. Check that the new KGO has been installed correctly by restarting your suite, retriggering the failed rose-ana tasks and checking they now pass.
+        4. If running on xc40s the script will ask whether to rsync UM files or lfricinputs files to the XCS. Select the appropriate option.
+
+        5. Check that the new KGO has been installed correctly by restarting your suite, retriggering the failed rose-ana tasks and checking they now pass.
 
           * e.g. add `--reload` or `--restart` to the rose-stem command ran previously.
 
-        4. Once committed, update the `bit comparison table <https://code.metoffice.gov.uk/trac/um/wiki/LoseBitComparison>`_.
+        6. Once committed, update the `bit comparison table <https://code.metoffice.gov.uk/trac/um/wiki/LoseBitComparison>`_.
 
         .. dropdown:: More details on KGO update script
 
@@ -414,7 +451,31 @@ for all affected tests before you commit to the trunk.
 
         4. Rerun the rose-stem tests to make sure nothing is broken.
 
-    .. tab-item:: LFRic
+
+    .. tab-item:: LFRic Apps
+
+        KGO Checksums are stored in the repository alongside the code and can
+        be updated using a script. This can be done by either the code reviewer
+        or by the developer (before submitting their changes for review). In the
+        latter case, the update will need redoing by the reviewer before commit
+        if there are merge conflicts in the checksum files.
+
+        1. Run the rose stem tasks that require a KGO update, plus any other testing required (see above) - if unsure run the `all` group.
+
+        .. code-block:: RST
+
+            export CYLC_VERSION=8
+            rose stem --group=all
+            cylc play <suite name>
+
+        2. Run the checksum update script stored in `<working copy>/rose-stem/bin`.
+
+        .. code-block::
+
+            python3 ./rose-stem/bin/update_branch_kgos.py -s <suite name> -w <path to working copy>
+
+
+    .. tab-item:: LFRic Core
 
         KGO Checksums are stored in the repository alongside the code. If there
         is a merge conflict within these files it is the developers responsibility
@@ -458,43 +519,7 @@ An editor will open requesting a log message which should be in this format:
 
 .. tab-set::
 
-    .. tab-item:: UM
-
-        .. code-block::
-
-            #ticket_number : Author : Reason for the change : ticket_type : code_area : regression : severity
-
-        This layout enables a script to parse the commits that make up each release.
-
-        1. Ticket number
-        2. Author : SRS username
-        3. Reason for the change : Title of the ticket
-        4. Ticket Type
-
-          * enhancement, defect, task, optimisation
-
-        5. Code Area -  Select the most appropriate from:
-
-          * technical, dynamics, ukca, bl_jules, convection, radiation, gwd, lsp_cloud, stochastic_physics, coupling, idealised, rose_stem, fcm_make, meta_data, utils, fieldcalc, other
-
-        6. Regression:
-
-          * kgo_and_macro, update_kgo, upgrade_macro, regression
-
-        7. Severity
-
-          * wholesale, significant, minor, trivial
-
-
-    .. tab-item:: JULES & JULES docs
-
-        .. code-block::
-
-            #<ticket number> for <original author> - <ticket title>
-
-        where original author is the srs username.
-
-    .. tab-item:: UKCA
+    .. tab-item:: All others
 
         .. code-block::
 
@@ -502,21 +527,13 @@ An editor will open requesting a log message which should be in this format:
 
         where author is the srs username.
 
-    .. tab-item:: LFRic
+    .. tab-item:: LFRic Core
 
         .. code-block::
 
             #<ticket number> for <original author>: <ticket title>
 
         where original author is the authors proper name.
-
-    .. tab-item:: UM docs
-
-        .. code-block::
-
-            #ticket_number : Author : Description : XXX (YYY ZZZ etc)
-
-        where XXX, YYY etc are the three letter codes for any UMDPs modified.
 
 .. note::
      New!! Remove any **blocks:** and **blockedby:** keywords from this ticket and any referenced. Comment on any unblocked tickets to alert the developers.

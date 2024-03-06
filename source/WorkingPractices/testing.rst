@@ -29,7 +29,8 @@ Bespoke:
    :caption: Test Suites
 
    TestSuites/um
-   TestSuites/lfric
+   TestSuites/lfric_apps
+   TestSuites/lfric_core
    TestSuites/jules
    TestSuites/ukca
 
@@ -37,8 +38,10 @@ Bespoke:
    TestSuites/casim
    TestSuites/shumlib
 
-Changes that affect multiple repositories will need testing together as detailed
-:ref:`here <multirepo>`.
+.. important::
+
+    Changes that affect multiple repositories will need testing together as
+    detailed :ref:`here <multirepo_testing>`.
 
 Test branches & Upgrade Macros
 ------------------------------

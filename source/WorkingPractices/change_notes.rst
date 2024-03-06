@@ -2,5 +2,3 @@
 
 Recent Changes
 ==============
-
-This is all new!

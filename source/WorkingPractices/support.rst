@@ -25,7 +25,7 @@ Level 2- Support Teams
 If you still require assistance, then contact the appropriate support team.
 Please respect the clear demarcations between the scope for different teams.
 
-Capability Development Team (formally LFRic Team):
+Core Capability Development Team (formally LFRic Team):
    * Support windows for LFRic releases TBC
 
 Simulation Systems and Deployment Team (formerly UM System Team and CRUM team) supports:
@@ -42,4 +42,4 @@ should be escalated to the manager of the Simulation Systems and Deployment Team
 in the first instance. They will consult appropriately to make the best balanced
 and impartial decision. If this is unsuccessful, the ultimate (but very rarely
 used) decision authority about code that may be committed to the trunk lies with
-the UM Project Board.
+the Simulation Systems Governance Group.

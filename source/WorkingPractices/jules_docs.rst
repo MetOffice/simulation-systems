@@ -28,7 +28,7 @@ First time developers will need to clone the git repository before starting work
 
     cd <path_to_where_you_want_to_clone_to>
     git clone git@github.com:jules-lsm/jules-lsm.github.io.git
-    cd jules-lsm.github.io.git
+    cd jules-lsm.github.io
 
 Create and checkout a new feature branch:
 
@@ -68,6 +68,9 @@ Create either a PR or, if the changes aren't quite ready for review, a draft
 PR, see `GitHub - Creating a pull request`_
 
 .. _GitHub - Creating a pull request: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
+
+Ensure that your JULES Trac ticket includes a link to the GitHub
+pull request containing your documentation change.
 
 Building the JULES User Guide
 -----------------------------
@@ -123,7 +126,7 @@ To begin documenting a namelist, the directive
 
     .. nml:namelist:: <NAMELIST_NAME>
 
-is used. By convention, namelist names are UPPER_CASE, while namelist member
+is used. By convention, namelist names are ``UPPER_CASE``, while namelist member
 names are ``lower_case``.
 
 The ``nml:namelist`` directive does not output anything, but indicates that all
@@ -171,9 +174,10 @@ Any un-indented members end the group.
 
 For an example of how ``nml:group`` might be used, see the documentation of
 ``JULES_INPUT_GRID`` in `model_grid.nml`_. To see how the nml:group directive
-is rendered, see JULES_INPUT_GRID namelist members.
+is rendered, see `JULES_INPUT_GRID namelist members`_.
 
 .. _model_grid.nml: https://jules-lsm.github.io/latest/namelists/model_grid.nml.html
+.. _JULES_INPUT_GRID namelist members: https://jules-lsm.github.io/latest/namelists/model_grid.nml.html#jules-input-grid-namelist-members
 
 Note - If you are adding a completely new namelist then the namelist name also
 needs to be added to the contents page in source/namelists/contents.rst in order

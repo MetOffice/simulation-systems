@@ -52,8 +52,8 @@ Most repositories have a set of standard types, e.g.:
 
 You should choose whichever type is most appropriate to your code change.
 
-**LFRic** has a number of different types. Either choose the most appropriate
-based on your change or seek guidance from a member of the LFRic development
+**LFRic Core** has a number of different types. Either choose the most appropriate
+based on your change or seek guidance from a member of the Core Capability Development
 team or an experienced LFRic developer.
 
 Milestone
@@ -91,8 +91,8 @@ best to leave this box blank.
   you get the same amount of email from Trac as you have 'touched' the
   ticket.
 
-Priority (LFRic/JULES/UKCA/CASIM)
----------------------------------
+Priority (LFRic Core/JULES/UKCA/CASIM)
+--------------------------------------
 
 This is a list of options to show how important that the change is
 committed to your project, including:
@@ -113,10 +113,10 @@ appropriate setting.
   select ``normal`` or ``minor``.
 
 
-Severity (UM/SOCRATES)
-----------------------
+Severity (UM/LFRic Apps/SOCRATES)
+---------------------------------
 
-The UM and SOCRATES have a ticket severity menu instead of a priority
+The UM, LFRic Apps and SOCRATES have a ticket severity menu instead of a priority
 menu. These are as follows:
 
 * **Wholesale**: A code change which alters a huge number of files. Use only with prior consultation of the SSD team.
@@ -126,7 +126,7 @@ menu. These are as follows:
 
 .. note::
   Trivial tickets do not need a SciTech review; they should be simple
-  and small enough that a CodeSys reviewer can understand them without
+  and small enough that a CodeSys reviewer can easily understand them without
   any major scientific or technical changes.
 
 Keywords
@@ -151,8 +151,8 @@ A list of :ref:`keywords` is available.
   If in doubt, it's best to leave the keywords box blank initially, as
   keywords can always be added at a later date.
 
-Component (all repositories except JULES and UKCA)
---------------------------------------------------
+Component (all repositories except LFRic Apps, JULES and UKCA)
+--------------------------------------------------------------
 
 Components vary significantly between different modelling systems. Please
 review the list of options and select the one most appropriate to your change,
@@ -172,13 +172,13 @@ Owner
   to yourself, even if you know that someone else will eventually make
   the change.
 
-Associated With (LFRic only)
-----------------------------
+Associated With (LFRic Core only)
+---------------------------------
 This box is used to link branches and wiki page templates as the ticket is
 developed. It is safe to leave it blank when first creating the ticket.
 
-Blocked by (LFRic only)
------------------------
+Blocked by (LFRic Core only)
+----------------------------
 This box can be used to list other tickets which block this change. This
 allows the SSD team to prioritise the commit order of the tickets on to
 the trunk.

@@ -10,14 +10,15 @@ To think about how the repositories work together it's useful to think about
 them as almost concentric circles. The child repositories such as JULES or UKCA
 sit in the centre and are mostly independent of anything else. The UM
 is a parent of those repositories and is dependant on changes in it's own code
-base and on those in the children. LFRic is then another layer again and is
-dependant on both the UM physics and the other child repositories.
+base and on those in the children. LFRic Apps is then another layer again and is
+dependant on both the UM physics and the other child repositories. LFRic Apps
+also utilises the infrastructure in LFRic Core.
 
 This means that changes to the science code in JULES etc will need testing with
-both the UM and LFRic to check for any interactions. Likewise, changes to the
-atmosphere code in the UM will require LFRic testing.
+both the UM and LFRic Apps to check for any interactions. Likewise, changes to the
+atmosphere code in the UM will require LFRic Apps testing.
 
-.. image:: images/repo_circles.svg
+.. image:: images/repo_circles.png
     :width: 300
     :align: center
 
@@ -31,7 +32,7 @@ as a group with the same reviewers and committed at the same time.
 
 Do:
     * Make sure every ticket has a cross reference to the others in the set, e.g. ``um:#1234``
-    * Use keywords to show which other repositories are involved
+    * Use :ref:`keywords` to show which other repositories are involved
     * Get the tickets ready for review at the same time
     * Ask for help testing if you don't have access to all the codebases involved
 
@@ -45,9 +46,11 @@ Do:
 
     For head of trunk revisions make sure that all branches/revisions being used
     are at least as recent as the versions listed in the `_rev` parameter of
-    `<lfric_trunk>/lfric_atm/fcm-make/parameters.sh`, or `<um_trunk>/rose-stem/rose-suite.conf`.
+    `<lfric_apps_trunk>/dependencies.sh`, or `<um_trunk>/rose-stem/rose-suite.conf`.
 
     If in doubt, please contact the Simulation Systems and Deployment Team for advice.
+
+.. _multirepo_testing:
 
 Testing Changes Together
 ------------------------
@@ -58,7 +61,7 @@ from the inside out as needed. Further details of how testing in each
 repository is handled can be found :ref:`here <testing>`. Compatible
 code revisions are needed for testing across repositories as described above.
 
-Testing changes in JULES, UKCA, or any other child repositories is
+Testing changes in JULES, LFRic Core, UKCA, or any other child repositories is
 as simple as running the standalone test procedures for these codebases.
 
 Testing the UM with other repositories
@@ -84,54 +87,56 @@ The source paths involved can either be to local working copies or links to the
 fcm source control e.g. ``fcm:jules.xm_br/dev/user/branch_name``. As many source
 paths as needed can be added to the list.
 
-Testing LFRic with other repositories
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Testing LFRic Apps with other repositories
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-LFRic testing needs to encompass all of the other repositories affected. Paths
-to the other codebases involved should be added to
-``lfric_atm/fcm-make/parameters.sh`` under each of the ``*_sources`` variables. Again
+LFRic Apps testing needs to encompass all of the other repositories affected.
+Paths to the other codebases involved should be added to
+``dependencies.sh`` under each of the ``*_sources`` variables. Again
 these paths can either be to local changes or those in the repository.
 
-    1. :ref:`Checkout<checkout>` an LFRic working copy
+    1. :ref:`Checkout<checkout>` an LFRic Apps working copy
 
         - this may be your branch from a linked ticket, or a clean trunk copy
           at either the last release or a suitable head of trunk revision.
 
-    2. Update parameters.sh to point to all other code changes, e.g.
+    2. Update dependencies.sh to point to all other code changes, e.g.
 
         .. code-block:: RST
 
             um_sources=vldXXX:/path/to/um/working/copy
             jules_source=vldXXX:/path/to/jules/working/copy
 
-    3a. Run the lfric_atm test-suite
+    3a. Run the lfric_atm developer test-suite
 
         - suitable for testing changes in other repositories that do not
-          include any LFRic changes
+          include any LFRic Apps changes
 
         .. code-block::
 
-            cd <working_copy>/lfric_atm
-            make test-suite
+            export CYLC_VERSION=8
+            rose stem --group=lfric_atm_developer
+            cylc play <working copy name>
 
-    3b. Run the full test-suite
+    3b. Run the full developer test-suite
 
-        - suitable for testing LFRic changes with other repositories, or expanding
+        - suitable for testing LFRic Apps changes with other repositories, or expanding
           testing if lfric_atm tests have shown errors.
 
         .. code-block::
 
-            cd <working_copy>
-            make test-suite
+            export CYLC_VERSION=8
+            rose stem --group=developer
+            cylc play <working copy name>
 
-        More details on LFRic testing are found :ref:`here<lfric_test>`.
+        More details on LFRic Apps testing are found :ref:`here<lfric_apps_test>`.
 
 
 
 .. tip::
     Links to changes stored in fcm source control should point at the mirror
     repository (note `jules.xm` rather than `jules.x` above). Links to local
-    changes provided to the LFRic build should start with `<hostname>:`.
+    changes provided to the LFRic Apps build should start with `<hostname>:`.
 
 .. note::
     If any of the testing shows up failures then there are two possible ways to

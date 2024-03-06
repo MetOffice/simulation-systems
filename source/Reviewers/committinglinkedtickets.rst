@@ -12,12 +12,12 @@ api between the codebases is broken. For this reason, where possible, all parts 
 a linked ticket should be committed on the same day to avoid nightly tests failing.
 
 :ref:`Multi-repository <multirepo>` changes are nested, and the different branches
-will need approaching in the correct order. The UM and LFRIc are the key places where
-these overlap.
+will need approaching in the correct order. The UM and LFRIc Apps are the key
+places where these overlap.
 
-    1. Everything except UM and LFRic can be worked on seperately and should be committed first.
-    2. The UM relies on code from all of the above code bases, and will need that code for both testing and committing.
-    3. LFRic relies on code from all of the above, and will need that code for both testing and committing.
+    1. Everything except UM and LFRic Apps can be worked on separately and should be committed first.
+    2. The UM relies on code from all of the above code bases (except LFRic Core), and will need that code for both testing and committing.
+    3. LFRic Apps relies on code from all of the above, and will need that code for both testing and committing.
 
 .. tip::
 
@@ -48,8 +48,8 @@ Details for testing multi-repository tickets are included :ref:`here <multirepo>
 
 **In summary:**
 
-* JULES, UKCA and other child repositories can be tested using their standalone
-  test suites as described on the How to Commit page.
+* JULES, UKCA, LFRic Core and other child repositories can be tested using their
+  standalone test suites as described on the How to Commit page.
 
 * Local working copies can be passed to the UM on the command line
 
@@ -61,7 +61,7 @@ Details for testing multi-repository tickets are included :ref:`here <multirepo>
     (e.g. in the above example the jules and ukca groups are tested).
 
 * Local working copies of any linked UM, JULES, UKCA or other repositories
-  can be passed to LFRic through <lfric_trunk>/lfric_atm/fcm-make/parameters.sh.
+  can be passed to LFRic Apps through <lfric_apps_trunk>/dependencies.sh.
 
     .. code-block:: RST
 
@@ -73,7 +73,7 @@ Details for testing multi-repository tickets are included :ref:`here <multirepo>
     It is always important that branches and working copies used for testing
     multiple repositories together have been taken at the same point in time. If
     this isn't the case then API breaking changes may be included in one repository
-    but not another which will cause tests to break.
+    but not another which will cause tests to fail.
 
     The developer will likely have used branches taken from the last releases which
     are a known set of stable revisions which work together.
@@ -85,7 +85,7 @@ Details for testing multi-repository tickets are included :ref:`here <multirepo>
 .. tip::
 
     If some of the changes in this set of tickets have already been committed
-    then see steps 2, 4 and 5 below on how to include those changes in your testing.
+    then see steps 2 and 4 below on how to include those changes in your testing.
     This is instead of the steps described above.
 
     e.g. If JULES changes have been committed and the revision number modified in
@@ -99,7 +99,7 @@ Committing linked tickets
 
 Once you are happy with all your testing then the commit sequence is as follows:
 
-1. Commit all trunks **except** UM and LFRic. Make note of the commit revision numbers.
+1. Commit all trunks **except** UM and LFRic Apps. Make note of the commit revision numbers.
 
 2. Update <um_trunk>/rose-stem/rose-suite.conf
 
@@ -113,7 +113,7 @@ Once you are happy with all your testing then the commit sequence is as follows:
 
 3. Commit UM
 
-4. Update <lfric_trunk>/lfric_atm/fcm-make/parameters.sh
+4. Update <lfric_apps_trunk>/dependencies.sh
 
     * Modify ``*_rev`` variables for all other repositories you have updated to point to the the new commit revisions.
     * Remove any branch references from the ``*_sources`` variables.
@@ -127,10 +127,6 @@ Once you are happy with all your testing then the commit sequence is as follows:
             export um_sources=
             export jules_sources=
 
-5. **For changes including JULES and LFRic** also update <lfric_trunk>/miniapps/lfric_coupled/rose-stem/app/fcm_make_river/rose-app.conf
+5. Commit LFRic Apps
 
-    * Modify ``JULES_SOURCE_VN`` to also point to the same revision as parameters.sh.
-
-5. Commit LFRic
-
-You may choose to run a subset of tests before completing the UM and LFRic commits in turn to validate your changes.
+You may choose to run a subset of tests before completing the UM and LFRic Apps commits in turn to validate your changes.

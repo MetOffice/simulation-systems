@@ -70,4 +70,5 @@ team.
 
 Suggestions received will be evaluated and responded to, but a final decision
 as to whether the working practices will be modified lies with the Simulation
-Systems and Deployment team and ultimately the UM Project Board.
+Systems and Deployment team and ultimately the Simulation Systems Governance
+Group.
