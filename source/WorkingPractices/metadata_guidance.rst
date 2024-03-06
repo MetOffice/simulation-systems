@@ -12,20 +12,57 @@ with a consistent set of information, such as follows:
 
 .. code-block::
 
-    [namelist:<namelist>=<variable>]
-    description=<what is the variable for?>
-    help=<detailed information about the variable>
-    sort-key=<XY>
-    etc
+   [namelist:<namelist>=<variable>]
+   description=<what is the variable for?>
+   help=<detailed information about the variable>
+   sort-key=<XY>
+   url=<http://jules-lsm.github.io/latest/namelists/<namelist>.nml.html#<NAMELIST>::<item>>
+   etc
 
-then each input is presented as:
+where JULES namelist items should only contain the ``url=`` field and
+not the ``help=`` field regardless of the repository they reside
+in. Each input is presented in the GUI as:
 
 .. code-block::
 
     variable name
     short description of the variable name
 
-Help text is displayed when one clicks the variable name.
+Either the help text is displayed or web help opened when one clicks
+the variable name. If both fields exist the Web help is opened
+preferentially. If a ``url=`` is present the ``help=`` field should be
+removed to avoid duplication.
+
+.. _shared-namelists:
+
+Shared namelists
+----------------
+
+Shared namelist items, or items which exist in more than one
+repository, should have identical metadata regardless of the
+repository where they reside (e.g. JULES items in the UM
+metadata). The only caveats are where a ``trigger`` or a ``fail-if``
+reference a namelist item from the parent model (e.g. UM).
+
+Shared JULES metadata is in the process of being migrated to
+`rose-meta/jules-shared
+<https://code.metoffice.gov.uk/trac/jules/browser/main/trunk/rose-meta/jules-shared>`_,
+which resides in the JULES repository. The sub-directories are
+imported by **rose-meta/um-atmos** and **rose-meta/jules-standalone**
+and is manually synced with a copy in LFRic. Please see `Sharing JULES
+metadata <https://code.metoffice.gov.uk/trac/jules/wiki/SharingJULESmetadata>`_
+for more details including what should be in `jules-shared
+<https://code.metoffice.gov.uk/trac/jules/wiki/SharingJULESmetadata#Whatsinjules-shared>`_
+and in `jules-standalone, jules-lfric or um-atmos
+<https://code.metoffice.gov.uk/trac/jules/wiki/SharingJULESmetadata#Whatsinjules-standalonejules-lfricorum-atmos>`_. When
+developing shared JULES metadata, you will need :ref:`linked tickets
+<multirepo>`. The metadata migration is currently dictated by LFRic
+porting of science, although the ultimate aim is to have a single
+source of truth.
+
+Please see the :ref:`rose config-edit example<metadata_changes>` for
+an illustration of how to pick up **jules-shared** changes from a
+JULES working copy.
 
 ..
  We need to check if this is all still the case with cylc 8.
@@ -55,7 +92,8 @@ see inputs that need to be set rather than everything.
 .. tip::
   The GUI provides an option to un-hide triggered variables if one wants to see them all.
 
-Please set ``compulsory=true`` for items and use triggers for when it is not required.The settings
+Please set ``compulsory=true`` for items and use triggers for when it
+is not required. The settings
 of all variables will then be present, in all apps to aid configuration management. When a variable
 is triggered off, it will be commented out in the apps e.g. ``!!variable``.
 
@@ -73,18 +111,64 @@ is triggered off, it will be commented out in the apps e.g. ``!!variable``.
 
   It is not possible to trigger a variable based on ``OR`` logic.
 
-Viewing meta-data changes as you go along
+.. _metadata_changes:
+
+Viewing metadata changes as you go along
 -----------------------------------------
 
-One can easily review their meta-data changes with the rose config editor, opening up an example app file. For example
+One can easily review their metadata changes with the rose config editor, opening up an example app file. For example:
 
 .. code-block::
 
-  cd <path of working copy of branch>/rose-stem/app/um_n48_eg
-  rose config-edit -M <path of working copy of branch/rose-meta/>
+   cd <path of working copy of branch>/rose-stem/app/um_n48_eg
+   rose config-edit -M <path of working copy of branch/rose-meta/>
 
-then once the app opens click on the LHS appname to being up the app meta panel. Update this to HEAD rather than the version number and apply.
+If making **jules-shared** changes, when reviewing these changes from a
+different parent repository, you will first need to set the
+`ROSE_META_PATH` system variable:
 
-Please note that if you have used an upgrade macro on the app then the meta line at the top of the app file will have changed (i.e. meta=um-atmos/vn11.0_t46). Since no meta-data exists at this version rose edit will produce an error saying that it cannot find it, instead it will use the meta-data in um-atmos/HEAD. Please click OK and continue.
+.. code-block::
 
-Your updates should now appear. 
+   export ROSE_META_PATH=<path of working copy of JULES branch/rose-meta/>
+
+or add the path instead as a colon separated list:
+
+.. code-block::
+
+   rose config-edit -M <path of working copy of branch/rose-meta/>:<path of working copy of JULES branch/rose-meta/>
+
+then once the app opens click on the LHS appname to display the app
+meta panel. Update this to HEAD rather than the version number and
+apply.
+
+Please note that if you have used an upgrade macro on the app then the
+meta line at the top of the app file will have changed
+(e.g. meta=um-atmos/vn11.0_t46). Since no metadata exists at this
+version rose edit will produce an error saying that it cannot find it,
+instead it will use the metadata in e.g. um-atmos/HEAD. Please click
+OK and continue.
+
+Your updates should now appear.
+
+Ensuring metadata changes are valid
+-----------------------------------
+
+Developments to the metadata can be checked for errors by running
+`rose metadata-check <https://metomi.github.io/rose/doc/html/api/command-reference.html#rose-metadata-check>`_
+
+.. code-block::
+
+   rose metadata-check -C /path/to/rose-meta/<config>/HEAD
+
+where the ``-C`` option can be omitted if inside the directory containing the metadata file.
+
+.. note::
+   If there are **jules-shared** changes then these need to be
+   added to the metadata path even in the JULES repository. As the
+   metadata checker does not have the ``-M`` option, this has to be
+   done using the `ROSE_META_PATH` environnment variable as in the
+   :ref:`previous example<metadata_changes>`.
+
+   If the metadata checker returns "not a configuration metadata
+   directory" then this may indicate that the wrong path has been
+   set.
