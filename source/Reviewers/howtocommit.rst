@@ -425,7 +425,7 @@ for all affected tests before you commit to the trunk.
                 KGO_DIR=/project/jules/rose-stem/jules-kgo/$KGO_VERSION; mkdir -p $KGO_DIR && cp ~$USER_NAME/cylc-run/$SUITE/work/1/meto_linux_*/output/* $KGO_DIR
 
                 # Copy Cray output to the KGO location for the Cray
-                # If something goes wrong with the copy, try passing the full path (eg. /home/users/), not just ~user
+                # If something goes wrong with the copy, try passing the full path (eg. /home/d01/USER/), not just ~$USER_NAME
                 ssh -Y xcel00
                 KGO_VERSION=vnX.X_txxxx
                 USER_NAME=<user>
@@ -444,7 +444,7 @@ for all affected tests before you commit to the trunk.
                 exit
 
                 # Copy EXZ output to the KGO location for EXZ (note <USERNAME> format is firstname.surname!)
-                # If something goes wrong with the copy, try passing the full path (eg. /home/users/), not just ~user
+                # If something goes wrong with the copy, try passing the full path (eg. /home/users/USER/), not just ~$USER_NAME
                 ssh -Y login.exz
                 KGO_VERSION=vnX.X_txxxx
                 USER_NAME=<user>
