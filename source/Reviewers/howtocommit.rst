@@ -272,8 +272,8 @@ are no clashes with what else has gone on trunk.
 
             export CYLC_VERSION=8
 
-            rose-stem --group=developer
-            OR e.g. rose-stem --group=developer,gungho_model
+            rose stem --group=developer
+            OR e.g. rose stem --group=developer,gungho_model
 
             cylc play <working copy name>
 
