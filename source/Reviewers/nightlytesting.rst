@@ -61,11 +61,11 @@ TLDR Instructions
 
 .. code-block:: bash
 
-    \#  As the testing user
+    #  As the testing user
     rs8
-    \# Wait for retrigger script to run - answer questions as required
+    # Wait for retrigger script to run - answer questions as required
     cylc_url
-    \# Select the 2nd url that appears
+    # Select the 2nd url that appears
 
 Full Explanation
 ^^^^^^^^^^^^^^^^
