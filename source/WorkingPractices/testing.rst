@@ -91,8 +91,7 @@ commands, noting that ``--jules-path`` is only required if you have
 .. todo: add an LFRic upgrade macro command... and make these more consistent?
 
 .. warning::
-   Please ensure that Cylc7 is used with `update_all.py` @vn13.5.
-   This is fixed at HoT and either Cylc7 or Cylc8 can be used
+   Please ensure that Cylc7 is used with `update_all.py` @vn13.5. This is fixed at HoT and either Cylc7 or Cylc8 can be used.
 
 .. Note::
    The update_all.py script suppresses warnings produced by upgrade macros.
