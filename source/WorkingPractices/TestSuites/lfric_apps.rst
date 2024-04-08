@@ -10,6 +10,7 @@ LFRic Apps testing is run with the following commands from a working copy:
         export CYLC_VERSION=8
         rose stem --group=developer
         cylc play <working copy name>
+        cylc gui
 
 -----
 
