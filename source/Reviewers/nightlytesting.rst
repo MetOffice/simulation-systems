@@ -51,7 +51,7 @@ To update and install at meto:
 
 .. code-block:: bash
 
-    python3 generate_test_suite_cron.py -c ~/nightly_testing_configs.yaml --install
+    python3 generate_test_suite_cron.py -c ~/Crontabs/nightly_testing_configs.yaml --install
 
 Retriggering Nightlies
 ----------------------
