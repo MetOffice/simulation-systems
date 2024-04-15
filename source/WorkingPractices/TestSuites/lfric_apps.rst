@@ -18,8 +18,8 @@ LFRic Apps testing is run with the following commands from a working copy:
 
     When specifying the lfric_core source the lfric_core revision **must** be updated in ``dependencies.sh``.
 
-    * If using an fcm URL the mirror needs to be used and the revision can either be blank (for latest commit) or any valid revision for that branch.
-    * If using a Working Copy the hostname needs to be provided (as Hostname:Path) and the revision must be blank.
+    * If setting the source to an fcm URL, the mirror needs to be used and the revision can either be blank (for latest commit) or any valid revision for that branch.
+    * If setting the source to a Working Copy, the hostname needs to be provided (as Hostname:Path) and the revision must be blank.
 
 The LFRic Apps rose stem includes a range of tests to exercise all the applications
 stored in this repository, using multiple compilers, and checksum and plot tasks to

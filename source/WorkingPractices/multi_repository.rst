@@ -64,6 +64,13 @@ code revisions are needed for testing across repositories as described above.
 Testing changes in JULES, LFRic Core, UKCA, or any other child repositories is
 as simple as running the standalone test procedures for these codebases.
 
+.. important::
+
+    When specifying an alternative source in the ``dependencies.sh`` file the revision for the source **must** be updated.
+
+    * If setting the source as an fcm URL, the mirror needs to be used and the revision can either be blank (for latest commit) or any valid revision for that branch.
+    * If setting the source as a Working Copy, the hostname needs to be provided (as Hostname:Path) and the revision must be blank.
+
 Testing the UM with other repositories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -89,13 +96,6 @@ paths as needed can be added to the list.
 
 Testing LFRic Apps with other repositories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. important::
-
-    When specifying the lfric_core source the lfric_core revision **must** be updated in ``dependencies.sh``.
-
-    * If using an fcm URL the mirror needs to be used and the revision can either be blank (for latest commit) or any valid revision for that branch.
-    * If using a Working Copy the hostname needs to be provided (as Hostname:Path) and the revision must be blank.
 
 LFRic Apps testing needs to encompass all of the other repositories affected.
 Paths to the other codebases involved should be added to
@@ -137,13 +137,6 @@ these paths can either be to local changes or those in the repository.
             cylc play <working copy name>
 
         More details on LFRic Apps testing are found :ref:`here<lfric_apps_test>`.
-
-
-
-.. tip::
-    Links to changes stored in fcm source control should point at the mirror
-    repository (note `jules.xm` rather than `jules.x` above). Links to local
-    changes provided to the LFRic Apps build should start with `<hostname>:`.
 
 .. note::
     If any of the testing shows up failures then there are two possible ways to
