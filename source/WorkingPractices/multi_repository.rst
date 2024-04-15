@@ -90,6 +90,13 @@ paths as needed can be added to the list.
 Testing LFRic Apps with other repositories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. important::
+
+    When specifying the lfric_core source the lfric_core revision **must** be updated in ``dependencies.sh``.
+
+    * If using an fcm URL the mirror needs to be used and the revision can either be blank (for latest commit) or any valid revision for that branch.
+    * If using a Working Copy the hostname needs to be provided (as Hostname:Path) and the revision must be blank.
+
 LFRic Apps testing needs to encompass all of the other repositories affected.
 Paths to the other codebases involved should be added to
 ``dependencies.sh`` under each of the ``*_sources`` variables. Again
