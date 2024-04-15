@@ -33,7 +33,6 @@ Bespoke:
    TestSuites/lfric_core
    TestSuites/jules
    TestSuites/ukca
-   multi_repository
 
 .. todo:
    TestSuites/casim
