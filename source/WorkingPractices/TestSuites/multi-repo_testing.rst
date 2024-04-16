@@ -90,13 +90,6 @@ these paths can either be to local changes or those in the repository.
 
         More details on LFRic Apps testing are found :ref:`here<lfric_apps_test>`.
 
-
-
-.. tip::
-    Links to changes stored in fcm source control should point at the mirror
-    repository (note `lfric.xm` rather than `lfric.x` above). Links to local
-    changes provided to the LFRic Apps build should start with `<hostname>:`.
-
 .. note::
     If any of the testing shows up failures then there are two possible ways to
     proceed:
