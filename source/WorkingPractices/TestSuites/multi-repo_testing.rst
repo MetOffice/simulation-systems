@@ -60,8 +60,11 @@ these paths can either be to local changes or those in the repository.
 
         .. code-block:: RST
 
+            lfric_core_rev=
+            lfric_core_sources=fcm:lfric.xm_br/path/to/branch
+
+            um_rev=
             um_sources=vldXXX:/path/to/um/working/copy
-            jules_source=vldXXX:/path/to/jules/working/copy
 
     3a. Run the lfric_atm developer test-suite
 
@@ -91,7 +94,7 @@ these paths can either be to local changes or those in the repository.
 
 .. tip::
     Links to changes stored in fcm source control should point at the mirror
-    repository (note `jules.xm` rather than `jules.x` above). Links to local
+    repository (note `lfric.xm` rather than `lfric.x` above). Links to local
     changes provided to the LFRic Apps build should start with `<hostname>:`.
 
 .. note::
