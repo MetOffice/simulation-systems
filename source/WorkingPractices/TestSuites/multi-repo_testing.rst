@@ -5,7 +5,7 @@ Multi-Repository Testing
 
 Multi-repository changes are expected to pass the regression tests for all the
 repositories involved. To carry out the tests involved in a linked ticket it can
-be helpful to refer to the semi-concentric circles above; layering the testing
+be helpful to refer to the :ref:`semi-concentric circles figure <multirepo>`; layering the testing
 from the inside out as needed. Further details of how testing in each
 repository is handled can be found :ref:`here <testing>`. Compatible
 code revisions are needed for testing across repositories as described above.
@@ -76,6 +76,7 @@ these paths can either be to local changes or those in the repository.
             export CYLC_VERSION=8
             rose stem --group=lfric_atm_developer
             cylc play <working copy name>
+            cylc gui
 
     3b. Run the full developer test-suite
 
@@ -87,6 +88,7 @@ these paths can either be to local changes or those in the repository.
             export CYLC_VERSION=8
             rose stem --group=developer
             cylc play <working copy name>
+            cylc gui
 
         More details on LFRic Apps testing are found :ref:`here<lfric_apps_test>`.
 
