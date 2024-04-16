@@ -33,15 +33,11 @@ Bespoke:
    TestSuites/lfric_core
    TestSuites/jules
    TestSuites/ukca
+   TestSuites/multi-repo_testing
 
 .. todo:
    TestSuites/casim
    TestSuites/shumlib
-
-.. important::
-
-    Changes that affect multiple repositories will need testing together as
-    detailed :ref:`here <multirepo_testing>`.
 
 Test branches & Upgrade Macros
 ------------------------------
