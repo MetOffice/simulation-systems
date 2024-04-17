@@ -130,7 +130,9 @@ Core Capability Development Team
 The Core Capability Development Team are responsible for the LFRic Infrastructure to
 support the Next Generation Modelling Systems.
 
-LFRic questions can be directed to meto-lfric@metoffice.gov.uk.
+The team can be contacted at corecapabilitydevelopmentteam@metoffice.gov.uk.
+
+LFRic questions can also be directed to meto-lfric@metoffice.gov.uk.
 .. todo: flesh out the description here
 
 .. _hpc_opt_team:

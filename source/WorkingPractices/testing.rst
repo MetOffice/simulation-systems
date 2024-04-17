@@ -122,3 +122,18 @@ included when passing a ticket for review.
 .. code-block::
 
     ~/cylc-run/<suite_name>/trac.log
+
+
+.. tip::
+    If your suite has finished and no trac.log has been generated then it is
+    possible to do so manually using
+    `suite_report.py <https://github.com/MetOffice/SimSys_Scripts/blob/main/suite_report.py>`_.
+
+    On Met Office desktops a copy is stored locally allowing this to be done with:
+
+    .. code-block::
+
+        python3 $UMDIR/SimSys_Scripts/suite_report.py -S <workflow path>
+
+    If this is a regular problem then get in touch with the :ref:`SSD team <ssd>` so we can
+    investigate. Thanks.
