@@ -16,7 +16,7 @@ through in sequence.
     :maxdepth: 1
     :caption: Working Practices
 
-    WorkingPractices/index
+    WorkingPractices/working_practices
 
 .. toctree::
     :maxdepth: 1

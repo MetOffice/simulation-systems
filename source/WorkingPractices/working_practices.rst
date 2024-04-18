@@ -92,3 +92,19 @@ helpful for documenting and monitoring progress of your work.
     Early planning and consultation is strongly recommended to prevent
     disappointment later. More detailed guidance is provided on the
     :ref:`planning` page.
+
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+    :caption: Working Practices
+
+    planning_your_change
+    tickets
+    branches
+    developing_change
+    testing
+    multi_repository
+    approvals
+    reviews
+    final_steps
