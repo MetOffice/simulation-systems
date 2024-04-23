@@ -15,9 +15,9 @@ a linked ticket should be committed on the same day to avoid nightly tests faili
 will need approaching in the correct order. The UM and LFRIc Apps are the key
 places where these overlap.
 
-    1. Everything except UM and LFRic Apps can be worked on separately and should be committed first.
-    2. The UM relies on code from all of the above code bases (except LFRic Core), and will need that code for both testing and committing.
-    3. LFRic Apps relies on code from all of the above, and will need that code for both testing and committing.
+1. Everything except UM and LFRic Apps can be worked on separately and should be committed first.
+2. The UM relies on code from all of the above code bases (except LFRic Core), and will need that code for both testing and committing.
+3. LFRic Apps relies on code from all of the above, and will need that code for both testing and committing.
 
 .. tip::
 
@@ -27,14 +27,14 @@ places where these overlap.
 
     A suggested sequence would be as follows:
 
-        1. Complete the merge and macro stages for every repository. These steps are entirely
-           isolated and so order doesn't matter.
+    1. Complete the merge and macro stages for every repository. These steps are entirely
+       isolated and so order doesn't matter.
 
-        2. Test all of the changes together as described below.
+    2. Test all of the changes together as described below.
 
-        3. Install KGO files for all repositories requiring them
+    3. Install KGO files for all repositories requiring them
 
-        4. Commit the tickets as described below.
+    4. Commit the tickets as described below.
 
 
 .. _tesinglinked:
@@ -48,24 +48,24 @@ Details for testing multi-repository tickets are included :ref:`here <multirepo>
 
 **In summary:**
 
-* JULES, UKCA, LFRic Core and other child repositories can be tested using their
+- JULES, UKCA, LFRic Core and other child repositories can be tested using their
   standalone test suites as described on the How to Commit page.
 
-* Local working copies can be passed to the UM on the command line
+- Local working copies can be passed to the UM on the command line
 
-    .. code-block:: RST
+  .. code-block:: RST
 
-        rose stem --group=developer,ukca,jules --source=. --source=/path/to/jules/working/copy --source=/path/to/ukca/working/copy
+    rose stem --group=developer,ukca,jules --source=. --source=/path/to/jules/working/copy --source=/path/to/ukca/working/copy
 
-    Make sure you test the group that will exercise the interface between those repositories
-    (e.g. in the above example the jules and ukca groups are tested).
+  Make sure you test the group that will exercise the interface between those repositories
+  (e.g. in the above example the jules and ukca groups are tested).
 
-* Local working copies of any linked UM, JULES, UKCA or other repositories
+- Local working copies of any linked UM, JULES, UKCA or other repositories
   can be passed to LFRic Apps through <lfric_apps_trunk>/dependencies.sh.
 
-    .. code-block:: RST
+.. code-block:: RST
 
-        um_sources=vldXXX:/path/to/um/working/copy
+    um_sources=vldXXX:/path/to/um/working/copy
 
 
 .. tip::
@@ -103,29 +103,28 @@ Once you are happy with all your testing then the commit sequence is as follows:
 
 2. Update <um_trunk>/rose-stem/rose-suite.conf
 
-    * Modify ``HOST_SOURCE_*`` for all child repositories involved to point to the new commit revisions.
+  * Modify ``HOST_SOURCE_*`` for all child repositories involved to point to the new commit revisions.
+  * e.g. If a JULES ticket has just been committed at revision 12345
 
-    * e.g. If a JULES ticket has just been committed at revision 12345
+  .. code-block:: RST
 
-        .. code-block:: RST
-
-            HOST_SOURCE_JULES='fcm:jules.xm_tr@12345'
+      HOST_SOURCE_JULES='fcm:jules.xm_tr@12345'
 
 3. Commit UM
 
 4. Update <lfric_apps_trunk>/dependencies.sh
 
-    * Modify ``*_rev`` variables for all other repositories you have updated to point to the the new commit revisions.
-    * Remove any branch references from the ``*_sources`` variables.
-    * e.g. If a JULES ticket has been committed at revision 12345 and a UM ticket at 123456
+  * Modify ``*_rev`` variables for all other repositories you have updated to point to the the new commit revisions.
+  * Remove any branch references from the ``*_sources`` variables.
+  * e.g. If a JULES ticket has been committed at revision 12345 and a UM ticket at 123456
 
-        .. code-block:: RST
+  .. code-block:: RST
 
-            export um_rev=123456
-            export jules_rev=12345
+      export um_rev=123456
+      export jules_rev=12345
 
-            export um_sources=
-            export jules_sources=
+      export um_sources=
+      export jules_sources=
 
 5. Commit LFRic Apps
 
