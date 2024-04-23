@@ -5,12 +5,12 @@ Testing LFRic Apps
 
 LFRic Apps testing is run with the following commands from a working copy:
 
-    .. code-block::
+.. code-block::
 
-        export CYLC_VERSION=8
-        rose stem --group=developer
-        cylc play <working copy name>
-        cylc gui
+    export CYLC_VERSION=8
+    rose stem --group=developer
+    cylc play <working copy name>
+    cylc gui
 
 -----
 
@@ -48,25 +48,17 @@ and that you can specify more than one at once, e.g. ``--group=developer,gungho_
 | Group              | Description                                              |
 +====================+==========================================================+
 | developer          | Standard group of tests that every change is expected    |
-|                    |                                                          |
 |                    | to pass before commit. It is a useful checkpoint during  |
-|                    |                                                          |
 |                    | development.                                             |
 +--------------------+----------------------------------------------------------+
 | nightly            | More thorough testing group. This includes everything in |
-|                    |                                                          |
 |                    | developer plus some longer and more complex tests. It is |
-|                    |                                                          |
 |                    | run automatically every night and monitored by the SSD   |
-|                    |                                                          |
 |                    | team.                                                    |
 +--------------------+----------------------------------------------------------+
 | all                | The complete test suite, including all longer runs and   |
-|                    |                                                          |
 |                    | less commonly used utilites. This is run automatically   |
-|                    |                                                          |
 |                    | every week and monitored by the SSD team. All            |
-|                    |                                                          |
 |                    | :ref:`KGO <kgo>` changing tickets need to run this group.|
 +--------------------+----------------------------------------------------------+
 +--------------------+----------------------------------------------------------+
@@ -79,9 +71,7 @@ and that you can specify more than one at once, e.g. ``--group=developer,gungho_
 | xc40/spice/monsoon | All tests designed to run on the named platform.         |
 +--------------------+----------------------------------------------------------+
 | scripts            | All of the auxillary scripts that are designed to check  |
-|                    |                                                          |
 |                    | the code standards in ways that aren't tested by the     |
-|                    |                                                          |
 |                    | compiler.                                                |
 +--------------------+----------------------------------------------------------+
 
@@ -95,7 +85,6 @@ with ``name`` matching the directory name of the area.
 | <name>             | Full set of tests for this area                          |
 +--------------------+----------------------------------------------------------+
 | <name>_<group>     | Tests for this area that are part of this group          |
-|                    |                                                          |
 |                    | e.g. gungho_developer or lfric_atm_spice                 |
 +--------------------+----------------------------------------------------------+
 

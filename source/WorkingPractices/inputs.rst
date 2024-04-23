@@ -9,9 +9,9 @@ turned off by default.
 If a developer changes the namelist inputs they are also expected to alter the
 following areas of the code:
 
- * The inclusion of appropriate defensive checks.
- * Changes to Rose metadata.
- * Upgrade macros.
+* The inclusion of appropriate defensive checks.
+* Changes to Rose metadata.
+* Upgrade macros.
 
 Defensive checks abort the model run if the user sets variables outside of
 their expected range or a combination of variables that will lead to an error.
@@ -20,19 +20,19 @@ which can be modified.
 
 The project metadata can be found in the following locations:
 
-    .. tab-set::
+.. tab-set::
 
-        .. tab-item:: UM
+    .. tab-item:: UM
 
-            ``vnXX.Y_<_branch_name>/rose-meta/um-atmos/HEAD/rose-meta.conf``
+        ``vnXX.Y_<_branch_name>/rose-meta/um-atmos/HEAD/rose-meta.conf``
 
-        .. tab-item:: JULES
+    .. tab-item:: JULES
 
-            ``vnXX.Y_<_branch_name>/rose-meta/*/*/HEAD/rose-meta.conf``
+        ``vnXX.Y_<_branch_name>/rose-meta/*/*/HEAD/rose-meta.conf``
 
-        .. tab-item:: LFRic
+    .. tab-item:: LFRic
 
-            ``vnXX.Y_<branch_name>/<sub-module>/rose-meta/*/HEAD/rose-meta.conf``
+        ``vnXX.Y_<branch_name>/<sub-module>/rose-meta/*/HEAD/rose-meta.conf``
 
 All new namelist variables need a new entry so that the metadata loads into the
 Rose GUI for users to switch it on. Additionally, sometimes the metadata needs

@@ -29,7 +29,6 @@ than many other development processes as there are many examples to reference
 already in the code.
 
 1. rose-stem/app/
-
     Start by creating a new app with the details of the test you wish to run.
     This might be an optional configuration for an existing app, or something
     completely new.
@@ -48,11 +47,11 @@ already in the code.
         app directory, or selecting Metadata -> Check fail-if, warn-if from the
         drop-down menu of the rose edit gui.
 
-	.. important::
-	   If you are working in a UM branch and have **jules-shared**
-	   changes, the JULES metadata path will also need
-	   adding. Please see the shared metadata
-	   :ref:`guidance<shared-namelists>`.
+    .. important::
+       If you are working in a UM branch and have **jules-shared**
+       changes, the JULES metadata path will also need
+       adding. Please see the shared metadata
+       :ref:`guidance<shared-namelists>`.
 
 The next steps are site and rose-stem specific, but fall broadly into two
 categories - those using a jinja2 templated design which populate runtime and graph
@@ -65,7 +64,6 @@ such as JULES.
     .. tab-item:: Templated
 
         2. Task definitions
-
             Task definitions should be added to the tasks.rc for all sites who
             will run this app.
 
@@ -88,16 +86,14 @@ such as JULES.
     .. tab-item:: Manual
 
         2. Task definitions
-
             Task definitions for the following tasks should be added to the
             runtime.rc for all sites who will run this app.
 
-                * run the app
-                * perform a KGO comparison
-                * perform housekeeping
+            * run the app
+            * perform a KGO comparison
+            * perform housekeeping
 
         3. Graph definitions
-
             Graph definitions should be added to the graph.rc for all sites who
             will run this app. These should connect together your new tasks
             created above with an appropriate build task.

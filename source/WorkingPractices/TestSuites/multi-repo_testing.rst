@@ -27,17 +27,16 @@ To test the UM, any changes to JULES, UKCA, Socrates, CASIM etc will also need
 to be included. This is done by adding another source to the rose stem command
 line.
 
-    1. :ref:`Checkout<checkout>` a UM working copy
+1. :ref:`Checkout<checkout>` a UM working copy
+    - this may be your branch from a linked ticket, or a clean trunk copy
+      at either the last release or a suitable head of trunk revision.
 
-        - this may be your branch from a linked ticket, or a clean trunk copy
-          at either the last release or a suitable head of trunk revision.
+2. Run rose stem, including a source code path to every branch involved. As a minimum
+   run ``developer`` group and all groups that cover the repositories being tested.
 
-    2. Run rose stem, including a source code path to every branch involved. As a minimum
-       run ``developer`` group and all groups that cover the repositories being tested.
+.. code-block::
 
-        .. code-block::
-
-            rose stem --group=developer,jules,ukca --source=. --source=/path/to/jules/changes --source=/path/to/ukca/changes
+    rose stem --group=developer,jules,ukca --source=. --source=/path/to/jules/changes --source=/path/to/ukca/changes
 
 The source paths involved can either be to local working copies or links to the
 fcm source control e.g. ``fcm:jules.xm_br/dev/user/branch_name``. As many source
@@ -51,46 +50,46 @@ Paths to the other codebases involved should be added to
 ``dependencies.sh`` under each of the ``*_sources`` variables. Again
 these paths can either be to local changes or those in the repository.
 
-    1. :ref:`Checkout<checkout>` an LFRic Apps working copy
+1. :ref:`Checkout<checkout>` an LFRic Apps working copy
 
-        - this may be your branch from a linked ticket, or a clean trunk copy
-          at either the last release or a suitable head of trunk revision.
+- this may be your branch from a linked ticket, or a clean trunk copy
+  at either the last release or a suitable head of trunk revision.
 
-    2. Update dependencies.sh to point to all other code changes, e.g.
+2. Update dependencies.sh to point to all other code changes, e.g.
 
-        .. code-block:: RST
+.. code-block:: RST
 
-            lfric_core_rev=
-            lfric_core_sources=fcm:lfric.xm_br/path/to/branch
+    lfric_core_rev=
+    lfric_core_sources=fcm:lfric.xm_br/path/to/branch
 
-            um_rev=
-            um_sources=vldXXX:/path/to/um/working/copy
+    um_rev=
+    um_sources=vldXXX:/path/to/um/working/copy
 
-    3a. Run the lfric_atm developer test-suite
+3a. Run the lfric_atm developer test-suite
 
-        - suitable for testing changes in other repositories that do not
-          include any LFRic Apps changes
+- suitable for testing changes in other repositories that do not
+  include any LFRic Apps changes
 
-        .. code-block::
+.. code-block::
 
-            export CYLC_VERSION=8
-            rose stem --group=lfric_atm_developer
-            cylc play <working copy name>
-            cylc gui
+    export CYLC_VERSION=8
+    rose stem --group=lfric_atm_developer
+    cylc play <working copy name>
+    cylc gui
 
-    3b. Run the full developer test-suite
+3b. Run the full developer test-suite
 
-        - suitable for testing LFRic Apps changes with other repositories, or expanding
-          testing if lfric_atm tests have shown errors.
+- suitable for testing LFRic Apps changes with other repositories, or expanding
+  testing if lfric_atm tests have shown errors.
 
-        .. code-block::
+.. code-block::
 
-            export CYLC_VERSION=8
-            rose stem --group=developer
-            cylc play <working copy name>
-            cylc gui
+    export CYLC_VERSION=8
+    rose stem --group=developer
+    cylc play <working copy name>
+    cylc gui
 
-        More details on LFRic Apps testing are found :ref:`here<lfric_apps_test>`.
+More details on LFRic Apps testing are found :ref:`here<lfric_apps_test>`.
 
 .. note::
     If any of the testing shows up failures then there are two possible ways to

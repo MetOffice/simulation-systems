@@ -10,15 +10,15 @@ upgrade from one version of a model to the next.
 
 The  ``versions.py`` file containing upgrade macros can be found in the following locations:
 
-    .. tab-set::
+.. tab-set::
 
-        .. tab-item:: UM
+    .. tab-item:: UM
 
-            ``rose-meta/um-atmos/versions.py``
+        ``rose-meta/um-atmos/versions.py``
 
-        .. tab-item:: JULES
+    .. tab-item:: JULES
 
-            ``rose-meta/jules-standalone/versions.py``
+        ``rose-meta/jules-standalone/versions.py``
 
 
 Within the file a blank upgrade macro will typically look like this:

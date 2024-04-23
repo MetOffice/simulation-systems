@@ -5,9 +5,9 @@ Testing LFRic Core
 
 LFRic testing is run with the following command from a working copy:
 
-    .. code-block::
+.. code-block::
 
-        make test-suite
+    make test-suite
 
 -----
 
@@ -23,17 +23,17 @@ By default the command will run the develop test; other test groups exist.
 In particular, you need to be confident that the nightly tests pass. These can
 be run as follows:
 
-    .. code-block::
+.. code-block::
 
-            make test-suite SUITE_GROUP=nightly
+        make test-suite SUITE_GROUP=nightly
 
 
 It is also possible to select the platform to run on. Available options include
 ``meto-spice``, ``meto-xc40`` and ``meto-xcs``.
 
-    .. code-block::
+.. code-block::
 
-            make test-suite TEST_SUITE_TARGETS="meto-spice meto-xcs"
+        make test-suite TEST_SUITE_TARGETS="meto-spice meto-xcs"
 
 .. tip::
 

@@ -9,26 +9,26 @@ purpose of the temporary logical is to maintain results in scientific configurat
 the bug fix could either be due to a scientific or a technical issue. Temporary logicals are
 used primarily for two reasons:
 
-  #. To maintain consistency in an important scientific configuration (e.g. global/regional atmosphere/land) when upgrading between model versions. If the logical was not used then different model versions may lead to very different scientific answers.
+#. To maintain consistency in an important scientific configuration (e.g. global/regional atmosphere/land) when upgrading between model versions. If the logical was not used then different model versions may lead to very different scientific answers.
 
-  #. To give the configuration owner time to assess the impact of a significant change in answers on their configuration. The usual release cycle window is often too short to fully assess the impact of anything other than a small change.
+#. To give the configuration owner time to assess the impact of a significant change in answers on their configuration. The usual release cycle window is often too short to fully assess the impact of anything other than a small change.
 
 Neither of these statements suggest that the fix shouldn't be included --- in fact the opposite is true.
 The decision as to whether to include a temporary logical normally rests with the
 configuration owner, but with guidance from the CodeSys reviewer and the Simulation Systems and Deployment team.
 In such cases, the following guidance is followed:
 
-  * Essential bug fixes (e.g. something which would on occasions cause the model to crash) should be switched on by default and would **not** have a temporary logical.
+* Essential bug fixes (e.g. something which would on occasions cause the model to crash) should be switched on by default and would **not** have a temporary logical.
 
-      * This includes any bug fixes which restores bit comparison across different processor decomposition where it has been previously broken.
+  * This includes any bug fixes which restores bit comparison across different processor decomposition where it has been previously broken.
 
-  * Any bug fix which does not lead to a change in answers should be switched on by default (not with a temporary logical).
+* Any bug fix which does not lead to a change in answers should be switched on by default (not with a temporary logical).
 
-  * Small changes (within the noise) can usually be included as a :ref:`kgo` update and would **not** usually have a temporary logical associated with them.
+* Small changes (within the noise) can usually be included as a :ref:`kgo` update and would **not** usually have a temporary logical associated with them.
 
-  * Anything which has a large impact (especially on key variables used for weather and climate) and which extends beyond the 'noise' of the model **would be expected to include a temporary logical**.
+* Anything which has a large impact (especially on key variables used for weather and climate) and which extends beyond the 'noise' of the model **would be expected to include a temporary logical**.
 
-  * There may be a few specific cases, where only certain platforms or builds are affected due to a technical bug fix.
+* There may be a few specific cases, where only certain platforms or builds are affected due to a technical bug fix.
 
 .. important::
    There isn't a precise definition of what 'being in the noise' consists of, so the configuration
