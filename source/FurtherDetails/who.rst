@@ -7,11 +7,11 @@ User
 ----
 Users, in general, are anticipated to:
 
-    * Edit and manage rose suites via the roses repositories
-    * Edit suite tasks to manage code version (including use of upgrade macros),
-      branches, science configuration and other settings to their needs
-    * Manage their usage of compute resource in-line with relevant guidance
-    * Ensure the scientific integrity of their use case
+  * Edit and manage rose suites via the roses repositories
+  * Edit suite tasks to manage code version (including use of upgrade macros),
+    branches, science configuration and other settings to their needs
+  * Manage their usage of compute resource in-line with relevant guidance
+  * Ensure the scientific integrity of their use case
 
 Notably, users in this context do not edit source code.
 
