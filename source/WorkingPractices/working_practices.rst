@@ -37,6 +37,10 @@ From time to time, some or all parts of a repository may be subject to an agreed
 closed release to facilitate an intense or disruptive development.
 
 .. image:: images/development_cycle.png
+    :class: only-light
+
+.. image:: images/development_cycle_dark.png
+    :class: only-dark
 
 The release cycle is overseen by the Simulation Systems and Deployment Team with
 the oversight and support of the Simulation Systems Governance Group, who
@@ -55,6 +59,7 @@ Working Practices. A flowchart of this process for the UM is included below, but
 the process is very comparable to that of the other repositories too.
 
 .. image:: images/UMDWP_no_links.jpg
+    :class: dark-light
 
 Before You Start
 ----------------

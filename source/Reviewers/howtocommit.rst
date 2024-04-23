@@ -6,6 +6,7 @@ How To Commit
 The process for committing a ticket follows this sequence with details for each of these steps outlined below.
 
 .. image:: images/commit_process.png
+    :class: dark-light
 
 .. important::
     Before You Start:

@@ -15,7 +15,7 @@ import datetime
 # -- Project information -----------------------------------------------------
 
 project = 'Simulation Systems'
-copyright = f'2023 - {datetime.datetime.now().year},  Met Office'
+copyright = f'{datetime.datetime.now().year},  Met Office'
 author = 'Simulation Systems and Deployment Team'
 
 
@@ -28,6 +28,8 @@ extensions = [
     'sphinx_sitemap'
 ]
 
+language = "en"
+
 # Added to use dropdowns with command: pip install sphinx-design
 extensions = ['sphinx_design']
 
@@ -39,24 +41,14 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
-
-
+html_static_path = ["_static"]
+html_css_files = ["custom.css"]
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
 html_theme = 'pydata_sphinx_theme'
-html_title = 'Simulation Systems'
-
-# See https://pydata-sphinx-theme.readthedocs.io/en/latest/user_guide/configuring.html#configure-the-search-bar-position
-html_sidebars = {
-    "**": [
-        "search-field",
-        "sidebar-nav-bs",
-        "sidebar-ethical-ads",
-    ]
-}
 
 html_theme_options = {
     "footer_start": ["copyright", "sphinx-version"],
@@ -65,9 +57,11 @@ html_theme_options = {
     "show_toc_level": 2,
     "show_prev_next": True,
     "navbar_align": "content",
-    # removes the search box from the top bar
-    "navbar_persistent": [],
-    "header_links_before_dropdown": 6,
+    "logo": {
+        "text": "Simulation Systems",
+        "image_light": "_static/MO_MASTER_black_mono_for_light_backg_RBG.png",
+        "image_dark": "_static/MO_MASTER_for_dark_backg_RBG.png",
+    },
     "icon_links": [
         {
             "name": "GitHub Discussions",

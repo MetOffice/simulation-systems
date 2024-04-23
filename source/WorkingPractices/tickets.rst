@@ -12,6 +12,7 @@ back to.
 #. Click the ``New ticket`` button in the ribbon which appears at the top right of the Trac webpage.
 
 .. image:: images/new_ticket.png
+    :class: dark-light
 
 The ticket information can then be filled in. A description of each item in the ticket is as follows:
 

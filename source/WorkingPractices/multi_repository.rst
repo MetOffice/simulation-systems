@@ -21,6 +21,7 @@ atmosphere code in the UM will require LFRic Apps testing.
 .. image:: images/repo_circles.png
     :width: 300
     :align: center
+    :class: dark-light
 
 .. _linked:
 
