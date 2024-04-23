@@ -15,10 +15,10 @@ Level 1- GitHub Discussions
 ---------------------------
 If your problem persists, then describe and discuss it on GitHub Discussions:
 
-    * `LFRic <https://github.com/MetOffice/simulation-systems/discussions/categories/lfric>`_
-    * `UM <https://github.com/MetOffice/simulation-systems/discussions/categories/um>`_
-    * `JULES <https://github.com/MetOffice/simulation-systems/discussions/categories/jules>`_
-    * `Mule <https://github.com/MetOffice/simulation-systems/discussions/categories/mule>`_
+* `LFRic <https://github.com/MetOffice/simulation-systems/discussions/categories/lfric>`_
+* `UM <https://github.com/MetOffice/simulation-systems/discussions/categories/um>`_
+* `JULES <https://github.com/MetOffice/simulation-systems/discussions/categories/jules>`_
+* `Mule <https://github.com/MetOffice/simulation-systems/discussions/categories/mule>`_
 
 Level 2- Support Teams
 ----------------------

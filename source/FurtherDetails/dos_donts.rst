@@ -46,8 +46,8 @@ text from books. Our repositiories must not infringe copyright.
 
 **Add or link to old code** or tickets that predate MOSRS, for example...
 
-    * Link to tickets in old internal repositories- links will either not resolve or be incorrect
-    * Add a version of the UM code older than UM 9.2 as a branch to the UM repository
+* Link to tickets in old internal repositories- links will either not resolve or be incorrect
+* Add a version of the UM code older than UM 9.2 as a branch to the UM repository
 
 **Request support by raising a ticket**. Newly raised tickets are not monitored.
 Use the appropriate :ref:`support` channels.
