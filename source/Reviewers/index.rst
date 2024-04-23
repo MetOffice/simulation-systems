@@ -1,3 +1,5 @@
+.. _reviewers_index:
+
 Guides for Reviewers
 ====================
 

@@ -67,8 +67,14 @@ html_theme_options = {
     "navbar_align": "content",
     # removes the search box from the top bar
     "navbar_persistent": [],
-    # TODO: review if 6 links is too crowded.
     "header_links_before_dropdown": 6,
+    "icon_links": [
+        {
+            "name": "GitHub Discussions",
+            "url": "https://github.com/MetOffice/simulation-systems/discussions",
+            "icon": "far fa-comments",
+        },
+    ],
 }
 
 # Hide the link which shows the rst markup

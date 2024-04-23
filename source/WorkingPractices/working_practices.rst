@@ -1,9 +1,11 @@
-About the Working Practices
-===========================
+.. _working_practices_index:
 
-The Working Practices (WPs) are to be followed for all UM, LFRic Applications,
-JULES, and UKCA developments (though reference is also made to LFRic Core, CASIM,
-SOCRATES and Shumlib where relevant).
+Working Practices
+=================
+
+The Working Practices (WPs) are a developers guide and are to be followed for
+all UM, LFRic Applications, JULES, and UKCA developments (though reference is
+also made to LFRic Core, CASIM, SOCRATES and Shumlib where relevant).
 
 If this is your first development we highly recommend following these pages
 through in sequence.
@@ -64,25 +66,25 @@ judgement.
 
 As you begin, there are various people you might consider consulting:
 
-    * Relevant :ref:`Code and Configuration Owners <approvals>`
-    * Simulation Systems and Deployment Team
-    * Core Capability Development Team
-    * Less experienced developers may benefit from a 'buddy'
+* Relevant :ref:`Code and Configuration Owners <approvals>`
+* Simulation Systems and Deployment Team
+* Core Capability Development Team
+* Less experienced developers may benefit from a 'buddy'
 
 For larger changes, consider splitting the work over multiple tickets:
 
-    * Tickets laying foundations for later are OK
-    * Tickets should make sense on their own, with a clear scope, to allow for separate testing, review and commit
-    * Tickets should not be too small or too large
-    * Beware of the 'also trap'- the 'also' bits can swamp the main aim of your change!
-    * An overarching ticket that sets out the overall picture and tracks the progress of the work is recommended and all sub-tickets should link back to it
+* Tickets laying foundations for later are OK
+* Tickets should make sense on their own, with a clear scope, to allow for separate testing, review and commit
+* Tickets should not be too small or too large
+* Beware of the 'also trap'- the 'also' bits can swamp the main aim of your change!
+* An overarching ticket that sets out the overall picture and tracks the progress of the work is recommended and all sub-tickets should link back to it
 
 Consider the timing of your work:
 
-    * Be aware of others doing work in similar areas
-    * Be aware of code review deadlines
-    * Be aware of closed releases or planned outages
-    * Allow contingency time when agreeing broader project deadlines. Trunk integrity will not be compromised to meet your deadlines.
+* Be aware of others doing work in similar areas
+* Be aware of code review deadlines
+* Be aware of closed releases or planned outages
+* Allow contingency time when agreeing broader project deadlines. Trunk integrity will not be compromised to meet your deadlines.
 
 Consider bringing planning together using an overarching ticket. It can be very
 helpful for documenting and monitoring progress of your work.
