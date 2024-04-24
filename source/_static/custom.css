@@ -1,9 +1,9 @@
 html[data-theme="light"] {
-    --pst-color-primary: #0f79be; //MO Summer Blue Accent
-    --pst-color-secondary: #C4E90C; //MO Core Green
+    --pst-color-primary: #0f79be;
+    --pst-color-secondary: #C4E90C;
 }
 
 html[data-theme="dark"] {
-    --pst-color-primary: #C4E90C; //MO Core Green
-    --pst-color-secondary: #0f79be; //MO Summer Blue Accent
+    --pst-color-primary: #359bc0;
+    --pst-color-secondary: #C4E90C;
 }
