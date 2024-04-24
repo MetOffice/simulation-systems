@@ -52,7 +52,6 @@ html_theme = 'pydata_sphinx_theme'
 
 html_theme_options = {
     "footer_start": ["copyright", "sphinx-version"],
-    "navigation_depth": 3,
     "navigation_with_keys": False,
     "show_toc_level": 2,
     "show_prev_next": True,
@@ -71,5 +70,8 @@ html_theme_options = {
     ],
 }
 
+html_context = {
+    "default_mode": "auto",
+}
 # Hide the link which shows the rst markup
 html_show_sourcelink = False
