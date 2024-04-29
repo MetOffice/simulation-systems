@@ -16,19 +16,19 @@ finished.
 
 The Science / Technical reviewer should
 
- * Understand the area of code and check that the changeset satisfies the purpose of the change.
+* Understand the area of code and check that the changeset satisfies the purpose of the change.
 
- * Ensure that the code has no unwanted side-effects
+* Ensure that the code has no unwanted side-effects
 
- * Ensure that the code is written to the standards laid out in `UMDP3 <https://code.metoffice.gov.uk/doc/um/latest/papers/umdp_003.pdf>`_.
+* Ensure that the code is written to the standards laid out in `UMDP3 <https://code.metoffice.gov.uk/doc/um/latest/papers/umdp_003.pdf>`_.
 
- * Make sure that the in-line documentation is accurate and sufficient.
+* Make sure that the in-line documentation is accurate and sufficient.
 
- * Ensure that any related :ref:`external documentation <docs>` is updated as necessary.
+* Ensure that any related :ref:`external documentation <docs>` is updated as necessary.
 
- * Check that the Trac ticket has been completed fully and accurately with sufficient detail for others to understand the impact of the change.
+* Check that the Trac ticket has been completed fully and accurately with sufficient detail for others to understand the impact of the change.
 
- * Ensure that testing has been carried out satisfactorily (and recorded on the Trac ticket), and that there is no impact for configurations outside the required scope of the changeset.
+* Ensure that testing has been carried out satisfactorily (and recorded on the Trac ticket), and that there is no impact for configurations outside the required scope of the changeset.
 
 Final decision points and actions
 ---------------------------------

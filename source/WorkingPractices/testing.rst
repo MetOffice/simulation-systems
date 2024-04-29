@@ -25,7 +25,7 @@ Bespoke:
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Test Suites
 
    TestSuites/um
@@ -74,11 +74,11 @@ commands, noting that ``--jules-path`` is only required if you have
 **jules-shared** metadata changes. Please see the shared metadata
 :ref:`guidance<shared-namelists>`.
 
-    +-------+------------------------------------------------------------------------------------------------------------------------------------------------+
-    | UM    | ``$UMDIR/bin/update_all.py --path=/path/to/working/copy/of/test/branch --um=vnX.X_tXXXX [--jules-path=/path/to/jules/working/copy/of/branch]`` |
-    +-------+------------------------------------------------------------------------------------------------------------------------------------------------+
-    | JULES | ``./bin/upgrade_jules_test_apps vnX.X_tXXXX``                                                                                                  |
-    +-------+------------------------------------------------------------------------------------------------------------------------------------------------+
++-------+------------------------------------------------------------------------------------------------------------------------------------------------+
+| UM    | ``$UMDIR/bin/update_all.py --path=/path/to/working/copy/of/test/branch --um=vnX.X_tXXXX [--jules-path=/path/to/jules/working/copy/of/branch]`` |
++-------+------------------------------------------------------------------------------------------------------------------------------------------------+
+| JULES | ``./bin/upgrade_jules_test_apps vnX.X_tXXXX``                                                                                                  |
++-------+------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ..
     | LFRic | *Macro capabilities are currently in development*                                                                                              |

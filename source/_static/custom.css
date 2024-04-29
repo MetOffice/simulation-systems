@@ -1,0 +1,12 @@
+/* import the standard theme css */
+@import url("styles/theme.css");
+
+html[data-theme="light"] {
+    --pst-color-primary: #0f79be;
+    --pst-color-secondary: #C4E90C;
+}
+
+html[data-theme="dark"] {
+    --pst-color-primary: #359bc0;
+    --pst-color-secondary: #C4E90C;
+}

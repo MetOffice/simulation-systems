@@ -6,6 +6,7 @@ How To Commit
 The process for committing a ticket follows this sequence with details for each of these steps outlined below.
 
 .. image:: images/commit_process.png
+    :class: dark-light
 
 .. important::
     Before You Start:
@@ -352,24 +353,23 @@ for all affected tests before you commit to the trunk.
 
         1. Run the rose stem tasks that require a KGO update, plus any other testing required (see above) - if unsure run the `all,ex1a`.
 
-            .. code-block::
+        .. code-block::
 
-                rose stem --group=all,ex1a --new
+            rose stem --group=all,ex1a --new
 
         2. You will need access to both your merged working copy and a clone of the `SimSys_Scripts github repo <https://github.com/MetOffice/SimSys_Scripts>`_ (one is available in $UMDIR). Run the script ``kgo_updates/meto_update_kgo.sh`` which is located in SimSys_Scripts.
 
         3. The script will ask you to enter some details regarding the ticket.
-
-          * Platforms: enter each platform which has a kgo change, lower case and space seperated, e.g. `spice xc40 ex1a`
-          * Path to your merged working copy - the script will check this exists and will fail if it can't be found.
-          * KGO directory: this will default to vnXX.X_tYYYY where XX.X is the version number and YYYY is the ticket number.
-          * There are further prompts to the user through the script - in particular to check the shell script produced.
+            * Platforms: enter each platform which has a kgo change, lower case and space seperated, e.g. `spice xc40 ex1a`
+            * Path to your merged working copy - the script will check this exists and will fail if it can't be found.
+            * KGO directory: this will default to vnXX.X_tYYYY where XX.X is the version number and YYYY is the ticket number.
+            * There are further prompts to the user through the script - in particular to check the shell script produced.
 
         4. If running on xc40s the script will ask whether to rsync UM files or lfricinputs files to the XCS. Select the appropriate option.
 
         5. Check that the new KGO has been installed correctly by restarting your suite, retriggering the failed rose-ana tasks and checking they now pass.
 
-          * e.g. add `--reload` or `--restart` to the rose-stem command ran previously.
+        * e.g. add `--reload` or `--restart` to the rose-stem command ran previously.
 
         6. Once committed, update the `bit comparison table <https://code.metoffice.gov.uk/trac/um/wiki/LoseBitComparison>`_.
 
@@ -407,52 +407,52 @@ for all affected tests before you commit to the trunk.
 
         1. Run the standalone rose-stem with housekeeping switched off to generate new KGO.
 
-            .. code-block::
+        .. code-block::
 
-                rose stem --group=all,ex1a --source=. -S HOUSEKEEPING=false --new
+            rose stem --group=all,ex1a --source=. -S HOUSEKEEPING=false --new
 
         2. Update KGO_VERSION in `rose-stem/include/variables.rc`.
         3. Copy the new KGO to the correct locations:
 
-            .. code-block:: RST
+        .. code-block:: RST
 
-                ssh -Y frum@localhost
-                KGO_VERSION=vnX.X_txxxx
-                USER_NAME=<user>
-                SUITE=<suite>
+            ssh -Y frum@localhost
+            KGO_VERSION=vnX.X_txxxx
+            USER_NAME=<user>
+            SUITE=<suite>
 
-                # Copy Linux output to the KGO location for Linux
-                KGO_DIR=/project/jules/rose-stem/jules-kgo/$KGO_VERSION; mkdir -p $KGO_DIR && cp ~$USER_NAME/cylc-run/$SUITE/work/1/meto_linux_*/output/* $KGO_DIR
+            # Copy Linux output to the KGO location for Linux
+            KGO_DIR=/project/jules/rose-stem/jules-kgo/$KGO_VERSION; mkdir -p $KGO_DIR && cp ~$USER_NAME/cylc-run/$SUITE/work/1/meto_linux_*/output/* $KGO_DIR
 
-                # Copy Cray output to the KGO location for the Cray
-                # If something goes wrong with the copy, try passing the full path (eg. /home/d01/USER/), not just ~$USER_NAME
-                ssh -Y xcel00
-                KGO_VERSION=vnX.X_txxxx
-                USER_NAME=<user>
-                SUITE=<suite>
-                KGO_DIR=/projects/jules/rose-stem-kgo/$KGO_VERSION; mkdir -p $KGO_DIR && cp ~$USER_NAME/cylc-run/$SUITE/work/1/meto_xc40_*/output/* $KGO_DIR
+            # Copy Cray output to the KGO location for the Cray
+            # If something goes wrong with the copy, try passing the full path (eg. /home/d01/USER/), not just ~$USER_NAME
+            ssh -Y xcel00
+            KGO_VERSION=vnX.X_txxxx
+            USER_NAME=<user>
+            SUITE=<suite>
+            KGO_DIR=/projects/jules/rose-stem-kgo/$KGO_VERSION; mkdir -p $KGO_DIR && cp ~$USER_NAME/cylc-run/$SUITE/work/1/meto_xc40_*/output/* $KGO_DIR
 
-                # DON'T forget the xcs!!!
-                rsync -avz $KGO_DIR xcslr0:/projects/jules/rose-stem-kgo/
+            # DON'T forget the xcs!!!
+            rsync -avz $KGO_DIR xcslr0:/projects/jules/rose-stem-kgo/
 
-                exit
-                # check the xcslr0
-                ssh -Y xcslr0
-                KGO_VERSION=vnX.X_txxxx
-                KGO_DIR=/projects/jules/rose-stem-kgo/$KGO_VERSION
-                ls $KGO_DIR
-                exit
+            exit
+            # check the xcslr0
+            ssh -Y xcslr0
+            KGO_VERSION=vnX.X_txxxx
+            KGO_DIR=/projects/jules/rose-stem-kgo/$KGO_VERSION
+            ls $KGO_DIR
+            exit
 
-                # Copy EXZ output to the KGO location for EXZ (note <USERNAME> format is firstname.surname!)
-                # If something goes wrong with the copy, try passing the full path (eg. /home/users/USER/), not just ~$USER_NAME
-                ssh -Y login.exz
-                KGO_VERSION=vnX.X_txxxx
-                USER_NAME=<user>
-                SUITE=<suite>
-                KGO_DIR=/common/jules/rose-stem-kgo/$KGO_VERSION; mkdir -p $KGO_DIR && cp ~$USER_NAME/cylc-run/$SUITE/work/1/meto_ex1a_*/output/* $KGO_DIR
+            # Copy EXZ output to the KGO location for EXZ (note <USERNAME> format is firstname.surname!)
+            # If something goes wrong with the copy, try passing the full path (eg. /home/users/USER/), not just ~$USER_NAME
+            ssh -Y login.exz
+            KGO_VERSION=vnX.X_txxxx
+            USER_NAME=<user>
+            SUITE=<suite>
+            KGO_DIR=/common/jules/rose-stem-kgo/$KGO_VERSION; mkdir -p $KGO_DIR && cp ~$USER_NAME/cylc-run/$SUITE/work/1/meto_ex1a_*/output/* $KGO_DIR
 
-                # DON'T forget the exa!!!
-                rsync -avz $KGO_DIR login.exa.sc:/common/internal/jules/rose-stem-kgo/
+            # DON'T forget the exa!!!
+            rsync -avz $KGO_DIR login.exa.sc:/common/internal/jules/rose-stem-kgo/
 
         4. Rerun the rose-stem tests to make sure nothing is broken.
 
@@ -565,9 +565,9 @@ If nothing is broken then close the ticket, returning it to the original author.
 
 If something is broken:
 
-    * Announce to the team and on `Trunk Status`_.
-    * If there is an obvious bug, or a simple fix then update the original branch and re-merge into the trunk.
-    * If there isn't an easy fix then reverse the change to allow time for investigation.
+* Announce to the team and on `Trunk Status`_.
+* If there is an obvious bug, or a simple fix then update the original branch and re-merge into the trunk.
+* If there isn't an easy fix then reverse the change to allow time for investigation.
 
 .. dropdown:: Reversing Trunk Commits
 
@@ -594,7 +594,7 @@ If something is broken:
 
 .. tip:: **Logging in as frum**
 
-    * To access the frum account your ssh key will need to be added to frum authorised keys (contact Rich Gilham).
+    * To access the frum account your ssh key will need to be added to frum authorised keys.
     * When logged in to your linux desktop run ``ssh -Y frum@localhost`` and this will log you in as frum.
       At this point you will be in UMDIR on the platform SPICE. You can then access frum on other machines via ssh -Y <HOSTNAME>.
     * Apart from on SPICE the frum home directories and UMDIR are separate. XCE/F share the same UMDIR and the UMDIR on XCS is kept in sync with this one.

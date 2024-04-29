@@ -9,10 +9,11 @@ changes having a plan for the change before developing it can be very beneficial
 plan improves the chances of a successful code change.
 
 Planning a change
- * should not take long
- * does not require submission for a review - the final code should speak for itself
- * should help you understand the task and what it will involve
- * should highlight some potential issues before development work starts
+
+* should not take long
+* does not require submission for a review - the final code should speak for itself
+* should help you understand the task and what it will involve
+* should highlight some potential issues before development work starts
 
 This is also a good time to consult with code owners
 (and also with configuration owners, if necessary).

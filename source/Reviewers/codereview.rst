@@ -51,7 +51,7 @@ will include areas such as:
         * had the reconfiguration been altered? If so the UM testing must include the `recon` group
         * is there another rose-stem group that covers this area of code? See :ref:`um_testing` for common examples
 
-.. dropdown:: Is this a :ref:`multi-repository <multirepo>` ticket?
+.. dropdown:: Is this a :ref:`multi-repository<multirepo>` ticket?
 
     Each of the repositories covered by these WPs have overlapping use of code.
 

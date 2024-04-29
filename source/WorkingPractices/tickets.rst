@@ -12,6 +12,7 @@ back to.
 #. Click the ``New ticket`` button in the ribbon which appears at the top right of the Trac webpage.
 
 .. image:: images/new_ticket.png
+    :class: dark-light
 
 The ticket information can then be filled in. A description of each item in the ticket is as follows:
 
@@ -163,8 +164,8 @@ not fit into any of the existing categories.
 
 Owner
 -----
-  Set yourself to be the owner of the ticket. Alternatively, with prior
-  agreement you can set it to be any user of the SRS.
+Set yourself to be the owner of the ticket. Alternatively, with prior
+agreement, you can set it to be any user of the SRS.
 
 .. warning::
   Do not leave the Owner box as ``<default>``. This will often result in
@@ -181,4 +182,5 @@ Blocked by (LFRic Core only)
 ----------------------------
 This box can be used to list other tickets which block this change. This
 allows the SSD team to prioritise the commit order of the tickets on to
-the trunk.
+the trunk. Non-LFric Core tickets can specify `blocks` and `blockedby` in the
+keywords box.

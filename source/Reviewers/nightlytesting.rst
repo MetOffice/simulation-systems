@@ -17,11 +17,9 @@ Rose-stem testing is controlled by a config file located at ``~/testing_configs.
 
 * ``period``: Required, The period with which the job repeats. Options are:
 
-   * ``weekly``: Runs on Mondays, cleans on Sundays.
-
-   * ``nightly``: Runs Tue-Fri, cleans Wed-Sat.
-
-   * ``nightly_all``: Runs Mon-Fri, cleans Tue-Sat.
+  * ``weekly``: Runs on Mondays, cleans on Sundays.
+  * ``nightly``: Runs Tue-Fri, cleans Wed-Sat.
+  * ``nightly_all``: Runs Mon-Fri, cleans Tue-Sat.
 
 * ``time_launch``: Required, 24 hour time format for the time to launch the suite.
 
