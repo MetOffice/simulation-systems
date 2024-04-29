@@ -24,12 +24,11 @@ jobs:
         python-version: '3.x'
     - name: Install Sphinx packages
       run: |
-         pip install Sphinx==6.2.1
-         pip install sphinx-design==0.5.0
-         pip install sphinx-rtd-theme==1.2.0
+         conda env create --file=env.yml 
          
     - name: build docs
       run: |
+        conda activate sphinx_doc_env
         make clean html
         
     - name: commit docs to gh-pages branch
