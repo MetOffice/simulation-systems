@@ -58,8 +58,8 @@ html_theme_options = {
     "navbar_align": "content",
     "logo": {
         "text": "Simulation Systems",
-        "image_light": "_static/MO_MASTER_black_mono_for_light_backg_RBG.png",
-        "image_dark": "_static/MO_MASTER_for_dark_backg_RBG.png",
+        "image_light": "_static/MO_SQUARE_black_mono_for_light_backg_RBG.png",
+        "image_dark": "_static/MO_SQUARE_for_dark_backg_RBG.png",
     },
     "icon_links": [
         {
