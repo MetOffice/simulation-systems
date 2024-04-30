@@ -329,9 +329,9 @@ for all affected tests before you commit to the trunk.
 
 *NB: These instructions are Met Office specific, other sites may manage their KGO differently*
 
-.. dropdown:: Setup for first KGO install.
+.. dropdown:: Setup for first KGO install (UM + LFRic Inputs)
 
-    Before you start the process below there is a one-time setup step required to
+    If doing a UM or LFRic Inputs KGO, before you start the process below there is a one-time setup step required to
     allow you to generate KGO using the update script.
 
     Edit `~/.metomi/rose.conf` on *all platforms* - Desktop, XCE/F, XCS and EXZ
