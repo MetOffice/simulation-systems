@@ -106,10 +106,10 @@ are allocated reviewers at the weekly team meeting.
 Simulation IT
 -------------
 The Simulation IT department are responsible for the various codebases that comprise
-the Simulation Systems. They include:
+the Simulation Systems. The department includes the following teams:
 
 Simulation Systems and Deployment Team:
-    The SSD Team oversee the curation of the trunks,
+    The SSD Team oversees the curation of the trunks,
     working practices and other supporting documentation, infrastructure and systems.
 
     They provide support for the last 12 months of UM, LFRic Apps, JULES, UKCA and Shumlib
@@ -118,15 +118,19 @@ Simulation Systems and Deployment Team:
     The team can be contacted at umsysteam@metoffice.gov.uk.
 
 Core Capability Development Team:
-    The CCD Team are responsible for the LFRic Core Infrastructure to
-    support Momentum(r).
+    The CCD team is responsible for the LFRic Core infrastructure code which
+    underpins several LFRic applications including the Momentum(r) atmosphere model.
+    The team is keen to ensure that application developments continue to follow
+    recommended standards such that applications benefit from the separation of
+    concerns principles and portable performance capabilities that the LFRic
+    core design and LFRic application development standards aim to support.
 
     The team can be contacted at corecapabilitydevelopmentteam@metoffice.gov.uk.
 
     LFRic questions can also be directed to meto-lfric@metoffice.gov.uk.
 
 Tools and Collaborative Development Team
-    The TCD Team are responsible for the development and integration of third
+    The TCD Team is responsible for the development and integration of third
     party tools with LFRic including Psyclone, XIOS and LFRic Inputs.
 
     The team can be contacted at ...
