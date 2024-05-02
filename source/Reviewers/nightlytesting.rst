@@ -35,6 +35,8 @@ Rose-stem testing is controlled by a config file located at ``~/testing_configs.
 
 * ``cylc_version``: Controls which cylc_version to use. The suite is now set up to use primarily cylc8 with some suites being launched at Cylc7 for the UM and Jules.
 
+* ``use_next_cylc``: A string to set the exported cylc version, intended to load a 'next' cylc version for testing.
+
 The cronjobs are installed by running the ``generate_test_suite_cron.py`` script with the ``--install`` command line option. This script is stored in the SimSys_Scripts github repo. It will read a config file, generate a cron file and then install the cronjobs from all files with extension .cron in a specified location. The script has the following command line arguments:
 
 * ``-c --config``: Required, the path to a yaml file with the testing configurations. For the meto testing user this file is located at ``~/ccc.yaml``.
