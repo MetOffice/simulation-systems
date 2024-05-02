@@ -34,7 +34,7 @@ General Considerations
 **How complex is your change likely to be?** (e.g. roughly how many subroutines or lines of code do
 you expect to alter or add?) This is an important consideration as the more complex a change is, the
 more time will be required in development, the more code owners will need to approve it and so forth.
-If a change is overly complex, the developer could consider breaking it up into smaller, more
+If a change is overly complex, the developer should consider breaking it up into smaller, more
 managable tickets.
 
 **How does your proposed change fit in with the structure of the model?** Try and make your code
@@ -50,9 +50,9 @@ and things to avoid, so it is useful for the developer to be aware of these.
 * `PEP 8 (Python) <https://legacy.python.org/dev/peps/pep-0008/>`_
 
 **Who will SciTech review the change?** This is a useful consideration as not everyone who uses the
-repository has the knowledge or experience to review every ticket that is being developed. It can be worth
-identifying a SciTech reviewer before starting work to avoid having developed the ticket, only to
-find nobody is available to review it.
+repository has the knowledge or experience to review every ticket that is being developed. Get in
+touch with your SciTech reviewer early in the process as they will have valuable insights to positively
+shape your change.
 
 **Does your change fix a bug or are you investigating a bug in the code?** If so, be aware that any
 changes to answers will require a KGO update and configuration owners to approve the change, which

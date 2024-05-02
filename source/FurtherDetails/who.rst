@@ -101,39 +101,37 @@ the Simulation Systems and Deployment Team.
 or moving the ticket into "ready_for_code_review" state. Tickets in this state
 are allocated reviewers at the weekly team meeting.
 
-.. _ssd:
+.. _simIT:
 
-Simulation Systems and Deployment Team
---------------------------------------
+Simulation IT
+-------------
+The Simulation IT department are responsible for the various codebases that comprise
+the Simulation Systems. They include:
 
-The Simulation Systems and Deployment Team are responsible for the various
-codebases that comprise the Simulation Systems.
+Simulation Systems and Deployment Team:
+    The SSD Team oversee the curation of the trunks,
+    working practices and other supporting documentation, infrastructure and systems.
 
-* 4th line operational support to Met Office operational NWP system (excludes seasonal forecasting)
-* Support for the last 12 months worth of UM, JULES, UKCA and shumlib releases to Met Office and partners
-* Delivering releases and maintaining supporting infrastructure
-* Overseeing the Working Practices and supporting documentation and mandating their use
-* Curation of the trunks and supporting systems
-* Coordination and collaboration with other system owners to provide overall seamless support
-* Support for UM Climate Configurations
-* Support and releases for the Met Office Coupling Infrastructure (MOCI)
+    They provide support for the last 12 months of UM, LFRic Apps, JULES, UKCA and Shumlib
+    releases to the Met Office and Partners.
 
-All efforts are delivered on a best-endeavors basis, with all requests being
-triaged. Team members contribute to work outside of this project.
+    The team can be contacted at umsysteam@metoffice.gov.uk.
 
-The team can be contacted at umsysteam@metoffice.gov.uk.
+Core Capability Development Team:
+    The CCD Team are responsible for the LFRic Core Infrastructure to
+    support Momentum(r).
 
-.. _cap_dev_team:
+    The team can be contacted at corecapabilitydevelopmentteam@metoffice.gov.uk.
 
-Core Capability Development Team
---------------------------------
-The Core Capability Development Team are responsible for the LFRic Infrastructure to
-support the Next Generation Modelling Systems.
+    LFRic questions can also be directed to meto-lfric@metoffice.gov.uk.
 
-The team can be contacted at corecapabilitydevelopmentteam@metoffice.gov.uk.
+Tools and Collaborative Development Team
+    The TCD Team are responsible for the development and integration of third
+    party tools with LFRic including Psyclone, XIOS and LFRic Inputs.
 
-LFRic questions can also be directed to meto-lfric@metoffice.gov.uk.
-.. todo: flesh out the description here
+    The team can be contacted at ...
+
+
 
 .. _hpc_opt_team:
 

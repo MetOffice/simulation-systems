@@ -135,5 +135,5 @@ included when passing a ticket for review.
 
         python3 $UMDIR/SimSys_Scripts/suite_report.py -S <workflow path>
 
-    If this is a regular problem then get in touch with the :ref:`SSD team <ssd>` so we can
+    If this is a regular problem then get in touch with the :ref:`SSD team <simIT>` so we can
     investigate. Thanks.

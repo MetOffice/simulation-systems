@@ -21,6 +21,11 @@ Trivial tickets are an exception and do not require a SciTech review.
     code review deadline. Get ready for review with plenty of time to give
     SciTech reviewers and the approvers time to do their jobs.
 
+.. important::
+    Get in touch with your SciTech review before you feel ready for review. They
+    will have valuable insights into the code and, particularly for larger changes,
+    may appreciate time to look at your work as it progresses.
+
 Preparing for Review
 --------------------
 To help you get ready for review a :ref:`Ticket Summary <template>` should be
@@ -57,6 +62,9 @@ should go to the main code owner(s) for the area affected. If they don't want to
 then they may have suggestions for other suitable reviewers or you can approach
 anyone who would have good insight into the changes made.
 
+Changes that have a linked LFRic Core ticket should find a SciTech reviewer from
+the :ref:`CCD Team<simIT>`.
+
 The review process will iterate between the developer and reviewer until the
 changes made are agreed to be of sufficient quality. The SciTech reviewer will
 fill in a :ref:`SciTech Review Checklist <template>` which makes sure all
@@ -70,7 +78,7 @@ Guidance for the SciTech reviewer can be found :ref:`here <scitech_review>`.
 Code and System Review
 ----------------------
 Organising the code reviewer is the responsibility of the developer and is
-done by emailing the :ref:`ssd`. Reviewers are assigned to email requests a
+done by emailing the :ref:`SSD Team <simIT>`. Reviewers are assigned to email requests a
 couple of times a week.
 
 The code reviewer will check that the change meets the coding standards and fits
@@ -85,7 +93,7 @@ will be needed in this case.
 
 ..
     .. note::
-    For LFRic only developments you can also contact the :ref:`cap_dev_team`
+    For LFRic only developments you can also contact the :ref:`CCD Team <simIT>`
     directly or use the *request a code review* option on the ticket to
     move your ticket into `ready_for_code_review` status. Once a week tickets
     in this status are assigned a reviewer.
