@@ -37,6 +37,14 @@ Once you are happy that everything is in place then you are ready to continue
 to review.
 
 .. Tip::
+    Check that your changes meet the coding standards for the codebase you are
+    working on:
+
+    * `UMDP3 (UM and JULES FORTRAN) <https://code.metoffice.gov.uk/doc/um/latest/umdp.html#003>`_,
+    * `LFRic Coding Styles <https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicTechnical/CodingStandards>`_
+    * `PEP 8 (Python) <https://legacy.python.org/dev/peps/pep-0008/>`_
+
+.. Tip::
     Remember to follow all code-related steps and commit all your changes before
     running final testing to avoid needing to re-run.
 

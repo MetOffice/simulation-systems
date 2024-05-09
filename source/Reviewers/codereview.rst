@@ -76,9 +76,13 @@ will include areas such as:
     Generally this is about making sure the code complies with the relevant
     style guides, and is consistent with the design of the code it sits in.
 
-    It's impossible to provide a complete checklist for this, but
-    `this page <https://code.metoffice.gov.uk/trac/um/wiki/CodeReviewCribSheet>`_
-    provides some common things to confirm.
+    * `UMDP3 (UM and JULES FORTRAN) <https://code.metoffice.gov.uk/doc/um/latest/umdp.html#003>`_,
+    * `LFRic Coding Styles <https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicTechnical/CodingStandards>`_
+    * `PEP 8 (Python) <https://legacy.python.org/dev/peps/pep-0008/>`_
+
+    `This page <https://code.metoffice.gov.uk/trac/um/wiki/CodeReviewCribSheet>`_
+    provides some common (though UM-centric) things to confirm and think about.
+    It is not an exhaustive list, just a starting point.
 
 Final decision points and actions
 ---------------------------------

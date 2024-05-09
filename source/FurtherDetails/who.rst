@@ -94,12 +94,11 @@ Review guidance.
 
 It is the responsibility of the developer to arrange the code reviewer.
 
-**UM, LFRic Apps, JULES, UKCA and Shumlib** reviews are arranged by contacting
-the Simulation Systems and Deployment Team.
+**Reviews are arranged by contacting the Simulation Systems and Deployment Team.**
 
-**LFRic Core** reviews are arranged by contacting the Capability Development Team,
-or moving the ticket into "ready_for_code_review" state. Tickets in this state
-are allocated reviewers at the weekly team meeting.
+Unlinked **LFRic Core** reviews can also be arranged by moving the ticket into
+"ready_for_code_review" state. Tickets in this state will be picked up by the
+Core Capability Development Team.
 
 .. _simIT:
 
