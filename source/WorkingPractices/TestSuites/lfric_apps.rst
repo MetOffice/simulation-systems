@@ -3,14 +3,22 @@
 Testing LFRic Apps
 ==================
 
-LFRic Apps testing is run with the following commands from a working copy:
+Rose stem:
+    LFRic Apps testing uses rose-stem and is run with the following commands
+    from a working copy:
 
-.. code-block::
+    .. code-block::
 
-    export CYLC_VERSION=8
-    rose stem --group=developer
-    cylc play <working copy name>
-    cylc gui
+        export CYLC_VERSION=8
+        rose stem --group=developer
+        cylc play <working copy name>
+        cylc gui
+
+Local testing:
+    Alternatively, a single application can be built and run locally using
+    `these instructions <https://code.metoffice.gov.uk/trac/lfric_apps/wiki/local_builds>`_
+
+    This is particularly useful for checking for compile errors while developing.
 
 -----
 
@@ -21,6 +29,11 @@ LFRic Apps testing is run with the following commands from a working copy:
     * If setting the source to an fcm URL, the mirror needs to be used and the revision can either be blank (for latest commit) or any valid revision for that branch.
     * If setting the source to a Working Copy, the hostname needs to be provided (as Hostname:Path) and the revision must be blank.
 
+    For more details, see :ref:`multi-repo_testing`.
+
+
+Rose stem
+---------
 The LFRic Apps rose stem includes a range of tests to exercise all the applications
 stored in this repository, using multiple compilers, and checksum and plot tasks to
 confirm the outputs.
