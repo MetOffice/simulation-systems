@@ -7,8 +7,8 @@ Normally it is to be expected that code changes regress (i.e. all prognostic
 variables **and** diagnostics maintain the same answers with your code included
 but switched off).
 
-The most common reason why a code change does not regress is when a bug is
-discovered and fixed.
+Usually, a code change does not regress when either a bug is a
+discovered and fixed, or a science area is introduced or enhanced.
 
 .. important::
   Where a change in answers occurs, the developer must contact the configuration
