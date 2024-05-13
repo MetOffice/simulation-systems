@@ -18,7 +18,8 @@ Local testing:
     Alternatively, a single application can be built and run locally using
     `these instructions <https://code.metoffice.gov.uk/trac/lfric_apps/wiki/local_builds>`_
 
-    This is particularly useful for checking for compile errors while developing.
+    This test does not use rose or cylc and is particularly useful for
+    checking for compile errors while developing.
 
 -----
 
