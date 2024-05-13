@@ -61,4 +61,4 @@ Optimisation Approvals
 ----------------------
 Changes that modify code within an OpenMP section will require approval from the
 :ref:`hpc_opt_team`. Changes that modify or add PSyKAl-lite code will require
-approval from the :ref:`TCD Team <simiT>`.
+approval from the TCD Team.
