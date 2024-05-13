@@ -3,14 +3,23 @@
 Testing LFRic Apps
 ==================
 
-LFRic Apps testing is run with the following commands from a working copy:
+Rose stem:
+    LFRic Apps testing uses rose-stem and is run with the following commands
+    from a working copy:
 
-.. code-block::
+    .. code-block::
 
-    export CYLC_VERSION=8
-    rose stem --group=developer
-    cylc play <working copy name>
-    cylc gui
+        export CYLC_VERSION=8
+        rose stem --group=developer
+        cylc play <working copy name>
+        cylc gui
+
+Local testing:
+    Alternatively, a single application can be built and run locally using
+    `these instructions <https://code.metoffice.gov.uk/trac/lfric_apps/wiki/local_builds>`_
+
+    This test does not use rose or cylc and is particularly useful for
+    checking for compile errors while developing.
 
 -----
 
@@ -21,28 +30,24 @@ LFRic Apps testing is run with the following commands from a working copy:
     * If setting the source to an fcm URL, the mirror needs to be used and the revision can either be blank (for latest commit) or any valid revision for that branch.
     * If setting the source to a Working Copy, the hostname needs to be provided (as Hostname:Path) and the revision must be blank.
 
+    For more details, see :ref:`multi-repo_testing`.
+
+
+Rose stem
+---------
 The LFRic Apps rose stem includes a range of tests to exercise all the applications
 stored in this repository, using multiple compilers, and checksum and plot tasks to
 confirm the outputs.
 
 .. tip::
 
-    For LFRic Apps it is possible to update the checksum files on your branch to
-    aid with testing and development. To do so run the rose-stem suite as described
-    to cover all failing tests, then run the following from your working copy
-
-    .. code-block::
-
-        python3 ./rose-stem/bin/update_branch_kgos.py -s <suite name> -w <path to working copy>
-
-    More details on the KGO update proceedures for all repositories can be found
-    :ref:`here <kgo_instructions>`.
+    For LFRic Apps it is possible to update the checksum files on your branch as
+    you progress your development to aid with testing. Details on how to do this
+    are on the :ref:`KGO page <kgo>`.
 
 Below is a (by no means comprehensive) set of groups that you may wish to use on
 Met Office systems. Note that there is a lot of overlap between these groups,
 and that you can specify more than one at once, e.g. ``--group=developer,gungho_model``.
-
-
 
 +--------------------+----------------------------------------------------------+
 | Group              | Description                                              |

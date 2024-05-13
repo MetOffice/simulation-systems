@@ -31,6 +31,13 @@ this through completely makes a big difference to the review experience.
 Once you are happy that everything is in place then you are ready to continue
 to review.
 
+.. important::
+    If your development changes answers then make sure you have followed the
+    steps on :ref:`preparing a KGO ticket for review.<kgo>`
+
+    If you suspect there may be a change in answers but none have shown up during
+    testing then run the rose-stem ``all`` group to confirm this.
+
 .. Tip::
     Remember to follow all code-related steps and commit all your changes before
     running final testing to avoid needing to re-run.
