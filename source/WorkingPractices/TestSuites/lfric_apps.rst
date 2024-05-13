@@ -40,16 +40,9 @@ confirm the outputs.
 
 .. tip::
 
-    For LFRic Apps it is possible to update the checksum files on your branch to
-    aid with testing and development. To do so run the rose-stem suite as described
-    to cover all failing tests, then run the following from your working copy
-
-    .. code-block::
-
-        python3 ./rose-stem/bin/update_branch_kgos.py -s <suite name> -w <path to working copy>
-
-    More details on the KGO update proceedures for all repositories can be found
-    :ref:`here <kgo_instructions>`.
+    For LFRic Apps it is possible to update the checksum files on your branch as
+    you progress your development aid with testing. Details on how to do this
+    are on the :ref:`KGO page <kgo>`.
 
 Below is a (by no means comprehensive) set of groups that you may wish to use on
 Met Office systems. Note that there is a lot of overlap between these groups,
