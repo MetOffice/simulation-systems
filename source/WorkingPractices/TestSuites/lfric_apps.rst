@@ -41,14 +41,12 @@ confirm the outputs.
 .. tip::
 
     For LFRic Apps it is possible to update the checksum files on your branch as
-    you progress your development aid with testing. Details on how to do this
+    you progress your development to aid with testing. Details on how to do this
     are on the :ref:`KGO page <kgo>`.
 
 Below is a (by no means comprehensive) set of groups that you may wish to use on
 Met Office systems. Note that there is a lot of overlap between these groups,
 and that you can specify more than one at once, e.g. ``--group=developer,gungho_model``.
-
-
 
 +--------------------+----------------------------------------------------------+
 | Group              | Description                                              |
