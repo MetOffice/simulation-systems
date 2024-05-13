@@ -35,10 +35,6 @@ confirm the outputs.
 
         python3 ./rose-stem/bin/update_branch_kgos.py -s <suite name> -w <path to working copy>
 
-    .. note::
-        This script requires at least python 3.9. This can be achieved on
-        Met Office machines by running `module load scitools`
-
     More details on the KGO update proceedures for all repositories can be found
     :ref:`here <kgo_instructions>`.
 

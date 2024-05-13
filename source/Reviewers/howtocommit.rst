@@ -479,9 +479,6 @@ for all affected tests before you commit to the trunk.
 
             python3 ./rose-stem/bin/update_branch_kgos.py -s <suite name> -w <path to working copy>
 
-        .. note::
-            This script requires at least python 3.9. This can be achieved on
-            Met Office machines by running `module load scitools`
 
     .. tab-item:: LFRic Core
 
