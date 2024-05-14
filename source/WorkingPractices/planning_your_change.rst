@@ -35,7 +35,7 @@ General Considerations
 you expect to alter or add?) This is an important consideration as the more complex a change is, the
 more time will be required in development, the more code owners will need to approve it and so forth.
 If a change is overly complex, the developer should consider breaking it up into smaller, more
-managable tickets.
+manageable and, where possible, "self contained" tickets.
 
 **How does your proposed change fit in with the structure of the model?** Try and make your code
 changes in-scope and no larger than they need to be. If you find yourself having to edit large
@@ -51,8 +51,8 @@ and things to avoid, so it is useful for the developer to be aware of these.
 
 **Who will SciTech review the change?** This is a useful consideration as not everyone who uses the
 repository has the knowledge or experience to review every ticket that is being developed. Get in
-touch with your SciTech reviewer early in the process as they will have valuable insights to positively
-shape your change.
+touch with your SciTech reviewer early in the process as they will have valuable insights that can
+help to shape your change.
 
 **Does your change fix a bug or are you investigating a bug in the code?** If so, be aware that any
 changes to answers will require a KGO update and configuration owners to approve the change, which

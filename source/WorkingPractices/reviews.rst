@@ -22,9 +22,19 @@ Trivial tickets are an exception and do not require a SciTech review.
     SciTech reviewers and the approvers time to do their jobs.
 
 .. important::
-    Get in touch with your SciTech review before you feel ready for review. They
+    Get in touch with your SciTech Reviewer before you feel ready for review. They
     will have valuable insights into the code and, particularly for larger changes,
-    may appreciate time to look at your work as it progresses.
+    may appreciate the opportunity to look at your work as it progresses.
+
+.. important::
+    While your reviewers are in a good position to advise and make suggestions
+    on your changes it is also important that they are able to maintain an
+    impartial perspective, and therefore should not get involved in the development.
+
+    In the case that a reviewer, either SciTech or Code, does get too involved
+    then another person should be brought in to finish the review process and
+    provide that external viewpoint.
+
 
 Preparing for Review
 --------------------
@@ -85,7 +95,7 @@ Guidance for the SciTech reviewer can be found :ref:`here <scitech_review>`.
 
 Code and System Review
 ----------------------
-Organising the code reviewer is the responsibility of the developer and is
+Requesting a code reviewer is the responsibility of the developer and is
 done by emailing the :ref:`SSD Team <ssd>`. Reviewers are assigned to email requests a
 couple of times a week.
 

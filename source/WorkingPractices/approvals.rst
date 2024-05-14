@@ -38,8 +38,7 @@ A list of current code owners for each project can be found in
     able to guide your change to fit in with the bigger picture of what is
     happening.
 
-Code Owners are good candidates for choosing a SciTech reviewer, and you should
-consider this early in the process so that you can involve them in design decisions.
+Code Owners are good candidates for choosing as a SciTech reviewer.
 
 Config Owner
 ------------
