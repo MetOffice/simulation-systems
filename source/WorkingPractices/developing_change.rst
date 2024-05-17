@@ -24,6 +24,9 @@ Commits to your branch should take the following form in their log messages:
   it is useful to have an appropriate coding plan in place.
   See :ref:`planning` for further details.
 
+.. note::
+  Do not add AI-generated code, eg from GitHub CoPilot to any branches or forks.
+
 Code changes should conform to the coding standards of the project.
 Remember to ensure that your changes are easy to read and follow, using
 comments to explain what the code is doing.

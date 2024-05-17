@@ -44,6 +44,11 @@ has been developed under a different license without agreement from the
 Simulation Systems and Deployment Team. This includes lifting Fortran code or
 text from books. Our repositiories must not infringe copyright.
 
+**Do not add AI-generated code** even in a fork or branch. AI tools such as Github 
+CoPilot are becoming more readily available. However, the detailed terms and 
+conditions associated with these need to be evaluated for compatibility with 
+licensing and copyright.
+
 **Add or link to old code** or tickets that predate MOSRS, for example...
 
 * Link to tickets in old internal repositories- links will either not resolve or be incorrect
