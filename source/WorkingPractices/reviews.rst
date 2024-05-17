@@ -21,6 +21,21 @@ Trivial tickets are an exception and do not require a SciTech review.
     code review deadline. Get ready for review with plenty of time to give
     SciTech reviewers and the approvers time to do their jobs.
 
+.. important::
+    Get in touch with your SciTech Reviewer before you feel ready for review. They
+    will have valuable insights into the code and, particularly for larger changes,
+    may appreciate the opportunity to look at your work as it progresses.
+
+.. important::
+    While your reviewers are in a good position to advise and make suggestions
+    on your changes it is also important that they are able to maintain an
+    impartial perspective, and therefore should not get involved in the development.
+
+    In the case that a reviewer, either SciTech or Code, does get too involved
+    then another person should be brought in to finish the review process and
+    provide that external viewpoint.
+
+
 Preparing for Review
 --------------------
 To help you get ready for review a :ref:`Ticket Summary <template>` should be
@@ -37,6 +52,14 @@ to review.
 
     If you suspect there may be a change in answers but none have shown up during
     testing then run the rose-stem ``all`` group to confirm this.
+
+.. Tip::
+    Check that your changes meet the coding standards for the codebase you are
+    working on:
+
+    * `UMDP3 (UM and JULES FORTRAN) <https://code.metoffice.gov.uk/doc/um/latest/umdp.html#003>`_,
+    * `LFRic Coding Styles <https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicTechnical/CodingStandards>`_
+    * `PEP 8 (Python) <https://legacy.python.org/dev/peps/pep-0008/>`_
 
 .. Tip::
     Remember to follow all code-related steps and commit all your changes before
@@ -64,6 +87,9 @@ should go to the main code owner(s) for the area affected. If they don't want to
 then they may have suggestions for other suitable reviewers or you can approach
 anyone who would have good insight into the changes made.
 
+Changes that have a linked LFRic Core ticket should find a SciTech reviewer from
+the CCD Team.
+
 The review process will iterate between the developer and reviewer until the
 changes made are agreed to be of sufficient quality. The SciTech reviewer will
 fill in a :ref:`SciTech Review Checklist <template>` which makes sure all
@@ -76,8 +102,8 @@ Guidance for the SciTech reviewer can be found :ref:`here <scitech_review>`.
 
 Code and System Review
 ----------------------
-Organising the code reviewer is the responsibility of the developer and is
-done by emailing the :ref:`ssd`. Reviewers are assigned to email requests a
+Requesting a code reviewer is the responsibility of the developer and is
+done by emailing the :ref:`SSD Team <ssd>`. Reviewers are assigned to email requests a
 couple of times a week.
 
 The code reviewer will check that the change meets the coding standards and fits
@@ -89,13 +115,6 @@ and the developer with the ticket ownership passing between the two while keepin
 the status as Code Review. If major changes are needed then the ticket may be
 rejected which will put it back to `In Progress` and a further SciTech Review
 will be needed in this case.
-
-..
-    .. note::
-    For LFRic only developments you can also contact the :ref:`cap_dev_team`
-    directly or use the *request a code review* option on the ticket to
-    move your ticket into `ready_for_code_review` status. Once a week tickets
-    in this status are assigned a reviewer.
 
 Once the code reviewer is satisfied they will move the ticket into the `approved`
 state, ready for commit to the trunk.

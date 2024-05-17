@@ -1,12 +1,26 @@
 /* import the standard theme css */
 @import url("styles/theme.css");
+@import url("basic.css");
 
+/* Office Science Colours */
 html[data-theme="light"] {
     --pst-color-primary: #0f79be;
-    --pst-color-secondary: #C4E90C;
+    --pst-color-secondary: #e2a022;
+    --pst-color-accent: #e2a022;
 }
 
 html[data-theme="dark"] {
     --pst-color-primary: #359bc0;
-    --pst-color-secondary: #C4E90C;
+    --pst-color-secondary: #eac45f;
+    --pst-color-accent: #eac45f;
+
+    /* Overwrite visited colour to be AAA contrast compliant */
+    a:visited {
+        color: #be90ea;
+    }
+
+    /* Reset the overridden hover colour  */
+    a:visited:hover {
+        color: var(--pst-color-link-hover);
+    }
 }

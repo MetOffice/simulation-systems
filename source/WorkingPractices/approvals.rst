@@ -19,11 +19,9 @@ off the approval.
     make it easy to see what is required.
 
 .. note::
-
-   LFRic Apps does not yet have a list of configuration or code owners. Instead
-   science owners are responsible for signing off configuration answer changes,
-   and developers can talk to SSEs for a design review to get input into the
-   wider context of their changes.
+   LFRic Apps does not yet have a formal Code Owner approval process. A list of
+   code owners is available and they should still be consulted as part of your
+   development.
 
 Code Owners
 -----------
@@ -39,6 +37,8 @@ A list of current code owners for each project can be found in
     process. These people have good oversight on changes in an area and will be
     able to guide your change to fit in with the bigger picture of what is
     happening.
+
+Code Owners are good candidates for choosing as a SciTech reviewer.
 
 Config Owner
 ------------
@@ -59,4 +59,5 @@ Others are combined with the Code Owner lists above.
 Optimisation Approvals
 ----------------------
 Changes that modify code within an OpenMP section will require approval from the
-:ref:`hpc_opt_team`.
+:ref:`hpc_opt_team`. Changes that modify or add PSyKAl-lite code will require
+approval from the TCD Team.
