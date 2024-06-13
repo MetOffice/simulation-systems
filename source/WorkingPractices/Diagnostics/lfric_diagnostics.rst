@@ -7,7 +7,7 @@ This section describes changes required to add a new diagnostic to the
 LFRic atmosphere model. If a diagnostic is being added to an existing
 science scheme, it may be that it will be possible to copy the code
 for an existing diagnostic and make necessary changes to
-names. Excluding code to compute the new diagnosic, this amounts to
+names. Excluding code to compute the new diagnostic, this amounts to
 copying and modifying just three lines of text.
 
 .. topic:: Checklist for experienced developers
@@ -17,7 +17,7 @@ copying and modifying just three lines of text.
 
    #. Add a new record to the
       ``lfric_atm/metadata/field_def_initial_diags.xml`` file based on
-      an existing diagnostic if possible.
+      an existing diagnostic if available.
    #. Add lines to initialise the field holding the diagnostic in the
       appropriate diagnostics initialisation module. Add the field to
       the procedure argument list. Typically, the modules are named
@@ -113,8 +113,8 @@ model, follow these steps:
 #. Add code to initialise a model field to hold the diagnostic. For
    existing science schemes it may be possible to add the field
    initialisation code to an existing module. This step is not
-   required if the diagnostic derives from an existing prognostic
-   field.
+   required if the diagnostic derives from an existing field such as
+   from a prognostic field passed into the algorithm.
 #. Add code to write out the field.
 
 Once the above steps are complete, code can be added to compute the
@@ -147,7 +147,7 @@ defined in the ``field_def_diags.xml`` file.
 
 A field definition looks like this:
 
-::
+.. code-block:: xml
 
   <field id="convection__shallow_dt" name="shallow_dt"
   long_name="temperature_increment_from_shallow_convection" unit="K
@@ -198,7 +198,7 @@ used in the model and defined in the ``axis_def_main.xml`` file in the
 ``lfric_atm/metadata`` directory. For example the following field is
 on surface tiles.
 
-::
+.. code-block:: xml
 
     <field id="surface__throughfall" name="throughfall_rate"
     long_name="canopy_throughfall_flux" unit="kg m-2 s-1"
@@ -214,23 +214,8 @@ Initialising the field relates to defining the LFRic function space
 that the field lives on rather than initialising the values held in
 the field.
 
-As noted above, diagnostic outputs derived from prognostic fields
-require no initialisation within the science code. Refer to the
-section on prognostics to understand how these fields are
-initialised. Generally, prognostic fields are passed down the science
-code within a field collection. Code like the following will obtain a
-pointer to the ``soil_temperature`` field from the ``soil_fields``
-field collection so that its value can be computed or updated:
-
-::
-
-    type( field_collection_type ), intent(inout) :: soil_fields
-    type( field_type ), pointer :: soil_temperature
-
-    call soil_fields%get_field('soil_temperature', soil_temperature)
-
-If a field is not available to hold a diagnostic, then one must be
-declared local to the diagnostic routine and initialised to be the
+If a field is not available to hold the diagnostic data, then one must
+be declared local to the diagnostic routine and initialised to be the
 correct field type.
 
 The following is relevant code taken from an existing science scheme
@@ -238,7 +223,7 @@ algorithm demonstrating the declaration of a field and a call to the
 initialisation procedure used for all the diagnostics initialised by
 that scheme:
 
-::
+.. code-block:: fortran
 
     type( field_type ) :: soil_moisture_content
     type( field_type ) :: grid_canopy_water
@@ -253,7 +238,8 @@ that scheme:
 The ``initialise_diags_for_jules_soil`` procedure calls an LFRic
 atmosphere ``init_diag`` function:
 
-::
+.. code-block:: fortran
+
     soil_moisture_content_flag = init_diag(soil_moisture_content, &
                                  'soil__soil_moisture_content')
     grid_canopy_water_flag = init_diag(grid_canopy_water,         &
@@ -289,7 +275,8 @@ diagnostic itself is required `or` if the ``grid_throughfall``
 diagnostic is required. However, the function return value would still
 be ``.false.`` if the ``throughfall`` diagnostic is not requested.
 
-::
+.. code-block:: fortran
+
     throughfall_flag = init_diag(throughfall, 'surface__throughfall', &
                                  activate = grid_throughfall_flag)
 
@@ -302,7 +289,8 @@ once it has been initialised and computed.
 The flag returned by the ``init_diag`` function can be used to
 determine whether the diagnostic is required.
 
-::
+.. code-block:: fortran
+
     if (throughfall_flag)           call throughfall%write_field()
     if (soil_moisture_content_flag) call soil_moisture_content%write_field()
 
@@ -325,11 +313,63 @@ associates the data in a field with an application
 kernel, the data array can be checked to ensure it is `not` associated
 with this dummy array prior to attempting to compute the diagnostic:
 
-::
+.. code-block:: fortran
+    use empty_data_mod,          only : empty_real_data
+
+    ! <snip>
+
     if (.not. associated(throughfall, empty_real_data) ) then
       do n = 1, n_land_tile
         do l = 1, land_pts
-          throughfall(map_tile(1,ainfo%land_index(l))+n-1) = fluxes%tot_tfall_surft(l,n)
+          throughfall(map_tile(1,ainfo%land_index(l))+n-1) = &
+                                           fluxes%tot_tfall_surft(l,n)
         end do
       end do
     end if
+
+Diagnostics from existing fields
+--------------------------------
+
+Sometimes, a science scheme will output a diagnostic from a field
+passed into the science algorithm. In this case, there is no need to
+declare and initialise a local field, but the field does need to be
+sent to the diagnostic system.
+
+Commonly, such fields are prognostics passed into the science scheme
+within a field collection. Code like the following will obtain a
+pointer to the ``canopy_water`` field from the ``surface_fields``
+field collection so that its value can be computed or updated:
+
+.. code-block:: fortran
+
+    type( field_collection_type ), intent(inout) :: surface_fields
+    type( field_type ), pointer :: canopy_water
+
+    call surface_fields%get_field('canopy_water', canopy_water)
+
+As noted above, the ``init_diag`` method returns a flag to indicate
+whether a field of a particular name had been requested as a
+diagnostic, and the flag is used to help determine whether to
+initialise and write the field to the diagnostic system. The main
+benefit of this process is to reduce the memory and processing time
+needed to compute an optional field.
+
+As it is assumed that a prognostic field will be computed regardless
+of whether the scheme will output it as a diagnostic, there is no
+mechanism for checking whether a field should be output that is
+separate from initialising a field. Therefore, once the science scheme
+has run, the field is sent to the IO system regardless of whether the
+diagnostic was requested. The cost of doing this is assumed to be
+small, as XIOS will ignore output requests if there is no related IO
+request.
+
+Note that the output of the field as a diagnostic is separate from its
+output to the model's checkpoint file (if the field needs to be
+checkpointed). The name sent to the LFRic XIOS library is that of the
+diagnostic (``surface__canopy_water``) rather than that of the
+prognostic field (``canopy_water``).
+
+.. code-block:: fortran
+
+    ! Prognostic fields
+    call canopy_water%write_field('surface__canopy_water')
