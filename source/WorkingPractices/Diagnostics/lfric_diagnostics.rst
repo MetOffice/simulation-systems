@@ -5,15 +5,14 @@ LFRic Atmosphere Diagnostics
 
 This section describes changes required to add a new diagnostic to the
 LFRic atmosphere model. If a diagnostic is being added to an existing
-science scheme, it may be that it will be possible to copy the code
-for an existing diagnostic and make necessary changes to
-names. Excluding code to compute the new diagnostic, this amounts to
-copying and modifying just three lines of text.
+science scheme, it may be possible to copy and adapt code for an
+existing diagnostic. Excluding code to compute the new diagnostic,
+adding a diagnostic amounts to just three small changes.
 
 .. topic:: Checklist for experienced developers
 
    For experienced or confident users adding a diagnostic to an
-   existing science section, follow these steps
+   existing science section, follow these steps:
 
    #. Add a new record to the
       ``lfric_atm/metadata/field_def_initial_diags.xml`` file based on
@@ -24,11 +23,12 @@ copying and modifying just three lines of text.
       after the science section with the suffix ``_diags_mod.f90``.
    #. Add lines to write out the diagnostic field in the output
       procedure held in the same module.
-   #. Add code to the calling algorithm to compute the new diagnostic,
-      including passing the field down to any kernels involved in the
+   #. In the algorithm that calls the initialise and write routines,
+      add the code to compute the new diagnostic, including passing
+      the field down to any algorithms or kernels involved in the
       computation.
    #. If the diagnostic has not been requested, then the field will
-      not be properly initialised. Therefore, include checks to ensure
+      not be fully initialised. Therefore, include checks to ensure
       such diagnostics are not computed.
 
 Overview
@@ -68,22 +68,26 @@ different file streams.
    given application configuration.
 
 XIOS is a highly complex and flexible parallel IO system with
-post-processing capabilites. It is developed at IPSL.
+post-processing capabilites, including the ability to apply time and
+spatial processing as well as combine multiple fields. It is developed
+at IPSL.
 
 .. caution::
 
    While it would be possible to write a set of complex diagnostic
    requests using all the features of XIOS, people should be cautious
-   of the possibility that future developments of the LFRic atmosphere
-   user environment may not support all the flexibility
-   required. Furthermore, the underlying XIOS software is complex, and
-   it is possible to create a simple workflow that turns out to be
-   unreliable or that imposes high computation costs on the model.
+   because future developments of the LFRic atmosphere user
+   environment may not support all the flexibility required to
+   reconstruct the request. Furthermore, the underlying XIOS software
+   is complex, and it is possible to create a complex diagnostic
+   request that is unreliable or that imposes high computation costs
+   on the application.
 
 Permitted diagnostic fields
 ---------------------------
 
-Diagnostic fields must be one of the following types of model fields:
+Diagnostic fields can only be created for the following types of LFRic
+atmosphere fields:
 
 * A :math:`\mathbb{W}_{3}` field representing data, typically scalar
   quantities, at the centre of each 3D model cell.
@@ -97,10 +101,11 @@ Diagnostic fields must be one of the following types of model fields:
   or fluxes, at the centre of the faces around the side of each cell
   (noting that neighbouring cells share these faces and data points).
 * A single-level field.
-* A "multidata" field. Some types of single level field store more
-  than one quantity, such as a data point for each vegetation type or
-  for different radiation bands. Supported multidata fields are
-  defined in the ``metadata/axis_def_main.xml`` file.
+* A "multidata" field. Some types of single level
+  :math:`\mathbb{W}_{3}` field store more than one quantity, such as a
+  data point for each vegetation type or for different radiation
+  bands. Supported multidata fields are defined in the
+  ``metadata/axis_def_main.xml`` file.
 
 Detailed steps for adding a new diagnostic
 ------------------------------------------
@@ -113,14 +118,14 @@ model, follow these steps:
 #. Add code to initialise a model field to hold the diagnostic. For
    existing science schemes it may be possible to add the field
    initialisation code to an existing module. This step is not
-   required if the diagnostic derives from an existing field such as
-   from a prognostic field passed into the algorithm.
+   required if the diagnostic is obtained from an existing field such
+   as from a prognostic field passed into the algorithm.
 #. Add code to write out the field.
 
 Once the above steps are complete, code can be added to compute the
 diagnostic. It is possible to check whether a diagnostic has been
 requested for output. If a diagnostic has not been requested, and if
-it is not required for other purposes, then the model can avoid
+it is not required for other purposes, then the model must avoid
 computing its value.
 
 Several science schemes have dedicated modules to initialise and
@@ -135,7 +140,7 @@ Creating a field record
 Diagnostics that are computed every time-step should normally be
 defined in the ``field_def_diags.xml`` file.
 
-..topic:: Other field definition files
+.. topic:: Other field definition files
 
    Other field definition files include the ``lfric_dictionary.xml``
    file which lists prognostic fields (some of which may also be
@@ -218,10 +223,9 @@ If a field is not available to hold the diagnostic data, then one must
 be declared local to the diagnostic routine and initialised to be the
 correct field type.
 
-The following is relevant code taken from an existing science scheme
-algorithm demonstrating the declaration of a field and a call to the
-initialisation procedure used for all the diagnostics initialised by
-that scheme:
+The following code is from an existing science scheme algorithm.  It
+declares some fields and passes them to the scheme's diagnostic
+initialisation procedure.
 
 .. code-block:: fortran
 
@@ -235,7 +239,7 @@ that scheme:
                                          throughfall,            &
                                          grid_throughfall)
 
-The ``initialise_diags_for_jules_soil`` procedure calls an LFRic
+The ``initialise_diags_for_jules_soil`` procedure calls the LFRic
 atmosphere ``init_diag`` function:
 
 .. code-block:: fortran
@@ -247,52 +251,64 @@ atmosphere ``init_diag`` function:
     grid_throughfall_flag = init_diag(grid_throughfall,           &
                                       'surface__grid_throughfall')
 
-The function does the following steps:
+The ``init_diag`` function does the following steps:
 
-#. Checks if the diagnostic needs to be computed this time-step. This
-   check is done by querying XIOS which knows all the diagnostic
-   requests.
-#. If the diagnostic is required, the field is initialised to the
-   right function space type. The function space type is determined
-   by, again, querying XIOS to determine the domain information. The
-   domain information determines the function space type according to
-   the table above.
-#. If the diagnostic is not required, it still initialises the field,
-   but to save memory, instead of the field holding its own data
-   array, its data array pointer is pointed to a dummy
-   ``empty_real_data`` field provided by the application. Fields
-   cannot be left uninitialised as they would cause model failures if
-   passed through the PSy layer as the PSy layer will try to extract
-   their metadata.
+#. Checks if the diagnostic needs to be computed this time-step.
+#. If the diagnostic needs to be computed, the field is initialised to
+   the right function space type. The function space type is
+   determined from the domain information in the field record that was
+   added to the ``iodef.xml`` file according to the table above. The
+   name of the field is set to the string value passed into the
+   function.
+#. If the diagnostic does not need to be computed, it still
+   initialises the field with metadata. But to save memory, instead of
+   the field holding its own data array, its data array pointer is
+   pointed to a dummy ``empty_real_data`` field provided by the
+   application. Fields cannot be left uninitialised as they would
+   cause model failures if passed through the PSy layer as the PSy
+   layer will try to extract their metadata.
 #. The ``init_diag`` function returns ``.true.`` if the diagnostic is
-   required, and ``.false.`` otherwise.
+   needs to be output, and ``.false.`` otherwise.
 
-Sometimes a diagnostic needs to be initialised even when it is not
-requested because it is computed alongside another diagnostic that
-`is` requested. In such cases, the initialisation must override
-XIOS. The following initialises the ``throughfall`` field if the
-diagnostic itself is required `or` if the ``grid_throughfall``
-diagnostic is required. However, the function return value would still
-be ``.false.`` if the ``throughfall`` diagnostic is not requested.
+Sometimes a diagnostic needs to be computed even when it is not
+required for output because of dependencies on other diagnostics that
+`are` required. An optional argument to ``init_diag`` can be used to
+ensure a field is properly initialised even if there is no requirement
+to output the diagnostic. The following code initialises the
+``throughfall`` field if the diagnostic itself is required `or` if the
+``grid_throughfall`` diagnostic is required.
 
 .. code-block:: fortran
 
     throughfall_flag = init_diag(throughfall, 'surface__throughfall', &
                                  activate = grid_throughfall_flag)
 
+although the ``throughfall`` field will be properly initialised if the
+``grid_throughfall`` diagnostic is required, the ``init_diag``
+function will still return ``.false.`` if the ``throughfall``
+diagnostic is not requested. The return value is used only for
+deciding whether to write the diagnostic to the IO system.
+
 Outputting a field
 ~~~~~~~~~~~~~~~~~~
 
-If a field was required for a given time-step then it should be output
-once it has been initialised and computed.
+If the ``init_diag`` function has returned ``.true.`` then the
+diagnostic needs to be written to the IO system once it has been
+computed.
 
-The flag returned by the ``init_diag`` function can be used to
-determine whether the diagnostic is required.
+In the LFRic atmosphere model, the output procedure for a set of
+diagnostics is usually in the same module as the initialisation
+procedure. The flag returned by the ``init_diag`` function is
+available to both procedures so can be used to determine whether the
+diagnostic needs to be written out.
 
 .. code-block:: fortran
 
     if (throughfall_flag)           call throughfall%write_field()
     if (soil_moisture_content_flag) call soil_moisture_content%write_field()
+
+Note that the ``write_field`` method takes no argument here. The name
+passed to XIOS is the field name provided at initialisation time.
 
 Computing a field
 -----------------
@@ -304,16 +320,19 @@ Typically, diagnostics are computed by passing them to PSyclone
 built-ins and kernels.
 
 When using built-ins to compute a diagnostic, it is important to avoid
-calling the built-in if the diagnostic has not been requested such
-that the field is not fully initialised.
+calling the built-in if the ``init_diag`` routine has not fully
+initialised the field.
 
 As noted above, the ``init_diag`` routine used by the LFRic atmosphere
-associates the data in a field with an application
-``empty_data_array`` if the diagnostic is not required. Within a
-kernel, the data array can be checked to ensure it is `not` associated
-with this dummy array prior to attempting to compute the diagnostic:
+associates the data in a field with an ``empty_real_data`` array if
+the diagnostic is not required; all such fields are pointed to the
+same array held in the application's ``empty_data_mod`` module. Within
+a kernel, the data array can be checked to ensure it is `not`
+associated with this dummy array prior to attempting to compute the
+diagnostic:
 
 .. code-block:: fortran
+
     use empty_data_mod,          only : empty_real_data
 
     ! <snip>
@@ -332,7 +351,7 @@ Diagnostics from existing fields
 
 Sometimes, a science scheme will output a diagnostic from a field
 passed into the science algorithm. In this case, there is no need to
-declare and initialise a local field, but the field does need to be
+declare and initialise a local field, but the field still needs to be
 sent to the diagnostic system.
 
 Commonly, such fields are prognostics passed into the science scheme
@@ -347,29 +366,44 @@ field collection so that its value can be computed or updated:
 
     call surface_fields%get_field('canopy_water', canopy_water)
 
-As noted above, the ``init_diag`` method returns a flag to indicate
-whether a field of a particular name had been requested as a
-diagnostic, and the flag is used to help determine whether to
-initialise and write the field to the diagnostic system. The main
-benefit of this process is to reduce the memory and processing time
-needed to compute an optional field.
-
-As it is assumed that a prognostic field will be computed regardless
-of whether the scheme will output it as a diagnostic, there is no
-mechanism for checking whether a field should be output that is
-separate from initialising a field. Therefore, once the science scheme
-has run, the field is sent to the IO system regardless of whether the
-diagnostic was requested. The cost of doing this is assumed to be
-small, as XIOS will ignore output requests if there is no related IO
-request.
-
-Note that the output of the field as a diagnostic is separate from its
-output to the model's checkpoint file (if the field needs to be
-checkpointed). The name sent to the LFRic XIOS library is that of the
-diagnostic (``surface__canopy_water``) rather than that of the
-prognostic field (``canopy_water``).
+By default, the ``write_field`` method passes the field name to XIOS
+which is matched to the IDs in the ``iodef.xml`` file. For diagnostic
+output, the field's name needs to be overridden by passing the name of
+the diagnostic to the write method:
 
 .. code-block:: fortran
 
     ! Prognostic fields
     call canopy_water%write_field('surface__canopy_water')
+
+Passing ``surface__canopy_water`` means the field will be identified
+as a diagnostic rather than as the ``canopy_water`` prognostic. It
+will then be written to files that include diagnostic requests with
+that ID.
+
+Note that as there is no call to ``init_diag`` for an existing field,
+there is no flag to determine whether or not the field needs to be
+sent to the IO system. Calling the write method on a diagnostic that
+was not requested is not a problem: the underlying IO system is
+capable of ignoring the request.
+
+Initial diagnostics
+-------------------
+
+The LFRic atmosphere diagnostic definition includes a file called
+``field_def_initial_diags.xml`` that defines a set of "initial"
+diagnostics which are essentially the prognostic fields before the
+model has started running. If requested (by setting
+``write_diag=.true`` in the namelist configuration) these fields are
+written out as a group at the very start of a run just after reading
+the starting conditions into the model prognostic fields.
+
+The initial diagnostics may be useful to analyse issues where it is
+believed one of the fields is wrong just after it is read in.
+
+If a new field is added to the start dump, then a new record can be
+added to the XML file which is a copy of the prognostic record
+(typically included in the ``lfric_dictionary.xml file), but with its
+ID prefixed with ``init_``. Explicit code to write the prognostic
+field as a diagnostic is added to the
+``gungho_diagnostics_driver_mod`` module.
