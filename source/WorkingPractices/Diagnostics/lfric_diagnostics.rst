@@ -403,7 +403,7 @@ believed one of the fields is wrong just after it is read in.
 
 If a new field is added to the start dump, then a new record can be
 added to the XML file which is a copy of the prognostic record
-(typically included in the ``lfric_dictionary.xml file), but with its
+(typically included in the ``lfric_dictionary.xml`` file), but with its
 ID prefixed with ``init_``. Explicit code to write the prognostic
 field as a diagnostic is added to the
 ``gungho_diagnostics_driver_mod`` module.
