@@ -75,7 +75,7 @@ commands, noting that ``--jules-path`` is only required if you have
 :ref:`guidance<shared-namelists>`.
 
 +-------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| UM    | ``$UMDIR/bin/update_all.py --path=/path/to/working/copy/of/test/branch --um=vnX.X_tXXXX [--jules-path=/path/to/jules/working/copy/of/branch]`` |
+| UM    | ``/<working copy>/admin/rose-stem/update_all.py --path=/path/to/working/copy/of/test/branch --um=vnX.X_tXXXX [--jules-path=/path/to/jules/working/copy/of/branch]`` |
 +-------+------------------------------------------------------------------------------------------------------------------------------------------------+
 | JULES | ``./bin/upgrade_jules_test_apps vnX.X_tXXXX``                                                                                                  |
 +-------+------------------------------------------------------------------------------------------------------------------------------------------------+
