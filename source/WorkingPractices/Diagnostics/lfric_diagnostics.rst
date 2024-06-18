@@ -188,8 +188,6 @@ The components of this definition are:
 +-----------------------------------+----------------------------------------+
 |  :math:`\mathbb{W}_{theta}`       |  ``grid_ref="full_level_face_grid"``   |
 +-----------------------------------+----------------------------------------+
-|  :math:`\mathbb{W}_{theta}`       |  ``grid_ref="full_level_face_grid"``   |
-+-----------------------------------+----------------------------------------+
 |  Single-level field               |  ``domain_ref="face"``                 |
 +-----------------------------------+----------------------------------------+
 |  Multi-data field                 |  ``domain_ref="face"``                 |
@@ -244,12 +242,12 @@ atmosphere ``init_diag`` function:
 
 .. code-block:: fortran
 
-    soil_moisture_content_flag = init_diag(soil_moisture_content, &
-                                 'soil__soil_moisture_content')
-    grid_canopy_water_flag = init_diag(grid_canopy_water,         &
-                                       'surface__grid_canopy_water')
-    grid_throughfall_flag = init_diag(grid_throughfall,           &
-                                      'surface__grid_throughfall')
+    soil_moisture_content_flag = init_diag(soil_moisture_content,        &
+                                           'soil__soil_moisture_content')
+    grid_canopy_water_flag     = init_diag(grid_canopy_water,            &
+                                           'surface__grid_canopy_water')
+    grid_throughfall_flag      = init_diag(grid_throughfall,             &
+                                           'surface__grid_throughfall')
 
 The ``init_diag`` function does the following steps:
 
