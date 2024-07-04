@@ -483,6 +483,8 @@ for all affected tests before you commit to the trunk.
               This script requires at least python 3.9. This can be achieved on
               Met Office machines by running ``module load scitools``
 
+        3. Verify the checksums updated properly by retriggering the failed checksums. First retrigger ``export-source``, and then when complete ``export-source_xc40`` if new checksums are present there (there is no need to retigger spice). You may need to change the maximum window extent of the gui in order to see the succeeded tasks. Now you can retrigger the failed checksums - these should now pass if the kgo was updated in the working copy correctly.
+
 
     .. tab-item:: LFRic Core
 
