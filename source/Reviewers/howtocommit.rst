@@ -483,6 +483,9 @@ for all affected tests before you commit to the trunk.
               This script requires at least python 3.9. This can be achieved on
               Met Office machines by running ``module load scitools``
 
+        .. note::
+              The numbered run directory must be included in the suite name, eg. `name-of-suite/run1`.
+
 
     .. tab-item:: LFRic Core
 
