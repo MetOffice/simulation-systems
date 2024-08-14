@@ -50,6 +50,9 @@ such changes onto the trunk. When preparing your change for review:
               This script requires at least python 3.9. This can be achieved on
               Met Office machines by running ``module load scitools``
 
+           .. note::
+              The numbered run directory must be included in the suite name, eg. `name-of-suite/run1`.
+
         4. The changes in answers should be science reviewed by someone familiar with
            the failing tests - if unsure then start with the Code Owner for the affected
            application.
