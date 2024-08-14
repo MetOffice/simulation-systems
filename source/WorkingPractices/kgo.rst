@@ -44,11 +44,14 @@ such changes onto the trunk. When preparing your change for review:
 
            .. code-block::
 
-              python3 ./rose-stem/bin/update_branch_kgos.py -s <suite name> -w <path to working copy>
+              python3 ./rose-stem/bin/update_branch_kgos.py -s <suite name/runX> -w <path to working copy>
 
            .. note::
               This script requires at least python 3.9. This can be achieved on
               Met Office machines by running ``module load scitools``
+
+           .. note::
+              The numbered run directory must be included in the suite name, eg. `name-of-suite/run1`.
 
         4. The changes in answers should be science reviewed by someone familiar with
            the failing tests - if unsure then start with the Code Owner for the affected
