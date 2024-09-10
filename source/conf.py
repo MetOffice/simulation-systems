@@ -15,7 +15,7 @@ import datetime
 # -- Project information -----------------------------------------------------
 
 project = 'Simulation Systems'
-copyright = f'{datetime.datetime.now().year},  Met Office'
+copyright = f'Met Office 2024'
 author = 'Simulation Systems and Deployment Team'
 
 
@@ -51,7 +51,7 @@ html_css_files = ["custom.css"]
 html_theme = 'pydata_sphinx_theme'
 
 html_theme_options = {
-    "footer_start": ["copyright", "sphinx-version"],
+    "footer_start": ["crown-copyright", "sphinx-version"],
     "navigation_with_keys": False,
     "show_toc_level": 2,
     "show_prev_next": True,
