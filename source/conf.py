@@ -15,7 +15,7 @@ import datetime
 # -- Project information -----------------------------------------------------
 
 project = 'Simulation Systems'
-copyright = f'Met Office 2024'
+copyright = f'Met Office 2023'
 author = 'Simulation Systems and Deployment Team'
 
 
