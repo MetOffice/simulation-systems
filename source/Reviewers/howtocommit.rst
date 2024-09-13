@@ -140,7 +140,7 @@ then you will need to upgrade the test-suite.
 
             .. code-block:: RST
 
-                ~frum/bin/update_all.py --path=/path/to/working/copy/of/trunk --um=vnXX.Y_tZZZZ [--jules-path=/path/to/working/copy/of/jules/trunk]
+                ./admin/rose-stem/update_all.py --path=/path/to/working/copy/of/trunk --um=vnXX.Y_tZZZZ [--jules-path=/path/to/working/copy/of/jules/trunk]
 
             where `-\-um=vnXX.Y_tZZZZ` is the `AFTER_TAG` of the latest
 	    upgrade macro.
