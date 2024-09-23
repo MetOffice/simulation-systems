@@ -1,4 +1,4 @@
-Create & checkout a branch
+Create & Checkout a Branch
 ==========================
 The source management tool is `FCM <http://metomi.github.io/fcm/doc/>`_, which is based on subversion
 but with some subtle differences, both of which are very different from git.
