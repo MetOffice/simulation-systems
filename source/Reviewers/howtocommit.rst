@@ -1,7 +1,7 @@
 .. _howtocommit:
 
-How To Commit
-=============
+Merge, Test & Commit
+====================
 
 The process for committing a ticket follows this sequence with details for each of these steps outlined below.
 
@@ -12,8 +12,7 @@ The process for committing a ticket follows this sequence with details for each 
     Before You Start:
       * Is anyone else committing?
 
-        * `Trunk Status`_ is used to coordinate trunk commits for UM, JULES, LFRic Apps and UKCA.
-        * LFRic Core Trunk commits are coordinated through the dashboard in the Model Systems Teams Chat.
+        * `Trunk Status`_ is used to coordinate trunk commits all projects.
         * Simple, not conflicting commits can be done in parallel if reviewers all agree.
         * Changes with KGO or Macros usually require sole access to the trunk.
       * Check how many commits have happened today. Suggested limit per day, per repository is 4.
@@ -603,4 +602,4 @@ If something is broken:
       At this point you will be in UMDIR on the platform SPICE. You can then access frum on other machines via ssh -Y <HOSTNAME>.
     * Apart from on SPICE the frum home directories and UMDIR are separate. XCE/F share the same UMDIR and the UMDIR on XCS is kept in sync with this one.
 
-.. _Trunk Status: https://code.metoffice.gov.uk/trac/um/wiki/TrunkStatus
+.. _Trunk Status: https://code.metoffice.gov.uk/trac/lfric_apps/wiki/TrunkStatus
