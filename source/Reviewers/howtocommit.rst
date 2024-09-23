@@ -139,7 +139,7 @@ then you will need to upgrade the test-suite.
 
             .. code-block:: RST
 
-                ~frum/bin/update_all.py --path=/path/to/working/copy/of/trunk --um=vnXX.Y_tZZZZ [--jules-path=/path/to/working/copy/of/jules/trunk]
+                ./admin/rose-stem/update_all.py --path=/path/to/working/copy/of/trunk --um=vnXX.Y_tZZZZ [--jules-path=/path/to/working/copy/of/jules/trunk]
 
             where `-\-um=vnXX.Y_tZZZZ` is the `AFTER_TAG` of the latest
 	    upgrade macro.
@@ -476,11 +476,21 @@ for all affected tests before you commit to the trunk.
 
         .. code-block::
 
-            python3 ./rose-stem/bin/update_branch_kgos.py -s <suite name> -w <path to working copy>
+            python3 ./rose-stem/bin/update_branch_kgos.py -s <suite name/runX> -w <path to working copy>
 
         .. note::
               This script requires at least python 3.9. This can be achieved on
               Met Office machines by running ``module load scitools``
+
+        .. note::
+              The numbered run directory must be included in the suite name, eg. `name-of-suite/run1`.
+              
+
+        3. Verify the checksums updated properly by retriggering the failed checksums. First retrigger
+        ``export-source``, and then when complete ``export-source_xc40`` if new checksums are present
+        there (there is no need to retigger spice). You may need to change the maximum window extent 
+        of the gui in order to see the succeeded tasks. Now you can retrigger the failed checksums -
+        these should now pass if the kgo was updated in the working copy correctly.
 
 
     .. tab-item:: LFRic Core
@@ -533,7 +543,7 @@ An editor will open requesting a log message which should be in this format:
 
             #ticket_number : Author : Ticket title
 
-        where author is the srs username.
+        where author is the SRS username of the developer - usually the Reported By field on the ticket.
 
     .. tab-item:: LFRic Core
 
@@ -541,7 +551,7 @@ An editor will open requesting a log message which should be in this format:
 
             #<ticket number> for <original author>: <ticket title>
 
-        where original author is the authors proper name.
+        where original author is the dveloper's proper name.
 
 .. note::
      New!! Remove any **blocks:** and **blockedby:** keywords from this ticket and any referenced. Comment on any unblocked tickets to alert the developers.
