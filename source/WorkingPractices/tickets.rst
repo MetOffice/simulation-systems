@@ -1,6 +1,6 @@
 .. _ticket:
 
-Create a ticket
+Create a Ticket
 ===============
 Every change requires an associated ticket. This helps the developer
 organise and document their work and the reviewers to perform and
