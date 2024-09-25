@@ -320,11 +320,13 @@ are no clashes with what else has gone on trunk.
 
 
 
-4. KGO (if required)
---------------------
+4. KGO & Supporting Data (if required)
+--------------------------------------
 
 **If** your change is known to alter answers, you need to update rose-stem KGO
 for all affected tests before you commit to the trunk.
+
+If supporting data changes or updates are required, then you need to provide updates to BIG_DATA
 
 *NB: These instructions are Met Office specific, other sites may manage their KGO differently*
 
@@ -513,6 +515,64 @@ for all affected tests before you commit to the trunk.
     failing rose-ana tasks match those in the developers trac.log. If any have
     failed for other reasons (e.g. timeout) then these should be re-triggered
     before attempting to install the KGO files.
+
+4.1 Managing BIG_DATA
+^^^^^^^^^^^^^^^^^^^^^^
+
+Static input data, such as ancilliaries, are required by many `lfric_apps` tests.
+
+LFRic's lfric_apps tests use a BIG_DATA_DIR environment variable to provide a platform based
+path prefix to provide direct access to data required for tests.
+
+The master copy of this is held on XCS at `/common/lfric/data/`.
+A `cron` job is run daily at 07:30 utc on `xcslr0` as the `lfric` user, which runs the script:
+
+https://github.com/MetOffice/lfric_tools/tree/main/bigData/rsyncBigData.sh
+
+from
+
+.. code-block:: RST
+
+    /home/d03/lfric/bigData/rsyncBigData.sh
+
+This script synchronises the content of `/common/lfric/data/` from `XCS` to `XCE/F` and `SPICE`,
+deleting all content not in `XCS` BIG_DATA from the remote locations and updating any changed content.
+
+This BIG_DATA_DIR is not versioned nor source controlled on any platform.
+Care is required. The ability to log in as the `lfric` user is required, e.g. via
+
+.. code-block:: RST
+
+    sudo -u lfric -i
+
+As reviewer, you should work with the developer to:
+
+#. Ensure that you are in charge of the `lfric_core` & `lfric_apps` trunks.
+#. Place new files in the appropriate location on XCS under `/common/lfric/data`
+#. Run relevant tests on XCS.
+#. Wait for the daily `cron` job to run to synchronise data between `XCS` `XCE/F` & `SPICE`
+#. Rerun relevant tests on `XCE/F` and `SPICE` 
+#. Proceed to commit.
+
+If the requirement is to update existing files, then further care is required.
+
+#. Ensure that you are in charge of the `lfric_core` & `lfric_apps` trunks.
+#. Retain a temporary copy of the existing files, using a `.old` suffix.
+#. Place updated files in the appropriate location on XCS under `/common/lfric/data`
+#. Run all tests on XCS only
+
+    - revert changes immediately if there are any issues, and consult with the developer.
+
+#. Manually trigger the synchronisation script to synchronise data between `XCS` `XCE/F` & `SPICE`
+
+    - Waiting for the daily `cron` job to run can introduce a misalignment or race condition for scheduled testing.
+
+#. Rerun relevant tests on `XCE/F` and `SPICE` 
+
+    - revert changes immediately if there are any issues, and consult with the developer.
+
+#. Remove any `.old` files that you created on `XCS`.
+#. Proceed to commit.
 
 5. Commit
 ---------
