@@ -529,21 +529,24 @@ Static input data, such as initialisations and ancilliaries, are required by man
         platform based path prefix to provide direct access to data required for tests.
 
         The master copy of this is held on XCS at `/common/lfric/data/`.
-        A `cron` job is run daily at 07:30 utc on `xcslr0` as the `lfric` user,
-        which runs the script:
 
-        https://github.com/MetOffice/lfric_tools/tree/main/bigData/rsyncBigData.sh
+        .. dropdown:: cron sync
 
-        from
+            A `cron` job is run daily at 07:30 utc on `xcslr0` as the `lfric` user,
+            which runs the script:
 
-        .. code-block:: RST
+            https://github.com/MetOffice/lfric_tools/tree/main/bigData/rsyncBigData.sh
 
-            /home/d03/lfric/bigData/rsyncBigData.sh
+            from
 
-        This script synchronises the content of `/common/lfric/data/` from `XCS` to
-        `XCE/F` and `SPICE`,
-        deleting all content not in `XCS` BIG_DATA from the remote locations and
-        updating any changed content.
+            .. code-block:: RST
+
+                /home/d03/lfric/bigData/rsyncBigData.sh
+
+            This script synchronises the content of `/common/lfric/data/` from `XCS` to
+            `XCE/F` and `SPICE`,
+            deleting all content not in `XCS` BIG_DATA from the remote locations and
+            updating any changed content.
 
         This BIG_DATA_DIR is not versioned nor source controlled on any platform.
         Care is required. The ability to log in as the `lfric` user is required, e.g. via
