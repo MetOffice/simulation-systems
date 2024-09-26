@@ -326,7 +326,7 @@ are no clashes with what else has gone on trunk.
 **If** your change is known to alter answers, you need to update rose-stem KGO
 for all affected tests before you commit to the trunk.
 
-If supporting data changes or updates are required, then you need to provide updates to BIG_DATA
+Supporting data is stored in the filesystems of our machines and changes to use will require the reviewer to update those files (BIG DATA).
 
 *NB: These instructions are Met Office specific, other sites may manage their KGO differently*
 
@@ -516,47 +516,54 @@ If supporting data changes or updates are required, then you need to provide upd
     failed for other reasons (e.g. timeout) then these should be re-triggered
     before attempting to install the KGO files.
 
-4.1 Managing BIG_DATA
+4.1 Managing BIG DATA
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Static input data, such as ancilliaries, are required by many `lfric_apps` tests.
+Static input data, such as initialisations and ancilliaries, are required by many tests.
 
-LFRic's lfric_apps tests use a BIG_DATA_DIR environment variable to provide a platform based
-path prefix to provide direct access to data required for tests.
+.. tab-set::
 
-The master copy of this is held on XCS at `/common/lfric/data/`.
-A `cron` job is run daily at 07:30 utc on `xcslr0` as the `lfric` user, which runs the script:
+    .. tab-item:: LFRic apps
 
-https://github.com/MetOffice/lfric_tools/tree/main/bigData/rsyncBigData.sh
+        LFRic apps tests use a BIG_DATA_DIR environment variable to provide a
+        platform based path prefix to provide direct access to data required for tests.
 
-from
+        The master copy of this is held on XCS at `/common/lfric/data/`.
+        A `cron` job is run daily at 07:30 utc on `xcslr0` as the `lfric` user,
+        which runs the script:
 
-.. code-block:: RST
+        https://github.com/MetOffice/lfric_tools/tree/main/bigData/rsyncBigData.sh
 
-    /home/d03/lfric/bigData/rsyncBigData.sh
+        from
 
-This script synchronises the content of `/common/lfric/data/` from `XCS` to `XCE/F` and `SPICE`,
-deleting all content not in `XCS` BIG_DATA from the remote locations and updating any changed content.
+        .. code-block:: RST
 
-This BIG_DATA_DIR is not versioned nor source controlled on any platform.
-Care is required. The ability to log in as the `lfric` user is required, e.g. via
+            /home/d03/lfric/bigData/rsyncBigData.sh
 
-.. code-block:: RST
+        This script synchronises the content of `/common/lfric/data/` from `XCS` to
+        `XCE/F` and `SPICE`,
+        deleting all content not in `XCS` BIG_DATA from the remote locations and
+        updating any changed content.
 
-    sudo -u lfric -i
+        This BIG_DATA_DIR is not versioned nor source controlled on any platform.
+        Care is required. The ability to log in as the `lfric` user is required, e.g. via
 
-As reviewer, you should work with the developer to:
+        .. code-block:: RST
 
-#. Ensure that you are in charge of the `lfric_core` & `lfric_apps` trunks.
+            sudo -u lfric -i
+
+As reviewer, you should work with the developer, prior to moving to the commit stage, to:
+
 #. Place new files in the appropriate location on XCS under `/common/lfric/data`
 #. Run relevant tests on XCS.
 #. Wait for the daily `cron` job to run to synchronise data between `XCS` `XCE/F` & `SPICE`
+#. Ensure that you are in charge of the in charge of the trunk for the repositories involved.
+# Update your working copy if other commits have happened.
 #. Rerun relevant tests on `XCE/F` and `SPICE` 
-#. Proceed to commit.
 
 If the requirement is to update existing files, then further care is required.
 
-#. Ensure that you are in charge of the `lfric_core` & `lfric_apps` trunks.
+#. Ensure that you are in charge of the in charge of the trunk for the repositories involved.
 #. Retain a temporary copy of the existing files, using a `.old` suffix.
 #. Place updated files in the appropriate location on XCS under `/common/lfric/data`
 #. Run all tests on XCS only
@@ -572,7 +579,6 @@ If the requirement is to update existing files, then further care is required.
     - revert changes immediately if there are any issues, and consult with the developer.
 
 #. Remove any `.old` files that you created on `XCS`.
-#. Proceed to commit.
 
 5. Commit
 ---------
