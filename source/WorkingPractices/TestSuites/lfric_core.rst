@@ -38,6 +38,5 @@ It is also possible to select the platform to run on. Available options include
 .. tip::
 
     For more details on LFRic testing including details of unit tests please
-    visit the trac wiki
-    `here <https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicTechnical/Testing>`_.
+    visit the `LFRic testing trac wiki page <https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicTechnical/Testing>`_.
 

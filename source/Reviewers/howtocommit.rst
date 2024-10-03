@@ -212,7 +212,8 @@ even trivial tickets to check that the merge has not caused issues, or that ther
 are no clashes with what else has gone on trunk.
 
 .. note::
-    Linked tickets will need to be tested together as discussed :ref:`here <tesinglinked>`.
+    Linked tickets will need to be tested together as discussed
+    on the :ref:`Committing Linked Tickets page<tesinglinked>`.
 
 .. tab-set::
 

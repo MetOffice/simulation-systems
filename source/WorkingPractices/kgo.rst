@@ -82,7 +82,7 @@ such changes onto the trunk. When preparing your change for review:
 
 .. tip::
     More details on the KGO update proceedures for all repositories can be found
-    :ref:`here <kgo_instructions>`.
+    on the :ref:`How to Commit page<kgo_instructions>`.
 
 .. toctree::
     :hidden:

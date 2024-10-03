@@ -44,7 +44,8 @@ Testing linked tickets
 With the branches from all the tickets merged into a working copy of their
 respective Head of Trunk these can all be used together to test the change.
 
-Details for testing multi-repository tickets are included :ref:`here <multirepo>`.
+Details for testing multi-repository tickets are included on the
+:ref:`Working with Multiple Repositories page<multirepo>`.
 
 **In summary:**
 

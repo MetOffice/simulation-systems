@@ -7,7 +7,7 @@ Multi-repository changes are expected to pass the regression tests for all the
 repositories involved. To carry out the tests involved in a linked ticket it can
 be helpful to refer to the :ref:`semi-concentric circles figure <multirepo>`; layering the testing
 from the inside out as needed. Further details of how testing in each
-repository is handled can be found :ref:`here <testing>`. Compatible
+repository is handled can be found on the :ref:`Testing page<testing>`. Compatible
 code revisions are needed for testing across repositories as described above.
 
 Testing changes in JULES, LFRic Core, UKCA, or any other child repositories is
@@ -89,7 +89,8 @@ these paths can either be to local changes or those in the repository.
     cylc play <working copy name>
     cylc gui
 
-More details on LFRic Apps testing are found :ref:`here<lfric_apps_test>`.
+More details on LFRic Apps testing are found on the 
+:ref:`Testing LFRic Apps page<lfric_apps_test>`.
 
 .. note::
     If any of the testing shows up failures then there are two possible ways to
