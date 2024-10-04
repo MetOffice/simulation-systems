@@ -464,7 +464,7 @@ for all affected tests before you commit to the trunk.
         latter case, the update will need redoing by the reviewer before commit
         if there are merge conflicts in the checksum files.
 
-        1. Fix any merge conflicts in the checksums - select the "Working" panel of the merge to keep the kgo files that are currently on trunk.
+        1. Fix any merge conflicts in the checksums - it shouldn't matter which merge option is selected as the KGO will be changing regardless.
 
         2. Run the rose stem tasks that require a KGO update, plus any other testing required (see above) - if unsure run the `all` group.
 
