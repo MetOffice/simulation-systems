@@ -466,7 +466,9 @@ Supporting data is stored in the filesystems of our machines and changes to use 
         latter case, the update will need redoing by the reviewer before commit
         if there are merge conflicts in the checksum files.
 
-        1. Run the rose stem tasks that require a KGO update, plus any other testing required (see above) - if unsure run the `all` group.
+        1. Fix any merge conflicts in the checksums - it shouldn't matter which merge option is selected as you will be overwriting these checksum files again in the following steps.
+
+        2. Run the rose stem tasks that require a KGO update, plus any other testing required (see above) - if unsure run the `all` group.
 
         .. code-block:: RST
 
@@ -474,7 +476,9 @@ Supporting data is stored in the filesystems of our machines and changes to use 
             rose stem --group=all
             cylc play <suite name>
 
-        2. Run the checksum update script stored in `<working copy>/rose-stem/bin`.
+        3. Ensure the failing KGO's match those on the branch.
+
+        4. Run the checksum update script stored in `<working copy>/rose-stem/bin`.
 
         .. code-block::
 
@@ -486,11 +490,11 @@ Supporting data is stored in the filesystems of our machines and changes to use 
 
         .. note::
               The numbered run directory must be included in the suite name, eg. `name-of-suite/run1`.
-              
 
-        3. Verify the checksums updated properly by retriggering the failed checksums. First retrigger
+
+        5. Verify the checksums updated properly by retriggering the failed checksums. First retrigger
         ``export-source``, and then when complete ``export-source_xc40`` if new checksums are present
-        there (there is no need to retigger spice). You may need to change the maximum window extent 
+        there (there is no need to retigger spice). You may need to change the maximum window extent
         of the gui in order to see the succeeded tasks. Now you can retrigger the failed checksums -
         these should now pass if the kgo was updated in the working copy correctly.
 
