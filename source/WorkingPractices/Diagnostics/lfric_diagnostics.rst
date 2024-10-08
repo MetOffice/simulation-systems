@@ -14,9 +14,10 @@ adding a diagnostic amounts to just three small changes.
    For experienced or confident users adding a diagnostic to an
    existing science section, follow these steps:
 
-   #. Add a new record to the
-      ``lfric_atm/metadata/field_def_initial_diags.xml`` file based on
-      an existing diagnostic if available.
+   #. Add a new record to the field definition file. Most diagnostic 
+      fields are defined in the
+      ``lfric_atm/metadata/field_def_diags.xml`` file. It can be based on
+      an existing diagnostic if a similar one is available.
    #. Add lines to initialise the field holding the diagnostic in the
       appropriate diagnostics initialisation module. Add the field to
       the procedure argument list. Typically, the modules are named
