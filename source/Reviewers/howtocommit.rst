@@ -166,6 +166,14 @@ then you will need to upgrade the test-suite.
             where `vnX.Y_tZZZZ` is the `AFTER_TAG` of the latest upgrade macro.
             The upgrade is expected to fail for the `fab_jules`, `metadata_checker` and `umdp3_checker` apps.
 
+        .. tab-item:: LFRic Apps + Core
+
+            .. code-block:: RST
+
+                apply_macros.py vnX.Y_tZZZZ [--apps=/path/to/apps] [--core=/path/to/core] [--jules=/path/to/jules]
+
+            where `vnX.Y_tZZZZ` is the `AFTER_TAG` of the latest upgrade macro and the others are paths to the relevant sources. Apps defaults to the current location. Core and Jules default to reading the `dependencies.sh` file in the Apps source. A copy of `apply_macros.py` is available at `$UMDIR/SimSys_Scripts`.
+
 .. dropdown:: New rose-stem app?
 
     If the ticket introduces a new rose-stem app, but doesn't otherwise have a macro
@@ -191,11 +199,12 @@ then you will need to upgrade the test-suite.
             rose macro --validate -M path/to/working_copy/rose-meta
 
     .. note::
-       For UM tickets, if there are linked `jules-shared
-       <https://code.metoffice.gov.uk/trac/jules/browser/main/trunk/rose-meta/jules-shared>`_
-       metadata changes these will need to be added to the metadata
-       path. Please see the :ref:`rose config-edit
-       example<metadata_changes>`.
+
+        LFRic Apps tickets will require an LFRic Core source to use. You can do this by checking out an appropriate working copy, and exporting the environment variable `ROSE_META_PATH=/path/to/core`.
+
+        For UM tickets, if there are linked `jules-shared
+        <https://code.metoffice.gov.uk/trac/jules/browser/main/trunk/rose-meta/jules-shared>`_
+        metadata changes then a suitable Jules source will need to be included in the `ROSE_META_PATH` as described above.
 
 
 .. dropdown:: Temporary Logical?
@@ -484,11 +493,11 @@ for all affected tests before you commit to the trunk.
 
         .. note::
               The numbered run directory must be included in the suite name, eg. `name-of-suite/run1`.
-              
+
 
         3. Verify the checksums updated properly by retriggering the failed checksums. First retrigger
         ``export-source``, and then when complete ``export-source_xc40`` if new checksums are present
-        there (there is no need to retigger spice). You may need to change the maximum window extent 
+        there (there is no need to retigger spice). You may need to change the maximum window extent
         of the gui in order to see the succeeded tasks. Now you can retrigger the failed checksums -
         these should now pass if the kgo was updated in the working copy correctly.
 
