@@ -86,7 +86,7 @@ Upgrade Macros in LFRic
 
 The organisation of LFRic metadata is different from other repositories (UM + Jules) as the metadata is stored with the Science or Application section it is associated with and is then imported by other apps that require it. This helps modularise the LFRic code but complicates macro chains as different apps may require different chains depending on the metadata they import. This scenario may also require duplication of a particular macro if its metadata is imported multiple times, an unsatisfactory outcome as this makes mistakes more likely.
 
-To solve this, macros in LFRic Apps are applied using a wrapper script which will read the added macros and combine in files where the metadata is imported. Therefore when adding macros, the macro should be added in the versions.py file in the same metadata directory as the metadata it is applying. It will then be shared as appropriate. For example, if a change to metadata is made in ``science/gungho/rose-meta/lfric-gungho``, the macro should be added to the ``versions.py`` file in that directory. This will then be copied to other ``versions.py`` files that import gungho metadata, eg. lfric_atm, transport etc.
+To solve this, macros in LFRic Apps are applied using a wrapper script which will read the added macros and combine them in versions.py files where the metadata is imported. Therefore when adding macros, the macro should be added in the versions.py file in the same metadata directory as the metadata it is applying. It will then be shared as appropriate. For example, if a change to metadata is made in ``science/gungho/rose-meta/lfric-gungho``, the macro should be added to the ``versions.py`` file in that directory. This will then be copied to other ``versions.py`` files that import gungho metadata, eg. lfric_atm, transport etc.
 
 .. important::
 
@@ -94,19 +94,19 @@ To solve this, macros in LFRic Apps are applied using a wrapper script which wil
 
 .. tip::
 
-    The wrapper script will read the ``dependencies.sh`` file in your LFRic Apps working copy and will checkout a temporary copy of the LFRic Core source if required. Certain macro chains may make changes to the apps in Core - if you are expecting this be sure to commit these changes back to the branch.
+    The wrapper script will read the ``dependencies.sh`` file in your LFRic Apps working copy and will checkout a temporary copy of the LFRic Core source if required. Some Core metadata changes will also modify the Core rose apps. In this case make to also commit these changes back to the core branch.
 
 To add upgrade macros to LFRic the following steps can be followed:
 
 1. Checkout an LFRic Apps working copy and update the core source in ``dependencies.sh`` if required.
 2. Add your upgrade macros. These **must** be added to the versions.py file associated with the metadata they are changing.
-3. Run the Upgrade Macro script - this **must** be done in a test branch. This is located in the `SimSys_Scripts github repo <https://github.com/MetOffice/SimSys_Scripts>`_ (at meto a clone is available in $UMDIR/SimSys_Scripts). The syntax for running is:
+3. Run the Upgrade Macro script - this **must** be done in a test branch. This is located in the `SimSys_Scripts github repo <https://github.com/MetOffice/SimSys_Scripts>`_ (at meto an up to date clone is available in $UMDIR/SimSys_Scripts). The syntax for running is:
 
 .. code-block::
 
     SimSys_Scripts/lfric_macros/apply_macros.py vnXX.Y_tTTTT -a Apps -c Core -j Jules
 
-The Apps, Core and Jules options are paths to sources for each of these. Apps will default to the present location (so it is recommended to launch from an Apps working copy). Core and Jules will default to reading the ``dependencies.sh`` if not provided.
+The Apps, Core and Jules options are paths to sources for each of these. Apps will default to the present location (so it is recommended to launch from an Apps working copy). Core and Jules will default to reading the ``dependencies.sh`` file in the Apps source if not provided.
 
 .. tip::
 
