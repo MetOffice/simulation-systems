@@ -565,8 +565,8 @@ As reviewer, you should work with the developer, prior to moving to the commit s
 #. Run relevant tests on XCS.
 #. Wait for the daily `cron` job to run to synchronise data between `XCS` `XCE/F` & `SPICE`
 #. Ensure that you are in charge of the in charge of the trunk for the repositories involved.
-# Update your working copy if other commits have happened.
-#. Rerun relevant tests on `XCE/F` and `SPICE` 
+#. Update your working copy if other commits have happened.
+#. Rerun relevant tests on `XCE/F` and `SPICE`
 
 If the requirement is to update existing files, then further care is required.
 
@@ -581,7 +581,7 @@ If the requirement is to update existing files, then further care is required.
 
     - Waiting for the daily `cron` job to run can introduce a misalignment or race condition for scheduled testing.
 
-#. Rerun relevant tests on `XCE/F` and `SPICE` 
+#. Rerun relevant tests on `XCE/F` and `SPICE`
 
     - revert changes immediately if there are any issues, and consult with the developer.
 

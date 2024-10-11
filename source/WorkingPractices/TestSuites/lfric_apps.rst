@@ -56,13 +56,8 @@ and that you can specify more than one at once, e.g. ``--group=developer,gungho_
 |                    | to pass before commit. It is a useful checkpoint during  |
 |                    | development.                                             |
 +--------------------+----------------------------------------------------------+
-| nightly            | More thorough testing group. This includes everything in |
-|                    | developer plus some longer and more complex tests. It is |
-|                    | run automatically every night and monitored by the SSD   |
-|                    | team.                                                    |
-+--------------------+----------------------------------------------------------+
 | all                | The complete test suite, including all longer runs and   |
-|                    | less commonly used utilites. This is run automatically   |
+|                    | less commonly used configs. This is run automatically    |
 |                    | every week and monitored by the SSD team. All            |
 |                    | :ref:`KGO <kgo>` changing tickets need to run this group.|
 +--------------------+----------------------------------------------------------+
