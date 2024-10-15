@@ -27,7 +27,7 @@ Local testing:
 
     When specifying the lfric_core source the lfric_core revision **must** be updated in ``dependencies.sh``.
 
-    * If setting the source to an fcm URL, the mirror needs to be used and the revision can either be blank (for latest commit) or any valid revision for that branch.
+    * If setting the source to an fcm URL, the mirror (``.xm_``) needs to be used and the revision can either be blank (for latest commit) or any valid revision for that branch.
     * If setting the source to a Working Copy, the hostname needs to be provided (as Hostname:Path) and the revision must be blank.
 
     For more details, see :ref:`multi-repo_testing`.
