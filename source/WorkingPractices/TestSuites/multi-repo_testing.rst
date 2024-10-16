@@ -17,7 +17,7 @@ as simple as running the standalone test procedures for these codebases.
 
     When specifying an alternative source in the ``dependencies.sh`` file the revision for the source **must** be updated.
 
-    * If setting the source as an fcm URL, the mirror needs to be used and the revision can either be blank (for latest commit) or any valid revision for that branch.
+    * If setting the source as an fcm URL, the mirror (``.xm_``) needs to be used and the revision can either be blank (for latest commit) or any valid revision for that branch.
     * If setting the source as a Working Copy, the hostname needs to be provided (as Hostname:Path) and the revision must be blank.
 
 Testing the UM with other repositories
