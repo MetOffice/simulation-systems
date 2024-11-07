@@ -172,7 +172,7 @@ then you will need to upgrade the test-suite.
 
                 apply_macros.py vnX.Y_tZZZZ [--apps=/path/to/apps] [--core=/path/to/core] [--jules=/path/to/jules]
 
-            where `vnX.Y_tZZZZ` is the `AFTER_TAG` of the latest upgrade macro and the others are paths to the relevant sources. Apps defaults to the current location. Core and Jules default to reading the `dependencies.sh` file in the Apps source. A copy of `apply_macros.py` is available at `$UMDIR/SimSys_Scripts`.
+            where `vnX.Y_tZZZZ` is the `AFTER_TAG` of the latest upgrade macro and the others are paths to the relevant sources. Apps defaults to the current location. Core and Jules default to reading the `dependencies.sh` file in the Apps source. A copy of `apply_macros.py` is available at `$UMDIR/SimSys_Scripts/lfric_macros`.
 
 .. dropdown:: New rose-stem app?
 

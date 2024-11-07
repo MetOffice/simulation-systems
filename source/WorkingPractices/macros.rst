@@ -84,9 +84,9 @@ This command can then be run on a **test** branch (see :ref:`testing`).
 Upgrade Macros in LFRic
 -----------------------
 
-The organisation of LFRic metadata is different from other repositories (UM + Jules) as the metadata is stored with the Science or Application section it is associated with and is then imported by other apps that require it. This helps modularise the LFRic code but complicates macro chains as different apps may require different chains depending on the metadata they import. This scenario may also require duplication of a particular macro if its metadata is imported multiple times, an unsatisfactory outcome as this makes mistakes more likely.
+The organisation of LFRic metadata is different from other repositories (UM + Jules) as the metadata is stored with the Science or Application section it is associated with and is then imported by other apps that require it. This helps modularise the LFRic code but complicates macro chains as different apps may require different chains depending on the metadata they import. A simple implementation of macros in this case might require duplication of a particular macro if its metadata is imported multiple times. This is unsatisfactory as it makes mistakes more likely and requires more effort.
 
-To solve this, macros in LFRic Apps are applied using a wrapper script which will read the added macros and combine them in versions.py files where the metadata is imported. Therefore when adding macros, the macro should be added in the versions.py file in the same metadata directory as the metadata it is applying. It will then be shared as appropriate. For example, if a change to metadata is made in ``science/gungho/rose-meta/lfric-gungho``, the macro should be added to the ``versions.py`` file in that directory. This will then be copied to other ``versions.py`` files that import gungho metadata, eg. lfric_atm, transport etc.
+To solve this, macros in LFRic Apps are applied using a wrapper script which will read the added macros and combine them in versions.py files where the metadata is imported. Therefore when adding macros, the macro should be added in the versions.py file in the same metadata directory as the metadata it is applying. It will then be shared as appropriate by the ``apply_macros.py`` script. For example, if a change to metadata is made in ``science/gungho/rose-meta/lfric-gungho``, the macro should be added to the ``versions.py`` file in that directory. This will then be copied to other ``versions.py`` files that import gungho metadata, eg. lfric_atm, transport etc.
 
 .. important::
 
@@ -94,13 +94,13 @@ To solve this, macros in LFRic Apps are applied using a wrapper script which wil
 
 .. tip::
 
-    The wrapper script will read the ``dependencies.sh`` file in your LFRic Apps working copy and will checkout a temporary copy of the LFRic Core source if required. Some Core metadata changes will also modify the Core rose apps. In this case make to also commit these changes back to the core branch.
+    The wrapper script will read the ``dependencies.sh`` file in your LFRic Apps working copy and will checkout a temporary copy of the LFRic Core source if required. Some Core metadata changes will also modify the Core rose apps. In this case make sure to also commit these changes back to the core branch.
 
 To add upgrade macros to LFRic the following steps can be followed:
 
 1. Checkout an LFRic Apps working copy and update the core source in ``dependencies.sh`` if required.
 2. Add your upgrade macros. These **must** be added to the versions.py file associated with the metadata they are changing.
-3. Run the Upgrade Macro script - this **must** be done in a test branch. This is located in the `SimSys_Scripts github repo <https://github.com/MetOffice/SimSys_Scripts>`_ (at meto an up to date clone is available in $UMDIR/SimSys_Scripts). The syntax for running is:
+3. Run the Upgrade Macro script - this **must** be done in a test branch (see :ref:`testing`). This is located in the `SimSys_Scripts github repo <https://github.com/MetOffice/SimSys_Scripts>`_ (at meto an up to date clone is available in $UMDIR/SimSys_Scripts). The syntax for running is:
 
 .. code-block::
 
