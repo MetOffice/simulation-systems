@@ -31,7 +31,7 @@ Please Do Not
 
 **Do not use svn commands.** Please use `FCM <http://metomi.github.io/fcm/doc/user_guide/>`_ for all development work.
 
-**Do not merge the trunk into your branch** for UM, JULES or UKCA changes as this breaks many aspects of how
+**Do not merge the trunk into your branch** for UM, JULES, UKCA and LFRic Apps changes as this breaks many aspects of how
 TRAC and fcm work. This will cause diffs to display incorrectly and causes
 database problems when merging. Instead, please create a head of trunk branch
 and merge in your old branch.
@@ -44,9 +44,9 @@ has been developed under a different license without agreement from the
 Simulation Systems and Deployment Team. This includes lifting Fortran code or
 text from books. Our repositiories must not infringe copyright.
 
-**Do not add AI-generated code** even in a fork or branch. AI tools such as Github 
-CoPilot are becoming more readily available. However, the detailed terms and 
-conditions associated with these need to be evaluated for compatibility with 
+**Do not add AI-generated code** even in a fork or branch. AI tools such as Github
+CoPilot are becoming more readily available. However, the detailed terms and
+conditions associated with these need to be evaluated for compatibility with
 licensing and copyright.
 
 **Add or link to old code** or tickets that predate MOSRS, for example...

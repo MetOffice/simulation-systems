@@ -221,7 +221,8 @@ even trivial tickets to check that the merge has not caused issues, or that ther
 are no clashes with what else has gone on trunk.
 
 .. note::
-    Linked tickets will need to be tested together as discussed :ref:`here <tesinglinked>`.
+    Linked tickets will need to be tested together as discussed
+    on the :ref:`Committing Linked Tickets page<tesinglinked>`.
 
 .. tab-set::
 
@@ -329,11 +330,13 @@ are no clashes with what else has gone on trunk.
 
 
 
-4. KGO (if required)
---------------------
+4. KGO & Supporting Data (if required)
+--------------------------------------
 
 **If** your change is known to alter answers, you need to update rose-stem KGO
 for all affected tests before you commit to the trunk.
+
+Supporting data is stored in the filesystems of our machines and changes to use will require the reviewer to update those files (BIG DATA).
 
 *NB: These instructions are Met Office specific, other sites may manage their KGO differently*
 
@@ -473,7 +476,9 @@ for all affected tests before you commit to the trunk.
         latter case, the update will need redoing by the reviewer before commit
         if there are merge conflicts in the checksum files.
 
-        1. Run the rose stem tasks that require a KGO update, plus any other testing required (see above) - if unsure run the `all` group.
+        1. Fix any merge conflicts in the checksums - it shouldn't matter which merge option is selected as you will be overwriting these checksum files again in the following steps.
+
+        2. Run the rose stem tasks that require a KGO update, plus any other testing required (see above) - if unsure run the `all` group.
 
         .. code-block:: RST
 
@@ -481,7 +486,9 @@ for all affected tests before you commit to the trunk.
             rose stem --group=all
             cylc play <suite name>
 
-        2. Run the checksum update script stored in `<working copy>/rose-stem/bin`.
+        3. Ensure the failing KGO's match those on the branch.
+
+        4. Run the checksum update script stored in `<working copy>/rose-stem/bin`.
 
         .. code-block::
 
@@ -494,8 +501,7 @@ for all affected tests before you commit to the trunk.
         .. note::
               The numbered run directory must be included in the suite name, eg. `name-of-suite/run1`.
 
-
-        3. Verify the checksums updated properly by retriggering the failed checksums. First retrigger
+        5. Verify the checksums updated properly by retriggering the failed checksums. First retrigger
         ``export-source``, and then when complete ``export-source_xc40`` if new checksums are present
         there (there is no need to retigger spice). You may need to change the maximum window extent
         of the gui in order to see the succeeded tasks. Now you can retrigger the failed checksums -
@@ -522,6 +528,73 @@ for all affected tests before you commit to the trunk.
     failing rose-ana tasks match those in the developers trac.log. If any have
     failed for other reasons (e.g. timeout) then these should be re-triggered
     before attempting to install the KGO files.
+
+4.1 Managing BIG DATA
+^^^^^^^^^^^^^^^^^^^^^^
+
+Static input data, such as initialisations and ancilliaries, are required by many tests.
+
+.. tab-set::
+
+    .. tab-item:: LFRic apps
+
+        LFRic apps tests use a BIG_DATA_DIR environment variable to provide a
+        platform based path prefix to provide direct access to data required for tests.
+
+        The master copy of this is held on XCS at `/common/lfric/data/`.
+
+        .. dropdown:: cron sync
+
+            A `cron` job is run daily at 07:30 utc on `xcslr0` as the `lfric` user,
+            which runs the script:
+
+            https://github.com/MetOffice/lfric_tools/tree/main/bigData/rsyncBigData.sh
+
+            from
+
+            .. code-block:: RST
+
+                /home/d03/lfric/bigData/rsyncBigData.sh
+
+            This script synchronises the content of `/common/lfric/data/` from `XCS` to
+            `XCE/F` and `SPICE`,
+            deleting all content not in `XCS` BIG_DATA from the remote locations and
+            updating any changed content.
+
+        This BIG_DATA_DIR is not versioned nor source controlled on any platform.
+        Care is required. The ability to log in as the `lfric` user is required, e.g. via
+
+        .. code-block:: RST
+
+            sudo -u lfric -i
+
+As reviewer, you should work with the developer, prior to moving to the commit stage, to:
+
+#. Place new files in the appropriate location on XCS under `/common/lfric/data`
+#. Run relevant tests on XCS.
+#. Wait for the daily `cron` job to run to synchronise data between `XCS` `XCE/F` & `SPICE`
+#. Ensure that you are in charge of the in charge of the trunk for the repositories involved.
+#. Update your working copy if other commits have happened.
+#. Rerun relevant tests on `XCE/F` and `SPICE`
+
+If the requirement is to update existing files, then further care is required.
+
+#. Ensure that you are in charge of the in charge of the trunk for the repositories involved.
+#. Retain a temporary copy of the existing files, using a `.old` suffix.
+#. Place updated files in the appropriate location on XCS under `/common/lfric/data`
+#. Run all tests on XCS only
+
+    - revert changes immediately if there are any issues, and consult with the developer.
+
+#. Manually trigger the synchronisation script to synchronise data between `XCS` `XCE/F` & `SPICE`
+
+    - Waiting for the daily `cron` job to run can introduce a misalignment or race condition for scheduled testing.
+
+#. Rerun relevant tests on `XCE/F` and `SPICE`
+
+    - revert changes immediately if there are any issues, and consult with the developer.
+
+#. Remove any `.old` files that you created on `XCS`.
 
 5. Commit
 ---------
