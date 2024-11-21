@@ -84,6 +84,10 @@ This command can then be run on a **test** branch (see :ref:`testing`).
 Upgrade Macros in LFRic
 -----------------------
 
+.. warning::
+
+    Namelist files in application example directories are not currently updated by the Apply Macros script. This feature is intended to be introduced, but for now, developers still need to manually update those files.
+
 The organisation of LFRic metadata is different from other repositories (UM + Jules) as the metadata is stored with the Science or Application section it is associated with and is then imported by other apps that require it. This helps modularise the LFRic code but complicates macro chains as different apps may require different chains depending on the metadata they import. A simple implementation of macros in this case might require duplication of a particular macro if its metadata is imported multiple times. This is unsatisfactory as it makes mistakes more likely and requires more effort.
 
 To solve this, macros in LFRic Apps are applied using a wrapper script which will read the added macros and combine them in versions.py files where the metadata is imported. Therefore when adding macros, the macro should be added in the versions.py file in the same metadata directory as the metadata it is applying. It will then be shared as appropriate by the ``apply_macros.py`` script. For example, if a change to metadata is made in ``science/gungho/rose-meta/lfric-gungho``, the macro should be added to the ``versions.py`` file in that directory. This will then be copied to other ``versions.py`` files that import gungho metadata, eg. lfric_atm, transport etc.
