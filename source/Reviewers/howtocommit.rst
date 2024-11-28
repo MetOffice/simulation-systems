@@ -174,7 +174,9 @@ then you will need to upgrade the test-suite.
 
             where `vnX.Y_tZZZZ` is the `AFTER_TAG` of the latest upgrade macro and the others are paths to the relevant sources. Apps defaults to the current location. Core and Jules default to reading the `dependencies.sh` file in the Apps source. A copy of `apply_macros.py` is available at `$UMDIR/SimSys_Scripts/lfric_macros`.
 
-            All tickets with Core macros are expected to be linked with Apps. Certain tickets with just Core metadata changes may not have required an Apps branch (although an Apps ticket should be provided). This is fine - just checkout the trunk but there is nothing to merge. The apply_macros script will sort the sharing of the upgrade macro added.
+            .. note::
+
+                All LFRic Core tickets with macros are expected to be linked with LFRic Apps, though they may not have required an LFRic Apps development branch (although an Apps ticket should be provided). This is fine - if there is no LFRic Apps branch just checkout the LFRic Apps trunk. Then run the apply_macros script as described above and this will share the upgrade macro across both LFRic Apps and LFRic Core as needed.
 
 .. dropdown:: New rose-stem app?
 
