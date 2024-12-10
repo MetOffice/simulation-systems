@@ -166,6 +166,18 @@ then you will need to upgrade the test-suite.
             where `vnX.Y_tZZZZ` is the `AFTER_TAG` of the latest upgrade macro.
             The upgrade is expected to fail for the `fab_jules`, `metadata_checker` and `umdp3_checker` apps.
 
+        .. tab-item:: LFRic Apps + Core
+
+            .. code-block:: RST
+
+                apply_macros.py vnX.Y_tZZZZ [--apps=/path/to/apps] [--core=/path/to/core] [--jules=/path/to/jules]
+
+            where `vnX.Y_tZZZZ` is the `AFTER_TAG` of the latest upgrade macro and the others are paths to the relevant sources. Apps defaults to the current location. Core and Jules default to reading the `dependencies.sh` file in the Apps source. A copy of `apply_macros.py` is available at `$UMDIR/SimSys_Scripts/lfric_macros`.
+
+            .. note::
+
+                All LFRic Core tickets with macros are expected to be linked with LFRic Apps, though they may not have required an LFRic Apps development branch (although an Apps ticket should be provided). This is fine - if there is no LFRic Apps branch just checkout the LFRic Apps trunk. Then run the apply_macros script as described above and this will share the upgrade macro across both LFRic Apps and LFRic Core as needed.
+
 .. dropdown:: New rose-stem app?
 
     If the ticket introduces a new rose-stem app, but doesn't otherwise have a macro
@@ -191,11 +203,12 @@ then you will need to upgrade the test-suite.
             rose macro --validate -M path/to/working_copy/rose-meta
 
     .. note::
-       For UM tickets, if there are linked `jules-shared
-       <https://code.metoffice.gov.uk/trac/jules/browser/main/trunk/rose-meta/jules-shared>`_
-       metadata changes these will need to be added to the metadata
-       path. Please see the :ref:`rose config-edit
-       example<metadata_changes>`.
+
+        LFRic Apps tickets will require an LFRic Core source to use. You can do this by checking out an appropriate working copy, and exporting the environment variable `ROSE_META_PATH=/path/to/core`.
+
+        For UM tickets, if there are linked `jules-shared
+        <https://code.metoffice.gov.uk/trac/jules/browser/main/trunk/rose-meta/jules-shared>`_
+        metadata changes then a suitable Jules source will need to be included in the `ROSE_META_PATH` as described above.
 
 
 .. dropdown:: Temporary Logical?
@@ -491,7 +504,6 @@ Supporting data is stored in the filesystems of our machines and changes to use 
 
         .. note::
               The numbered run directory must be included in the suite name, eg. `name-of-suite/run1`.
-
 
         5. Verify the checksums updated properly by retriggering the failed checksums. First retrigger
         ``export-source``, and then when complete ``export-source_xc40`` if new checksums are present

@@ -53,7 +53,7 @@ metadata :ref:`is available <metadata_guidance>`.
   work with the model.
 
 Changes to the metadata which don't involve namelist changes may or may not
-require an upgrade macro. If you are unsure whether a UM change needs an
+require an upgrade macro. If you are unsure whether a change needs an
 upgrade macro, then run the following command on your branch:
 
 .. code-block::
@@ -63,10 +63,25 @@ upgrade macro, then run the following command on your branch:
 If all of the tests pass then there is no requirement to add an upgrade macro.
 If any of the metadata tests fail, then the developer should add a blank upgrade
 macro which contains no upgrade commands but simply points the rose stem suite
-to the new metadata.
+to the new metadata. The SSD team are also available to advise on whether an upgrade macro is necessary.
 
-..
-  The above should probably be extended to LFRic eventually.
+.. tip::
+
+  When editing metadata you should always check that the new metadata appears as expected in the gui, including testing that invalid settings raise appropriate warnings. The command to open the gui is in general:
+
+  .. code-block::
+
+    rose edit -C rose-stem/app/APP-NAME
+
+  For LFRic Apps a few extra changes are required:
+
+  .. code-block::
+
+    export ROSE_PYTHONPATH=$PYTHONPATH
+    export ROSE_META_PATH=/path/to/valid/core
+    rose edit -C rose-stem/app/APP-NAME
+
+  This requires an LFRic Core working copy at an appropriate revision to be available. It is also necessary to run from the top level of the Apps working copy to ensure rose metadata paths are valid.
 
 How to add an upgrade macro to your branch
 ------------------------------------------
