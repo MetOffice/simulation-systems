@@ -3,7 +3,7 @@
 Testing LFRic Core
 ==================
 
-.. tip::
+.. note::
 
     At the LFRic Apps vn2.0 release, the cylc7 LFRic Core suite was deprecated and the make test-suite functionality removed. Only the cylc8 suite is now maintained.
 
