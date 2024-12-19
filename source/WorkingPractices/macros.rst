@@ -94,7 +94,7 @@ To solve this, macros in LFRic Apps are applied using a wrapper script which wil
 
 .. tip::
 
-    The macro will only end up in versions.py files for metadata that is directly imported by a rose-stem app. Therefore if adding to eg. Science/gungho, the macro will be deleted from that file by the script.
+    The macro will only end up in versions.py files for metadata that is directly imported by a rose-stem app. Therefore if adding to eg. Science/gungho, the macro will be deleted from that file by the script. In this case ensure you are ready for the macros to be deleted, eg. commit all changes.
 
 For example, if a change to metadata is made in ``science/gungho/rose-meta/lfric-gungho``, the macro should be added to the ``versions.py`` file in that directory. This will then be copied to other ``versions.py`` files that import gungho metadata, eg. lfric_atm, transport etc.
 

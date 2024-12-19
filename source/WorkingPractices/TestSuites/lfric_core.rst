@@ -3,10 +3,15 @@
 Testing LFRic Core
 ==================
 
-LFRic testing is now Cylc8 only and launched with rose-stem commands:
+.. tip::
+
+    At the LFRic Apps vn2.0 release, the cylc7 LFRic Core suite was deprecated and the make test-suite functionality removed. Only the cylc8 suite is now maintained.
+
+LFRic testing is launched with Cylc8 rose-stem commands (as in eg. LFRic Apps):
 
 .. code-block::
 
+    export CYLC_VERSION=8
     rose stem --group=developer
     cylc play <NAME-OF-SUITE>
 
