@@ -3,11 +3,17 @@
 Testing LFRic Core
 ==================
 
-LFRic testing is run with the following command from a working copy:
+.. note::
+
+    At the LFRic Apps vn2.0 release, the cylc7 LFRic Core suite was deprecated and the make test-suite functionality removed. Only the cylc8 suite is now maintained.
+
+LFRic testing is launched with Cylc8 rose-stem commands (as in eg. LFRic Apps):
 
 .. code-block::
 
-    make test-suite
+    export CYLC_VERSION=8
+    rose stem --group=developer
+    cylc play <NAME-OF-SUITE>
 
 -----
 
@@ -16,24 +22,11 @@ that the system level developer tests pass on all the applications. These are
 launched from make and utilise rose and cylc.
 
 While developing your change, for expediency you may want to run the tests for
-only some applications. This can be done by going into the directory of the
-application before running the above command.
+only some applications. This can be done by changing the group you run, eg ``--group=simple_diffusion``.
 
-By default the command will run the develop test; other test groups exist.
-In particular, you need to be confident that the nightly tests pass. These can
-be run as follows:
+The command above will launch the developer suite. You can include slightly more testing if required by running ``--group=all`` instead (this includes the developer suite).
 
-.. code-block::
-
-        make test-suite SUITE_GROUP=nightly
-
-
-It is also possible to select the platform to run on. Available options include
-``meto-spice``, ``meto-xc40`` and ``meto-xcs``.
-
-.. code-block::
-
-        make test-suite TEST_SUITE_TARGETS="meto-spice meto-xcs"
+It is also possible to run on a single platform, eg. ``--group=ex1a``. To select which meto EX machine is used, add ``-S USE_EX<AB/CD/Z>``.
 
 .. tip::
 
