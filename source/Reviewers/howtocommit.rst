@@ -298,7 +298,11 @@ are no clashes with what else has gone on trunk.
 
         .. code-block::
 
-            make test-suite
+            export CYLC_VERSION=8
+
+            rose stem --group=developer
+
+            cylc play <working copy name>
 
     .. tab-item:: UM docs
 
