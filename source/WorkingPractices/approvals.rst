@@ -23,6 +23,10 @@ off the approval.
    code owners is available and they should still be consulted as part of your
    development.
 
+.. important::
+
+    New UM Ancils must be submitted the the MIAO team for approval. Please follow their process for `Requesting New UM Ancils <https://code.metoffice.gov.uk/trac/ancil/wiki/ANTS/ProjectManagement/updating_UMDIR>`_.
+
 Code Owners
 -----------
 Every file in the codebases has a :ref:`code_owner`, and every file changed

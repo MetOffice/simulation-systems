@@ -2,6 +2,11 @@
 
 Input Variables, Rose Metadata and Upgrade Macros
 =================================================
+
+.. important::
+
+    New UM Ancils must be submitted the the MIAO team for approval. Please follow their process for `Requesting New UM Ancils <https://code.metoffice.gov.uk/trac/ancil/wiki/ANTS/ProjectManagement/updating_UMDIR>`_.
+
 Sometimes the developer needs to alter model namelists and input variables.
 A common reason is for the inclusion of a new piece of code which has to be
 turned off by default.
@@ -73,13 +78,13 @@ to the new metadata. The SSD team are also available to advise on whether an upg
 
     rose edit -C rose-stem/app/APP-NAME
 
-  For LFRic Apps a few extra changes are required:
+  For LFRic Apps a few extra changes are required. In your branch (your test branch if you have an upgrade macro):
 
   .. code-block::
 
     export ROSE_PYTHONPATH=$PYTHONPATH
-    export ROSE_META_PATH=/path/to/valid/core
-    rose edit -C rose-stem/app/APP-NAME
+    export ROSE_META_PATH=/path/to/valid/core:/path/to/apps/copy
+    rose edit -C rose-stem/app/APP-NAME --no-warn version
 
   This requires an LFRic Core working copy at an appropriate revision to be available. It is also necessary to run from the top level of the Apps working copy to ensure rose metadata paths are valid.
 
