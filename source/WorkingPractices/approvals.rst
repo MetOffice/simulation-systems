@@ -25,7 +25,7 @@ off the approval.
 
 .. important::
 
-    New UM Ancils must be submitted the the MIAO team for approval. Please follow their process for `Requesting New UM Ancils <https://code.metoffice.gov.uk/trac/ancil/wiki/ANTS/ProjectManagement/updating_UMDIR>`_.
+    New UM Ancils must be submitted to the MIAO team for approval. Please follow their process for `Requesting New UM Ancils <https://code.metoffice.gov.uk/trac/ancil/wiki/ANTS/ProjectManagement/updating_UMDIR>`_.
 
 Code Owners
 -----------
