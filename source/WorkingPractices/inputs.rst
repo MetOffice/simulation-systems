@@ -5,7 +5,7 @@ Input Variables, Rose Metadata and Upgrade Macros
 
 .. important::
 
-    New UM Ancils must be submitted the the MIAO team for approval. Please follow their process for `Requesting New UM Ancils <https://code.metoffice.gov.uk/trac/ancil/wiki/ANTS/ProjectManagement/updating_UMDIR>`_.
+    New UM Ancils must be submitted to the MIAO team for approval. Please follow their process for `Requesting New UM Ancils <https://code.metoffice.gov.uk/trac/ancil/wiki/ANTS/ProjectManagement/updating_UMDIR>`_.
 
 Sometimes the developer needs to alter model namelists and input variables.
 A common reason is for the inclusion of a new piece of code which has to be
