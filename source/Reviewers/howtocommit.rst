@@ -424,16 +424,23 @@ Supporting data is stored in the filesystems of our machines and changes to use 
 
     .. tab-item:: JULES
 
-        1. Run the standalone rose-stem with housekeeping switched off to generate new KGO.
+        1. Run the standalone rose-stem with housekeeping switched off to generate new KGO. Do this once on old spice and once on new spice (the `all` group launches on different platforms from each spice)
 
         .. code-block::
 
-            rose stem --group=all,ex1a --source=. -S HOUSEKEEPING=false --new
+            rose stem --group=all --source=. -S HOUSEKEEPING=false
+            cylc play <name-of-suite>
 
         2. Update KGO_VERSION in `rose-stem/include/variables.rc`.
         3. Copy the new KGO to the correct locations:
 
-        .. code-block:: RST
+        .. tip::
+
+            If something goes wrong it can sometimes be fixed by using ``/home/users/USER/`` instead of just ``~USER`` in the commands below
+
+        From Old Spice:
+
+        .. code-block:: bash
 
             ssh -Y frum@localhost
             KGO_VERSION=vnX.X_txxxx
@@ -444,7 +451,6 @@ Supporting data is stored in the filesystems of our machines and changes to use 
             KGO_DIR=/project/jules/rose-stem/jules-kgo/$KGO_VERSION; mkdir -p $KGO_DIR && cp ~$USER_NAME/cylc-run/$SUITE/work/1/meto_linux_*/output/* $KGO_DIR
 
             # Copy Cray output to the KGO location for the Cray
-            # If something goes wrong with the copy, try passing the full path (eg. /home/d01/USER/), not just ~$USER_NAME
             ssh -Y xcel00
             KGO_VERSION=vnX.X_txxxx
             USER_NAME=<user>
@@ -454,24 +460,36 @@ Supporting data is stored in the filesystems of our machines and changes to use 
             # DON'T forget the xcs!!!
             rsync -avz $KGO_DIR xcslr0:/projects/jules/rose-stem-kgo/
 
-            exit
-            # check the xcslr0
-            ssh -Y xcslr0
-            KGO_VERSION=vnX.X_txxxx
-            KGO_DIR=/projects/jules/rose-stem-kgo/$KGO_VERSION
-            ls $KGO_DIR
+            # exit as frum
             exit
 
-            # Copy EXZ output to the KGO location for EXZ (note <USERNAME> format is firstname.surname!)
-            # If something goes wrong with the copy, try passing the full path (eg. /home/users/USER/), not just ~$USER_NAME
-            ssh -Y login.exz
+        From New Spice:
+
+        .. code-block:: bash
+
+            xsudo -iu julesadmin
             KGO_VERSION=vnX.X_txxxx
             USER_NAME=<user>
             SUITE=<suite>
-            KGO_DIR=/common/jules/rose-stem-kgo/$KGO_VERSION; mkdir -p $KGO_DIR && cp ~$USER_NAME/cylc-run/$SUITE/work/1/meto_ex1a_*/output/* $KGO_DIR
 
-            # DON'T forget the exa!!!
-            rsync -avz $KGO_DIR login.exa.sc:/common/internal/jules/rose-stem-kgo/
+            # Copy azspice output to the KGO location for Azure Spice
+            KGO_DIR=/data/users/julesadmin/jules/rose-stem/jules-kgo/$KGO_VERSION; mkdir -p $KGO_DIR && cp ~$USER_NAME/cylc-run/$SUITE/work/1/meto_linux_*/output/* $KGO_DIR
+
+            # exit as julesadmin - temporary until julesadmin setup on quads
+            exit
+
+            # Copy EXAB output to the KGO location for EXAB
+            # Sudo in as umadmin - this should change to julesadmin
+            xsudo -iu umadmin
+            ssh -Y login.exab.sc
+            KGO_DIR=/common/internal/jules/rose-stem-kgo/$KGO_VERSION; mkdir -p $KGO_DIR && cp ~$USER_NAME/cylc-run/$SUITE/work/1/meto_ex1a_*/output/* $KGO_DIR
+
+            # DON'T forget the exz and excd!!!
+            rsync -avz $KGO_DIR login.excd.sc:/common/internal/jules/rose-stem-kgo/
+            rsync -avz $KGO_DIR login.exz:/common/jules/rose-stem-kgo/
+
+            # exit as umadmin
+            exit
 
         4. Rerun the rose-stem tests to make sure nothing is broken.
 
