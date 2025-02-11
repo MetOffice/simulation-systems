@@ -394,9 +394,9 @@ Supporting data is stored in the filesystems of our machines and changes to use 
 
         .. dropdown:: More details on KGO update script
 
-            * This script will login as `frum` and `umadmin` as needed
+            * This script will login as the relevant admin user as needed
             * After running for a platform, the newly created variables.rc and
-              shell script will be moved to SPICE ~frum/kgo_update_files/<new_kgo_directory>.
+              shell script will be moved to SPICE $UMDIR/kgo_update_files/<new_kgo_directory>.
             * The script is hard coded to always go to the xce (only 1 is
               required of xce and xcf). After running here it will rsync the kgo
               directory to xcs automatically.
@@ -434,62 +434,7 @@ Supporting data is stored in the filesystems of our machines and changes to use 
         2. Update KGO_VERSION in `rose-stem/include/variables.rc`.
         3. Copy the new KGO to the correct locations:
 
-        .. tip::
-
-            If something goes wrong it can sometimes be fixed by using ``/home/users/USER/`` instead of just ``~USER`` in the commands below
-
-        From Old Spice:
-
-        .. code-block:: bash
-
-            ssh -Y frum@localhost
-            KGO_VERSION=vnX.X_txxxx
-            USER_NAME=<user>
-            SUITE=<suite>
-
-            # Copy Linux output to the KGO location for Linux
-            KGO_DIR=/project/jules/rose-stem/jules-kgo/$KGO_VERSION; mkdir -p $KGO_DIR && cp ~$USER_NAME/cylc-run/$SUITE/work/1/meto_linux_*/output/* $KGO_DIR
-
-            # Copy Cray output to the KGO location for the Cray
-            ssh -Y xcel00
-            KGO_VERSION=vnX.X_txxxx
-            USER_NAME=<user>
-            SUITE=<suite>
-            KGO_DIR=/projects/jules/rose-stem-kgo/$KGO_VERSION; mkdir -p $KGO_DIR && cp ~$USER_NAME/cylc-run/$SUITE/work/1/meto_xc40_*/output/* $KGO_DIR
-
-            # DON'T forget the xcs!!!
-            rsync -avz $KGO_DIR xcslr0:/projects/jules/rose-stem-kgo/
-
-            # exit as frum
-            exit
-
-        From New Spice:
-
-        .. code-block:: bash
-
-            xsudo -iu julesadmin
-            KGO_VERSION=vnX.X_txxxx
-            USER_NAME=<user>
-            SUITE=<suite>
-
-            # Copy azspice output to the KGO location for Azure Spice
-            KGO_DIR=/data/users/julesadmin/jules/rose-stem/jules-kgo/$KGO_VERSION; mkdir -p $KGO_DIR && cp ~$USER_NAME/cylc-run/$SUITE/work/1/meto_linux_*/output/* $KGO_DIR
-
-            # exit as julesadmin - temporary until julesadmin setup on quads
-            exit
-
-            # Copy EXAB output to the KGO location for EXAB
-            # Sudo in as umadmin - this should change to julesadmin
-            xsudo -iu umadmin
-            ssh -Y login.exab.sc
-            KGO_DIR=/common/internal/jules/rose-stem-kgo/$KGO_VERSION; mkdir -p $KGO_DIR && cp ~$USER_NAME/cylc-run/$SUITE/work/1/meto_ex1a_*/output/* $KGO_DIR
-
-            # DON'T forget the exz and excd!!!
-            rsync -avz $KGO_DIR login.excd.sc:/common/internal/jules/rose-stem-kgo/
-            rsync -avz $KGO_DIR login.exz:/common/jules/rose-stem-kgo/
-
-            # exit as umadmin
-            exit
+            `JULES KGO commands <https://code.metoffice.gov.uk/trac/jules/wiki/KGOInstall>`_
 
         4. Rerun the rose-stem tests to make sure nothing is broken.
 
@@ -712,12 +657,5 @@ If something is broken:
 
         where revision 1 and 2 are the initial copy and the last change to the branch to be committed.
 
-
-.. tip:: **Logging in as frum**
-
-    * To access the frum account your ssh key will need to be added to frum authorised keys.
-    * When logged in to your linux desktop run ``ssh -Y frum@localhost`` and this will log you in as frum.
-      At this point you will be in UMDIR on the platform SPICE. You can then access frum on other machines via ssh -Y <HOSTNAME>.
-    * Apart from on SPICE the frum home directories and UMDIR are separate. XCE/F share the same UMDIR and the UMDIR on XCS is kept in sync with this one.
 
 .. _Trunk Status: https://code.metoffice.gov.uk/trac/lfric_apps/wiki/TrunkStatus

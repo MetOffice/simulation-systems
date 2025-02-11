@@ -68,7 +68,7 @@ TLDR Instructions
 Full Explanation
 ^^^^^^^^^^^^^^^^
 
-To retrigger the nightlies a script is available at ``~frum/SimSys_Scripts/nightly_testing/retrigger_nightlies.py``. To run this use the alias ``rs8`` which will load the required modules and set the cylc version to 8. The script will detect any suites from the previous night with failed tasks and ask whether to retrigger them. It will restart requested suites, sleep, and then individually retrigger any failed tasks. Running ``rs8 PATTERN`` will only launch suites which match that pattern (no wildcard matching is currently setup), eg. ``rs8 lfric_apps`` will restart suites with "lfric_apps" in their name.
+To retrigger the nightlies a script is available at ``$UMDIR/SimSys_Scripts/nightly_testing/retrigger_nightlies.py``. To run this use the alias ``rs8`` which will load the required modules and set the cylc version to 8. The script will detect any suites from the previous night with failed tasks and ask whether to retrigger them. It will restart requested suites, sleep, and then individually retrigger any failed tasks. Running ``rs8 PATTERN`` will only launch suites which match that pattern (no wildcard matching is currently setup), eg. ``rs8 lfric_apps`` will restart suites with "lfric_apps" in their name.
 
 To interact with the nightlies open a cylc8 gui by:
 
