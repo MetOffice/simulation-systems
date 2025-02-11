@@ -657,5 +657,13 @@ If something is broken:
 
         where revision 1 and 2 are the initial copy and the last change to the branch to be committed.
 
+.. tip:: **Logging in as an admin user**
+
+    * To access the admin account you'll need to be added to the admin-access list by an admin-owner. This is managed through Active Directory
+    * When logged in to your linux desktop run ``xsudo -iu <ADMIN-USERNAME>``.
+    * You can then access other machines as the admin user via ``ssh -Y <HOSTNAME>``.
+
+
+
 
 .. _Trunk Status: https://code.metoffice.gov.uk/trac/lfric_apps/wiki/TrunkStatus
