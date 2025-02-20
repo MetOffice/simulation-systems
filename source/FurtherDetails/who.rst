@@ -151,8 +151,7 @@ performance of the UM, LFRic and other systems.
 
 The team can be contacted at Sci_Weath_hpc_opt@metoffice.gov.uk.
 
-Partnerships Team
------------------
+Momentum Partnership Team
+-------------------------
 
-The partnerships team are responsible for engagement and support with users and
-developers outside the Met Office.
+The Momentum Partnership Team is responsible for engagement and support with users and developers at Core and Associate `Momentum Partner <https://www.metoffice.gov.uk/research/approach/collaboration/momentum-partnership>`_ organisations. The team can be contacted at momentum_partnership@metoffice.gov.uk.
