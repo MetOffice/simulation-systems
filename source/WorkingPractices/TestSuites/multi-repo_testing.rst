@@ -5,8 +5,8 @@ Multi-Repository Testing
 
 Multi-repository changes are expected to pass the regression tests for all the
 repositories involved. To carry out the tests involved in a linked ticket it can
-be helpful to refer to the :ref:`semi-concentric circles figure <multirepo>`; layering the testing
-from the inside out as needed. Further details of how testing in each
+be helpful to refer to the :ref:`repository figure <multirepo>`; Testing both
+child and parent repositories as needed. Further details of how testing in each
 repository is handled can be found on the :ref:`Testing page<testing>`. Compatible
 code revisions are needed for testing across repositories as described above.
 
@@ -62,8 +62,8 @@ these paths can either be to local changes or those in the repository.
     lfric_core_rev=
     lfric_core_sources=fcm:lfric.xm_br/path/to/branch
 
-    um_rev=
-    um_sources=vldXXX:/path/to/um/working/copy
+    casim_rev=
+    casim_sources=vldXXX:/path/to/casim/working/copy
 
 3a. Run the lfric_atm developer test-suite
 
