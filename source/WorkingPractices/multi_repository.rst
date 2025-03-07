@@ -6,22 +6,27 @@ The repositories covered by these working practices all interact with and have
 dependencies on each other. This means that changes that affect multiple
 repositories need handling with extra care.
 
-To think about how the repositories work together it's useful to think about
-them as almost concentric circles. The child repositories such as JULES or UKCA
-sit in the centre and are mostly independent of anything else. The UM
-is a parent of those repositories and is dependant on changes in it's own code
-base and on those in the children. LFRic Apps is then another layer again and is
-dependant on both the UM physics and the other child repositories. LFRic Apps
+LFRic Apps and the UM both act as top level parents to a number of child
+repositories such as JULES, UKCA, SOCRATES and CASIM. These child repositories
+work independently as well as being used by the parent repositories. LFRic Apps
 also utilises the infrastructure in LFRic Core.
 
-This means that changes to the science code in JULES etc will need testing with
-both the UM and LFRic Apps to check for any interactions. Likewise, changes to the
-atmosphere code in the UM will require LFRic Apps testing.
+This means that changes to the science code in any of the child repositories
+will need testing with both the UM and LFRic Apps to check for any interactions.
 
-.. image:: images/repo_circles.png
-    :width: 300
-    :align: center
-    :class: dark-light
+.. note::
+    From LFRic Apps vn2.1 and UM vn13.8 there are duplicate copies of the
+    physics code in both the UM and LFRic Apps.
+
+    Consideration should be made as to whether changes to the physics schemes are
+    best made in LFRic Apps, the UM or both. If in doubt then the copy in LFRic
+    Apps is considered the master version.
+
+.. image:: images/repos.png
+    :class: only-light
+
+.. image:: images/repos_dark.png
+    :class: only-dark
 
 .. _linked:
 

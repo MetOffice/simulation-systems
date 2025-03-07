@@ -16,8 +16,8 @@ will need approaching in the correct order. The UM and LFRIc Apps are the key
 places where these overlap.
 
 1. Everything except UM and LFRic Apps can be worked on separately and should be committed first.
-2. The UM relies on code from all of the above code bases (except LFRic Core), and will need that code for both testing and committing.
-3. LFRic Apps relies on code from all of the above, and will need that code for both testing and committing.
+2. LFRic Apps and the UM each rely on code from all of the above code bases,
+   and will need that code for both testing and committing. They do not rely on each other.
 
 .. tip::
 
@@ -37,7 +37,7 @@ places where these overlap.
     4. Commit the tickets as described below.
 
 
-.. _tesinglinked:
+.. _testinglinked:
 
 Testing linked tickets
 ----------------------
@@ -61,12 +61,12 @@ Details for testing multi-repository tickets are included on the
   Make sure you test the group that will exercise the interface between those repositories
   (e.g. in the above example the jules and ukca groups are tested).
 
-- Local working copies of any linked UM, JULES, UKCA or other repositories
+- Local working copies of any linked JULES, UKCA or other repositories
   can be passed to LFRic Apps through <lfric_apps_trunk>/dependencies.sh.
 
 .. code-block:: RST
 
-    um_sources=vldXXX:/path/to/um/working/copy
+    jules_sources=vldXXX:/path/to/um/working/copy
 
 
 .. tip::
@@ -117,14 +117,14 @@ Once you are happy with all your testing then the commit sequence is as follows:
 
   * Modify ``*_rev`` variables for all other repositories you have updated to point to the the new commit revisions.
   * Remove any branch references from the ``*_sources`` variables.
-  * e.g. If a JULES ticket has been committed at revision 12345 and a UM ticket at 123456
+  * e.g. If a JULES ticket has been committed at revision 12345 and a UKCA ticket at 6789
 
   .. code-block:: RST
 
-      export um_rev=123456
+      export ukca_rev=6789
       export jules_rev=12345
 
-      export um_sources=
+      export ukca_sources=
       export jules_sources=
 
 5. Commit LFRic Apps
