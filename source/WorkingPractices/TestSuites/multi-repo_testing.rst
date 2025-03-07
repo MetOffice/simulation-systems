@@ -5,7 +5,7 @@ Multi-Repository Testing
 
 Multi-repository changes are expected to pass the regression tests for all the
 repositories involved. To carry out the tests involved in a linked ticket it can
-be helpful to refer to the :ref:`repository figure <multirepo>`; Testing both
+be helpful to refer to the :ref:`repository figure <multirepo>`; testing both
 child and parent repositories as needed. Further details of how testing in each
 repository is handled can be found on the :ref:`Testing page<testing>`. Compatible
 code revisions are needed for testing across repositories as described above.

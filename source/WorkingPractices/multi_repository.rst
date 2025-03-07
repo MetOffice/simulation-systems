@@ -17,7 +17,8 @@ will need testing with both the UM and LFRic Apps to check for any interactions.
 .. note::
     From LFRic Apps vn2.1 and UM vn13.8 there are duplicate copies of the
     physics code in both the UM and LFRic Apps.
-    Consideration should be made at to whether changes to the physics schemes are
+
+    Consideration should be made as to whether changes to the physics schemes are
     best made in LFRic Apps, the UM or both. If in doubt then the copy in LFRic
     Apps is considered the master version.
 
