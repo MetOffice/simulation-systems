@@ -39,6 +39,8 @@ The project metadata can be found in the following locations:
 
         ``vnXX.Y_<branch_name>/<sub-module>/rose-meta/*/HEAD/rose-meta.conf``
 
+In addition to the above locations, the rose metadata is centrally mirrored on Met Office systems. This means that metadata that has been committed to the trunk can be accessed without a working copy. This may be of use when upgrading scientific suites between versions.
+
 All new namelist variables need a new entry so that the metadata loads into the
 Rose GUI for users to switch it on. Additionally, sometimes the metadata needs
 to be modified without changing a namelist variable. Guidance for updating the
@@ -82,11 +84,10 @@ to the new metadata. The SSD team are also available to advise on whether an upg
 
   .. code-block::
 
-    export ROSE_PYTHONPATH=$PYTHONPATH
-    export ROSE_META_PATH=/path/to/valid/core:/path/to/apps/copy
+    cd rose-meta
     rose edit -C rose-stem/app/APP-NAME --no-warn version
 
-  This requires an LFRic Core working copy at an appropriate revision to be available. It is also necessary to run from the top level of the Apps working copy to ensure rose metadata paths are valid.
+  If you have a linked LFRic Core or Jules ticket with metadata changes, you can load their metadata by adding ``-M /path/to/working_copy/rose-meta`` to the ``rose-edit`` command.
 
 How to add an upgrade macro to your branch
 ------------------------------------------
