@@ -43,6 +43,11 @@ Within the file a blank upgrade macro will typically look like this:
           # Input your macro commands here
           return config, self.reports
 
+Note: The BEFORE_TAG should match the AFTER_TAG of the previous macro in the chain. So if this is not the first macro since the release then the BEFORE_TAG will be the version number with an added ticket number as well. For example:
+
+.. code-block::
+
+      BEFORE_TAG = "vn13.0_t123"
 
 Example of an upgrade macro
 ---------------------------
