@@ -43,6 +43,8 @@ The cronjobs are installed by running the ``generate_test_suite_cron.py`` script
 
 * ``-l --cron_log``: The file cron task output will be piped to. Defaults to ``~/cron.log``.
 
+* ``-p --cylc_path``: The location of the Cylc Installations. Required if testing with ``cylc-next``.
+
 * ``--install``: If included will install the cronjobs from files with extension .cron in the location defined by the cron_file argument.
 
 To update and install at meto:
