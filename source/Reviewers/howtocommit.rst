@@ -588,23 +588,11 @@ Commit the change to the trunk
 
 An editor will open requesting a log message which should be in this format:
 
-.. tab-set::
+.. code-block::
 
-    .. tab-item:: All others
+    #ticket_number : Author : Ticket title
 
-        .. code-block::
-
-            #ticket_number : Author : Ticket title
-
-        where author is the SRS username of the developer - usually the Reported By field on the ticket.
-
-    .. tab-item:: LFRic Core
-
-        .. code-block::
-
-            #<ticket number> for <original author>: <ticket title>
-
-        where original author is the dveloper's proper name.
+where author is the SRS username of the developer - usually the Reported By field on the ticket.
 
 .. note::
      New!! Remove any **blocks:** and **blockedby:** keywords from this ticket and any referenced. Comment on any unblocked tickets to alert the developers.
