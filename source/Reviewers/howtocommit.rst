@@ -512,11 +512,11 @@ Static input data, such as initialisations and ancilliaries, are required by man
         LFRic apps tests use a BIG_DATA_DIR environment variable to provide a
         platform based path prefix to provide direct access to data required for tests.
 
-        The master copy of this is held on XCS at `/common/lfric/data/`.
+        The master copy of this is held on Azure Spice at `/data/users/lfricadmin/data/`.
 
         .. dropdown:: cron sync
 
-            A `cron` job is run daily at 07:30 utc on `xcslr0` as the `lfric` user,
+            A `cron` job is run daily at 04:30 utc on Azure Spice as the `lfricadmin` user,
             which runs the script:
 
             https://github.com/MetOffice/lfric_tools/tree/main/bigData/rsyncBigData.sh
@@ -525,47 +525,45 @@ Static input data, such as initialisations and ancilliaries, are required by man
 
             .. code-block:: RST
 
-                /home/d03/lfric/bigData/rsyncBigData.sh
+                /home/users/lfricadmin/bigDataManagement/rsyncBigData.sh
 
-            This script synchronises the content of `/common/lfric/data/` from `XCS` to
-            `XCE/F` and `SPICE`,
-            deleting all content not in `XCS` BIG_DATA from the remote locations and
-            updating any changed content.
+            This script synchronises the content of `/data/users/lfricadmin/data/` from Azure Spice to `EXAB` and `EXCD`,
+            deleting all content not in Azure Spice BIG_DATA from the remote locations and updating any changed content.
 
         This BIG_DATA_DIR is not versioned nor source controlled on any platform.
-        Care is required. The ability to log in as the `lfric` user is required, e.g. via
+        Care is required. The ability to log in as the `lfricadmin` user is required, e.g. via
 
         .. code-block:: RST
 
-            sudo -u lfric -i
+            sudo -u lfricadmin -i
 
 As reviewer, you should work with the developer, prior to moving to the commit stage, to:
 
-#. Place new files in the appropriate location on XCS under `/common/lfric/data`
-#. Run relevant tests on XCS.
-#. Wait for the daily `cron` job to run to synchronise data between `XCS` `XCE/F` & `SPICE`
-#. Ensure that you are in charge of the in charge of the trunk for the repositories involved.
+#. Place new files in the appropriate location on Azure Spice under `/data/users/lfricadmin/data/`
+#. Run relevant tests on Azure Spice.
+#. Wait for the daily `cron` job to run to synchronise data between Azure Spice and `EXAB` + `EXCD`.
+#. Ensure that you are in charge of the trunk for the repositories involved.
 #. Update your working copy if other commits have happened.
-#. Rerun relevant tests on `XCE/F` and `SPICE`
+#. Rerun relevant tests
 
 If the requirement is to update existing files, then further care is required.
 
 #. Ensure that you are in charge of the in charge of the trunk for the repositories involved.
 #. Retain a temporary copy of the existing files, using a `.old` suffix.
-#. Place updated files in the appropriate location on XCS under `/common/lfric/data`
-#. Run all tests on XCS only
+#. Place updated files in the appropriate location on Azure Spice under `/data/users/lfricadmin/data/`
+#. Run all tests on Azure Spice only
 
     - revert changes immediately if there are any issues, and consult with the developer.
 
-#. Manually trigger the synchronisation script to synchronise data between `XCS` `XCE/F` & `SPICE`
+#. Manually trigger the synchronisation script to synchronise data between platforms
 
     - Waiting for the daily `cron` job to run can introduce a misalignment or race condition for scheduled testing.
 
-#. Rerun relevant tests on `XCE/F` and `SPICE`
+#. Rerun relevant tests on EX machines
 
     - revert changes immediately if there are any issues, and consult with the developer.
 
-#. Remove any `.old` files that you created on `XCS`.
+#. Remove any `.old` files that you created on Azure Spice.
 
 5. Commit
 ---------
