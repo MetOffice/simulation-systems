@@ -92,7 +92,7 @@ Move into the rose-stem directory in the UM working copy where the release new v
 
 * Open a new terminal and inspect that the version number update macro added by the script is correct, and that the tXXXX template macro has been deleted appropriately.
 
-  * This has caused problems before see `this edge case <https://code.metoffice.gov.uk/trac/um/wiki/ticket/2437/SciTechReview>`. The upgrade macro should fail to execute if the macro chain is incorrect, as it won't be able to upgrade an app to the new version - this is likely this edge case.
+  * This has caused problems before see `this edge case <https://code.metoffice.gov.uk/trac/um/wiki/ticket/2437/SciTechReview>`_. The upgrade macro should fail to execute if the macro chain is incorrect, as it won't be able to upgrade an app to the new version - this is likely this edge case.
 
 
 Copying the metadata and upgrade macros to the um_meta branch
