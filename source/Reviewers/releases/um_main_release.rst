@@ -182,8 +182,8 @@ Preparing to Test
   .. code-block::
 
     fcm export --force fcm:um.x_tr/rose-stem/site/meto/variables.cylc rose-stem/site/meto/
-    fcm export --force fcm:um.x_tr/rose-stem/site/meto/variables_azspice.rc rose-stem/site/meto/
-    fcm export --force fcm:um.x_tr/rose-stem/site/meto/variables_ex1a.rc rose-stem/site/meto/
+    fcm export --force fcm:um.x_tr/rose-stem/site/meto/variables_azspice.cylc rose-stem/site/meto/
+    fcm export --force fcm:um.x_tr/rose-stem/site/meto/variables_ex1a.cylc rose-stem/site/meto/
 
   * Current KGO files will have the older UM version in the fixed length header and lookups. In order for the rose-ana tasks that use mule-cumf to not give false rose-ana failures we must temporarily ignore the model version. There is some logic in the UM rose stem suite to enable this. Open your ``~/.metomi/rose.conf`` file, on **all** platforms, and add the following lines to the rose-ana section, making sure that bypass-version-check is true:
 
@@ -227,7 +227,7 @@ The ``meto_update_kgo.sh`` script is stored in SimSys_Scripts. As yourself, navi
 
 * The script will install the new kgo on every platform in order azspice->ex1a. Once these are finished installing it will rsync to the EXCD. To install the entire kgo database will take some time.
 
-Once you believe you have installed the KGO you should fcm revert the changes you made to the variables.rc files to reset the KGO variables, ``fcm revert rose-stem/site/meto/variables*``
+Once you believe you have installed the KGO you should fcm revert the changes you made to the variables*.cylc files to reset the KGO variables, ``fcm revert rose-stem/site/meto/variables*``
 
 The test suite should now be rerun to confirm the kgo has been installed properly. As we can't restart Cylc8 rose-stem suites, the entire thing needs to be rerun. We're just checking that the kgo has been installed, so it's probably unnecessary to wait for the entire thing - instead just ensure a reasonable range of rose-ana tasks have passed.
 
