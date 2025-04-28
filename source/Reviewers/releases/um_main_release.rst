@@ -161,7 +161,7 @@ Preparing to Test
 
 .. important::
 
-    When referring to **all** platforms below, this means Azure Spice, EXAB, EXCD
+    When referring to **all** platforms below, this means Azure Spice, EXAB, EXCD, EXZ
 
 
 * Check that a ``$UMDIR/standard_jobs/inputs/vnX.Y`` input data directory exists in UMDIR on **all** platforms - this should have been done as part of the test release.
@@ -225,7 +225,7 @@ The ``meto_update_kgo.sh`` script is stored in SimSys_Scripts. As yourself, navi
 
   * Pay particular attention to the preview of the list of commands the script will present you with to ensure it has accounted for all expected KGO files.
 
-* The script will install the new kgo on every platform in order azspice->ex1a. Once these are finished installing it will rsync to the EXCD. To install the entire kgo database will take some time.
+* The script will install the new kgo on every platform in order azspice->ex1a. Once these are finished installing it will rsync to the EXCD and EXZ. To install the entire kgo database will take some time.
 
 Once you believe you have installed the KGO you should fcm revert the changes you made to the variables*.cylc files to reset the KGO variables, ``fcm revert rose-stem/site/meto/variables*``
 
@@ -280,11 +280,18 @@ and check that ``~umadmin/cylc_run/<working_copy_name>/runN/share/vnX.Y`` exists
     cylc play <name-of-suite>
 
 
-Finally, rerun the install for the 2nd host zone,
+Next, rerun the install for the 2nd host zone,
 
 .. code-block::
 
     rose stem --group=install rose-stem -S CENTRAL_INSTALL=false -S PREBUILDS=false -S USE_EXCD=true
+    cylc play <name-of-suite>
+
+Finally, rerun the install for the EXZ,
+
+.. code-block::
+
+    rose stem --group=install rose-stem -S CENTRAL_INSTALL=false -S PREBUILDS=false -S USE_EXZ=true
     cylc play <name-of-suite>
 
 The release is now installed and can be announced.
@@ -310,3 +317,10 @@ And then on the EXCD - make sure to **not** use ``--new`` in this command or the
 
     export CYLC_VERSION=7
     rose stem --group=ex1a_fcm_make,ex1a_fcm_make_portio2b --source=fcm:um.xm_tr@vnX.Y --name=vnX.Y_prebuilds --config=./rose-stem -S MAKE_PREBUILDS=true -S USE_EXCD=true
+
+And finally on the EXZ - make sure to **not** use ``--new`` in this command or the previous lot will have been overwritten.
+
+.. code-block::
+
+    export CYLC_VERSION=7
+    rose stem --group=ex1a_fcm_make,ex1a_fcm_make_portio2b --source=fcm:um.xm_tr@vnX.Y --name=vnX.Y_prebuilds --config=./rose-stem -S MAKE_PREBUILDS=true -S USE_EXZ=true

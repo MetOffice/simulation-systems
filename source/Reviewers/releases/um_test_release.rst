@@ -5,14 +5,14 @@ UM Test Release
 
 .. important::
 
-    When referring to **all** platforms below, this means Azure Spice, EXAB, EXCD
+    When referring to **all** platforms below, this means Azure Spice, EXAB, EXCD, EXZ
 
     Some of the test release only needs to be run on 1 HPC Host Zone - the instructions for this assume EXAB, but EXCD can be used instead. Other parts of the test release set up files for the main release - this needs to be done on both EXAB and EXCD.
 
 Preparing Test Release Branches and Keyword Files
 -------------------------------------------------
 
-This will involve switching between your own and the umadmin account on Azure Spice, EXAB and EXCD.
+This will involve switching between your own and the umadmin account on Azure Spice and EXAB.
 * As yourself, create a UM ticket for the test release, marked 'Not for Builds'.
 * As yourself, create and check out a UM branch at the head of the trunk (or whichever revision of the trunk you wish to do a test release with).
 * As yourself, create and check out a head of trunk meta branch (``fcm:um_meta.x_tr@head``).
@@ -135,7 +135,7 @@ Navigate to the input data directory on azure spice (``$UMDIR/standard_jobs/inpu
 
     mv vn11.5 vn11.6 && ln -s vn11.6 vn11.5
 
-Repeat this step on **both** EXAB and EXCD.
+Repeat this step on **all of** EXAB, EXCD and EXZ.
 
 
 Test the Branch
