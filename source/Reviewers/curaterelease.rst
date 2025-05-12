@@ -66,147 +66,118 @@ Open a UM X.Y release Curation Ticket, and assign tasks as a team,
 
 
 Pre-Release
-===========
+-----------
 
-Test Release
-------------
+:ref:`UM Test Release<um_test_release>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 The point of the test release is to test the release system/process works before we have to do it for real. Typically aim for 1-2 weeks before release day. However, before a test release can be done, all changes to fcm-make config files, major rose-stem changes (things like basic upgrade macro or KGO updates don't necessarily need to be included) and modifications to the release_new_version.py script need to be on trunk, so this will cause some variation as to when the test release is done from release to release.
 
-:ref:`UM Test Release<um_test_release>`
 
-
-Partner Testing
----------------
+`Partner Testing <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#PartnerTesting-72hourfreeze>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 All source code changes must be on trunk along with any rose-stem changes that affect multiple sites before partner testing can start. Ideally the test release will also have been completed.
 
-`Partner Testing <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#PartnerTesting-72hourfreeze>`_
 
-
-Scientific Software Stack Update
---------------------------------
+`Scientific Software Stack Update <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#ScientificSoftwareStackUpdate>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 Any potential changes to platform software stacks
 
-`Scientific Software Stack Update <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#ScientificSoftwareStackUpdate>`_
-
 
 Main Release
-============
+------------
 
-Jules Release
--------------
+`Jules Release <https://code.metoffice.gov.uk/trac/jules/wiki/CuratingARelease>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 Partner Testing, All Jules tickets committed
 
-`Jules Release <https://code.metoffice.gov.uk/trac/jules/wiki/CuratingARelease>`_
 
-
-Mule and Shumlib Releases
--------------------------
+`Mule and Shumlib Releases <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#ShumlibMulereleases>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 All tickets affecting Shumlib or Mule should have been committed.
 
-`Mule and Shumlib Releases <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#ShumlibMulereleases>`_
 
-
-Main UM Release
----------------
+:ref:`UM Main Release<um_main_release>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 All UM Tickets, Test Release, Partner Testing, Jules Release
 
-:ref:`UM Main Release<um_main_release>`
 
-
-LFRic Apps Release
-------------------
+:ref:`LFRic Apps Release<lfric_apps_release>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 All LFRic Tickets (Apps + Core), Jules Release
 
-:ref:`LFRic Apps Release<lfric_apps_release>`
-
 
 Post Release Tasks
-==================
+------------------
 
-Release Notes
--------------
+`Release Notes <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#ReleaseNotes>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 Most of this can be done pre-release but some details of revision numbers will be dependent on the main release being done.
 
-`Release Notes <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#ReleaseNotes>`_
 
-
-Upgrading Standalone Suites
----------------------------
+`Upgrading Standalone Suites <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#UpgradingStandaloneSuites>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 UM Release (for UM suites), Apps Release (for Apps suites)
 
-`Upgrading Standalone Suites <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#UpgradingStandaloneSuites>`_
-
-
-Standard Jobs Page
-------------------
-
-**Dependencies**
-UM Release
 
 `Standard Jobs Page <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#FinalizeTheStandardJobspage>`_
-
-
-Code and Stash Browsers
------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 UM Release
 
+
 `Code and Stash Browsers <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#InstallCodeandStashbrowsers>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Dependencies**
+UM Release
 
 
-UMDP Release
-------------
+`UMDP Release <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#UMDPrelease>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 UM Release, Standard Suites Upgrade
 
-`UMDP Release <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#UMDPrelease>`_
 
-
-Update Wikis, Working Practices, Create Bit Comp Table
-------------------------------------------------------
+`Wikis Update <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#Updatewikisworkingpracticesandcreatebitcomptable>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 UM Release
 
-`Wikis Update <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#Updatewikisworkingpracticesandcreatebitcomptable>`_
 
-
-Review Shared Account Permissions
----------------------------------
+`Shared Account Permissions <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#Reviewandupdatetrunkandsharedaccountpermissions>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 None
 
-`Shared Account Permissions <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#Reviewandupdatetrunkandsharedaccountpermissions>`_
 
-
-Creating an Interim Release
----------------------------
+Mid-Release Tasks
+-----------------
 
 `Creating an Interim Release <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#Creatinganinterimrelease>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
-Installing New Prebuilds
-------------------------
 
 `Installing New Prebuilds <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#Installingnewprebuilds>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
