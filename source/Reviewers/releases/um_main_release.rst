@@ -33,7 +33,7 @@ Create and check out both a head of trunk UM branch and a head of trunk UM meta 
 Tagging Feeder Trunks
 ---------------------
 
-Tag the head of the feeder repositories with keywords for the new UM version if they do not already exist.
+* :ref:`Tag <reference-tagging>` the head of the feeder repositories with keywords for the new UM version if they do not already exist.
 
 * ``fcm:casim.x``
 * ``fcm:jules.x``
@@ -63,7 +63,7 @@ Checking Metadata and Rose Apps
 The JULES release must be completed first and all jules-shared metadata changes from the JULES repository must be centrally installed before progressing.
 
 * First switch to the UM branch.
-* Check that the metadata meets the Rose standards: run ``rose config-dump -C rose-meta``. Do this before running release_new_version, so that any metadata errors are fixed before the new vnX.Y metadata directories are created, otherwise you'll have to check both vnX.Y and HEAD. 
+* Check that the metadata meets the Rose standards: run ``rose config-dump -C rose-meta``. Do this before running release_new_version, so that any metadata errors are fixed before the new vnX.Y metadata directories are created, otherwise you'll have to check both vnX.Y and HEAD.
 
   * Run ``fcm diff`` on HEAD. Are the changes sensible? They often just involve moving sections of meta-data to be in the correct alphabetical order. However, `UM:#1824 <https://code.metoffice.gov.uk/trac/um/ticket/1824>`_ added comments for some additional triggers ([43853]) to circumvent a ​bug in Rose. Running config-dump will move the location of these comments to the bottom of the that item's metadata. Check for any moved references to "issue 2107" (there should be 4 of them) and put them back in the right places by hand, by referring to an unaltered copy of the trunk.
 
