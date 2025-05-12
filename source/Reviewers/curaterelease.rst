@@ -8,6 +8,30 @@ Curating a Release
     releases/um_main_release
     releases/lfric_apps_release
 
+.. _reference-tagging:
+
+Tagging FCM Trunks
+------------------
+
+Tagging fcm trunks with new release keywords is done in lots of places throughout these instructions. This section is a guide for doing this, using the UM as an example.
+
+The keywords need to be added to the base directory of the project, i.e. in the directory that contains trunk and branches.
+
+.. code-block::
+
+    # Note the -q means quiet checkout, nothing is printed to std out. The -N means
+    # only the top level directory is extracted, otherwise it would extract the
+    # entire repository (and take many hours!)
+    # The 'fcm log' command gives you the most recent log message for the
+    # respective trunk, and more importantly, the revision number.
+
+    fcm co -q -N fcm:um.x um
+    fcm log -l1 fcm:um.x/trunk
+    cd um
+    fcm pe fcm:revision .
+
+In the editor that comes up (you may need to specify the editor using ``--editor-cmd vi``) add the new keyword, e.g. ``vn11.5 = 810`` (noting the format may change away from the UM). Once completed save the changes and close the editor. Finally commit the change, ``fcm ci``.
+
 
 Release Ticket
 --------------

@@ -30,29 +30,18 @@ Create and check out both a head of trunk UM branch and a head of trunk UM meta 
     fcm co fcm:um_meta.x_br/dev/username/r12345_vn11.5_meta_release
 
 
-Tagging Trunks
---------------
+Tagging Feeder Trunks
+---------------------
 
-Tag the head of the ​CASIM, ​SOCRATES, ​Shumlib, JULES and ​UKCA with keywords for the new UM version if they do not already exist. The keywords need to be added to the base directory of the project, i.e. in the directory that contains trunk and branches. Here's an example of how to add a new keyword:
+Tag the head of the feeder repositories with keywords for the new UM version if they do not already exist.
 
-.. code-block::
+* ``fcm:casim.x``
+* ``fcm:jules.x``
+* ``fcm:shumlib.x``
+* ``fcm:socrates.x``
+* ``fcm:ukca.x``
 
-    # Note the -q means quiet checkout, nothing is printed to std out. The -N means
-    # only the top level directory is extracted, otherwise it would extract the
-    # entire repository (and take many hours!)
-    # The 'fcm log' command gives you the most recent log message for the
-    # respective trunk, and more importantly, the revision number.
-
-    fcm co -q -N fcm:socrates.x socrates
-    fcm log -l1 fcm:socrates.x/trunk
-    cd socrates
-    fcm pe fcm:revision .
-
-In the editor that comes up (you may need to specify the editor using --editor-cmd iuseemacs) add the new keyword, e.g. um11.5 = 810. Once completed save the changes and close the editor. Finally commit the change, ``fcm ci``.
-
-Repeat for ``fcm:shumlib.x``, ``fcm:ukca.x``, ``fcm:jules.x`` and ``fcm:casim.x``.
-
-Send an email and copy in all the repository owners (CASIM, Socrates, Shumlib, UKCA, JULES), to let them know that the the head of the trunk has been tagged.
+Send an email to all repository owners to let them know that the the head of the trunk has been tagged.
 
 .. note::
 
@@ -64,7 +53,7 @@ Apply Code Styling
 
 * Switch to the UM branch
 * Set export RUNFULL=1 then run ./admin/code_styling/apply_styling
-* If any files have changed, check nothing has gone wrong with a quick compile rose stem --group=fcm_make_ex1a_gnu_um_rigorous_omp -n um_release_check_styling
+* If any files have changed, check nothing has gone wrong with a quick compile ``rose stem --group=fcm_make_ex1a_gnu_um_rigorous_omp``
 * Commit any changes
 
 
@@ -75,7 +64,9 @@ The JULES release must be completed first and all jules-shared metadata changes 
 
 * First switch to the UM branch.
 * Check that the metadata meet the Rose standards. Do this before running release_new_version, so that any metadata errors are fixed before the new vnX.Y metadata directories are created, otherwise you'll have to check both vnX.Y and HEAD. Run ``rose config-dump -C rose-meta``.
-* Run ``fcm diff`` on HEAD. Are the changes sensible? They often just involve moving sections of meta-data to be in the correct alphabetical order. However, `UM:#1824 <https://code.metoffice.gov.uk/trac/um/ticket/1824>`_ added comments for some additional triggers ([43853]) to circumvent a ​bug in Rose. Running config-dump will move the location of these comments to the bottom of the that item's metadata. Check for any moved references to "issue 2107" (there should be 4 of them) and put them back in the right places by hand, by referring to an unaltered copy of the trunk.
+
+  * Run ``fcm diff`` on HEAD. Are the changes sensible? They often just involve moving sections of meta-data to be in the correct alphabetical order. However, `UM:#1824 <https://code.metoffice.gov.uk/trac/um/ticket/1824>`_ added comments for some additional triggers ([43853]) to circumvent a ​bug in Rose. Running config-dump will move the location of these comments to the bottom of the that item's metadata. Check for any moved references to "issue 2107" (there should be 4 of them) and put them back in the right places by hand, by referring to an unaltered copy of the trunk.
+
 * Check rose-stem meets the Rose standards: run ``rose config-dump -C rose-stem/app``. The version upgrade macro should have reformatted all the atmos and fcm-make apps, so they should be correct. Are there any other changes (e.g. to rose-ana apps)? Are they understood? Commit them to the branch or discuss with the team as appropriate.
 * Commit all changes before moving onto the next section
 
@@ -246,7 +237,7 @@ Notes for Reviewer:
 * In ``rose-stem/site/meto/variables``, ensure the ``PREBUILDS`` variable near the top is set to true.
 * Once happy, commit both the meta and main branches, and return the ticket to the developer.
 
-Now tag the trunk with the ``vnX.Y = RRR`` tag, following the process described above.
+Now :ref:`tag <reference-tagging>` the trunk with the ``vnX.Y = RRR`` tag.
 
 **Now make sure to revert changes to ``~/.metomi/fcm/keyword.cfg`` on all platforms**
 
@@ -296,13 +287,16 @@ Finally, rerun the install for the EXZ,
 
 The release is now installed and can be announced.
 
+Make Release Prebuilds
+----------------------
+
 Now it is time to install the prebuilds.
 
 .. important::
 
     Use Cylc 7 (``export CYLC_VERSION=7``) to install the prebuilds. It is important to set the source to the UM fcm mirror in the commands below, and use the config option to point at the rose-stem directory. If this wasn't done, prebuild availability would depend on the host machine you are currently on being available. rose-stem in cylc8 doesn't support this, hence using cylc7.
 
-    A fix for this will likely become available with either the move to git. The timescales for that are shorter than for removing Cylc7.
+    A fix for this will likely become available with the move to git. The timescales for that are shorter than for removing Cylc7.
 
 First install the prebuilds on Azure Spice and EXAB,
 
@@ -311,14 +305,14 @@ First install the prebuilds on Azure Spice and EXAB,
     export CYLC_VERSION=7
     rose stem --group=prebuilds --source=fcm:um.xm_tr@vnX.Y --name=vnX.Y_prebuilds --config=./rose-stem -S MAKE_PREBUILDS=true -S USE_EXAB=true
 
-And then on the EXCD - make sure to **not** use ``--new`` in this command or the previous lot will have been overwritten.
+And then on the EXCD - make sure to **not** use ``--new`` in this command or the previous set will have been overwritten.
 
 .. code-block::
 
     export CYLC_VERSION=7
     rose stem --group=ex1a_fcm_make,ex1a_fcm_make_portio2b --source=fcm:um.xm_tr@vnX.Y --name=vnX.Y_prebuilds --config=./rose-stem -S MAKE_PREBUILDS=true -S USE_EXCD=true
 
-And finally on the EXZ - make sure to **not** use ``--new`` in this command or the previous lot will have been overwritten.
+And finally on the EXZ - make sure to **not** use ``--new`` in this command or the previous set will have been overwritten.
 
 .. code-block::
 

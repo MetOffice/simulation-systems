@@ -38,10 +38,20 @@ LFRic Release
   * Add a ``version_ab_xy.py`` upgrade file - a copy of the versions.py file
   * Reset the ``versions.py`` file with no upgrade macros
 
-* Run the test suite - make sure ``dependencies.sh`` is pointing at the core working copy
-* Reset the ``dependencies.sh``
-* LFRic Core should be ``coreX.Y``
-* All others should be ``umC.D``
-* Get the tickets reviewed and committed
-* Once the core ticket is committed ask CCD to tag core with ``coreX.Y=revision`` before committing apps
-* Tag the LFRic Apps Trunk ``vnX.Y=revision``
+* Run the test suites
+
+  * ``rose stem --group=all`` for both Apps and Core.
+  * Make sure ``dependencies.sh`` is pointing at the core working copy
+
+* Once testing is complete, reset the ``dependencies.sh``
+
+  * LFRic Core should be ``coreX.Y``
+  * All others should be ``umC.D``
+
+* Get the tickets reviewed and committed:
+
+  * Commit LFRic Core
+  * Ask CCD to :ref:`tag <reference-tagging>` core with ``coreX.Y=revision``
+  * Commit LFRic Apps
+
+* :ref:`Tag <reference-tagging>` the LFRic Apps Trunk ``vnX.Y=revision``
