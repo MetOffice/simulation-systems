@@ -52,7 +52,7 @@ Apply Code Styling
 ------------------
 
 * Switch to the UM branch
-* Set export RUNFULL=1 then run ./admin/code_styling/apply_styling
+* Set ``export RUNFULL=1`` then run ./admin/code_styling/apply_styling
 * If any files have changed, check nothing has gone wrong with a quick compile ``rose stem --group=fcm_make_ex1a_gnu_um_rigorous_omp``
 * Commit any changes
 
@@ -63,7 +63,7 @@ Checking Metadata and Rose Apps
 The JULES release must be completed first and all jules-shared metadata changes from the JULES repository must be centrally installed before progressing.
 
 * First switch to the UM branch.
-* Check that the metadata meet the Rose standards. Do this before running release_new_version, so that any metadata errors are fixed before the new vnX.Y metadata directories are created, otherwise you'll have to check both vnX.Y and HEAD. Run ``rose config-dump -C rose-meta``.
+* Check that the metadata meets the Rose standards: run ``rose config-dump -C rose-meta``. Do this before running release_new_version, so that any metadata errors are fixed before the new vnX.Y metadata directories are created, otherwise you'll have to check both vnX.Y and HEAD. 
 
   * Run ``fcm diff`` on HEAD. Are the changes sensible? They often just involve moving sections of meta-data to be in the correct alphabetical order. However, `UM:#1824 <https://code.metoffice.gov.uk/trac/um/ticket/1824>`_ added comments for some additional triggers ([43853]) to circumvent a ​bug in Rose. Running config-dump will move the location of these comments to the bottom of the that item's metadata. Check for any moved references to "issue 2107" (there should be 4 of them) and put them back in the right places by hand, by referring to an unaltered copy of the trunk.
 
@@ -249,7 +249,7 @@ The main installation of ctldata, utilities and prebuilds can now take place. Th
 
 Delete any remaining temporary vnX.Y keywords for umadmin/umtest, on **all** platforms. Check all keyword.cfg files, and do both accounts now. They could be left over from the earlier test build, even if you didn't set them.
 
-Check out the UM trunk into a working copy. umadmin can only check out from the mirror.
+Check out the UM trunk into a working copy. ``umadmin`` can only check out from the mirror.
 
 .. code-block::
 
@@ -267,7 +267,7 @@ and check that ``~umadmin/cylc_run/<working_copy_name>/runN/share/vnX.Y`` exists
 
 .. code-block::
 
-    rose stem --group=install rose-stem -S CENTRAL_INSTALL=false -S PREBUILDS=false -S USE_EXAB=true
+    rose stem --group=install rose-stem -S CENTRAL_INSTALL=true -S PREBUILDS=false -S USE_EXAB=true
     cylc play <name-of-suite>
 
 

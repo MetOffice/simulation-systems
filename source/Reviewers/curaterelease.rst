@@ -104,7 +104,7 @@ Jules Release
 **Dependencies**
 Partner Testing, All Jules tickets committed
 
-`Jules Release <https://code.metoffice.gov.uk/trac/jules/intertrac/wiki%3ACuratingARelease>`_
+`Jules Release <https://code.metoffice.gov.uk/trac/jules/wiki/CuratingARelease>`_
 
 
 Mule and Shumlib Releases

@@ -64,7 +64,7 @@ As yourself, move into the rose-stem directory in the UM working copy where the 
 
   * This has caused problems before see `this edge case <https://code.metoffice.gov.uk/trac/um/wiki/ticket/2437/SciTechReview>`. The upgrade macro should fail to execute if the macro chain is incorrect, as it won't be able to upgrade an app to the new version - this is likely this edge case.
 
-* As there is no kgo installed for the new version we need to revert the changes to ``rose-stem/site/meto/variables_*.cylc`` as well as the ``BASE`` variable at the bottom of ``rose-stem/site/meto/variables.cylc``.
+* As there is no kgo installed for the new version revert the changes to ``rose-stem/site/meto/variables_*.cylc`` as well as the ``BASE`` variable at the bottom of ``rose-stem/site/meto/variables.cylc``.
 
 Copying the metadata and upgrade macros to the um_meta branch
 -------------------------------------------------------------
@@ -116,7 +116,7 @@ and check that ``~umadmin/cylc_run/<working_copy_name>/runN/share/vnX.Y`` exists
 
 .. code-block::
 
-    rose stem --group=install rose-stem -S CENTRAL_INSTALL=false -S PREBUILDS=false -S USE_EXAB=true
+    rose stem --group=install rose-stem -S CENTRAL_INSTALL=true -S PREBUILDS=false -S USE_EXAB=true
     cylc play <name-of-suite>
 
 Now install the prebuilds by running,
