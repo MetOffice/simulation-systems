@@ -137,11 +137,13 @@ A new keyword will need to be created and copied into the rose-stem/rose-suite.c
 
 * Make sure the prebuilds are set to ``true`` in the ``site/meto/variables.cylc`` by checking the line, ``{% do SITE_VARS.update({"PREBUILDS" : true}) %}``
 * Check rose-stem/rose-suite.conf?
+
   * Are the UM, JULES, SOCRATES, CASIM and UKCA versions correct? These should be the keywords setup earlier.
   * Is housekeeping ``true``?
   * Are the KGO versions correct in the ``variables.cylc`` file for each site?
   * Does the minimum version of Rose/Cylc need to be increased? (Do any rose-ana changes require new functionality?)
   * Do any of the apps or parts of the suites reference ``$UMDIR`` - they shouldn't (the correct thing to do is to reference ``$UM_INSTALL_DIR``).
+
 * ``grep`` for any instances of the old version keyword(s). Fix as required and add any corrections to the instructions on this page too.
 
 Commit any changes resulting from these final checks.

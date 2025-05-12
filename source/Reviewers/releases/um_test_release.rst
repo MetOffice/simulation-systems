@@ -13,6 +13,7 @@ Preparing Test Release Branches and Keyword Files
 -------------------------------------------------
 
 This will involve switching between your own and the umadmin account on Azure Spice and EXAB.
+
 * As yourself, create a UM ticket for the test release, marked 'Not for Builds'.
 * As yourself, create and check out a UM branch at the head of the trunk (or whichever revision of the trunk you wish to do a test release with).
 * As yourself, create and check out a head of trunk meta branch (``fcm:um_meta.x_tr@head``).
