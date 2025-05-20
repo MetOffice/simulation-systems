@@ -16,7 +16,6 @@ To document the process create a ticket and put a link to it on the release cura
 
     '''Branch :''' [log:main/branches/dev/branch_path_n_name dev/branch_path_n_name]
     '''Meta Branch :''' [log:meta/branches/dev/branch_path_n_name dev/branch_path_n_name]
-    '''[wiki:ticket/ticket_no/SciTechReview SciTech Review]'''
     '''[wiki:ticket/ticket_no/CodeSystemReview Code/System Review]'''
 
 
