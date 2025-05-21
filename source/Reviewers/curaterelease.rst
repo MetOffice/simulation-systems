@@ -5,6 +5,7 @@ Curating a Release
     :maxdepth: 1
 
     releases/um_test_release
+    releases/jules_release
     releases/um_main_release
     releases/lfric_apps_release
 
@@ -92,8 +93,8 @@ Any potential changes to platform software stacks
 Main Release
 ------------
 
-`Jules Release <https://code.metoffice.gov.uk/trac/jules/wiki/CuratingARelease>`_
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:ref:`Jules Release <jules_release>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 Partner Testing, All Jules tickets committed

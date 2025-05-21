@@ -16,7 +16,6 @@ To document the process create a ticket and put a link to it on the release cura
 
     '''Branch :''' [log:main/branches/dev/branch_path_n_name dev/branch_path_n_name]
     '''Meta Branch :''' [log:meta/branches/dev/branch_path_n_name dev/branch_path_n_name]
-    '''[wiki:ticket/ticket_no/SciTechReview SciTech Review]'''
     '''[wiki:ticket/ticket_no/CodeSystemReview Code/System Review]'''
 
 
@@ -277,14 +276,14 @@ Next, rerun the install for the 2nd host zone,
 
 .. code-block::
 
-    rose stem --group=install rose-stem -S CENTRAL_INSTALL=false -S PREBUILDS=false -S USE_EXCD=true
+    rose stem --group=ex1a_install rose-stem -S CENTRAL_INSTALL=true -S PREBUILDS=false -S USE_EXCD=true
     cylc play <name-of-suite>
 
 Finally, rerun the install for the EXZ,
 
 .. code-block::
 
-    rose stem --group=install rose-stem -S CENTRAL_INSTALL=false -S PREBUILDS=false -S USE_EXZ=true
+    rose stem --group=ex1a_install rose-stem -S CENTRAL_INSTALL=true -S PREBUILDS=false -S USE_EXZ=true
     cylc play <name-of-suite>
 
 The release is now installed and can be announced.
