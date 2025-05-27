@@ -94,7 +94,7 @@ Rose Stem Updates
 -----------------
 
 * Update the ``VN`` variable in ``rose-stem/rose-suite.conf``.
-* Upgrade the rose-stem apps as normal, using the upgrade macro added earlier, eg.
+* Upgrade the rose-stem apps as normal, using the upgrade macro added earlier, e.g.
 
   .. code-block::
 
