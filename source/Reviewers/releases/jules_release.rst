@@ -176,5 +176,5 @@ Update the wiki:
 
 Notify the JULES community:
 
-* Post a message to the JULES Users mailing list : (​JULES-USERS@MAILLISTS.READING.AC.UK) and (​JULES@MAILLISTS.READING.AC.UK)
+* Post a message to the JULES Users mailing list : (​``JULES-USERS@MAILLISTS.READING.AC.UK``) and (``​JULES@MAILLISTS.READING.AC.UK``)
 * Post a message to the simulation-systems ​GitHub Discussions board
