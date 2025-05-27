@@ -70,7 +70,7 @@ Metadata Changes
 * Edit ``rose-meta/jules-standalone/version<from>_<to>.py`` such that,
 
   * Imports of other macros are removed
-  * Add a new blank upgrade macro that bumps the version to the release versiom,
+  * Add a new blank upgrade macro that bumps the version to the release version,
 
   .. code-block::
 
