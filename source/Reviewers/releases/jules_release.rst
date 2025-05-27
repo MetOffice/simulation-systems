@@ -46,7 +46,7 @@ Metadata Changes
 * Edit ``rose-meta/jules-standalone/versions.py`` to:
 
   * Remove the upgrade macros
-  * Import the macros from the newly created file, eg.
+  * Import the macros from the newly created file, e.g.
 
   .. code-block::
 
