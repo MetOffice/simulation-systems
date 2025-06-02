@@ -89,3 +89,24 @@ and that you can specify more than one at once, e.g. ``--group=developer,jules,u
     The `standard jobs <https://code.metoffice.gov.uk/trac/um/wiki/StandardJobs>`_
     page for each release includes details of which of ``developer``,
     ``nightly`` and ``all`` a configuration is tested at.
+
+
+Monsoon
+-------
+
+As of UM vn13.9, the UM is able to run on Monsoon3, the latest version hosted by the Meto EX machines. To run on here, users should follow the process laid out in the Monsoon User Guide. This involves logging onto the ``cazccylc1`` server to launch jobs.
+
+The UM test suite is set up to run on Monsoon with Cylc 8 by running,
+
+.. code-block::
+
+    rose stem --group=ex1a
+    cylc play <name-of-suite>
+
+This will launch all ex1a jobs that are available to run on Monsoon.
+
+For running suites on Monsoon, a few environment variables must be set for the builds to complete:
+
+* ``EX_UMDIR_OVERRIDE`` - this needs to be set to ``/projects/metoff/umdir``
+* ``ECCODES_VERSION`` - this needs to be set to ``eccodes-2.34.0``
+
