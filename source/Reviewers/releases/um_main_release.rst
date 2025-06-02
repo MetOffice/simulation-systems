@@ -261,14 +261,14 @@ First check that the upgrade has gone successfully and the new install will appe
 
 .. code-block::
 
-    rose stem --group=install rose-stem -S CENTRAL_INSTALL=false -S PREBUILDS=false -S USE_EXAB=true
+    rose stem --group=install -S CENTRAL_INSTALL=false -S PREBUILDS=false -S USE_EXAB=true
     cylc play <name-of-suite>
 
 and check that ``~umadmin/cylc_run/<working_copy_name>/runN/share/vnX.Y`` exists and is the new version number. If that has worked, change the CENTRALL_INSTALL flag to true and rerun,
 
 .. code-block::
 
-    rose stem --group=install rose-stem -S CENTRAL_INSTALL=true -S PREBUILDS=false -S USE_EXAB=true
+    rose stem --group=install -S CENTRAL_INSTALL=true -S PREBUILDS=false -S USE_EXAB=true
     cylc play <name-of-suite>
 
 
@@ -276,14 +276,14 @@ Next, rerun the install for the 2nd host zone,
 
 .. code-block::
 
-    rose stem --group=ex1a_install rose-stem -S CENTRAL_INSTALL=true -S PREBUILDS=false -S USE_EXCD=true
+    rose stem --group=ex1a_install -S CENTRAL_INSTALL=true -S PREBUILDS=false -S USE_EXCD=true
     cylc play <name-of-suite>
 
 Finally, rerun the install for the EXZ,
 
 .. code-block::
 
-    rose stem --group=ex1a_install rose-stem -S CENTRAL_INSTALL=true -S PREBUILDS=false -S USE_EXZ=true
+    rose stem --group=ex1a_install -S CENTRAL_INSTALL=true -S PREBUILDS=false -S USE_EXZ=true
     cylc play <name-of-suite>
 
 The release is now installed and can be announced.
@@ -319,3 +319,51 @@ And finally on the EXZ - make sure to **not** use ``--new`` in this command or t
 
     export CYLC_VERSION=7
     rose stem --group=ex1a_fcm_make,ex1a_fcm_make_portio2b --source=fcm:um.xm_tr@vnX.Y --name=vnX.Y_prebuilds --config=./rose-stem -S MAKE_PREBUILDS=true -S USE_EXZ=true
+
+
+Monsoon Installation
+--------------------
+
+.. tip::
+
+    This section can be done in parallel with the previous one
+
+We also install the UM onto Monsoon - to do this you will need a Monsoon account with access to the ``umadmin.mon`` shared account.
+
+First, log into Monsoon as ``umadmin.mon`` and then check out the trunk at the new version just released.
+
+.. code-block::
+
+    fcm co fcm:um.xm_tr@vnXX.Y
+
+Next, symlink the input data as was done for other platforms,
+
+.. code-block::
+
+    mv vn11.5 vn11.6; ln -s vn11.6 vn11.5
+
+Now run the central install group,
+
+.. code-block::
+
+    rose stem --group=ex1a_install -S CENTRAL_INSTALL=true -S PREBUILDS=false
+    cylc play <name-of-suite>
+
+Install prebuilds on Monsoon. Note the ``--no-run-name`` is required to force the install location to be consistent with other platforms.
+
+.. code-block::
+
+    rose stem --group=ex1a_fcm_make,ex1a_fcm_make_portio2b -S MAKE_PREBUILDS=true -n vnX.Y_prebuilds --no-run-name
+    cylc play <name-of-suite>
+
+Finally we need to install the kgo for the release. Do this by running the ``ex1a`` group. Once that is finished, run the kgo install script (sourced from the SimSys_Scripts repo).
+
+.. code-block::
+
+    rose stem --group=ex1a
+    cylc play <name-of-suite>
+    # Wait for tests to complete
+    python3 SimSys_Scripts/kgo_updates/kgo_update/kgo_update.py -N vnX.Y -P ex1a --new-release --non-interactive
+
+Check that the kgo has been installed in place correctly at ``$UMDIR/standard_jobs/kgo``.
+

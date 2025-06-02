@@ -162,6 +162,12 @@ Before continuing the next step you should make sure the suite has run as expect
         find ~cylc-run/<suite name>/runN/log/job -path "*rose_ana*" -type f -name job.status | xargs grep -l CYLC_JOB_EXIT=ERR | grep -vE "(scm|netcdf)
 
 
+Test on Monsoon
+---------------
+
+It's also sensible to check now that nothing has broken on Monsoon. Do this by copying your keyword settings across to your account on there. Then check out the UM main and meta branches and run the test suite as you in the previous section except for the group which should now be ``ex1a``.
+
+
 Reset Keywords and Remove Prebuilds (Important!)
 ------------------------------------------------
 
@@ -170,7 +176,7 @@ As both yourself and umadmin,
 * Remove or comment out the custom keyword revisions from ``~/.metomi/fcm/keywords.cfg``
 * Remove or comment out the ``bypass-version-check`` in ``~/.metomi/rose.conf``
 
-  * Make sure to do this on **all** platforms
+  * Make sure to do this on **all** platforms (inlcuding Monsoon)
   * Not doing so can result in some weird behaviour down the line
 
 * As umadmin, remove the installed release and prebuilds. Doing this now saves significant time during the actual release. These steps should only need doing on Azure Spice and EXAB.
