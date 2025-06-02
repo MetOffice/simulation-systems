@@ -334,7 +334,7 @@ First, log into Monsoon as ``umadmin.mon`` and then check out the trunk at the n
 
 .. code-block::
 
-    fcm co fcm:um.x_tr@vnXX.Y
+    fcm co fcm:um.xm_tr@vnXX.Y
 
 Next, symlink the input data as was done for other platforms,
 
