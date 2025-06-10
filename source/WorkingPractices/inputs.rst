@@ -100,9 +100,9 @@ Due to the way lfric metadata is shared, if a new LFRic metadata section is adde
 * ``rose-meta/META-NAME/versions.py``
 * A symlink from the top-level rose-meta directory to the new directory (see existing ones for examples)
 
-Other ``vnX.Y`` and ``versionAB_CD.py`` files shouldn't be modified or added (these are a snapshot of the metadata at a release).
+The ``vnX.Y`` and ``HEAD`` metadata should be identical for this initial ticket, other than any import statements, which should point at vnX.Y or HEAD respectively. Other ``vnX.Y`` and ``versionAB_CD.py`` files shouldn't be modified or added (these are a snapshot of the metadata at a release).
 
-If a new rose-stem app using the new metadata is also being added, then a "blank" upgrade macro will also need to be added with a ``BEFORE_TAG=vnX.Y`` and a standard ``AFTER_TAG=vnX.Y_tTTTT``. This upgrade macro will allow the new app to be updated to the Head metadata when the branch is merged to trunk.
+If a new rose-stem app using the new metadata is also being added, then a "blank" upgrade macro will also need to be added with a ``BEFORE_TAG=vnX.Y`` and a standard ``AFTER_TAG=vnX.Y_tTTTT``. This upgrade macro will allow the new app to be updated to the Head metadata when the branch is merged to trunk. The ``rose-app.conf`` for this app will require a metadata import line of format, ``meta=META-NAME/vnX.Y``.
 
 
 How to add an upgrade macro to your branch
