@@ -3,6 +3,10 @@
 ..
   This section will need some thought and revisiting after CA2 is completed.
 
+.. important::
+
+    Do **not** edit the existing ``vnX.Y`` metadata directories or the upgrade python files (eg ``versionab_cd.py``) as these are a snapshot of the metadata at release. Only the ``HEAD`` and ``versions.py`` files should be modified.
+
 Some basic guidance on Rose metadata
 ====================================
 

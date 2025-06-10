@@ -123,9 +123,9 @@ To add upgrade macros to LFRic the following steps can be followed:
 
 .. code-block::
 
-    export CYLC_VERSION=8 
+    export CYLC_VERSION=8
 
-    SimSys_Scripts/lfric_macros/apply_macros.py vnXX.Y_tTTTT -a Apps -c Core -j Jules
+    SimSys_Scripts/lfric_macros/apply_macros.py vnX.Y_tZZZZ [--apps=/path/to/apps] [--core=/path/to/core] [--jules=/path/to/jules]
 
 .. important::
 
