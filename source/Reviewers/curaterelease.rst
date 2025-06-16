@@ -5,9 +5,14 @@ Curating a Release
     :maxdepth: 1
 
     releases/um_test_release
+    releases/partner_testing
+    releases/software_stack
     releases/jules_release
+    releases/shumlib_release
+    releases/mule_release
     releases/um_main_release
     releases/lfric_apps_release
+    releases/updating_prebuilds
 
 .. _reference-tagging:
 
@@ -76,15 +81,15 @@ Pre-Release
 The point of the test release is to test the release system/process works before we have to do it for real. Typically aim for 1-2 weeks before release day. However, before a test release can be done, all changes to fcm-make config files, major rose-stem changes (things like basic upgrade macro or KGO updates don't necessarily need to be included) and modifications to the release_new_version.py script need to be on trunk, so this will cause some variation as to when the test release is done from release to release.
 
 
-`Partner Testing <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#PartnerTesting-72hourfreeze>`_
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:ref:`Partner Testing<partner_testing>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 All source code changes must be on trunk along with any rose-stem changes that affect multiple sites before partner testing can start. Ideally the test release will also have been completed.
 
 
-`Scientific Software Stack Update <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#ScientificSoftwareStackUpdate>`_
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:ref:`Software Stack<software_stack>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 Any potential changes to platform software stacks
@@ -100,11 +105,18 @@ Main Release
 Partner Testing, All Jules tickets committed
 
 
-`Mule and Shumlib Releases <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#ShumlibMulereleases>`_
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:ref:`Shumlib Release<shumlib_release>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
-All tickets affecting Shumlib or Mule should have been committed.
+All shumlib tickets
+
+
+:ref:`Mule Release<mule_release>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Dependencies**
+All mule tickets, Shumlib release (if required), UM release (to actually install)
 
 
 :ref:`UM Main Release<um_main_release>`
@@ -176,9 +188,5 @@ None
 Mid-Release Tasks
 -----------------
 
-`Creating an Interim Release <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#Creatinganinterimrelease>`_
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-`Installing New Prebuilds <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#Installingnewprebuilds>`_
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:ref:`Mid Release Prebuilds<updating_prebuilds>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
