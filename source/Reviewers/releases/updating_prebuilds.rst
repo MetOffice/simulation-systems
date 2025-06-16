@@ -19,7 +19,7 @@ To update prebuilds:
 
 * Commit these changes to the branch.
 * Login as ``umadmin`` and check out the branch (this will need to be from the mirror, so ensure it has updated).
-* Install the prebuids, first on azure spice and EXAB, then on the EXCD and finally the EXZ. Ensure the name of the suite matches the path that was set in the ``variables.rc`` file.
+* Install the prebuilds, first on azure spice and EXAB, then on the EXCD and finally the EXZ. Ensure the name of the suite matches the path that was set in the ``variables.rc`` file.
 
 .. code-block::
 

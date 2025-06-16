@@ -51,11 +51,11 @@ Installing Mule
 
 .. important::
 
-    This must come after the targetted UM and Shumlib releases have been installed.
+    This must come after the targeted UM and Shumlib releases have been installed.
 
 Installing mule has complexities as it depends on libraries installed by the UM and shumlib and is also dependent on the python stack. It is possible to install without the UM/Shumlib libraries, however functionality will be missing and so this isn't done on Met Office platforms.
 
-Mule is loaded into a users environment by adding the install directories to ``$PATH`` and ``$PYTHONPATH`` when loading the ``um_tools`` module. To ensure mule works with the current environment, it is installed for all different combinations of python and numpy available. At the Met Office, these are provided by the scitools software stacks in addition to the default environment.
+Mule is loaded into a user's environment by adding the install directories to ``$PATH`` and ``$PYTHONPATH`` when loading the ``um_tools`` module. To ensure mule works with the current environment, it is installed for all different combinations of python and numpy available. At the Met Office, these are provided by the scitools software stacks in addition to the default environment.
 
 Installation at the Met Office is done by ``admin/meto_install_mule.sh`` which will detect the current python environment and install to a directory named for that.
 
@@ -65,7 +65,7 @@ To install at the Met Office
 * Move to or create ``$UMDIR/mule/mule-YYYY.MM.V``
 * Get a copy of the install script, ``fcm export fcm:mule.xm_tr/admin/meto_install_mule.sh@YYYY.MM.V``
 * Run the install script without any modules loaded (this will install for the system python), ``./meto_install_mule.sh``
-* For all desired scitools modules, load the module and then rerun the install script. Try and do this for all production/preproduction stacks as well as the current defualt previous, current and next modules.
+* For all desired scitools modules, load the module and then rerun the install script. Try and do this for all production/preproduction stacks as well as the current default previous, current and next modules.
 * Repeat these steps on the EXAB and EXCD.
 
 Once mule has been installed, we also need to add the modulesfiles to their location in ``$UMDIR/modulefiles/um_tools/YYYY.MM.V``. This is most easily done by copying an existing one and modifying the scitools modules and python versions to match what has just been installed. These modules need to be done for both ``openmp`` and ``no-openmp`` - the only differences between them are the ``THREADING`` and ``module-whatis`` variables.
