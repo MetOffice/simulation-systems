@@ -68,7 +68,7 @@ Open a UM X.Y release Curation Ticket, and assign tasks as a team,
     ||  || Update wikis, working practices, and create bit comp table                                 ||  ||
     ||  || Review and update trunk and shared account permissions                                     ||  ||
 
-    [wiki:CuratingARelease Curating a release Page]
+    [https://metoffice.github.io/simulation-systems/Reviewers/curaterelease.html Curating a release Page]
 
 
 Pre-Release
