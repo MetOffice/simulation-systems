@@ -12,6 +12,9 @@ Curating a Release
     releases/mule_release
     releases/um_main_release
     releases/lfric_apps_release
+    releases/standard_suites
+    releases/wiki_pages
+    releases/shared_accounts
     releases/updating_prebuilds
 
 .. _reference-tagging:
@@ -60,12 +63,11 @@ Open a UM X.Y release Curation Ticket, and assign tasks as a team,
     ||  || LFRic Apps Release                                                                         ||  ||
     ||||||'''Post Release'''||
     ||  || Release notes                                                                              ||  ||
-    ||  || Update standard suites & finalise std jobs page                                            ||  ||
+    ||  || Update standard suites                                                                     ||  ||
     ||  || Update $UMDIR scripts                                                                      ||  ||
-    ||  || Check resource monitoring scripts still work                                               ||  ||
     ||  || Install Code and Stash browsers                                                            ||  ||
     ||  || UMDP3 Release                                                                              ||  ||
-    ||  || Update wikis, working practices, and create bit comp table                                 ||  ||
+    ||  || Standard Jobs + Wiki Page                                                                  ||  ||
     ||  || Review and update trunk and shared account permissions                                     ||  ||
 
     [wiki:CuratingARelease Curating a release Page]
@@ -143,18 +145,11 @@ Post Release Tasks
 Most of this can be done pre-release but some details of revision numbers will be dependent on the main release being done.
 
 
-`Upgrading Standalone Suites <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#UpgradingStandaloneSuites>`_
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:ref:`Updating Standard Suites <standard_suites>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
-UM Release (for UM suites), Apps Release (for Apps suites)
-
-
-`Standard Jobs Page <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#FinalizeTheStandardJobspage>`_
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-**Dependencies**
-UM Release
+UM + Apps Releases
 
 
 `Code and Stash Browsers <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#InstallCodeandStashbrowsers>`_
@@ -171,15 +166,15 @@ UM Release
 UM Release, Standard Suites Upgrade
 
 
-`Wikis Update <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#Updatewikisworkingpracticesandcreatebitcomptable>`_
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:ref:`Standard Jobs and Wiki Pages <wiki_pages>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
-UM Release
+UM + Apps Releases
 
 
-`Shared Account Permissions <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#Reviewandupdatetrunkandsharedaccountpermissions>`_
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:ref:`Trunk and Shared Account Permissions <shared_accounts>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 None
