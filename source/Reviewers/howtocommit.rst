@@ -176,7 +176,7 @@ then you will need to upgrade the test-suite.
 
             .. tip::
 
-                ``module load scitools`` will give all required dependencies
+                ``module load scitools`` will give all required dependencies for Met Office users.
 
             .. note::
 
