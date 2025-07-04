@@ -68,7 +68,7 @@ To install at the Met Office
 * For all desired scitools modules, load the module and then rerun the install script. Try and do this for all production/preproduction stacks as well as the current default previous, current and next modules.
 * Repeat these steps on the EXAB, EXCD, and EXZ.
 
-Once mule has been installed, we also need to add the modulefiles to their location in ``$UMDIR/module/modulefiles/um_tools/YYYY.MM.V`` (SPICE). This is most easily done by copying an existing one and modifying the scitools modules and python versions to match what has just been installed. These modules need to be done for both ``openmp`` and ``no-openmp`` - the only differences between them are the ``THREADING`` and ``module-whatis`` variables.
+Once mule has been installed, we also need to add the modulefiles to their location in ``$UMDIR/modules/modulefiles/um_tools/YYYY.MM.V``. This is most easily done by copying an existing one and modifying the scitools modules and python versions to match what has just been installed. These modules need to be done for both ``openmp`` and ``no-openmp`` - the only differences between them are the ``THREADING`` and ``module-whatis`` variables.
 
 Once done, check the modules are setup correctly by,
 
