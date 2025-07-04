@@ -78,7 +78,7 @@ Once done, check the modules are setup correctly by,
     python
     import mule
 
-Again, repeat this on the EXAB, EXCD, and EXZ. The module files should be identical for both EXAB and EXCD, so you can ``scp`` one set to the other. On EX platforms, to find location of ``um_tools`` modulefiles, use ``module show um_tools 2>&1 | sed '2q;d'`` command on a terminal.
+Again, repeat this on the EXAB, EXCD, and EXZ. The module files should be identical for both EXAB and EXCD, so you can ``scp`` one set to the other. Again, these files can be found via the same $UMDIR path as above.
 
 Finally, it is a good idea to update the default mule module by editing ``$UMDIR/modules/modulefiles/um_tools/.version``. It may be worth posting an announcement a few days before changing this to give advance notice.
 
