@@ -106,7 +106,6 @@ helpful for documenting and monitoring progress of your work.
     :hidden:
     :caption: Working Practices
 
-    git_dev_flow
     planning_your_change
     tickets
     branches
