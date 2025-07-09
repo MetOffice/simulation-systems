@@ -19,7 +19,7 @@ There's no hard rule on whether a mule release is required - it comes down to wh
 
 * Create a mule ticket and branch, checking out a local copy.
 * Update ``admin/meto_install_mule.sh`` to update the mule version number as well as the UM and Shumlib releases intended for this mule release. It is likely the UM release hasn't happened yet - in that case the mule install will need to wait until after that.
-* Update all occurences of the mule version number to the new version. This occurs in multiple places - see the above example ticket or grep for the old version.
+* Update all occurrences of the mule version number to the new version. This occurs in multiple places - see the above example ticket or grep for the old version.
 * Test the branch against the UM
 * Get the ticket reviewed and committed
 * :ref:`Tag <reference-tagging>` the mule trunk with ``YYYY.MM.V``.
@@ -66,9 +66,9 @@ To install at the Met Office
 * Get a copy of the install script, ``fcm export fcm:mule.xm_tr/admin/meto_install_mule.sh@YYYY.MM.V``
 * Run the install script without any modules loaded (this will install for the system python), ``./meto_install_mule.sh``
 * For all desired scitools modules, load the module and then rerun the install script. Try and do this for all production/preproduction stacks as well as the current default previous, current and next modules.
-* Repeat these steps on the EXAB and EXCD.
+* Repeat these steps on the EXAB, EXCD, and EXZ.
 
-Once mule has been installed, we also need to add the modulesfiles to their location in ``$UMDIR/modulefiles/um_tools/YYYY.MM.V``. This is most easily done by copying an existing one and modifying the scitools modules and python versions to match what has just been installed. These modules need to be done for both ``openmp`` and ``no-openmp`` - the only differences between them are the ``THREADING`` and ``module-whatis`` variables.
+Once mule has been installed, we also need to add the modulefiles to their location in ``$UMDIR/modules/modulefiles/um_tools/YYYY.MM.V``. This is most easily done by copying an existing one and modifying the scitools modules and python versions to match what has just been installed. These modules need to be done for both ``openmp`` and ``no-openmp`` - the only differences between them are the ``THREADING`` and ``module-whatis`` variables.
 
 Once done, check the modules are setup correctly by,
 
@@ -78,7 +78,7 @@ Once done, check the modules are setup correctly by,
     python
     import mule
 
-Again, repeat this on the EXAB and EXCD. The module files should be identical for both, so you can ``scp`` one set to the other.
+Again, repeat this on the EXAB, EXCD, and EXZ. The module files should be identical for both EXAB and EXCD, so you can ``scp`` one set to the other. Again, these files can be found via the same $UMDIR path as above.
 
 Finally, it is a good idea to update the default mule module by editing ``$UMDIR/modules/modulefiles/um_tools/.version``. It may be worth posting an announcement a few days before changing this to give advance notice.
 
