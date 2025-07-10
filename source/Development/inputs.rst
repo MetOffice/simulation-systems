@@ -29,15 +29,15 @@ The project metadata can be found in the following locations:
 
     .. tab-item:: UM
 
-        ``vnXX.Y_<_branch_name>/rose-meta/um-atmos/HEAD/rose-meta.conf``
+        ``<branch_name>/rose-meta/um-atmos/HEAD/rose-meta.conf``
 
     .. tab-item:: JULES
 
-        ``vnXX.Y_<_branch_name>/rose-meta/*/*/HEAD/rose-meta.conf``
+        ``<branch_name>/rose-meta/*/*/HEAD/rose-meta.conf``
 
     .. tab-item:: LFRic
 
-        ``vnXX.Y_<branch_name>/<sub-module>/rose-meta/*/HEAD/rose-meta.conf``
+        ``<branch_name>/<sub-module>/rose-meta/*/HEAD/rose-meta.conf``
 
 In addition to the above locations, the rose metadata is centrally mirrored on Met Office systems. This means that metadata that has been committed to the trunk can be accessed without a working copy. This may be of use when upgrading scientific suites between versions.
 
@@ -53,7 +53,7 @@ metadata :ref:`is available <metadata_guidance>`.
 
 .. note::
   JULES developers also need to :doc:`update the JULES documentation
-  </WorkingPractices/jules_docs>` whenever they add or remove namelist variables.
+  <jules_docs>` whenever they add or remove namelist variables.
 
 .. important::
   All changes which alter namelists require an upgrade macro for them to

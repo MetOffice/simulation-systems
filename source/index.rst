@@ -20,12 +20,12 @@ and how to commit to the trunk.
 
 
 
-.. grid:: 3
+.. grid:: 1 1 2 2
 
     .. grid-item-card::
         :text-align: center
 
-        Guide for developers wishing to contribute to the simulation models.
+        Working with git and github to contribute to the simulation models.
 
         +++
         .. button-ref:: working_practices_index
@@ -35,6 +35,22 @@ and how to commit to the trunk.
             :expand:
 
                 Working Practices
+
+    .. grid-item-card::
+        :text-align: center
+
+        Guides to planning, developing and testing changes to the simulation models
+
+        +++
+        .. button-ref:: development_index
+            :ref-type: ref
+            :color: primary
+            :outline:
+            :expand:
+
+                Developing Your Change
+
+.. grid:: 1 1 2 2
 
     .. grid-item-card::
         :text-align: center
@@ -75,6 +91,13 @@ and how to commit to the trunk.
     :caption: Working Practices
 
     WorkingPractices/working_practices
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+    :caption: Developing Your Change
+
+    Development/developing_change
 
 .. toctree::
     :maxdepth: 1
