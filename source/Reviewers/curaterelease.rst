@@ -12,6 +12,9 @@ Curating a Release
     releases/mule_release
     releases/um_main_release
     releases/lfric_apps_release
+    releases/release_notes
+    releases/stash_browser
+    releases/umdp_release
     releases/updating_prebuilds
 
 .. _reference-tagging:
@@ -61,9 +64,8 @@ Open a UM X.Y release Curation Ticket, and assign tasks as a team,
     ||||||'''Post Release'''||
     ||  || Release notes                                                                              ||  ||
     ||  || Update standard suites & finalise std jobs page                                            ||  ||
-    ||  || Update $UMDIR scripts                                                                      ||  ||
     ||  || Check resource monitoring scripts still work                                               ||  ||
-    ||  || Install Code and Stash browsers                                                            ||  ||
+    ||  || Install the Stash Browser                                                            ||  ||
     ||  || UMDP3 Release                                                                              ||  ||
     ||  || Update wikis, working practices, and create bit comp table                                 ||  ||
     ||  || Review and update trunk and shared account permissions                                     ||  ||
@@ -136,8 +138,8 @@ All LFRic Tickets (Apps + Core), Jules Release
 Post Release Tasks
 ------------------
 
-`Release Notes <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#ReleaseNotes>`_
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`Release Notes <release_notes>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 Most of this can be done pre-release but some details of revision numbers will be dependent on the main release being done.
@@ -157,15 +159,15 @@ UM Release (for UM suites), Apps Release (for Apps suites)
 UM Release
 
 
-`Code and Stash Browsers <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#InstallCodeandStashbrowsers>`_
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`Stash Browser <stash_browser>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 UM Release
 
 
-`UMDP Release <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#UMDPrelease>`_
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`UMDP Release <umdp_release>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 UM Release, Standard Suites Upgrade
