@@ -117,7 +117,7 @@ To add upgrade macros to LFRic the following steps can be followed:
 
 
 
-1. In your LFRic Apps clone update the core source in ``dependencies.sh`` if you have LFRic Core changes.
+1. In your local LFRic Apps clone update the core source in ``dependencies.sh`` if you have LFRic Core changes.
 2. Add your upgrade macros. These **must** be added to the versions.py file in the same directory as the metadata being changed.
 3. Run the Upgrade Macro script in a test branch (see :ref:`testing`). This is located in the `SimSys_Scripts github repo <https://github.com/MetOffice/SimSys_Scripts>`_ (at meto an up to date clone is available in $UMDIR/SimSys_Scripts). The syntax for running is:
 

@@ -47,7 +47,6 @@ carefully:
     rose_stem
     testing
 
-
-.. note::
-  **Remember: Develop, Test, Commit**
-
+.. important::
+  All instructions regarding code locations in this section assume you are working in a clone of the appropriate
+  repository. Please read the :ref:`working_practices_index` to discover more.
