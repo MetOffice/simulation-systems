@@ -50,14 +50,15 @@ such changes onto the trunk. When preparing your change for review:
               This script requires at least python 3.9. This can be achieved on
               Met Office machines by running ``module load scitools``
 
-        4. You can check the new kgo updated properly by retiggering tasks in the test suite. First retrigger
-        ``export-source``, and then when complete ``export-source_xc40`` if new checksums are present there
+        4. If you are adding new checksums, ``git add`` the files.
+
+        5. You can check the new kgo updated properly by retiggering tasks in the test suite. First retrigger
+        ``export-source``, and then when complete ``export-source_ex1a`` if new checksums are present there
         (there is no need to retigger spice). You may need to change the maximum window extent of the gui in
         order to see the succeeded tasks. Now you can retrigger the failed checksums - these should now pass
-        if the kgo was updated in the working copy correctly. If you are adding new checksums, then ``fcm add``
-        the files before these steps.
+        if the kgo was updated in the working copy correctly.
 
-        5. The changes in answers should be science reviewed by someone familiar with the failing tests -
+        6. The changes in answers should be science reviewed by someone familiar with the failing tests -
         if unsure then start with the Code Owner for the affected application.
 
 

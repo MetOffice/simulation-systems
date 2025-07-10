@@ -124,8 +124,8 @@ One can easily review their metadata changes with the rose config editor, openin
 
 .. code-block::
 
-   cd <path of working copy of branch>/rose-stem/app/um_n48_eg
-   rose config-edit -M <path of working copy of branch/rose-meta/>
+   cd <branch path>/rose-stem/app/um_n48_eg
+   rose config-edit -M <branch path>/rose-meta/
 
 If making **jules-shared** changes, when reviewing these changes from a
 different parent repository, you will first need to set the
@@ -133,13 +133,13 @@ different parent repository, you will first need to set the
 
 .. code-block::
 
-   export ROSE_META_PATH=<path of working copy of JULES branch/rose-meta/>
+   export ROSE_META_PATH=<JULES branch path>/rose-meta/
 
 or add the path instead as a colon separated list:
 
 .. code-block::
 
-   rose config-edit -M <path of working copy of branch/rose-meta/>:<path of working copy of JULES branch/rose-meta/>
+   rose config-edit -M <branch path>/rose-meta/:<JULES branch path>/rose-meta/
 
 then once the app opens click on the LHS appname to display the app
 meta panel. Update this to HEAD rather than the version number and

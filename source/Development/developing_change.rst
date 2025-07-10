@@ -9,17 +9,9 @@ For anything longer and more complex, it is worth developing the
 code in small sections or units, testing that each piece of code works
 before committing back to the development branch. By following this
 methodology, if one aspect of the code doesn't work, there is
-always the option to ``fcm revert`` the local changes and quickly return
+always the option to revert the local changes and quickly return
 to a checkpoint in your development that did work.
 
-Commits to your branch should take the following form in their log messages:
-
-.. code-block::
-
-  #<ticket_number> - A useful message of what the commit entails
-
-..
-  Anyone know how to display the '#' symbol in Sphinx properly?
 
 .. tip::
   Before embarking on a medium-sized or significant model change,
