@@ -1,3 +1,5 @@
+.. _development_index:
+
 Developing Your Change
 ======================
 How a change is developed generally depends on the nature of the
@@ -45,11 +47,13 @@ carefully:
     :caption: Development Checklist
     :maxdepth: 1
 
+    planning_your_change
     documentation
     inputs
     kgo
     diagnostics
     rose_stem
+    testing
 
 
 .. note::

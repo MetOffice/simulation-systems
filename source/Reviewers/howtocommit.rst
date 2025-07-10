@@ -97,7 +97,7 @@ resolve any conflicts.
 
     .. tab-item:: JULES docs
 
-        See :doc:`JULES documentation changes </WorkingPractices/jules_docs>`
+        See :doc:`JULES documentation changes </Development/jules_docs>`
 
 Always merge in the developers **dev** branch, not the **test** branch.
 

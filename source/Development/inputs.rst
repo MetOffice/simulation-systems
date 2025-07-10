@@ -53,7 +53,7 @@ metadata :ref:`is available <metadata_guidance>`.
 
 .. note::
   JULES developers also need to :doc:`update the JULES documentation
-  </WorkingPractices/jules_docs>` whenever they add or remove namelist variables.
+  <jules_docs>` whenever they add or remove namelist variables.
 
 .. important::
   All changes which alter namelists require an upgrade macro for them to

@@ -106,11 +106,8 @@ helpful for documenting and monitoring progress of your work.
     :hidden:
     :caption: Working Practices
 
-    planning_your_change
     tickets
     branches
-    developing_change
-    testing
     multi_repository
     approvals
     reviews
