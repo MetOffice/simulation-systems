@@ -12,7 +12,6 @@ Stash Browser
   substituting for ``XXY``.
 * Login as the UM shared account
 * Copy the ``UMXXY_STASHweb`` directory created earlier to ``$UMDIR/public_html/frozen/XX.Y/stash_browse``
-* Delete all but the 3 most recent versions.
 * Check everything looks right at https://wwwspice/~umadmin/stashtech.html
 
 
