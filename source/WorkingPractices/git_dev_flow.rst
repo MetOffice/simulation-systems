@@ -148,3 +148,68 @@ There is no requirement to open an issue before making a pull request, as long a
 
 Clone the Repository
 ^^^^^^^^^^^^^^^^^^^^
+
+A clone is a local copy of a repository - you can have a local clone of either an upstream repository or a fork. A clone will have an active branch which will initially be the default branch of the repository upon merging. All other branches in the repository can be accessed using the ``checkout`` command (see below).
+
+.. tip::
+
+    For those familiar with svn/fcm, a clone is the git equivalent to a working copy. However, unlike a working copy, which can only access a single branch, a clone can be switched to any branch in the repository.
+
+.. tab-set::
+
+    .. tab-item:: git commands
+
+        To clone a repository using git, run the following in a terminal:
+
+        .. code-block::
+
+            git clone <URL> <CLONE_NAME>
+
+        where ``CLONE_NAME`` is the desired directory name of the clone. It will default to the name of the repository.
+
+        The ``URL`` can be found from github,
+
+        .. image:: images/gh_screenshots/clone_button_light.png
+            :class: only-light
+
+        .. image:: images/gh_screenshots/clone_button_dark.png
+            :class: only-dark
+
+        selecting the url as desired.
+
+    .. tab-item:: gh cli
+
+        To clone a repository using gh cli run the following command,
+
+        .. code-block::
+
+            gh repo clone <OWNER>/<REPO> <CLONE_NAME>
+
+        where ``CLONE_NAME`` is the desired directory name of the clone. It will default to the name of the repository.
+
+        .. tip::
+
+            Using gh cli to clone a fork will automatically add the upstream repository as a remote source which can be helpful.
+
+
+Create a Branch
+^^^^^^^^^^^^^^^
+
+Branches for developing Simulation Systems repositories should generally be branched from ``stable`` where this exists (some smaller repositories only contain a ``main`` branch). Creating a branch from ``main`` may be acceptable if the development is continuing on from a ticket already committed at that release.
+
+.. tab-set::
+
+    .. tab-item:: git commands
+
+        To create a branch and switch to it from the command line, the syntax is,
+
+        .. code-block::
+
+            git branch <branch_name> <parent_branch>
+            git checkout <branch_name>
+            # or
+            git checkout <parent_branch>
+            git checkout -b <branch_name>
+
+
+
