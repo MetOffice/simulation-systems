@@ -197,19 +197,27 @@ Create a Branch
 
 Branches for developing Simulation Systems repositories should generally be branched from ``stable`` where this exists (some smaller repositories only contain a ``main`` branch). Creating a branch from ``main`` may be acceptable if the development is continuing on from a ticket already committed at that release.
 
-.. tab-set::
+To create a branch and switch to it from the command line, the syntax is,
 
-    .. tab-item:: git commands
+.. code-block::
 
-        To create a branch and switch to it from the command line, the syntax is,
+    git branch <branch_name> <parent_branch>
+    git checkout <branch_name>
 
-        .. code-block::
+    # or
 
-            git branch <branch_name> <parent_branch>
-            git checkout <branch_name>
-            # or
-            git checkout <parent_branch>
-            git checkout -b <branch_name>
+    git checkout <parent_branch>
+    git checkout -b <branch_name>
+
+.. note::
+
+    It is also possible to create a new branch via github in a web browser.
+
+
+Developing a Change
+^^^^^^^^^^^^^^^^^^^
+
+
 
 
 
