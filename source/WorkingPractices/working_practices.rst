@@ -107,11 +107,8 @@ helpful for documenting and monitoring progress of your work.
     :caption: Working Practices
 
     git_dev_flow
-    planning_your_change
     tickets
     branches
-    developing_change
-    testing
     multi_repository
     approvals
     reviews

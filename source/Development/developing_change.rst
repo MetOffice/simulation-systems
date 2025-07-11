@@ -1,3 +1,5 @@
+.. _development_index:
+
 Developing Your Change
 ======================
 How a change is developed generally depends on the nature of the
@@ -7,17 +9,9 @@ For anything longer and more complex, it is worth developing the
 code in small sections or units, testing that each piece of code works
 before committing back to the development branch. By following this
 methodology, if one aspect of the code doesn't work, there is
-always the option to ``fcm revert`` the local changes and quickly return
+always the option to revert the local changes and quickly return
 to a checkpoint in your development that did work.
 
-Commits to your branch should take the following form in their log messages:
-
-.. code-block::
-
-  #<ticket_number> - A useful message of what the commit entails
-
-..
-  Anyone know how to display the '#' symbol in Sphinx properly?
 
 .. tip::
   Before embarking on a medium-sized or significant model change,
@@ -45,13 +39,14 @@ carefully:
     :caption: Development Checklist
     :maxdepth: 1
 
+    planning_your_change
     documentation
     inputs
     kgo
     diagnostics
     rose_stem
+    testing
 
-
-.. note::
-  **Remember: Develop, Test, Commit**
-
+.. important::
+  All instructions regarding code locations in this section assume you are working in a clone of the appropriate
+  repository. Please read the :ref:`working_practices_index` to discover more.

@@ -22,7 +22,7 @@ Use the appropriate :ref:`support` channels.
 The following are some general hints and tips in planning code changes successfully.
 
 .. tip::
-    For more complex LFRic changes you can submit your plan to the Capability
+    For more complex LFRic changes you can submit your plan to the Core Capability
     Development team for a Design Review.
 
 .. seealso::

@@ -20,58 +20,6 @@ detail below. Other than that, the `Sphinx documentation`_ is an excellent resou
 
 .. _Sphinx documentation: https://www.sphinx-doc.org/en/master/
 
-Checking out a copy of the JULES documentation
-----------------------------------------------
-First time developers will need to clone the git repository before starting work:
-
-.. code-block:: text
-
-    cd <path_to_where_you_want_to_clone_to>
-    git clone git@github.com:jules-lsm/jules-lsm.github.io.git
-    cd jules-lsm.github.io
-
-Create and checkout a new feature branch:
-
-.. code-block:: text
-
-    git checkout -b <feature_branch_name>
-
-Share the feature branch to GitHub:
-
-.. code-block:: text
-
-    git push --set-upstream origin <feature_branch_name>
-
-If new files have been created, use the ``git add <file_name>`` command, then
-ensure the new files (including the Sphinx sources) are tracked:
-
-.. code-block:: text
-
-    git add <new_file>
-
-Commit all staged changes:
-
-.. code-block:: text
-
-    git commit -m "<descriptive_commit_message>"
-
-Share the changes to GitHub:
-
-.. code-block:: text
-
-    git push
-
-Create a pull request
----------------------
-
-Create either a PR or, if the changes aren't quite ready for review, a draft
-PR, see `GitHub - Creating a pull request`_
-
-.. _GitHub - Creating a pull request: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
-
-Ensure that your JULES Trac ticket includes a link to the GitHub
-pull request containing your documentation change.
-
 Building the JULES User Guide
 -----------------------------
 For first time users, please create the production environment to build the
