@@ -217,7 +217,37 @@ To create a branch and switch to it from the command line, the syntax is,
 Developing a Change
 ^^^^^^^^^^^^^^^^^^^
 
+Now that you have a new branch, you are ready to begin development. See :ref:`development_index`, for advice on how to Plan and Implement new developments in a Simulation Systems repository, including advice on Metadata, KGO's and testing.
 
+.. tip::
+
+    To see the status of your current clone you can run ``git status``
+
+While developing you will likely want to commit your changes and push to the remote repository. First you will need to stage any files that have been modified and you would like to include in your commit,
+
+.. code-block::
+
+    git add path/to/file1 [path/to/file2...]
+
+And then commit the change,
+
+.. code-block::
+
+    git commit -m "An Informative Commit Message"
+
+.. tip::
+
+    In git you do not need to commit all modified files unlike in svn/fcm. It is also possible to only commit certain parts of a modified file. For more information see the relevant man page, ``man git add``.
+
+Finally, you may want to push any commits stored in your local clone.
+
+.. code-block::
+
+    git push
+
+.. important::
+
+    Unlike svn/fcm, committing in git will not push your changes to the remote server. The ``git push`` command must also be used to do this.
 
 
 
