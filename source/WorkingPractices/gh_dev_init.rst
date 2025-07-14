@@ -10,7 +10,7 @@ Create an Issue
 
 .. important::
 
-    It is not guaranteed that opening an Issue will result in action or even visibility by the relevant maintainers or code owners. If you think a team or individual should be aware of an issue, then contact them directly in addition to opening an Issue.
+    It is not guaranteed that opening an issue will result in action or even visibility by the relevant maintainers or code owners. If you think a team or individual should be aware of an issue, then contact them directly in addition to opening an issue.
 
 An Issue in github can be used to document a problem in the codebase or as somewhere to document the development process for a new feature. Sub-Issues can also be created if a large piece of work wants breaking down into smaller sections. If you are working on an Issue, then assign yourself to it so that others know that you are working on it. Issues are created in the Upstream repository.
 
