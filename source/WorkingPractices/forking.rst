@@ -54,7 +54,11 @@ Creating a fork is something that only needs to be done once per upstream reposi
 Maintaining a Fork
 ------------------
 
-Most work to maintain a fork involves syncing it with the upstream repository.
+Most work to maintain a fork involves syncing it with the upstream repository. Syncing a fork will ensure that changes to the upstream repository are copied into the fork. Syncing is done on a per branch basis. For example, after a new release, syncing the ``stable`` branch will ensure the forks ``stable`` branch contains the newly released code.
+
+.. important::
+
+    It is recommended that developers do not modify the synced branches from upstream in their forks as this may cause issues with merge conflicts when syncing a fork. Instead all work should be carried out in a branch.
 
 .. tab-set::
 
@@ -79,5 +83,3 @@ Most work to maintain a fork involves syncing it with the upstream repository.
         .. tip::
 
             When using the gh cli to sync forks, remember that it won't pull the changes to local clone, this needs to be done manually.
-
-It is recommended that developers do not modify the synced branches from upstream in their forks as this may cause issues with merge conflicts when syncing a fork. Instead all work should be carried out in a branch.
