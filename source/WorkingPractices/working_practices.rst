@@ -62,7 +62,7 @@ the process is very comparable to that of the other repositories too.
 Simulation Systems github repositories are setup with at least 2 protected branches, ``stable`` and ``main`` (with the potential for additional version branches to be added).
 
 * ``stable`` - This branch is the default github branch and generally remains unchanged throughout a release cycle. It is the stable point from which new branches should be cut. Only new releases and small hotfixes to a release will be merged back into this branch.
-* ``main`` - This branch is where new development PR's will be merged. It will never be behind the ``stable`` branch, but will regularly be ahead. All PRs should be set to target this branch (more on this later) and a CI check will fail if it isn't. When merge conflicts need fixing for commit, this is the branch that should be merged into the development branch.
+* ``main`` - This branch is where new development pull requests will be merged. It will never be behind the ``stable`` branch, but will regularly be ahead. All pull requests should be set to target this branch (more on this later) and a CI check will fail if it isn't. 
 
 All general development for Simulation Systems Github repos will take place on forks of that repo. It is the responsibility of the developer to maintain their own fork. See :ref:`forking` for advice on forking.
 
