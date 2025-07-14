@@ -18,7 +18,7 @@ An issue in github can be used to document a problem in the codebase or as somew
 
     .. tab-item:: Web Browser
 
-        Navigate to the Issues tab for the relevant **upstream** repo and select the ``New Issue``. Write an suitable title and description, and use the options on the right as desired/appropriate.
+        Navigate to the ``Issues`` tab for the relevant **upstream** repo and select the ``New Issue``. Write an suitable title and description, and use the options on the right as desired/appropriate.
 
         .. image:: images/gh_screenshots/issues_light.png
             :class: only-light
