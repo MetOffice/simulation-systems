@@ -40,7 +40,7 @@ There is no requirement to open an issue before making a pull request, as long a
 Clone the Repository
 --------------------
 
-A clone is a local copy of a repository - you can have a local clone of either an upstream repository or a fork. A clone will have an active branch which will initially be the default branch of the repository upon merging. All other branches in the repository can be accessed using the ``checkout`` command (see below). For general development, you should now get a clone of your fork.
+A clone is a local copy of a repository - you can have a local clone of either an upstream repository or a fork. A clone will have an active branch which will initially be the default branch of the repository. All other branches in the repository can be accessed using the ``checkout`` command (see below). For general development, you should now get a clone of your fork.
 
 .. tip::
 
