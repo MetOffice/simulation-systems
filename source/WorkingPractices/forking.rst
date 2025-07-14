@@ -7,7 +7,7 @@ Creating and Managing Forks
 
     For more information see the `github documentation <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks>`_
 
-Forks are repositories that share code and visibility settings with the upstream repository. They provide a place for development work to take place while allowing the upstream repo to maintain limited write access. Downstream forks can all merge branches with each other as well as with the upstream repository, meaning a PR can be opened to merge a downstream branch into the upstream main.
+Forks are repositories that share code and visibility settings with the upstream repository. They provide a place for development work to take place while allowing the upstream repo to maintain limited write access. Forks can all merge branches with each other as well as with the upstream repository, meaning a pull request can be opened to merge a branch in a fork into the upstream main.
 
 Creating a Fork
 ---------------
