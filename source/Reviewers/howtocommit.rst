@@ -97,7 +97,7 @@ resolve any conflicts.
 
     .. tab-item:: JULES docs
 
-        See :doc:`JULES documentation changes </Development/jules_docs>`
+        See :doc:`JULES documentation changes </WorkingPractices/jules_docs>`
 
 Always merge in the developers **dev** branch, not the **test** branch.
 
@@ -173,6 +173,10 @@ then you will need to upgrade the test-suite.
                 apply_macros.py vnX.Y_tZZZZ [--apps=/path/to/apps] [--core=/path/to/core] [--jules=/path/to/jules]
 
             where `vnX.Y_tZZZZ` is the `AFTER_TAG` of the latest upgrade macro and the others are paths to the relevant sources. Apps defaults to the current location. Core and Jules default to reading the `dependencies.sh` file in the Apps source. A copy of `apply_macros.py` is available at `$UMDIR/SimSys_Scripts/lfric_macros`.
+
+            .. tip::
+
+                ``module load scitools`` will give all required dependencies for Met Office users.
 
             .. note::
 

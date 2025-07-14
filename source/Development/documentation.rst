@@ -8,14 +8,14 @@ Most notably:
 +----------------------------+-----------------------------+-------------------------------------------------+
 | UM Documentation Papers    |`view UM`_                   | `edit UM`_                                      |
 +----------------------------+-----------------------------+-------------------------------------------------+
-| JULES User Guide           |`view JULES`_                | :doc:`edit JULES <jules_docs>`                  |
+| JULES User Guide           |`view JULES`_                | :doc:`edit JULES </WorkingPractices/jules_docs>`|
 +----------------------------+-----------------------------+-------------------------------------------------+
 | LFRic Documentation Papers |`view LFRic`_                | `edit LFRIc`_                                   |
 +----------------------------+-----------------------------+-------------------------------------------------+
 
 LFRic Apps and Core also use doxygen to document the code and all changes should
 include appropriate doxygen changes to go with them. Doxygen guidelines are
-available on the `LFRic Technical pages <https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicTechnical/DoxygenUsage>`_.
+available on the `LFRic Technical pages <https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicTechnical/Documentation/DoxygenUsage>`_.
 
 .. toctree::
     :hidden:
