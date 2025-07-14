@@ -46,11 +46,6 @@ The release cycle is overseen by the Simulation Systems and Deployment Team with
 the oversight and support of the Simulation Systems Governance Group, who
 impartially consider the needs of all developers and users.
 
-..
-    .. note::
-    LFRic doesn't follow the same release process as the other repositories,
-    with continuous testing such that all versions of the LFRic trunk should be
-    valid releases. Periodic milestones are used to help with scheduling of work.
 
 Development Process
 -------------------
@@ -58,8 +53,25 @@ The process of developing a change for each repository is described through thes
 Working Practices. A flowchart of this process for the UM is included below, but
 the process is very comparable to that of the other repositories too.
 
-.. image:: images/UMDWP_no_links.jpg
+.. note::
+
+    In the following Working Practices, we will endeavour to provide options for using the Github Web Interface and the ``gh`` cli where possible. Further information will be available in the github documentation.
+
+    To get started with the ``gh`` cli, see the `gh quickstart guide <https://docs.github.com/en/github-cli/github-cli/quickstart>`_
+
+Simulation Systems github repositories are setup with at least 2 protected branches, ``stable`` and ``main`` (with the potential for additional version branches to be added).
+
+* ``stable`` - This branch is the default github branch and generally remains unchanged throughout a release cycle. It is the stable point from which new branches should be cut. Only new releases and small hotfixes to a release will be merged back into this branch.
+* ``main`` - This branch is where new development pull requests will be merged. It will never be behind the ``stable`` branch, but will regularly be ahead. All pull requests should be set to target this branch (more on this later) and a CI check will fail if it isn't. 
+
+All general development for Simulation Systems Github repos will take place on forks of that repository. It is the responsibility of the developer to maintain their own fork. See :ref:`forking` for advice on forking.
+
+The development cycle can be seen below. ``Upstream`` (blue) refers to parent repository, owned by the MetOffice github organisation. ``Downstream`` (grey) refers to the forked repository, owned by the developer.
+
+.. image:: images/git-dev-strategy.svg
     :class: dark-light
+
+For detailed explanation of these steps, see pages on :ref:`gh_dev_init` and :ref:`reviews`.
 
 Before You Start
 ----------------
@@ -106,8 +118,9 @@ helpful for documenting and monitoring progress of your work.
     :hidden:
     :caption: Working Practices
 
-    tickets
-    branches
+    gh_authorisation
+    forking
+    gh_dev_init
     multi_repository
     approvals
     reviews
