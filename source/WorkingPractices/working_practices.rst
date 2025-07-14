@@ -71,6 +71,8 @@ The development cycle can be seen below. ``Upstream`` (blue) refers to parent re
 .. image:: images/git-dev-strategy.svg
     :class: dark-light
 
+For detailed explanation of these steps, see pages on :ref:`gh_dev_init` and :ref:`reviews`.
+
 Before You Start
 ----------------
 All developments should be planned using a risk-based approach. Before starting,
