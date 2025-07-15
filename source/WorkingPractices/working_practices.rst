@@ -67,7 +67,7 @@ the process is very comparable to that of the other repositories too.
 
     ``Remote``: the version of either the upstream or the forked repository that is hosted by Github.
 
-    ``Clone``: a local copy of the upstream or forked repository.
+    ``Clone``: a local copy of either the upstream or the forked repository.
 
 Simulation Systems github repositories are setup with at least 2 protected branches, ``stable`` and ``main`` (with the potential for additional version branches to be added).
 
