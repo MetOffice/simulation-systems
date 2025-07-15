@@ -62,7 +62,7 @@ the process is very comparable to that of the other repositories too.
 Simulation Systems github repositories are setup with at least 2 protected branches, ``stable`` and ``main`` (with the potential for additional version branches to be added).
 
 * ``stable`` - This branch is the default github branch and generally remains unchanged throughout a release cycle. It is the stable point from which new branches should be cut. Only new releases and small hotfixes to a release will be merged back into this branch.
-* ``main`` - This branch is where new development pull requests will be merged. It will never be behind the ``stable`` branch, but will regularly be ahead. All pull requests should be set to target this branch (more on this later) and a CI check will fail if it isn't. 
+* ``main`` - This branch is where new development pull requests will be merged. It will never be behind the ``stable`` branch, but will regularly be ahead. All pull requests should be set to target this branch (more on this later) and a CI check will fail if it isn't.
 
 All general development for Simulation Systems Github repos will take place on forks of that repository. It is the responsibility of the developer to maintain their own fork. See :ref:`forking` for advice on forking.
 
@@ -71,7 +71,7 @@ The development cycle can be seen below. ``Upstream`` (blue) refers to parent re
 .. image:: images/git-dev-strategy.svg
     :class: dark-light
 
-For detailed explanation of these steps, see pages on :ref:`gh_dev_init` and :ref:`reviews`.
+For detailed explanation of these steps, see pages on :ref:`gh_dev_init` and :ref:`ready_for_review`.
 
 Before You Start
 ----------------
@@ -122,6 +122,5 @@ helpful for documenting and monitoring progress of your work.
     forking
     gh_dev_init
     multi_repository
-    approvals
-    reviews
+    ready_for_review
     final_steps

@@ -129,21 +129,6 @@ Guidance for the code reviewer can be found on the
 
 .. _template:
 
-.. Tip::
-    **Page Templates**
+.. admonition:: todo
 
-    To help with the review process each step has a wiki page template that
-    should be used and filled in. To do this:
-
-    1. Add one of the below lines to the ticket (in either the `associated with` or `description` box), replacing tXXXX with your ticket number
-
-    .. code-block::
-
-       [wiki:ticket/tXXXX/TicketSummary]
-       [wiki:ticket/tXXXX/TicketDetails]
-       [wiki:ticket/tXXXX/SciTechReview]
-       [wiki:ticket/tXXXX/CodeSystemReview]
-
-    2. Click the `preview` button and you will see a greyed out link (as this doesn't yet exist). Click the link this creates to open a new "blank" wiki page.
-    3. Select the appropriate template from the drop down list, then click `Create this page`.
-    4. The page created will contain an appropriate checklist which should be completed by deleting each Y/N/NA and adding comments as appropriate.
+    Check all references to the template reference defined here
