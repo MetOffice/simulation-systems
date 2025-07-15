@@ -69,6 +69,8 @@ the process is very comparable to that of the other repositories too.
 
     ``Clone``: a local copy of either the upstream or the forked repository.
 
+    Further definitions can be found in the `GitHub Glossary <https://docs.github.com/en/get-started/learning-about-github/github-glossary>`_.
+
 Simulation Systems github repositories are setup with at least 2 protected branches, ``stable`` and ``main`` (with the potential for additional version branches to be added).
 
 * ``stable`` - This branch is the default github branch and generally remains unchanged throughout a release cycle. It is the stable point from which new branches should be cut. Only new releases and small hotfixes to a release will be merged back into this branch.
