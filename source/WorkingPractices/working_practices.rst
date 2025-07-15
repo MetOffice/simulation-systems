@@ -65,7 +65,7 @@ the process is very comparable to that of the other repositories too.
 
     ``Fork`` or ``Downstream``: a copy of the upstream repository, owned by the developer. This is where development branches are created and worked on.
 
-    ``Remote``: the version of the upstream or forked repository that is hosted by Github.
+    ``Remote``: the version of either the upstream or the forked repository that is hosted by Github.
 
     ``Clone``: a local copy of the upstream or forked repository.
 
