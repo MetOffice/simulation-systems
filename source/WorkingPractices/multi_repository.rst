@@ -33,12 +33,12 @@ will need testing with both the UM and LFRic Apps to check for any interactions.
 Preparing Linked Tickets
 ------------------------
 Every repository in a set of linked changes requires a ticket. Guidance on
-setting these up can be found in :ref:`ticket`. These tickets will be treated
+setting these up can be found in ticket. These tickets will be treated
 as a group with the same reviewers and committed at the same time.
 
 Do:
     * Make sure every ticket has a cross reference to the others in the set, e.g. ``um:#1234``
-    * Use :ref:`keywords` to show which other repositories are involved
+    * Use keywords to show which other repositories are involved
     * Get the tickets ready for review at the same time
     * Ask for help testing if you don't have access to all the codebases involved
 
