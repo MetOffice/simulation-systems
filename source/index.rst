@@ -9,10 +9,8 @@ Simulation Systems Working Practices
 ====================================
 
 **These pages describe the working practices of the following simulation and
-model codes owned by the Met Office:** `LFRic Applications <https://github.com/MetOffice/lfric_apps>`_,
-`LFRic Core <https://github.com/MetOffice/lfric_core>`_ `UM <https://github.com/MetOffice/um>`_,
-`JULES <https://github.com/MetOffice/jules>`_, `SOCRATES <https://github.com/MetOffice/socrates>`_,
-`CASIM <https://github.com/MetOffice/casim>`_ and `UKCA <https://github.com/MetOffice/ukca>`_.
+model codes owned by the Met Office:** `LFRic Applications`_, `LFRic Core`_, `UM`_, `JULES`_, `SOCRATES`_,
+`CASIM`_ and `UKCA`_.
 
 This includes how to get started, key points on developing your change and how
 to test those developments. There is guidance on making changes that span multiple
@@ -119,3 +117,11 @@ and how to commit to the trunk.
 
 More detailed, project specific, documentation is also available. See the wiki pages in each repository as well as
 the :ref:`docs` page for more information on what is available and how to contribute to it.
+
+.. _LFRic Applications: https://github.com/MetOffice/lfric_apps
+.. _LFRic Core: https://github.com/MetOffice/lfric_core
+.. _UM: https://github.com/MetOffice/um
+.. _CASIM: https://github.com/MetOffice/casim
+.. _JULES: https://github.com/MetOffice/jules
+.. _SOCRATES: https://github.com/MetOffice/socrates
+.. _UKCA: https://github.com/MetOffice/ukca
