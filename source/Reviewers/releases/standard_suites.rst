@@ -13,14 +13,14 @@ For the UM the following Suites must be updated:
 * SCM - `u-aa741 <https://code.metoffice.gov.uk/trac/roses-u/browser/a/a/7/4/1/trunk>`_
 * CreateBC - `u-aa258 <https://code.metoffice.gov.uk/trac/roses-u/browser/a/a/2/5/8/trunk>`_
 
-First get a copy of the UM meta trunk, ``fcm co fcm:um_meta.x_tr /path/to/meta/trunk``. Similarly, get a copy of the Jules at the most recent release. Then upgrade each suite by doing the following,
+First get a copy of the UM meta trunk, ``fcm co fcm:um_meta.x_tr /path/to/meta/trunk``. Similarly, get a copy of Jules at the most recent release. Then upgrade each suite by doing the following,
 
 * Checkout the suite. ``rosie checkout u-xxNNN`` will put a copy in ``~/roses``.
 * Check whether the ``access-list`` in the ``rose-suite.conf`` needs updating - if you are not on it, ask someone to add you now and update your copy once done.
 * Move into the suite and edit the ``rose-suite.conf`` file,
 
   * If it has a ``VN`` setting, update it to the new version.
-  * If it has a ``prebuild`` path, update that now. If there are prebuilds, check the ``flow.cylc`` for any prebuild overrides. These exist particularly on the EXs.
+  * If it has a ``prebuild`` path, update that now. If there are prebuilds, check the ``flow.cylc`` for any prebuild path overrides. These exist particularly on the EXs.
 
 * Validate the existing apps by running,
 
@@ -35,7 +35,7 @@ First get a copy of the UM meta trunk, ``fcm co fcm:um_meta.x_tr /path/to/meta/t
 
     rose app-upgrade -C app/APP -M /path/to/the/meta/trunk vnX.Y
 
-* Finally run the validator macros. If everything is fine the command will do nothing, however the SCM suite will raise some warnings about Openmp and "global rows" - these can be ignored.
+* Finally run the validator macros. If everything is fine the command will report nothing, however the SCM suite will raise some warnings about Openmp and "global rows" - these can be ignored.
 
   .. code-block::
 
@@ -48,11 +48,14 @@ First get a copy of the UM meta trunk, ``fcm co fcm:um_meta.x_tr /path/to/meta/t
     fcm diff -g
     cylc vip
 
-* Once the suite has succeeded, commit the changes with suitable message and note the revision. Then tag the trunk and commit,
+.. _suite_commit:
+
+* Once the suite has succeeded, commit the changes (``fcm ci``) with a suitable message and note the revision it was committed at. Then tag the suite and commit the tag,
 
   .. code-block::
 
     fcm pe fcm:revision .
+    <add tag to resulting editor>
     fcm ci
 
 
@@ -89,6 +92,5 @@ For each suite, do the following:
     * The lfric software stack moves more quickly than the UM, so it is more likely these have changed.
 
 * Test - ``cylc vip``
-* Commit - ``fcm ci``
-* Tag - ``fcm pe fcm:revision .`` and then commit the tag
+* :ref:`Commit and Tag <suite_commit>` the suite once the test suite has succeeded.
 

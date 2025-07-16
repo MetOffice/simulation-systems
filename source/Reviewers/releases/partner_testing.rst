@@ -16,4 +16,4 @@ The partner testing period should be 72 hours (3 working days). All tickets affe
 
 .. important::
 
-    Now is also a good time to ask for the Jules release notes. This is usually done by a member of the Jules community, so email them advising them of the likely release date. As the team for their details if unsure.
+    Now is also a good time to ask for the Jules release notes. This is usually done by a member of the Jules community, so email them advising them of the likely release date. Ask the team for their details if unsure.
