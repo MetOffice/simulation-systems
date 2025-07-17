@@ -36,6 +36,7 @@ An issue in github can be used to document a problem in the codebase or as somew
 
 There is no requirement to open an issue before making a pull request, as long as the change documentation is sufficient. For instance, small changes may not benefit from the separate issue.
 
+.. _clone_repo:
 
 Clone the Repository
 --------------------

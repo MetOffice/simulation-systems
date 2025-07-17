@@ -1,17 +1,9 @@
-.. _ready_for_review:
+.. _pull_requests:
 
-Ready for Review
-================
+Pull Requests
+=============
 
-.. toctree::
-    :maxdepth: 1
-    :hidden:
-    :caption: Reviews
-
-    approvals
-    reviews
-
-Once you are happy with your development and the :ref:`test suites <testing>` pass then you are ready to pass your ticket to review. Tickets usually have 2 levels of review, with the process and advice available on the :ref:`reviews page <reviews>`. You will also require the :ref:`approvals` from any relevant Code Owners.
+Once you are happy with your development and the :ref:`test suites <testing>` pass then you are ready to pass your ticket to review. Reviews in github are done through pull requests.
 
 Opening a Pull Request
 ----------------------
@@ -79,31 +71,61 @@ Continuous Integration is reported on towards the bottom of the pull request con
     :class: only-dark border
 
 
+Updating a branch
+-----------------
+
+Most development work in simulation-systems repositories will take place on a branch created from ``stable``. Therefore it will need to be updated to match the latest changes from ``main`` when a pull request is open. Github provides functionality to do this in the browser, with the ability to fix merge conflicts. Alternatively, you can do this from a terminal using git.
+
+.. important::
+
+    In order to aid the development of scientific suites, the majority of development should be done on a branch from ``stable`` without merging in changes from ``main``. Only when the development has been completed and the pull request is almost ready for commit should you merge in ``main``.
+
+.. tab-set::
+
+    .. tab-item:: Web Browser
+
+        Navigate to the pull request page and locate the branch status box. This is towards the bottom of the conversation. Here, you can select the button to update the branch. If merge conflicts exist, it will take you to a page where these can be fixed.
+
+        .. image:: images/gh_screenshots/update_branch_light.png
+            :class: only-light border
+
+        .. image:: images/gh_screenshots/update_branch_dark.png
+            :class: only-dark border
+
+    .. tab-item:: git commands
+
+        Navigate to your clone and ensure that the branch you wish to update is your active branch,
+
+        .. code-block::
+
+            cd /path/to/clone
+            git checkout <desired-branch>
+
+        The upstream repository of your fork needs to added as a remote source to your git clone. If you made the clone using the ``gh`` cli, this will already have been done. First, check the available remote sources and then if required add the upstream repository.
+
+        .. code-block::
+
+            # List the remote sources.
+            # The fork will be listed as the origin
+            # The upstream repository also needs to be available
+            git remote -v
+
+            # If it doesn't appear, add the upstream repository
+            git remote add upstream <URL>
+
+        The URL for the upstream can be found from the Code button on github (see :ref:`Cloning a Repository <clone_repo>`).
+
+        Once the upstream repository is available, you need to fetch the upstream commit details and then merge the upstream main.
+
+        .. code-block::
+
+            git fetch upstream
+            git merge upstream/main
+
+        If there are any merge conflicts you can now fix these using your conflict tool of choice.
 
 
+Final Steps
+-----------
 
-
-
-
-
-
-
-
-
-
-
-
-
-.. _reviewer_edits:
-
-Code Reviewer Edits
-^^^^^^^^^^^^^^^^^^^
-
-As part of the process to commit certain tickets, code reviewers will sometimes need to commit changes to the branch of a developer. Common reasons for doing this include,
-
-* Updating kgo's
-* Applying upgrade macros
-* Updating commit hashes for linked tickets
-
-The ability to commit back to another users fork is only available to those with ``maintainer`` access or above and they can only do so for branches with an open pull request and the ``Allow edits by maintainers`` option selected.
-
+Ensure that you have found a Sci/Tech reviewer and have had a Code reviewer assigned. See :ref:`reviews` for how to do this. If your pull request is in draft mode, you should now change it to active, indicating it is ready for review.

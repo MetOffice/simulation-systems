@@ -125,6 +125,19 @@ state, ready for commit to the trunk.
 Guidance for the code reviewer can be found on the
 :ref:`Code Review page <code_review>`.
 
+.. _reviewer_edits:
+
+Code Reviewer Edits
+^^^^^^^^^^^^^^^^^^^
+
+As part of the process to commit certain tickets, code reviewers will sometimes need to commit changes to the branch of a developer. Common reasons for doing this include,
+
+* Updating kgo's
+* Applying upgrade macros
+* Updating commit hashes for linked tickets
+
+The ability to commit back to another users fork is only available to those with ``maintainer`` access or above and they can only do so for branches with an open pull request and the ``Allow edits by maintainers`` option selected.
+
 -----
 
 .. _template:

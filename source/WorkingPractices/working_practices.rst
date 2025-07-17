@@ -134,5 +134,7 @@ helpful for documenting and monitoring progress of your work.
     forking
     gh_dev_init
     multi_repository
-    ready_for_review
+    approvals
+    reviews
+    pull_requests
     final_steps
