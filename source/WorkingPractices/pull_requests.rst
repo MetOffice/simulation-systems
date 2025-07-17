@@ -154,11 +154,13 @@ conflicts. Alternatively, you can do this from a terminal using git.
 
         .. code-block::
 
-            # List the remote sources. # The fork will be listed as the origin #
-            The upstream repository also needs to be available git remote -v
+            # List the remote sources.
+            # The fork will be listed as the origin
+            # The upstream repository also needs to be available
+            git remote -v
 
-            # If it doesn't appear, add the upstream repository git remote add
-            upstream <URL>
+            # If it doesn't appear, add the upstream repository
+            git remote add upstream <URL>
 
         The URL for the upstream can be found from the Code button on github
         (see :ref:`Cloning a Repository <clone_repo>`).
@@ -168,7 +170,8 @@ conflicts. Alternatively, you can do this from a terminal using git.
 
         .. code-block::
 
-            git fetch upstream git merge upstream/main
+            git fetch upstream
+            git merge upstream/main
 
         If there are any merge conflicts you can now fix these using your
         conflict tool of choice.
