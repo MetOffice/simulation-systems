@@ -83,7 +83,7 @@ The development cycle can be seen below.
 .. image:: images/git-dev-strategy.svg
     :class: dark-light
 
-For detailed explanation of these steps, see pages on :ref:`gh_dev_init` and :ref:`ready_for_review`.
+For detailed explanation of these steps, see pages on :ref:`gh_dev_init` and :ref:`pull_requests`.
 
 Before You Start
 ----------------
