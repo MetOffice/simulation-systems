@@ -145,7 +145,8 @@ conflicts. Alternatively, you can do this from a terminal using git.
 
         .. code-block::
 
-            cd /path/to/clone git checkout <desired-branch>
+            cd /path/to/clone
+            git checkout <desired-branch>
 
         The upstream repository of your fork needs to added as a remote source
         to your git clone. If you made the clone using the ``gh`` cli, this will
