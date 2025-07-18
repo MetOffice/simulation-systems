@@ -27,7 +27,7 @@ To test the UM, any changes to JULES, UKCA, Socrates, CASIM etc will also need
 to be included. This is done by adding another source to the rose stem command
 line.
 
-1. Checkout` a UM working copy
+1. Checkout a UM working copy
     - this may be your branch from a linked ticket, or a clean trunk copy
       at either the last release or a suitable head of trunk revision.
 
@@ -89,7 +89,7 @@ these paths can either be to local changes or those in the repository.
     cylc play <working copy name>
     cylc gui
 
-More details on LFRic Apps testing are found on the 
+More details on LFRic Apps testing are found on the
 :ref:`Testing LFRic Apps page<lfric_apps_test>`.
 
 .. note::

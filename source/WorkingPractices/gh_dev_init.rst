@@ -21,10 +21,10 @@ An issue in github can be used to document a problem in the codebase or as somew
         Navigate to the ``Issues`` tab for the relevant **upstream** repo and select the ``New Issue``. Write an suitable title and description, and use the options on the right as desired/appropriate.
 
         .. image:: images/gh_screenshots/issues_light.png
-            :class: only-light
+            :class: only-light border
 
         .. image:: images/gh_screenshots/issues_dark.png
-            :class: only-dark
+            :class: only-dark border
 
     .. tab-item:: gh cli
 
@@ -36,6 +36,7 @@ An issue in github can be used to document a problem in the codebase or as somew
 
 There is no requirement to open an issue before making a pull request, as long as the change documentation is sufficient. For instance, small changes may not benefit from the separate issue.
 
+.. _clone_repo:
 
 Clone the Repository
 --------------------
@@ -61,10 +62,10 @@ A clone is a local copy of a repository - you can have a local clone of either a
         The ``URL`` can be found from github,
 
         .. image:: images/gh_screenshots/clone_button_light.png
-            :class: only-light
+            :class: only-light border
 
         .. image:: images/gh_screenshots/clone_button_dark.png
-            :class: only-dark
+            :class: only-dark border
 
         selecting the url as desired.
 
