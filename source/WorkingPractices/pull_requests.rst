@@ -38,14 +38,14 @@ check are the target and source branches for the pull requests.
 You have 4 options to consider.
 
 * ``base repository`` - This is the repository where the pull request will be
-  merged into. It is almost certainly the upstream repository you forked from.
+  merged into. It will be upstream repository you forked from.
 * ``base`` - This is the branch in the ``base repository`` where the pull
   request will be merged into. It will default to the repositories default
   branch. However, most pull requests to simulation systems repositories will be
   targetting ``main``, so make sure to change that here (it can be done later if
   forgotten).
 * ``head repository`` - This is the repository where the pull request changes
-  are coming from. It is almost certainly your fork.
+  are coming from - it will be your forked repository.
 * ``compare`` - This is the branch in the ``head repository`` containing
   proposed changes. It will be the branch you switched to above, but this can be
   changed now. It is **not** possible to edit this once the pull request has
@@ -73,8 +73,8 @@ is selected (see :ref:`reviewer_edits` for details).
 
 
 Once you are happy with the pull request details open the pull request.
-Initially you should do this in draft mode, to allow you time to do any final
-fixes based on continuous integration.
+Initially you can choose to do this in draft mode, to allow you time to do any
+final fixes based on continuous integration. If you use draft mode mark the pull request as ``ready for review`` once you are satisfied.
 
 Continuous Integration
 ----------------------
@@ -89,7 +89,7 @@ styling.
 
     CI tests will not run any atmosphere or integration models of simulation
     system code as these are too computationally expensive. These tests are run
-    as part of the :ref:`rose-stem suites <testing>`. Most of the tests run by
+    as part of the :ref:`rose-stem suites <testing>`. Some of the tests run by
     the continuous integration are also run as part of the rose-stem suites.
 
 Continuous Integration is reported on towards the bottom of the pull request

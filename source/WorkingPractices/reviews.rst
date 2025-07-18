@@ -132,7 +132,7 @@ Code Reviewer Edits
 
 As part of the process to commit certain tickets, code reviewers will sometimes need to commit changes to the branch of a developer. Common reasons for doing this include,
 
-* Updating kgo's
+* Updating KGO's
 * Applying upgrade macros
 * Updating commit hashes for linked tickets
 
