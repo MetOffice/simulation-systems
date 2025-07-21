@@ -2,6 +2,11 @@
 
 Input Variables, Rose Metadata and Upgrade Macros
 =================================================
+
+.. important::
+
+    New UM Ancils must be submitted to the MIAO team for approval. Please follow their process for `Requesting New UM Ancils <https://code.metoffice.gov.uk/trac/ancil/wiki/ANTS/ProjectManagement/updating_UMDIR>`_.
+
 Sometimes the developer needs to alter model namelists and input variables.
 A common reason is for the inclusion of a new piece of code which has to be
 turned off by default.
@@ -34,6 +39,8 @@ The project metadata can be found in the following locations:
 
         ``vnXX.Y_<branch_name>/<sub-module>/rose-meta/*/HEAD/rose-meta.conf``
 
+In addition to the above locations, the rose metadata is centrally mirrored on Met Office systems. This means that metadata that has been committed to the trunk can be accessed without a working copy. This may be of use when upgrading scientific suites between versions.
+
 All new namelist variables need a new entry so that the metadata loads into the
 Rose GUI for users to switch it on. Additionally, sometimes the metadata needs
 to be modified without changing a namelist variable. Guidance for updating the
@@ -53,7 +60,7 @@ metadata :ref:`is available <metadata_guidance>`.
   work with the model.
 
 Changes to the metadata which don't involve namelist changes may or may not
-require an upgrade macro. If you are unsure whether a UM change needs an
+require an upgrade macro. If you are unsure whether a change needs an
 upgrade macro, then run the following command on your branch:
 
 .. code-block::
@@ -63,10 +70,40 @@ upgrade macro, then run the following command on your branch:
 If all of the tests pass then there is no requirement to add an upgrade macro.
 If any of the metadata tests fail, then the developer should add a blank upgrade
 macro which contains no upgrade commands but simply points the rose stem suite
-to the new metadata.
+to the new metadata. The SSD team are also available to advise on whether an upgrade macro is necessary.
 
-..
-  The above should probably be extended to LFRic eventually.
+.. tip::
+
+  When editing metadata you should always check that the new metadata appears as expected in the gui, including testing that invalid settings raise appropriate warnings. The command to open the gui is in general:
+
+  .. code-block::
+
+    rose edit -C rose-stem/app/APP-NAME
+
+  For LFRic Apps a few extra changes are required. In your branch (your test branch if you have an upgrade macro):
+
+  .. code-block::
+
+    cd rose-meta
+    rose edit -C rose-stem/app/APP-NAME --no-warn version
+
+  If you have a linked LFRic Core or Jules ticket with metadata changes, you can load their metadata by adding ``-M /path/to/working_copy/rose-meta`` to the ``rose-edit`` command.
+
+
+Adding a new LFRic Metadata Section
+-----------------------------------
+
+Due to the way lfric metadata is shared, if a new LFRic metadata section is added, then a few new files are added. A new LFRic metadata section here is defined as a new directory within an existing or new ``rose-meta`` directory. Adding a new metadata section requires:
+
+* ``rose-meta/META-NAME/HEAD/rose-meta.conf``
+* ``rose-meta/META-NAME/vnX.Y/rose-meta.conf`` (where ``X.Y`` is the most recent released version)
+* ``rose-meta/META-NAME/versions.py``
+* A symlink from the top-level rose-meta directory to the new directory (see existing ones for examples)
+
+The ``vnX.Y`` and ``HEAD`` metadata should be identical for this initial ticket, other than any import statements, which should point at vnX.Y or HEAD respectively. Other ``vnX.Y`` and ``versionAB_CD.py`` files shouldn't be modified or added (these are a snapshot of the metadata at a release).
+
+If a new rose-stem app using the new metadata is also being added, then a "blank" upgrade macro will also need to be added with a ``BEFORE_TAG=vnX.Y`` and a standard ``AFTER_TAG=vnX.Y_tTTTT``. This upgrade macro will allow the new app to be updated to the Head metadata when the branch is merged to trunk. The ``rose-app.conf`` for this app will require a metadata import line of format, ``meta=META-NAME/vnX.Y``.
+
 
 How to add an upgrade macro to your branch
 ------------------------------------------

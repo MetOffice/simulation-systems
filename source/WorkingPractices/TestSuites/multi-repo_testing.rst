@@ -5,9 +5,9 @@ Multi-Repository Testing
 
 Multi-repository changes are expected to pass the regression tests for all the
 repositories involved. To carry out the tests involved in a linked ticket it can
-be helpful to refer to the :ref:`semi-concentric circles figure <multirepo>`; layering the testing
-from the inside out as needed. Further details of how testing in each
-repository is handled can be found :ref:`here <testing>`. Compatible
+be helpful to refer to the :ref:`repository figure <multirepo>`; testing both
+child and parent repositories as needed. Further details of how testing in each
+repository is handled can be found on the :ref:`Testing page<testing>`. Compatible
 code revisions are needed for testing across repositories as described above.
 
 Testing changes in JULES, LFRic Core, UKCA, or any other child repositories is
@@ -17,7 +17,7 @@ as simple as running the standalone test procedures for these codebases.
 
     When specifying an alternative source in the ``dependencies.sh`` file the revision for the source **must** be updated.
 
-    * If setting the source as an fcm URL, the mirror needs to be used and the revision can either be blank (for latest commit) or any valid revision for that branch.
+    * If setting the source as an fcm URL, the mirror (``.xm_``) needs to be used and the revision can either be blank (for latest commit) or any valid revision for that branch.
     * If setting the source as a Working Copy, the hostname needs to be provided (as Hostname:Path) and the revision must be blank.
 
 Testing the UM with other repositories
@@ -62,8 +62,8 @@ these paths can either be to local changes or those in the repository.
     lfric_core_rev=
     lfric_core_sources=fcm:lfric.xm_br/path/to/branch
 
-    um_rev=
-    um_sources=vldXXX:/path/to/um/working/copy
+    casim_rev=
+    casim_sources=vldXXX:/path/to/casim/working/copy
 
 3a. Run the lfric_atm developer test-suite
 
@@ -89,7 +89,8 @@ these paths can either be to local changes or those in the repository.
     cylc play <working copy name>
     cylc gui
 
-More details on LFRic Apps testing are found :ref:`here<lfric_apps_test>`.
+More details on LFRic Apps testing are found on the 
+:ref:`Testing LFRic Apps page<lfric_apps_test>`.
 
 .. note::
     If any of the testing shows up failures then there are two possible ways to

@@ -79,12 +79,12 @@ commands, noting that ``--jules-path`` is only required if you have
 +-------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | JULES | ``./bin/upgrade_jules_test_apps vnX.X_tXXXX``                                                                                                                                |
 +-------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| LFRic | ``apply_macros.py vnX.Y_tZZZZ [--apps=/path/to/apps] [--core=/path/to/core] [--jules=/path/to/jules]``                                                                       |
++-------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-..
-    | LFRic | *Macro capabilities are currently in development*                                                                                              |
-    +-------+------------------------------------------------------------------------------------------------------------------------------------------------+
+.. tip::
 
-.. todo: add an LFRic upgrade macro command... and make these more consistent?
+    The `apply_macros.py` script is located in the `SimSys_Scripts github repo <https://github.com/MetOffice/SimSys_Scripts>`_ (at meto an up to date clone is available in $UMDIR/SimSys_Scripts).
 
 .. warning::
    Please ensure that Cylc7 is used with `update_all.py` @vn13.5. This is fixed at HoT and either Cylc7 or Cylc8 can be used.

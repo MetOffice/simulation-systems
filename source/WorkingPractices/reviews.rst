@@ -96,7 +96,8 @@ fill in a :ref:`SciTech Review Checklist <template>` which makes sure all
 aspects of the ticket are considered. Once the reviewer is satisfied, they will
 pass the ticket on to code/system review.
 
-Guidance for the SciTech reviewer can be found :ref:`here <scitech_review>`.
+Guidance for the SciTech reviewer can be found on the 
+:ref:`SciTech review page <scitech_review>`.
 
 .. _codereview:
 
@@ -119,7 +120,8 @@ will be needed in this case.
 Once the code reviewer is satisfied they will move the ticket into the `approved`
 state, ready for commit to the trunk.
 
-Guidance for the code reviewer can be found :ref:`here <code_review>`.
+Guidance for the code reviewer can be found on the 
+:ref:`Code Review page <code_review>`.
 
 -----
 

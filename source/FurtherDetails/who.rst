@@ -71,7 +71,7 @@ Sci/Tech Reviewer
 
 A Sci/Tech reviewer is assigned for every ticket and comprises the first stage
 of review that considers the change as a whole. Further details are linked from
-the Working Practices :ref:`here <scitech>`. In some cases, the reviewer can
+the :ref:`Working Practices page<scitech>`. In some cases, the reviewer can
 delegate parts of the work to another person.
 
 Reviews should be turned around on a reasonable timescale and follow the SciTech
@@ -87,7 +87,7 @@ Code Reviewer
 -------------
 
 The Code Reviewer performs the 2nd stage of review for every ticket.
-Further details are described :ref:`here <codereview>`.
+Further details are described :ref:`Working Practices page<codereview>`.
 
 Reviews should be turned around on a reasonable timescale and follow the Code
 Review guidance.
@@ -151,8 +151,7 @@ performance of the UM, LFRic and other systems.
 
 The team can be contacted at Sci_Weath_hpc_opt@metoffice.gov.uk.
 
-Partnerships Team
------------------
+Momentum Partnership Team
+-------------------------
 
-The partnerships team are responsible for engagement and support with users and
-developers outside the Met Office.
+The Momentum Partnership Team is responsible for engagement and support with users and developers at Core and Associate `Momentum Partner <https://www.metoffice.gov.uk/research/approach/collaboration/momentum-partnership>`_ organisations. The team can be contacted at momentum_partnership@metoffice.gov.uk.

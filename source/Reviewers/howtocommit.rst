@@ -1,7 +1,7 @@
 .. _howtocommit:
 
-How To Commit
-=============
+Merge, Test & Commit
+====================
 
 The process for committing a ticket follows this sequence with details for each of these steps outlined below.
 
@@ -12,8 +12,7 @@ The process for committing a ticket follows this sequence with details for each 
     Before You Start:
       * Is anyone else committing?
 
-        * `Trunk Status`_ is used to coordinate trunk commits for UM, JULES, LFRic Apps and UKCA.
-        * LFRic Core Trunk commits are coordinated through the dashboard in the Model Systems Teams Chat.
+        * `Trunk Status`_ is used to coordinate trunk commits all projects.
         * Simple, not conflicting commits can be done in parallel if reviewers all agree.
         * Changes with KGO or Macros usually require sole access to the trunk.
       * Check how many commits have happened today. Suggested limit per day, per repository is 4.
@@ -167,6 +166,22 @@ then you will need to upgrade the test-suite.
             where `vnX.Y_tZZZZ` is the `AFTER_TAG` of the latest upgrade macro.
             The upgrade is expected to fail for the `fab_jules`, `metadata_checker` and `umdp3_checker` apps.
 
+        .. tab-item:: LFRic Apps + Core
+
+            .. code-block:: RST
+
+                apply_macros.py vnX.Y_tZZZZ [--apps=/path/to/apps] [--core=/path/to/core] [--jules=/path/to/jules]
+
+            where `vnX.Y_tZZZZ` is the `AFTER_TAG` of the latest upgrade macro and the others are paths to the relevant sources. Apps defaults to the current location. Core and Jules default to reading the `dependencies.sh` file in the Apps source. A copy of `apply_macros.py` is available at `$UMDIR/SimSys_Scripts/lfric_macros`.
+
+            .. tip::
+
+                ``module load scitools`` will give all required dependencies for Met Office users.
+
+            .. note::
+
+                All LFRic Core tickets with macros are expected to be linked with LFRic Apps, though they may not have required an LFRic Apps development branch (although an Apps ticket should be provided). This is fine - if there is no LFRic Apps branch just checkout the LFRic Apps trunk. Then run the apply_macros script as described above and this will share the upgrade macro across both LFRic Apps and LFRic Core as needed.
+
 .. dropdown:: New rose-stem app?
 
     If the ticket introduces a new rose-stem app, but doesn't otherwise have a macro
@@ -192,11 +207,12 @@ then you will need to upgrade the test-suite.
             rose macro --validate -M path/to/working_copy/rose-meta
 
     .. note::
-       For UM tickets, if there are linked `jules-shared
-       <https://code.metoffice.gov.uk/trac/jules/browser/main/trunk/rose-meta/jules-shared>`_
-       metadata changes these will need to be added to the metadata
-       path. Please see the :ref:`rose config-edit
-       example<metadata_changes>`.
+
+        LFRic Apps tickets will require an LFRic Core source to use. You can do this by checking out an appropriate working copy, and exporting the environment variable `ROSE_META_PATH=/path/to/core`.
+
+        For UM tickets, if there are linked `jules-shared
+        <https://code.metoffice.gov.uk/trac/jules/browser/main/trunk/rose-meta/jules-shared>`_
+        metadata changes then a suitable Jules source will need to be included in the `ROSE_META_PATH` as described above.
 
 
 .. dropdown:: Temporary Logical?
@@ -213,7 +229,8 @@ even trivial tickets to check that the merge has not caused issues, or that ther
 are no clashes with what else has gone on trunk.
 
 .. note::
-    Linked tickets will need to be tested together as discussed :ref:`here <tesinglinked>`.
+    Linked tickets will need to be tested together as discussed
+    on the :ref:`Committing Linked Tickets page<testinglinked>`.
 
 .. tab-set::
 
@@ -285,7 +302,11 @@ are no clashes with what else has gone on trunk.
 
         .. code-block::
 
-            make test-suite
+            export CYLC_VERSION=8
+
+            rose stem --group=developer
+
+            cylc play <working copy name>
 
     .. tab-item:: UM docs
 
@@ -321,11 +342,13 @@ are no clashes with what else has gone on trunk.
 
 
 
-4. KGO (if required)
---------------------
+4. KGO & Supporting Data (if required)
+--------------------------------------
 
 **If** your change is known to alter answers, you need to update rose-stem KGO
 for all affected tests before you commit to the trunk.
+
+Supporting data is stored in the filesystems of our machines and changes to use will require the reviewer to update those files (BIG DATA).
 
 *NB: These instructions are Met Office specific, other sites may manage their KGO differently*
 
@@ -375,9 +398,9 @@ for all affected tests before you commit to the trunk.
 
         .. dropdown:: More details on KGO update script
 
-            * This script will login as `frum` and `umadmin` as needed
+            * This script will login as the relevant admin user as needed
             * After running for a platform, the newly created variables.rc and
-              shell script will be moved to SPICE ~frum/kgo_update_files/<new_kgo_directory>.
+              shell script will be moved to SPICE $UMDIR/kgo_update_files/<new_kgo_directory>.
             * The script is hard coded to always go to the xce (only 1 is
               required of xce and xcf). After running here it will rsync the kgo
               directory to xcs automatically.
@@ -405,54 +428,17 @@ for all affected tests before you commit to the trunk.
 
     .. tab-item:: JULES
 
-        1. Run the standalone rose-stem with housekeeping switched off to generate new KGO.
+        1. Run the standalone rose-stem with housekeeping switched off to generate new KGO. Do this once on old spice and once on new spice (the `all` group launches on different platforms from each spice)
 
         .. code-block::
 
-            rose stem --group=all,ex1a --source=. -S HOUSEKEEPING=false --new
+            rose stem --group=all --source=. -S HOUSEKEEPING=false
+            cylc play <name-of-suite>
 
         2. Update KGO_VERSION in `rose-stem/include/variables.rc`.
         3. Copy the new KGO to the correct locations:
 
-        .. code-block:: RST
-
-            ssh -Y frum@localhost
-            KGO_VERSION=vnX.X_txxxx
-            USER_NAME=<user>
-            SUITE=<suite>
-
-            # Copy Linux output to the KGO location for Linux
-            KGO_DIR=/project/jules/rose-stem/jules-kgo/$KGO_VERSION; mkdir -p $KGO_DIR && cp ~$USER_NAME/cylc-run/$SUITE/work/1/meto_linux_*/output/* $KGO_DIR
-
-            # Copy Cray output to the KGO location for the Cray
-            # If something goes wrong with the copy, try passing the full path (eg. /home/d01/USER/), not just ~$USER_NAME
-            ssh -Y xcel00
-            KGO_VERSION=vnX.X_txxxx
-            USER_NAME=<user>
-            SUITE=<suite>
-            KGO_DIR=/projects/jules/rose-stem-kgo/$KGO_VERSION; mkdir -p $KGO_DIR && cp ~$USER_NAME/cylc-run/$SUITE/work/1/meto_xc40_*/output/* $KGO_DIR
-
-            # DON'T forget the xcs!!!
-            rsync -avz $KGO_DIR xcslr0:/projects/jules/rose-stem-kgo/
-
-            exit
-            # check the xcslr0
-            ssh -Y xcslr0
-            KGO_VERSION=vnX.X_txxxx
-            KGO_DIR=/projects/jules/rose-stem-kgo/$KGO_VERSION
-            ls $KGO_DIR
-            exit
-
-            # Copy EXZ output to the KGO location for EXZ (note <USERNAME> format is firstname.surname!)
-            # If something goes wrong with the copy, try passing the full path (eg. /home/users/USER/), not just ~$USER_NAME
-            ssh -Y login.exz
-            KGO_VERSION=vnX.X_txxxx
-            USER_NAME=<user>
-            SUITE=<suite>
-            KGO_DIR=/common/jules/rose-stem-kgo/$KGO_VERSION; mkdir -p $KGO_DIR && cp ~$USER_NAME/cylc-run/$SUITE/work/1/meto_ex1a_*/output/* $KGO_DIR
-
-            # DON'T forget the exa!!!
-            rsync -avz $KGO_DIR login.exa.sc:/common/internal/jules/rose-stem-kgo/
+            `JULES KGO commands <https://code.metoffice.gov.uk/trac/jules/wiki/KGOInstall>`_
 
         4. Rerun the rose-stem tests to make sure nothing is broken.
 
@@ -465,7 +451,9 @@ for all affected tests before you commit to the trunk.
         latter case, the update will need redoing by the reviewer before commit
         if there are merge conflicts in the checksum files.
 
-        1. Run the rose stem tasks that require a KGO update, plus any other testing required (see above) - if unsure run the `all` group.
+        1. Fix any merge conflicts in the checksums - it shouldn't matter which merge option is selected as you will be overwriting these checksum files again in the following steps.
+
+        2. Run the rose stem tasks that require a KGO update, plus any other testing required (see above) - if unsure run the `all` group.
 
         .. code-block:: RST
 
@@ -473,7 +461,9 @@ for all affected tests before you commit to the trunk.
             rose stem --group=all
             cylc play <suite name>
 
-        2. Run the checksum update script stored in `<working copy>/rose-stem/bin`.
+        3. Ensure the failing KGO's match those on the branch.
+
+        4. Run the checksum update script stored in `<working copy>/rose-stem/bin`.
 
         .. code-block::
 
@@ -485,11 +475,10 @@ for all affected tests before you commit to the trunk.
 
         .. note::
               The numbered run directory must be included in the suite name, eg. `name-of-suite/run1`.
-              
 
-        3. Verify the checksums updated properly by retriggering the failed checksums. First retrigger
+        5. Verify the checksums updated properly by retriggering the failed checksums. First retrigger
         ``export-source``, and then when complete ``export-source_xc40`` if new checksums are present
-        there (there is no need to retigger spice). You may need to change the maximum window extent 
+        there (there is no need to retigger spice). You may need to change the maximum window extent
         of the gui in order to see the succeeded tasks. Now you can retrigger the failed checksums -
         these should now pass if the kgo was updated in the working copy correctly.
 
@@ -515,6 +504,71 @@ for all affected tests before you commit to the trunk.
     failed for other reasons (e.g. timeout) then these should be re-triggered
     before attempting to install the KGO files.
 
+4.1 Managing BIG DATA
+^^^^^^^^^^^^^^^^^^^^^^
+
+Static input data, such as initialisations and ancilliaries, are required by many tests.
+
+.. tab-set::
+
+    .. tab-item:: LFRic apps
+
+        LFRic apps tests use a BIG_DATA_DIR environment variable to provide a
+        platform based path prefix to provide direct access to data required for tests.
+
+        The master copy of this is held on Azure Spice at `/data/users/lfricadmin/data/`.
+
+        .. dropdown:: cron sync
+
+            A `cron` job is run daily at 04:30 utc on Azure Spice as the `lfricadmin` user,
+            which runs the script:
+
+            https://github.com/MetOffice/lfric_tools/tree/main/bigData/rsyncBigData.sh
+
+            from
+
+            .. code-block:: RST
+
+                /home/users/lfricadmin/bigDataManagement/rsyncBigData.sh
+
+            This script synchronises the content of `/data/users/lfricadmin/data/` from Azure Spice to `EXAB` and `EXCD`,
+            deleting all content not in Azure Spice BIG_DATA from the remote locations and updating any changed content.
+
+        This BIG_DATA_DIR is not versioned nor source controlled on any platform.
+        Care is required. The ability to log in as the `lfricadmin` user is required, e.g. via
+
+        .. code-block:: RST
+
+            sudo -u lfricadmin -i
+
+As reviewer, you should work with the developer, prior to moving to the commit stage, to:
+
+#. Place new files in the appropriate location on Azure Spice under `/data/users/lfricadmin/data/`
+#. Run relevant tests on Azure Spice.
+#. Wait for the daily `cron` job to run to synchronise data between Azure Spice and `EXAB` + `EXCD`.
+#. Ensure that you are in charge of the trunk for the repositories involved.
+#. Update your working copy if other commits have happened.
+#. Rerun relevant tests
+
+If the requirement is to update existing files, then further care is required.
+
+#. Ensure that you are in charge of the in charge of the trunk for the repositories involved.
+#. Retain a temporary copy of the existing files, using a `.old` suffix.
+#. Place updated files in the appropriate location on Azure Spice under `/data/users/lfricadmin/data/`
+#. Run all tests on Azure Spice only
+
+    - revert changes immediately if there are any issues, and consult with the developer.
+
+#. Manually trigger the synchronisation script to synchronise data between platforms
+
+    - Waiting for the daily `cron` job to run can introduce a misalignment or race condition for scheduled testing.
+
+#. Rerun relevant tests on EX machines
+
+    - revert changes immediately if there are any issues, and consult with the developer.
+
+#. Remove any `.old` files that you created on Azure Spice.
+
 5. Commit
 ---------
 
@@ -536,23 +590,11 @@ Commit the change to the trunk
 
 An editor will open requesting a log message which should be in this format:
 
-.. tab-set::
+.. code-block::
 
-    .. tab-item:: All others
+    #ticket_number : Author : Ticket title
 
-        .. code-block::
-
-            #ticket_number : Author : Ticket title
-
-        where author is the SRS username of the developer - usually the Reported By field on the ticket.
-
-    .. tab-item:: LFRic Core
-
-        .. code-block::
-
-            #<ticket number> for <original author>: <ticket title>
-
-        where original author is the dveloper's proper name.
+where author is the SRS username of the developer - usually the Reported By field on the ticket.
 
 .. note::
      New!! Remove any **blocks:** and **blockedby:** keywords from this ticket and any referenced. Comment on any unblocked tickets to alert the developers.
@@ -605,12 +647,13 @@ If something is broken:
 
         where revision 1 and 2 are the initial copy and the last change to the branch to be committed.
 
+.. tip:: **Logging in as an admin user**
 
-.. tip:: **Logging in as frum**
+    * To access the admin account you'll need to be added to the admin-access list by an admin-owner. This is managed through Active Directory
+    * When logged in to your linux desktop run ``xsudo -iu <ADMIN-USERNAME>``.
+    * You can then access other machines as the admin user via ``ssh -Y <HOSTNAME>``.
 
-    * To access the frum account your ssh key will need to be added to frum authorised keys.
-    * When logged in to your linux desktop run ``ssh -Y frum@localhost`` and this will log you in as frum.
-      At this point you will be in UMDIR on the platform SPICE. You can then access frum on other machines via ssh -Y <HOSTNAME>.
-    * Apart from on SPICE the frum home directories and UMDIR are separate. XCE/F share the same UMDIR and the UMDIR on XCS is kept in sync with this one.
 
-.. _Trunk Status: https://code.metoffice.gov.uk/trac/um/wiki/TrunkStatus
+
+
+.. _Trunk Status: https://code.metoffice.gov.uk/trac/lfric_apps/wiki/TrunkStatus
