@@ -21,10 +21,10 @@ Creating a fork is something that only needs to be done once per upstream reposi
         First navigate to the upstream repository you wish to fork. Then select the fork button.
 
         .. image:: images/gh_screenshots/fork_button_light.png
-            :class: only-light
+            :class: only-light border
 
         .. image:: images/gh_screenshots/fork_button_dark.png
-            :class: only-dark
+            :class: only-dark border
 
         On the next page you can rename your fork if desired and select which branches to fork - ensure this box is unticked to fork all branches.
 
@@ -33,10 +33,10 @@ Creating a fork is something that only needs to be done once per upstream reposi
             Ensure the option to only clone the default branch is unticked.
 
         .. image:: images/gh_screenshots/fork_page_light.png
-            :class: only-light
+            :class: only-light border
 
         .. image:: images/gh_screenshots/fork_page_dark.png
-            :class: only-dark
+            :class: only-dark border
 
     .. tab-item:: gh cli
 
@@ -67,10 +67,10 @@ Most work to maintain a fork involves syncing it with the upstream repository. S
         Navigate to your fork in github that you wish to sync. Select the ``Sync Fork`` button and if required, update the branch. This will only sync the branch you are currently on - to sync other branches select one from the branch dropdown menu. You may want to sync both ``stable`` and ``main``, particularly at a release.
 
         .. image:: images/gh_screenshots/sync_fork_light.png
-            :class: only-light
+            :class: only-light border
 
         .. image:: images/gh_screenshots/sync_fork_dark.png
-            :class: only-dark
+            :class: only-dark border
 
     .. tab-item:: gh cli
 
