@@ -38,7 +38,7 @@ check are the target and source branches for the pull requests.
 You have 4 options to consider.
 
 * ``base repository`` - This is the repository where the pull request will be
-  merged into. It will be upstream repository you forked from.
+  merged into. It will be the upstream repository you forked from.
 * ``base`` - This is the branch in the ``base repository`` where the pull
   request will be merged into. It will default to the repositories default
   branch. However, most pull requests to simulation systems repositories will be
