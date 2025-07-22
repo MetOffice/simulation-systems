@@ -33,85 +33,30 @@ The process for committing a ticket follows this sequence with details for each 
         committinglinkedtickets
         nightlytesting
 
-1. Merge
---------
+1. Merge in main and Clone Branch
+---------------------------------
 
-Check out the trunk, merge the changes from the branch into that trunk copy and
-resolve any conflicts.
+.. note::
 
-.. tab-set::
+    If this is a linked ticket, then do these steps for all pull requests
 
-    .. tab-item:: UM
+Ensure that the source branch is :ref:`up to date with main <updating_branch>`.
+Only resolve conflicts that appear simple and you are comfortable with. If there
+are more complicated conflicts ask the developer to solve them themselves. If
+there are conflicts in versions.py then see the details in the macro section
+below.
 
-        .. code-block:: RST
+Then checkout the up to date branch, eg.
 
-            fcm co fcm:um.x_tr chosen_name
-            cd chosen_name
-            fcm merge fcm:um.x_br/dev/dev_name/branch_name
-            fcm cf
+.. code-block::
 
-    .. tab-item:: JULES
-
-        .. code-block:: RST
-
-            fcm co fcm:jules.x_tr chosen_name
-            cd chosen_name
-            fcm merge fcm:jules.x_br/dev/dev_name/branch_name
-            fcm cf
-
-    .. tab-item:: UKCA
-
-        .. code-block:: RST
-
-            fcm co fcm:ukca.x_tr chosen_name
-            cd chosen_name
-            fcm merge fcm:ukca.x_br/dev/dev_name/branch_name
-            fcm cf
-
-    .. tab-item:: LFRic Apps
-
-        .. code-block:: RST
-
-            fcm co fcm:lfric_apps.x_tr chosen_name
-            cd chosen_name
-            fcm merge fcm:lfric_apps.x_br/dev/dev_name/branch_name
-            fcm cf
-
-    .. tab-item:: LFRic Core
-
-        .. code-block:: RST
-
-            fcm co fcm:lfric.x_tr chosen_name
-            cd chosen_name
-            fcm merge fcm:lfric.x_br/dev/dev_name/branch_name
-            fcm cf
-
-    .. tab-item:: UM docs
-
-        .. code-block:: RST
-
-            fcm co fcm:um_doc.x_tr chosen_name
-            cd chosen_name
-            fcm merge fcm:um_doc.x_br/dev/dev_name/branch_name
-            fcm cf
-
-    .. tab-item:: JULES docs
-
-        See :doc:`JULES documentation changes </Development/jules_docs>`
-
-Always merge in the developers **dev** branch, not the **test** branch.
-
-Only resolve `conflicts <http://metomi.github.io/fcm/doc/user_guide/code_management.html#svn_basic_conflicts>`_
-that appear simple and you are comfortable with. If there are more complicated
-conflicts ask the developer to create a head of trunk branch to resolve the
-conflicts themselves and retest the changes.
-
-If there are conflicts in versions.py then see the details in the macro section below.
+    gh repo clone <developer>/<fork_name> <clone_name> -- -b <branch_name>
 
 2. Macros (if required)
 -----------------------
-**If** the ticket includes metadata changes, upgrade macro changes or a new rose-stem app
-then you will need to upgrade the test-suite.
+
+**If** the ticket includes metadata changes, upgrade macro changes or a new
+rose-stem app then you will need to upgrade the test-suite.
 
 .. dropdown:: versions.py
 
@@ -182,6 +127,12 @@ then you will need to upgrade the test-suite.
 
                 All LFRic Core tickets with macros are expected to be linked with LFRic Apps, though they may not have required an LFRic Apps development branch (although an Apps ticket should be provided). This is fine - if there is no LFRic Apps branch just checkout the LFRic Apps trunk. Then run the apply_macros script as described above and this will share the upgrade macro across both LFRic Apps and LFRic Core as needed.
 
+    .. important::
+
+        Now commit the changes made by the macros script back to the developers branch.
+
+        Do not push the changes at this stage.
+
 .. dropdown:: New rose-stem app?
 
     If the ticket introduces a new rose-stem app, but doesn't otherwise have a macro
@@ -231,6 +182,10 @@ are no clashes with what else has gone on trunk.
 .. note::
     Linked tickets will need to be tested together as discussed
     on the :ref:`Committing Linked Tickets page<testinglinked>`.
+
+.. admonition:: todo
+
+    Update commands to launch rose-stem suite
 
 .. tab-set::
 
@@ -288,8 +243,6 @@ are no clashes with what else has gone on trunk.
 
         .. code-block::
 
-            export CYLC_VERSION=8
-
             rose stem --group=developer
             OR e.g. rose stem --group=developer,gungho_model
 
@@ -302,10 +255,7 @@ are no clashes with what else has gone on trunk.
 
         .. code-block::
 
-            export CYLC_VERSION=8
-
             rose stem --group=developer
-
             cylc play <working copy name>
 
     .. tab-item:: UM docs
@@ -314,6 +264,7 @@ are no clashes with what else has gone on trunk.
 
         .. code-block:: RST
 
+            module load latex
             ./build_umdoc.py [XXX YYY etc]
 
         where XXX YYY are the details of which docs require building.
@@ -365,6 +316,10 @@ Supporting data is stored in the filesystems of our machines and changes to use 
         [rose-ana]
         kgo-database=.true.
 
+.. admonition:: todo
+
+    Update commands to launch rose-stem suite
+
 .. _kgo_instructions:
 
 .. tab-set::
@@ -383,16 +338,15 @@ Supporting data is stored in the filesystems of our machines and changes to use 
         2. You will need access to both your merged working copy and a clone of the `SimSys_Scripts github repo <https://github.com/MetOffice/SimSys_Scripts>`_ (one is available in $UMDIR). Run the script ``kgo_updates/meto_update_kgo.sh`` which is located in SimSys_Scripts.
 
         3. The script will ask you to enter some details regarding the ticket.
-            * Platforms: enter each platform which has a kgo change, lower case and space seperated, e.g. `spice xc40 ex1a`
-            * Path to your merged working copy - the script will check this exists and will fail if it can't be found.
+            * Platforms: enter each platform which has a kgo change, lower case and space seperated, e.g. `azspice ex1a`
+            * If running on the EX's it will ask for the host you ran on - this can be found from Cylc Review.
+            * Path to your local clone - the script will check this exists and will fail if it can't be found.
             * KGO directory: this will default to vnXX.X_tYYYY where XX.X is the version number and YYYY is the ticket number.
             * There are further prompts to the user through the script - in particular to check the shell script produced.
 
-        4. If running on xc40s the script will ask whether to rsync UM files or lfricinputs files to the XCS. Select the appropriate option.
+        4. If running on EX's the script will ask whether to rsync UM files or lfricinputs files to the other EX hosts. Select the appropriate option.
 
         5. Check that the new KGO has been installed correctly by restarting your suite, retriggering the failed rose-ana tasks and checking they now pass.
-
-        * e.g. add `--reload` or `--restart` to the rose-stem command ran previously.
 
         6. Once committed, update the `bit comparison table <https://code.metoffice.gov.uk/trac/um/wiki/LoseBitComparison>`_.
 
@@ -400,15 +354,11 @@ Supporting data is stored in the filesystems of our machines and changes to use 
 
             * This script will login as the relevant admin user as needed
             * After running for a platform, the newly created variables.rc and
-              shell script will be moved to SPICE $UMDIR/kgo_update_files/<new_kgo_directory>.
-            * The script is hard coded to always go to the xce (only 1 is
-              required of xce and xcf). After running here it will rsync the kgo
-              directory to xcs automatically.
+              shell script will be moved to Azspice
+              $UMDIR/kgo_update_files/<new_kgo_directory>.
             * Having run on each requested platform the new variables.rc files
               will be copied into your working copy
-              rose-stem/site/meto/variables_<PLATFORM>.rc. There is no longer
-              any need to merge the generated variables files. It is probably
-              worth checking that the changes in these files are as expected.
+              rose-stem/site/meto/variables_<PLATFORM>.rc.
 
         .. dropdown:: Updating KGO manually (rarely needed!)
 
@@ -423,12 +373,13 @@ Supporting data is stored in the filesystems of our machines and changes to use 
               the previous version (i.e. move the old file to the new KGO
               directory and replace it with a sym-link to the updated version)
               But do not do this if the old version was a major release revision
-              (vnX.X), this is to allow intermediate revisions to be deleted later.
+              (vnX.X), this is to allow intermediate revisions to be deleted
+              later.
             * Remember to RSync and update the bitcomparison table (see above).
 
     .. tab-item:: JULES
 
-        1. Run the standalone rose-stem with housekeeping switched off to generate new KGO. Do this once on old spice and once on new spice (the `all` group launches on different platforms from each spice)
+        1. Run the standalone rose-stem with **housekeeping switched off** to generate new KGO.
 
         .. code-block::
 
@@ -443,7 +394,7 @@ Supporting data is stored in the filesystems of our machines and changes to use 
         4. Rerun the rose-stem tests to make sure nothing is broken.
 
 
-    .. tab-item:: LFRic Apps
+    .. tab-item:: LFRic Apps + LFRic Core
 
         KGO Checksums are stored in the repository alongside the code and can
         be updated using a script. This can be done by either the code reviewer
@@ -455,15 +406,14 @@ Supporting data is stored in the filesystems of our machines and changes to use 
 
         2. Run the rose stem tasks that require a KGO update, plus any other testing required (see above) - if unsure run the `all` group.
 
-        .. code-block:: RST
+        .. code-block::
 
-            export CYLC_VERSION=8
             rose stem --group=all
             cylc play <suite name>
 
         3. Ensure the failing KGO's match those on the branch.
 
-        4. Run the checksum update script stored in `<working copy>/rose-stem/bin`.
+        4. Run the checksum update script stored in `<local_clone>/rose-stem/bin`.
 
         .. code-block::
 
@@ -477,28 +427,19 @@ Supporting data is stored in the filesystems of our machines and changes to use 
               The numbered run directory must be included in the suite name, eg. `name-of-suite/run1`.
 
         5. Verify the checksums updated properly by retriggering the failed checksums. First retrigger
-        ``export-source``, and then when complete ``export-source_xc40`` if new checksums are present
-        there (there is no need to retigger spice). You may need to change the maximum window extent
+        ``export-source``, and then when complete ``export-source_ex1a`` if new checksums are present
+        there (there is no need to retigger azspice). You may need to change the maximum window extent
         of the gui in order to see the succeeded tasks. Now you can retrigger the failed checksums -
         these should now pass if the kgo was updated in the working copy correctly.
 
+.. important::
 
-    .. tab-item:: LFRic Core
+    Now commit the changes made by the macros script back to the developers branch.
 
-        KGO Checksums are stored in the repository alongside the code. If there
-        is a merge conflict within these files it is the developers responsibility
-        to update them.
-
-        1. Organise a trunk freeze for LFRic at a time when the developer is available
-        2. Developer updates their branch to the head of trunk and regenerates
-           the KGO checksums.
-        3. If there were also code conflicts in the science code then the new KGO
-           checksums will need to be signed off by the science reviewer.
-        4. Once the ticket is back with you, you can merge the branch to the
-           trunk and run the test-suite as described above to confirm that all
-           is working.
+    Do not push the changes at this stage.
 
 .. tip::
+
     Between running any required testing and installing the KGO check that the
     failing rose-ana tasks match those in the developers trac.log. If any have
     failed for other reasons (e.g. timeout) then these should be re-triggered
@@ -569,91 +510,111 @@ If the requirement is to update existing files, then further care is required.
 
 #. Remove any `.old` files that you created on Azure Spice.
 
+.. _commit:
+
 5. Commit
 ---------
 
-Take a final review of the changes about to be applied looking for any obvious
-merge errors
+Once testing has passed on the local Met Office machines then ensure all changes
+for macros and kgos have been committed to the local copy of the branch and then
+push the changes back to the remtoe branch.
 
-.. code-block:: RST
+.. tip::
 
-    fcm diff -g
+    If you get a permission denied error when trying to push, ensure the pull
+    request allows edits by maintainers, and ask the developer to change it if
+    not.
 
-.. note::
-    Linked tickets will need to follow the sequence described :ref:`here <committinglinked>`.
+.. important::
 
-Commit the change to the trunk
+    Linked tickets will also need to update the relevant hashes for sub-repos
+    before pushing back to the fork. See :ref:`Committing Linked Tickets
+    <committinglinked>` for details.
 
-.. code-block:: RST
+Once the remote branch has been updated, the pull request continuous integration
+will relaunch. Make sure this all passes and then you can commit the ticket via
+the github interface,
 
-    fcm commit
+.. image:: images/gh_screenshots/merge_light.png
+    :class: only-light border
 
-An editor will open requesting a log message which should be in this format:
-
-.. code-block::
-
-    #ticket_number : Author : Ticket title
-
-where author is the SRS username of the developer - usually the Reported By field on the ticket.
-
-.. note::
-     New!! Remove any **blocks:** and **blockedby:** keywords from this ticket and any referenced. Comment on any unblocked tickets to alert the developers.
-
-Update the ticket with the revision number of the commit, e.g. [100000] for revision 100000, comment whether the change is expected to alter results or not and update the ticket status to committed.
+.. image:: images/gh_screenshots/merge_dark.png
+    :class: only-dark border
 
 .. tip::
     Don't forget to let the team know you've finished with the trunks.
 
-.. dropdown:: Modifying log messages
-
-    If you need to modify the commit log message after commit, run this command and save to update the message:
-
-    .. code-block:: RST
-
-        fcm propedit --revprop svn:log -r xxxxxx fcm:um.x_tr
-
 6. Close
 --------
 
-The following day review the nightly test harness results (details on `Trunk Status`_).
-
-If nothing is broken then close the ticket, returning it to the original author.
+Nightly testing results are usually checked with a status posted on `Trunk
+Status`_. If this hasn't been done then :ref:`check the nightly results
+<nightlytesting>`.
 
 If something is broken:
 
 * Announce to the team and on `Trunk Status`_.
-* If there is an obvious bug, or a simple fix then update the original branch and re-merge into the trunk.
-* If there isn't an easy fix then reverse the change to allow time for investigation.
+* There are a few possibilities for how to proceed,
+
+  * If the fix is obvious and trivial then create a quick PR on a branch from
+    ``main`` and find someone to review it. If the developer is available and
+    able to fix it then they can make the pr and you can review.
+  * If there isn't an easy fix then reverse the change to allow time for
+    investigation.
 
 .. dropdown:: Reversing Trunk Commits
 
-    1. Check out the trunk
-    2. Use the merge command to reverse the problematic change
-        .. code-block::
+    .. tip::
 
-            fcm merge --reverse -r <revision>
+        Reverting a commit from main will require the help of a friendly
+        repository admin.
 
-    3. Check the reverse merge has worked and commit it to the trunk
-        * Use the same commit message format as usual.
-    4. Update the ticket with details of the problem and assign it back to the author to fix
+    **The Admin:**
 
-    .. note::
-        If and when the author provides a fixed version of the branch a custom
-        merge will be required (otherwise only the most recent commits will be merged).
+    Navigate to the repository rulesets under settings,
 
-        .. code-block::
+    .. image:: images/gh_screenshots/rulesets_light.png
+        :class: only-light border
 
-            fcm merge --custom --revision <revision1>:<revision2> fcm:um.x_br/dev/etc...
+    .. image:: images/gh_screenshots/rulesets_dark.png
+        :class: only-dark border
 
-        where revision 1 and 2 are the initial copy and the last change to the branch to be committed.
+    and then temporarily disable the ``prevent_updates`` ruleset. This will
+    allow a branch to be created in the repository to revert the change.
+
+    .. image:: images/gh_screenshots/prevent_updates_disabled_light.png
+        :class: only-light border
+
+    .. image:: images/gh_screenshots/prevent_updates_disabled_dark.png
+        :class: only-dark border
+
+    **The Original Reviewer**
+
+    From the closed pull request, select the option to revert the merge,
+
+    .. image:: images/gh_screenshots/revert_light.png
+        :class: only-light border
+
+    .. image:: images/gh_screenshots/revert_dark.png
+        :class: only-dark border
+
+    If there are any conflicts with later commits then fix these. A new branch
+    with the revert will be created and a pull request will be opened. Checkout
+    this branch and run local testing. Then request a review from the admin.
+
+    **The Admin:**
+
+    Review the change and ensure testing has been completed, then commit the
+    pull request.
+
+    Finally, reenable the branch protection rule you disabled earlier.
 
 .. tip:: **Logging in as an admin user**
 
-    * To access the admin account you'll need to be added to the admin-access list by an admin-owner. This is managed through Active Directory
+    * To access the admin account you'll need to be added to the admin-access
+      list by an admin-owner. This is managed through Active Directory
     * When logged in to your linux desktop run ``xsudo -iu <ADMIN-USERNAME>``.
-    * You can then access other machines as the admin user via ``ssh -Y <HOSTNAME>``.
-
-
-
+    * You can then access other machines as the admin user via ``ssh -Y
+      <HOSTNAME>``.
 
 .. _Trunk Status: https://code.metoffice.gov.uk/trac/lfric_apps/wiki/TrunkStatus
