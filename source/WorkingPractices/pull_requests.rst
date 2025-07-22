@@ -148,26 +148,9 @@ conflicts. Alternatively, you can do this from a terminal using git.
             cd /path/to/clone
             git checkout <desired-branch>
 
-        The upstream repository of your fork needs to added as a remote source
-        to your git clone. If you made the clone using the ``gh`` cli, this will
-        already have been done. First, check the available remote sources and
-        then if required add the upstream repository.
+        Ensure that the upstream repository is available as a remote source. See :ref:`setting git remote sources <git_remote>` for more details.
 
-        .. code-block::
-
-            # List the remote sources.
-            # The fork will be listed as the origin
-            # The upstream repository also needs to be available
-            git remote -v
-
-            # If it doesn't appear, add the upstream repository
-            git remote add upstream <URL>
-
-        The URL for the upstream can be found from the Code button on github
-        (see :ref:`Cloning a Repository <clone_repo>`).
-
-        Once the upstream repository is available, you need to fetch the
-        upstream commit details and then merge the upstream main.
+        Then fetch and merge in the upstream main,
 
         .. code-block::
 

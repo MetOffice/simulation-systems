@@ -49,6 +49,20 @@ A clone is a local copy of a repository - you can have a local clone of either a
 
 .. tab-set::
 
+    .. tab-item:: gh cli
+
+        To clone a repository using gh cli run the following command,
+
+        .. code-block::
+
+            gh repo clone <OWNER>/<REPO> <CLONE_NAME>
+
+        where ``CLONE_NAME`` is the desired directory name of the clone. It will default to the name of the repository.
+
+        .. tip::
+
+            Using gh cli to clone a fork will automatically add the upstream repository as a remote source which can be helpful.
+
     .. tab-item:: git commands
 
         To clone a repository using git, run the following in a terminal:
@@ -69,20 +83,6 @@ A clone is a local copy of a repository - you can have a local clone of either a
 
         selecting the url as desired.
 
-    .. tab-item:: gh cli
-
-        To clone a repository using gh cli run the following command,
-
-        .. code-block::
-
-            gh repo clone <OWNER>/<REPO> <CLONE_NAME>
-
-        where ``CLONE_NAME`` is the desired directory name of the clone. It will default to the name of the repository.
-
-        .. tip::
-
-            Using gh cli to clone a fork will automatically add the upstream repository as a remote source which can be helpful.
-
 
 Create a Branch
 ---------------
@@ -91,19 +91,43 @@ Branches for developing Simulation Systems repositories should generally be bran
 
 To create a branch and switch to it from the command line, the syntax is,
 
-.. code-block::
+.. tab-set::
 
-    git branch <branch_name> <parent_branch>
-    git checkout <branch_name>
+    .. tab-item:: Web Browser
 
-    # or
+        Navigate to the github repository where you would like to create a
+        branch. You will need ``write`` permission for that repository in order
+        to create the branch.
 
-    git checkout <parent_branch>
-    git checkout -b <branch_name>
+        Choose to view all branches in the repository,
 
-.. note::
+        .. image:: images/gh_screenshots/all_branches_light.png
+            :class: only-light border
 
-    It is also possible to create a new branch via github in a web browser.
+        .. image:: images/gh_screenshots/all_branches_dark.png
+            :class: only-dark border
+
+        then select the new branch button,
+
+        .. image:: images/gh_screenshots/new_branch_light.png
+            :class: only-light border
+
+        .. image:: images/gh_screenshots/new_branch_dark.png
+            :class: only-dark border
+
+        Finally, name your branch and select the source branch as desired.
+
+    .. tab-item:: git commands
+
+        .. code-block::
+
+            git branch <branch_name> <source_branch>
+            git checkout <branch_name>
+
+            # or
+
+            git checkout <source_branch>
+            git checkout -b <branch_name>
 
 
 Developing a Change
@@ -141,5 +165,60 @@ Finally, you may want to push any commits stored in your local clone.
 
     Unlike svn/fcm, committing in git will not push your changes to the remote server. The ``git push`` command must also be used to do this.
 
+.. _git_remote:
 
+Setting Remote Sources in git
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When cloning a repository git will automatically set the source URL as a remote
+source with the default name of ``origin``. To list the remote sources currently
+configured for a clone, run ``git remote -v``. For example, cloning the
+repository containing these working practices via ssh will produce the output,
+
+.. code-block::
+
+    $ git remote -v
+    origin	git@github.com:MetOffice/simulation-systems.git (fetch)
+    origin	git@github.com:MetOffice/simulation-systems.git (push)
+
+It is possible to set another repository as a remote source using the syntax,
+
+.. code-block::
+
+    git remote add <name> <url>
+
+The URL for the upstream can be found from the Code button on github (see
+:ref:`Cloning a Repository <clone_repo>`).
+
+.. tip::
+
+    :ref:`Cloning <clone_repo>` a repository with the gh cli will automatically
+    set the upstream repository as remote named ``upstream``.
+
+A common use case for this would be to add the upstream repository as a remote
+source in order to merge the ``main`` branch into your development branch. For
+example, in a clone of a fork of these working practices,
+
+.. code-block::
+
+    $ git remote add upstream git@github.com:MetOffice/simulation-systems.git
+    $ git remote -v
+    origin	git@github.com:userName/simulation-systems.git (fetch)
+    origin	git@github.com:userName/simulation-systems.git (push)
+    upstream	git@github.com:MetOffice/simulation-systems.git (fetch)
+    upstream	git@github.com:MetOffice/simulation-systems.git (push)
+
+You will need to manually sync the fork with the remote source by fetching it
+with the command ``git fetch <name>``, eg.
+
+.. code-block::
+
+    git fetch upstream
+
+To interact with remote branches you can use the ``<name>/<branch>`` syntax. For
+example, to merge the upstream main into the current branch, use,
+
+.. code-block::
+
+    git merge upstream/main
 
