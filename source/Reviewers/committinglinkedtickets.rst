@@ -126,4 +126,4 @@ Once you are happy with all your testing then the commit sequence is as follows:
         export ukca_ref=456def
 
   * Commit these changes and push back to the developers branch, along with any
-    changes to macros and KGO. Finally you can :ref:`commit` the pull request.
+    changes to macros and KGO. Finally you can :ref:`commit <commit>` the pull request.
