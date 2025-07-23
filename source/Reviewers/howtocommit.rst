@@ -588,7 +588,7 @@ If something is broken:
     .. image:: images/gh_screenshots/prevent_updates_disabled_dark.png
         :class: only-dark border
 
-    **The Original Reviewer**
+    **The Original Reviewer:**
 
     From the closed pull request, select the option to revert the merge,
 
