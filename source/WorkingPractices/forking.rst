@@ -83,3 +83,23 @@ Most work to maintain a fork involves syncing it with the upstream repository. S
         .. tip::
 
             When using the gh cli to sync forks, remember that it won't pull the changes to local clone, this needs to be done manually.
+
+    .. tab-item:: git commands
+
+        Ensure that the upstream repository is available as a remote source and
+        the latest changes have been fetched. See :ref:`setting git remote
+        sources <git_remote>` for more details.
+
+        Then run the following commands for each branch you wish to sync. The example below will use ``main``.
+
+        .. code-block::
+
+            # Checkout the desired branch
+            git checkout main
+
+            # Merge in changes from the upstream
+            git merge upstream/main
+
+            # Push the changes back to the remote fork
+            git push
+

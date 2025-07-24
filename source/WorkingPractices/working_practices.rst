@@ -61,13 +61,16 @@ the process is very comparable to that of the other repositories too.
 
 .. admonition:: Definitions
 
-    ``Upstream``: the primary or parent repository, owned by the MetOffice github organisation. Only maintainers have write access to this repository.
+    ``Clone``: a local copy of either the upstream or the forked repository.
 
     ``Fork`` or ``Downstream``: a copy of the upstream repository, owned by the developer. This is where development branches are created and worked on.
 
+    ``Origin``: the default name for the remote source of a cloned repository.
+
     ``Remote``: the version of either the upstream or the forked repository that is hosted by Github.
 
-    ``Clone``: a local copy of either the upstream or the forked repository.
+    ``Upstream``: the primary or parent repository, owned by the MetOffice github organisation. Only maintainers have write access to this repository.
+
 
     Further definitions can be found in the `GitHub Glossary <https://docs.github.com/en/get-started/learning-about-github/github-glossary>`_.
 
@@ -138,3 +141,4 @@ helpful for documenting and monitoring progress of your work.
     reviews
     pull_requests
     final_steps
+    git_extras
