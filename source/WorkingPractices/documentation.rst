@@ -2,8 +2,8 @@
 
 Documentation
 -------------
-All projects have their own scientific and technical documentation.
-Most notably:
+All projects have their own scientific and technical documentation. Most
+notably:
 
 +----------------------------+-----------------------------+-------------------------------------------------+
 | UM Documentation Papers    |`view UM`_                   | `edit UM`_                                      |
@@ -29,13 +29,13 @@ available on the `LFRic Technical pages <https://code.metoffice.gov.uk/trac/lfri
 .. _view LFRic: https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicDocumentationPapers
 .. _edit LFRIc: https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicTechnical#Documentation
 
-Small changes and bug fixes rarely need documentation to be updated, but when new science is
-added to a project, the documentation must be updated to ensure that it remains contemporary
-with the code.
+Small changes and bug fixes rarely need documentation to be updated, but when
+new science is added to a project, the documentation must be updated to ensure
+that it remains contemporary with the code.
 
 .. tip::
-  Searching the relevant documentation for words related to your change is often useful when
-  deciding whether to update the documentation.
+  Searching the relevant documentation for words related to your change is often
+  useful when deciding whether to update the documentation.
 
 Documentation changes that are held within a repository are formally reviewed,
 and should be included on the same ticket as the code changes - making sure both

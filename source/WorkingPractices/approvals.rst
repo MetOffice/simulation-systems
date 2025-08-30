@@ -25,7 +25,8 @@ off the approval.
 
 .. important::
 
-    New UM Ancils must be submitted to the MIAO team for approval. Please follow their process for `Requesting New UM Ancils <https://code.metoffice.gov.uk/trac/ancil/wiki/ANTS/ProjectManagement/updating_UMDIR>`_.
+    New UM Ancils must be submitted to the MIAO team for approval. Please follow
+    their process for `Requesting New UM Ancils <https://code.metoffice.gov.uk/trac/ancil/wiki/ANTS/ProjectManagement/updating_UMDIR>`_.
 
 Code Owners
 -----------
@@ -52,8 +53,8 @@ setup used operationally). Within the rose-stem testing these configurations
 will be used and any changes to the answers shown in testing will need sign off
 from the config owner.
 
-In some repositories, the code owner is supported by module leaders who
-will sign-off scientifically significant changes to their areas of interest. The
+In some repositories, the code owner is supported by module leaders who will
+sign-off scientifically significant changes to their areas of interest. The
 module leaders in this case will also act as configuration owners for their
 science settings.
 

@@ -3,7 +3,9 @@
 Release Notes
 =============
 
-The below shows the trac release notes template previously used. This will want editing and the exact location needs deciding for the move to github. However it can be used as an initial guide to the sort of information included.
+The below shows the trac release notes template previously used. This will want
+editing and the exact location needs deciding for the move to github. However it
+can be used as an initial guide to the sort of information included.
 
 .. code-block::
 
@@ -62,8 +64,11 @@ The below shows the trac release notes template previously used. This will want 
 
     == Ticket Overview ==
 
-    * Tickets marked as closed/fixed below may not be associated with a [log:main/trunk trunk commit]
-    * Only tickets with a UM element are displayed below. Sub-repositories may contain additional standalone tickets that will have been implicitly tested and included in the release.
+    * Tickets marked as closed/fixed below may not be associated with a
+      [log:main/trunk trunk commit]
+    * Only tickets with a UM element are displayed below. Sub-repositories may
+      contain additional standalone tickets that will have been implicitly
+      tested and included in the release.
 
     [[TicketQuery(milestone^=UMXX.Y (MMM-YY),status=closed,resolution=fixed,format=table,col=summary|reporter|keywords)]]
 
@@ -76,7 +81,11 @@ The below shows the trac release notes template previously used. This will want 
 
 For the highlights section:
 
-* Contact HPC Optimisation team (usually AM) to request details for the optimisation section
-* Take some time to think about the 'big picture' relevance of tickets for the science and technical highlights
-* Copy the 'head of trunk' section and paste underneath, changing the section title to the release.
-* Paste trac.logs into the relevant sub-pages. You'll likely be able to use some nightly testing runs.
+* Contact HPC Optimisation team (usually AM) to request details for the
+  optimisation section
+* Take some time to think about the 'big picture' relevance of tickets for the
+  science and technical highlights
+* Copy the 'head of trunk' section and paste underneath, changing the section
+  title to the release.
+* Paste trac.logs into the relevant sub-pages. You'll likely be able to use some
+  nightly testing runs.

@@ -1,7 +1,9 @@
-#build output
-/build/
+build/
+*.egg-info/
+.idea
+.venv/
+venv/
+uv.lock
 
-#IDE files
-/.idea
-/.venv/
-/venv/
+__pycache__/
+*.py[cod]

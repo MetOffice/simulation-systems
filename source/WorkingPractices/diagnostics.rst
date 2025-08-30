@@ -1,8 +1,8 @@
 Diagnostic Systems
 ==================
 
-The diagnostic systems vary between projects. Please follow the guidance
-for whichever system you are developing.
+The diagnostic systems vary between projects. Please follow the guidance for
+whichever system you are developing.
 
 +-------+----------------------+
 | UM    | :ref:`STASH <stash>` |

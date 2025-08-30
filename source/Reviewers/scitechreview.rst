@@ -11,12 +11,13 @@ performs, is standards compliant and well documented.
 Reviewer responsibilities and checkpoints
 -----------------------------------------
 The Sci/Tech review template exists to help you think through all the following
-areas. A completed :ref:`review template <template>` should be appended to the ticket once you are
-finished.
+areas. A completed :ref:`review template <template>` should be appended to the
+ticket once you are finished.
 
 The Science / Technical reviewer should
 
-* Understand the area of code and check that the changeset satisfies the purpose of the change.
+* Understand the area of code and check that the changeset satisfies the purpose
+  of the change.
 
 * Ensure that the code has no unwanted side-effects
 
@@ -25,11 +26,15 @@ The Science / Technical reviewer should
 
 * Make sure that the in-line documentation is accurate and sufficient.
 
-* Ensure that any related :ref:`external documentation <docs>` is updated as necessary.
+* Ensure that any related :ref:`external documentation <docs>` is updated as
+  necessary.
 
-* Check that the Trac ticket has been completed fully and accurately with sufficient detail for others to understand the impact of the change.
+* Check that the Trac ticket has been completed fully and accurately with
+  sufficient detail for others to understand the impact of the change.
 
-* Ensure that testing has been carried out satisfactorily (and recorded on the Trac ticket), and that there is no impact for configurations outside the required scope of the changeset.
+* Ensure that testing has been carried out satisfactorily (and recorded on the
+  Trac ticket), and that there is no impact for configurations outside the
+  required scope of the changeset.
 
 Final decision points and actions
 ---------------------------------
@@ -37,10 +42,10 @@ The science/technical reviewer must demand that non-compliance is corrected
 before a change is passed onto the next level of review.
 
 The ticket will likely iterate between the reviewer and the developer during the
-review process while retaining it's sci/tech review status. However, the reviewer
-has the option to "reject and assign" back to the code author should the
-documentation or code not meet the required standards and major alterations/improvements
-are required.
+review process while retaining it's sci/tech review status. However, the
+reviewer has the option to "reject and assign" back to the code author should
+the documentation or code not meet the required standards and major
+alterations/improvements are required.
 
 Once you are happy that the change is appropriate and correct, complete the
 approval section of the Sci/Tech review template and re-assign the ticket to the

@@ -5,9 +5,9 @@ Building and editing the JULES User Guide
 The JULES User Guide is built using the Sphinx Documentation Generator. The
 documentation is written in plain text files using a markup language called
 reStructuredText. The source files for the JULES documentation are contained in
-the `JULES GitHub repository`_. The plain text files are contained in the `source`_
-directory and have the extension ``.rst``. Sphinx can take these plain text
-files and generate both HTML and PDF documentation from them (complete with
+the `JULES GitHub repository`_. The plain text files are contained in the
+`source`_ directory and have the extension ``.rst``. Sphinx can take these plain
+text files and generate both HTML and PDF documentation from them (complete with
 cross-referencing links, etc.). Since reStructuredText is a plain text format,
 your favourite text editor is all you need to edit the JULES documentation.
 
@@ -16,15 +16,17 @@ your favourite text editor is all you need to edit the JULES documentation.
 
 The JULES User Guide uses some custom extensions to reStructuredText to allow it
 to represent Fortran namelists more effectively - these are discussed in more
-detail below. Other than that, the `Sphinx documentation`_ is an excellent resource.
+detail below. Other than that, the `Sphinx documentation`_ is an excellent
+resource.
 
 .. _Sphinx documentation: https://www.sphinx-doc.org/en/master/
 
 Checking out a copy of the JULES documentation
 ----------------------------------------------
-First time developers will need to clone the git repository before starting work:
+First time developers will need to clone the git repository before starting
+work:
 
-.. code-block:: text
+.. code-block:: shell
 
     cd <path_to_where_you_want_to_clone_to>
     git clone git@github.com:jules-lsm/jules-lsm.github.io.git
@@ -32,32 +34,32 @@ First time developers will need to clone the git repository before starting work
 
 Create and checkout a new feature branch:
 
-.. code-block:: text
+.. code-block:: shell
 
     git checkout -b <feature_branch_name>
 
 Share the feature branch to GitHub:
 
-.. code-block:: text
+.. code-block:: shell
 
     git push --set-upstream origin <feature_branch_name>
 
 If new files have been created, use the ``git add <file_name>`` command, then
 ensure the new files (including the Sphinx sources) are tracked:
 
-.. code-block:: text
+.. code-block:: shell
 
     git add <new_file>
 
 Commit all staged changes:
 
-.. code-block:: text
+.. code-block:: shell
 
     git commit -m "<descriptive_commit_message>"
 
 Share the changes to GitHub:
 
-.. code-block:: text
+.. code-block:: shell
 
     git push
 
@@ -77,19 +79,19 @@ Building the JULES User Guide
 For first time users, please create the production environment to build the
 documentation. From the top level of the repository run:
 
-.. code-block:: text
+.. code-block:: shell
 
     conda env create -f environment.yml
 
 Activate the environment:
 
-.. code-block:: text
+.. code-block:: shell
 
     conda activate jules-user-guide
 
 Move to the correct directory:
 
-.. code-block:: text
+.. code-block:: shell
 
     cd <path_to>/jules-user-guide-test/doc
 
@@ -97,14 +99,14 @@ Run ``make`` to build the documentation:
 
 To build and view the HTML documentation:
 
-.. code-block:: text
+.. code-block:: shell
 
     make html
     firefox build/html/index.html
 
 To build and view the PDF documentation:
 
-.. code-block:: text
+.. code-block:: shell
 
     make latexpdf
     evince build/latex/JULES_User_Guide.pdf
@@ -112,8 +114,9 @@ To build and view the PDF documentation:
 reStructuredText Extension for Fortran Namelists
 ------------------------------------------------
 The JULES User Guide uses a custom extension to reStructuredText to allow a more
-natural expression of Fortran namelists (see `user_guide/doc/sphinxext/sphinx_nml_domain.py`_
-if you are interested in the implementation).
+natural expression of Fortran namelists (see
+`user_guide/doc/sphinxext/sphinx_nml_domain.py`_ if you are interested in the
+implementation).
 
 .. _user_guide/doc/sphinxext/sphinx_nml_domain.py: https://github.com/jules-lsm/jules-lsm.github.io/blob/master/user_guide/doc/sphinxext/sphinx_nml_domain.py
 
@@ -153,8 +156,8 @@ using the directive
 The white-space (indentation and blank lines) is very important here. The
 ``:permitted:`` annotation is optional, and can be omitted if any value is
 acceptable. If the member has no default value, ``:default: None`` should be
-used. The description of the namelist member can contain any valid reStructuredText
-markup, as long as it is indented correctly.
+used. The description of the namelist member can contain any valid
+reStructuredText markup, as long as it is indented correctly.
 
 The final directive used to document namelists is:
 
@@ -216,6 +219,6 @@ Checking for broken hyperlinks
 -------------------------------
 One can test whether there are broken hyperlinks in the user guide by running
 
-.. code-block:: text
+.. code-block:: shell
 
     make linkcheck

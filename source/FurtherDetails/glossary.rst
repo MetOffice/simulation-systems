@@ -41,10 +41,10 @@ Further Commit:
     way.
 
 Known Good Output (KGO):
-    In order to verify that the model output hasn't been modified by a set of changes
-    the test suite contains a stored set of output as a reference. This is known
-    as the KGO and changes that alter this require special treatment. For more
-    information see :ref:`kgo`.
+    In order to verify that the model output hasn't been modified by a set of
+    changes the test suite contains a stored set of output as a reference. This
+    is known as the KGO and changes that alter this require special treatment.
+    For more information see :ref:`kgo`.
 
 Head of Trunk:
     The most recent code revision on the trunk. Branches are taken from here
