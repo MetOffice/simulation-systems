@@ -88,7 +88,7 @@ apps ==> core ==> rose_picker
 ```
 
 Expected visibility by late 2025 - early 2026:
-$\textsf{\color{#1de01d}public (Open Source) \space \color{#f7351b}private (Closed Source) \space \color{#cfcf62}public (TBC)}$
+$$\textsf{\color{#1de01d}public (Open Source) \space \color{#f7351b}private (Closed Source) \space \color{#cfcf62}public (TBC)}$$
 
 <!-- <code style="background:#1de01da9">public (Open Source)</code> <code style="background:#f7351b9f">private (Closed Source)</code> <code style="background:#cfcf62ff">public (TBC)</code> -->
 
