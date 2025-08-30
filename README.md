@@ -87,11 +87,9 @@ um ==> gcom & aux & meta & mule
 apps ==> core ==> rose_picker
 ```
 
-Expected visibility by early 2026:
-<span style="background-color:#1de01da9">&nbsp;public (Open Source)&nbsp;</span>
-<span style="background-color:#f7351b9f">&nbsp;private (Closed
-Source)&nbsp;</span> <span style="background-color:#cfcf62ff">&nbsp;public
-(TBC)&nbsp;</span>
+Expected visibility by late 2025 - early 2026:
+
+<code style="background:#1de01da9">public (Open Source)</code> <code style="background:#f7351b9f">private (Closed Source)</code> <code style="background:#cfcf62ff">public (TBC)</code>
 
 ## Building the documentation
 
