@@ -33,8 +33,13 @@ The process for committing a ticket follows this sequence with details for each 
         committinglinkedtickets
         nightlytesting
 
+.. important ::
+
+  All changes made by the reviewer (e.g. for upgrade macros, KGOs or linked tickets) will be committed to the developers branch in their fork. All testing should be run on this branch too. Once this is all complete then GitHub can complete the merge of this branch to ``main``.
+
+
 1. Clone Branch
----------------------------------
+---------------
 
 .. note::
 
