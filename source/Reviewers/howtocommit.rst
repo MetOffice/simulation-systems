@@ -33,7 +33,7 @@ The process for committing a ticket follows this sequence with details for each 
         committinglinkedtickets
         nightlytesting
 
-1. Merge in main and Clone Branch
+1. Clone Branch
 ---------------------------------
 
 .. note::
@@ -434,7 +434,7 @@ Supporting data is stored in the filesystems of our machines and changes to use 
 
 .. important::
 
-    Now commit the changes made by the macros script back to the developers branch.
+    Now commit the changes made by the KGO script back to the developers branch.
 
     Do not push the changes at this stage.
 
@@ -517,7 +517,7 @@ If the requirement is to update existing files, then further care is required.
 
 Once testing has passed on the local Met Office machines then ensure all changes
 for macros and kgos have been committed to the local copy of the branch and then
-push the changes back to the remtoe branch.
+push the changes back to the remote branch.
 
 .. tip::
 
@@ -542,18 +542,18 @@ the github interface,
     :class: only-dark border
 
 .. tip::
-    Don't forget to let the team know you've finished with the trunks.
+    Don't forget to let the team know you've finished with main.
 
 6. Close
 --------
 
-Nightly testing results are usually checked with a status posted on `Trunk
+Nightly testing results are usually checked with a status posted on `Main
 Status`_. If this hasn't been done then :ref:`check the nightly results
 <nightlytesting>`.
 
 If something is broken:
 
-* Announce to the team and on `Trunk Status`_.
+* Announce to the team and on `Main Status`_.
 * There are a few possibilities for how to proceed,
 
   * If the fix is obvious and trivial then create a quick PR on a branch from
@@ -562,7 +562,7 @@ If something is broken:
   * If there isn't an easy fix then reverse the change to allow time for
     investigation.
 
-.. dropdown:: Reversing Trunk Commits
+.. dropdown:: Reversing Commits to Main
 
     .. tip::
 
