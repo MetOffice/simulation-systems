@@ -98,35 +98,32 @@ Details for testing multi-repository tickets are included on the
 Committing linked tickets
 -------------------------
 
+.. admonition:: todo
+
+    Ensure that dependencies.yaml file instructions below are correct
+
 Once you are happy with all your testing then the commit sequence is as follows:
 
-1. Commit all trunks **except** UM and LFRic Apps. Make note of the commit revision numbers.
+* Commit all trunks **except** UM and LFRic Apps. Make note of the commit
+  revision numbers.
 
-2. Update <um_trunk>/rose-stem/rose-suite.conf
+* For each of LFRic Apps and UM as required,
 
-  * Modify ``HOST_SOURCE_*`` for all child repositories involved to point to the new commit revisions.
-  * e.g. If a JULES ticket has just been committed at revision 12345
+  * In a clone of the branch, edit the ``dependencies.yaml`` file:
 
-  .. code-block:: RST
+    * Remove any references from the ``*_sources`` variables.
+    * Modify ``*_ref`` variables for all other repositories you have updated to
+      point to the the new commit hashes.
+    * e.g. If a JULES ticket has been committed with has abc123 and a UKCA
+      ticket at 456def,
 
-      HOST_SOURCE_JULES='fcm:jules.xm_tr@12345'
+      .. code-block:: RST
 
-3. Commit UM
+        export jules_sources=MetOffice/jules
+        export jules_ref=abc123
 
-4. Update <lfric_apps_trunk>/dependencies.sh
+        export ukca_sources=MetOffice/UKCA
+        export ukca_ref=456def
 
-  * Modify ``*_rev`` variables for all other repositories you have updated to point to the the new commit revisions.
-  * Remove any branch references from the ``*_sources`` variables.
-  * e.g. If a JULES ticket has been committed at revision 12345 and a UKCA ticket at 6789
-
-  .. code-block:: RST
-
-      export ukca_rev=6789
-      export jules_rev=12345
-
-      export ukca_sources=
-      export jules_sources=
-
-5. Commit LFRic Apps
-
-You may choose to run a subset of tests before completing the UM and LFRic Apps commits in turn to validate your changes.
+  * Commit these changes and push back to the developers branch, along with any
+    changes to macros and KGO. Finally you can :ref:`commit <commit>` the pull request.

@@ -106,6 +106,7 @@ rejected with failing tests.
 .. image:: images/gh_screenshots/ci_dark.png
     :class: only-dark border
 
+.. _updating_branch:
 
 Updating a branch
 -----------------
