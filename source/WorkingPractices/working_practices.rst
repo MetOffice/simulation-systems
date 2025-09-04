@@ -24,15 +24,13 @@ Development Cycle Overview
 The general features of the development cycle are similar to those found in
 other scientific software. However, the details are tuned to meet the needs of
 the community as a whole. A key feature is the use of versions as a way of
-periodically bringing everything together. Although many elements of Continuous
-Integration and related approaches to software management can be found, the
-nature of LFRic and UM development makes following these impractical.
+periodically bringing everything together.
 
 The release cycle follows a semi-regular cadence, balancing flexibility to
 facilitate high priority goals against stability for the broader developer pool.
 Each release will consist of a development window spanning from release of the
 previous version to a pre-announced code review deadline. Following this,
-submissions will be processed culminating in the release of the next release.
+submissions will be processed culminating in the next release.
 From time to time, some or all parts of a repository may be subject to an agreed
 closed release to facilitate an intense or disruptive development.
 
@@ -63,30 +61,45 @@ the process is very comparable to that of the other repositories too.
 
     ``Clone``: a local copy of either the upstream or the forked repository.
 
-    ``Fork`` or ``Downstream``: a copy of the upstream repository, owned by the developer. This is where development branches are created and worked on.
+    ``Fork`` or ``Downstream``: a copy of the upstream repository, owned by the
+    developer. This is where development branches are created and worked on.
 
     ``Origin``: the default name for the remote source of a cloned repository.
 
-    ``Remote``: the version of either the upstream or the forked repository that is hosted by Github.
+    ``Remote``: the version of either the upstream or the forked repository
+    that is hosted by Github.
 
-    ``Upstream``: the primary or parent repository, owned by the MetOffice github organisation. Only maintainers have write access to this repository.
+    ``Upstream``: the primary or parent repository, owned by the MetOffice
+    github organisation. Only code reviewers are able to directly interact with
+    this repository, rather than being required to use clones.
 
 
-    Further definitions can be found in the `GitHub Glossary <https://docs.github.com/en/get-started/learning-about-github/github-glossary>`_.
+    Further definitions can be found in the
+    `GitHub Glossary <https://docs.github.com/en/get-started/learning-about-github/github-glossary>`_.
 
-Simulation Systems github repositories are setup with at least 2 protected branches, ``stable`` and ``main`` (with the potential for additional version branches to be added).
+Simulation Systems github repositories are setup with at least 2 protected
+branches, ``main`` and ``stable`` (with the potential for additional version
+branches to be added).
 
-* ``stable`` - This branch is the default github branch and generally remains unchanged throughout a release cycle. It is the stable point from which new branches should be cut. Only new releases and small hotfixes to a release will be merged back into this branch.
-* ``main`` - This branch is where new development pull requests will be merged. It will never be behind the ``stable`` branch, but will regularly be ahead. All pull requests should be set to target this branch (more on this later) and a CI check will fail if it isn't.
+* ``main`` - This is the default github branch and is the branch that new
+development pull requests should target. It will never be behind the ``stable``
+branch, but will regularly be ahead.
+* ``stable`` - This branch represents the codebase at a version release and
+will generally remain unchanged throughout a release cycle. New branches should
+be made from this branch (or from a release tag.) Only new releases and small
+hotfixes to a release will be merged back into this branch.
 
-All general development for Simulation Systems Github repositories will take place on forks of that repository. It is the responsibility of the developer to maintain their own fork. See :ref:`forking` for advice on forking.
+All general development for Simulation Systems Github repositories will take
+place on forks of that repository. It is the responsibility of the developer to
+maintain their own fork. See :ref:`forking` for advice on forking.
 
 The development cycle can be seen below.
 
 .. image:: images/git-dev-strategy.svg
     :class: dark-light
 
-For detailed explanation of these steps, see pages on :ref:`gh_dev_init` and :ref:`pull_requests`.
+For detailed explanation of these steps, see pages on :ref:`gh_dev_init` and
+:ref:`pull_requests`.
 
 Before You Start
 ----------------

@@ -25,8 +25,8 @@ It is possible to set another repository as a remote source using the syntax,
 
     git remote add <name> <url>
 
-The URL for the upstream can be found from the Code button on github (see
-:ref:`Cloning a Repository <clone_repo>`).
+The URL for the desired repository can be found from the Code button on github
+(see :ref:`Cloning a Repository <clone_repo>`).
 
 .. tip::
 

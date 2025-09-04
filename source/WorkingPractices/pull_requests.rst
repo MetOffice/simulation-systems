@@ -41,9 +41,7 @@ You have 4 options to consider.
   merged into. It will be the upstream repository you forked from.
 * ``base`` - This is the branch in the ``base repository`` where the pull
   request will be merged into. It will default to the repositories default
-  branch. However, most pull requests to simulation systems repositories will be
-  targetting ``main``, so make sure to change that here (it can be done later if
-  forgotten).
+  branch which for Simulation Systems repositories will be ``main`` which is as desired.
 * ``head repository`` - This is the repository where the pull request changes
   are coming from - it will be your forked repository.
 * ``compare`` - This is the branch in the ``head repository`` containing
@@ -57,7 +55,9 @@ You have 4 options to consider.
 
 Fill out the rest of the pull request by giving an appropriate title and
 supplying a description. The description box will contain a pull request
-template to fill out. Ensure that the option to allow edits by maintainers box
+template to fill out - this can be completed now, or edited later before passing to review.
+
+Finally, ensure that the option to allow edits by maintainers
 is selected (see :ref:`reviewer_edits` for details).
 
 .. image:: images/gh_screenshots/maintainer_edit_light.png
@@ -66,15 +66,14 @@ is selected (see :ref:`reviewer_edits` for details).
 .. image:: images/gh_screenshots/maintainer_edit_dark.png
     :class: only-dark border
 
+Once you are happy with the pull request details open the pull request.
+Initially you can choose to do this in draft mode, to allow you time to do any
+final fixes based on continuous integration. If you use draft mode mark the pull request as ``ready for review`` once you are satisfied.
+
 .. tip::
 
     It is possible to `link your pull request with an issue
     <https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue>`_
-
-
-Once you are happy with the pull request details open the pull request.
-Initially you can choose to do this in draft mode, to allow you time to do any
-final fixes based on continuous integration. If you use draft mode mark the pull request as ``ready for review`` once you are satisfied.
 
 Continuous Integration
 ----------------------
@@ -147,9 +146,10 @@ conflicts. Alternatively, you can do this from a terminal using git.
         .. code-block::
 
             cd /path/to/clone
-            git checkout <desired-branch>
+            git switch <desired-branch>
 
-        Ensure that the upstream repository is available as a remote source. See :ref:`setting git remote sources <git_remote>` for more details.
+        Ensure that the upstream repository is available as a remote source.
+        See :ref:`setting git remote sources <git_remote>` for more details.
 
         Then fetch and merge in the upstream main,
 

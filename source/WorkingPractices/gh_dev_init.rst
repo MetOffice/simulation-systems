@@ -121,14 +121,14 @@ To create a branch and switch to it from the command line, the syntax is,
 
         .. code-block::
 
+            # parent_branch will default to the current branch if not provided
+            # switch will automatically checkout the newly created branch
+            git switch -c <branch_name> [<parent_branch>]
+
+            # Or
+
             git branch <branch_name> <source_branch>
             git checkout <branch_name>
-
-            # or
-
-            git checkout <source_branch>
-            git checkout -b <branch_name>
-
 
 Developing a Change
 -------------------
@@ -155,7 +155,7 @@ And then commit the change,
 
     In git you do not need to commit all modified files unlike in svn/fcm. It is also possible to only commit certain parts of a modified file. For more information see the relevant man page, ``man git add``.
 
-Finally, you may want to push any commits stored in your local clone.
+Finally, you may want to push any commits stored in your local clone back to the remote source.
 
 .. code-block::
 
