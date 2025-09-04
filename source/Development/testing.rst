@@ -41,30 +41,44 @@ Bespoke:
 
 Test branches & Upgrade Macros
 ------------------------------
+
+.. tip::
+
+    While we continue to use ``dev`` and ``test`` branch nomenclature from fcm,
+    in github these terms have no technical meaning and are simply a way to
+    distinguish between 2 branches.
+
 There are a few cases where testing your change will require you to make changes
 to your branch that don't want committing to trunk. To do this you can create a
 test branch. This is a branch-of-branch from your development branch and allows
 you to make those changes in an isolated environment while leaving your original
 development clean.
 
-To create one:
+To create one run,
 
 .. code-block::
 
-    fcm bc -t test --bob testbranchname fcm:project.x_br/dev/yourname/devbranchname
+    git switch -c test_branch_name [parent_branch]
 
-Then check this out and use it for running any tests you'd like to carry out.
+from a local clone. If not provided ``parent_branch`` will default to your
+current branch.
 
 If using a test branch then do list this on your ticket and include the results
 of this testing alongside those from your dev branch.
 
 .. Note::
-    If your tests fail then you will need to make and commit the fixes to the
-    development branch and create a new test branch from that latest revision to
-    test them.
+
+    If you need further updates to the dev branch which require retesting on the
+    test branch, you can update the test branch by merging in the dev branch,
+
+    .. code-block::
+
+        git switch test_branch_name
+        git merge dev_branch_name
 
 Macros
 ^^^^^^
+
 If you have updated the model inputs and included an upgrade macro with your
 change then this macro will be run by your code reviewer as part of the commit
 process. In order to prove that the upgrade macro will be successful, and to

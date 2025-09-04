@@ -121,13 +121,12 @@ To create a branch and switch to it from the command line, the syntax is,
 
         .. code-block::
 
+            git switch -c <branch_name> [<source_branch>]
+
+            # Or
+
             git branch <branch_name> <source_branch>
-            git checkout <branch_name>
-
-            # or
-
-            git checkout <source_branch>
-            git checkout -b <branch_name>
+            git switch <branch_name>
 
 
 Developing a Change
