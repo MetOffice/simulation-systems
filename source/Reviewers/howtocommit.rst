@@ -51,7 +51,7 @@ are more complicated conflicts ask the developer to solve them themselves. If
 there are conflicts in versions.py then see the details in the macro section
 below.
 
-Then checkout the up to date branch, eg.
+Then switch to the up to date branch, eg.
 
 .. code-block::
 
@@ -130,7 +130,7 @@ rose-stem app then you will need to upgrade the test-suite.
 
             .. note::
 
-                All LFRic Core tickets with macros are expected to be linked with LFRic Apps, though they may not have required an LFRic Apps development branch (although an Apps ticket should be provided). This is fine - if there is no LFRic Apps branch just checkout the LFRic Apps trunk. Then run the apply_macros script as described above and this will share the upgrade macro across both LFRic Apps and LFRic Core as needed.
+                All LFRic Core tickets with macros are expected to be linked with LFRic Apps, though they may not have required an LFRic Apps development branch (although an Apps ticket should be provided). This is fine - if there is no LFRic Apps branch just checkout the LFRic Apps main. Then run the apply_macros script as described above and this will share the upgrade macro across both LFRic Apps and LFRic Core as needed.
 
     .. important::
 
@@ -283,7 +283,7 @@ are no clashes with what else has gone on trunk.
         .. code-block:: RST
 
             git pull
-            git checkout <branch name>
+            git switch <branch name>
             cd <path_to>/user_guide/doc
             conda activate jules-user-guide
             make html

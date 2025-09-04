@@ -41,7 +41,9 @@ There is no requirement to open an issue before making a pull request, as long a
 Clone the Repository
 --------------------
 
-A clone is a local copy of a repository - you can have a local clone of either an upstream repository or a fork. A clone will have an active branch which will initially be the default branch of the repository. All other branches in the repository can be accessed using the ``checkout`` command (see below). For general development, you should now get a clone of your fork.
+A clone is a local copy of a repository - you can have a local clone of either
+an upstream repository or a fork. A clone will have an active branch which will
+initially be the default branch of the repository. All other branches in the repository can be accessed using the ``switch`` command (see below). For general development, you should now get a clone of your fork.
 
 .. tip::
 
@@ -122,13 +124,13 @@ To create a branch and switch to it from the command line, the syntax is,
         .. code-block::
 
             # parent_branch will default to the current branch if not provided
-            # switch will automatically checkout the newly created branch
+            # switch will automatically change to the newly created branch
             git switch -c <branch_name> [<parent_branch>]
 
             # Or
 
             git branch <branch_name> <source_branch>
-            git checkout <branch_name>
+            git switch <branch_name>
 
 Developing a Change
 -------------------

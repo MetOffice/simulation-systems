@@ -94,8 +94,8 @@ Most work to maintain a fork involves syncing it with the upstream repository. S
 
         .. code-block::
 
-            # Checkout the desired branch
-            git checkout main
+            # Change to the desired branch
+            git switch main
 
             # Merge in changes from the upstream
             git merge upstream/main
