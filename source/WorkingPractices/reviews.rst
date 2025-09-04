@@ -37,6 +37,12 @@ Trivial tickets are an exception and do not require a SciTech review.
     then another person should be brought in to finish the review process and
     provide that external viewpoint.
 
+.. tip::
+    The reviewer will likely leave comments, all of which should be addressed by
+    the developer. The developer should **not** resolve these comments
+    themselves, instead allowing the reviewer to resolve them when they are
+    happy with the response.
+
 
 Preparing for Review
 --------------------
