@@ -41,7 +41,8 @@ You have 4 options to consider.
   merged into. It will be the upstream repository you forked from.
 * ``base`` - This is the branch in the ``base repository`` where the pull
   request will be merged into. It will default to the repositories default
-  branch which for Simulation Systems repositories will be ``main`` which is as desired.
+  branch which for Simulation Systems repositories will be ``main`` which is as
+  desired.
 * ``head repository`` - This is the repository where the pull request changes
   are coming from - it will be your forked repository.
 * ``compare`` - This is the branch in the ``head repository`` containing
