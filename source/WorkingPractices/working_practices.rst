@@ -71,7 +71,7 @@ the process is very comparable to that of the other repositories too.
 
     ``Upstream``: the primary or parent repository, owned by the MetOffice
     github organisation. Only code reviewers are able to directly interact with
-    this repository, rather than being required to use clones.
+    this repository, rather than being required to use forks.
 
 
     Further definitions can be found in the
