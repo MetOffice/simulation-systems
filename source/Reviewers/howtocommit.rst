@@ -12,7 +12,7 @@ The process for committing a ticket follows this sequence with details for each 
     Before You Start:
       * Is anyone else committing?
 
-        * `Trunk Status`_ is used to coordinate trunk commits all projects.
+        * `Main Status`_ is used to coordinate trunk commits all projects.
         * Simple, not conflicting commits can be done in parallel if reviewers all agree.
         * Changes with KGO or Macros usually require sole access to the trunk.
       * Check how many commits have happened today. Suggested limit per day, per repository is 4.
@@ -622,4 +622,4 @@ If something is broken:
     * You can then access other machines as the admin user via ``ssh -Y
       <HOSTNAME>``.
 
-.. _Trunk Status: https://code.metoffice.gov.uk/trac/lfric_apps/wiki/TrunkStatus
+.. _Main Status: https://code.metoffice.gov.uk/trac/lfric_apps/wiki/TrunkStatus

@@ -68,7 +68,8 @@ is selected (see :ref:`reviewer_edits` for details).
 
 Once you are happy with the pull request details open the pull request.
 Initially you can choose to do this in draft mode, to allow you time to do any
-final fixes based on continuous integration. If you use draft mode mark the pull request as ``ready for review`` once you are satisfied.
+final fixes based on continuous integration. If you use draft mode mark the
+pull request as ``ready for review`` once you are satisfied.
 
 .. tip::
 

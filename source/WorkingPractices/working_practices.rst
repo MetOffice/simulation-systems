@@ -82,12 +82,12 @@ branches, ``main`` and ``stable`` (with the potential for additional version
 branches to be added).
 
 * ``main`` - This is the default github branch and is the branch that new
-development pull requests should target. It will never be behind the ``stable``
-branch, but will regularly be ahead.
+  development pull requests should target. It will never be behind ``stable``
+  branch, but will regularly be ahead.
 * ``stable`` - This branch represents the codebase at a version release and
-will generally remain unchanged throughout a release cycle. New branches should
-be made from this branch (or from a release tag.) Only new releases and small
-hotfixes to a release will be merged back into this branch.
+   will generally remain unchanged throughout a release cycle. New branches
+   should be made from this branch (or from a release tag.) Only new releases
+   and small hotfixes to a release will be merged back into this branch.
 
 All general development for Simulation Systems Github repositories will take
 place on forks of that repository. It is the responsibility of the developer to
