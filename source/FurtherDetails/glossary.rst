@@ -1,5 +1,6 @@
 Simulation Systems Glossary
 ===========================
+
 Please suggest new entries to the Simulation Systems and Deployment Team
 
 Closed Release:
@@ -19,19 +20,17 @@ Colon Keyword:
 CodeSys Review:
     A technical review of the changes involved in the ticket, including checks
     that code standards have been upheld and that the working practices have
-    been followed. These reviews are generally completed by a member of
-    the Simulation Systems and Deployment Team. Once a review has been approved
+    been followed. These reviews are generally completed by a member of the
+    Simulation Systems and Deployment Team. Once a review has been approved
     the Code Systems Reviewer is then responsible for committing the change to
     the trunk.
 
 ..
     or the Core Capability Development Team (for LFRic only reviews).
 
-
-
 Development Window:
-    The period of time between the release of one software version and the
-    code review deadline for the following release in which new developments are
+    The period of time between the release of one software version and the code
+    review deadline for the following release in which new developments are
     accepted for review.
 
 Further Commit:
@@ -41,10 +40,10 @@ Further Commit:
     way.
 
 Known Good Output (KGO):
-    In order to verify that the model output hasn't been modified by a set of changes
-    the test suite contains a stored set of output as a reference. This is known
-    as the KGO and changes that alter this require special treatment. For more
-    information see :ref:`kgo`.
+    In order to verify that the model output hasn't been modified by a set of
+    changes the test suite contains a stored set of output as a reference.
+    This is known as the KGO and changes that alter this require special
+    treatment. For more information see :ref:`kgo`.
 
 Head of Trunk:
     The most recent code revision on the trunk. Branches are taken from here
@@ -72,8 +71,8 @@ SciTech Review:
     appropriate.
 
 Simulation Systems and Deployment Team:
-    The team responsible for the oversight of these working practices. For
-    more information see :ref:`ssd`.
+    The team responsible for the oversight of these working practices. For more
+    information see :ref:`ssd`.
 
 Simulation Systems Governance Group:
     The governing body that oversees the work of the Simulation Systems and

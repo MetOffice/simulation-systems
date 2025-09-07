@@ -19,13 +19,17 @@ Curating a Release
 Tagging FCM Trunks
 ------------------
 
-Tagging fcm trunks with new release keywords is done in lots of places throughout these instructions. This section is a guide for doing this, using the UM as an example.
+Tagging fcm trunks with new release keywords is done in lots of places
+throughout these instructions. This section is a guide for doing this, using
+the UM as an example.
 
-The keywords need to be added to the base directory of the project, i.e. in the directory that contains trunk and branches.
+The keywords need to be added to the base directory of the project, i.e. in the
+directory that contains trunk and branches.
 
-.. code-block::
+.. code-block:: shell
 
-    # Note the -q means quiet checkout, nothing is printed to std out. The -N means
+    # Note the -q means quiet checkout, nothing is printed to std out. The -N
+      means
     # only the top level directory is extracted, otherwise it would extract the
     # entire repository (and take many hours!)
     # The 'fcm log' command gives you the most recent log message for the
@@ -36,7 +40,10 @@ The keywords need to be added to the base directory of the project, i.e. in the 
     cd um
     fcm pe fcm:revision .
 
-In the editor that comes up (you may need to specify the editor using ``--editor-cmd vi``) add the new keyword, e.g. ``vn11.5 = 810`` (noting the format may change away from the UM). Once completed save the changes and close the editor. Finally commit the change, ``fcm ci``.
+In the editor that comes up (you may need to specify the editor using
+``--editor-cmd vi``) add the new keyword, e.g. ``vn11.5 = 810`` (noting the
+format may change away from the UM). Once completed save the changes and close
+the editor. Finally commit the change, ``fcm ci``.
 
 
 Release Ticket
@@ -78,14 +85,22 @@ Pre-Release
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
-The point of the test release is to test the release system/process works before we have to do it for real. Typically aim for 1-2 weeks before release day. However, before a test release can be done, all changes to fcm-make config files, major rose-stem changes (things like basic upgrade macro or KGO updates don't necessarily need to be included) and modifications to the release_new_version.py script need to be on trunk, so this will cause some variation as to when the test release is done from release to release.
+The point of the test release is to test the release system/process works
+before we have to do it for real. Typically aim for 1-2 weeks before release
+day. However, before a test release can be done, all changes to fcm-make
+config files, major rose-stem changes (things like basic upgrade macro or KGO
+updates don't necessarily need to be included) and modifications to the
+release_new_version.py script need to be on trunk, so this will cause some
+variation as to when the test release is done from release to release.
 
 
 :ref:`Partner Testing<partner_testing>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
-All source code changes must be on trunk along with any rose-stem changes that affect multiple sites before partner testing can start. Ideally the test release will also have been completed.
+All source code changes must be on trunk along with any rose-stem changes that
+affect multiple sites before partner testing can start. Ideally the test
+release will also have been completed.
 
 
 :ref:`Software Stack<software_stack>`
@@ -116,7 +131,8 @@ All shumlib tickets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
-All mule tickets, Shumlib release (if required), UM release (to actually install)
+All mule tickets, Shumlib release (if required), UM release (to actually
+install)
 
 
 :ref:`UM Main Release<um_main_release>`
@@ -140,7 +156,8 @@ Post Release Tasks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
-Most of this can be done pre-release but some details of revision numbers will be dependent on the main release being done.
+Most of this can be done pre-release but some details of revision numbers will
+be dependent on the main release being done.
 
 
 `Upgrading Standalone Suites <https://code.metoffice.gov.uk/trac/um/wiki/CuratingARelease#UpgradingStandaloneSuites>`_

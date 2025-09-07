@@ -2,8 +2,9 @@
 
 Documentation
 -------------
-All projects have their own scientific and technical documentation.
-Most notably:
+
+All projects have their own scientific and technical documentation. Most
+notably:
 
 +----------------------------+-----------------------------+-------------------------------------------------+
 | UM Documentation Papers    |`view UM`_                   | `edit UM`_                                      |
@@ -13,9 +14,10 @@ Most notably:
 | LFRic Documentation Papers |`view LFRic`_                | `edit LFRIc`_                                   |
 +----------------------------+-----------------------------+-------------------------------------------------+
 
-LFRic Apps and Core also use doxygen to document the code and all changes should
-include appropriate doxygen changes to go with them. Doxygen guidelines are
-available on the `LFRic Technical pages <https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicTechnical/Documentation/DoxygenUsage>`_.
+LFRic Apps and Core also use doxygen to document the code and all changes
+should include appropriate doxygen changes to go with them. Doxygen guidelines
+are available on the `LFRic Technical pages
+<https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicTechnical/Documentation/DoxygenUsage>`__.
 
 .. toctree::
     :hidden:
@@ -29,14 +31,16 @@ available on the `LFRic Technical pages <https://code.metoffice.gov.uk/trac/lfri
 .. _view LFRic: https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicDocumentationPapers
 .. _edit LFRIc: https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicTechnical#Documentation
 
-Small changes and bug fixes rarely need documentation to be updated, but when new science is
-added to a project, the documentation must be updated to ensure that it remains contemporary
-with the code.
+Small changes and bug fixes rarely need documentation to be updated, but when
+new science is added to a project, the documentation must be updated to ensure
+that it remains contemporary with the code.
 
 .. tip::
-  Searching the relevant documentation for words related to your change is often useful when
-  deciding whether to update the documentation.
+
+    Searching the relevant documentation for words related to your change is
+    often useful when deciding whether to update the documentation.
 
 Documentation changes that are held within a repository are formally reviewed,
-and should be included on the same ticket as the code changes - making sure both
-code and docs branches are clearly listed and the `doc` keyword is applied.
+and should be included on the same ticket as the code changes - making sure
+both code and docs branches are clearly listed and the `doc` keyword is
+applied.
