@@ -6,7 +6,7 @@ on:
     - main
     - github_wps
   pull_request:
-    types: [opened,reopened,review_requested]
+    types: [opened, reopened, synchronize]
   workflow_dispatch:
 
 permissions:
