@@ -72,6 +72,8 @@ Most work to maintain a fork involves syncing it with the upstream repository. S
         .. image:: images/gh_screenshots/sync_fork_dark.png
             :class: only-dark border
 
+        The synced branch will still only exist in the remote repository. If you require them in a local clone make sure to ``fetch`` or ``pull`` the repository.
+
     .. tab-item:: gh cli
 
         Run the following command, substituting for the downstream fork owner and repo name. Without the ``-b`` option, only the default branch will be synced. You may want to sync both ``stable`` and ``main``, particularly at a release.
@@ -80,9 +82,7 @@ Most work to maintain a fork involves syncing it with the upstream repository. S
 
             gh repo sync <OWNER>/<REPO> -b <BRANCH>
 
-        .. tip::
-
-            When using the gh cli to sync forks, remember that it won't pull the changes to local clone, this needs to be done manually.
+        The synced branch will still only exist in the remote repository. If you require them in a local clone make sure to ``fetch`` or ``pull`` the repository.
 
     .. tab-item:: git commands
 
@@ -94,8 +94,8 @@ Most work to maintain a fork involves syncing it with the upstream repository. S
 
         .. code-block::
 
-            # Checkout the desired branch
-            git checkout main
+            # Change to the desired branch
+            git switch main
 
             # Merge in changes from the upstream
             git merge upstream/main

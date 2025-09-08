@@ -12,7 +12,7 @@ The process for committing a ticket follows this sequence with details for each 
     Before You Start:
       * Is anyone else committing?
 
-        * `Trunk Status`_ is used to coordinate trunk commits all projects.
+        * `Main Status`_ is used to coordinate trunk commits all projects.
         * Simple, not conflicting commits can be done in parallel if reviewers all agree.
         * Changes with KGO or Macros usually require sole access to the trunk.
       * Check how many commits have happened today. Suggested limit per day, per repository is 4.
@@ -51,7 +51,7 @@ are more complicated conflicts ask the developer to solve them themselves. If
 there are conflicts in versions.py then see the details in the macro section
 below.
 
-Then checkout the up to date branch, eg.
+Then switch to the up to date branch, eg.
 
 .. code-block::
 
@@ -130,7 +130,7 @@ rose-stem app then you will need to upgrade the test-suite.
 
             .. note::
 
-                All LFRic Core tickets with macros are expected to be linked with LFRic Apps, though they may not have required an LFRic Apps development branch (although an Apps ticket should be provided). This is fine - if there is no LFRic Apps branch just checkout the LFRic Apps trunk. Then run the apply_macros script as described above and this will share the upgrade macro across both LFRic Apps and LFRic Core as needed.
+                All LFRic Core tickets with macros are expected to be linked with LFRic Apps, though they may not have required an LFRic Apps development branch (although an Apps ticket should be provided). This is fine - if there is no LFRic Apps branch just checkout the LFRic Apps main. Then run the apply_macros script as described above and this will share the upgrade macro across both LFRic Apps and LFRic Core as needed.
 
     .. important::
 
@@ -283,7 +283,7 @@ are no clashes with what else has gone on trunk.
         .. code-block:: RST
 
             git pull
-            git checkout <branch name>
+            git switch <branch name>
             cd <path_to>/user_guide/doc
             conda activate jules-user-guide
             make html
@@ -622,4 +622,4 @@ If something is broken:
     * You can then access other machines as the admin user via ``ssh -Y
       <HOSTNAME>``.
 
-.. _Trunk Status: https://code.metoffice.gov.uk/trac/lfric_apps/wiki/TrunkStatus
+.. _Main Status: https://code.metoffice.gov.uk/trac/lfric_apps/wiki/TrunkStatus
