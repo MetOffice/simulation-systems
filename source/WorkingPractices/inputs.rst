@@ -80,12 +80,14 @@ to the new metadata. The SSD team are also available to advise on whether an upg
 
     rose edit -C rose-stem/app/APP-NAME
 
+  Note: ``rose edit`` runs on a server, so make sure your source can be seen from a server - i.e. not on a drive that's only available to your local machine.
+
   For LFRic Apps a few extra changes are required. In your branch (your test branch if you have an upgrade macro):
 
   .. code-block::
 
     cd rose-meta
-    rose edit -C rose-stem/app/APP-NAME --no-warn version
+    rose edit -C ../rose-stem/app/APP-NAME --no-warn version
 
   If you have a linked LFRic Core or Jules ticket with metadata changes, you can load their metadata by adding ``-M /path/to/working_copy/rose-meta`` to the ``rose-edit`` command.
 
