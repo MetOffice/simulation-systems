@@ -80,7 +80,7 @@ to the new metadata. The SSD team are also available to advise on whether an upg
 
     rose edit -C rose-stem/app/APP-NAME
 
-  Note: ``rose edit`` runs on a server, so make sure your source can be seen from a server - i.e. not on a drive that's only available to your local machine.
+  Note for MetOffice Users: ``rose edit`` runs on a server, so make sure your source can be seen from a server - i.e. not on a drive that's only available to your local machine.
 
   For LFRic Apps a few extra changes are required. In your branch (your test branch if you have an upgrade macro):
 
