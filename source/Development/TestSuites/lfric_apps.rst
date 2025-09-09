@@ -4,10 +4,11 @@ Testing LFRic Apps
 ==================
 
 Rose stem:
+
     LFRic Apps testing uses rose-stem and is run with the following commands
     from a working copy:
 
-    .. code-block::
+    .. code-block:: shell
 
         export CYLC_VERSION=8
         rose stem --group=developer
@@ -15,39 +16,47 @@ Rose stem:
         cylc gui
 
 Local testing:
-    Alternatively, a single application can be built and run locally using
-    `these instructions <https://code.metoffice.gov.uk/trac/lfric_apps/wiki/local_builds>`_
 
-    This test does not use rose or cylc and is particularly useful for
-    checking for compile errors while developing.
+    Alternatively, a single application can be built and run locally using
+    `these instructions
+    <https://code.metoffice.gov.uk/trac/lfric_apps/wiki/local_builds>`__
+
+    This test does not use rose or cylc and is particularly useful for checking
+    for compile errors while developing.
 
 -----
 
 .. important::
 
-    When specifying the lfric_core source the lfric_core revision **must** be updated in ``dependencies.sh``.
+    When specifying the lfric_core source the lfric_core revision **must** be
+    updated in ``dependencies.sh``.
 
-    * If setting the source to an fcm URL, the mirror (``.xm_``) needs to be used and the revision can either be blank (for latest commit) or any valid revision for that branch.
-    * If setting the source to a Working Copy, the hostname needs to be provided (as Hostname:Path) and the revision must be blank.
+    * If setting the source to an fcm URL, the mirror (``.xm_``) needs to be
+      used and the revision can either be blank (for latest commit) or any
+      valid revision for that branch.
+    * If setting the source to a Working Copy, the hostname needs to be
+      provided (as Hostname:Path) and the revision must be blank.
 
     For more details, see :ref:`multi-repo_testing`.
 
 
 Rose stem
 ---------
-The LFRic Apps rose stem includes a range of tests to exercise all the applications
-stored in this repository, using multiple compilers, and checksum and plot tasks to
-confirm the outputs.
+
+The LFRic Apps rose stem includes a range of tests to exercise all the
+applications stored in this repository, using multiple compilers, and checksum
+and plot tasks to confirm the outputs.
 
 .. tip::
 
-    For LFRic Apps it is possible to update the checksum files on your branch as
-    you progress your development to aid with testing. Details on how to do this
-    are on the :ref:`KGO page <kgo>`.
+    For LFRic Apps it is possible to update the checksum files on your branch
+    as you progress your development to aid with testing. Details on how to do
+    this are on the :ref:`KGO page <kgo>`.
 
-Below is a (by no means comprehensive) set of groups that you may wish to use on
-Met Office systems. Note that there is a lot of overlap between these groups,
-and that you can specify more than one at once, e.g. ``--group=developer,gungho_model``.
+Below is a (by no means comprehensive) set of groups that you may wish to use
+on Met Office systems. Note that there is a lot of overlap between these
+groups, and that you can specify more than one at once, e.g.
+``--group=developer,gungho_model``.
 
 +--------------------+----------------------------------------------------------+
 | Group              | Description                                              |
@@ -76,8 +85,8 @@ and that you can specify more than one at once, e.g. ``--group=developer,gungho_
 +--------------------+----------------------------------------------------------+
 
 As well as these general groups, each area in ``<lfric_apps>/applications`` and
-``<lfric_apps>/science`` have a set of specific groups that are structured as below,
-with ``name`` matching the directory name of the area.
+``<lfric_apps>/science`` have a set of specific groups that are structured as
+below, with ``name`` matching the directory name of the area.
 
 +--------------------+----------------------------------------------------------+
 | Group              | Description                                              |
