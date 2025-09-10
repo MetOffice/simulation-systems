@@ -1,0 +1,54 @@
+! *****************************COPYRIGHT*******************************
+! (C) Crown copyright Met Office. All rights reserved.
+! For further details please refer to the file COPYRIGHT.txt
+! which you should have received as part of this distribution.
+! *****************************COPYRIGHT*******************************
+!
+! <A one line description of this module>
+
+MODULE <ModuleName>
+
+! USE <module_name>, ONLY : <module_variables> 
+
+IMPLICIT NONE
+
+!
+! Description:
+!   <Say what this Module does>
+!
+! Method:
+!   <Say how it does it: include references to external documentation>
+!   <If this function is very complex, then include a "pseudo code"
+!    description of it to make its structure and method clear>
+!
+! Code Owner: Please refer to the UM file CodeOwners.txt
+! This file belongs in section: <section_name_to_be_entered>
+!
+! Code Description:
+!   Language: Fortran 90.
+!   This code is written to UMDP3 v8.3 programming standards.
+!
+! Declarations:
+!   These are of the form:-
+!     INTEGER      :: ExampleVariable      !Description of variable
+!
+
+! Subroutine arguments  
+
+< Scalar arguments>
+
+< Array  arguments>
+
+< Scalar arguments>
+
+< Array  arguments>
+
+< Scalar arguments>
+
+< Array  arguments>
+
+<Declaration order for all the above; INTEGER, REAL, LOGICAL, CHARACTER>
+
+CONTAINS
+
+! End of header

@@ -1,0 +1,291 @@
+\section{Specific standards}
+\label{sec:specific}
+
+\subsection{Runtime namelist variables, defaults, future development}\label{sec:namelists}
+The UM reads in a number of run time 'control' namelists; within READLSTA.F90.
+Examples are the \verb|RUN_<physics>| type namelists.
+When new science options are required to be added to the UM  the developer is expected to add
+the new variable/parameter to the relevant \verb|RUN_<physics>| namelist and declaration in the corresponding module, 
+updating READLSTA.F90 as required.
+
+The use of \verb|cruntimc.h| is to be avoided as this approach is being phased out in favour of suitable modules.
+
+\begin{itemize}
+  \item Code development should use MODULES to define
+namelist LOGICALS, PARAMETERS and VARIABLES (and their defaults) alongwith the
+NAMELIST.
+\item It is essential that defaults are set; items within namelists are expected to fall into 3 camps: 
+\begin{itemize}
+  \item variable never actually changes; it is a default for all users
+     \begin{itemize} 
+     \item this should be set in the code and removed from any input namelist.
+     \end{itemize}
+  \item variable rarely changes; 
+     \begin{itemize} 
+     \item set identified default within UM code, with comment explaining choice.
+     \item  We advise that these are not included in the namelist. A code change will be required to alter it.
+     \end{itemize}
+  \item regularly changes or is a new item and thus no default is yet suitable
+     \begin{itemize} 
+     \item \verb|LOGICAL|s usually to \verb|FALSE|
+     \item variables set to RMDI or IMDI
+     \item \verb|CHARACTER| strings should be set to a default string. For example,
+       \begin{verbatim}
+        aero_data_dir       = 'aero data dir is unset' 
+       \end{verbatim}
+     \end{itemize}
+  \end{itemize}
+\end{itemize}
+An example of preferred practice see \verb|RUN_Stochastic|.
+The namelist variables are all defined within a MODULE,
+ \verb|stochastic_physics_run_mod.F90|, including default values.
+ 
+\subsection{Defensive input programming}
+When real or integer values are read into the code by a namelist, 
+the Rose metadata should either use a values list or a range so that the Rose GUI can warn the user of invalid values. 
+These values should also be tested in the code to ensure that the values read in are valid.
+As it is possible to edit Rose namelists, or ignore Rose GUI warnings, 
+the GUI should not be relied on for checking that input values of reals and integers are valid. 
+It may also be appropriate to check logical values if a specific combination of logicals will
+cause an error for example.
+
+The routine, \verb|chk_var|, is available for developers to more easily check their inputs.
+Checks made by \verb|chk_var| should match any checks made by Rose, however checks by
+\verb|chk_var| are made by the code and will by default, abort the run. Developers
+should refer to the \href{https://code.metoffice.gov.uk/doc/um/vn\theumversion/um-training/}
+{um-training} for more information on \verb|chk_var|.
+
+
+\subsection{Optimised namelist reading procedures}
+As of UM9.1 the procedure to read UM namelists has been enhanced but this 
+has implications for the code developer, requiring extra code changes when adding/removing a UM input namelist item.
+Tied with each namelist read is now the requirement for a 'read\_nml\_routine' usually found in the containing module of the namelist.
+
+If a coder wishes to add a new variable to a namelist (xxxxxx) then the new read\_nml\_xxxxxx subroutine will need changing. 
+The changes required are:
+\begin{itemize}
+\item  increment the relevant type parameter by the variable size (for a real scalar increase n\_real by 1)
+\item  add a new line to the list in the my\_namelist type declaration in the relevant variable type.
+\item  add a new line to the my\_nml population section in the relevant variable type
+\item  add a new line to the namelist population section in the relevant variable type. 
+\end{itemize}
+See the UM code for examples.
+
+
+\subsection{Unix script standards}
+
+This standard covers UM shell scripts which are used in the operational suite as well as within the UM itself. The requirements that this standard is intended to meet are as follows:
+
+\begin{itemize}
+  \item The script should be easily understood and used, and should be easy for a programmer other than the original author to modify.
+  \item To simplify portability it should conform to the unix standard as much as possible, and exclude obsolescent and implementation-specific features when possible.
+  \item It should be written in an efficient way.
+  \item The structure of the script should conform to the design agreed in the project plan. 
+\end{itemize}
+
+Scripts are to be regarded as being control code as far as external documentation is concerned.
+
+
+\subsection{Python standards}
+
+Python code used in or with the UM should obey the standard Python style guide 
+\href{http://www.python.org/dev/peps/pep-0008/}{PEP 8}. This means that our
+Python code will follow the same guidelines commonly adhered to in other Python
+projects, including Rose.
+
+
+\subsection{C standards}
+C code used in or with the UM should conform to the C99 standard (\href{http://www.iso.org/iso/iso_catalogue/catalogue_ics/catalogue_detail_ics.htm?csnumber=29237}{ISO/IEC 9899:1999: Programming languages -- C (1999) by JTC 1/SC 22/WG 14}).
+
+Furthermore, it is assumed that any C implementation used by the UM supports C99 Annex F (IEC 60559 Floating-point arithmetic) i.e. it is assumed the implementation defines \verb|__STDC_IEC_559__|.
+It is also assumed the implementation provides the optional 8-, 16-, 32-, and 64-bit exact-width integer types.
+
+\subsubsection{Preprocessing of C}
+Preprocessing of source files is allowed, as defined by the C99 standard, but with a few minor exceptions.
+This use includes --- but is not limited to --- the use of \verb|#include|, macros, \verb|#pragma|, and \verb|_Pragma| statements.
+
+The exceptions are as follows:
+
+\begin{itemize}
+
+\item Code must not be dependent on preprocessing to select optional or platform specific features in order for it to compile or run.
+      Platform specific and optional code are allowed; but this should augment basic functionality rather than implment a key component of it.
+      In other words, code should be able to compile and run correctly on all platforms without any optional
+      or platform dependent macros being defined, even if the code could take advantage of them on that platform.
+
+\item Platform specific code must be protected by an if-def test on a compiler and/or platform specific macro as appropriate.
+      (Examples may include the use of \verb|__GNUC__|, \verb|__clang__|, \verb|__linux__|, \verb|_AIX|, \verb|__x86_64__|, or \verb|__aarch64__|)
+      This includes the protection of compiler-specific \verb|#pragma|/\verb|_Pragma| statements.
+
+\item If-def tests must not use the \verb|#ifdef|/\verb|#ifndef| style. Instead use \verb|#if defined()| or  \verb|#if !defined()| as appropriate.
+      This restriction is required to simplify the implementation of automated testing.
+
+\end{itemize}
+
+\subsubsection{Code Layout}
+Rules regarding whitespace, 80 column line widths, prohibition on tab use, and the use of UK English apply to C code as they would Fortran code.
+Comments should use the traditional \verb|/* */| style; C++ style comments (\verb|//|) should be avoided.
+
+\subsubsection{Copyright and Code Owner Comments}
+Copyright and code owner comments follow the same rules as in Fortran, except with slight modification for the differing comment delimiters in the two languages --- using \verb|/* */| instead of \verb|!|.
+An example of a compliant comment header detailing copyright and code owner comments is given below.
+
+\begin{minipage}{\linewidth}
+\begin{verbatim}
+
+/**********************************COPYRIGHT***********************************/
+/*            (C) Crown copyright Met Office. All rights reserved.            */
+/*         For further details please refer to the file COPYRIGHT.txt         */
+/*        which you should have received as part of this distribution.        */
+/**********************************COPYRIGHT***********************************/
+
+/* Code Owner: Please refer to the UM file CodeOwners.txt                     */
+/* This file belongs in section: C Code                                       */
+
+\end{verbatim}
+\end{minipage}
+
+\subsubsection{Deprecated identifiers}
+In addition to the identifiers deprecated by the C99 standard, the following table lists identifiers which should be considered deprecated within UM code --- and where appropriate, what to replace them with.
+
+\addtocounter{footnote}{1}
+\footnotetext{\label{cdepdiffargs}These functions take different arguments from the original deprecated functions they replace.}
+\begin{tabular}{|c|c|} \hline
+\bf{Deprecated indentifier} & \bf{Replace with} \\ \hline
+\verb|sprintf()| & \verb|snprintf()|\footnotemark[\value{footnote}] \\ \hline
+\verb|strcpy()| & \verb|strncpy()|\footnotemark[\value{footnote}] \\ \hline
+\end{tabular}
+
+\subsubsection{OpenMP in C Code}\label{sec:OpenMPinC}
+It is possible for the runtime libraries used by OpenMP to be incompatible if different vendors or compiler versions are used for
+the C and Fortran compiler. For this reason, whilst use of OpenMP in C code is permitted, there are some rules governing acceptable
+use that must be followed.
+
+\subsubsection*{Protecting OpenMP in C Code}
+OpenMP directives (\verb|#pragma omp|) in C code must be protected by both a \verb|SHUM_USE_C_OPENMP_VIA_THREAD_UTILS| and an \verb|_OPENMP| \verb|#ifdef|.
+This ensures it is possible to select the use of only the Fortan OpenMP runtime library if required.
+If possible, provide a Fortran implementation of the OpenMP parallelism as well, using the wrappers in the \verb|thread_utils| module from SHUMlib.
+An example of such use is given below.
+
+\begin{minipage}{\linewidth}
+\begin{verbatim}
+
+#if defined(_OPENMP) && defined(SHUM_USE_C_OPENMP_VIA_THREAD_UTILS)
+
+ /* this branch uses the Fortran OpenMP runtime, via the SHUMlib thread_utils module */
+ thread_utils_func();
+
+#elif defined(_OPENMP) && !defined(SHUM_USE_C_OPENMP_VIA_THREAD_UTILS)
+
+ /* this branch uses OpenMP pragmas within C */
+ #pragma omp parallel
+ {
+   omp_func();
+ }
+
+#else
+
+ /* this branch does not use OpenMP */
+ serial_func();
+
+#endif
+
+\end{verbatim}
+\end{minipage}
+
+Ideally this should lead to code capable of providing all three possible runtime outcomes, the use of which are compile-time configurable:
+
+\begin{itemize}
+\item No OpenMP is used.
+\item OpenMP is used through the C runtime library. (The compiler defines \verb|_OPENMP|, through the nomal compiler switch selection process.)
+\item OpenMP is used through the Fortran runtime library, accesed via SHUMlib. (The compiler defines \verb|_OPENMP|; the user defines \verb|SHUM_USE_C_OPENMP_VIA_THREAD_UTILS|)
+\end{itemize}
+
+You must always ensure that the no OpenMP case is possible.
+
+(See also: The SHUMlib documentation on \verb|shum_thread_utils|)
+
+\subsubsection*{Other Uses of the \_OPENMP Macro}
+The use of the \verb|_OPENMP| preprocessor macro for code other than directives is permitted.
+This can be used equivalently to how the \verb|!$| sentinel would be in Fortran.
+A recommended use is to protect the inclusion of the header for the  \verb|thread_utils| module, as shown below.
+
+\begin{minipage}{\linewidth}
+\begin{verbatim}
+
+#if defined(_OPENMP) && defined(SHUM_USE_C_OPENMP_VIA_THREAD_UTILS)
+#include "c_shum_thread_utils.h"
+#endif
+
+\end{verbatim}
+\end{minipage}
+
+Or to protect inclusion of the OpenMP header, as shown below.
+
+\begin{minipage}{\linewidth}
+\begin{verbatim}
+
+#if defined(_OPENMP) && !defined(SHUM_USE_C_OPENMP_VIA_THREAD_UTILS)
+#include <omp.h>
+#endif
+
+\end{verbatim}
+\end{minipage}
+
+\subsubsection*{Further Rules for OpenMP in C}
+
+In order to standardise the way the above rules are implemented, and to allow for automated checking
+of the compliance of code, the following additional rules are imposed.
+
+\begin{itemize}
+
+\item You cannot hide the use of the \verb|_OPENMP| \& \verb|SHUM_USE_C_OPENMP_VIA_THREAD_UTILS| macros through the definition of a third macro dependent on them.
+      For example, you must not define and use a new macro in place of the two original macros, as shown here:\\*
+      \begin{minipage}{\linewidth}
+      \begin{verbatim}
+
+#define USE_THREAD_UTILS defined(_OPENMP) && defined(SHUM_USE_C_OPENMP_VIA_THREAD_UTILS)
+
+#if defined(USE_THREAD_UTILS)
+  thread_utils_func();
+#endif
+
+      \end{verbatim}
+      \end{minipage}
+
+\item If-def tests on \verb|_OPENMP| \& \verb|SHUM_USE_C_OPENMP_VIA_THREAD_UTILS| must always occur as a pair.
+      You may not test the use of \verb|_OPENMP| or \verb|SHUM_USE_C_OPENMP_VIA_THREAD_UTILS| in isolation.
+
+\item \verb|_OPENMP| must come first in any \verb|#if defined()| pair.
+
+\item Any OpenMP \verb|#if defined()| pair must not also include a logical test on a third macro. If this functionality is required, find an appropriate nesting of \verb|#if defined()| tests.
+      For example instead of:\\*
+      \begin{minipage}{\linewidth}
+      \begin{verbatim}
+
+#if defined(_OPENMP) && defined(SHUM_USE_C_OPENMP_VIA_THREAD_UTILS) && defined(OTHER)
+/* do stuff */
+#endif
+
+      \end{verbatim}
+      \end{minipage}\\*
+      Use:\\*
+      \begin{minipage}{\linewidth}
+      \begin{verbatim}
+
+#if defined(_OPENMP) && defined(SHUM_USE_C_OPENMP_VIA_THREAD_UTILS)
+#if defined(OTHER)
+ /* do stuff */
+#endif
+#endif
+
+      \end{verbatim}
+      \end{minipage}
+
+\item You must not use negative logic in an if-def test on \verb|_OPENMP| (i.e. \verb|#if !defined(_OPENMP)|).
+      Instead, use positive logic and an \verb|#else| branch.
+      Use of negative logic is permitted for if-def tests on the accompanying \verb|SHUM_USE_C_OPENMP_VIA_THREAD_UTILS| macro,
+      as this will be required to distinguish between cases using the C and Fortan OpenMP runtimes.
+
+\end{itemize}
+

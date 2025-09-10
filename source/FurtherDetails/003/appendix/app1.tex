@@ -1,0 +1,55 @@
+\section{UM Software standard summary}
+\label{app:summary}
+
+The rules discussed in the main text are reproduced here in summary form with pdf links to the sections.
+
+\vspace{0.5cm}
+\begin{tabular}{|l|r|} \hline
+\bf{Standard} & \bf{Section} \\ \hline
+Use the naming convention for program units. & \ref{sec:progunit} \\ \hline
+Use your header and supply the appropriately complete code header & \ref{sec:Copyright} \\ \hline
+History comments are NOT required and should be removed from routines. & \ref{sec:Copyright} \\ \hline
+Fortan code should be written in free source form & \ref{sec:80cols} \\ \hline
+Code must occur in columns 1--80 (1--100 for CreateBC). & \ref{sec:80cols} \\ \hline
+Never put more than one statement per line.  & \ref{sec:80cols} \\ \hline
+Use English in your code. & \ref{sec:80cols} \\ \hline
+All Fortran keywords should be ALL CAPS while everything else is lowercase or CamelCase. & \ref{sec:fortstyle} \\ \hline
+Avoid archaic Fortran features & \ref{sec:fortstyle} \\ \hline
+Only use the generic names of intrinsic functions & \ref{sec:fortstyle} \\ \hline
+Comments start with a single \verb|!| at beginning of line.  & \ref{sec:comments}\\ \hline
+Single line comments can be indented within the code, after the statement.& \ref{sec:comments}\\ \hline
+Do not leave a blank line after a comment line.& \ref{sec:comments}\\ \hline
+Do NOT use TABS within UM code. & \ref{sec:comments} \\ \hline
+The use of MODULEs is greatly encouraged.& \ref{sec:modules}\\ \hline
+Use meaningful variable names & \ref{sec:declare}\\ \hline
+Use and declare variables and arguments in the \citeumdp{003} order & \ref{sec:declare} \\ \hline
+Use \verb|INTENT| in declaring arguments & \ref{sec:declare} \\ \hline
+Use \verb|IMPLICIT NONE|. & \ref{sec:declare} \\ \hline
+Use \verb|REAL, EXTERNAL :: func1| for functions & \ref{sec:declare}\\ \hline
+Do not use \verb|EXTERNAL| statements for subroutines & \ref{sec:declare}\\ \hline
+The use of ALLOCATABLE arrays can optmize memory use. & \ref{sec:allocate}\\ \hline
+Indent code within \verb|DO| or \verb|IF| blocks by 2 characters & \ref{sec:blocks}\\ \hline
+Terminate loops with \verb|END DO|  & \ref{sec:blocks} \\ \hline
+\verb|EXIT| statements must be labelled & \ref{sec:blocks} \\ \hline
+Avoid comparing two reals \verb|IF ( real1 == real2 ) THEN| & \ref{sec:blocks} \\ \hline
+Avoid using `magic numbers' and `magic logicals'& \ref{sec:blocks} \\ \hline
+Avoid use of \verb|GO TO| & \ref{sec:blocks} \\ \hline
+Avoid numeric labels & \ref{sec:blocks} \ref{sec:format} \\ \hline
+Exception is for error trapping, jump to the label \verb|9999| \verb|CONTINUE| statement. & \ref{sec:blocks} \\ \hline
+Continuation line marker must be \verb|&| at the end of the line. & \ref{sec:contd} \\ \hline
+Always use an \verb|ACTION| when you \verb|OPEN| a file. & \ref{sec:fortio} \\ \hline
+Check for file existence with \verb|OPEN| rather than \verb|INQUIRE| & \ref{sec:fortio} \\ \hline
+Always format information explcitly within WRITE, READs etc.& \ref{sec:format} \\ \hline
+Ensure that output messages do not use \verb|WRITE(6,...)|,\verb|WRITE(*,...)|, or \verb|PRINT*|. & \ref{sec:format}\\ \hline
+Ensure that output messages are protected by an appropriate setting of \verb|PrintStatus|. & \ref{sec:prstatus}\\ \hline
+Ensure your subroutines are instrumented for DrHook. & \ref{sec:drhook} \\ \hline
+Only use OpenMP sentinels at the beginning of lines \verb|!$OMP| & \ref{OpenMP} \\ \hline
+Be very careful when altering calculations within a OpenMP block. & \ref{OpenMP} \\ \hline
+If possible implement runtime logicals rather than compile time logicals. & \ref{sec:cpp} \\ \hline
+Do not replicate (duplicate) runtime logic with cpp logic. & \ref{sec:cpp} \\ \hline
+Do not protect optional arguments with cpp flags, use OPTIONAL args instead. & \ref{sec:cpp} \\ \hline
+Do not use CPP flags for selecting science code, use runtime logicals & \ref{sec:cpp} \\ \hline
+Use \verb|#include "modulename_routinename.h"| preprocessing directive for reducing code duplication & \ref{sec:duplication} \\ \hline
+Never use \verb|STOP| and \verb|CALL abort|  & \ref{Error reporting} \\ \hline
+New namelist items should begin life as category c items. & \ref{sec:namelists} \\ \hline
+\end{tabular}

@@ -1,0 +1,79 @@
+! *****************************COPYRIGHT*******************************
+! (C) Crown copyright Met Office. All rights reserved.
+! For further details please refer to the file COPYRIGHT.txt
+! which you should have received as part of this distribution.
+! *****************************COPYRIGHT*******************************
+!
+! <A one line description of this subroutine>
+
+SUBROUTINE <name(InputArguments, InOutArguments, OutputArguments)>
+
+! USE <module_name>, ONLY : <module_variables> 
+USE parkind1, ONLY: jpim, jprb       !DrHook
+USE yomhook,  ONLY: lhook, dr_hook   !DrHook
+
+
+IMPLICIT NONE
+
+!
+! Description:
+!   <Say what this routine does>
+!
+! Method:
+!   <Say how it does it: include references to external documentation>
+!   <If this routine is very complex, then include a "pseudo code"
+!    description of it to make its structure and method clear>
+!
+! Code Owner: Please refer to the UM file CodeOwners.txt
+! This file belongs in section: <section_name_to_be_entered>
+!
+! Code Description:
+!   Language: Fortran 90.
+!   This code is written to UMDP3 version 8.3 programming standards.
+!
+! Declarations:
+!   These are of the form:-
+!     INTEGER, INTENT(IN) :: ExampleVariable      !Description of variable
+!
+
+! Subroutine arguments  
+
+< Scalar arguments with INTENT(IN):>
+
+< Array  arguments with INTENT(IN):>
+
+< Scalar arguments with INTENT(IN OUT):>
+
+< Array  arguments with INTENT(IN OUT):>
+
+< Scalar arguments with INTENT(OUT):>
+
+< Array  arguments with INTENT(OUT):>
+
+! Local constants
+
+INTEGER(KIND=jpim), PARAMETER :: zhook_in  = 0
+INTEGER(KIND=jpim), PARAMETER :: zhook_out = 1
+
+! Local variables
+REAL(KIND=jprb)               :: zhook_handle
+
+<Declaration order for all the above; INTEGER, REAL, LOGICAL, CHARACTER>
+
+! Function definitions
+
+! End of header
+
+IF (lhook) CALL dr_hook('EXAMPLE',zhook_in,zhook_handle)
+
+
+...
+<Executable code>
+...
+
+
+IF (lhook) CALL dr_hook('EXAMPLE',zhook_out,zhook_handle)
+
+<The above line is also required before any RETURNs>
+RETURN
+END SUBROUTINE example

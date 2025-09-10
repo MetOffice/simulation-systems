@@ -1,0 +1,1052 @@
+\section{UM programming standards; Code Layout, Formatting, Style and Fortran features}
+\label{sec:general}
+
+This section outlines the programming standards you should adhere to when
+developing code for inclusion within the Unified Model.
+The rules set out in this section aim to improve code readability
+and ensure that UM code is compatible with both the Fortran 2003 standard and FCM.
+
+\subsection{Source files should only contain a single program unit}\label{sec:progunit}
+
+\begin{itemize}
+\item
+Modules may be used to group related variables, subroutines and functions.
+Each separate file within the source tree should be uniquely named.
+\item The name of the file should reflect the name of the programming unit.
+Multiple versions of the same file should be named
+\verb|filename-#ver| where \verb|#ver|
+is the section/version number (e.g. 1a,2a,2b\ldots). For example:
+\begin{itemize}
+\item \verb|<filename-#ver>.F90| when writing a \verb|<subroutine>|
+\item \verb|<filename_mod-#ver>.F90| with writing a \verb|<module_mod>|
+\item \verb|<existing filename>.F90| with \verb|<module_mod>| only if upgrading existing subroutine since Subversion does not handle renaming of files very well and this allows history of the file to be easily retrieved.
+\end{itemize}
+This makes it easier to navigate the UM code source tree for given routines.
+\item You should avoid naming your {\bf program units} and
+{\bf variables} with names that match an intrinsic \verb|FUNCTION|,
+\verb|SUBROUTINE| or \verb|MODULE|.  We recommend the use of unique names within
+a program unit.
+\item You should also avoid naming your program units
+and variables with names that match a keyword in a Fortran statement.
+\item Avoid giving program units names that are likely to be used as variable
+names elsewhere in the code, e.g. \verb|field| or \verb|string|. This makes
+searching the code difficult and can cause the code browser to make
+erroneous connections between unrelated routines.
+\item Subroutines should be kept reasonably short, where appropriate,
+say up to about 100 lines of executable code,
+but don't forget there are start up overheads
+involved in calling an external subroutine so
+they should do a reasonable amount of work.
+
+\end{itemize}
+
+\subsection{Headers}\label{sec:Copyright}
+\begin{itemize}
+\item All programming units require a suitable copyright header. Met Office derived
+code should use the standard UM copyright header as depicted in the good example
+code. Collaborative UM developed code may require alternative headers as agreed
+in the collaborative agreements. e.g. UKCA code. The IPR (intelectual property
+rights) of UM code is important and needs to be protected appropriately.
+\item Headers are an immensely important part of any code as they document what it does,
+and how it does it. You should write as much of the header as possible
+BEFORE writing the code, as this will focus your mind
+on what you are doing and how you intend to do it!
+\item The description of the \verb|MODULE| and its contained \verb|SUBROUTINE| may be the same
+and thus it need not be repeated in the latter. If a \verb|MODULE| contains more than one subroutine
+then further descriptions are required.
+\item History comments should not be included in the header or routine code. FCM TRAC provides the history of our codes.
+\item Code author names should NOT be included explicitly within the code as they
+quickly become out of date and are sometimes misleading. Instead we reference a
+single maintainable text file which is included within the UM code repository.
+\begin{verbatim}
+! Code Owner: Please refer to the UM file CodeOwners.txt
+! This file belongs in section: <section_name_to_be_entered>
+\end{verbatim}
+\item Example UM templates are provided with the source of this document;
+subroutine, function and module templates.
+\end{itemize}
+
+
+\subsection{Free source form}\label{sec:80cols}
+\begin{itemize}
+\item All code should be written using the free source form.
+\item Please restrict code to 80 columns, so that your code can be easily viewed on any
+editor and screen and can be printed easily on A4 paper. {\it Note that CreateBC
+uses a limit of 100 columns, due to the nature of the object-orientated code.}
+\item Never put more than one statement on a line.
+\item Write your program in UK English,
+unless you have a very good reason for not doing so.
+Write your comments in simple UK English and name your
+program units and variables based on sensible UK English words.
+Always bear in mind that your code may be read by people who
+are not proficient English speakers.
+\end{itemize}
+
+\subsection{Fortran style}\label{sec:fortstyle}
+\begin{itemize}
+\item To improve readability, write your code using the
+ALL CAPS Fortran keywords approach.
+The rest of the code may be written in either lower-case with underscores or
+CamelCase. This approach has the advantage that Fortran keywords stand out.
+\item  To improve readability, you should always use the optional
+space to separate the Fortran keywords. The full list of Fortran keywords with
+ an optional spaces is:
+\begin{verbatim}
+ELSE IF            END DO             END FORALL         END FUNCTION
+END IF             END INTERFACE      END MODULE         END PROGRAM
+END SELECT         END SUBROUTINE     END TYPE           END WHERE
+SELECT CASE        ELSE WHERE         DOUBLE PRECISION   END ASSOCIATE
+END BLOCK          END BLOCK DATA     END ENUM           END FILE
+END PROCEDURE      GO TO              IN OUT             SELECT TYPE
+\end{verbatim}
+Note that not all of these are approved or appropriate for use in UM code.
+This rule also applies to OpenMP keywords. (See: \ref{OpenMP})
+\item The full version of \verb|END| should be used at all times,
+eg \verb|END SUBROUTINE <name>| and \verb|END FUNCTION <name>|
+
+
+\item New code should be written using Fortran 95/2003 features.
+ Avoid non-portable vendor/compiler extensions.
+\item When writing a \verb|REAL| literal with an integer value,
+put a 0 after the decimal point (i.e. 1.0 as opposed to 1.)
+to improve readability.
+\item Avoid using obsolescent features of the Fortran language,
+instead make use of F95/2003 alternatives.
+For example, statement functions are among the list of deprecated features in the F95 standard and
+these can be replaced by \verb|FUNCTION|s within appropriate \verb|MODULE|s.
+\item Do not use archaic forms of intrinsic functions. For example,
+\verb|LOG()| should be used in place of \verb|ALOG()|, \verb|MAX()| instead
+of \verb|AMAX1()|, \verb|REAL()| instead of \verb|FLOAT()| etc.
+\item Never use the \verb|PAUSE| statement.
+\item Never use the \verb|STOP| statement, see \ref{Error reporting}
+\item The standard delimiter for namelists is $ \slash $.
+In particular, note that \verb|&END| is non-standard and should be avoided. For
+further information on namelists please refer to \ref{sec:namelists}
+\item Only use the generic names of intrinsic functions, avoid the use of 'hardware' specific
+intrinsic functions. Use the latter if an only if there is an optimisation benefit and then
+it must be protected by a platform specific CPP flag \ref{sec:cpp}.
+
+\end{itemize}
+
+\subsection{Comments and white spacing}\label{sec:comments}
+\begin{itemize}
+\item Always comment code!
+\item Start comments with a single `!'.  The indention of whole line comments
+should match that of the code.
+\item Use spaces and blank lines where appropriate to format
+your code to improve readability.
+\item Never use tabs within UM code as the tab character is not in
+the Fortran character set. If your editor inserts tabs automatically,
+you should configure it to switch off the functionality when
+you are editing Fortran source files.
+\item Line up your statements, where appropriate,
+to improve readability.
+\end{itemize}
+
+\subsection{The use of modules}\label{sec:modules}
+MODULEs are strongly encouraged as
+the mainstay of future UM code program units; making use of the implicit
+\verb|INTERFACE| checking and removing the need for the \verb|!DEPENDS ON|.
+Argument lists within  \verb|SUBROUTINE| \verb|CALLs| may also shorten.
+
+\begin{itemize}
+\item You are expected to \verb|USE <module>, ONLY : <variables>| and variables
+should be imported from the module in which they were originally declared thus
+enabling a code audit trail of variables around the UM code.
+\item For code portability, be careful not to \verb|USE <module>| twice in a routine
+for the same MODULE, especially where using \verb|ONLY|.
+This can lead to compiler Warning and Error messages.
+\item Where possible, module variables and procedures should be declared
+PRIVATE. This avoids unnecessary export of symbols,
+promotes data hiding and may also help the compiler to optimise the code.
+\item The use of derived types is encouraged, to group related variables and their
+use within Modules.
+\item Review your use of arguments within subroutine calls,
+could some be simplified by using Modules?
+\item Before writing your Module, check the UM source that no one has already created a Module to do what you want. For example
+do not declare a new variable/parameter without checking if it is already available in a suitable UM module.
+\item Global type constants (e.g. $g$ and $\pi$) should be maintained at a high level
+within the UM code and not duplicated within modules at the code section level;
+\verb|USE <insert global consts module name here>| instead.
+Only section specific constants should be maintained at the section level.
+\item When calling another Subroutine or an External Function the use of ``\verb|! DEPENDS ON|'' directive
+is required within the Unified Model prior to the \verb|CALL| unless the
+Subroutine or Function is wrapped within a Module; thus USE it,
+\begin{verbatim}
+! DEPENDS ON: gather_field_gcom
+CALL gather_field_gcom(local_field,    global_field,       &
+                       local_row_len,  local_rows,         &
+                       global_row_len, global_rows,        &
+                       grid_type,      halo_type,          &
+                       gather_pe,      proc_group,         &
+                       icode,          cmessage)
+\end{verbatim}
+\item Avoid the introduction of additional \verb|COMMON| blocks.
+      Developers should now be using \verb|MODULE|s.
+\end{itemize}
+
+
+\subsection{Argument and variable declaration}\label{sec:declare}
+\begin{itemize}
+\item Use IMPLICIT NONE in all program units.
+This forces you to declare all your variables explicitly.
+This helps to reduce bugs in your program that will otherwise
+be difficult to track.
+\item Use meaningful variable names to aid code comprehension.
+\item Variables should not use Fortran keywords or intrinsic functions for their name.
+For example, a variable should not be named \verb|size|,
+because there is already a Fortran intrinsic function called \verb|SIZE()|
+\item For the purposes of variable naming, "Fortran keywords or intrinsic functions"
+shall refer to the set of all keywords and functions, from all Fortran Standard versions
+(including all past and future versions, not just Fortran 2003). For, example, the
+\verb|ASSIGN| keyword was deleted in Fortran 95, but \verb|assign| still should not
+be used as a variable name.
+\item All variables must be declared, and commented with a brief description.
+This increases understandability and reduces errors caused by misspellings of variables.
+\item Use \verb|INTENT| in declaring arguments as this allows
+for checks to be done at compile time.
+\item Arguments should be declared separately from local variables.
+\item Subroutine arguments should be declared in the same order in the header
+as they appear in the subroutine statement.
+This order is not random but is determined by intent,
+variable dimensions and variable type.
+All input arguments come first, followed by all input/output arguments and then
+all output arguments. The exception being any \verb|OPTIONAL| arguments which should
+be appended to the end of the argument list. If more than one
+\verb|OPTIONAL| argument is used then one should also use keywords
+so that the \verb|OPTIONAL| arguments are not tied to a specific 'position'
+near the end of the argument list.
+\item As \verb|OPTIONAL| arguments are possible when using \verb|MODULE|s (an interface is required) there is no requirement in
+future for DUMMY arguments and glue routines.
+\item It is recommended that one uses local variables in routines which are set
+to the values of optional arguments
+in the code if present, otherwise a default value is used.
+This removes the requirement to always use \verb|PRESENT| when using the optional argument.
+\item Within each section of the header,
+variables of a given type should be grouped together.
+These groups must be declared in the order
+\verb|INTEGER|, \verb|REAL|, \verb|LOGICAL| and then
+\verb|CHARACTER|, with each grouping separated by a blank line.
+In general variables should be declared one per line.
+Use a separate type statement for each line as this makes
+it easier to copy code around
+(you can always use the editor to repeat a line to save
+typing the type statement again) and prevents you from running
+out of continuation lines.
+\item If an array is dimensioned by another variable, ensure that the variable is declared first.
+\item The \verb|EXTERNAL| statement should not be used for subroutines although it is allowed for functions, again for code portability.
+\item Avoid the \verb|DIMENSION| attribute or statement.
+Declare the dimension with the declared variables which improves readability.
+
+Common practice
+\begin{verbatim}
+INTEGER, DIMENSION(10,20) :: a, b, c
+\end{verbatim}
+
+Better approach
+\begin{verbatim}
+INTEGER :: a(10, 20), b(10, 20), c(10, 20)
+\end{verbatim}
+
+\item Initialisation in the declaration of a variable should only be done after considering
+whether it is to be only initialised on the first encounter of the variable or not. Fortran automatically adds \verb|SAVE| to the
+declaration attribute to this type of intialisation. This is especially important in OpenMP and when you expect the variable to be reset everytime the routine is entered.
+\verb|POINTER|s are also affected so please be aware of the effects.
+\item Character strings must be declared with a length when stored in an array.
+\item If an argument list has a dummy argument that makes use of incoming data
+(whether or not it has an explicit \verb|INTENT|) and another argument
+explicitly declared \verb|INTENT(OUT)|, do not use the same variable as the
+actual argument to both dummy arguments (``aliasing''). Some compilers will
+reinitialise all \verb|INTENT(OUT)| variables on entry, destroying the incoming
+data.
+
+Example subroutine:
+\begin{verbatim}
+SUBROUTINE foo(m,n)
+REAL, INTENT(IN)  :: m
+REAL, INTENT(OUT) :: n
+\end{verbatim}
+
+Bad practice:
+\begin{verbatim}
+CALL foo(a,a)
+\end{verbatim}
+
+Safe approach:
+\begin{verbatim}
+b = a
+CALL foo(b,a)
+\end{verbatim}
+\end{itemize}
+
+
+\subsection{Allocatables}\label{sec:allocate}
+\begin{itemize}
+\item When Allocating and deallocating, use a separate ALLOCATE and
+DEALLOCATE statement for each array.
+\item When using the \verb|ALLOCATE| statement,
+ensure that any arrays passed to subroutines have been allocated,
+even if it's anticipated that they won't be used.
+\begin{verbatim}
+IF (L_mcr_qrain) THEN
+  ALLOCATE ( mix_rain_phys2(1-offx:row_length+offx,         &
+                            1-offy:rows+offy, wet_levels)
+ELSE
+  ALLOCATE ( mix_rain_phys2(1,1,1) )
+END IF
+
+! DEPENDS ON: q_to_mix
+CALL do_something(row_length, rows, wet_levels,             &
+                  offx,offy, mix_rain_phys2   )
+\end{verbatim}
+
+\item To prevent memory fragmentation ensure that allocates and deallocates
+match in reverse order.
+\begin{verbatim}
+ALLOCATE ( A(row_length,rows,levels) )
+ALLOCATE ( B(row_length,rows,levels) )
+ALLOCATE ( C(row_length,rows,levels) )
+....
+DEALLOCATE ( C )
+DEALLOCATE ( B )
+DEALLOCATE ( A )
+\end{verbatim}
+
+\item Where possible, an ALLOCATE statement for an ALLOCATABLE array
+(or a POINTER used as a dynamic array)
+should be coupled with a DEALLOCATE within the same scope.
+If an ALLOCATABLE array is a PUBLIC MODULE variable,
+it is highly desirable for its memory allocation and deallocation
+to be only performed in procedures within the MODULE in which it is declared.
+You may consider writing specific SUBROUTINEs within the MODULE
+to handle these memory managements.
+\item Always define a POINTER before using it.
+You can define a POINTER in its declaration by pointing
+it to the intrinsic function NULL() (also see advice in \ref{sec:declare}). Alternatively,
+you can make sure that your POINTER is defined or
+nullified early on in the program unit.
+Similarly, NULLIFY a POINTER when it is no longer in use,
+either by using the NULLIFY statement or by pointing your POINTER to NULL().
+\item New operators can be defined within an \verb|INTERFACE| block.
+\item \verb|ASSOCIATED| should only be done on initialised pointers.  Uninitialised pointers are undefined and \verb|ASSOCIATED| can have different effects on different platforms.
+\end{itemize}
+
+
+
+\subsection{Code IF blocks, DO LOOPs, and other constructs}\label{sec:blocks}
+\begin{itemize}
+\item The use of comments is required for both large
+\verb|DO| loops and large \verb|IF| blocks; those spanning 15 lines or more, see
+\ref{sec:comments}
+\item Indent blocks of code by 2 characters.
+\item Use the newer forms of the relational operators for LOGICAL comparisons:
+\begin{verbatim}
+== instead of .EQ.
+/= instead of .NE.
+>  instead of .GT.
+<  instead of .LT.
+>= instead of .GE. (do not use =>)
+<= instead of .LE. (do not use =<)
+\end{verbatim}
+
+\item Positive logic is usually easier to understand.
+When using an IF-ELSE-END IF construct you should use
+positive logic in the IF test, provided that the positive and the
+negative blocks are about the same length.
+
+Common practice
+\begin{verbatim}
+IF (my_var /= some_value) THEN
+  CALL do_this()
+ELSE
+  CALL do_that()
+END IF
+\end{verbatim}
+Better approach
+\begin{verbatim}
+IF (my_var == some_value) THEN
+  CALL do_that()
+ELSE
+  CALL do_this()
+END IF
+\end{verbatim}
+
+\item Where appropriate, simplify your LOGICAL assignments, for example:
+
+\begin{samepage}
+Common practice
+\begin{verbatim}
+IF (my_var == some_value) THEN
+  something      = .TRUE.
+  something_else = .FALSE.
+ELSE
+  something      = .FALSE.
+  something_else = .TRUE.
+END IF
+! ...
+IF (something .EQV. .TRUE.) THEN
+  CALL do_something()
+  ! ...
+END IF
+\end{verbatim}
+\end{samepage}
+\pagebreak[0]
+\begin{samepage}
+Better approach
+\begin{verbatim}
+something      = (my_var == some_value)
+something_else = (my_var /= some_value)
+! ...
+IF (something) THEN
+  CALL do_something()
+  ! ...
+END IF
+\end{verbatim}
+\end{samepage}
+
+\item Avoid the use of `magic numbers' that is numeric constants hard wired into the code.
+These are very hard to maintain and obscure the function of the code.
+It is much better to assign the `magic number' to a variable or constant
+with a meaningful name and then to use this throughout the code.
+In many cases the variable will be assigned in a top level control routine and
+passed down via a include file or module.
+This ensures that all subroutines will use the correct value of the
+numeric constant and that alteration of it in one place will be
+propagated to all its occurrences. Unless the value needs to be alterable
+whilst the program is running (e.g. is altered via I/O such as a namelist)
+the assignment should be made using a \verb|PARAMETER| statement.
+
+\begin{samepage}
+Poor Practice
+\begin{verbatim}
+IF (ObsType == 3) THEN
+\end{verbatim}
+\end{samepage}
+\pagebreak[0]
+\begin{samepage}
+Better Approach
+\begin{verbatim}
+...specify in the header local constant section....
+
+INTEGER, PARAMETER :: SurfaceWind = 3 !No. for surface wind
+
+...and then use in the logical code...
+
+IF (ObsType == SurfaceWind) THEN
+\end{verbatim}
+\end{samepage}
+
+\item Similarly avoid the use of 'magic logicals' in CALLs to subroutines. Such use
+makes the code less readable and developers are required to look at the called
+subroutine to find what has been set to either  \verb|.TRUE.| or \verb|.FALSE.|.
+
+\begin{samepage}
+Poor Practice
+\begin{verbatim}
+CALL Phys(.FALSE.,.TRUE.,icode)
+\end{verbatim}
+\end{samepage}
+\begin{samepage}
+Better Approach
+\begin{verbatim}
+...specify in the header local constant section....
+...meaningful logical names, perhaps base them on what is used in the called subroutine
+
+LOGICAL, PARAMETER ::  bl_is_off = .FALSE.
+LOGICAL, PARAMETER ::  conv_is_on = .TRUE.
+
+...and then use in the relevant subroutine calls...
+
+CALL Phys(bl_is_off, conv_is_on, icode)
+\end{verbatim}
+\end{samepage}
+
+\item {\bf Be careful} when comparing real numbers using ==.
+To avoid problems related to machine precision,
+a threshold on the difference between the two numbers is often preferable,
+e.g.
+
+\begin{samepage}
+Common practice
+\begin{verbatim}
+IF ( real1 == real2 ) THEN
+  ...
+END IF
+\end{verbatim}
+\end{samepage}
+\pagebreak[0]
+\begin{samepage}
+Better approach
+\begin{verbatim}
+IF ( ABS(real1 - real2) < small_number ) THEN
+  ...
+END IF
+\end{verbatim}
+\end{samepage}
+where small\_number is some suitably small number.
+In most cases, a suitable value for small\_number can be obtained using the
+Fortran intrinsic functions \verb|EPSILON| or \verb|TINY|.
+
+{\bf The UM perturbation sensitivity project is currently in the process of
+identifying coding issues that lead to excessive perturbation growth
+in the model. Currently, all problems are emerging at
+IF tests that contain comparisons between real numbers.
+Typical, real case UM examples of what can go wrong are detailed in
+appendix \ref{app:Rounding} of this document.}
+
+
+\item Loops \emph{must} terminate with an \verb|END DO| statement.
+      To improve the clarity of program structure you are encouraged to
+      add labels or comments to the \verb|DO| and \verb|END DO| statements.
+
+\begin{verbatim}
+DO i = 1, 100
+  j_loop: DO j = 1, 10
+    DO k = 1, 10
+      ...code statements...
+    END DO ! k
+  END DO j_loop
+END DO ! outer loop i
+\end{verbatim}
+
+\item \verb|EXIT| statements \emph{must} be labelled. This is both for clarity,
+      and to ensure consistency of behaviour. (The semantics of the \verb|EXIT|
+      statement changes between revisions of the Fortran standard.)
+
+\begin{verbatim}
+i_loop: DO i = 1, 10
+  IF (i>3) EXIT i_loop
+END DO i_loop
+\end{verbatim}
+
+
+\item Avoid the use of the \verb|GO TO| statement.
+\begin{itemize}
+        \item The only acceptable use of \verb|GO TO| is to jump to the end of a routine after the detection of an error, in which case you must use \verb|9999| as the label (then everyone will understand what \verb|GO TO 9999| means).
+        \item UM Error reporting guidance is detailed in \ref{Error reporting}
+\end{itemize}
+\item Avoid assigned \verb|GO TO|, computed \verb|GO TO|, arithmetic
+\verb|IF|, etc. Use the appropriate modern constructs such as \verb|IF|,
+\verb|WHERE|, \verb|SELECT CASE|, etc..
+\item Where possible, consider using \verb|CYCLE|, \verb|EXIT| or a
+\verb|WHERE| construct to simplify complicated \verb|DO| loops.
+\item Be aware that logic in \verb|IF| conditions can be performed in any order.  So checking that array is greater than lower bound and using that index is not safe.
+
+Common approach
+\begin{verbatim}
+DO j = 1, rows
+  DO i = 1, row_length
+    IF (cloud_level(i,j) > 0 .AND. cloud(i,j,cloud_level(i,j)) == 0.0) THEN
+      cloud(i,j,cloud_level(i,j)) = 1.0
+    END IF
+  END DO
+END DO
+\end{verbatim}
+
+Better approach
+\begin{verbatim}
+DO j = 1, rows
+  DO i = 1, row_length
+    IF (cloud_level(i,j) > 0) THEN
+      IF (cloud(i,j,cloud_level(i,j)) == 0.0) THEN
+        cloud(i,j,cloud_level(i,j)) = 1.0
+      END IF
+    END IF
+  END DO
+END DO
+\end{verbatim}
+
+\item Array initialisations and literals should use the \verb|[]| form rather
+      than the \verb|(//)| form. For example:
+
+\begin{verbatim}
+INTEGER :: i_array(3) = [1,2,3]
+\end{verbatim}
+
+\end{itemize}
+
+
+\subsection{Line continuation}\label{sec:contd}
+\begin{itemize}
+\item The only symbol to be used as a continuation line marker is `\verb|&|' at
+ the end of a line. It is suggested that you align these continuation markers
+ to aid readability.  Do not add a second `\verb|&|' to the beginning of the
+ next line. This advice also applies to blocks of Fortran code protected by the
+ OpenMP sentinel `\verb|!$|'. The only currently allowed exception is to
+ continuation lines used with OpenMP directives, i.e.\ `\verb|!$OMP|', where the
+ `\verb|&|' marker may optionally be used.
+ Please see section \ref{OpenMP} for more advice on OpenMP.
+
+\item Short and simple Fortran statements are easier to read
+and understand than long and complex ones.
+Where possible, avoid using continuation lines in a statement.
+\item Try to avoid string continuations and spread the string across multiple lines using concatenations (\verb|//|) instead.
+
+\item When calling functions or subroutines, ensure the left parenthesis is on
+the same line as the subprogram's name, and not after a continuation marker.
+This helps the code browser to parse the source tree correctly.
+\end{itemize}
+
+\subsection{Fortran I/O}\label{sec:fortio}
+\begin{itemize}
+  \item When calling \verb|OPEN|, ensure that the \verb|ACTION| argument is specified. In particular, \verb|ACTION='READ'|
+        shall be used for files that are opened only for reading as this reduces file locking costs.
+  \item Don't check for the existence of a file by using \verb|INQUIRE| if the only action you'll take if the file doesn't
+        exist is to report an error. Rather use \verb|OPEN( ... , IOSTAT=icode, IOMSG=iomessage)| and include the
+        \verb|iomessage| in an error message if \verb|icode| is non-zero. This will capture a wider range of errors with
+        fewer filesystem metadata accesses.
+\end{itemize}
+
+
+\subsection{Formatting and output of text}\label{sec:format}
+
+Writing output to the ``stdout'' stream, commonly unit 6 in fortran must use the provided API, which is accesible by including \verb|USE umPrintMgr| in the calling code.
+\begin{itemize}
+\item Single string output should be written as
+\begin{verbatim}
+CALL umprint('Hello',src='routine_name')
+\end{verbatim}
+where `routine\_name' is the name of the current subroutine or function.
+Routines which implement DrHook (section \ref{sec:drhook}) will already have a
+\verb|PARAMETER `RoutineName'| which can be used for this purpose.
+\item Multi-component output must first be written to an internal file via \verb|WRITE| statement. The \verb|umPrintMgr| module provides a convenient string for this purpose; \verb|umMessage|, though you may use your own.
+\begin{verbatim}
+WRITE (ummessage,'(A,I0,A)') 'I am ', age, ' years old'
+CALL umprint(ummessage,src='routine_name')
+\end{verbatim}
+\item Avoid the use of \verb|WRITE (ummessage,*) |
+\item Always add formatting information to your write statements.
+It is important to ensure that the output message fits within the space given.
+Some compilers will pad unformatted values with leading blanks, which can
+greatly increase the width of any output. Writes to internal files may cause
+the program to abort if the message is longer than the string provided.
+\item Use dynamic-width edit descriptors where possible, to avoid truncating
+strings or failing to print integer or real values correctly:
+  \begin{itemize}
+  \item Use \verb|A| for character input and output, rather than e.g.\ \verb|A7|.
+  \item Use \verb|I0| for integer output, rather than e.g.\ \verb|I3|.
+  \item Use \verb|F0.|$n$ for real output, rather than e.g.\ \verb|F14.|$n$.
+  Other real edit descriptors such as \verb|E|, \verb|EN| and \verb|ES| can
+  also be used but do not accept a 0 field width.
+  \end{itemize}
+This is particularly important in any routine where missing data indicators may
+be present, which will typically require a much larger width than other data.
+\item The character variable \verb|newline| (from the \verb|umPrintmgr| module) is recognised as a newline if embedded in the string passed to \verb|umPrint|.
+\item The total line length should not exceed 80 characters. Use \verb|newline|
+or separate calls to \verb|umprint| to keep long messages easily readable.
+\item \verb|CHARACTER| values should not contain vertical space, nor should
+edit descriptors be used for carriage control. Use \verb|newline| to control
+vertical space:
+\begin{verbatim}
+WRITE(ummessage, '(A)') newline // 'This should stand out.' // newline
+CALL umprint(ummessage,src='routine_name')
+\end{verbatim}
+\item Calls to \verb|umPrint| should be protected by a suitable setting of the PrintStatus variable, see \ref{sec:prstatus} either with conditional logic or an additional \verb|level| argument,
+\begin{verbatim}
+CALL umprint(ummessage,src='routine_name',level=PrOper)
+\end{verbatim}
+\item If your output is not required from each processor protect the \verb|umPrint| either with logic, or an additional \verb|pe| argument, for example,
+\begin{verbatim}
+! We'll only output at diagnostic level on pe0
+CALL umprint(ummessage,src='routine_name',level=PrDiag,pe=0)
+\end{verbatim}
+\item Never use a \verb|FORMAT| statement:
+they require the use of labels, and obscure the meaning of the I/O statement.
+The formatting information can be placed explicitly within the \verb|READ|,
+\verb|WRITE| or \verb|PRINT| statement, or be assigned to a \verb|CHARACTER|
+variable in a \verb|PARAMETER| statement in the header of the routine for
+later use in I/O statements.
+Never place output text within the format specifier: i.e.
+only format information may be placed within the \verb|FMT=|
+part of an I/O statement, all variables and literals,
+including any character literals, must be 'arguments'
+of the I/O routine itself.
+This improves readability by clearly separating
+what is to be read/written from how to read/write it.
+
+Common practice
+\begin{verbatim}
+      WRITE(Cmessage,                                                 &
+     &    `("Cannot run with decomposition ",I3," x ",I3,             &
+     &      " (",I3,") processors. ",                                 &
+     &      "Maxproc is ",I3," processors.")')                        &
+     &       nproc_EW,nproc_NS,nproc_EW*nproc_NS,Maxproc
+
+\end{verbatim}
+Better approach
+\begin{verbatim}
+       WRITE(cmessage,'(4(A,I0),A)')                                 &
+          `Cannot run with decomposition ',nproc_ew,`x',nproc_ns,    &
+          `(',nproc_ew*nproc_ns,') processors. Maxproc is `,maxproc, &
+          ` processors.'
+\end{verbatim}
+\item In order to flush output buffers, the routine \verb|umprintflush| should be used for
+``stdout'' written via \verb|umprint| and \verb|UM_FORT_FLUSH| for data writtent to any other fortran unit.
+These routines abstract flush operations providing a portable interface. These are the only method of flushing that should be used.
+\end{itemize}
+
+
+\subsection{PrintStatus}
+\label{sec:prstatus}
+
+There are four different settings of PrintStatus used in the UM, each of  which
+is assigned a numeric value. There is a shorter form available for each one.  These are defined
+% in the module \verb|umprintmgr|
+as \verb|PARAMETER|s and so can be tested using constructs similar to:
+\begin{verbatim}
+IF (PrintStatus >= PrStatus_Normal) THEN
+\end{verbatim}
+For ``stdout'', they can also be provided as an argument to \verb|umprint|. The current value of PrintStatus is stored in the variable \verb|PrintStatus| in
+the aforementioned module, and set using the gui and/or input namelist. Note that the utility executables operate at a fixed value of \verb|PrintStatus| and that output choices in code shared with these utilities will impact their behaviour.
+
+The different settings are:
+\begin{itemize}
+
+\item \verb|PrStatus_Min| or \verb|PrMin| - This setting is intended to produce minimal output
+and should hence be only used for output which is required in every run. Users
+running with this setting should expect to have to rerun with a more verbose
+setting to diagnose any problems. Fatal error messages should fall into this
+category, but otherwise it should not generally be used by developers.
+
+\item \verb|PrStatus_Normal| or \verb|PrNorm| - The ``standard'' setting of PrintStatus. Messages
+with this setting should be important for all users in every run. Information
+output using this setting should summarise the situation - more detailed
+information should be protected by \verb|PrStatus_Diag| instead.
+
+\item \verb|PrStatus_Oper| or \verb|PrOper|- Slightly more detailed than \verb|PrStatus_Normal|,
+this is intended for messages which are not required for research users but are
+needed when running operationally.
+
+\item \verb|PrStatus_Diag| or or \verb|PrDiag| - The most verbose option, all messages which do not
+fall into one of the above categories should use this setting. Non-essential,
+detailed information about values of  variables, status messages, etc should be
+included in this category. If a developer adds code to assist debugging
+problems, it should also be protected by \verb|PrStatus_Diag|.
+
+\end{itemize}
+
+\subsection{DrHook}\label{sec:drhook}
+
+DrHook is a library written by ECMWF which can produce run-time information such as:
+
+\begin{itemize}
+  \item Per-routine profiling information based on walltime, CPU-time and MFlops.
+  \item Tracebacks in the event of code failure. A developer can force a traceback at any point in the
+        code with an appropriate call to the DrHook library.
+  \item Memory usage information.
+\end{itemize}
+
+\noindent For DrHook to be effective, calls to the library are needed in each individual subroutine.
+DrHook must be called:
+
+\begin{enumerate}
+  \item At the start of each routine, before any other executable code.
+  \item At each exit point from the routine; not only at the end, but
+        just before any other \verb!RETURN! statements.
+\end{enumerate}
+
+When adding DrHook to a routine, the following rules should be followed:
+
+\begin{itemize}
+  \item Routines contained in modules should include the name of the module in
+        the call to DrHook, colon-separated. E.g.\
+        \verb!'MODULE_NAME:ROUTINE_NAME'!.
+  \item All names should be in capitals.
+\end{itemize}
+
+The necessary instrumentation code and the recommended method of implementing it
+is shown below.
+
+\begin{verbatim}
+ CHARACTER(LEN=*), PARAMETER, PRIVATE :: ModuleName = 'MODULE_NAME'
+
+ CONTAINS
+ ...
+
+ USE parkind1, ONLY: jpim, jprb
+ USE yomhook,  ONLY: lhook, dr_hook
+
+ ...
+ CHARACTER(LEN=*), PARAMETER :: RoutineName = 'ROUTINE_NAME'
+
+ INTEGER(KIND=jpim), PARAMETER :: zhook_in  = 0
+ INTEGER(KIND=jpim), PARAMETER :: zhook_out = 1
+ REAL(KIND=jprb)               :: zhook_handle
+
+ IF (lhook) CALL dr_hook(ModuleName//':'//RoutineName,zhook_in,zhook_handle)
+
+ ...
+
+ IF (lhook) CALL dr_hook(ModuleName//':'//RoutineName,zhook_out,zhook_handle)
+\end{verbatim}
+
+The example subroutine shown in \ref{sec:example} demonstrates DrHook
+instrumentation.
+
+Calls to DrHook add a very small overhead to the code, and so should normally
+only be added to routines that do a non-trivial amount of work. Adding DrHook
+calls to very small routines may represent a large increase in the workload of
+those routines, and furthermore if those routines are called many thousands of
+times during a single run of the UM then this will generate large amounts of
+duplicate data. The developer and reviewer may decide it is unnecessary to
+include DrHook calls in such routines.
+
+Note that there is no benefit to adding DrHook calls to a module that consists
+only of Fortran declarations and lacks any executable code.
+
+DrHook calls should \emph{not} be added to \verb|RECURSIVE| routines as they
+are likely to cause runtime errors.
+
+
+\subsection{OpenMP}\label{OpenMP}
+
+OpenMP is a very powerful technology for introducing shared memory
+parallelism to a code, but it does have some potential for confusion.
+To help minimise this, the following should be adhered to,
+
+\begin{itemize}
+  \item Only use the OpenMP 3.1 standard. Support for OpenMP 4.0 is not yet widespread, and implementations are somewhat immature.
+  \item Only use the \verb|!$OMP| version of the directive and start at beginning of the line (see previous general guidance on sentinels).
+  \item Never rely on the default behaviour for \verb|SHARED| or \verb|PRIVATE|
+        variables. The use of \verb|DEFAULT(NONE)| is preferred, with the type
+        of all variables explicitly specified. A different \verb|DEFAULT| may be
+        allowed if the number of variables is very large (i.e.\ dozens).
+  \item Parameters by default are shared.  To make this obvious it is helpful to list parameters used in the OMP block as a Fortran comment just before the \verb|PARALLEL| region.
+  \item Always use explicit \verb|!$OMP END DO| - don't rely on implicit rules.
+  \item Unlike \verb|SINGLE| regions, \verb|MASTER| regions do not carry an implicit barrier at the end.
+        Please add an \verb|!$OMP BARRIER| directive immediately after \verb|!$OMP END MASTER| directives.
+        Barriers may be omitted for performance reasons if it is safe to do so.
+  \item Calls to OpenMP functions and module use should be protected by the
+  OpenMP sentinel. That is, the line should start with \verb|!$| and a space. No
+  other comment line should start with this combination.
+  \item Always specify the scheduler to be used for DO loops, since the default is implementation specific. A common default is STATIC. This is normally fine but can cause problems within certain cases.
+  \item As with non-OpenMP code, you should always use the optional space
+        to separate the OpenMP keywords to improve readability. For example,
+        \verb|PARALLELDO| should become \verb|PARALLEL DO|. (See also: \ref{sec:fortstyle})
+\item Any use of a sentinel (including OpenMP) should start at the beginning of the line, e.g.
+
+The following correctly uses the \verb|!$OMP| sentinel at the beginning of the line.
+\begin{verbatim}
+    IF (do_loop) THEN
+!$OMP PARALLEL DO PRIVATE(i)
+      DO i = 1, 100
+      ...
+      END DO
+!$OMP PARALLEL DO
+    END IF
+\end{verbatim}
+
+Whilst the following can lead to compilers not using the lines starting with \verb|!$OMP| sentinel. \nopagebreak[4]
+\begin{verbatim}
+    IF (do_loop) THEN
+      !$OMP PARALLEL DO PRIVATE(i)
+      DO i = 1, 100
+      ...
+      END DO
+      !$OMP PARALLEL DO
+    END IF
+\end{verbatim}
+\item Careful use of the OpenMP reduction clauses is required as
+we want to try and preserve bit-comparison across different threads.  This is not guaranteed with some \verb|REDUCTION| clauses.
+
+\item OpenMP directives in C code must be protected by both a \verb|SHUM_USE_C_OPENMP_VIA_THREAD_UTILS| and an \verb|_OPENMP| if-def.
+This ensures it is possible to select the use of only the Fortran OpenMP runtime library, which can prevent incompatibilities between different libraries.
+If possible, provide a Fortran implementation of the OpenMP parallelism as well, using the wrappers in the \verb|thread_utils| module from SHUMlib.
+(Further rules apply; see \ref{sec:OpenMPinC} for more information on using OpenMP with C.)
+
+\end{itemize}
+
+
+\subsection{MPI}\label{sec:mpi}
+The Unified Model depends on the GCOM library for communications. GCOM has
+only modest functionality however so the use of MPI is permitted providing
+the following principles are adhered to:
+
+\begin{itemize}
+\item Only use MPI via GCOM's MPL interface layer. MPI libraries can be
+found that support only 32-bit argument or only 64-bit arguments. MPL is
+designed to abstract this issue away.
+\item Only use functionality from versions of MPI up to 3.1. These have
+widespread support.
+\end{itemize}
+
+
+\subsection{Preprocessing}\label{sec:cpp}
+
+Use of preprocessor directives should only be used when its inclusion
+can be justified, e.g. machine dependent options or reducing
+duplication of a large code section, see \ref{sec:duplication}.
+
+Do not use preprocessing directives (\verb|#if|, \verb|#include|,
+\verb|#endif|) for selecting science code section versions. Do not use
+\verb|#include| directive to pass a large list of arrays or to pass common items.
+
+In particular:
+\begin{itemize}
+  \item ''Must'' use \verb|#if defined| rather than \verb|#if|. If the CPP flag does
+not exist the pre-processor evaluates the test to true.
+  \item Use run-time rather than compile time switches
+  \item Do not replicate run-time switches with compile-time ones, so avoid
+    \begin{verbatim}
+    #if defined(OCEAN)
+      IF (submodel == ocean) THEN
+    #endif
+    ...
+    #if defined(OCEAN)
+      END IF
+    #endif
+    \end{verbatim}
+
+  \item Do not add optional arguments to subroutines protected by directives,
+  instead migrate to FORTRAN 95/2003 code and make use of OPTIONAL argument functionality.
+  \item Put \verb|#if| lines inside included files rather than around the \verb|#include| itself.
+  \item Use directive names that clearly indicate their purpose.
+  \item When removing scientific sections, remove variables that were only needed for that section.
+  \item Do not wrap a routine within CPP flags. Let FCM work out when it is required.
+  \item Please refrain from using consecutive question marks (\verb|??|) in the
+  source code as some preprocessors can interpret them as C trigraphs.
+\end{itemize}
+
+\subsection{Code duplication}\label{sec:duplication}
+
+In the case of a large area of code that needs to be duplicated, e.g. same
+computation applied to different types, then the use of the \verb|#include|
+preprocessing directive is recommended by adhering the following rules:
+
+\begin{itemize}
+\item Only one include file per routine. If a routine needs multiple
+  include files, consider dividing the routine into small multiple
+  routines. The same include file cannot be used in multiple modules or routines.
+  Consider creating a special routine with the shared code if needed.
+\item Use \verb|*.h| as a file extension for \verb|#include|
+  files since the FCM make system will automatically recognise it.
+\item File name should always be \verb|modulename_routinename.h|. An
+  accepted exception is when the module name and the
+  routine name are the same, e.g. instead
+  of \verb|routine_mod_routine.h| use \verb|routine.h|.
+\item The include file should be located in a special \verb|include| sub-directory where the Fortran module is located.
+\item An include file should only be used for reducing code
+  duplication, not for performance reason. Let the compiler implement
+  proper in-lining.
+\end{itemize}
+
+The following code shows an example on how to use the \verb|#include|
+preprocessing directive inside a module to reduce code duplication.
+
+\begin{itemize}
+  \item The module file \verb|my_mod.F90| in the \verb|src/path/to/mod| directory with the duplicated routines:
+  \begin{verbatim}
+INTERFACE calc_1
+    MODULE PROCEDURE calc_1_32bit,calc_1_64bit
+END INTERFACE
+
+SUBROUTINE calc_1_32bit(r,n,d)
+IMPLICIT NONE
+INTEGER, PARAMETER :: prec = real32
+
+#include "my_mod_calc_1.h"
+
+END SUBROUTINE
+
+SUBROUTINE calc_1_64bit(r,n,d)
+IMPLICIT NONE
+INTEGER, PARAMETER :: prec = real64
+
+#include "my_mod_calc_1.h"
+
+END SUBROUTINE
+  \end{verbatim}
+
+  \item The included file \verb|my_mod_calc_1.h| in the
+    \verb|src/path/to/mod/include| directory with the shared code:
+  \begin{verbatim}
+! --- Begin shared body of calc_1 ---
+REAL(KIND=prec), INTENT(OUT) :: r
+REAL(KIND=prec), INTENT(IN)  :: n
+REAL(KIND=prec), INTENT(IN)  :: d
+
+r = n / d
+! --- End shared body of calc_1 ---
+  \end{verbatim}
+\end{itemize}
+
+\subsection{Error reporting}\label{Error reporting}
+
+The most important rule in error reporting is \emph{never} to \verb|CALL abort|
+or to use \verb|STOP|;
+these can cause problems in a parallel computing environment.
+Where it is possible that errors may occur they should be detected and
+appropriate action taken.
+Errors may be of two types: fatal errors requiring program termination;
+and non-fatal warnings which allow the program to continue.
+Both types are passed to a reporting routine \verb|ereport|, which takes
+different actions depending on the value of the error code passed to it as an
+argument:
+\begin{itemize}
+ \item If the error code is $> 0$ an error message will be printed and the
+program will abort (hopefully with a traceback).
+ \item If the error code is $< 0$ a warning message will be printed, the
+error code variable will be reset to 0, and the program continues.
+ \item If the error code is 0 nothing happens and the program continues
+uninterrupted.
+\end{itemize}
+
+Both warnings and errors are sent to the \verb|.pe|$n$ file \emph{of the
+processor generating the warning}, which is stdout for processor 0 only.
+Warnings will only appear in stderr if they occur on processor 0. Errors will
+always appear in stderr. Note that if a warning occurs on a processor for which
+output has been disabled using the print manager settings, then that warning
+will not be printed as there will be no \verb|.pe|$n$ file to send it to.
+
+When using \verb|READ| or \verb|OPEN| or other Fortran intrinsics which deal
+with IO, please use both the error status \verb|IOSTAT| and the error
+message \verb|IOMSG| arguments, followed by code printing the latter if the
+former is non-zero. The \verb|check_iostat| subroutine provides a convenient way
+to do this; any non-zero value of \verb|IOSTAT| will cause it to print the
+return value of \verb|IOMSG| and abort the program.
+
+\begin{itemize}
+\item The arguments of \verb|ereport| are:
+\begin{verbatim}
+SUBROUTINE ereport (RoutineName, ErrorStatus,Message)
+
+CHARACTER(LEN=*), INTENT(IN)     :: RoutineName   ! Name of the calling routine
+CHARACTER(LEN=*), INTENT(IN)     :: Message       ! Error message for output
+INTEGER,          INTENT(IN OUT) :: ErrorStatus   ! Error code
+\end{verbatim}
+\item Ensure the error code variable is set to zero before use. This includes
+at the start of every routine where it is a local variable, and also before
+calling any routine that returns it (\verb|INTENT(IN OUT)|).
+\item Error messages should contain enough information to \emph{help} the user
+diagnose and solve the problem.
+\item Avoid splitting error information between stdout (\verb|umprint|) and
+stderr (\verb|ereport|). Keep the details in one place where possible. If the
+nature of the error requires large quantities of additional data in stdout to
+diagnose it properly, make this clear in the error message.
+\item The variable \verb|errormessagelength| in module
+\verb|errormessagelength_mod| is provided for declaring the length of
+\verb|CHARACTER| variables to be used with error reporting. This provides a
+longer string for holding e.g.\ the return value of an \verb|IMOSG| argument.
+\item Avoid using a namelist input value or the return code of another routine
+as the error code, especially if you do not know what values it may take. It
+may not be apparent to the user that the problem value is actually the error
+code, or what sign it originally had. Use a dedicated error code and include
+the return code or problematic value in the message itself.
+
+Common practice:
+\begin{verbatim}
+IF (foo /= 0) THEN
+  icode = ABS(foo)
+  cmessage = 'Invalid input value for foo'
+  CALL ereport(RoutineName, icode, cmessage)
+END IF
+\end{verbatim}
+Better approach:
+\begin{verbatim}
+IF (foo /= 0) THEN
+  icode = 10
+  WRITE(cmessage, '(A,I0)') 'Invalid input value for foo. Value received: ',foo
+  CALL ereport(RoutineName, icode, cmessage)
+END IF
+\end{verbatim}
+\end{itemize}
