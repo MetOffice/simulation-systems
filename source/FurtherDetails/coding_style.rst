@@ -90,7 +90,6 @@ radically different design structures within single areas of code, some
 Fortran 2003 features are excluded from use within the UM. For further details
 please see `Appendix B`_.
 
-.. Appendix `7 <#app:F2003>`__.
 
 Pre-processor
 -------------
@@ -101,7 +100,7 @@ out and highly discouraged. The C pre-processor is still used to make machine
 specific choices and, together with included files, to reduced code
 duplication. These are all covered by this standards and style document.
 
-.. _`sec:example`:
+.. _example:
 
 How to meet the coding standards
 ================================
@@ -336,7 +335,7 @@ S2. Headers
   reference a single maintainable text file which is included within the UM
   code repository.
 
-  ::
+  .. code-block:: fortran
 
      ! Code Owner: Please refer to the UM file CodeOwners.txt
      ! This file belongs in section: <section_name_to_be_entered>
@@ -390,7 +389,7 @@ S4. Fortran style
      END PROCEDURE      GO TO              IN OUT             SELECT TYPE
 
   Note that not all of these are approved or appropriate for use in UM code.
-  This rule also applies to OpenMP keywords. (See: `3.15 <#OpenMP>`__)
+  This rule also applies to OpenMP keywords. (See: `S15`_)
 
 - The full version of ``END`` should be used at all times, eg ``END SUBROUTINE
   <name>`` and ``END FUNCTION <name>``
@@ -414,16 +413,16 @@ S4. Fortran style
 
 - Never use the ``STOP`` statement, see `S19`_
 
-- The standard delimiter for namelists is :math:`\slash`. In particular, note
+- The standard delimiter for namelists is ``/``. In particular, note
   that ``&END`` is non-standard and should be avoided. For further information
-  on namelists please refer to `4.1 <#sec:namelists>`__
+  on namelists please refer to :ref:`namelists`.
 
 - Only use the generic names of intrinsic functions, avoid the use of
   'hardware' specific intrinsic functions. Use the latter if an only if
   there is an optimisation benefit and then it must be protected by a
   platform specific CPP flag `S17`_.
 
-# .. _`sec:comments`:
+.. # .. _`sec:comments`:
 
 .. _`S5`:
 
@@ -432,7 +431,7 @@ S5. Comments and white spacing
 
 - Always comment code!
 
-- Start comments with a single '!'. The indention of whole line comments should
+- Start comments with a single ``!``. The indention of whole line comments should
   match that of the code.
 
 - Use spaces and blank lines where appropriate to format your code to improve
@@ -445,7 +444,7 @@ S5. Comments and white spacing
 
 - Line up your statements, where appropriate, to improve readability.
 
-# .. _`sec:modules`:
+.. # .. _`sec:modules`:
 
 .. _`S6`:
 
@@ -486,11 +485,11 @@ also shorten.
   Only section specific constants should be maintained at the section level.
 
 - When calling another Subroutine or an External Function the use of
-  "``! DEPENDS ON``" directive is required within the Unified Model prior to
+  ``! DEPENDS ON`` directive is required within the Unified Model prior to
   the ``CALL`` unless the Subroutine or Function is wrapped within a Module;
   thus USE it,
 
-  ::
+  .. code-block:: fortran
 
      ! DEPENDS ON: gather_field_gcom
      CALL gather_field_gcom(local_field,    global_field,       &
@@ -503,7 +502,7 @@ also shorten.
 - Avoid the introduction of additional ``COMMON`` blocks. Developers
   should now be using ``MODULE``\ s.
 
-# .. _`sec:declare`:
+.. # .. _`sec:declare`:
 
 .. _`S7`:
 
@@ -574,13 +573,13 @@ S7. Argument and variable declaration
 
   Common practice
 
-  ::
+  .. code-block:: fortran
 
      INTEGER, DIMENSION(10,20) :: a, b, c
 
   Better approach
 
-  ::
+  .. code-block:: fortran
 
      INTEGER :: a(10, 20), b(10, 20), c(10, 20)
 
@@ -590,7 +589,7 @@ S7. Argument and variable declaration
   the variable or not. Fortran automatically adds ``SAVE`` to the declaration
   attribute to this type of initialisation. This is especially important in
   OpenMP and when you expect the variable to be reset everytime the routine is
-  entered. ``POINTER``\s are also affected so please be aware of the
+  entered. ``POINTER``\ s are also affected so please be aware of the
   effects.
 
 - Character strings must be declared with a length when stored in an array.
@@ -604,7 +603,7 @@ S7. Argument and variable declaration
 
   Example subroutine:
 
-  ::
+  .. code-block:: fortran
 
      SUBROUTINE foo(m,n)
      REAL, INTENT(IN)  :: m
@@ -612,18 +611,18 @@ S7. Argument and variable declaration
 
   Bad practice:
 
-  ::
+  .. code-block:: fortran
 
      CALL foo(a,a)
 
   Safe approach:
 
-  ::
+  .. code-block:: fortran
 
      b = a
      CALL foo(b,a)
 
-#.. _`sec:allocate`:
+.. #.. _`sec:allocate`:
 
 .. _`S8`:
 
@@ -637,7 +636,7 @@ S8. Allocatables
   subroutines have been allocated, even if it's anticipated that they won't be
   used.
 
-  ::
+  .. code-block:: fortran
 
      IF (L_mcr_qrain) THEN
        ALLOCATE ( mix_rain_phys2(1-offx:row_length+offx,         &
@@ -653,7 +652,7 @@ S8. Allocatables
 - To prevent memory fragmentation ensure that allocates and deallocates match
   in reverse order.
 
-  ::
+  .. code-block:: fortran
 
      ALLOCATE ( A(row_length,rows,levels) )
      ALLOCATE ( B(row_length,rows,levels) )
@@ -684,7 +683,7 @@ S8. Allocatables
   Uninitialised pointers are undefined and ``ASSOCIATED`` can have
   different effects on different platforms.
 
-# .. _`sec:blocks`:
+.. # .. _`sec:blocks`:
 
 .. _`S9`:
 
@@ -714,7 +713,7 @@ S9. Code IF blocks, DO LOOPs, and other constructs
 
   Common practice
 
-  ::
+  .. code-block:: fortran
 
      IF (my_var /= some_value) THEN
        CALL do_this()
@@ -724,7 +723,7 @@ S9. Code IF blocks, DO LOOPs, and other constructs
 
   Better approach
 
-  ::
+  .. code-block:: fortran
 
      IF (my_var == some_value) THEN
        CALL do_that()
@@ -738,7 +737,7 @@ S9. Code IF blocks, DO LOOPs, and other constructs
 
      Common practice
 
-     ::
+     .. code-block:: fortran
 
         IF (my_var == some_value) THEN
           something      = .TRUE.
@@ -757,7 +756,7 @@ S9. Code IF blocks, DO LOOPs, and other constructs
 
      Better approach
 
-     ::
+     .. code-block:: fortran
 
         something      = (my_var == some_value)
         something_else = (my_var /= some_value)
@@ -783,7 +782,7 @@ S9. Code IF blocks, DO LOOPs, and other constructs
 
      Poor Practice
 
-     ::
+     .. code-block:: fortran
 
         IF (ObsType == 3) THEN
 
@@ -791,7 +790,7 @@ S9. Code IF blocks, DO LOOPs, and other constructs
 
      Better Approach
 
-     ::
+     .. code-block:: fortran
 
         ...specify in the header local constant section....
 
@@ -810,7 +809,7 @@ S9. Code IF blocks, DO LOOPs, and other constructs
 
      Poor Practice
 
-     ::
+     .. code-block:: fortran
 
         CALL Phys(.FALSE.,.TRUE.,icode)
 
@@ -818,7 +817,7 @@ S9. Code IF blocks, DO LOOPs, and other constructs
 
      Better Approach
 
-     ::
+     .. code-block:: fortran
 
         ...specify in the header local constant section....
         ...meaningful logical names, perhaps base them on what is used in the called subroutine
@@ -830,7 +829,7 @@ S9. Code IF blocks, DO LOOPs, and other constructs
 
         CALL Phys(bl_is_off, conv_is_on, icode)
 
-- **Be careful** when comparing real numbers using ==. To avoid problems
+- **Be careful** when comparing real numbers using ``==``. To avoid problems
   related to machine precision, a threshold on the difference between the
   two numbers is often preferable, e.g.
 
@@ -838,7 +837,7 @@ S9. Code IF blocks, DO LOOPs, and other constructs
 
      Common practice
 
-     ::
+     .. code-block:: fortran
 
         IF ( real1 == real2 ) THEN
           ...
@@ -848,7 +847,7 @@ S9. Code IF blocks, DO LOOPs, and other constructs
 
      Better approach
 
-     ::
+     .. code-block:: fortran
 
         IF ( ABS(real1 - real2) < small_number ) THEN
           ...
@@ -858,18 +857,17 @@ S9. Code IF blocks, DO LOOPs, and other constructs
   value for small_number can be obtained using the Fortran intrinsic functions
   ``EPSILON`` or ``TINY``.
 
-  **The UM perturbation sensitivity project is currently in the process of
+  The UM perturbation sensitivity project is currently in the process of
   identifying coding issues that lead to excessive perturbation growth in
   the model. Currently, all problems are emerging at IF tests that contain
   comparisons between real numbers. Typical, real case UM examples of what
-  can go wrong are detailed in appendix** `8 <#app:Rounding>`__ **of this
-  document.**
+  can go wrong are detailed in `Appendix C`_ of this document.
 
 - Loops *must* terminate with an ``END DO`` statement. To improve the clarity
   of program structure you are encouraged to add labels or comments to the
   ``DO`` and ``END DO`` statements.
 
-  ::
+  .. code-block:: fortran
 
      DO i = 1, 100
        j_loop: DO j = 1, 10
@@ -883,10 +881,10 @@ S9. Code IF blocks, DO LOOPs, and other constructs
   ensure consistency of behaviour. (The semantics of the ``EXIT`` statement
   changes between revisions of the Fortran standard.)
 
-  ::
+  .. code-block:: fortran
 
      i_loop: DO i = 1, 10
-       IF (i>3) EXIT i_loop
+       IF (i > 3) EXIT i_loop
      END DO i_loop
 
 - Avoid the use of the ``GO TO`` statement.
@@ -910,7 +908,7 @@ S9. Code IF blocks, DO LOOPs, and other constructs
 
   Common approach
 
-  ::
+  .. code-block:: fortran
 
      DO j = 1, rows
        DO i = 1, row_length
@@ -922,7 +920,7 @@ S9. Code IF blocks, DO LOOPs, and other constructs
 
   Better approach
 
-  ::
+  .. code-block:: fortran
 
      DO j = 1, rows
        DO i = 1, row_length
@@ -937,11 +935,11 @@ S9. Code IF blocks, DO LOOPs, and other constructs
 - Array initialisations and literals should use the ``[]`` form rather than the
   ``(//)`` form. For example:
 
-  ::
+  .. code-block:: fortran
 
      INTEGER :: i_array(3) = [1,2,3]
 
-# .. _`sec:contd`:
+.. # .. _`sec:contd`:
 
 .. _`S10`:
 
@@ -968,7 +966,7 @@ S10. Line continuation
   same line as the subprogram's name, and not after a continuation marker.
   This helps the code browser to parse the source tree correctly.
 
-# .. _`sec:fortio`:
+.. # .. _`sec:fortio`:
 
 .. _`S11`:
 
@@ -992,25 +990,25 @@ S12. Formatting and output of text
 ----------------------------------
 
 Writing output to the "stdout" stream, commonly unit 6 in fortran must use the
-provided API, which is accesible by including ``USE umPrintMgr`` in the
+provided API, which is accessible by including ``USE umPrintMgr`` in the
 calling code.
 
 - Single string output should be written as
 
-  ::
+  .. code-block:: fortran
 
      CALL umprint('Hello',src='routine_name')
 
   where 'routine_name' is the name of the current subroutine or function.
   Routines which implement DrHook (section `S14`_) will already have a
-  :literal:`PARAMETER \`RoutineName'` which can be used for this
+  :literal:`PARAMETER \'RoutineName'` which can be used for this
   purpose.
 
 - Multi-component output must first be written to an internal file via
   ``WRITE`` statement. The ``umPrintMgr`` module provides a convenient string
   for this purpose; ``umMessage``, though you may use your own.
 
-  ::
+  .. code-block:: fortran
 
      WRITE (ummessage,'(A,I0,A)') 'I am ', age, ' years old'
      CALL umprint(ummessage,src='routine_name')
@@ -1026,9 +1024,9 @@ calling code.
 - Use dynamic-width edit descriptors where possible, to avoid truncating
   strings or failing to print integer or real values correctly:
 
-  - Use ``A`` for character input and output, rather than e.g. ``A7``.
+  - Use ``A`` for character input and output, rather than e.g. ``A7``.
 
-  - Use ``I0`` for integer output, rather than e.g. ``I3``.
+  - Use ``I0`` for integer output, rather than e.g. ``I3``.
 
   - Use ``F0.``\ :math:`n` for real output, rather than e.g.
     ``F14.``\ :math:`n`. Other real edit descriptors such as ``E``, ``EN`` and
@@ -1048,7 +1046,7 @@ calling code.
   descriptors be used for carriage control. Use ``newline`` to control
   vertical space:
 
-  ::
+  .. code-block:: fortran
 
      WRITE(ummessage, '(A)') newline // 'This should stand out.' // newline
      CALL umprint(ummessage,src='routine_name')
@@ -1057,14 +1055,14 @@ calling code.
   PrintStatus variable, see `S13`_ either with conditional logic or an
   additional ``level`` argument,
 
-  ::
+  .. code-block:: fortran
 
      CALL umprint(ummessage,src='routine_name',level=PrOper)
 
 - If your output is not required from each processor protect the ``umPrint``
   either with logic, or an additional ``pe`` argument, for example,
 
-  ::
+  .. code-block:: fortran
 
      ! We'll only output at diagnostic level on pe0
      CALL umprint(ummessage,src='routine_name',level=PrDiag,pe=0)
@@ -1082,22 +1080,22 @@ calling code.
 
   Common practice
 
-  ::
+  .. code-block:: fortran
 
            WRITE(Cmessage,                                                 &
-          &    `("Cannot run with decomposition ",I3," x ",I3,             &
+          &    '("Cannot run with decomposition ",I3," x ",I3,             &
           &      " (",I3,") processors. ",                                 &
           &      "Maxproc is ",I3," processors.")')                        &
           &       nproc_EW,nproc_NS,nproc_EW*nproc_NS,Maxproc
 
   Better approach
 
-  ::
+  .. code-block:: fortran
 
             WRITE(cmessage,'(4(A,I0),A)')                                 &
-               `Cannot run with decomposition ',nproc_ew,`x',nproc_ns,    &
-               `(',nproc_ew*nproc_ns,') processors. Maxproc is `,maxproc, &
-               ` processors.'
+               'Cannot run with decomposition ',nproc_ew,'x',nproc_ns,    &
+               '(',nproc_ew*nproc_ns,') processors. Maxproc is ',maxproc, &
+               ' processors.'
 
 - In order to flush output buffers, the routine ``umprintflush`` should be used
   for "stdout" written via ``umprint`` and ``UM_FORT_FLUSH`` for data writtent
@@ -1116,7 +1114,7 @@ is assigned a numeric value. There is a shorter form available for each one.
 These are defined as ``PARAMETER``\ s and so can be tested using constructs
 similar to:
 
-::
+.. code-block:: fortran
 
    IF (PrintStatus >= PrStatus_Normal) THEN
 
@@ -1186,7 +1184,7 @@ When adding DrHook to a routine, the following rules should be followed:
 The necessary instrumentation code and the recommended method of implementing
 it is shown below.
 
-::
+.. code-block:: fortran
 
     CHARACTER(LEN=*), PARAMETER, PRIVATE :: ModuleName = 'MODULE_NAME'
 
@@ -1209,7 +1207,7 @@ it is shown below.
 
     IF (lhook) CALL dr_hook(ModuleName//':'//RoutineName,zhook_out,zhook_handle)
 
-The example subroutine shown in `2 <#sec:example>`__ demonstrates DrHook
+The example subroutine shown in :ref:`example` demonstrates DrHook
 instrumentation.
 
 Calls to DrHook add a very small overhead to the code, and so should normally
@@ -1245,7 +1243,7 @@ this, the following should be adhered to,
 - Never rely on the default behaviour for ``SHARED`` or ``PRIVATE`` variables.
   The use of ``DEFAULT(NONE)`` is preferred, with the type of all variables
   explicitly specified. A different ``DEFAULT`` may be allowed if the number
-  of variables is very large (i.e. dozens).
+  of variables is very large (i.e. dozens).
 
 - Parameters by default are shared. To make this obvious it is helpful to list
   parameters used in the OMP block as a Fortran comment just before the
@@ -1276,7 +1274,7 @@ this, the following should be adhered to,
   The following correctly uses the ``!$OMP`` sentinel at the beginning of the
   line.
 
-  ::
+  .. code-block:: fortran
 
          IF (do_loop) THEN
      !$OMP PARALLEL DO PRIVATE(i)
@@ -1289,7 +1287,7 @@ this, the following should be adhered to,
   Whilst the following can lead to compilers not using the lines starting with
   ``!$OMP`` sentinel.
 
-  ::
+  .. code-block:: fortran
 
          IF (do_loop) THEN
            !$OMP PARALLEL DO PRIVATE(i)
@@ -1309,8 +1307,7 @@ this, the following should be adhered to,
   library, which can prevent incompatibilities between different libraries. If
   possible, provide a Fortran implementation of the OpenMP parallelism as
   well, using the wrappers in the ``thread_utils`` module from SHUMlib.
-  (Further rules apply; see `4.6.5 <#sec:OpenMPinC>`__ for more information on
-  using OpenMP with C.)
+  (Further rules apply; see :ref:`OpenMPinC` for more information.)
 
 
 .. _`S16`:
@@ -1352,7 +1349,7 @@ In particular:
 
 - Do not replicate run-time switches with compile-time ones, so avoid
 
-  ::
+  .. code-block:: fortran
 
          #if defined(OCEAN)
            IF (submodel == ocean) THEN
@@ -1414,7 +1411,7 @@ preprocessing directive inside a module to reduce code duplication.
 - The module file ``my_mod.F90`` in the ``src/path/to/mod`` directory with the
   duplicated routines:
 
-  ::
+  .. code-block:: fortran
 
      INTERFACE calc_1
          MODULE PROCEDURE calc_1_32bit,calc_1_64bit
@@ -1439,7 +1436,7 @@ preprocessing directive inside a module to reduce code duplication.
 - The included file ``my_mod_calc_1.h`` in the ``src/path/to/mod/include``
   directory with the shared code:
 
-  ::
+  .. code-block:: fortran
 
      ! --- Begin shared body of calc_1 ---
      REAL(KIND=prec), INTENT(OUT) :: r
@@ -1464,10 +1461,10 @@ continue. Both types are passed to a reporting routine ``ereport``, which
 takes different actions depending on the value of the error code passed to it
 as an argument:
 
-- If the error code is :math:`> 0` an error message will be printed and the
+- If the error code is ``> 0`` an error message will be printed and the
   program will abort (hopefully with a traceback).
 
-- If the error code is :math:`< 0` a warning message will be printed, the error
+- If the error code is ``< 0`` a warning message will be printed, the error
   code variable will be reset to 0, and the program continues.
 
 - If the error code is 0 nothing happens and the program continues
@@ -1490,7 +1487,7 @@ abort the program.
 
 - The arguments of ``ereport`` are:
 
-  ::
+  .. code-block:: fortran
 
      SUBROUTINE ereport (RoutineName, ErrorStatus,Message)
 
@@ -1523,7 +1520,7 @@ abort the program.
 
   Common practice:
 
-  ::
+  .. code-block:: fortran
 
      IF (foo /= 0) THEN
        icode = ABS(foo)
@@ -1533,7 +1530,7 @@ abort the program.
 
   Better approach:
 
-  ::
+  .. code-block:: fortran
 
      IF (foo /= 0) THEN
        icode = 10
@@ -1546,7 +1543,7 @@ abort the program.
 Specific standards
 ==================
 
-.. _`sec:namelists`:
+.. _namelists:
 
 Runtime namelist variables, defaults, future development
 --------------------------------------------------------
@@ -1586,7 +1583,7 @@ in favour of suitable modules.
     - ``CHARACTER`` strings should be set to a default string. For
       example,
 
-      ::
+      .. code-block:: fortran
 
                  aero_data_dir       = 'aero data dir is unset'
 
@@ -1610,7 +1607,7 @@ The routine, ``chk_var``, is available for developers to more easily check
 their inputs. Checks made by ``chk_var`` should match any checks made by Rose,
 however checks by ``chk_var`` are made by the code and will by default, abort
 the run. Developers should refer to the `um-training
-<https://code.metoffice.gov.uk/doc/um/vn\theumversion/um-training/>`__ for
+<https://code.metoffice.gov.uk/doc/um/latest/um-training/index.html>`__ for
 more information on ``chk_var``.
 
 Optimised namelist reading procedures
@@ -1727,7 +1724,7 @@ comment header detailing copyright and code owner comments is given below.
 
 .. container:: minipage
 
-   ::
+   .. code-block:: C
 
 
       /**********************************COPYRIGHT***********************************/
@@ -1746,14 +1743,17 @@ In addition to the identifiers deprecated by the C99 standard, the following
 table lists identifiers which should be considered deprecated within UM code —
 and where appropriate, what to replace them with.
 
-========================== ================
+========================== =====================
 **Deprecated indentifier** **Replace with**
-========================== ================
-``sprintf()``              ``snprintf()``
-``strcpy()``               ``strncpy()``
-========================== ================
+========================== =====================
+``sprintf()``              ``snprintf()`` [#f1]_
+``strcpy()``               ``strncpy()`` [#f1]_
+========================== =====================
 
-.. _`sec:OpenMPinC`:
+.. [#f1] These functions take different arguments from the original deprecated functions they replace.
+
+
+.. _OpenMPinC:
 
 OpenMP in C Code
 ~~~~~~~~~~~~~~~~
@@ -1775,8 +1775,7 @@ from SHUMlib. An example of such use is given below.
 
 .. container:: minipage
 
-   ::
-
+   .. code-block:: C
 
       #if defined(_OPENMP) && defined(SHUM_USE_C_OPENMP_VIA_THREAD_UTILS)
 
@@ -1824,7 +1823,7 @@ the ``thread_utils`` module, as shown below.
 
 .. container:: minipage
 
-   ::
+   .. code-block:: C
 
 
       #if defined(_OPENMP) && defined(SHUM_USE_C_OPENMP_VIA_THREAD_UTILS)
@@ -1835,7 +1834,7 @@ Or to protect inclusion of the OpenMP header, as shown below.
 
 .. container:: minipage
 
-   ::
+   .. code-block:: C
 
 
       #if defined(_OPENMP) && !defined(SHUM_USE_C_OPENMP_VIA_THREAD_UTILS)
@@ -1849,16 +1848,14 @@ In order to standardise the way the above rules are implemented, and to allow
 for automated checking of the compliance of code, the following additional
 rules are imposed.
 
-- | You cannot hide the use of the ``_OPENMP`` &
-    ``SHUM_USE_C_OPENMP_VIA_THREAD_UTILS`` macros through the definition
-    of a third macro dependent on them. For example, you must not define
-    and use a new macro in place of the two original macros, as shown
-    here:
-  | \*
+- You cannot hide the use of the ``_OPENMP`` &
+  ``SHUM_USE_C_OPENMP_VIA_THREAD_UTILS`` macros through the definition of a
+  third macro dependent on them. For example, you must not define and use a
+  new macro in place of the two original macros, as shown here:
 
   .. container:: minipage
 
-     ::
+     .. code-block:: C
 
 
         #define USE_THREAD_UTILS defined(_OPENMP) && defined(SHUM_USE_C_OPENMP_VIA_THREAD_UTILS)
@@ -1867,35 +1864,30 @@ rules are imposed.
           thread_utils_func();
         #endif
 
-- If-def tests on ``_OPENMP`` & ``SHUM_USE_C_OPENMP_VIA_THREAD_UTILS``
-  must always occur as a pair. You may not test the use of ``_OPENMP``
-  or ``SHUM_USE_C_OPENMP_VIA_THREAD_UTILS`` in isolation.
+- If-def tests on ``_OPENMP`` & ``SHUM_USE_C_OPENMP_VIA_THREAD_UTILS`` must
+  always occur as a pair. You may not test the use of ``_OPENMP`` or
+  ``SHUM_USE_C_OPENMP_VIA_THREAD_UTILS`` in isolation.
 
 - ``_OPENMP`` must come first in any ``#if defined()`` pair.
 
-- | Any OpenMP ``#if defined()`` pair must not also include a logical
-    test on a third macro. If this functionality is required, find an
-    appropriate nesting of ``#if defined()`` tests. For example instead
-    of:
-  | \*
+- Any OpenMP ``#if defined()`` pair must not also include a logical test on a
+  third macro. If this functionality is required, find an appropriate nesting
+  of ``#if defined()`` tests. For example instead of:
 
   .. container:: minipage
 
-     ::
+     .. code-block:: C
 
 
         #if defined(_OPENMP) && defined(SHUM_USE_C_OPENMP_VIA_THREAD_UTILS) && defined(OTHER)
         /* do stuff */
         #endif
 
-  |
-  | \* Use:
-  | \*
+  Use:
 
   .. container:: minipage
 
-     ::
-
+     .. code-block:: C
 
         #if defined(_OPENMP) && defined(SHUM_USE_C_OPENMP_VIA_THREAD_UTILS)
         #if defined(OTHER)
@@ -1924,20 +1916,21 @@ performed in the order below:
    performs as it is intended, it complies with the standards and is well
    documented. Guidance for reviewers is found in the `Science/Technical
    Review Guidance
-   <https://code.metoffice.gov.uk/trac/um/wiki/WorkingPractices/SciReviewGuidance>`__
+   <https://metoffice.github.io/simulation-systems/Reviewers/scitechreview.html>`__
    page on the UM homepage.
 
 #. A code/system review is performed to analyse the change for its impact,
    ensure that it meets this coding standard and to ensure that all concerned
    parties are made aware of changes that are required. Guidance for reviewers
    is outlined in `Code/System Review Guidance
-   <https://code.metoffice.gov.uk/trac/um/wiki/WorkingPractices/CodeReviewGuidance>`__
+   <https://metoffice.github.io/simulation-systems/Reviewers/codereview.html>`__
    page on the UM homepage.
 
-.. _`app:summary`:
 
-UM Software standard summary
-============================
+.. _Appendix A:
+
+A. UM Software standard summary
+===============================
 
 The rules discussed in the main text are reproduced here in summary form with
 pdf links to the sections.
@@ -2090,7 +2083,7 @@ pdf links to the sections.
 | Never use ``STOP`` and           | `S19`_                           |
 | ``CALL abort``                   |                                  |
 +----------------------------------+----------------------------------+
-| New namelist items should begin  | `4.1 <#sec:namelists>`__         |
+| New namelist items should begin  | `namelists`_                     |
 | life as category c items.        |                                  |
 +----------------------------------+----------------------------------+
 
@@ -2162,8 +2155,10 @@ This has been compiled upon review of `major Fortran compilers
 +-------------------------+----------------+-------------------------+
 
 
-Dealing with rounding issues.
-=============================
+.. _Appendix C:
+
+C. Dealing with rounding issues.
+================================
 
 Background
 ----------
@@ -2198,7 +2193,7 @@ know which algebraic identities pass through to floating-point arithmetic and
 which don't, and how results can be affected by the way the calculations are
 implemented by the compiler. For chapter and verse on floating-point
 arithmetic, a good reference is "`David Goldberg's article
-<http://docs.sun.com/source/806-3568/ncg_goldberg.html>`__ "
+<https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html>`__ "
 
 The following floating-point identity always holds:
 
@@ -2247,7 +2242,7 @@ Example 1: Non-distributive arithmetic
 At UM vn7.4, the routine ``LSP_DEPOSITION`` contains the following
 calculation:
 
-::
+.. code-block:: fortran
 
                ! Deposition removes some liquid water content
                ! First estimate of the liquid water removed is explicit
@@ -2276,7 +2271,7 @@ last line does not necessarily lead to ``qcl = 0.0`` when the limit is hit.
 One solution to this problem is to supply ``area_mix/cfliq`` directly as a
 ratio:
 
-::
+.. code-block:: fortran
 
            If (cfliq(i) /= 0.0) Then
              areamix_over_cfliq(i)=area_mix(i)/cfliq(i)
@@ -2295,7 +2290,7 @@ Example 2: Changing units when applying limits
 
 At UM vn7.4, the routine ``LSP_TIDY`` contains the following calculation:
 
-::
+.. code-block:: fortran
 
              ! Calculate transfer rate
              dpr(i) = temp7(i) / lfrcp ! Rate based on Tw excess
@@ -2311,7 +2306,7 @@ At UM vn7.4, the routine ``LSP_TIDY`` contains the following calculation:
 
 where
 
-::
+.. code-block:: fortran
 
    dhilsiterr(i) = 1.0/(dhi(i)*iterations)
    rhor(i)       = 1.0/rho(i)
@@ -2322,7 +2317,7 @@ timestep. Thus, the intention is that if this limit is hit the final snow
 amount will come out to exactly 0.0. However, the outcome in this case is
 effectively as follows:
 
-::
+.. code-block:: fortran
 
      dpr(i)      = snow_agg(i) * dhi(i)*iterations*rhor(i)
      snow_agg(i) = snow_agg(i) - dpr(i)*rho(i)*dhilsiterr(i)
@@ -2343,7 +2338,7 @@ quantity is updated a change of units is required. The solution here is to
 apply the limit to the quantity itself, shifting the change of units to
 calculations involving rates:
 
-::
+.. code-block:: fortran
 
              ! Calculate transfer
              dp(i) = rho(i)*dhilsiterr(i)*temp7(i) / lfrcp
@@ -2363,7 +2358,7 @@ At UM vn7.4, the routine ``LS_CLD`` contains the following calculation to
 update the total cloud fraction ``CF`` given the liquid and frozen cloud
 fractions ``CFL`` and ``CFF``:
 
-::
+.. code-block:: fortran
 
                TEMP0=OVERLAP_RANDOM
                TEMP1=0.5*(OVERLAP_MAX-OVERLAP_MIN)
@@ -2386,7 +2381,7 @@ floating-point case, however, this no longer follows, so we often get cases
 where there is a slight deviation from unity. The simplest solution in this
 example is to deal with the special case separately:
 
-::
+.. code-block:: fortran
 
                TEMP0=OVERLAP_RANDOM
                TEMP1=0.5*(OVERLAP_MAX-OVERLAP_MIN)
