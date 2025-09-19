@@ -8,96 +8,84 @@ repositories involved. To carry out the tests involved in a linked ticket it
 can be helpful to refer to the :ref:`repository figure <multirepo>`; testing
 both child and parent repositories as needed. Further details of how testing
 in each repository is handled can be found on the :ref:`Testing
-page<testing>`. Compatible code revisions are needed for testing across
-repositories as described above.
+page<testing>`.
 
-Testing changes in JULES, LFRic Core, UKCA, or any other child repositories is
-as simple as running the standalone test procedures for these codebases.
+All Simulation Systems repositories containing a test suite will also contain a
+``dependencies.yaml`` file in the top directory of the repository. This file
+contains the details of all sources used by the test suite in the format (using
+lfric_core as an example):
 
-.. important::
+.. code-block:: yaml
 
-    When specifying an alternative source in the ``dependencies.sh`` file the
-    revision for the source **must** be updated.
+    lfric_core:
+        source: git@github.com:MetOffice/lfric_core.git
+        ref: <Long Hash / Tag>
 
-    * If setting the source as an fcm URL, the mirror (``.xm_``) needs to be
-      used and the revision can either be blank (for latest commit) or any
-      valid revision for that branch.
-    * If setting the source as a Working Copy, the hostname needs to be
-      provided (as Hostname:Path) and the revision must be blank.
+The ``source`` setting sets the location of the repository on github. By
+default, the test suite will access github repositories by using ssh, as shown
+by the ``git@github.com`` part of the source. This line can be modified to point
+at users fork of the repository instead, eg.
+``source: git@github.com:UserName/lfric_core.git``. The ``source`` can also be a
+local git clone, in which case it should take the form,
+``source: <HOSTNAME>:/path/to/clone``.
 
-Testing the UM with other repositories
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The ``ref`` setting takes a git tree-ish value. Common settings will be a commit
+hash, a tag or a branch name. At release, they will be tags, but as linked PRs
+are committed, they will be changed to the long form of the relevant commit
+hash (although using a short version of the hash will also work). If testing a
+linked branch, then you can either set to the name of the branch, or a commit
+associated with that branch. It is also recommended to set this, even when
+setting the source to a local clone. That way if you switch branches in the
+clone, the correct branch for testing will be used. Finally, if left blank, the
+Head of the repositories default branch will be used if a github source. If it
+is a local clone, ref is determined by the state of the repository at source
+extraction time.
 
-To test the UM, any changes to JULES, UKCA, Socrates, CASIM etc will also need
-to be included. This is done by adding another source to the rose stem command
-line.
+Various different configurations of an lfric_core source are shown below with an
+explanation of each,
 
-1. Checkout a UM working copy
-    - this may be your branch from a linked ticket, or a clean trunk copy at
-      either the last release or a suitable head of trunk revision.
+.. code-block:: yaml
 
-2. Run rose stem, including a source code path to every branch involved. As a
-   minimum run ``developer`` group and all groups that cover the repositories
-   being tested.
+    # The upstream lfric_core repository at tag 3.0
+    lfric_core:
+        source: git@github.com:MetOffice/lfric_core.git
+        ref: core3.0
 
-.. code-block:: shell
+    # The upstream lfric_core repository at a specific commit hash
+    lfric_core:
+        source: git@github.com:MetOffice/lfric_core.git
+        ref: a1b2c3d4e5f67890abcdef1234567890abcdef12
 
-    rose stem --group=developer,jules,ukca --source=. \
-        --source=/path/to/jules/changes --source=/path/to/ukca/changes
+    # As above, but with a shortened form of the hash (7 characters in this case)
+    lfric_core:
+        source: git@github.com:MetOffice/lfric_core.git
+        ref: a1b2c3d
 
-The source paths involved can either be to local working copies or links to the
-fcm source control e.g. ``fcm:jules.xm_br/dev/user/branch_name``. As many
-source paths as needed can be added to the list.
+    # The upstream lfric_core repository, with the default branch (main) at Head
+    lfric_core:
+        source: git@github.com:MetOffice/lfric_core.git
+        ref:
 
-Testing LFRic Apps with other repositories
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    # A Users fork of the lfric_core repoistory, on branch my_branch
+    lfric_core:
+        source: git@github.com:UserName/lfric_core.git
+        ref: my_branch
 
-LFRic Apps testing needs to encompass all of the other repositories affected.
-Paths to the other codebases involved should be added to ``dependencies.sh``
-under each of the ``*_sources`` variables. Again these paths can either be to
-local changes or those in the repository.
+    # A Users fork of the lfric_core repository at a specific hash
+    lfric_core:
+        source: git@github.com:UserName/lfric_core.git
+        ref: f9e8d7c
 
-1. Checkout an LFRic Apps working copy
+    # A local clone of the lfric_core repository, pointing at my_branch
+    lfric_core:
+        source: hostname:/path/to/lfric_core
+        ref: my_branch
 
-- this may be your branch from a linked ticket, or a clean trunk copy at either
-  the last release or a suitable head of trunk revision.
+    # A local clone of the lfric_core repository, pointing at a specific hash
+    lfric_core:
+        source: hostname:/path/to/lfric_core
+        ref: f9e8d7c
 
-2. Update dependencies.sh to point to all other code changes, e.g.
-
-.. code-block::
-
-    lfric_core_rev=
-    lfric_core_sources=fcm:lfric.xm_br/path/to/branch
-
-    casim_rev=
-    casim_sources=vldXXX:/path/to/casim/working/copy
-
-3a. Run the lfric_atm developer test-suite
-
-- suitable for testing changes in other repositories that do not include any
-  LFRic Apps changes
-
-.. code-block:: shell
-
-    export CYLC_VERSION=8
-    rose stem --group=lfric_atm_developer
-    cylc play <working copy name>
-    cylc gui
-
-3b. Run the full developer test-suite
-
-- suitable for testing LFRic Apps changes with other repositories, or expanding
-  testing if lfric_atm tests have shown errors.
-
-.. code-block:: shell
-
-    export CYLC_VERSION=8
-    rose stem --group=developer
-    cylc play <working copy name>
-    cylc gui
-
-More details on LFRic Apps testing are found on the
-:ref:`Testing LFRic Apps page<lfric_apps_test>`.
 
 .. note::
 

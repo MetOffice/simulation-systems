@@ -3,6 +3,11 @@
 Testing Your Change
 ===================
 
+.. tip::
+
+    For advice on running the test suite following the move to github, please
+    see the :ref:`rose-stem page <github_testing>`.
+
 Every change should be thoroughly tested, using your judgement as to what this
 involves based on the complexity of your change. There are three main methods
 for you to choose from:
@@ -36,10 +41,6 @@ Bespoke:
    TestSuites/ukca
    TestSuites/multi-repo_testing
 
-.. todo:
-   TestSuites/casim
-   TestSuites/shumlib
-
 Test branches & Upgrade Macros
 ------------------------------
 
@@ -58,8 +59,8 @@ To create one:
 
 Then check this out and use it for running any tests you'd like to carry out.
 
-If using a test branch then do list this on your ticket and include the results
-of this testing alongside those from your dev branch.
+If using a test branch then do link to this on your PR and include the
+results of this testing alongside those from your dev branch.
 
 .. Note::
 
@@ -100,26 +101,26 @@ commands, noting that ``--jules-path`` is only required if you have
 
 .. Note::
 
-    The update_all.py script suppresses warnings produced by upgrade macros.
-    You can test these separately by upgrading a single app. A single app can
-    be upgraded for testing using:
+  The update_all.py script suppresses warnings produced by upgrade macros.
+  You can test these separately by upgrading a single app. A single app can
+  be upgraded for testing using:
 
-    .. code-block:: shell
+  .. code-block:: shell
 
-        rose app-upgrade -M /path/to/rose-meta \
-            -C /path/to/rose-stem/app/<app_name> -a <trunk_metadata_version>
+      rose app-upgrade -M /path/to/rose-meta \
+      -C /path/to/rose-stem/app/<app_name> -a <trunk_metadata_version>
 
-   where the ``-C`` option can be omitted if inside the app's directory.
+  where the ``-C`` option can be omitted if inside the app's directory.
 
-    .. Important::
+  .. Important::
 
-        If there are **jules-shared** metadata changes these will need to be
-        added to the metadata path. Please see the :ref:`rose config-edit
-        example<metadata_changes>`.
+      If there are **jules-shared** metadata changes these will need to be
+      added to the metadata path. Please see the :ref:`rose config-edit
+      example<metadata_changes>`.
 
-        Please refer to `rose app-upgrade
-        <https://metomi.github.io/rose/doc/html/api/command-reference.html#rose-app-upgrade>`__
-        command reference for more details.
+      Please refer to `rose app-upgrade
+      <https://metomi.github.io/rose/doc/html/api/command-reference.html#rose-app-upgrade>`__
+      command reference for more details.
 
 .. _traclog:
 
@@ -127,13 +128,13 @@ trac.log
 --------
 
 The output of rose-stem from each repository includes a trac.log. This is a
-wiki formatted file that can be copied into the ticket summary as a record of
+wiki formatted file that can be copied into the PR summary as a record of
 testing run. Please make sure that the results of your latest testing are
-included when passing a ticket for review.
+included when passing a PR for review.
 
 .. code-block:: shell
 
-    ~/cylc-run/<suite_name>/trac.log
+    ~/cylc-run/<suite_name>/runN/trac.log
 
 
 .. tip::
@@ -147,7 +148,7 @@ included when passing a ticket for review.
 
     .. code-block:: shell
 
-        python3 $UMDIR/SimSys_Scripts/suite_report.py -S <workflow path>
+        python3 $UMDIR/SimSys_Scripts/suite_report_git/suite_report_git.py -S <workflow path>
 
     If this is a regular problem then get in touch with the :ref:`SSD team
     <ssd>` so we can investigate. Thanks.

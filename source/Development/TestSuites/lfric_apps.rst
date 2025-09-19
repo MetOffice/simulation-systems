@@ -6,14 +6,11 @@ Testing LFRic Apps
 Rose stem:
 
     LFRic Apps testing uses rose-stem and is run with the following commands
-    from a working copy:
+    from the top directory of a local clone:
 
     .. code-block:: shell
 
-        export CYLC_VERSION=8
-        rose stem --group=developer
-        cylc play <working copy name>
-        cylc gui
+        cylc vip -z g=developer -n <name/of/suite> ./rose-stem
 
 Local testing:
 
@@ -23,21 +20,6 @@ Local testing:
 
     This test does not use rose or cylc and is particularly useful for checking
     for compile errors while developing.
-
------
-
-.. important::
-
-    When specifying the lfric_core source the lfric_core revision **must** be
-    updated in ``dependencies.sh``.
-
-    * If setting the source to an fcm URL, the mirror (``.xm_``) needs to be
-      used and the revision can either be blank (for latest commit) or any
-      valid revision for that branch.
-    * If setting the source to a Working Copy, the hostname needs to be
-      provided (as Hostname:Path) and the revision must be blank.
-
-    For more details, see :ref:`multi-repo_testing`.
 
 
 Rose stem
@@ -56,7 +38,7 @@ and plot tasks to confirm the outputs.
 Below is a (by no means comprehensive) set of groups that you may wish to use
 on Met Office systems. Note that there is a lot of overlap between these
 groups, and that you can specify more than one at once, e.g.
-``--group=developer,gungho_model``.
+``-z g=developer,gungho_model``.
 
 +--------------------+----------------------------------------------------------+
 | Group              | Description                                              |
@@ -77,7 +59,7 @@ groups, and that you can specify more than one at once, e.g.
 +--------------------+----------------------------------------------------------+
 | integration_tests  | Integration tests for all applications and science areas |
 +--------------------+----------------------------------------------------------+
-| xc40/spice/monsoon | All tests designed to run on the named platform.         |
+| ex1a/azspice       | All tests designed to run on the named platform.         |
 +--------------------+----------------------------------------------------------+
 | scripts            | All of the auxillary scripts that are designed to check  |
 |                    | the code standards in ways that aren't tested by the     |

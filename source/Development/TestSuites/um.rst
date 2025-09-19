@@ -3,11 +3,12 @@
 Testing the UM
 ==============
 
-UM testing is run with the following command from a working copy:
+UM testing is run with the following command from the top directory of a local
+clone:
 
 .. code-block:: shell
 
-    rose stem --group=developer --new
+    cylc vip -z g=developer -n <name/of/suite> ./rose-stem
 
 -----
 
@@ -30,22 +31,15 @@ saved and restarted.
 
     .. code-block:: shell
 
-        rose stem --group=xc40_gnu_um_rigorous_omp-n48
+        cylc vip -z g=ex1a_gnu_um_rigorous_omp-n48 -n <name/of/suite> ./rose-stem
 
-.. note::
-
-    Changes to code in src/atmosphere may require
-    :ref:`testing with LFRic Apps<lfric_apps_test>`.If you have access to LFRic, the
-    :ref:`traclog` will state whether LFRic testing is required based on the
-    branch diff. If you do not have LFRic access, this testing will need to
-    be completed by your Met Office contact.
 
     See :ref:`multirepo` for details on how to carry out this testing.
 
 Below is a (by no means comprehensive) set of groups that you may wish to use
 on Met Office systems. Note that there is a lot of overlap between these
 groups, and that you can specify more than one at once, e.g.
-``--group=developer,jules,ukca``.
+``-z g=developer,jules,ukca``.
 
 +--------------------+----------------------------------------------------------+
 | Group              | Description                                              |
@@ -80,19 +74,12 @@ groups, and that you can specify more than one at once, e.g.
 +--------------------+----------------------------------------------------------+
 | uk_lams            | Testing for the limited area models                      |
 +--------------------+----------------------------------------------------------+
-| xc40/spice         | All tests designed to run on the named platform.         |
+| ex1a/azspice       | All tests designed to run on the named platform.         |
 +--------------------+----------------------------------------------------------+
 | scripts            | All of the auxillary scripts that are designed to check  |
 |                    | the code standards in ways that aren't tested by the     |
 |                    | compiler.                                                |
 +--------------------+----------------------------------------------------------+
-
-.. tip::
-
-    The `standard jobs
-    <https://code.metoffice.gov.uk/trac/um/wiki/StandardJobs>`__ page for each
-    release includes details of which of ``developer``, ``nightly`` and
-    ``all`` a configuration is tested at.
 
 
 Monsoon
@@ -107,8 +94,7 @@ The UM test suite is set up to run on Monsoon with Cylc 8 by running,
 
 .. code-block:: shell
 
-    rose stem --group=ex1a
-    cylc play <name-of-suite>
+    cylc vip -z g=ex1a -n <name/of/suite> ./rose-stem
 
 This will launch all ex1a jobs that are available to run on Monsoon.
 

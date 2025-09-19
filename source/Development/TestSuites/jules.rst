@@ -1,11 +1,12 @@
 Testing JULES
 =============
 
-JULES testing is run with the following command from a working copy:
+JULES testing is run with the following command from the top directory of a
+local clone:
 
 .. code-block::
 
-    rose stem --group=all --new
+    cylc vip -z g=all -n <name/of/suite> ./rose-stem
 
 -----
 
@@ -28,6 +29,7 @@ stored :ref:`KGO files <kgo>`.
     See :ref:`multirepo` for details on how to carry out this testing.
 
     .. important::
+
         For **jules-shared** changes, when LFRic testing, the
         changes need to be manually synced to the LFRic location. When UM
         testing, this is not required as **jules-shared** is imported from the
@@ -36,26 +38,26 @@ stored :ref:`KGO files <kgo>`.
 Below is a (by no means comprehensive) set of groups that you may wish to use
 on Met Office systems.
 
-+--------------------+----------------------------------------------------------+
-| Group              | Description                                              |
-+====================+==========================================================+
-+--------------------+----------------------------------------------------------+
-| all                | The complete test suite. This is run automatically       |
-|                    | every night and monitored by the SSD team. All           |
-|                    | :ref:`KGO <kgo>` changing tickets need to run this group.|
-+--------------------+----------------------------------------------------------+
-+--------------------+----------------------------------------------------------+
-| loobos             | A set of tests to exercise these science areas.          |
-|                    |                                                          |
-| gswp2              |                                                          |
-|                    |                                                          |
-| eraint             |                                                          |
-|                    |                                                          |
-| imogen             |                                                          |
-+--------------------+----------------------------------------------------------+
-| xc40/linux         | All tests designed to run on the named platform.         |
-+--------------------+----------------------------------------------------------+
-| scripts            | All of the auxillary scripts that are designed to check  |
-|                    | the code standards in ways that aren't tested by the     |
-|                    | compiler.                                                |
-+--------------------+----------------------------------------------------------+
++----------------------+----------------------------------------------------------+
+| Group                | Description                                              |
++======================+==========================================================+
++----------------------+----------------------------------------------------------+
+| all                  | The complete test suite. This is run automatically       |
+|                      | every night and monitored by the SSD team. All           |
+|                      | :ref:`KGO <kgo>` changing tickets need to run this group.|
++----------------------+----------------------------------------------------------+
++----------------------+----------------------------------------------------------+
+| loobos               | A set of tests to exercise these science areas.          |
+|                      |                                                          |
+| gswp2                |                                                          |
+|                      |                                                          |
+| eraint               |                                                          |
+|                      |                                                          |
+| imogen               |                                                          |
++----------------------+----------------------------------------------------------+
+| ex1a/azspice         | All tests designed to run on the named platform.         |
++----------------------+----------------------------------------------------------+
+| scripts              | All of the auxillary scripts that are designed to check  |
+|                      | the code standards in ways that aren't tested by the     |
+|                      | compiler.                                                |
++----------------------+----------------------------------------------------------+
