@@ -39,8 +39,8 @@ and `commit email address
 
 .. code-block::
 
-    git config --global user.name "Mona Lisa"
-    git config --global user.email "YOUR_EMAIL"
+    git config --global user.name "User Name"
+    git config --global user.email "User Email"
 
 SSH Key Setup
 -------------
