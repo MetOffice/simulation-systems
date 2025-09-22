@@ -24,3 +24,7 @@ scope changes, eg. to just the Met Office site, can still go on.
     messages to ensure that all international partners receive the email.
     Change this setting if you receive bounced emails during partner testing.
 
+
+.. important::
+
+    Now is also a good time to ask for the Jules release notes. This is usually done by a member of the Jules community, so email them advising them of the likely release date. Ask the team for their details if unsure.
