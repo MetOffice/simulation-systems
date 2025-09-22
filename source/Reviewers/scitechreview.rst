@@ -4,6 +4,7 @@ Science and Technical Review
 ============================
 
 .. tip::
+
   GitHub documentation on the review process and interface:
   `Reviewing Proposed Changes in a Pull Request <https://docs.github.com/en/pull
   -requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/

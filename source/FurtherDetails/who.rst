@@ -81,7 +81,7 @@ Sci/Tech Reviewer
 
 A Sci/Tech reviewer is assigned for every ticket and comprises the first stage
 of review that considers the change as a whole. Further details are found in
-the :ref:`Scitech Reviewrs Guide<scitech_review>`. In some cases, the reviewer
+the :ref:`Scitech Reviewers Guide<scitech_review>`. In some cases, the reviewer
 can delegate parts of the work to another person.
 
 Reviews should be turned around on a reasonable timescale and follow the
@@ -97,7 +97,7 @@ Code Reviewer
 -------------
 
 The Code Reviewer performs the 2nd stage of review for every ticket. Further
-details are described in the:ref:`Code Reviewers Guide<code_review>`.
+details are described in the :ref:`Code Reviewers Guide<code_review>`.
 
 Reviews should be turned around on a reasonable timescale and follow the Code
 Review guidance.

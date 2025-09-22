@@ -24,9 +24,10 @@ Trivial pull requests are an exception and do not require a SciTech review.
   * If your development changes answers then make sure you have followed the
     steps on :ref:`preparing a KGO ticket for review.<kgo>`
 
-  * Get in touch with your SciTech Reviewer before you feel ready for review. They
-    will have valuable insights into the code and, particularly for larger changes,
-    may appreciate the opportunity to look at your work as it progresses.
+  * Get in touch with your SciTech Reviewer before you feel ready for review.
+    They will have valuable insights into the code and, particularly for larger
+    changes, may appreciate the opportunity to look at your work as it
+    progresses.
 
   * The review process will iterate between the developer and each reviewer
     until the changes made are agreed to be of sufficient quality. This aims to

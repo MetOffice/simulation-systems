@@ -3,8 +3,9 @@
 Approval Process
 ================
 
-Every pull request will need to get approval from a group of people. These approvals
-are marked in the pull request description by those signing off the approval.
+Every pull request will need to get approval from a group of people. These
+approvals are marked in the pull request description by those signing off the
+approval.
 
 .. tip::
 
@@ -23,8 +24,7 @@ are marked in the pull request description by those signing off the approval.
 .. important::
 
     New UM Ancils must be submitted to the MIAO team for approval. Please
-    follow
-    their process for `Requesting New UM Ancils
+    follow their process for `Requesting New UM Ancils
     <https://code.metoffice.gov.uk/
     trac/ancil/wiki/ANTS/ProjectManagement/updating_UMDIR>`__.
 

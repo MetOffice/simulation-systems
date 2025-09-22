@@ -4,6 +4,7 @@ Code and System Review
 ======================
 
 .. tip::
+
   GitHub documentation on the review process and interface:
   `Reviewing Proposed Changes in a Pull Request <https://docs.github.com/en/pull
   -requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/
@@ -17,8 +18,7 @@ required.
 
 Fundamentally this review is to ensure that the change is well thought-out and
 that no system aspects have been missed. The review should be an active one
-and
-should question anything that is poorly coded.
+and should question anything that is poorly coded.
 
 Reviewer responsibilities and checkpoints
 -----------------------------------------
@@ -41,8 +41,8 @@ will include areas such as:
           affected configurations.
         * If the change modifies OMP code sections then approval from the
           optimisation team.
-    * It should be possible to understand the purpose of the pull request from the
-      details provided.
+    * It should be possible to understand the purpose of the pull request from
+      the details provided.
 
     .. tip::
 
@@ -93,13 +93,10 @@ will include areas such as:
         all tests can pass.
 
     .. tip::
+
         All linked pull requests are reviewed as a group. Each pull request in
         the group should contain links to all the others and the correct
         keywords applied to make it easier to keep track of them all.
-
-        All linked tickets are reviewed as a group. Each ticket in the group
-        should contain links to all the others and the correct keywords
-        applied to make it easier to keep track of them all.
 
         Care is needed when :ref:`committing these pull requests
         <committinglinkedtickets>`.
@@ -136,7 +133,6 @@ Code Owners and Reviewers.
 Once you are happy that the change is appropriate and correct, and the code
 review parts of the pull request template have been completed. Submit a
 review that `approves` the change.
-to **approved**.
 
 From here follow the :ref:`How To Commit<howtocommit>` guide through to pull request
 closure.
