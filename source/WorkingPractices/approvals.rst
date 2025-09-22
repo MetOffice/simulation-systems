@@ -3,9 +3,8 @@
 Approval Process
 ================
 
-Every ticket will need to get approval from a group of people. These approvals
-are marked on the :ref:`Ticket Summary wiki pages <template>` by those signing
-off the approval.
+Every pull request will need to get approval from a group of people. These approvals
+are marked in the pull request description by those signing off the approval.
 
 .. tip::
 
@@ -17,21 +16,17 @@ off the approval.
 
 .. tip::
 
-    From vn13.2 the :ref:`trac.log <traclog>` summary of your testing will also
+    The :ref:`trac.log <traclog>` summary of your testing will also
     list all the Code and Config Owner approvals required in a handy table to
     make it easy to see what is required.
-
-.. note::
-
-    LFRic Apps does not yet have a formal Code Owner approval process. A list
-    of code owners is available and they should still be consulted as part of
-    your development.
 
 .. important::
 
     New UM Ancils must be submitted to the MIAO team for approval. Please
-    follow their process for `Requesting New UM Ancils
-    <https://code.metoffice.gov.uk/trac/ancil/wiki/ANTS/ProjectManagement/updating_UMDIR>`__.
+    follow
+    their process for `Requesting New UM Ancils
+    <https://code.metoffice.gov.uk/
+    trac/ancil/wiki/ANTS/ProjectManagement/updating_UMDIR>`__.
 
 Code Owners
 -----------

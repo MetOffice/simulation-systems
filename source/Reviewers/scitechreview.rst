@@ -3,6 +3,12 @@
 Science and Technical Review
 ============================
 
+.. tip::
+  GitHub documentation on the review process and interface:
+  `Reviewing Proposed Changes in a Pull Request <https://docs.github.com/en/pull
+  -requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/
+  reviewing-proposed-changes-in-a-pull-request>`_
+
 Purpose of the review
 ---------------------
 
@@ -12,9 +18,9 @@ performs, is standards compliant and well documented.
 Reviewer responsibilities and checkpoints
 -----------------------------------------
 
-The Sci/Tech review template exists to help you think through all the following
-areas. A completed :ref:`review template <template>` should be appended to the
-ticket once you are finished.
+The pull request template that populates the pull request description box
+contains a SciTech Review section with questions to help you think through all
+the areas of concern. This SciTech review section should be completed once you are finished.
 
 The Science / Technical reviewer should
 
@@ -33,11 +39,11 @@ The Science / Technical reviewer should
 * Ensure that any related :ref:`external documentation <docs>` is updated as
   necessary.
 
-* Check that the Trac ticket has been completed fully and accurately with
+* Check that the pull request has been completed fully and accurately with
   sufficient detail for others to understand the impact of the change.
 
 * Ensure that testing has been carried out satisfactorily (and recorded on the
-  Trac ticket), and that there is no impact for configurations outside the
+  pull request), and that there is no impact for configurations outside the
   required scope of the changeset.
 
 Final decision points and actions
@@ -46,13 +52,16 @@ Final decision points and actions
 The science/technical reviewer must demand that non-compliance is corrected
 before a change is passed onto the next level of review.
 
-The ticket will likely iterate between the reviewer and the developer during
-the review process while retaining it's sci/tech review status. However, the
-reviewer has the option to "reject and assign" back to the code author should
-the documentation or code not meet the required standards and major
-alterations/improvements are required.
+The pull request will likely iterate between the reviewer and the developer during
+the review process while retaining it's sci/tech review status.
 
-Once you are happy that the change is appropriate and correct, complete the
-approval section of the Sci/Tech review template and re-assign the ticket to
-the system/code reviewer. If need be ask the code author for the agreed
-system/code reviewer's name.
+Once you are happy that the change is appropriate and correct, and the code
+review parts of the pull request template have been completed then change
+the review state to
+Code Review.
+
+.. image:: ../WorkingPractices/images/gh_screenshots/project_scitech_light.png
+    :class: only-light border
+
+.. image:: ../WorkingPractices/images/gh_screenshots/project_scitech_dark.png
+    :class: only-dark border
