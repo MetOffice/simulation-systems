@@ -65,4 +65,4 @@ Code Review.
     :class: only-light border
 
 .. image:: ../WorkingPractices/images/gh_screenshots/project_scitech_dark.png
-    :class: only-dark border
+    :class: only-dark border.

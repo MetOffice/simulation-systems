@@ -110,9 +110,9 @@ is selected (see :ref:`reviewer_edits` for details).
 .. important::
 
     If an issue exists for the work being completed then you should `link your
-    pull request with that issue. <https://docs.github.com/en/issues/tracking-
-    your-work-with-issues/using-
-    issues/linking-a-pull-request-to-an-issue>`_
+    pull request with that issue. <https://docs.github.com/en/issues/
+    tracking-your-work-with-issues/using-issues/
+    linking-a-pull-request-to-an-issue>`_
 
 
 
