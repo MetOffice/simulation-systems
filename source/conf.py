@@ -10,12 +10,11 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-import datetime
 
 # -- Project information -----------------------------------------------------
 
 project = 'Simulation Systems'
-copyright = f'Met Office 2023'
+copyright = 'Met Office 2025'
 author = 'Simulation Systems and Deployment Team'
 
 
@@ -31,7 +30,11 @@ extensions = [
 language = "en"
 
 # Added to use dropdowns with command: pip install sphinx-design
-extensions = ['sphinx_design']
+extensions = [
+    'sphinx_design',
+    'sphinx_copybutton',
+    'sphinxcontrib.rsvgconverter',
+]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -75,3 +78,10 @@ html_context = {
 }
 # Hide the link which shows the rst markup
 html_show_sourcelink = False
+
+# -- Options for linkcheck builder -------------------------------------------
+linkcheck_anchors = False
+linkcheck_ignore = [
+    r'.*\.py$',  # Ignores URLs ending with .py
+    r'https://github.com/MetOffice/um*',
+]

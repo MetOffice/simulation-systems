@@ -11,8 +11,9 @@ for whichever system you are developing.
 +-------+----------------------+
 
 ..
-  Do UKCA/SOCRATES/JULES have their own diagnostic systems and are they worth mentioning here?
-  CASIM does not, but the MONC model which builds CASIM does; code is shared between them both.
+  Do UKCA/SOCRATES/JULES have their own diagnostic systems and are they worth
+  mentioning here? CASIM does not, but the MONC model which builds CASIM does;
+  code is shared between them both.
 
 
 .. toctree::
