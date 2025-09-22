@@ -59,9 +59,9 @@ To create one run,
 
 .. code-block:: shell
 
-    git switch -c test_branch_name [parent_branch]
+    git switch -c test_branch_name [<start_point>]
 
-from a local clone. If not provided ``parent_branch`` will default to your
+from a local clone. If not provided ``start_point`` will default to your
 current branch.
 
 If using a test branch then do list this on your ticket and include the results

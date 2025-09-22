@@ -150,9 +150,6 @@ Please see :ref:`this page <macros>` for further information.
 
 .. important::
 
-    If your development includes an upgrade macro, you **must** add the
-    ``macro`` keyword to your ticket.
-
     **Do not** apply the upgrade macro to your dev branch prior to the review
     process. Instead you must create a test branch. See :ref:`testing`.
 

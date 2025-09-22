@@ -32,7 +32,8 @@ following locations:
         ``applications/<APPLICATION>/rose-meta/lfric-<APPLICATION>/versions.py``
 
         Variations on this theme occur, e.g. LFRic Apps science sections or
-        Components in LFRic Core
+        Components in LFRic Core. Metadata directories are also symlinked from a
+        top level ``rose-meta`` directory.
 
 
 Within the file a blank upgrade macro will typically look like this:
@@ -65,8 +66,8 @@ Example of an upgrade macro
 
 Developer Sally Smith wishes to add the logical ``l_bugfix`` to the ``&run_bl``
 namelist in the UM. To do this, she replaces the `XXXX` line in the upgrade
-macro with her ticket number and adds herself as the author. Within the Python
-function ``upgrade``, she adds the appropriate command to include the new
+macro with her PR or Issue number and adds herself as the author. Within the
+Python function ``upgrade``, she adds the appropriate command to include the new
 logical. The macro then looks like this:
 
 .. code-block:: python
@@ -151,7 +152,7 @@ and test branch, but potentially not a development branch.
 
 .. tip::
 
-    The wrapper script will read the ``dependencies.sh`` file in your LFRic
+    The wrapper script will read the ``dependencies.yaml`` file in your LFRic
     Apps working copy and will checkout a temporary copy of the LFRic Core
     source if required. Some Core metadata changes will also modify the Core
     rose apps. In this case make sure to also commit these changes back to the
@@ -159,23 +160,23 @@ and test branch, but potentially not a development branch.
 
 To add upgrade macros to LFRic the following steps can be followed:
 
-1. In your local LFRic Apps clone update the core source in ``dependencies.sh``
-   if you have LFRic Core changes.
+1. In your local LFRic Apps clone update the core source in
+   ``dependencies.yaml`` if you have LFRic Core changes.
 
 2. Add your upgrade macros. These **must** be added to the ``versions.py`` file
-   in the same directory as the metadata being changed.
+   in the same ``rose-meta`` directory as the metadata being changed.
 
 3. Run the Upgrade Macro script in a test branch(see :ref:`testing`). This is
    located in the `SimSys_Scripts github repo
-   <https://github.com/MetOffice/SimSys_Scripts>`__ (at meto an up to date
-   clone is available in $UMDIR/SimSys_Scripts). The syntax for running is:
+   <https://github.com/MetOffice/SimSys_Scripts>`__ (at the MetOffice an up to
+   date clone is available in $UMDIR/SimSys_Scripts). The syntax for running is:
 
-.. code-block:: shell
+   .. code-block:: shell
 
-    export CYLC_VERSION=8
+       export CYLC_VERSION=8
 
-    SimSys_Scripts/lfric_macros/apply_macros.py vnX.Y_tZZZZ \
-        [--apps=/path/to/apps] [--core=/path/to/core] [--jules=/path/to/jules]
+       SimSys_Scripts/lfric_macros/apply_macros.py vnX.Y_tZZZZ \
+           [--apps=/path/to/apps] [--core=/path/to/core] [--jules=/path/to/jules]
 
 .. important::
 
@@ -185,14 +186,9 @@ To add upgrade macros to LFRic the following steps can be followed:
 The Apps, Core and Jules options are paths to sources for each of these. Apps
 will default to the present location (so it is recommended to launch from an
 Apps working copy). Core and Jules will default to reading the
-``dependencies.sh`` file in the Apps source if not provided.
+``dependencies.yaml`` file in the Apps source if not provided.
 
 The ``vnXX.Y_tTTTT`` option must match the After Tag of your upgrade macro.
 When setting this, the version is the last released version of LFRic Apps. If
 it's a linked Apps-Core ticket, then set the ticket number as the one where
 the most metadata changes are being made.
-
-.. tip::
-
-    The apply_macros script requires python >= 3.9. At the Met Office this can
-    be achieved by ``module load scitools``.
