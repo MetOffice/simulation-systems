@@ -25,7 +25,7 @@ following syntax,
   takes a comma separated list of groups. For example, ``-z g=developer,
   lfric_atm`` will run the ``developer`` and ``lfric_atm`` groups.
 * ``-S VALUE=SETTING`` - these options behave as they did before, and can be
-  added to the ``cylc vip`` command.
+  added to the ``cylc vip`` command. See the table below for some suggestions.
 * ``-S USE_MIRRORS=`` - An example of the above settings, this is newly added
   with the git migration. By default this is ``false`` and remote github
   repositories will be accessed via ssh. If set to ``true``, local github
@@ -46,6 +46,14 @@ For example,
 will launch the test suite with the ``developer`` group, using the github
 mirrors and naming it ``my_rose_stem_suite``.
 
+``-S`` Options (non-exhaustive):
+
+* ``-S USE_MIRRORS=true`` - Use local github mirrors instead of ssh.
+* ``-S USE_HEADS=true`` - Use the head of the default branch for the github
+  source, only intended for usage in nightly testing.
+* ``-S USE_EX[AB/CD/Z]=true`` - MetOffice only, specify the host machine for
+  EX1A jobs.
+* ``-S HOUSEKEEPING=true`` - Stop housekeeping tasks from running.
 
 Adding to the Rose Stem Suite
 -----------------------------
