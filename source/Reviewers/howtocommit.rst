@@ -71,103 +71,99 @@ Then switch to the up to date branch, e.g.
 **If** the ticket includes metadata changes, upgrade macro changes or a new
 rose-stem app then you will need to upgrade the test-suite.
 
-.. dropdown:: versions.py
+Update the versions.py file
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    ``versions.py`` contains a sequence of upgrade macros. Each macro contains
-    a ``BEFORE_TAG`` and an ``AFTER_TAG`` which should create a single chain,
-    starting at the last release and finishing with the ticket you are
-    committing. The tags have the format version_ticket, i.e.
-    ``vnXX.Y_tZZZZ``.
+``versions.py`` contains a sequence of upgrade macros. Each macro contains a
+``BEFORE_TAG`` and an ``AFTER_TAG`` which should create a single chain, starting
+at the last release and finishing with the ticket you are committing. The tags
+have the format version_ticket, i.e. ``vnXX.Y_tZZZZ``.
 
-    When resolving conflicts in this file make sure that the new macro being
-    added by your ticket is added to the end of the file. Modify the
-    ``BEFORE_TAG`` to match the ``AFTER_TAG`` of the previous macro in the
-    chain.
+When resolving conflicts in this file make sure that the new macro being added
+by your ticket is added to the end of the file. Modify the ``BEFORE_TAG`` to
+match the ``AFTER_TAG`` of the previous macro in the chain.
 
-    If this is the first macro since the release then the ``BEFORE_TAG`` will
-    be the version number with no added ticket number.
+If this is the first macro since the release then the ``BEFORE_TAG`` will be the
+version number with no added ticket number.
 
-    Remove the template macro if it is still present.
+Remove the template macro if it is still present.
 
-.. dropdown:: Applying Macros
+Apply the upgrade macros
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-    To update the test suite for an upgrade macro, please run:
+To update the test suite for an upgrade macro, please run:
 
-    .. tab-set::
+.. tab-set::
 
-        .. tab-item:: UM
+    .. tab-item:: UM
 
-            .. code-block:: shell
+        .. code-block:: shell
 
-                ./admin/rose-stem/update_all.py \
-                    --path=/path/to/working/copy/of/trunk \
-                    --um=vnXX.Y_tZZZZ \
-                    [--jules-path=/path/to/working/copy/of/jules/trunk]
+            ./admin/rose-stem/update_all.py \
+                --path=/path/to/working/copy/of/trunk \
+                --um=vnXX.Y_tZZZZ \
+                [--jules-path=/path/to/working/copy/of/jules/trunk]
 
-            where ``-\-um=vnXX.Y_tZZZZ`` is the ``AFTER_TAG`` of the latest
-            upgrade macro.
+        where ``-\-um=vnXX.Y_tZZZZ`` is the ``AFTER_TAG`` of the latest
+        upgrade macro.
 
-            If there is a macro for fcm_make or createbc then check that the
-            makes ``version*_*.py`` has the correct BEFORE and AFTER tags and
-            append ``-\-makeum=vnXX.Y_tZZZZ`` and/or
-            ``-\-createbc=vnXX.Y_tZZZZ`` to the above command.
+        If there is a macro for fcm_make or createbc then check that the
+        makes ``version*_*.py`` has the correct BEFORE and AFTER tags and
+        append ``-\-makeum=vnXX.Y_tZZZZ`` and/or
+        ``-\-createbc=vnXX.Y_tZZZZ`` to the above command.
 
-            .. warning::
+        .. note::
 
-                Please ensure that Cylc7 is used with ``update_all.py`` @vn13.5.
+            The ``-\-jules-path`` option is only required if there are
+            linked `jules-shared
+            <https://code.metoffice.gov.uk/trac/jules/browser/main/trunk/rose-meta/jules-shared>`__
+            metadata changes.
 
-            .. note::
+    .. tab-item:: JULES
 
-                The ``-\-jules-path`` option is only required if there are
-                linked `jules-shared
-                <https://code.metoffice.gov.uk/trac/jules/browser/main/trunk/rose-meta/jules-shared>`__
-                metadata changes.
+        .. code-block:: shell
 
-        .. tab-item:: JULES
+            ./bin/upgrade_jules_test_apps vnX.Y_tZZZZ
 
-            .. code-block:: shell
+        where ``vnX.Y_tZZZZ`` is the ``AFTER_TAG`` of the latest upgrade
+        macro. The upgrade is expected to fail for the ``fab_jules``,
+        ``metadata_checker`` and ``umdp3_checker`` apps.
 
-                ./bin/upgrade_jules_test_apps vnX.Y_tZZZZ
+    .. tab-item:: LFRic Apps + Core
 
-            where ``vnX.Y_tZZZZ`` is the ``AFTER_TAG`` of the latest upgrade
-            macro. The upgrade is expected to fail for the ``fab_jules``,
-            ``metadata_checker`` and ``umdp3_checker`` apps.
+        .. code-block:: shell
 
-        .. tab-item:: LFRic Apps + Core
+            apply_macros.py vnX.Y_tZZZZ [--apps=/path/to/apps] \
+                [--core=/path/to/core] [--jules=/path/to/jules]
 
-            .. code-block:: shell
+        where ``vnX.Y_tZZZZ`` is the ``AFTER_TAG`` of the latest upgrade
+        macro and the others are paths to the relevant sources. Apps
+        defaults to the current location. Core and Jules default to
+        reading the ``dependencies.sh`` file in the Apps source. A copy of
+        ``apply_macros.py`` is available at
+        ``$UMDIR/SimSys_Scripts/lfric_macros``.
 
-                apply_macros.py vnX.Y_tZZZZ [--apps=/path/to/apps] \
-                    [--core=/path/to/core] [--jules=/path/to/jules]
+        .. tip::
 
-            where ``vnX.Y_tZZZZ`` is the ``AFTER_TAG`` of the latest upgrade
-            macro and the others are paths to the relevant sources. Apps
-            defaults to the current location. Core and Jules default to
-            reading the ``dependencies.sh`` file in the Apps source. A copy of
-            ``apply_macros.py`` is available at
-            ``$UMDIR/SimSys_Scripts/lfric_macros``.
+            ``module load scitools`` will give all required dependencies
+            for Met Office users.
 
-            .. tip::
+        .. note::
 
-                ``module load scitools`` will give all required dependencies
-                for Met Office users.
+            All LFRic Core tickets with macros are expected to be linked
+            with LFRic Apps, though they may not have required an LFRic
+            Apps development branch (although an Apps ticket should be
+            provided). This is fine - if there is no LFRic Apps branch
+            just checkout the LFRic Apps main. Then run the apply_macros
+            script as described above and this will share the upgrade
+            macro across both LFRic Apps and LFRic Core as needed.
 
-            .. note::
+.. important::
 
-                All LFRic Core tickets with macros are expected to be linked
-                with LFRic Apps, though they may not have required an LFRic
-                Apps development branch (although an Apps ticket should be
-                provided). This is fine - if there is no LFRic Apps branch
-                just checkout the LFRic Apps main. Then run the apply_macros
-                script as described above and this will share the upgrade
-                macro across both LFRic Apps and LFRic Core as needed.
+    Now commit the changes made by the macros script back to the developers
+    branch.
 
-    .. important::
-
-        Now commit the changes made by the macros script back to the developers
-        branch.
-
-        Do not push the changes at this stage.
+    Do not push the changes at this stage.
 
 .. dropdown:: New rose-stem app?
 
@@ -227,10 +223,6 @@ are no clashes with what else has gone on trunk.
     Linked tickets will need to be tested together as discussed on
     the :ref:`Committing Linked Tickets page<testinglinked>`.
 
-.. admonition:: todo
-
-    Update commands to launch rose-stem suite
-
 .. tab-set::
 
     .. tab-item:: UM
@@ -241,12 +233,11 @@ are no clashes with what else has gone on trunk.
 
         .. code-block:: shell
 
-            rose stem --group=debug_compile
-            OR rose stem --group=developer,ex1a_developer
-            OR rose stem --group=all,ex1a
+            # Update the group as appropriate, eg. developer or all
+            cylc vip -z g=debug_compile -n <name/of/suite> ./rose-stem
 
         If there is a change to the build configs then you may need to turn off
-        prebuilds. To do so update ``rose-stem/site/meto/variables.rc`` such
+        prebuilds. To do so update ``rose-stem/site/meto/variables.cylc`` such
         that
 
         .. code-block:: jinja
@@ -261,7 +252,7 @@ are no clashes with what else has gone on trunk.
 
         .. code-block:: shell
 
-            rose stem --group=all,fab
+            cylc vip -z g=all -n <name/of/suite> ./rose-stem
 
 
     .. tab-item:: UKCA
@@ -271,15 +262,11 @@ are no clashes with what else has gone on trunk.
 
         .. code-block:: shell
 
-            rose stem --group=all
+            cylc vip -z g=all -n <name/of/suite> ./rose-stem
 
-        UKCA testing should also be carried out using the UM rose stem. Check
-        out the UM trunk, and then run
-
-        .. code-block:: shell
-
-            rose stem --group=developer,ukca --source=. \
-                --source=/path/to/UKCA/working/copy
+        UKCA testing should also be carried out using the UM rose stem. See
+        :ref:`Linked Tickets page<testinglinked>` for advice on how to set this
+        up.
 
 
     .. tab-item:: LFRic Apps
@@ -292,10 +279,8 @@ are no clashes with what else has gone on trunk.
 
         .. code-block:: shell
 
-            rose stem --group=developer
-            OR e.g. rose stem --group=developer,gungho_model
-
-            cylc play <working copy name>
+            # Increase testing as appropriate, eg. lfric_atm or all
+            cylc vip -z g=developer -n <name/of/suite> ./rose-stem
 
     .. tab-item:: LFRic Core
 
@@ -304,8 +289,7 @@ are no clashes with what else has gone on trunk.
 
         .. code-block:: shell
 
-            rose stem --group=developer
-            cylc play <working copy name>
+            cylc vip -z g=developer -n <name/of/suite> ./rose-stem
 
     .. tab-item:: UM docs
 
@@ -369,10 +353,6 @@ KGO differently*
         [rose-ana]
         kgo-database=.true.
 
-.. admonition:: todo
-
-    Update commands to launch rose-stem suite
-
 .. _kgo_instructions:
 
 .. tab-set::
@@ -384,11 +364,11 @@ KGO differently*
         a script.
 
         #. Run the rose stem tasks that require a KGO update, plus any other
-           testing required (see above) - if unsure run the `all,ex1a`.
+           testing required (see above) - if unsure run the `all` group.
 
         .. code-block:: shell
 
-            rose stem --group=all,ex1a --new
+            cylc vip -z g=all -n <name/of/suite> ./rose-stem
 
         #. You will need access to both your merged working copy and a clone of
            the `SimSys_Scripts github repo
@@ -427,7 +407,7 @@ KGO differently*
               $UMDIR/kgo_update_files/<new_kgo_directory>.
             * Having run on each requested platform the new variables.rc files
               will be copied into your working copy
-              rose-stem/site/meto/variables_<PLATFORM>.rc.
+              rose-stem/site/meto/variables_<PLATFORM>.cylc.
 
         .. dropdown:: Updating KGO manually (rarely needed!)
 
@@ -453,10 +433,9 @@ KGO differently*
 
         .. code-block:: shell
 
-            rose stem --group=all --source=. -S HOUSEKEEPING=false
-            cylc play <name-of-suite>
+            cylc vip -z g=all -n <name/of/suite> ./rose-stem
 
-        #. Update KGO_VERSION in `rose-stem/include/variables.rc`.
+        #. Update KGO_VERSION in `rose-stem/include/variables.cylc`.
         #. Copy the new KGO to the correct locations:
 
             `JULES KGO commands
@@ -483,8 +462,7 @@ KGO differently*
 
         .. code-block:: shell
 
-            rose stem --group=all
-            cylc play <suite name>
+            cylc vip -z g=all -n <name/of/suite> ./rose-stem
 
         #. Ensure the failing KGO's match those on the branch.
 
@@ -495,11 +473,6 @@ KGO differently*
 
             python3 ./rose-stem/bin/update_branch_kgos.py \
                 -s <suite name/runX> -w <path to working copy>
-
-        .. note::
-
-            This script requires at least python 3.9. This can be achieved on
-            Met Office machines by running ``module load scitools``
 
         .. note::
 

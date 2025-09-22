@@ -5,8 +5,7 @@ Testing LFRic Apps
 
 Rose stem:
 
-    LFRic Apps testing uses rose-stem and is run with the following commands
-    from the top directory of a local clone:
+    The LFRic Apps rose-stem test suite can be run by,
 
     .. code-block:: shell
 
