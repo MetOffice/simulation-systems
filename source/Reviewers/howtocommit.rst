@@ -158,13 +158,6 @@ To update the test suite for an upgrade macro, please run:
             script as described above and this will share the upgrade
             macro across both LFRic Apps and LFRic Core as needed.
 
-.. important::
-
-    Now commit the changes made by the macros script back to the developers
-    branch.
-
-    Do not push the changes at this stage.
-
 .. dropdown:: New rose-stem app?
 
     If the ticket introduces a new rose-stem app, but doesn't otherwise have a
@@ -209,6 +202,13 @@ To update the test suite for an upgrade macro, please run:
     If a new temporary logical has been added, or an old one retired, then
     update the `table that lists them
     <https://code.metoffice.gov.uk/trac/um/wiki/TempUMlogicals>`__.
+
+.. important::
+
+    Now commit the changes made by the macros script back to the developers
+    branch.
+
+    Do not push the changes at this stage.
 
 3. Test (if no KGO)
 --------------------
@@ -357,8 +357,7 @@ KGO differently*
     is a one-time setup step required to allow you to generate KGO using the
     update script.
 
-    Edit ``~/.metomi/rose.conf`` on *all platforms* - Desktop, XCE/F, XCS and
-    EXZ to contain the following:
+    Edit ``~/.metomi/rose.conf`` on *all platforms* - VDI, EXAB, EXCD, EXZ
 
     .. code-block::
 
@@ -380,7 +379,7 @@ KGO differently*
         a script.
 
         #. Run the rose stem tasks that require a KGO update, plus any other
-           testing required (see above) - if unsure run the `all,ex1a`.
+           testing required (see above) - if unsure run the `all` group.
 
         .. code-block:: shell
 
