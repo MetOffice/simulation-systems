@@ -1,5 +1,11 @@
-Rose Stem Suite
-===============
+Adding to Rose Stem Suites
+==========================
+
+.. tip::
+
+    This page is for advice on adding new tasks to a rose-stem suite. For advice
+    on running the test suite following the move to github, please see
+    :ref:`testing your change <testing>`.
 
 All new changes are strongly encouraged to come with an update to the rose stem
 suite to protect any new functionality. Configuration owners may also wish to
@@ -11,18 +17,6 @@ rose stem suite.
     If you find that you need to update all the apps in the rose stem suite to
     get your change to work then you should use an upgrade macro.
     See :ref:`inputs`.
-
-.. tip::
-
-    Familiarise yourself with the `Rose documentation
-    <https://metomi.github.io/rose/doc/html/tutorial/rose/furthertopics/rose-stem.html#>`__
-    before continuing with this section.
-
-.. note::
-
-    Migration to cylc8 and rose2 is currently in progress. UM, JULES and UKCA
-    suites will work with the latest versions as well as cylc7. The LFRic Apps
-    rose-stem has been written for cylc8 and is not backwards compatible.
 
 
 Adding a new app
@@ -113,10 +107,10 @@ manually configured, such as JULES.
 
 .. tip::
 
-    All ``*.rc`` or ``.cylc`` files mentioned are frequently split into
+    All ``.cylc`` files mentioned are frequently split into
     platform specific variants depending on the complexity of the sites
     suite.
 
-    e.g. `runtime.rc` may be spread across ``runtime-platform1.rc`` and
-    ``runtime-platform2.rc``. If a task should be run on both platform1 and
+    e.g. `runtime.cylc` may be spread across ``runtime-platform1.cylc`` and
+    ``runtime-platform2.cylc``. If a task should be run on both platform1 and
     platform2 then both of these will need the task definition adding.

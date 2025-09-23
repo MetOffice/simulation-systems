@@ -53,27 +53,15 @@ Details for testing multi-repository tickets are included on the
 
 **In summary:**
 
-- JULES, UKCA, LFRic Core and other child repositories can be tested using
-  their standalone test suites as described on the How to Commit page.
+JULES, UKCA, LFRic Core and other child repositories can be tested using their
+standalone test suites as described on the How to Commit page.
 
-- Local working copies can be passed to the UM on the command line
+UM and LFRic Apps changes will require modifying the ``dependencies.yaml`` file
+to update the source being used.
 
-    .. code-block:: shell
-
-        rose stem --group=developer,ukca,jules --source=. \
-            --source=/path/to/jules/working/copy \
-            --source=/path/to/ukca/working/copy
-
-    Make sure you test the group that will exercise the interface between those
-    repositories(e.g. in the above example the jules and ukca groups are
-    tested).
-
-- Local working copies of any linked JULES, UKCA or other repositories can be
-  passed to LFRic Apps through <lfric_apps_trunk>/dependencies.sh.
-
-.. code-block:: shell
-
-    jules_sources=vldXXX:/path/to/um/working/copy
+* In the UM/Apps clone, edit the relevant sources and refs in the
+  ``dependencies.yaml`` file. These can be either local clones or github urls.
+  See :ref:`Multi-Repo Testing <multi-repo_testing>` for more details
 
 
 .. tip::
@@ -105,33 +93,37 @@ Details for testing multi-repository tickets are included on the
 Committing linked tickets
 -------------------------
 
-.. admonition:: todo
-
-    Ensure that dependencies.yaml file instructions below are correct
-
 Once you are happy with all your testing then the commit sequence is as
 follows:
 
 * Commit all trunks **except** UM and LFRic Apps. Make note of the commit
-  revision numbers.
+  hashes.
 
 * For each of LFRic Apps and UM as required,
 
-    * In a clone of the branch, edit the ``dependencies.yaml`` file:
+    * In a clone of the developers branch, edit the ``dependencies.yaml`` file:
 
-        * Remove any references from the ``*_sources`` variables.
-        * Modify ``*_ref`` variables for all other repositories you have
-          updated to point to the the new commit hashes.
-        * e.g. If a JULES ticket has been committed with has abc123 and a UKCA
-          ticket at 456def,
+        * Ensure the entry for the repository this file is in is fully blank.
+        * Ensure the ``source`` entry points at the MetOffice ssh url.
+        * Modify ``ref`` entry for all updated repositories points to the full
+          hash for the relevant commit.
+        * e.g. If a JULES ticket has been committed with hash starting abc123
+          and a UKCA ticket starting at 456def, the UM dependencies file will
+          have these entries (amongst others):
 
-        .. code-block:: shell
+        .. code-block:: yaml
 
-            export jules_sources=MetOffice/jules
-            export jules_ref=abc123
+            jules:
+                source=git@github.com:MetOffice/jules.git
+                ref=abc123##################################
 
-            export ukca_sources=MetOffice/UKCA
-            export ukca_ref=456def
+            ukca:
+                source=git@github.com:MetOffice/UKCA.git
+                ref=456def##################################
+
+            um:
+                source=
+                ref=
 
     * Commit these changes and push back to the developers branch, along with
       any changes to macros and KGO. Finally you can :ref:`commit <commit>`

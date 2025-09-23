@@ -223,10 +223,6 @@ are no clashes with what else has gone on trunk.
     Linked tickets will need to be tested together as discussed on
     the :ref:`Committing Linked Tickets page<testinglinked>`.
 
-.. admonition:: todo
-
-    Update commands to launch rose-stem suite
-
 .. tab-set::
 
     .. tab-item:: UM
@@ -237,12 +233,11 @@ are no clashes with what else has gone on trunk.
 
         .. code-block:: shell
 
-            rose stem --group=debug_compile
-            OR rose stem --group=developer,ex1a_developer
-            OR rose stem --group=all,ex1a
+            # Update the group as appropriate, eg. developer or all
+            cylc vip -z group=debug_compile -n <name/of/suite> ./rose-stem
 
         If there is a change to the build configs then you may need to turn off
-        prebuilds. To do so update ``rose-stem/site/meto/variables.rc`` such
+        prebuilds. To do so update ``rose-stem/site/meto/variables.cylc`` such
         that
 
         .. code-block:: jinja
@@ -257,7 +252,7 @@ are no clashes with what else has gone on trunk.
 
         .. code-block:: shell
 
-            rose stem --group=all,fab
+            cylc vip -z group=all -n <name/of/suite> ./rose-stem
 
 
     .. tab-item:: UKCA
@@ -267,15 +262,11 @@ are no clashes with what else has gone on trunk.
 
         .. code-block:: shell
 
-            rose stem --group=all
+            cylc vip -z group=all -n <name/of/suite> ./rose-stem
 
-        UKCA testing should also be carried out using the UM rose stem. Check
-        out the UM trunk, and then run
-
-        .. code-block:: shell
-
-            rose stem --group=developer,ukca --source=. \
-                --source=/path/to/UKCA/working/copy
+        UKCA testing should also be carried out using the UM rose stem. See
+        :ref:`Linked Tickets page<testinglinked>` for advice on how to set this
+        up.
 
 
     .. tab-item:: LFRic Apps
@@ -288,10 +279,8 @@ are no clashes with what else has gone on trunk.
 
         .. code-block:: shell
 
-            rose stem --group=developer
-            OR e.g. rose stem --group=developer,gungho_model
-
-            cylc play <working copy name>
+            # Increase testing as appropriate, eg. lfric_atm or all
+            cylc vip -z group=developer -n <name/of/suite> ./rose-stem
 
     .. tab-item:: LFRic Core
 
@@ -300,8 +289,7 @@ are no clashes with what else has gone on trunk.
 
         .. code-block:: shell
 
-            rose stem --group=developer
-            cylc play <working copy name>
+            cylc vip -z group=developer -n <name/of/suite> ./rose-stem
 
     .. tab-item:: UM docs
 
@@ -364,10 +352,6 @@ KGO differently*
         [rose-ana]
         kgo-database=.true.
 
-.. admonition:: todo
-
-    Update commands to launch rose-stem suite
-
 .. _kgo_instructions:
 
 .. tab-set::
@@ -383,7 +367,7 @@ KGO differently*
 
         .. code-block:: shell
 
-            rose stem --group=all,ex1a --new
+            cylc vip -z group=all -n <name/of/suite> ./rose-stem
 
         #. You will need access to both your merged working copy and a clone of
            the `SimSys_Scripts github repo
@@ -422,7 +406,7 @@ KGO differently*
               $UMDIR/kgo_update_files/<new_kgo_directory>.
             * Having run on each requested platform the new variables.rc files
               will be copied into your working copy
-              rose-stem/site/meto/variables_<PLATFORM>.rc.
+              rose-stem/site/meto/variables_<PLATFORM>.cylc.
 
         .. dropdown:: Updating KGO manually (rarely needed!)
 
@@ -448,10 +432,9 @@ KGO differently*
 
         .. code-block:: shell
 
-            rose stem --group=all --source=. -S HOUSEKEEPING=false
-            cylc play <name-of-suite>
+            cylc vip -z group=all -n <name/of/suite> ./rose-stem
 
-        #. Update KGO_VERSION in `rose-stem/include/variables.rc`.
+        #. Update KGO_VERSION in `rose-stem/include/variables.cylc`.
         #. Copy the new KGO to the correct locations:
 
             `JULES KGO commands
@@ -478,8 +461,7 @@ KGO differently*
 
         .. code-block:: shell
 
-            rose stem --group=all
-            cylc play <suite name>
+            cylc vip -z group=all -n <name/of/suite> ./rose-stem
 
         #. Ensure the failing KGO's match those on the branch.
 
@@ -490,11 +472,6 @@ KGO differently*
 
             python3 ./rose-stem/bin/update_branch_kgos.py \
                 -s <suite name/runX> -w <path to working copy>
-
-        .. note::
-
-            This script requires at least python 3.9. This can be achieved on
-            Met Office machines by running ``module load scitools``
 
         .. note::
 

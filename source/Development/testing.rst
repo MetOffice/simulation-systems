@@ -3,6 +3,63 @@
 Testing Your Change
 ===================
 
+Change to the Rose Stem Suite in Git
+------------------------------------
+
+.. _github_testing:
+
+With the move to git and github, the test suites of the Simulation Systems
+repositories will no longer use the rose-stem infrastructure, instead becoming
+purely Cylc workflows. The only impact on the end user will be a change to the
+commands required to launch the test suite. The contents of the test suite and
+the process to add new tests will remain unchanged. The test suite
+infrastructure will continue to live in a ``rose-stem`` directory, and we will
+continue referring to the test suite as the ``rose-stem`` suite in these working
+practices.
+
+Running the rose-stem suite will now directly call cylc commands with the
+following syntax,
+
+* ``cylc vip`` - This will install and launch the test suite. If desired, it
+  can be replaced with separate ``install`` and ``play`` commands which would
+  need to be run separately.
+* ``-z g=`` or ``-z group=`` - This sets the test suite groups to run, and
+  takes a comma separated list of groups. For example, ``-z g=developer,
+  lfric_atm`` will run the ``developer`` and ``lfric_atm`` groups.
+* ``-S VALUE=SETTING`` - these options behave as they did before, and can be
+  added to the ``cylc vip`` command. See the table below for some suggestions.
+* ``-S USE_MIRRORS=`` - An example of the above settings, this is newly added
+  with the git migration. By default this is ``false`` and remote github
+  repositories will be accessed via ssh. If set to ``true``, local github
+  mirrors will be used instead. This is recommended particularly for shared
+  accounts.
+* ``-n name_of_suite`` - The new test suites will name themselves after the
+  directory containing the test suite. Unfortunately this is always
+  ``rose-stem`` so it is recommended to give the suite a name using this option.
+* ``/path/to/rose-stem`` - The path to the rose-stem directory must be specified
+  if not launching from in that directory.
+
+For example,
+
+.. code-block::
+
+    cylc vip -z group=developer -S USE_MIRRORS=true -n my_rose_stem_suite ./rose-stem
+
+will launch the test suite with the ``developer`` group, using the github
+mirrors and naming it ``my_rose_stem_suite``.
+
+``-S`` Options (non-exhaustive):
+
+* ``-S USE_MIRRORS=true`` - Use local github mirrors instead of ssh.
+* ``-S USE_HEADS=true`` - Use the head of the default branch for the github
+  source, only intended for usage in nightly testing.
+* ``-S USE_EX[AB/CD/Z]=true`` - MetOffice only, specify the host machine for
+  EX1A jobs.
+* ``-S HOUSEKEEPING=false`` - Stop housekeeping tasks from running.
+
+What Testing to Run
+-------------------
+
 Every change should be thoroughly tested, using your judgement as to what this
 involves based on the complexity of your change. There are three main methods
 for you to choose from:
@@ -36,10 +93,6 @@ Bespoke:
    TestSuites/ukca
    TestSuites/multi-repo_testing
 
-.. todo:
-   TestSuites/casim
-   TestSuites/shumlib
-
 Test branches & Upgrade Macros
 ------------------------------
 
@@ -64,8 +117,8 @@ To create a test branch:
 If not provided ``start_point`` will default to your
 current branch.
 
-If using a test branch then do list this on your ticket and include the results
-of this testing alongside those from your dev branch.
+If using a test branch then do link to this on your pull request and include the
+results of this testing alongside those from your dev branch.
 
 .. Note::
 
@@ -113,26 +166,26 @@ commands, noting that ``--jules-path`` is only required if you have
 
 .. Note::
 
-    The update_all.py script suppresses warnings produced by upgrade macros.
-    You can test these separately by upgrading a single app. A single app can
-    be upgraded for testing using:
+  The update_all.py script suppresses warnings produced by upgrade macros.
+  You can test these separately by upgrading a single app. A single app can
+  be upgraded for testing using:
 
-    .. code-block:: shell
+  .. code-block:: shell
 
-        rose app-upgrade -M /path/to/rose-meta \
-            -C /path/to/rose-stem/app/<app_name> -a <trunk_metadata_version>
+      rose app-upgrade -M /path/to/rose-meta \
+      -C /path/to/rose-stem/app/<app_name> -a <trunk_metadata_version>
 
-   where the ``-C`` option can be omitted if inside the app's directory.
+  where the ``-C`` option can be omitted if inside the app's directory.
 
-    .. Important::
+  .. Important::
 
-        If there are **jules-shared** metadata changes these will need to be
-        added to the metadata path. Please see the :ref:`rose config-edit
-        example<metadata_changes>`.
+      If there are **jules-shared** metadata changes these will need to be
+      added to the metadata path. Please see the :ref:`rose config-edit
+      example<metadata_changes>`.
 
-        Please refer to `rose app-upgrade
-        <https://metomi.github.io/rose/doc/html/api/command-reference.html#rose-app-upgrade>`__
-        command reference for more details.
+      Please refer to `rose app-upgrade
+      <https://metomi.github.io/rose/doc/html/api/command-reference.html#rose-app-upgrade>`__
+      command reference for more details.
 
 .. _traclog:
 
@@ -140,13 +193,13 @@ trac.log
 --------
 
 The output of rose-stem from each repository includes a trac.log. This is a
-wiki formatted file that can be copied into the ticket summary as a record of
+wiki formatted file that can be copied into the pull request description as a record of
 testing run. Please make sure that the results of your latest testing are
-included when passing a ticket for review.
+included when passing a pull request for review.
 
 .. code-block:: shell
 
-    ~/cylc-run/<suite_name>/trac.log
+    ~/cylc-run/<suite_name>/runN/trac.log
 
 
 .. tip::
@@ -160,7 +213,7 @@ included when passing a ticket for review.
 
     .. code-block:: shell
 
-        python3 $UMDIR/SimSys_Scripts/suite_report.py -S <workflow path>
+        python3 $UMDIR/SimSys_Scripts/suite_report_git/suite_report_git.py -S <workflow path>
 
     If this is a regular problem then get in touch with the :ref:`SSD team
     <ssd>` so we can investigate. Thanks.
