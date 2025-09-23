@@ -59,7 +59,7 @@ To create one:
 
 Then check this out and use it for running any tests you'd like to carry out.
 
-If using a test branch then do link to this on your PR and include the
+If using a test branch then do link to this on your pull request and include the
 results of this testing alongside those from your dev branch.
 
 .. Note::
