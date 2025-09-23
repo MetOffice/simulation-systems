@@ -8,7 +8,7 @@ clone:
 
 .. code-block:: shell
 
-    cylc vip -z g=developer -n <name/of/suite> ./rose-stem
+    cylc vip -z group=developer -n <name/of/suite> ./rose-stem
 
 -----
 
@@ -31,7 +31,7 @@ saved and restarted.
 
     .. code-block:: shell
 
-        cylc vip -z g=ex1a_gnu_um_rigorous_omp-n48 -n <name/of/suite> ./rose-stem
+        cylc vip -z group=ex1a_gnu_um_rigorous_omp-n48 -n <name/of/suite> ./rose-stem
 
 
     See :ref:`multirepo` for details on how to carry out this testing.
@@ -39,7 +39,7 @@ saved and restarted.
 Below is a (by no means comprehensive) set of groups that you may wish to use
 on Met Office systems. Note that there is a lot of overlap between these
 groups, and that you can specify more than one at once, e.g.
-``-z g=developer,jules,ukca``.
+``-z group=developer,jules,ukca``.
 
 +--------------------+----------------------------------------------------------+
 | Group              | Description                                              |
@@ -94,7 +94,7 @@ The UM test suite is set up to run on Monsoon with Cylc 8 by running,
 
 .. code-block:: shell
 
-    cylc vip -z g=ex1a -n <name/of/suite> ./rose-stem
+    cylc vip -z group=ex1a -n <name/of/suite> ./rose-stem
 
 This will launch all ex1a jobs that are available to run on Monsoon.
 

@@ -41,7 +41,7 @@ For example,
 
 .. code-block::
 
-    cylc vip -z g=developer -S USE_MIRRORS=true -n my_rose_stem_suite ./rose-stem
+    cylc vip -z group=developer -S USE_MIRRORS=true -n my_rose_stem_suite ./rose-stem
 
 will launch the test suite with the ``developer`` group, using the github
 mirrors and naming it ``my_rose_stem_suite``.

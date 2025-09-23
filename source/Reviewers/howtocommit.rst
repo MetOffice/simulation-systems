@@ -238,7 +238,7 @@ are no clashes with what else has gone on trunk.
         .. code-block:: shell
 
             # Update the group as appropriate, eg. developer or all
-            cylc vip -z g=debug_compile -n <name/of/suite> ./rose-stem
+            cylc vip -z group=debug_compile -n <name/of/suite> ./rose-stem
 
         If there is a change to the build configs then you may need to turn off
         prebuilds. To do so update ``rose-stem/site/meto/variables.cylc`` such
@@ -256,7 +256,7 @@ are no clashes with what else has gone on trunk.
 
         .. code-block:: shell
 
-            cylc vip -z g=all -n <name/of/suite> ./rose-stem
+            cylc vip -z group=all -n <name/of/suite> ./rose-stem
 
 
     .. tab-item:: UKCA
@@ -266,7 +266,7 @@ are no clashes with what else has gone on trunk.
 
         .. code-block:: shell
 
-            cylc vip -z g=all -n <name/of/suite> ./rose-stem
+            cylc vip -z group=all -n <name/of/suite> ./rose-stem
 
         UKCA testing should also be carried out using the UM rose stem. See
         :ref:`Linked Tickets page<testinglinked>` for advice on how to set this
@@ -284,7 +284,7 @@ are no clashes with what else has gone on trunk.
         .. code-block:: shell
 
             # Increase testing as appropriate, eg. lfric_atm or all
-            cylc vip -z g=developer -n <name/of/suite> ./rose-stem
+            cylc vip -z group=developer -n <name/of/suite> ./rose-stem
 
     .. tab-item:: LFRic Core
 
@@ -293,7 +293,7 @@ are no clashes with what else has gone on trunk.
 
         .. code-block:: shell
 
-            cylc vip -z g=developer -n <name/of/suite> ./rose-stem
+            cylc vip -z group=developer -n <name/of/suite> ./rose-stem
 
     .. tab-item:: UM docs
 
@@ -372,7 +372,7 @@ KGO differently*
 
         .. code-block:: shell
 
-            cylc vip -z g=all -n <name/of/suite> ./rose-stem
+            cylc vip -z group=all -n <name/of/suite> ./rose-stem
 
         #. You will need access to both your merged working copy and a clone of
            the `SimSys_Scripts github repo
@@ -437,7 +437,7 @@ KGO differently*
 
         .. code-block:: shell
 
-            cylc vip -z g=all -n <name/of/suite> ./rose-stem
+            cylc vip -z group=all -n <name/of/suite> ./rose-stem
 
         #. Update KGO_VERSION in `rose-stem/include/variables.cylc`.
         #. Copy the new KGO to the correct locations:
@@ -466,7 +466,7 @@ KGO differently*
 
         .. code-block:: shell
 
-            cylc vip -z g=all -n <name/of/suite> ./rose-stem
+            cylc vip -z group=all -n <name/of/suite> ./rose-stem
 
         #. Ensure the failing KGO's match those on the branch.
 

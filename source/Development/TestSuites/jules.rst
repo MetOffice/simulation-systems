@@ -6,7 +6,7 @@ local clone:
 
 .. code-block::
 
-    cylc vip -z g=all -n <name/of/suite> ./rose-stem
+    cylc vip -z group=all -n <name/of/suite> ./rose-stem
 
 -----
 

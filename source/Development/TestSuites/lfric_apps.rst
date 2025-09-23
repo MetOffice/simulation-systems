@@ -10,7 +10,7 @@ local clone:
 
     .. code-block:: shell
 
-        cylc vip -z g=developer -n <name/of/suite> ./rose-stem
+        cylc vip -z group=developer -n <name/of/suite> ./rose-stem
 
 Local testing:
 
@@ -38,7 +38,7 @@ and plot tasks to confirm the outputs.
 Below is a (by no means comprehensive) set of groups that you may wish to use
 on Met Office systems. Note that there is a lot of overlap between these
 groups, and that you can specify more than one at once, e.g.
-``-z g=developer,gungho_model``.
+``-z group=developer,gungho_model``.
 
 +--------------------+----------------------------------------------------------+
 | Group              | Description                                              |

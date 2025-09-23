@@ -14,4 +14,4 @@ check. This can launched from the top directory of a local clone by running,
 
 .. code-block::
 
-    cylc vip -z g=scripts -n <name/of/suite> ./rose-stem
+    cylc vip -z group=scripts -n <name/of/suite> ./rose-stem

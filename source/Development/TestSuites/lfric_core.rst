@@ -13,7 +13,7 @@ LFRic testing can be launched from the top directory of a local clone,
 
 .. code-block:: shell
 
-    cylc vip -z g=developer -n <name/of/suite> ./rose-stem
+    cylc vip -z group=developer -n <name/of/suite> ./rose-stem
 
 -----
 
@@ -23,13 +23,13 @@ launched from make and utilise rose and cylc.
 
 While developing your change, for expediency you may want to run the tests for
 only some applications. This can be done by changing the group you run, eg
-``-z g=simple_diffusion``.
+``-z group=simple_diffusion``.
 
 The command above will launch the developer suite. You can include slightly
-more testing if required by running ``-z g=all`` instead (this includes the
+more testing if required by running ``-z group=all`` instead (this includes the
 developer suite).
 
-It is also possible to run on a single platform, eg. ``-z g=ex1a``. To
+It is also possible to run on a single platform, eg. ``-z group=ex1a``. To
 select which meto EX machine is used, add ``-S USE_EX<AB/CD/Z>=true``.
 
 .. tip::
