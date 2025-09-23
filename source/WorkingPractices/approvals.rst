@@ -33,7 +33,7 @@ A list of current code owners for each project can be found in the top level
 ``CODEOWNERS`` file.
 
 Code Owners should complete a review requesting changes if needed, and
-approving once they are happy. They only need review changes that fall in their
+approving once they are happy. They only need to review changes that fall in their
 area.
 
 .. Tip::
