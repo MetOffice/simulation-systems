@@ -53,7 +53,7 @@ mirrors and naming it ``my_rose_stem_suite``.
   source, only intended for usage in nightly testing.
 * ``-S USE_EX[AB/CD/Z]=true`` - MetOffice only, specify the host machine for
   EX1A jobs.
-* ``-S HOUSEKEEPING=true`` - Stop housekeeping tasks from running.
+* ``-S HOUSEKEEPING=false`` - Stop housekeeping tasks from running.
 
 Adding to the Rose Stem Suite
 -----------------------------
