@@ -3,9 +3,10 @@
 Approval Process
 ================
 
-Every pull request will need to get approval from a group of people. These
-approvals are marked in the pull request description by those signing off the
-approval.
+Every pull request will need to get approval from a group of people. Code Owner
+approvals are automatically requested when the pull request is marked as `Ready
+for Review`, while required Configuration Owner approvals will be listed on the
+trac.log testing summary.
 
 .. tip::
 
@@ -14,12 +15,6 @@ approval.
 
     You may need to chase up approvals occasionally. People are not perfect and
     remember to :ref:`be kind <code_of_conduct>`.
-
-.. tip::
-
-    The :ref:`trac.log <traclog>` summary of your testing will also
-    list all the Code and Config Owner approvals required in a handy table to
-    make it easy to see what is required.
 
 .. important::
 
@@ -34,8 +29,12 @@ Code Owners
 Every file in the codebases has a :ref:`code_owner`, and every file changed
 will need checking by the code owners - no matter how small the change.
 
-A list of current code owners for each project can be found in
-``trunk/CodeOwners.txt``.
+A list of current code owners for each project can be found in the top level
+``CODEOWNERS`` file.
+
+Code Owners should complete a review requesting changes if needed, and
+approving once they are happy. They only need review changes that fall in their
+area.
 
 .. Tip::
 
@@ -55,7 +54,7 @@ or RAL setup used operationally). Within the rose-stem testing these
 configurations will be used and any changes to the answers shown in testing
 will need sign off from the config owner.
 
-In some repositories, the code owner is supported by module leaders who will
+In JULES, the code owner is supported by module leaders who will
 sign-off scientifically significant changes to their areas of interest. The
 module leaders in this case will also act as configuration owners for their
 science settings.
@@ -64,9 +63,10 @@ A list of current config owners for the UM is found in
 ``trunk/ConfigOwners.txt``. Others are combined with the Code Owner lists
 above.
 
-Optimisation Approvals
-----------------------
+Other Approvals
+---------------
 
-Changes that modify code within an OpenMP section will require approval from
-the :ref:`hpc_opt_team`. Changes that modify or add PSyKAl-lite code will
-require approval from the TCD Team.
+There are other changes that require specific approval and these are made clear
+in the pull request description. For example, changes that modify code within an
+OpenMP section will require approval from the :ref:`hpc_opt_team` and changes
+that modify or add PSyKAl-lite code will require approval from the TCD Team.

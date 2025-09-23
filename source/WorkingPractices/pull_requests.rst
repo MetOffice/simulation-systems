@@ -37,7 +37,7 @@ Trivial pull requests are an exception and do not require a SciTech review.
 
   * Review suggestions and comments are formed into conversations. The `Resolve
     Conversation` button is used by the reviewer when they are satisfied to
-    close that part of the review. The developer should not resolve
+    close that part of the review. The developer should **not** resolve
     conversations themselves.
 
 
@@ -224,9 +224,6 @@ First refusal for completing the SciTech review should go to the main code
 owner(s) for the area affected. If they don't want to then they may have
 suggestions for other suitable reviewers or you can approach anyone who would
 have good insight into the changes made.
-
-Changes that have a linked LFRic Core ticket should find a SciTech reviewer from
-the CCD Team.
 
 Once you have found a reviewer add their GitHub user ID to the pull request
 description and request their review by clicking the cog on the `Reviewers`
