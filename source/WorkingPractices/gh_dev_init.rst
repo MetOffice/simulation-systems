@@ -150,13 +150,15 @@ To create a branch and switch to it from the command line, the syntax is,
 
         .. code-block:: shell
 
-            # parent_branch will default to the current branch if not provided
+            # start_point is the point to create a branch from
+            # It can be eg. a branch, hash, tag
+            # It will default to the current branch if not provided
             # switch will automatically change to the newly created branch
-            git switch -c <branch_name> [<parent_branch>]
+            git switch -c <branch_name> [<start_point>]
 
             # Or
 
-            git branch <branch_name> <parent_branch>
+            git branch <branch_name> <start_point>
             git switch <branch_name>
 
 Developing a Change
