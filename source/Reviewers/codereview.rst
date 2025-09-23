@@ -131,7 +131,7 @@ without merging. This will be done in consultation with the developer and other
 Code Owners and Reviewers.
 
 Once you are happy that the change is appropriate and correct, and the code
-review parts of the pull request template have been completed. Submit a
+review parts of the pull request template have been completed, submit a
 review that `approves` the change.
 
 From here follow the :ref:`How To Commit<howtocommit>` guide through to pull request
