@@ -6,7 +6,7 @@ Testing LFRic Apps
 Rose stem:
 
     The LFRic Apps rose-stem test suite can be run from the top directory of a
-local clone:
+    local clone:
 
     .. code-block:: shell
 
