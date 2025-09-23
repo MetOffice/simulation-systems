@@ -10,7 +10,7 @@ suites and box models see the `UKCA trac wiki
 <https://code.metoffice.gov.uk/trac/ukca/wiki/WorkingPractices>`__.
 
 There also exists a small UKCA rose-stem suite, which contains a code styling
-check. This can launched from the top directory of a working copy by running,
+check. This can launched from the top directory of a local clone by running,
 
 .. code-block::
 
