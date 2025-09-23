@@ -59,7 +59,7 @@ the review process while retaining it's sci/tech review status.
 Once you are happy that the change is appropriate and correct, and the code
 review parts of the pull request template have been completed then change
 the review state to
-Code Review.
+Code Review and leave an approving review.
 
 .. image:: ../WorkingPractices/images/gh_screenshots/project_scitech_light.png
     :class: only-light border
