@@ -55,7 +55,7 @@ test branch. This is a branch-of-branch from your development branch and allows
 you to make those changes in an isolated environment while leaving your original
 development clean.
 
-To create one run,
+To create a test branch:
 
 .. code-block:: shell
 
