@@ -213,21 +213,25 @@ conflicts. Alternatively, you can do this from a terminal using git.
 Selecting Reviewers
 -------------------
 
+There is a space in the pull request template to list the GitHub user ID of the
+scitech and code reviewers. Once these are filled in a GitHub Action will add
+this user as an ``assignee`` to the pull request.
+
 SciTech Review
 ^^^^^^^^^^^^^^
-The SciTech review is done by someone who is familiar with the area being
-changed to check that the change does what is says, in a sensible way, and
-doesn't do what it shouldn't. First refusal for completing the SciTech review
-should go to the main code owner(s) for the area affected. If they don't want to
-then they may have suggestions for other suitable reviewers or you can approach
-anyone who would have good insight into the changes made.
+
+First refusal for completing the SciTech review should go to the main code
+owner(s) for the area affected. If they don't want to then they may have
+suggestions for other suitable reviewers or you can approach anyone who would
+have good insight into the changes made.
 
 Changes that have a linked LFRic Core ticket should find a SciTech reviewer from
 the CCD Team.
 
-Once you have found a reviewer, request their review by clicking the cog
-next to the `Reviewers` pane on the right of the pull request and selecting
-their name or github user ID.
+Once you have found a reviewer add their GitHub user ID to the pull request
+description and request their review by clicking the cog on the `Reviewers`
+pane on the right of the pull request and selecting their name or GitHub user
+ID.
 
 .. image:: images/gh_screenshots/review_cog_light.png
     :class: only-light border
@@ -240,15 +244,16 @@ Guidance for the SciTech reviewer can be found on the
 
 Code Review
 ^^^^^^^^^^^
+
 Code reviewers are assigned by the Simulation Systems and Deployment Team from
 a pool of repository maintainers. New ``ready for review`` pull requests will be
 assigned a reviewer on a daily basis. If you need your pull request looking at
 more urgently than that, or think your pull request has been overlooked, then
 leave a comment for ``@ssdteam`` on the pull request.
 
-The code reviewer will be listed as both a reviewer and assignee. This is to
-help us track who is responsible for overseeing the final review signoff and
-merge.
+The assigned person will be listed in the pull request description and
+selected as a reviewer.  A label will also be added to the pull request to help
+track which pull requests are waiting for a code reviewer to be assigned.
 
 Guidance for the Code reviewer can be found on the
 :ref:`Code review page <code_review>`.
