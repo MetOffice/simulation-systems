@@ -128,7 +128,7 @@ trac.log
 --------
 
 The output of rose-stem from each repository includes a trac.log. This is a
-wiki formatted file that can be copied into the PR summary as a record of
+wiki formatted file that can be copied into the pull request description as a record of
 testing run. Please make sure that the results of your latest testing are
 included when passing a PR for review.
 
