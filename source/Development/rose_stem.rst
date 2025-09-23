@@ -21,7 +21,7 @@ following syntax,
 * ``cylc vip`` - This will install and launch the test suite. If desired, it
   can be replaced with separate ``install`` and ``play`` commands which would
   need to be run separately.
-* ``-z g=`` or ``-z groups=`` - This sets the test suite groups to run, and
+* ``-z g=`` or ``-z group=`` - This sets the test suite groups to run, and
   takes a comma separated list of groups. For example, ``-z g=developer,
   lfric_atm`` will run the ``developer`` and ``lfric_atm`` groups.
 * ``-S VALUE=SETTING`` - these options behave as they did before, and can be
