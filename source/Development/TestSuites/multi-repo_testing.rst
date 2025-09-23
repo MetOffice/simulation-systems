@@ -30,16 +30,16 @@ local git clone, in which case it should take the form,
 ``source: <HOSTNAME>:/path/to/clone``.
 
 The ``ref`` setting takes a git tree-ish value. Common settings will be a commit
-hash, a tag or a branch name. At release, they will be tags, but as linked PRs
-are committed, they will be changed to the long form of the relevant commit
-hash (although using a short version of the hash will also work). If testing a
-linked branch, then you can either set to the name of the branch, or a commit
-associated with that branch. It is also recommended to set this, even when
-setting the source to a local clone. That way if you switch branches in the
-clone, the correct branch for testing will be used. Finally, if left blank, the
-Head of the repositories default branch will be used if a github source. If it
-is a local clone, ref is determined by the state of the repository at source
-extraction time.
+hash, a tag or a branch name as demostrated by the examples below. At 
+release, the refs will be tags and will be changed to the long form of the relevant 
+commit hash as part of linked pull requests. 
+
+If left blank the behaviour depends on the source:
+
+* **a github source:** the Head of the repositories default branch will be used.
+* **a local clone:** the state of the repository at source extraction time will be used.  
+  It is recommened to set a ref when setting the source to a local clone.  That way 
+  if you switch branches in the clone, the correct branch for testing will be used.
 
 Various different configurations of an lfric_core source are shown below with an
 explanation of each,
