@@ -71,99 +71,103 @@ Then switch to the up to date branch, e.g.
 **If** the ticket includes metadata changes, upgrade macro changes or a new
 rose-stem app then you will need to upgrade the test-suite.
 
-Update the versions.py file
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. dropdown:: versions.py
 
-``versions.py`` contains a sequence of upgrade macros. Each macro contains a
-``BEFORE_TAG`` and an ``AFTER_TAG`` which should create a single chain, starting
-at the last release and finishing with the ticket you are committing. The tags
-have the format version_ticket, i.e. ``vnXX.Y_tZZZZ``.
+    ``versions.py`` contains a sequence of upgrade macros. Each macro contains
+    a ``BEFORE_TAG`` and an ``AFTER_TAG`` which should create a single chain,
+    starting at the last release and finishing with the ticket you are
+    committing. The tags have the format version_ticket, i.e.
+    ``vnXX.Y_tZZZZ``.
 
-When resolving conflicts in this file make sure that the new macro being added
-by your ticket is added to the end of the file. Modify the ``BEFORE_TAG`` to
-match the ``AFTER_TAG`` of the previous macro in the chain.
+    When resolving conflicts in this file make sure that the new macro being
+    added by your ticket is added to the end of the file. Modify the
+    ``BEFORE_TAG`` to match the ``AFTER_TAG`` of the previous macro in the
+    chain.
 
-If this is the first macro since the release then the ``BEFORE_TAG`` will be the
-version number with no added ticket number.
+    If this is the first macro since the release then the ``BEFORE_TAG`` will
+    be the version number with no added ticket number.
 
-Remove the template macro if it is still present.
+    Remove the template macro if it is still present.
 
-Apply the upgrade macros
-^^^^^^^^^^^^^^^^^^^^^^^^
+.. dropdown:: Applying Macros
 
-To update the test suite for an upgrade macro, please run:
+    To update the test suite for an upgrade macro, please run:
 
-.. tab-set::
+    .. tab-set::
 
-    .. tab-item:: UM
+        .. tab-item:: UM
 
-        .. code-block:: shell
+            .. code-block:: shell
 
-            ./admin/rose-stem/update_all.py \
-                --path=/path/to/working/copy/of/trunk \
-                --um=vnXX.Y_tZZZZ \
-                [--jules-path=/path/to/working/copy/of/jules/trunk]
+                ./admin/rose-stem/update_all.py \
+                    --path=/path/to/working/copy/of/trunk \
+                    --um=vnXX.Y_tZZZZ \
+                    [--jules-path=/path/to/working/copy/of/jules/trunk]
 
-        where ``-\-um=vnXX.Y_tZZZZ`` is the ``AFTER_TAG`` of the latest
-        upgrade macro.
+            where ``-\-um=vnXX.Y_tZZZZ`` is the ``AFTER_TAG`` of the latest
+            upgrade macro.
 
-        If there is a macro for fcm_make or createbc then check that the
-        makes ``version*_*.py`` has the correct BEFORE and AFTER tags and
-        append ``-\-makeum=vnXX.Y_tZZZZ`` and/or
-        ``-\-createbc=vnXX.Y_tZZZZ`` to the above command.
+            If there is a macro for fcm_make or createbc then check that the
+            makes ``version*_*.py`` has the correct BEFORE and AFTER tags and
+            append ``-\-makeum=vnXX.Y_tZZZZ`` and/or
+            ``-\-createbc=vnXX.Y_tZZZZ`` to the above command.
 
-        .. note::
+            .. warning::
 
-            The ``-\-jules-path`` option is only required if there are
-            linked `jules-shared
-            <https://code.metoffice.gov.uk/trac/jules/browser/main/trunk/rose-meta/jules-shared>`__
-            metadata changes.
+                Please ensure that Cylc7 is used with ``update_all.py`` @vn13.5.
 
-    .. tab-item:: JULES
+            .. note::
 
-        .. code-block:: shell
+                The ``-\-jules-path`` option is only required if there are
+                linked `jules-shared
+                <https://code.metoffice.gov.uk/trac/jules/browser/main/trunk/rose-meta/jules-shared>`__
+                metadata changes.
 
-            ./bin/upgrade_jules_test_apps vnX.Y_tZZZZ
+        .. tab-item:: JULES
 
-        where ``vnX.Y_tZZZZ`` is the ``AFTER_TAG`` of the latest upgrade
-        macro. The upgrade is expected to fail for the ``fab_jules``,
-        ``metadata_checker`` and ``umdp3_checker`` apps.
+            .. code-block:: shell
 
-    .. tab-item:: LFRic Apps + Core
+                ./bin/upgrade_jules_test_apps vnX.Y_tZZZZ
 
-        .. code-block:: shell
+            where ``vnX.Y_tZZZZ`` is the ``AFTER_TAG`` of the latest upgrade
+            macro. The upgrade is expected to fail for the ``fab_jules``,
+            ``metadata_checker`` and ``umdp3_checker`` apps.
 
-            apply_macros.py vnX.Y_tZZZZ [--apps=/path/to/apps] \
-                [--core=/path/to/core] [--jules=/path/to/jules]
+        .. tab-item:: LFRic Apps + Core
 
-        where ``vnX.Y_tZZZZ`` is the ``AFTER_TAG`` of the latest upgrade
-        macro and the others are paths to the relevant sources. Apps
-        defaults to the current location. Core and Jules default to
-        reading the ``dependencies.sh`` file in the Apps source. A copy of
-        ``apply_macros.py`` is available at
-        ``$UMDIR/SimSys_Scripts/lfric_macros``.
+            .. code-block:: shell
 
-        .. tip::
+                apply_macros.py vnX.Y_tZZZZ [--apps=/path/to/apps] \
+                    [--core=/path/to/core] [--jules=/path/to/jules]
 
-            ``module load scitools`` will give all required dependencies
-            for Met Office users.
+            where ``vnX.Y_tZZZZ`` is the ``AFTER_TAG`` of the latest upgrade
+            macro and the others are paths to the relevant sources. Apps
+            defaults to the current location. Core and Jules default to
+            reading the ``dependencies.sh`` file in the Apps source. A copy of
+            ``apply_macros.py`` is available at
+            ``$UMDIR/SimSys_Scripts/lfric_macros``.
 
-        .. note::
+            .. tip::
 
-            All LFRic Core tickets with macros are expected to be linked
-            with LFRic Apps, though they may not have required an LFRic
-            Apps development branch (although an Apps ticket should be
-            provided). This is fine - if there is no LFRic Apps branch
-            just checkout the LFRic Apps main. Then run the apply_macros
-            script as described above and this will share the upgrade
-            macro across both LFRic Apps and LFRic Core as needed.
+                ``module load scitools`` will give all required dependencies
+                for Met Office users.
 
-.. important::
+            .. note::
 
-    Now commit the changes made by the macros script back to the developers
-    branch.
+                All LFRic Core tickets with macros are expected to be linked
+                with LFRic Apps, though they may not have required an LFRic
+                Apps development branch (although an Apps ticket should be
+                provided). This is fine - if there is no LFRic Apps branch
+                just checkout the LFRic Apps main. Then run the apply_macros
+                script as described above and this will share the upgrade
+                macro across both LFRic Apps and LFRic Core as needed.
 
-    Do not push the changes at this stage.
+    .. important::
+
+        Now commit the changes made by the macros script back to the developers
+        branch.
+
+        Do not push the changes at this stage.
 
 .. dropdown:: New rose-stem app?
 
