@@ -56,7 +56,7 @@ before a change is passed onto the next level of review.
 The pull request will likely iterate between the reviewer and the developer during
 the review process while retaining it's sci/tech review status.
 
-Once you are happy that the change is appropriate and correct, and the code
+Once you are happy that the change is appropriate and correct, and the sci-tech
 review parts of the pull request template have been completed then change
 the review state to
 Code Review and leave an approving review.
