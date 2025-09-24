@@ -132,3 +132,9 @@ contains the newly released code.
             # Push the changes back to the remote fork
             git push
 
+.. tip::
+
+    Note that the options above will result in the synced branch being available
+    in different locations. Using the web browser or ``gh`` will not update your
+    local clone while using ``git`` commands will not update the remote
+    repository without pushing.
