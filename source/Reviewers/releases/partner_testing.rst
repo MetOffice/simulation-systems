@@ -13,3 +13,7 @@ The partner testing period should be 72 hours (3 working days). All tickets affe
 
   * You may need to set the international options in advanced email sending options to use Unicode (UTF-8) as the preferred encoding for outgoing messages to ensure that all international partners receive the email. Change this setting if you receive bounced emails during partner testing.
 
+
+.. important::
+
+    Now is also a good time to ask for the Jules release notes. This is usually done by a member of the Jules community, so email them advising them of the likely release date. Ask the team for their details if unsure.
