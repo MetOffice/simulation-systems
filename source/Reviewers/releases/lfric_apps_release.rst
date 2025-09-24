@@ -56,16 +56,6 @@ LFRic Release
 
 * Commit your changes to both Apps and Core branches.
 
-* Tag other repositories and update dependencies.sh:
-
-  * :ref:`Tag <reference-tagging>` CASIM, JULES, SOCRATES and UKCA with ``appsX.Y=revision``
-  * In dependencies.sh:
-
-    * Make sure ``lfric_core_sources`` is pointing at the core working copy with ``lfric_core_rev`` blank
-    * Update ``*_rev`` for all other repositories to be ``appsX.Y`` with ``*_sources`` blank
-
-* Commit your changes to both Apps and Core branches.
-
 * Run the test suites
 
     * ``rose stem --group=all`` for both Apps and Core.
