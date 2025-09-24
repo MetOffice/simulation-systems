@@ -23,9 +23,10 @@ to create a `github account
 should also be enabled. This will be a requirement to accesses certain
 repositories, but is encouraged for all users.
 
-#TODO - external access to MO org? To access some private repositories (eg. UM)
-will require access to the MetOffice github organisation. Internal Met Office
-employees can request this through ServiceNow.
+.. admomitition:: todo
+    #TODO - external access to MO org? To access some private repositories (eg. UM)
+    will require access to the MetOffice github organisation. Internal Met Office
+    employees can request this through ServiceNow.
 
 .. tip::
 
