@@ -14,7 +14,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Simulation Systems'
-copyright = 'Met Office 2025'
+copyright = 'Met Office'
 author = 'Simulation Systems and Deployment Team'
 
 
@@ -54,7 +54,9 @@ html_css_files = ["custom.css"]
 html_theme = 'pydata_sphinx_theme'
 
 html_theme_options = {
-    "footer_start": ["crown-copyright", "sphinx-version"],
+    "footer_start": ["crown-copyright"],
+    "footer_center": ["show-accessibility"],
+    "footer_end": ["sphinx-version", "theme-version"],
     "navigation_with_keys": False,
     "show_toc_level": 2,
     "show_prev_next": True,
