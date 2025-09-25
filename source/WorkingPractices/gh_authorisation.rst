@@ -17,11 +17,13 @@ Initial Setup
 All users looking to interact with the simulation system repositories, will need
 to create a `github account
 <https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github>`_.
+Please visit `<https://github.com/signup>`_ to create an account.
 
 `Multi Factor Authentication
 <https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication>`_
 should also be enabled. This will be a requirement to accesses certain
-repositories, but is encouraged for all users.
+repositories, but is encouraged for all users. When signed in, account security
+settings can be found at `<https://github.com/settings/security>`_.
 
 .. admonition:: todo
 
@@ -42,6 +44,20 @@ and `commit email address
 
     git config --global user.name "User Name"
     git config --global user.email "User Email"
+
+    # Verify
+    git config --global user.name
+    git config --global user.email
+
+.. tip::
+
+    Github has functionality that can keep your email address private.
+
+    * Navigate to `<https://github.com/settings/emails>`_
+    * Enable the **Keep my email addresses private** setting. This should
+      generate a unique noreply email address for you, which will look like
+      ``ID+username@users.noreply.github.com``.
+    * Use this email address instead in the command above.
 
 SSH Key Setup
 -------------

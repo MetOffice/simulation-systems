@@ -99,18 +99,30 @@ contains the newly released code.
 
     .. tab-item:: gh cli
 
-        Run the following command, substituting for the downstream fork owner
-        and repo name. Without the ``-b`` option, only the default branch will
-        be synced. You may want to sync both ``stable`` and ``main``,
-        particularly at a release.
-
         .. code-block:: shell
 
-            gh repo sync <OWNER>/<REPO> -b <BRANCH>
+            gh repo sync [<owner>/<repo>] [-b <branch>]
 
-        The synced branch will still only exist in the remote repository. If
-        you require them in a local clone make sure to ``fetch`` or ``pull``
-        the repository.
+        * The command syncs changes from a remote repository to your fork or
+          local copy.
+        * Both ``<owner>/<repo>`` and ``-b <branch>`` are optional.
+        * If ``-b <branch>`` isn't specified, it will sync the default branch
+          (main),
+        * There is no built-in ``gh repo sync`` option for all branches,
+          therefore the user needs to specify a branch name when not syncing the
+          not the default branch.
+        * If you run this without ``<owner>/<repo>``, it will sync changes from
+          the remote origin to your local clone.
+
+          * Doing this will not update your remote fork, this will also require
+            a ``git push`` command.
+
+        * By providing your username and fork name to ``<owner>/<repo>``, it
+          will sync changes from the upstream parent repository into your remote
+          fork.
+
+          * Doing this will not update your local clone, this will also require
+            a ``git pull`` command.
 
     .. tab-item:: git commands
 
@@ -135,6 +147,6 @@ contains the newly released code.
 .. tip::
 
     Note that the options above will result in the synced branch being available
-    in different locations. Using the web browser or ``gh`` will not update your
+    in different locations. Using the web browser will not update your
     local clone while using ``git`` commands will not update the remote
-    repository without pushing.
+    repository without pushing. ``gh`` can be used to update either.
