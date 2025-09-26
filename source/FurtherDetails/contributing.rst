@@ -1,6 +1,6 @@
 .. _contributing:
 
-Contributing License Agreement and Certificate of Origin
+Contributing Licence Agreement and Certificate of Origin
 ========================================================
 
 
