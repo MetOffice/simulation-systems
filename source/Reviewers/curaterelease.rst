@@ -22,65 +22,80 @@ Curating a Release
 
 .. _reference-tagging:
 
-Tagging FCM Trunks
-------------------
+Release Issue
+-------------
 
-Tagging fcm trunks with new release keywords is done in lots of places
-throughout these instructions. This section is a guide for doing this, using
-the UM as an example.
-
-The keywords need to be added to the base directory of the project, i.e. in the
-directory that contains trunk and branches.
-
-.. code-block:: shell
-
-    # Note the -q means quiet checkout, nothing is printed to std out. The -N
-      means
-    # only the top level directory is extracted, otherwise it would extract the
-    # entire repository (and take many hours!)
-    # The 'fcm log' command gives you the most recent log message for the
-    # respective trunk, and more importantly, the revision number.
-
-    fcm co -q -N fcm:um.x um
-    fcm log -l1 fcm:um.x/trunk
-    cd um
-    fcm pe fcm:revision .
-
-In the editor that comes up (you may need to specify the editor using
-``--editor-cmd vi``) add the new keyword, e.g. ``vn11.5 = 810`` (noting the
-format may change away from the UM). Once completed save the changes and close
-the editor. Finally commit the change, ``fcm ci``.
-
-
-Release Ticket
---------------
-
-Open a UM X.Y release Curation Ticket, and assign tasks as a team,
+Open a ``git_playground`` release Curation Ticket, and assign tasks as a team,
 
 .. code-block::
 
-    The following tickets are required to deliver UM vnX.Y:
+    The following tasks are required to deliver <Month>/<Year> releases:
 
-    ||= Led by... =||= Description                                                                   =||= Ticket # =||
-    ||||||'''Pre release'''||
-    ||  || Test release                                                                               ||  ||
-    ||  || Partner testing                                                                            ||  ||
-    ||  || Scientific Software Stack Update                                                           ||  ||
-    ||||||'''Release'''||
-    ||  || JULES umX.Y release - [jules:wiki:CuratingARelease]                                        ||  ||
-    ||  || Shumlib + Mule releases                                                                    ||  ||
-    ||  || Build and install the main release                                                         ||  ||
-    ||  || LFRic Apps Release                                                                         ||  ||
-    ||||||'''Post Release'''||
-    ||  || Release notes                                                                              ||  ||
-    ||  || Update standard suites                                                                     ||  ||
-    ||  || Check resource monitoring scripts still work                                               ||  ||
-    ||  || Install the Stash Browser                                                                  ||  ||
-    ||  || UMDP3 Release                                                                              ||  ||
-    ||  || Standard Jobs + Wiki Page                                                                  ||  ||
-    ||  || Review and update trunk and shared account permissions                                     ||  ||
+    | Item | Led By | PR |
+    | :--- | :--- | :--- |
+    | **Pre Release** |  |  |
+    | UM Test Release |  |  |
+    | Partner Testing |  |  |
+    | Scientific Software Stack Update |  |  |
+    | **Release** |  |  |
+    | Jules Release |  |  |
+    | Shumlib + Mule Releases |  |  |
+    | UM Main Release |  |  |
+    | LFRic Apps Release |  |  |
+    | **Post Release** |  |  |
+    | Release Notes |  |  |
+    | Update Standard Suites |  |  |
+    | Install Stash Browser |  |  |
+    | UMDP Release |  |  |
+    | Standard Jobs + Wiki Page |  |  |
+    | Review repo and shared account permissions |  |  |
 
     [https://metoffice.github.io/simulation-systems/Reviewers/curaterelease.html Curating a release Page]
+
+.. _github-releases:
+
+Stable + Main Release
+---------------------
+
+This section describes the process of merging a release branch onto main and
+stable. It assumes that a branch has been created from main, and that any
+changes required for the release have been committed to it and tested. This
+section is relevant for all repositories with a stable and main branch setup.
+
+.. note::
+
+    Some repos (Socrates, Casim) do not require release changes, so a PR should
+    just be opened to merge the ``main`` branch into the ``stable`` branch.
+
+The release process will be completed by 2 people with commit privilege to the
+relevant repository, at least one of whom must be an ``admin``. One will have
+developed the release branch and the other will review it (**developer** and
+**reviewer** below).
+
+* Once development and local testing has been completed, the **developer**
+  should open a PR, targetting the ``stable`` branch.
+* The **reviewer** will then review and commit the branch. When committing the
+  branch, ensure that the merge method is ``merge``. This should be the default
+  for the ``stable`` branch as we want to keep the history of ``main`` in the
+  ``stable`` branch.
+* The **developer** will then create a new PR, to merge the ``stable`` branch
+  into ``main``.
+* At this point an admin will need to modify the branch protection rules for the
+  ``main`` branch, so that the commit can be performed with a normal merge. This
+  keeps ``main`` and ``stable`` with an identical history.
+
+  * Navigate to the ``main`` ruleset.
+  * Disable ``Require linear history``.
+  * Set ``merge`` as an allowed merge strategy and disable ``squash``.
+
+* The **reviewer** can now ``merge`` the second PR.
+* The admin **must** now revert the 2 settings above.
+* Finally, the release can be created and tagged,
+
+  * From the github repo, select ``releases`` and then ``Draft a new release``.
+  * Create a new tag and title the release with the same name, eg. ``vn14.0``.
+  * Select to ``Generate release notes``.
+  * Then ``Publish release``.
 
 
 Pre-Release
@@ -198,10 +213,3 @@ UM + Apps Releases
 
 **Dependencies**
 None
-
-
-Mid-Release Tasks
------------------
-
-:ref:`Mid Release Prebuilds<updating_prebuilds>`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
