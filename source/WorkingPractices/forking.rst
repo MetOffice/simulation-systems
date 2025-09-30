@@ -197,7 +197,7 @@ normally cloning a fork.
 
 .. code-block:: shell
 
-    # Clone the mirror repository as above and move into it
+    # First clone the mirror of the upstream repository
     git clone /path/to/mirrors/MetOffice/repository.git && cd repository
 
     # Fetch the fork and branch.
