@@ -65,7 +65,10 @@ section is relevant for all repositories with a stable and main branch setup.
 .. note::
 
     Some repos (Socrates, Casim) do not require release changes, so a PR should
-    just be opened to merge the ``main`` branch into the ``stable`` branch.
+    just be opened to merge the ``main`` branch into the ``stable`` branch. Then
+    a second PR should be opened to merge ``stable`` back into ``main`` to
+    ensure ``main`` is never behind. Any tags required can then be made at this
+    point.
 
 The release process will be completed by 2 people with commit privilege to the
 relevant repository, at least one of whom must be an ``admin``. One will have
