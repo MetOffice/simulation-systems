@@ -11,6 +11,8 @@ Further Details
     support
     glossary
     code_of_conduct
+    contributing
+    ai
     dos_donts
     change_notes
     coding_style
