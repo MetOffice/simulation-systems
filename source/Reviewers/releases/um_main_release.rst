@@ -3,8 +3,8 @@
 UM Main Release
 ===============
 
-Create Create Branches
-----------------------
+Create Branches
+---------------
 
 Ensure you have a :ref:`fork <forking>` of both the ``um`` and ``um_meta``
 repositories, and that the ``main`` branches in each are up to date with the
