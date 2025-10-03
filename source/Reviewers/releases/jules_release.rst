@@ -118,7 +118,7 @@ Rose Stem Updates
 Code Review and Commit
 ----------------------
 
-With a reviewer, follow the :ref:`release process <github_releases>`.
+With a reviewer, follow the :ref:`release process <github-releases>`.
 
 Release Notes
 -------------
