@@ -25,32 +25,8 @@ Curating a Release
 Release Issue
 -------------
 
-Open a ``git_playground`` release Curation Ticket, and assign tasks as a team,
-
-.. code-block::
-
-    The following tasks are required to deliver <Month>/<Year> releases:
-
-    | Item | Led By | PR |
-    | :--- | :--- | :--- |
-    | **Pre Release** |  |  |
-    | UM Test Release |  |  |
-    | Partner Testing |  |  |
-    | Scientific Software Stack Update |  |  |
-    | **Release** |  |  |
-    | Jules Release |  |  |
-    | Shumlib + Mule Releases |  |  |
-    | UM Main Release |  |  |
-    | LFRic Apps Release |  |  |
-    | **Post Release** |  |  |
-    | Release Notes |  |  |
-    | Update Standard Suites |  |  |
-    | Install Stash Browser |  |  |
-    | UMDP Release |  |  |
-    | Standard Jobs + Wiki Page |  |  |
-    | Review repo and shared account permissions |  |  |
-
-    [https://metoffice.github.io/simulation-systems/Reviewers/curaterelease.html Curating a release Page]
+Open a Release Curation Issue in the ``git_playground``, using the release
+Issue template.
 
 .. _github-releases:
 
