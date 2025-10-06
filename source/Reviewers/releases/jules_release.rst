@@ -26,10 +26,10 @@ Metadata Changes
   automatically by running the ``create_jules_version_metadata.py`` script
   from the ``rose-stem`` directory.
 
-    .. code-block:: shell
+  .. code-block:: shell
 
-        cd rose-stem
-        ./bin/create_jules_version_metadata.py 5.8 5.9
+    cd rose-stem
+    ./bin/create_jules_version_metadata.py 5.8 5.9
 
 * Run ``rose config-dump`` to ensure that the metadata files are in the common
   format (do this from the top-level of the clone)
@@ -43,45 +43,45 @@ Metadata Changes
 
 * Edit ``rose-meta/jules-standalone/versions.py`` to:
 
-    * Remove the upgrade macros
-    * Import the macros from the newly created file, e.g.
+  * Remove the upgrade macros
+  * Import the macros from the newly created file, e.g.
 
-    .. code-block:: python
+  .. code-block:: python
 
-        ...
-        from .versionUU_YY import *
-        ...
+    ...
+    from .versionUU_YY import *
+    ...
 
-        class vnYY_txxxx(MacroUpgrade):
+    class vnYY_txxxx(MacroUpgrade):
 
-            """Upgrade macro from JULES by Author"""
+        """Upgrade macro from JULES by Author"""
 
-            BEFORE_TAG = "vnY.Y"
-            AFTER_TAG = "vnY.Y_txxxx"
+        BEFORE_TAG = "vnY.Y"
+        AFTER_TAG = "vnY.Y_txxxx"
 
-            def upgrade(self, config, meta_config=None):
-                """Upgrade a JULES runtime app configuration."""
+        def upgrade(self, config, meta_config=None):
+            """Upgrade a JULES runtime app configuration."""
 
-                # Add settings
-                return config, self.reports
+            # Add settings
+            return config, self.reports
 
 * Edit ``rose-meta/jules-standalone/version<from>_<to>.py`` such that,
 
-    * Imports of other macros are removed
-    * Add a new blank upgrade macro that bumps the version to the release
-      version,
+  * Imports of other macros are removed
+  * Add a new blank upgrade macro that bumps the version to the release
+    version,
 
     .. code-block:: python
 
-        class vn58_vn59(MacroUpgrade):
-            """Version bump macro"""
+      class vn58_vn59(MacroUpgrade):
+          """Version bump macro"""
 
-            BEFORE_TAG = "vn5.8_txxx"
-            AFTER_TAG = "vn5.9"
+          BEFORE_TAG = "vn5.8_txxx"
+          AFTER_TAG = "vn5.9"
 
-            def upgrade(self, config, meta_config=None):
-                # Nothing to do
-                return config, self.reports
+          def upgrade(self, config, meta_config=None):
+              # Nothing to do
+              return config, self.reports
 
   * Add a similar version bump macro to
     ``rose-meta/jules-fcm-make/versions.py``.
@@ -100,9 +100,9 @@ Rose Stem Updates
 * Upgrade the rose-stem apps as normal, using the upgrade macro added earlier,
   e.g.
 
-    .. code-block:: shell
+  .. code-block:: shell
 
-        ./bin/upgrade_jules_test_apps vn5.9
+    ./bin/upgrade_jules_test_apps vn5.9
 
 * Update ``KGO_VERSION`` in ``rose-stem/include/variables.rc`` to the release
   version, making a note of original version number.

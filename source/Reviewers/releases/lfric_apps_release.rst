@@ -15,11 +15,11 @@ LFRic Inputs KGO Install
 * Install the kgo by running
   ``$UMDIR/SimSys_Scripts/kgo_updates/meto_update_kgo.sh --new-release``
 
-    * The script will ask for a working copy path - this can be any lfric apps
-      working copy as it will not be modified.
-    * The version number and ticket number are not required, although an entry
-      is required.
-    * The kgo install directory must be updated to vnX.Y
+  * The script will ask for a working copy path - this can be any lfric apps
+    working copy as it will not be modified.
+  * The version number and ticket number are not required, although an entry
+    is required.
+  * The kgo install directory must be updated to vnX.Y
 
 
 LFRic Release
@@ -41,20 +41,20 @@ LFRic Release
   ``$UMDIR/SimSys_Scripts/lfric_macros/release_lfric.py -o A.B -v X.Y -t
   TTTT -c /path/to/core``
 
-    * ``A.B`` - the previous version
-    * ``X.Y`` - the new version
-    * ``TTTT`` - the apps release ticket number
-    * ``/path/to/core`` - path to the lfric core clone
+  * ``A.B`` - the previous version
+  * ``X.Y`` - the new version
+  * ``TTTT`` - the apps release ticket number
+  * ``/path/to/core`` - path to the lfric core clone
 
 * Check the output looks sensible. It should:
 
-    * Update the version number
-    * Revert any changes to ``rose-stem/site/meto/variables_*.cylc``
-    * Copy the ``HEAD`` metadata to ``vnX.Y``
-    * Add a blank upgrade macro to all ``versions.py`` files
-    * Apply the upgrade macro - rose apps should be updated to the new version
-    * Add a ``version_ab_xy.py`` upgrade file - a copy of the versions.py file
-    * Reset the ``versions.py`` file with no upgrade macros
+  * Update the version number
+  * Revert any changes to ``rose-stem/site/meto/variables_*.cylc``
+  * Copy the ``HEAD`` metadata to ``vnX.Y``
+  * Add a blank upgrade macro to all ``versions.py`` files
+  * Apply the upgrade macro - rose apps should be updated to the new version
+  * Add a ``version_ab_xy.py`` upgrade file - a copy of the versions.py file
+  * Reset the ``versions.py`` file with no upgrade macros
 
 * Tag other repositories and update dependencies.sh:
 
@@ -75,7 +75,7 @@ LFRic Release
 
 * Run the test suites
 
-    * ``cylc vip -z g=all -n lfric_*X.Y ./rose-stem`` for both Apps and Core.
+  * ``cylc vip -z g=all -n lfric_*X.Y ./rose-stem`` for both Apps and Core.
 
 * Once testing is complete, update LFRic Core in ``dependencies.yaml``
 
