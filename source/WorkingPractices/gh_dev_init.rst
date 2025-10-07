@@ -108,6 +108,7 @@ general development, you should now get a clone of your fork.
 
         selecting the url as desired.
 
+.. _create_branch:
 
 Create a Branch
 ---------------
