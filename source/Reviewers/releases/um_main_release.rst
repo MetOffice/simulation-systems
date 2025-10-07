@@ -71,7 +71,7 @@ Checking Metadata and Rose Apps
   created, otherwise you'll have to check both vnX.Y and HEAD.
 
   * Run ``git difftool origin/main``. Are the changes sensible? They often
-    just involve moving sections of meta-data to be in the correct 
+    just involve moving sections of meta-data to be in the correct
     alphabetical order.
 
     .. important::
