@@ -3,7 +3,7 @@
 UM Main Release
 ===============
 
-Create Create Branches
+Create Branches
 ----------------------
 
 Ensure you have a :ref:`fork <forking>` of both the ``um`` and ``um_meta``
