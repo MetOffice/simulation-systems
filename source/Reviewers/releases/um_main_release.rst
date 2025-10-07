@@ -70,9 +70,9 @@ Checking Metadata and Rose Apps
   metadata errors are fixed before the new vnX.Y metadata directories are
   created, otherwise you'll have to check both vnX.Y and HEAD.
 
-  * Run ``fcm diff`` on HEAD. Are the changes sensible? They often just
-    involve moving sections of meta-data to be in the correct alphabetical
-    order.
+  * Run ``git difftool origin/main``. Are the changes sensible? They often
+    just involve moving sections of meta-data to be in the correct 
+    alphabetical order.
 
     .. important::
 
