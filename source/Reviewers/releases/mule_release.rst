@@ -39,6 +39,8 @@ you are doing a release then do the following,
   version.
 * Test the branch against the UM
 * With a reviewer, follow the :ref:`release process <github-releases>`
+* Once done, announce the release on simulation-systems discussions as well as
+  VE, possibly in the Scientific Software Tools community.
 
 .. note::
 
