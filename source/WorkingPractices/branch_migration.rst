@@ -47,3 +47,10 @@ migrate to.
   ``find . -name *.rej``. Fix any failures you find and then commit the changes.
 * It may be worth running the :ref:`test suite <testing>` to ensure the branch
   has been properly migrated.
+
+.. tip::
+
+    It is recommended that the fcm branch to migrate is brought up to the
+    ``git_migration`` tag, and the git branch is at the initial release. This
+    will keep any merge conflicts to a minimum. However the process will work
+    with different versions.
