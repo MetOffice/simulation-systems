@@ -102,8 +102,15 @@ to maintain their own fork. See :ref:`forking` for advice on forking.
 
 The development cycle can be seen below.
 
-.. image:: images/git-dev-strategy.svg
-    :class: dark-light
+.. graphviz::
+
+  digraph {
+    create_issue -> create_branch -> development -> create_pr;
+    create_issue [label="Create an Issue\nUpstream"]
+    create_branch [label="Create a Development Branch\nFork"]
+    development [label="Develop Changes on Branch\nFork"]
+    create_pr [label="Create a PR for the change\nUpstream"]
+    }
 
 For detailed explanation of these steps, see pages on :ref:`gh_dev_init` and
 :ref:`pull_requests`.
