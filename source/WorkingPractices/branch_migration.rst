@@ -54,3 +54,10 @@ migrate to.
     ``git_migration`` tag, and the git branch is at the initial release. This
     will keep any merge conflicts to a minimum. However the process will work
     with different versions.
+
+.. note::
+
+    The migration of simulation system repositories has been completed using the
+    internal MetOffice `gitlify tool <https://github.com/MetOffice/gitlify>`_.
+    This can migrate the history of branches which might be of interest to some
+    developers.
