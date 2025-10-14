@@ -46,6 +46,33 @@ The release cycle is overseen by the Simulation Systems and Deployment Team
 with the oversight and support of the Simulation Systems Governance Group, who
 impartially consider the needs of all developers and users.
 
+Git/Github Definitions
+----------------------
+
+Some commonly used git/github definitions. Further definitions can be found in
+the `GitHub Glossary
+<https://docs.github.com/en/get-started/learning-about-github/github-glossary>`__.
+
+Clone
+  A local copy of either the upstream or the forked repository.
+
+Fork
+  A copy of the upstream repository, owned by the developer. This is where
+  development branches are created and worked on. (May also be referred to
+  as the downstream repository).
+
+Origin
+  The default name for the remote source of a cloned repository.
+
+Remote
+  The version of either the upstream or the forked repository that is hosted
+  by Github.
+
+Upstream
+  The primary or parent repository, owned by the MetOffice github
+  organisation. Only code reviewers are able to directly interact with this
+  repository, rather than being required to use forks.
+
 
 Development Process
 -------------------
@@ -54,35 +81,6 @@ The process of developing a change for each repository is described through
 these Working Practices. A flowchart of this process for the UM is included
 below, but the process is very comparable to that of the other repositories
 too.
-
-.. note::
-
-    In the following Working Practices, we will endeavour to provide options
-    for using the Github Web Interface and the ``gh`` cli where possible.
-    Further information will be available in the github documentation.
-
-    To get started with the ``gh`` cli, see the `gh quickstart guide
-    <https://docs.github.com/en/github-cli/github-cli/quickstart>`__
-
-.. admonition:: Definitions
-
-    ``Clone``: a local copy of either the upstream or the forked repository.
-
-    ``Fork`` or ``Downstream``: a copy of the upstream repository, owned by the
-    developer. This is where development branches are created and worked on.
-
-    ``Origin``: the default name for the remote source of a cloned repository.
-
-    ``Remote``: the version of either the upstream or the forked repository
-    that is hosted by Github.
-
-    ``Upstream``: the primary or parent repository, owned by the MetOffice
-    github organisation. Only code reviewers are able to directly interact
-    with this repository, rather than being required to use forks.
-
-
-    Further definitions can be found in the `GitHub Glossary
-    <https://docs.github.com/en/get-started/learning-about-github/github-glossary>`__.
 
 Simulation Systems github repositories are setup with at least 2 protected
 branches, ``main`` and ``stable`` (with the potential for additional version
@@ -106,10 +104,29 @@ The development cycle can be seen below.
 
   digraph {
     create_issue -> create_branch -> development -> create_pr;
-    create_issue [label="Create an Issue\nUpstream"]
-    create_branch [label="Create a Development Branch\nFork"]
-    development [label="Develop Changes on Branch\nFork"]
-    create_pr [label="Create a PR for the change\nUpstream"]
+    create_issue [label="Create an Issue", style=filled, color="#f8b8d0"]
+    create_branch [label="Create a Development Branch", style=filled, color="#b9e192"]
+    development [label="Develop Changes on Branch", style=filled, color="#b9e192"]
+    create_pr [label="Create a PR for the change", style=filled, color="#f8b8d0"]
+
+    create_pr -> test_change;
+    test_change [label="Test Changes\nRose Stem locally + CI in PR"]
+
+    test_change -> scitech -> code_review -> commit_ticket;
+    scitech [label="SciTech Review", style=filled, color="#f8b8d0"]
+    code_review[label="Code Review", style=filled, color="#f8b8d0"]
+    commit_ticket[label="Commit branch to main", style=filled, color="#f8b8d0"]
+
+    merge_main -> test_change [style="dashed", label="As Required"];
+    merge_main [label="Merge in upstream/main", style=filled, color="#b9e192"]
+
+    test_change -> code_review [dir=back, style="dashed", label="Changes\nRequired", color="#b9e192"];
+
+    subgraph cluster0 {
+      upstream -> fork [style=invis];
+      upstream [label="Takes place in the\nupstream repository", style=filled, color="#f8b8d0", shape=box]
+      fork [label="Takes place in the\nforked repository", style=filled, color="#b9e192", shape=box]
+    }
     }
 
 For detailed explanation of these steps, see pages on :ref:`gh_dev_init` and
@@ -117,6 +134,15 @@ For detailed explanation of these steps, see pages on :ref:`gh_dev_init` and
 
 Before You Start
 ----------------
+
+.. note::
+
+    In the following Working Practices, we will endeavour to provide options
+    for using the Github Web Interface and the ``gh`` cli where possible.
+    Further information will be available in the github documentation.
+
+    To get started with the ``gh`` cli, see the `gh quickstart guide
+    <https://docs.github.com/en/github-cli/github-cli/quickstart>`__
 
 All developments should be planned using a risk-based approach. Before
 starting, consider the complexity and impact of what you want to do. This will
