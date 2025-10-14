@@ -6,8 +6,8 @@ Jules Release
 Create Branch
 -------------
 
-Ensure you have a :ref:`fork <forking>` of both the ``jules`` repository, and
-that the ``main`` branch is up to date with the upstream repository.
+Ensure you have a :ref:`fork <forking>` of the ``jules`` repository, and that
+the ``main`` branch is up to date with the upstream repository.
 
 In a clone of this fork, :ref:`create a branch <create_branch>` using the
 ``main`` branch as the parent.
