@@ -166,4 +166,5 @@ helpful for documenting and monitoring progress of your work.
     approvals
     pull_requests
     final_steps
+    branch_migration
     git_extras
