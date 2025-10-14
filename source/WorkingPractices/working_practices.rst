@@ -127,7 +127,7 @@ The development cycle can be seen below.
       upstream [label="Takes place in the\nupstream repository", style=filled, color="#f8b8d0", shape=box]
       fork [label="Takes place in the\nforked repository", style=filled, color="#b9e192", shape=box]
     }
-    }
+  }
 
 For detailed explanation of these steps, see pages on :ref:`gh_dev_init` and
 :ref:`pull_requests`.

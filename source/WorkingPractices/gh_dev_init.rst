@@ -106,7 +106,8 @@ general development, you should now get a clone of your fork.
         .. image:: images/gh_screenshots/clone_button_dark.png
             :class: only-dark border
 
-        selecting the url as desired.
+        selecting the url as desired. Note, that this will likely be a fork
+        rather than the upstream MetOffice repository shown above.
 
 .. _create_branch:
 
