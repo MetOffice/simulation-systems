@@ -163,8 +163,8 @@ shared accounts which do not have a github account themselves. The mirrors are
 read only - committing and pushing back to the remote repository will require a
 github account.
 
-All simulation systems repositories have granted access to this bot, allowing them to be
-cloned from the mirrors by running,
+All simulation systems repositories have granted access to this bot, allowing
+them to be cloned from the mirrors by running,
 
 .. code-block:: shell
 
