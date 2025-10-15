@@ -61,6 +61,7 @@ the owner.
 
             Add ``--clone`` to immediately clone the forked repo
 
+.. _syncing_fork:
 
 Maintaining a Fork
 ------------------

@@ -17,56 +17,51 @@ a fork <forking>` of the repo you are migrating to.
     will need to be manually aligned with a commit hash by comparing commit
     messages.
 
-* Optionally, create a new branch in ``fcm`` using the tag ``git_migration``.
-  Then merge your development branch onto this one, eg.
+#. Optionally, create a new branch in ``fcm`` using the tag ``git_migration``.
+   Then merge your development branch onto this one, eg.
 
-  .. code-block::
+   .. code-block::
 
-    fcm bc --type=dev branch_for_migration fcm:lfric_apps.x_tr@git_migration
-    ...
-    fcm merge fcm:lfric_apps.x_br/dev/USER/BRANCH
+     fcm bc --type=dev branch_for_migration fcm:lfric_apps.x_tr@git_migration
+     ...
+     fcm merge fcm:lfric_apps.x_br/dev/USER/BRANCH
 
-  Resolve any conflicts and then commit these changes to this branch,
-  ``fcm ci``.
-* Create a patch file from your new branch at the migration point,
+   Resolve any conflicts and then commit these changes to this branch,
+   ``fcm ci``.
+#. Create a patch file from your new branch at the migration point,
 
-  .. code-block::
+   .. code-block::
 
-    fcm bdiff >> /path/to/repo_diff.patch
+     fcm bdiff >> /path/to/branch_diff.patch
 
-* Move into your git clone and :ref:`create a new branch <create_branch>` with
-  the same start point as your fcm branch. If you are branching from an untagged
-  revision, you will need to manually find the relevant hash for that commit
-  from the git log by comparing commit messages.
+#. Move into your git clone and :ref:`create a new branch <create_branch>` with
+   the same start point as your fcm branch. If you are branching from an untagged
+   revision, you will need to manually find the relevant hash for that commit
+   from the git log by comparing commit messages.
 
-  .. code-block::
+   .. code-block::
 
-    git switch -c [branch name] [tag to branch from]
-    e.g. git switch -c new_migrated_branch git_migration
+     git switch -c <branch name> <tag to branch from>
+     e.g. git switch -c new_migrated_branch git_migration
 
-* Apply the patch file onto the git branch,
+#. Apply the patch file onto the git branch,
 
-  .. code-block::
+   .. code-block::
 
-    git apply --reject /path/to/repo_diff.patch
+     git apply --reject /path/to/branch_diff.patch
 
-* If your fcm and git branches are from an equivalent branch point, there
-  shouldn't be any conflicts applying the patch file. If there are conflicts
-  then these will be recorded in ``*.rej`` files. The output of the ``apply``
-  command will note any failures, or you can find them by running
-  ``find . -name *.rej``. Fix any failures you find and then commit the changes.
-* Finally, all branches will **need** to update to the initial git release in
-  order to run the test suites. This can be done by merging the ``stable``
-  branch into your new branch. See :ref:`updating a branch <updating_branch>`
-  for more details.
-
-  .. code-block::
-
-    git fetch upstream
-    git merge upstream/stable
-
-* It may be worth running the :ref:`test suite <testing>` to ensure the branch
-  has been properly migrated.
+#. If your fcm and git branches are from an equivalent branch point, there
+   shouldn't be any conflicts applying the patch file. If there are conflicts
+   then these will be recorded in ``*.rej`` files. The output of the ``apply``
+   command will note any failures, or you can find them by running
+   ``find . -name *.rej``. Fix any failures you find and then commit the changes.
+#. Finally, all branches will **need** to update to the initial git release in
+   order to run the test suites. This can be done by merging the ``stable``
+   branch into your new branch. See :ref:`updating a branch <updating_branch>`
+   for more details, noting that you will need to use one of the options
+   using ``git commands`` for this step.
+#. It may be worth running the :ref:`test suite <testing>` to ensure the branch
+   has been properly migrated.
 
 .. tip::
 

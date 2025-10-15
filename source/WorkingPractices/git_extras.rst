@@ -62,3 +62,78 @@ For example, to merge the upstream main into the current branch, use,
 .. code-block:: shell
 
     git merge upstream/main
+
+.. _updating_branch:
+
+Updating Branches
+-----------------
+
+It will often be necessary to merge in changes from a remote repository into
+your local branch, eg. when updating your branch to a new release, or when
+merging in ``main`` to resolve conflicts. This can be done by,
+
+.. tab-set::
+
+    .. tab-item:: Web Browser
+
+        Navigate to the pull request page and locate the branch status box.
+        This is towards the bottom of the conversation. Here, you can select
+        the button to update the branch. If merge conflicts exist, it will
+        take you to a page where these can be fixed.
+
+        .. image:: images/gh_screenshots/update_branch_light.png
+            :class: only-light border
+
+        .. image:: images/gh_screenshots/update_branch_dark.png
+            :class: only-dark border
+
+    .. tab-item:: git commands (upstream)
+
+        Navigate to your clone and ensure that the branch you wish to update is
+        your active branch,
+
+        .. code-block:: shell
+
+            cd /path/to/clone
+            git switch <desired-branch>
+
+        Ensure that the upstream repository is available as a remote source.
+        See :ref:`setting git remote sources <git_remote>` for more details.
+
+        Then fetch the upstream repository and merge in the desired branch,
+
+        .. code-block:: shell
+
+            git fetch upstream
+            git merge upstream/<branch>
+
+        If there are any merge conflicts you can now fix these using your
+        conflict tool of choice.
+
+    .. tab-item:: git commands (fork)
+
+        Navigate to your clone and ensure that the branch you wish to update is
+        your active branch,
+
+        .. code-block:: shell
+
+            cd /path/to/clone
+            git switch <desired-branch>
+
+        Ensure that your fork is up to date with the upstream repository. See
+        :ref:`syncing your fork <syncing_fork>` for details on how to do this.
+
+        Then ensure that any synced changes are available in your local clone,
+
+        .. code-block:: shell
+
+            git fetch origin
+
+        Now you can merge the synced branch into your development branch,
+
+        .. code-block:: shell
+
+            git merge <branch>
+
+        If there are any merge conflicts you can now fix these using your
+        conflict tool of choice.

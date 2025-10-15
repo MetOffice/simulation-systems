@@ -154,8 +154,6 @@ rejected with failing tests.
 .. image:: images/gh_screenshots/ci_dark.png
     :class: only-dark border
 
-.. _updating_branch:
-
 Updating a branch
 -----------------
 
@@ -163,7 +161,8 @@ Most development work in simulation-systems repositories will take place on a
 branch created from ``stable``. Therefore it will need to be updated to match
 the latest changes from ``main`` when a pull request is open. Github provides
 functionality to do this in the browser, with the ability to fix merge
-conflicts. Alternatively, you can do this from a terminal using git.
+conflicts. Alternatively, you can do this from a terminal using git. For more
+details see :ref:`updating a branch <updating_branch>`.
 
 .. important::
 
@@ -171,44 +170,6 @@ conflicts. Alternatively, you can do this from a terminal using git.
     development should be done on a branch from ``stable`` without merging in
     changes from ``main``. Only when the development has been completed and
     the pull request is almost ready for commit should you merge in ``main``.
-
-.. tab-set::
-
-    .. tab-item:: Web Browser
-
-        Navigate to the pull request page and locate the branch status box.
-        This is towards the bottom of the conversation. Here, you can select
-        the button to update the branch. If merge conflicts exist, it will
-        take you to a page where these can be fixed.
-
-        .. image:: images/gh_screenshots/update_branch_light.png
-            :class: only-light border
-
-        .. image:: images/gh_screenshots/update_branch_dark.png
-            :class: only-dark border
-
-    .. tab-item:: git commands
-
-        Navigate to your clone and ensure that the branch you wish to update is
-        your active branch,
-
-        .. code-block:: shell
-
-            cd /path/to/clone
-            git switch <desired-branch>
-
-        Ensure that the upstream repository is available as a remote source.
-        See :ref:`setting git remote sources <git_remote>` for more details.
-
-        Then fetch and merge in the upstream main,
-
-        .. code-block:: shell
-
-            git fetch upstream
-            git merge upstream/main
-
-        If there are any merge conflicts you can now fix these using your
-        conflict tool of choice.
 
 Selecting Reviewers
 -------------------
