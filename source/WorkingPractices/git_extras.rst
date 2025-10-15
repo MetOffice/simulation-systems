@@ -74,66 +74,85 @@ merging in ``main`` to resolve conflicts. This can be done by,
 
 .. tab-set::
 
-    .. tab-item:: Web Browser
+  .. tab-item:: Web Browser
 
-        Navigate to the pull request page and locate the branch status box.
-        This is towards the bottom of the conversation. Here, you can select
-        the button to update the branch. If merge conflicts exist, it will
-        take you to a page where these can be fixed.
+    .. tip::
 
-        .. image:: images/gh_screenshots/update_branch_light.png
-            :class: only-light border
+      This is only applicable when updating a branch with ``main`` in an open
+      PR. For other uses, such as updating an old branch to a new release, see
+      the next tabs.
 
-        .. image:: images/gh_screenshots/update_branch_dark.png
-            :class: only-dark border
+    Navigate to the pull request page and locate the branch status box. This is
+    towards the bottom of the conversation. Here, you can select the button to
+    update the branch. If merge conflicts exist, it will take you to a page
+    where these can be fixed.
 
-    .. tab-item:: git commands (upstream)
+    .. image:: images/gh_screenshots/update_branch_light.png
+      :class: only-light border
 
-        Navigate to your clone and ensure that the branch you wish to update is
-        your active branch,
+    .. image:: images/gh_screenshots/update_branch_dark.png
+      :class: only-dark border
 
-        .. code-block:: shell
+  .. tab-item:: git commands (from fork)
 
-            cd /path/to/clone
-            git switch <desired-branch>
+    .. tip::
 
-        Ensure that the upstream repository is available as a remote source.
-        See :ref:`setting git remote sources <git_remote>` for more details.
+      This section gets the changes via your remote fork. You will first update
+      the fork and then merge in the changes from your fork. This results in
+      changes to the fork ``main`` or ``stable`` and so is generally
+      recommended. However, sometimes you may want to skip this, so the next tab
+      would be suggested instead.
 
-        Then fetch the upstream repository and merge in the desired branch,
+    Navigate to your clone and ensure that the branch you wish to update is your
+    active branch,
 
-        .. code-block:: shell
+    .. code-block:: shell
 
-            git fetch upstream
-            git merge upstream/<branch>
+      cd /path/to/clone
+      git switch <desired-branch>
 
-        If there are any merge conflicts you can now fix these using your
-        conflict tool of choice.
+    Ensure that your fork is up to date with the upstream repository. See
+    :ref:`syncing your fork <syncing_fork>` for details on how to do this.
 
-    .. tab-item:: git commands (fork)
+    Then ensure that any synced changes are available in your local clone,
 
-        Navigate to your clone and ensure that the branch you wish to update is
-        your active branch,
+    .. code-block:: shell
 
-        .. code-block:: shell
+      git fetch origin
 
-            cd /path/to/clone
-            git switch <desired-branch>
+    Now you can merge the synced branch into your development branch,
 
-        Ensure that your fork is up to date with the upstream repository. See
-        :ref:`syncing your fork <syncing_fork>` for details on how to do this.
+    .. code-block:: shell
 
-        Then ensure that any synced changes are available in your local clone,
+      git merge <branch>
 
-        .. code-block:: shell
+    If there are any merge conflicts you can now fix these using your conflict
+    tool of choice.
 
-            git fetch origin
+  .. tab-item:: git commands (from upstream)
 
-        Now you can merge the synced branch into your development branch,
+    .. tip::
 
-        .. code-block:: shell
+      This section gets the changes from the upstream repository, and merges
+      these directly onto your branch. It will **not** update your remote fork.
 
-            git merge <branch>
+    Navigate to your clone and ensure that the branch you wish to update is your
+    active branch,
 
-        If there are any merge conflicts you can now fix these using your
-        conflict tool of choice.
+    .. code-block:: shell
+
+      cd /path/to/clone
+      git switch <desired-branch>
+
+    Ensure that the upstream repository is available as a remote source. See
+    :ref:`setting git remote sources <git_remote>` for more details.
+
+    Then fetch the upstream repository and merge in the desired branch,
+
+    .. code-block:: shell
+
+      git fetch upstream
+      git merge upstream/<branch>
+
+    If there are any merge conflicts you can now fix these using your conflict
+    tool of choice.
