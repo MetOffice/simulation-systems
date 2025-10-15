@@ -10,7 +10,7 @@ a fork <forking>` of the repo you are migrating to.
 .. tip::
 
     The process below involves creating a patch file based on your fcm branch,
-    and then applying it to git branch based on the same branching point. For
+    and then applying it to git branch taken from the same branching point. For
     convenience, the ``git_migration`` tag is provided as a branch point.
     however all ``fcm`` revisions and tags have a direct equivalent commit on
     git - tags will have the same name on both, revisions of specific commits
