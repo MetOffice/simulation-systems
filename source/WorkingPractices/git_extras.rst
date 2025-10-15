@@ -135,7 +135,8 @@ merging in ``main`` to resolve conflicts. This can be done by,
     .. tip::
 
       This section gets the changes from the upstream repository, and merges
-      these directly onto your branch. It will **not** update your remote fork.
+      these directly onto your branch. It will **not** update ``main`` or ``stable`` 
+      in your fork.
 
     Navigate to your clone and ensure that the branch you wish to update is your
     active branch,
