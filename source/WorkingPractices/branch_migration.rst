@@ -11,11 +11,11 @@ a fork <forking>` of the repo you are migrating to.
 
     The process below involves creating a patch file based on your fcm branch,
     and then applying it to git branch taken from the same branching point. For
-    convenience, the ``git_migration`` tag is provided as a branch point in both fcm and git.
-    However all ``fcm`` revisions and tags have a direct equivalent commit on
-    git - tags will have the same name on both, revisions of specific commits
-    will need to be manually aligned with a commit hash by comparing commit
-    messages.
+    convenience, the ``git_migration`` tag is provided as a branch point in both
+    fcm and git. However all ``fcm`` revisions and tags have a direct equivalent
+    commit on git - tags will have the same name on both, revisions of specific
+    commits will need to be manually aligned with a commit hash by comparing
+    commit messages.
 
 #. Optionally, create a new branch in ``fcm`` using the tag ``git_migration``.
    Then merge your development branch onto this one, eg.
@@ -35,9 +35,9 @@ a fork <forking>` of the repo you are migrating to.
      fcm bdiff >> /path/to/branch_diff.patch
 
 #. Move into your git clone and :ref:`create a new branch <create_branch>` with
-   the same start point as your fcm branch. If you are branching from an untagged
-   revision, you will need to manually find the relevant hash for that commit
-   from the git log by comparing commit messages.
+   the same start point as your fcm branch. If you are branching from an
+   untagged revision, you will need to manually find the relevant hash for that
+   commit from the git log by comparing commit messages.
 
    .. code-block::
 
@@ -54,7 +54,8 @@ a fork <forking>` of the repo you are migrating to.
    shouldn't be any conflicts applying the patch file. If there are conflicts
    then these will be recorded in ``*.rej`` files. The output of the ``apply``
    command will note any failures, or you can find them by running
-   ``find . -name *.rej``. Fix any failures you find and then commit the changes.
+   ``find . -name *.rej``. Fix any failures you find and then commit the
+   changes.
 #. Finally, all branches will **need** to update to the initial git release in
    order to run the test suites. This can be done by merging the ``stable``
    branch into your new branch. See :ref:`updating a branch <updating_branch>`

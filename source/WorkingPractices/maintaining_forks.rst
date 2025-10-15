@@ -1,7 +1,7 @@
-.. _git_extras:
+.. _maintaining_forks:
 
-Extra Git Working Practices
-===========================
+Maintaining Forks
+=================
 
 .. _git_remote:
 
@@ -63,6 +63,97 @@ For example, to merge the upstream main into the current branch, use,
 
     git merge upstream/main
 
+.. _syncing_fork:
+
+Syncing a Fork
+--------------
+
+Most work to maintain a fork involves syncing it with the upstream repository.
+Syncing a fork will ensure that changes to the upstream repository are copied
+into the fork. Syncing is done on a per branch basis. For example, after a new
+release, syncing the ``stable`` branch will ensure the forks ``stable`` branch
+contains the newly released code.
+
+.. important::
+
+    It is recommended that developers do not modify the synced branches from
+    upstream in their forks as this may cause issues with merge conflicts when
+    syncing a fork. Instead all work should be carried out in a branch.
+
+.. tab-set::
+
+    .. tab-item:: Web Browser
+
+        Navigate to your fork in github that you wish to sync. Select the
+        ``Sync Fork`` button and if required, update the branch. This will
+        only sync the branch you are currently on - to sync other branches
+        select one from the branch dropdown menu. You may want to sync both
+        ``stable`` and ``main``, particularly at a release.
+
+        .. image:: images/gh_screenshots/sync_fork_light.png
+            :class: only-light border
+
+        .. image:: images/gh_screenshots/sync_fork_dark.png
+            :class: only-dark border
+
+        The synced branch will still only exist in the remote repository. If
+        you require them in a local clone make sure to ``fetch`` or ``pull``
+        the repository.
+
+    .. tab-item:: gh cli
+
+        .. code-block:: shell
+
+            gh repo sync [<owner>/<repo>] [-b <branch>]
+
+        * The command syncs changes from a remote repository to your fork or
+          local copy.
+        * Both ``<owner>/<repo>`` and ``-b <branch>`` are optional.
+        * If ``-b <branch>`` isn't specified, it will sync the default branch
+          (main),
+        * There is no built-in ``gh repo sync`` option for all branches,
+          therefore the user needs to specify a branch name when not syncing the
+          not the default branch.
+        * If you run this without ``<owner>/<repo>``, it will sync changes from
+          the remote origin to your local clone.
+
+          * Doing this will not update your remote fork, this will also require
+            a ``git push`` command.
+
+        * By providing your username and fork name to ``<owner>/<repo>``, it
+          will sync changes from the upstream parent repository into your remote
+          fork.
+
+          * Doing this will not update your local clone, this will also require
+            a ``git pull`` command.
+
+    .. tab-item:: git commands
+
+        Ensure that the upstream repository is available as a remote source and
+        the latest changes have been fetched. See :ref:`setting git remote
+        sources <git_remote>` for more details.
+
+        Then run the following commands for each branch you wish to sync. The
+        example below will use ``main``.
+
+        .. code-block:: shell
+
+            # Change to the desired branch
+            git switch main
+
+            # Merge in changes from the upstream
+            git merge upstream/main
+
+            # Push the changes back to the remote fork
+            git push
+
+.. tip::
+
+    Note that the options above will result in the synced branch being available
+    in different locations. Using the web browser will not update your
+    local clone while using ``git`` commands will not update the remote
+    repository without pushing. ``gh`` can be used to update either.
+
 .. _updating_branch:
 
 Updating Branches
@@ -97,11 +188,11 @@ merging in ``main`` to resolve conflicts. This can be done by,
 
     .. tip::
 
-      This section gets the changes via your remote fork. You will first update 
-      your fork with changes from the upstream repository, then merge the 
+      This section gets the changes via your remote fork. You will first update
+      your fork with changes from the upstream repository, then merge the
       updated ``main`` or ``stable`` to your
-      development branch. This results in changes to the fork ``main`` or ``stable`` 
-      and so is generally recommended. However, sometimes you may want to 
+      development branch. This results in changes to the fork ``main`` or ``stable``
+      and so is generally recommended. However, sometimes you may want to
       skip this, so the next tab would has been provided as an alternative.
 
     Navigate to your clone and ensure that the branch you wish to update is your
@@ -135,7 +226,7 @@ merging in ``main`` to resolve conflicts. This can be done by,
     .. tip::
 
       This section gets the changes from the upstream repository, and merges
-      these directly onto your branch. It will **not** update ``main`` or ``stable`` 
+      these directly onto your branch. It will **not** update ``main`` or ``stable``
       in your fork.
 
     Navigate to your clone and ensure that the branch you wish to update is your
