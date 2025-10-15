@@ -41,7 +41,8 @@ a fork <forking>` of the repo you are migrating to.
 
   .. code-block::
 
-    git switch -c new_migrated_branch git_migration
+    git switch -c [branch name] [tag to branch from]
+    e.g. git switch -c new_migrated_branch git_migration
 
 * Apply the patch file onto the git branch,
 
