@@ -97,11 +97,12 @@ merging in ``main`` to resolve conflicts. This can be done by,
 
     .. tip::
 
-      This section gets the changes via your remote fork. You will first update
-      the fork and then merge in the changes from your fork. This results in
-      changes to the fork ``main`` or ``stable`` and so is generally
-      recommended. However, sometimes you may want to skip this, so the next tab
-      would be suggested instead.
+      This section gets the changes via your remote fork. You will first update 
+      your fork with changes from the upstream repository, then merge the 
+      updated ``main`` or ``stable`` to your
+      development branch. This results in changes to the fork ``main`` or ``stable`` 
+      and so is generally recommended. However, sometimes you may want to 
+      skip this, so the next tab would has been provided as an alternative.
 
     Navigate to your clone and ensure that the branch you wish to update is your
     active branch,
