@@ -56,13 +56,29 @@ the `GitHub Glossary
 Clone
   A local copy of either the upstream or the forked repository.
 
+Continuous Integration
+  Testing that is run on github based on the changes in a pull request. For
+  simulation-sytems repositories, this is run in addition to local rose-stem
+  testing. It is commonly referred to as CI.
+
 Fork
   A copy of the upstream repository, owned by the developer. This is where
   development branches are created and worked on. (May also be referred to
   as the downstream repository).
 
+Issue
+  An issue is a location to record tasks, problems, questions etc. in a
+  repository. They contain their own discussion thread and can be used as a way
+  of tracking work and recording details that might not be appropriate in a pull
+  request.
+
 Origin
   The default name for the remote source of a cloned repository.
+
+Pull Request
+  These represent proposed changes to a repository, submitted by a developer.
+  They will undergo a review process before being merged onto the repository if
+  accepted. They are often referred to as PRs.
 
 Remote
   The version of either the upstream or the forked repository that is hosted
@@ -129,8 +145,30 @@ The development cycle can be seen below.
     }
   }
 
-For detailed explanation of these steps, see pages on :ref:`gh_dev_init` and
-:ref:`pull_requests`.
+#. :ref:`Create an Issue <create_issue>` in the upstream repository to document
+   your changes.
+#. :ref:`Create a branch <create_branch>` in your fork of the repo. The branch
+   should usually be created from the stable branch.
+#. Develop your change on your new branch. See the :ref:`development guide
+   <development_index>` for advice on how to do this, including running testing.
+#. When ready for review :ref:`create a pull request <pull_requests>` in the
+   upstream repository.
+
+  * Ensure that your change is passing the :ref:`Continuous Integration <CI>`
+    and you have included proof of local testing.
+
+#. Pass the pull request for review. Usually this will involve first a
+   :ref:`Sci Tech review <scitech_review>` and then a :ref:`Code review
+   <code_review>`. If any changes are required ensure the testing still passes.
+
+   * Once in code review, you will likely need to update your branch to the
+     :ref:`head of main <merge_main>`. This may involve solving merge conflicts.
+
+#. Once the pull request has been approved, the code reviewer will commit it to
+   the trunk.
+
+For detailed explanation of these steps, see the subsequent pages, particularly
+on :ref:`gh_dev_init`, :ref:`maintaining_forks` and :ref:`pull_requests`.
 
 Before You Start
 ----------------
@@ -155,19 +193,22 @@ As you begin, there are various people you might consider consulting:
 * Relevant :ref:`Code and Configuration Owners <approvals>`
 * Simulation Systems and Deployment Team
 * Core Capability Development Team
+* Tools and Collaborative Development Team
 * Less experienced developers may benefit from a 'buddy'
 
-For larger changes, consider splitting the work over multiple tickets:
+For larger changes, consider splitting the work over multiple Issues and Pull
+Requests:
 
-* Tickets laying foundations for later are OK
-* Tickets should make sense on their own, with a clear scope, to allow for
-  separate testing, review and commit
-* Tickets should not be too small or too large
-* Beware of the 'also trap'- the 'also' bits can swamp the main aim of your
-  change!
-* An overarching ticket that sets out the overall picture and tracks the
-  progress of the work is recommended and all sub-tickets should link back to
-  it
+* An overarching issue that sets out the overall picture and tracks the
+  progress of the work is encouraged. All sub-issues and pull requests should
+  link back to it.
+* Each pull request should contain a single coherent change.
+
+  * Pull requests may build on each other, however each should produce a valid
+    branch, as detemined by the test suite.
+  * The new feature being developed doesn't need to fully work after each pull
+    request, but the plan for developing it should be documented on the
+    overarching issue.
 
 Consider the timing of your work:
 
