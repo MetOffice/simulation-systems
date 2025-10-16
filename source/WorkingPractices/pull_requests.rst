@@ -121,7 +121,7 @@ Initially you can choose to do this in draft mode, to allow you time to do any
 final fixes based on continuous integration. **If you use draft mode mark the
 pull request as ``ready for review`` once you are satisfied.**
 
-
+.. _CI:
 
 Continuous Integration
 ----------------------
@@ -153,6 +153,8 @@ rejected with failing tests.
 
 .. image:: images/gh_screenshots/ci_dark.png
     :class: only-dark border
+
+.. _merge_main:
 
 Updating a branch
 -----------------

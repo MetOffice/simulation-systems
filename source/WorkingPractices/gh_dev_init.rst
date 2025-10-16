@@ -7,6 +7,8 @@ This section will guide you through the development process assuming you are
 already authorised with github (:ref:`gh_authorisation`) and have already
 created a fork (:ref:`forking`).
 
+.. _create_issue:
+
 Create an Issue
 ---------------
 
