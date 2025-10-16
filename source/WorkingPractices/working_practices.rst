@@ -154,8 +154,8 @@ The development cycle can be seen below.
 #. When ready for review :ref:`create a pull request <pull_requests>` in the
    upstream repository.
 
-  * Ensure that your change is passing the :ref:`Continuous Integration <CI>`
-    and you have included proof of local testing.
+   * Ensure that your change is passing the :ref:`Continuous Integration <CI>`
+     and you have included proof of local testing.
 
 #. Pass the pull request for review. Usually this will involve first a
    :ref:`Sci Tech review <scitech_review>` and then a :ref:`Code review
