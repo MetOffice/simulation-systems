@@ -1,66 +1,19 @@
 .. _jules_docs:
 
-Building and editing the JULES User Guide
-=========================================
+The JULES User Guide
+====================
 
-The JULES User Guide is built using the Sphinx Documentation Generator. The
-documentation is written in plain text files using a markup language called
-reStructuredText. The source files for the JULES documentation are contained
-in the `JULES GitHub repository`_. The plain text files are contained in the
-`source`_ directory and have the extension ``.rst``. Sphinx can take these
-plain text files and generate both HTML and PDF documentation from them
-(complete with cross-referencing links, etc.). Since reStructuredText is a
-plain text format, your favourite text editor is all you need to edit the
-JULES documentation.
+The JULES User Guide is built using the :ref:`Sphinx Documentation Generator
+<sphinx>`. The source files for the JULES documentation are contained
+in the `JULES GitHub repository`_, with the plain text files contained in the
+`source`_ directory.
 
 .. _JULES GitHub repository: https://github.com/jules-lsm/jules-lsm.github.io
 .. _source: https://github.com/jules-lsm/jules-lsm.github.io/tree/master/user_guide/doc/source
 
 The JULES User Guide uses some custom extensions to reStructuredText to allow
 it to represent Fortran namelists more effectively - these are discussed in
-more detail below. Other than that, the `Sphinx documentation`_ is an
-excellent resource.
-
-.. _Sphinx documentation: https://www.sphinx-doc.org/en/master/
-
-
-Building the JULES User Guide
------------------------------
-
-For first time users, please create the production environment to build the
-documentation. From the top level of the repository run:
-
-.. code-block:: shell
-
-    conda env create -f environment.yml
-
-Activate the environment:
-
-.. code-block:: shell
-
-    conda activate jules-user-guide
-
-Move to the correct directory:
-
-.. code-block:: shell
-
-    cd <path_to>/jules-user-guide-test/doc
-
-Run ``make`` to build the documentation:
-
-To build and view the HTML documentation:
-
-.. code-block:: shell
-
-    make html
-    firefox build/html/index.html
-
-To build and view the PDF documentation:
-
-.. code-block:: shell
-
-    make latexpdf
-    evince build/latex/JULES_User_Guide.pdf
+more detail below.
 
 
 reStructuredText Extension for Fortran Namelists
