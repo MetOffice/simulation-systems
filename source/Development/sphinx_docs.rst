@@ -14,8 +14,8 @@ documentation.
     useful resource.
 
 
-Building the JULES User Guide
------------------------------
+Building the documentation
+--------------------------
 
 Please create the production environment to build the
 documentation (first time users only), and then activate it.
