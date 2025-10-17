@@ -216,7 +216,9 @@ And then commit the change,
     information see the relevant man page, ``man git add``.
 
 Finally, you may want to push any commits stored in your local clone back to
-the remote source.
+the remote source. This allows you to share code with someone else during the
+development process, or prepare to open a pull request once you're ready for a
+review.
 
 .. code-block::
 

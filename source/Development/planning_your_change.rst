@@ -33,13 +33,18 @@ The following are some general hints and tips in planning code changes successfu
 
 General Considerations
 ----------------------
+**Smaller is better.** Submit *one* pull request per bug fix or feature. Do not
+refactor or reformat code that is unrelated to your change. It is better to
+submit many small pull requests rather than a single large one. Smaller, well-
+scoped pull requests are easier to review and more likely to be accepted promptly.
 
-**How complex is your change likely to be?** (e.g. roughly how many subroutines
-or lines of code do you expect to alter or add?) This is an important
-consideration as the more complex a change is, the more time will be required
-in development, the more code owners will need to approve it and so forth. If a
-change is overly complex, the developer should consider breaking it up into
-smaller, more manageable and, where possible, "self contained" tickets.
+**How complex is your change likely to be?** For larger, more complicated changes
+start by opening an issue and discussing a strategy with the relevant people. This
+helps avoid unnecessary work and ensures alignment with project goals.
+
+**Prioritise clarity over cleverness.** Code is read far more often than it is
+written so aim for code that is easy to understand and maintain. If the logic
+is not immediately obvious then include comments to explain your reasoning.
 
 **How does your proposed change fit in with the structure of the model?** Try
 and make your code changes in-scope and no larger than they need to be. If you
@@ -54,7 +59,7 @@ aware of these.
 * `UMDP3 (UM and JULES FORTRAN)
   <https://code.metoffice.gov.uk/doc/um/latest/umdp.html#003>`__
 * `LFRic Coding Styles
-  <https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicTechnical/CodingStandards>`__
+  <https://metoffice.github.io/lfric_core/how_to_contribute/index.html#how-to-contribute-index>`__
 * `PEP 8 (Python) <https://legacy.python.org/dev/peps/pep-0008/>`__
 
 **Who will SciTech review the change?** This is a useful consideration as not
@@ -77,6 +82,9 @@ linked tickets. See :ref:`multirepo` for further details.
 **Does similar code functionality already exist in the model?** It's a good
 idea **not** to re-invent the wheel or have code duplication! Speaking to code
 owners of the appropriate sections can help in this instance.
+
+**How will your change be tested?** Include unit or integration tests, and update
+any example or demo repositories to exercise new functionality.
 
 Specific Tips for Scientific changes
 ------------------------------------

@@ -16,6 +16,11 @@ Purpose of the review
 The purpose of code review is to ensure that the code does the job it says it
 performs, is standards compliant and well documented.
 
+Focus on the code, not the contributor; providing constructive, respectful and
+actionable feedback. Critique the implementation, not the individual and always
+explain the reasoning behind your suggestions.
+
+
 Reviewer responsibilities and checkpoints
 -----------------------------------------
 

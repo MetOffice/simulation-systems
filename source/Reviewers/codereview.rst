@@ -20,6 +20,10 @@ Fundamentally this review is to ensure that the change is well thought-out and
 that no system aspects have been missed. The review should be an active one
 and should question anything that is poorly coded.
 
+Focus on the code, not the contributor; providing constructive, respectful and
+actionable feedback. Critique the implementation, not the individual and always
+explain the reasoning behind your suggestions.
+
 Reviewer responsibilities and checkpoints
 -----------------------------------------
 
