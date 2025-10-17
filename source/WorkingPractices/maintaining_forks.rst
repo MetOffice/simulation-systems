@@ -206,7 +206,7 @@ merging in ``main`` to resolve conflicts. This can be done by,
     Ensure that your fork is up to date with the upstream repository. See
     :ref:`syncing your fork <syncing_fork>` for details on how to do this.
 
-    Then ensure that knowledge of any synced changes are available in your
+    Then ensure that knowledge of any synced changes is available in your
     local clone,
 
     .. code-block:: shell
