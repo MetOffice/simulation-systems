@@ -10,7 +10,7 @@ plain text format, your favourite text editor is all you need to edit the
 documentation.
 
 .. tip::
-    The `Sphinx documentation <https://www.sphinx-doc.org/en/master/>`_ is an
+    The `Sphinx documentation <https://www.sphinx-doc.org/en/master/>`_ is a
     useful resource.
 
 
@@ -68,7 +68,7 @@ To build and view the HTML documentation:
 .. code-block:: shell
 
     make [clean] html
-    firefox build/html/index.html
+    firefox build/html/index.html &
 
 To build and view the PDF documentation:
 
