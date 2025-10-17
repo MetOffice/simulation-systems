@@ -68,7 +68,7 @@ To build and view the HTML documentation:
 .. code-block:: shell
 
     make [clean] html
-    firefox build/html/index.html
+    firefox build/html/index.html &
 
 To build and view the PDF documentation:
 
