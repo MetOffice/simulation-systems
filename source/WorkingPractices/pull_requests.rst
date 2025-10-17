@@ -180,6 +180,13 @@ There is a space in the pull request template to list the GitHub user ID of the
 scitech and code reviewers. Once these are filled in a GitHub Action will add
 this user as an ``assignee`` to the pull request.
 
+.. tip::
+
+    Github allows reviewers to directly make suggestions to the code. This is
+    very useful for easily suggesting changes. However, the developer should
+    always check carefully that the change is sensible and doesn't contain any
+    errors or bugs.
+
 SciTech Review
 ^^^^^^^^^^^^^^
 
