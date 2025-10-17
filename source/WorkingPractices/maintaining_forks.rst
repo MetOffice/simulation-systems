@@ -125,7 +125,7 @@ contains the newly released code.
           fork.
 
           * Doing this will not update your local clone, this will also require
-            a ``git pull`` command.
+            a ``git pull`` command for each branch you wish to update.
 
     .. tab-item:: git commands
 
@@ -206,7 +206,8 @@ merging in ``main`` to resolve conflicts. This can be done by,
     Ensure that your fork is up to date with the upstream repository. See
     :ref:`syncing your fork <syncing_fork>` for details on how to do this.
 
-    Then ensure that any synced changes are available in your local clone,
+    Then ensure that knowledge of any synced changes is available in your
+    local clone,
 
     .. code-block:: shell
 
@@ -216,7 +217,7 @@ merging in ``main`` to resolve conflicts. This can be done by,
 
     .. code-block:: shell
 
-      git merge <branch>
+      git merge origin/<branch>
 
     If there are any merge conflicts you can now fix these using your conflict
     tool of choice.
