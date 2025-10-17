@@ -14,51 +14,38 @@ Releasing Mule
 
 .. tip::
 
-    See `#7796 <https://code.metoffice.gov.uk/trac/um/ticket/7796>`__ for an
-    example mule release ticket.
+    See `PR#2 <https://github.com/MetOffice/mule/pull/2>`__ for an example mule
+    release ticket.
 
 There's no hard rule on whether a mule release is required - it comes down to
 whether there have been any notable changes to mule since the last release. If
 you are doing a release then do the following,
 
-* Create a mule ticket and branch, checking out a local copy.
+* Ensure you have a :ref:`fork <forking>` of ``mule`` and that the ``main``
+  branch is up to date with the upstream repository.
+* In a clone of the fork, :ref:`create a branch <create_branch>` using the
+  ``main`` branch as the parent.
+
+.. important::
+
+    Ensure you create branches from main, otherwise you will not include the
+    changes from the past release.
+
 * Update ``admin/meto_install_mule.sh`` to update the mule version number as
-  well as the UM and Shumlib releases intended for this mule release. It is
-  likely the UM release hasn't happened yet - in that case the mule install
-  will need to wait until after that.
+  well as the UM and Shumlib releases intended for this mule release. There's no
+  requirement for a link between mule and UM releases.
 * Update all occurrences of the mule version number to the new version. This
-  occurs in multiple places - see the above example ticket or grep for the old
+  occurs in multiple places - see the above example PR or grep for the old
   version.
 * Test the branch against the UM
-* Get the ticket reviewed and committed
-* :ref:`Tag <reference-tagging>` the mule trunk with ``YYYY.MM.V``.
+* With a reviewer, follow the :ref:`release process <github-releases>`
+* Once done, announce the release on simulation-systems discussions as well as
+  VE, possibly in the Scientific Software Tools community.
 
-Mule also has documentation which should be built and pushed to the SRS docs
-repo. However, this can only be done **after** the new version has been
-installed (see below).
+.. note::
 
-* Load the new um_tools environment, ``module load um_tools/YYYY.MM.V/openmp``
-* Get a working copy of the mule trunk at the release revision.
-* Get a working copy of the SRS docs repo (you will need permission to commit
-  to this repo), ``fcm co https://code.metoffice.gov.uk/svn/doc/um``
-* For each of ``mule`` and ``um_utils``, (eg. for mule),
-
-    * Move into the ``mule/docs`` directory
-    * Run ``make html``
-    * Copy the resulting ``build/html`` directory to the Docs working copy from
-      earlier,
-
-    .. code-block:: shell
-
-        cp -r build/html /path/to/Docs/mule/YYYY.MM.V
-
-    * Move to the Docs repo
-    * Update the ``mule/latest`` symlink
-    * Add the new version to the ``index.html`` file.
-
-* Commit the changes to the Docs repo and ensure they appear correctly at
-  `<https://code.metoffice.gov.uk/doc/um/>`__.
-
+    Check that the mule and um_utils docs have built and deployed correctly to
+    github pages.
 
 Installing Mule
 ---------------
@@ -88,14 +75,15 @@ To install at the Met Office
 
 * Login as umadmin
 * Move to or create ``$UMDIR/mule/mule-YYYY.MM.V``
-* Get a copy of the install script, ``fcm export
-  fcm:mule.xm_tr/admin/meto_install_mule.sh@YYYY.MM.V``
+* Get a clone of the mule repo. Use the https source for this as the shared
+  account doesn't have ssh access to github.
 * Run the install script without any modules loaded (this will install for the
-  system python), ``./meto_install_mule.sh``
+  system python), ``./mule/admin/meto_install_mule.sh``
 * For all desired scitools modules, load the module and then rerun the install
   script. Try and do this for all production/preproduction stacks as well as
   the current default previous, current and next modules.
-* Repeat these steps on the EXAB, EXCD, and EXZ.
+* Repeat these steps on the EXAB, EXCD, and EXZ. As of ``2025.10.1`` this will
+  no longer install for the system python on the EXs.
 
 Once mule has been installed, we also need to add the modulefiles to their
 location in ``$UMDIR/modules/modulefiles/um_tools/YYYY.MM.V``. This is most
@@ -118,4 +106,3 @@ Again, these files can be found via the same $UMDIR path as above.
 Finally, it is a good idea to update the default mule module by editing
 ``$UMDIR/modules/modulefiles/um_tools/.version``. It may be worth posting an
 announcement a few days before changing this to give advance notice.
-

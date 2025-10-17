@@ -61,92 +61,58 @@ the owner.
 
             Add ``--clone`` to immediately clone the forked repo
 
+Optional - Adding the MetOffice Mirror Bot
+------------------------------------------
 
-Maintaining a Fork
-------------------
+The ``mo-gitassist-bot`` is a user which can be granted read access to a
+repository, allowing it to mirror the repository to a central location on
+MetOffice platforms. This repository can then be cloned using the local mirror,
+avoiding the need to authenticate with github. This may be useful, eg. for
+shared accounts which do not have a github account themselves. The mirrors are
+read only - committing and pushing back to the remote repository will require a
+github account.
 
-Most work to maintain a fork involves syncing it with the upstream repository.
-Syncing a fork will ensure that changes to the upstream repository are copied
-into the fork. Syncing is done on a per branch basis. For example, after a new
-release, syncing the ``stable`` branch will ensure the forks ``stable`` branch
-contains the newly released code.
+All simulation systems repositories have granted access to this bot, allowing
+them to be cloned from the mirrors by running,
 
-.. important::
+.. code-block:: shell
 
-    It is recommended that developers do not modify the synced branches from
-    upstream in their forks as this may cause issues with merge conflicts when
-    syncing a fork. Instead all work should be carried out in a branch.
+    git clone /path/to/mirrors/MetOffice/repository.git
 
-.. tab-set::
+Please contact the SSD team or the git migration project for the path to the
+mirrors.
 
-    .. tab-item:: Web Browser
+If you wish to be able to access a fork from the mirror, then you will need to
+add the bot to your forked repository. First, in your fork, navigate to the
+``Settings`` tab and the ``Collaborators`` section.
 
-        Navigate to your fork in github that you wish to sync. Select the
-        ``Sync Fork`` button and if required, update the branch. This will
-        only sync the branch you are currently on - to sync other branches
-        select one from the branch dropdown menu. You may want to sync both
-        ``stable`` and ``main``, particularly at a release.
+.. image:: images/gh_screenshots/collaborators_light.png
+    :class: only-light border
 
-        .. image:: images/gh_screenshots/sync_fork_light.png
-            :class: only-light border
+.. image:: images/gh_screenshots/collaborators_dark.png
+    :class: only-dark border
 
-        .. image:: images/gh_screenshots/sync_fork_dark.png
-            :class: only-dark border
+There, use the ``Add People`` button to add the ``mo-gitassist-bot`` with
+``Read`` permissions,
 
-        The synced branch will still only exist in the remote repository. If
-        you require them in a local clone make sure to ``fetch`` or ``pull``
-        the repository.
+.. image:: images/gh_screenshots/mo_bot_light.png
+    :class: only-light border
 
-    .. tab-item:: gh cli
+.. image:: images/gh_screenshots/mo_bot_dark.png
+    :class: only-dark border
 
-        .. code-block:: shell
+To clone a fork from the mirrors requires a slightly different approach to
+normally cloning a fork.
 
-            gh repo sync [<owner>/<repo>] [-b <branch>]
+.. code-block:: shell
 
-        * The command syncs changes from a remote repository to your fork or
-          local copy.
-        * Both ``<owner>/<repo>`` and ``-b <branch>`` are optional.
-        * If ``-b <branch>`` isn't specified, it will sync the default branch
-          (main),
-        * There is no built-in ``gh repo sync`` option for all branches,
-          therefore the user needs to specify a branch name when not syncing the
-          not the default branch.
-        * If you run this without ``<owner>/<repo>``, it will sync changes from
-          the remote origin to your local clone.
+    # First clone the mirror of the upstream repository
+    git clone /path/to/mirrors/MetOffice/repository.git && cd repository
 
-          * Doing this will not update your remote fork, this will also require
-            a ``git push`` command.
+    # Fetch the fork and branch.
+    # fork-username is the username of the owner of the desired fork
+    # fork-branch is the branch to be checked out
+    git fetch origin <fork-username>/<fork-branch>
 
-        * By providing your username and fork name to ``<owner>/<repo>``, it
-          will sync changes from the upstream parent repository into your remote
-          fork.
-
-          * Doing this will not update your local clone, this will also require
-            a ``git pull`` command.
-
-    .. tab-item:: git commands
-
-        Ensure that the upstream repository is available as a remote source and
-        the latest changes have been fetched. See :ref:`setting git remote
-        sources <git_remote>` for more details.
-
-        Then run the following commands for each branch you wish to sync. The
-        example below will use ``main``.
-
-        .. code-block:: shell
-
-            # Change to the desired branch
-            git switch main
-
-            # Merge in changes from the upstream
-            git merge upstream/main
-
-            # Push the changes back to the remote fork
-            git push
-
-.. tip::
-
-    Note that the options above will result in the synced branch being available
-    in different locations. Using the web browser will not update your
-    local clone while using ``git`` commands will not update the remote
-    repository without pushing. ``gh`` can be used to update either.
+    # Checkout the forked branch
+    git checkout FETCH_HEAD
