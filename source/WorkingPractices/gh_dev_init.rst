@@ -10,6 +10,33 @@ created a fork (:ref:`forking`).
 Create an Issue
 ---------------
 
+An issue in github can be used to document a new feature, bug, or other problem
+in the codebase. There are issue templates provided to help capture all the
+relevant information in each case.
+
+They are also the main place to document the development process of a change.
+Sub-issues can be created if a large piece of work wants breaking down into
+smaller sections. If you are working on an issue, then assign yourself to it so
+that others know that you are working on it. Issues are created in the upstream
+repository.
+
+.. admonition:: Before Opening an Issue
+
+    **Are you using the latest version?** If not, please update to the latest
+    stable release and verify the issue persists.
+
+    **Is this a security issue?** Please do not file a public issue for
+    security vulnerabilities, but get in touch with the :ref:`SSD team <ssd>`
+    directly.
+
+    **Is this a duplicate?**  Add a comment or an emoji reaction to the original
+    issue rather than opening a new one.
+
+    **Is this a support request?** Questions should be asked via the
+    `simulation-systems discussion boards`_ where we'll be happy to try and help.
+
+.. _simulation-systems discussion boards: https://github.com/MetOffice/simulation-systems/discussions
+
 .. important::
 
     It is not guaranteed that opening an issue will result in action or even
@@ -17,12 +44,6 @@ Create an Issue
     or individual should be aware of an issue, then contact them directly in
     addition to opening an issue.
 
-An issue in github can be used to document a problem in the codebase or as
-somewhere to document the development process for a new feature. Sub-issues
-can also be created if a large piece of work wants breaking down into smaller
-sections. If you are working on an issue, then assign yourself to it so that
-others know that you are working on it. Issues are created in the upstream
-repository.
 
 .. tab-set::
 
