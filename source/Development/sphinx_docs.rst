@@ -10,7 +10,7 @@ plain text format, your favourite text editor is all you need to edit the
 documentation.
 
 .. tip::
-    The `Sphinx documentation <https://www.sphinx-doc.org/en/master/>`_ is an
+    The `Sphinx documentation <https://www.sphinx-doc.org/en/master/>`_ is a
     useful resource.
 
 
