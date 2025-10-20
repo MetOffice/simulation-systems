@@ -33,18 +33,18 @@ The following are some general hints and tips in planning code changes successfu
 
 General Considerations
 ----------------------
-**Smaller is better.** Submit *one* pull request per bug fix or feature. Do not
-refactor or reformat code that is unrelated to your change. It is better to
-submit many small pull requests rather than a single large one. Smaller, well-
-scoped pull requests are easier to review and more likely to be accepted promptly.
+**Smaller is better.** Submit a separate pull request per bug fix or feature.
+Avoid refactoring or reformating code that is not related to your change.
+Multiple small pull requests are easier to review and more likely to be accepted
+promptly.
 
-**How complex is your change likely to be?** For larger, more complicated changes
-start by opening an issue and discussing a strategy with the relevant people. This
-helps avoid unnecessary work and ensures alignment with project goals.
+**Consider the complexity of your change.** For larger or more complex changes,
+start by opening an issue and discussing your approach with the relevant people.
+This helps avoid unnecessary work and ensures alignment with project goals.
 
-**Prioritise clarity over cleverness.** Code is read far more often than it is
-written so aim for code that is easy to understand and maintain. If the logic
-is not immediately obvious then include comments to explain your reasoning.
+**Prioritise clarity over cleverness.** Code is read more often than it is
+written, so make it easy to understand and maintain. If the logic is not
+immediately obvious then include comments to explain your reasoning.
 
 **How does your proposed change fit in with the structure of the model?** Try
 and make your code changes in-scope and no larger than they need to be. If you

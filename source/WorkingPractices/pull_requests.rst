@@ -17,12 +17,10 @@ Trivial pull requests are an exception and do not require a SciTech review.
 
 :ref:`Linked pull requests <linked>` will move through the review states together.
 
-.. tip::
-
-  Some things to consider when getting ready for review:
+.. admonition:: Getting Ready for Review
 
   * If your development changes answers then make sure you have followed the
-    steps on :ref:`preparing a KGO ticket for review.<kgo>`
+    steps on :ref:`preparing a KGO pull request for review.<kgo>`
 
   * Get in touch with your SciTech Reviewer before you feel ready for review.
     They will have valuable insights into the code and, particularly for larger
