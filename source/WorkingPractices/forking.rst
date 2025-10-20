@@ -61,6 +61,25 @@ the owner.
 
             Add ``--clone`` to immediately clone the forked repo
 
+
+Disable Github Actions in your fork
+-----------------------------------
+
+It is a good idea to disable github actions on your fork otherwise you will
+regularly get failures when updating your main branch, due to the failure to
+deploy documentation. Doing this will not prevent the CI running when you open a
+pull request.
+
+To disable, in your fork on github, navigate to Settings and then
+Actions/General. There select the option to ``Disable actions`` and save.
+
+.. image:: images/gh_screenshots/disable_actions_light.png
+    :class: only-light border
+
+.. image:: images/gh_screenshots/disable_actions_dark.png
+    :class: only-dark border
+
+
 Optional - Adding the MetOffice Mirror Bot
 ------------------------------------------
 

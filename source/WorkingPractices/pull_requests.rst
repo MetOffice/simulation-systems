@@ -121,7 +121,7 @@ Initially you can choose to do this in draft mode, to allow you time to do any
 final fixes based on continuous integration. **If you use draft mode mark the
 pull request as ``ready for review`` once you are satisfied.**
 
-
+.. _CI:
 
 Continuous Integration
 ----------------------
@@ -154,6 +154,8 @@ rejected with failing tests.
 .. image:: images/gh_screenshots/ci_dark.png
     :class: only-dark border
 
+.. _merge_main:
+
 Updating a branch
 -----------------
 
@@ -177,6 +179,13 @@ Selecting Reviewers
 There is a space in the pull request template to list the GitHub user ID of the
 scitech and code reviewers. Once these are filled in a GitHub Action will add
 this user as an ``assignee`` to the pull request.
+
+.. tip::
+
+    Github allows reviewers to directly make suggestions to the code. This is
+    very useful for easily suggesting changes. However, the developer should
+    always check carefully that the change is sensible and doesn't contain any
+    errors or bugs.
 
 SciTech Review
 ^^^^^^^^^^^^^^
