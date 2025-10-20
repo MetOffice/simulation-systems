@@ -43,7 +43,7 @@ release to facilitate an intense or disruptive development.
     :class: only-dark
 
 The release cycle is overseen by the Simulation Systems and Deployment Team
-with the oversight and support of the Simulation Systems Governance Group, who
+with the oversight and support of the LFRic Apps Governance Group, who
 impartially consider the needs of all developers and users.
 
 Git/Github Definitions
