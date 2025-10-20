@@ -164,8 +164,8 @@ The development cycle can be seen below.
    * Once in code review, you will likely need to update your branch to the
      :ref:`head of main <merge_main>`. This may involve solving merge conflicts.
 
-#. Once the pull request has been approved, the code reviewer will commit it to
-   the trunk.
+#. Once the pull request has been approved, the code reviewer will merge it to
+   `main`.
 
 For detailed explanation of these steps, see the subsequent pages, particularly
 on :ref:`gh_dev_init`, :ref:`maintaining_forks` and :ref:`pull_requests`.
