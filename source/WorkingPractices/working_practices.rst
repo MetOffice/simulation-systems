@@ -120,28 +120,28 @@ The development cycle can be seen below.
 
   digraph {
     create_issue -> create_branch -> development -> create_pr;
-    create_issue [label="Create an Issue", style=filled, color="#f8b8d0"]
-    create_branch [label="Create a Development Branch", style=filled, color="#b9e192"]
-    development [label="Develop Changes on Branch", style=filled, color="#b9e192"]
-    create_pr [label="Create a PR for the change", style=filled, color="#f8b8d0"]
+    create_issue [label="Create an Issue", style=filled, color="#f8c6b4"]
+    create_branch [label="Create a Development Branch", style=filled, color="#8eb6e8"]
+    development [label="Develop Changes on Branch", style=filled, color="#8eb6e8"]
+    create_pr [label="Create a PR for the change", style=filled, color="#f8c6b4"]
 
     create_pr -> test_change;
     test_change [label="Test Changes\nRose Stem locally + CI in PR"]
 
     test_change -> scitech -> code_review -> commit_ticket;
-    scitech [label="SciTech Review", style=filled, color="#f8b8d0"]
-    code_review[label="Code Review", style=filled, color="#f8b8d0"]
-    commit_ticket[label="Commit branch to main", style=filled, color="#f8b8d0"]
+    scitech [label="SciTech Review", style=filled, color="#f8c6b4"]
+    code_review[label="Code Review", style=filled, color="#f8c6b4"]
+    commit_ticket[label="Commit branch to main", style=filled, color="#f8c6b4"]
 
     merge_main -> test_change [style="dashed", label="As Required"];
-    merge_main [label="Merge in upstream/main", style=filled, color="#b9e192"]
+    merge_main [label="Merge in upstream/main", style=filled, color="#8eb6e8"]
 
-    test_change -> code_review [dir=back, style="dashed", label="Changes\nRequired", color="#b9e192"];
+    test_change -> code_review [dir=back, style="dashed", label="Changes\nRequired", color="#8eb6e8"];
 
     subgraph cluster0 {
       upstream -> fork [style=invis];
-      upstream [label="Takes place in the\nupstream repository", style=filled, color="#f8b8d0", shape=box]
-      fork [label="Takes place in the\nforked repository", style=filled, color="#b9e192", shape=box]
+      upstream [label="Takes place in the\nupstream repository", style=filled, color="#f8c6b4", shape=box]
+      fork [label="Takes place in the\nforked repository", style=filled, color="#8eb6e8", shape=box]
     }
   }
 
