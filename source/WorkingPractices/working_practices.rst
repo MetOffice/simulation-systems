@@ -196,7 +196,7 @@ As you begin, there are various people you might consider consulting:
 * Tools and Collaborative Development Team
 * Less experienced developers may benefit from a 'buddy'
 
-For larger changes, consider splitting the work over multiple Issues and Pull
+For larger changes, split the work over multiple Issues and Pull
 Requests:
 
 * An overarching issue that sets out the overall picture and tracks the
