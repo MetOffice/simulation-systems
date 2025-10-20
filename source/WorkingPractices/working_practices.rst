@@ -94,9 +94,7 @@ Development Process
 -------------------
 
 The process of developing a change for each repository is described through
-these Working Practices. A flowchart of this process for the UM is included
-below, but the process is very comparable to that of the other repositories
-too.
+these Working Practices. A flowchart of this process is included below.
 
 Simulation Systems github repositories are setup with at least 2 protected
 branches, ``main`` and ``stable`` (with the potential for additional version
@@ -182,11 +180,11 @@ Before You Start
     To get started with the ``gh`` cli, see the `gh quickstart guide
     <https://docs.github.com/en/github-cli/github-cli/quickstart>`__
 
-All developments should be planned using a risk-based approach. Before
-starting, consider the complexity and impact of what you want to do. This will
-act as a guide for the level of planning and consultation required. There is
-no definitive process for this and developers should use their experience and
-judgement.
+All developments should be :ref:`planned <planning>` using a risk-based
+approach. Before starting, consider the complexity and impact of what you want
+to do. This will act as a guide for the level of planning and consultation
+required. There is no definitive process for this and developers should use
+their experience and judgement.
 
 As you begin, there are various people you might consider consulting:
 
