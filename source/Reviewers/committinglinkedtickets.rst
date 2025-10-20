@@ -20,7 +20,8 @@ the key places where these overlap.
 1. Everything except UM and LFRic Apps can be worked on separately and should
    be committed first.
 2. LFRic Apps and the UM each rely on code from all of the above code bases,
-   and will need that code for both testing and committing. They do not rely on each other.
+   and will need that code for both testing and committing. They do not rely on
+   each other.
 
 .. tip::
 
@@ -53,7 +54,7 @@ Details for testing multi-repository tickets are included on the
 
 **In summary:**
 
-JULES, UKCA, LFRic Core and other child repositories can be tested using their
+JULES, UKCA, LFRic Core and other parent repositories can be tested using their
 standalone test suites as described on the How to Commit page.
 
 UM and LFRic Apps changes will require modifying the ``dependencies.yaml`` file

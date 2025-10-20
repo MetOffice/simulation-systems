@@ -86,7 +86,7 @@ will include areas such as:
 
     If this testing doesn't pass then either
 
-        a) the change in pull request will need modifying so that the parent
+        a) the change in pull request will need modifying so that the child
         repository's test suite passes
 
         b) this change requires a linked pull request in that repository so that

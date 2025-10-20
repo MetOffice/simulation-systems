@@ -7,12 +7,12 @@ The repositories covered by these working practices all interact with and have
 dependencies on each other. This means that changes that affect multiple
 repositories need handling with extra care.
 
-LFRic Apps and the UM both act as top level parents to a number of child
-repositories such as JULES, UKCA, SOCRATES and CASIM. These child repositories
-work independently as well as being used by the parent repositories. LFRic
+LFRic Apps and the UM both act as child repositories to a number of parent
+repositories such as JULES, UKCA, SOCRATES and CASIM. These parent repositories
+work independently as well as being used by the child repositories. LFRic
 Apps also utilises the infrastructure in LFRic Core.
 
-This means that changes to the science code in any of the child repositories
+This means that changes to the science code in any of the parent repositories
 will need testing with both the UM and LFRic Apps to check for any
 interactions.
 

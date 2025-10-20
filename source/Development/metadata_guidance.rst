@@ -144,7 +144,7 @@ opening up an example app file. For example:
     rose config-edit -M <branch path>/rose-meta/
 
 If making **jules-shared** changes, when reviewing these changes from a
-different parent repository, you will first need to set the ``ROSE_META_PATH``
+different child repository, you will first need to set the ``ROSE_META_PATH``
 system variable:
 
 .. code-block:: shell
