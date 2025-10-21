@@ -123,7 +123,7 @@ Simulation Systems and Deployment Team:
     They provide support for the last 12 months of UM and LFRic Apps releases
     to the Met Office and Partners.
 
-    The team can be contacted at umsysteam@metoffice.gov.uk.
+    The team can be contacted at ML-Simulation_Systems_and_Deployment@metoffice.gov.uk.
 
 Core Capability Development Team:
     The CCD team is responsible for the LFRic Core infrastructure code which
