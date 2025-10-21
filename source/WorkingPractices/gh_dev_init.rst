@@ -28,7 +28,7 @@ repository.
     stable release and verify the issue persists.
 
     **Is this a security issue?** Please do not file a public issue for
-    security vulnerabilities, but get in touch with the :ref:`SSD team <ssd>`
+    security vulnerabilities, but get in touch with the :ref:`SSD team <simIT>`
     directly.
 
     **Is this a duplicate?**  Add a comment or an emoji reaction to the original
