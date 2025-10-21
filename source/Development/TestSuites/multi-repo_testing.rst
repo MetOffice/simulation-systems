@@ -96,7 +96,7 @@ explanation of each,
        repositories
 
     2. The changes made directly affect the interface between repositories and
-       therefore a change is also needed to the parent repository to adapt to that change.
+       therefore a change is also needed to the child repository to adapt to that change.
 
     If you're uncertain which route to take then the Code Owners involved will
     hopefully be able to advise.

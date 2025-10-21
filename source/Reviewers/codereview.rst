@@ -20,6 +20,10 @@ Fundamentally this review is to ensure that the change is well thought-out and
 that no system aspects have been missed. The review should be an active one
 and should question anything that is poorly coded.
 
+Focus on the code, not the contributor; providing constructive, respectful and
+actionable feedback. Critique the implementation, not the individual and always
+explain the reasoning behind your suggestions.
+
 Reviewer responsibilities and checkpoints
 -----------------------------------------
 
@@ -86,7 +90,7 @@ will include areas such as:
 
     If this testing doesn't pass then either
 
-        a) the change in pull request will need modifying so that the parent
+        a) the change in pull request will need modifying so that the child
         repository's test suite passes
 
         b) this change requires a linked pull request in that repository so that
