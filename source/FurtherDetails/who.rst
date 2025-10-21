@@ -133,13 +133,13 @@ Core Capability Development Team:
     concerns principles and portable performance capabilities that the LFRic
     core design and LFRic application development standards aim to support.
 
-    The team can be contacted at corecapabilitydevelopmentteam@metoffice.gov.uk.
+    The team can be contacted at CoreCapabilityDevelopmentTeam@metoffice.gov.uk.
 
 Tools and Collaborative Development Team:
     The TCD Team is responsible for the development and integration of third
     party tools with LFRic including Psyclone, XIOS and LFRic Inputs.
 
-    The team can be contacted at toolscollabdevteam@metoffice.gov.uk
+    The team can be contacted at ToolsCollabDevTeam@metoffice.gov.uk
 
 
 
