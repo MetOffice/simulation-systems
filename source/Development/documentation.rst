@@ -28,6 +28,7 @@ alongside the code. This is then compiled using Sphinx into the webpages above.
     :maxdepth: 1
 
     sphinx_docs
+    um_docs
     jules_docs
 
 .. admonition::
