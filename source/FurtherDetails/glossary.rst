@@ -72,7 +72,7 @@ SciTech Review:
 
 Simulation Systems and Deployment Team:
     The team responsible for the oversight of these working practices. For more
-    information see :ref:`ssd`.
+    information see :ref:`simIT`.
 
 Simulation Systems Governance Group:
     The governing body that oversees the work of the Simulation Systems and

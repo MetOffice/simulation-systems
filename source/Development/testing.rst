@@ -216,4 +216,4 @@ included when passing a pull request for review.
         python3 $UMDIR/SimSys_Scripts/suite_report_git/suite_report_git.py -S <workflow path>
 
     If this is a regular problem then get in touch with the :ref:`SSD team
-    <ssd>` so we can investigate. Thanks.
+    <simIT>` so we can investigate. Thanks.
