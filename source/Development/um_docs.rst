@@ -5,7 +5,7 @@ The UM documentation papers and online training are maintained in the
 MetOffice/um_doc repository, separate from the UM code. Changes to the
 documentation will therefore require their own pull request.
 
-The latest documentation gets automatically built by CI and published to ???.
+The latest documentation gets automatically built by CI.
 The same action will run when a pull request is opened to ensure that the
 requested changes builds correctly. The build script is available in the
 repository and can be used to test that the finished documentation looks as you
