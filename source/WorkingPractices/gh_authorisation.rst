@@ -69,7 +69,9 @@ SSH Key Setup
 
     If ssh isn't available (eg. shared accounts), then it is possible to use the
     option ``-S USE_MIRRORS=true`` which will use local git mirrors if available
-    (see :ref:`testing` for more details).
+    (see :ref:`testing` for more details) or ``-S USE_TOKENS=true`` which will
+    use a github Personal Access Token (see :ref:`below <github_pat>`). Access
+    from Monsoon will require using a PAT.
 
 You will require a way of `authenticating with github from git
 <https://docs.github.com/en/get-started/git-basics/set-up-git#authenticating-with-github-from-git>`_.
@@ -108,8 +110,8 @@ signing.
     sign each commit.
 
 
-gh command line
----------------
+gh Command Line Interface
+-------------------------
 
 .. tip::
 
@@ -123,3 +125,46 @@ repositories. Where appropriate we have given options for performing tasks with
 To authenticate, run ``gh auth login`` and follow the instructions which will
 involve logging into github via a web browser. See the gh manual (linked above)
 for details of authenticating.
+
+.. _github_pat:
+
+Github Personal Access Tokens
+-----------------------------
+
+Using github tokens is generally optional, as the test suites will by default
+attempt to verify using ssh. However Monsoon users will need to use github
+tokens as access to github from Monsoon is not available via ssh.
+
+To use PAT's, requires storing them in a git credentials file, conventionally
+named ``~/.git-credentials``. It is important to limit access to this file, so
+change the accessibility now and update the git configuration to use this file.
+
+.. code-block:: shell
+
+    touch ~/.git-credentials
+    chmod 0600 ~/.git-credentials
+    git config --global credential.helper 'store --file ~/.git-credentials'
+
+Now `create a Classic Token
+<https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic>`_.
+In order to read and write from a repository, you will need to select at minimum
+the ``Repo`` scope. For security it is good practice to not use tokens with no
+expiry date. You will also need to authorise the token for use with the
+MetOffice organisation `Single Sign On
+<https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-single-sign-on/authorizing-a-personal-access-token-for-use-with-single-sign-on>`_.
+
+.. important::
+
+    Make sure to create a Classic Token, rather than a Fine Grained token, as
+    these are required for authenticating with the single sign on.
+
+Once created, be sure to copy the generated token as this will not be available
+again. Add the token to the git credentials file in the following format,
+
+.. code-block:: shell
+
+    echo "https://<gh-username>:<PAT>@github.com" >> ~/.git-credentials
+
+To use you token to authenticate with github when running the `:ref:rose-stem
+suite <github_testing>`, include the command line option ``-S USE_TOKENS=true``.
+For Monsoon users, this option is automatically enabled.

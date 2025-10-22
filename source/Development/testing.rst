@@ -51,6 +51,9 @@ mirrors and naming it ``my_rose_stem_suite``.
 ``-S`` Options (non-exhaustive):
 
 * ``-S USE_MIRRORS=true`` - Use local github mirrors instead of ssh.
+* ``-S USE_TOKENS=true`` - Authenticate with github using a :ref:`personal
+  access token <github_pat>` instead of ssh. If both this and ``USE_MIRRORS``
+  are true, then the mirrors will be used instead.
 * ``-S USE_HEADS=true`` - Use the head of the default branch for the github
   source, only intended for usage in nightly testing.
 * ``-S USE_EX[AB/CD/Z]=true`` - MetOffice only, specify the host machine for
