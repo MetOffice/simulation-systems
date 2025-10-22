@@ -28,7 +28,7 @@ UM Document Papers.
 
    * You must use one of these two document classes, no exceptions.
 
-   * Unlike some other in-build Latex document classes the UMDP classes do not
+   * Unlike some other in-built Latex document classes the UMDP classes do not
      support pass-through of options to their parent class, this is intentional
      and will not be changed.
 
