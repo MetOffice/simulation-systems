@@ -147,11 +147,11 @@ git to use it:
 
 Next, `create a Classic Token
 <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic>`_.
-In order to read and write from a repository, you will need to select at minimum
-the ``Repo`` scope. For security it is good practice to not use tokens with no
-expiry date. You will also need to authorise the token for use with the
-MetOffice organisation `Single Sign On
-<https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-single-sign-on/authorizing-a-personal-access-token-for-use-with-single-sign-on>`_.
+To read from or write to a repository, ensure your token has at least the
+``repo`` scope. For security reasons, avoid using tokens without an expiry
+date. Additionally, authorise your token for use with the MetOffice
+organisation via Single Sign On. See the GitHub documentation for details:
+`Authorizing a personal access token for use with Single Sign-On <https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-single-sign-on/authorizing-a-personal-access-token-for-use-with-single-sign-on>`_.
 
 .. important::
 
