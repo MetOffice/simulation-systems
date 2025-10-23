@@ -131,9 +131,9 @@ for details of authenticating.
 Github Personal Access Tokens
 -----------------------------
 
-Using github tokens is generally optional, as the test suites will by default
-attempt to verify using ssh. However Monsoon users will need to use github
-tokens as access to github from Monsoon is not available via ssh.
+Using GitHub tokens is optional for most test suites, as SSH authentication is
+used by default. However, Monsoon users must use GitHub tokens because SSH
+access to GitHub is unavailable from Monsoon, for now.
 
 To use Personal Access Tokens (PATs), store them in a git credentials file,
 typically ``~/.git-credentials``. Restrict access to this file and configure
