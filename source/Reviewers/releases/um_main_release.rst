@@ -285,7 +285,7 @@ rose-stem/site/meto/variables*``
     Has the ability to reload the test suite been enabled yet? If so ``cylc
     vr`` can likely be used to restart the original suite.
 
-    This is likely the case after moving to github - try and update these WPs if
+    This is likely the case after moving to GitHub - try and update these WPs if
     so.
 
 The test suite should now be rerun to confirm the kgo has been installed
@@ -367,7 +367,7 @@ First, log into Monsoon as ``umadmin.mon`` and then clone the ``um`` repo.
 
 .. note::
 
-    At time of writing, the solution for extracting from github on Monsoon has
+    At time of writing, the solution for extracting from GitHub on Monsoon has
     not been announced.
 
 Next, symlink the input data as was done for other platforms,

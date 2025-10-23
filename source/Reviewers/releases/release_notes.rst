@@ -3,7 +3,9 @@
 Release Notes
 =============
 
-The below shows the trac release notes template previously used. This will want editing and the exact location needs deciding for the move to github. However it can be used as an initial guide to the sort of information included.
+The below shows the trac release notes template previously used. This will want
+editing and the exact location needs deciding for the move to GitHub. However it
+can be used as an initial guide to the sort of information included.
 
 .. code-block::
 

@@ -5,7 +5,7 @@ Creating and Managing Forks
 
 .. tip::
 
-    For more information see the `github documentation
+    For more information see the `GitHub documentation
     <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks>`__
 
 Forks are repositories that share code and visibility settings with the
@@ -65,12 +65,12 @@ the owner.
 Disable Github Actions in your fork
 -----------------------------------
 
-It is a good idea to disable github actions on your fork otherwise you will
+It is a good idea to disable GitHub actions on your fork otherwise you will
 regularly get failures when updating your main branch, due to the failure to
 deploy documentation. Doing this will not prevent the CI running when you open a
 pull request.
 
-To disable, in your fork on github, navigate to Settings and then
+To disable, in your fork on GitHub, navigate to Settings and then
 Actions/General. There select the option to ``Disable actions`` and save.
 
 .. image:: images/gh_screenshots/disable_actions_light.png
@@ -86,10 +86,10 @@ Optional - Adding the MetOffice Mirror Bot
 The ``mo-gitassist-bot`` is a user which can be granted read access to a
 repository, allowing it to mirror the repository to a central location on
 MetOffice platforms. This repository can then be cloned using the local mirror,
-avoiding the need to authenticate with github. This may be useful, eg. for
-shared accounts which do not have a github account themselves. The mirrors are
+avoiding the need to authenticate with GitHub. This may be useful, eg. for
+shared accounts which do not have a GitHub account themselves. The mirrors are
 read only - committing and pushing back to the remote repository will require a
-github account.
+GitHub account.
 
 All simulation systems repositories have granted access to this bot, allowing
 them to be cloned from the mirrors by running,

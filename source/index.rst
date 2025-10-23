@@ -26,7 +26,7 @@ and how to commit to the trunk.
     .. grid-item-card::
         :text-align: center
 
-        Working with git and github to contribute to the simulation models.
+        Working with git and GitHub to contribute to the simulation models.
 
         +++
         .. button-ref:: working_practices_index

@@ -1,7 +1,7 @@
 .. _updating_prebuilds:
 
 **This page is left in case prebuilds become required again, but at the move to
-github, prebuilds are no longer functional, so these instructions are no longer
+GitHub, prebuilds are no longer functional, so these instructions are no longer
 required**
 
 Mid-Release Prebuilds

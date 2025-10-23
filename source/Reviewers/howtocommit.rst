@@ -370,7 +370,7 @@ KGO differently*
             cylc vip -z group=all -n <name/of/suite> ./rose-stem
 
         #. You will need access to both your merged working copy and a clone of
-           the `SimSys_Scripts github repo
+           the `SimSys_Scripts GitHub repo
            <https://github.com/MetOffice/SimSys_Scripts>`__ (one is available
            in $UMDIR). Run the script ``kgo_updates/meto_update_kgo.sh`` which
            is located in SimSys_Scripts.
@@ -603,7 +603,7 @@ branch and then push the changes back to the remote branch.
 
 Once the remote branch has been updated, the pull request continuous
 integration will relaunch. Make sure this all passes and then you can commit
-the ticket via the github interface,
+the ticket via the GitHub interface,
 
 .. image:: images/gh_screenshots/merge_light.png
     :class: only-light border

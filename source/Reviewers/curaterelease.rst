@@ -71,7 +71,7 @@ developed the release branch and the other will review it (**developer** and
 * The admin **must** now revert the 2 settings above.
 * Finally, the release can be created and tagged,
 
-  * From the github repo, select ``releases`` and then ``Draft a new release``.
+  * From the GitHub repo, select ``releases`` and then ``Draft a new release``.
   * Create a new tag and title the release with the same name, eg. ``vn14.0``.
   * Select to ``Generate release notes``.
   * Then ``Publish release``.

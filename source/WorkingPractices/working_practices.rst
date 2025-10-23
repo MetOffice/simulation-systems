@@ -49,7 +49,7 @@ impartially consider the needs of all developers and users.
 Git/Github Definitions
 ----------------------
 
-Some commonly used git/github definitions. Further definitions can be found in
+Some commonly used git/GitHub definitions. Further definitions can be found in
 the `GitHub Glossary
 <https://docs.github.com/en/get-started/learning-about-github/github-glossary>`__.
 
@@ -57,7 +57,7 @@ Clone
   A local copy of either the upstream or the forked repository.
 
 Continuous Integration
-  Testing that is run on github based on the changes in a pull request. For
+  Testing that is run on GitHub based on the changes in a pull request. For
   simulation-sytems repositories, this is run in addition to local rose-stem
   testing. It is commonly referred to as CI.
 
@@ -85,7 +85,7 @@ Remote
   by Github.
 
 Upstream
-  The primary or parent repository, owned by the MetOffice github
+  The primary or parent repository, owned by the MetOffice GitHub
   organisation. Only code reviewers are able to directly interact with this
   repository, rather than being required to use forks.
 
@@ -96,11 +96,11 @@ Development Process
 The process of developing a change for each repository is described through
 these Working Practices. A flowchart of this process is included below.
 
-Simulation Systems github repositories are setup with at least 2 protected
+Simulation Systems GitHub repositories are setup with at least 2 protected
 branches, ``main`` and ``stable`` (with the potential for additional version
 branches to be added).
 
-* ``main`` - This is the default github branch and is the branch that new
+* ``main`` - This is the default GitHub branch and is the branch that new
   development pull requests should target. It will never be behind ``stable``
   branch, but will regularly be ahead.
 * ``stable`` - This branch represents the codebase at a version release and
@@ -175,7 +175,7 @@ Before You Start
 
     In the following Working Practices, we will endeavour to provide options
     for using the Github Web Interface and the ``gh`` cli where possible.
-    Further information will be available in the github documentation.
+    Further information will be available in the GitHub documentation.
 
     To get started with the ``gh`` cli, see the `gh quickstart guide
     <https://docs.github.com/en/github-cli/github-cli/quickstart>`__
