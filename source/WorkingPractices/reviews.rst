@@ -59,10 +59,8 @@ Guidance for the Code reviewer can be found on the
     .. image:: images/gh_screenshots/review_cog_dark.png
         :class: only-dark border
 
-
     Code owners will automatically be added to this reviewers section based on
     the files being changed.
-
 
 
 .. _review_project:
@@ -94,7 +92,6 @@ Some states are achieved automatically, some require changing manually:
 
 .. image:: images/gh_screenshots/project_scitech_dark.png
     :class: only-dark border
-
 
 Automatic changes include:
 
