@@ -145,7 +145,7 @@ git to use it:
     chmod 0600 ~/.git-credentials
     git config --global credential.helper 'store --file ~/.git-credentials'
 
-Now `create a Classic Token
+Next, `create a Classic Token
 <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic>`_.
 In order to read and write from a repository, you will need to select at minimum
 the ``Repo`` scope. For security it is good practice to not use tokens with no
