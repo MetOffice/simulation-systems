@@ -135,9 +135,9 @@ Using github tokens is generally optional, as the test suites will by default
 attempt to verify using ssh. However Monsoon users will need to use github
 tokens as access to github from Monsoon is not available via ssh.
 
-To use PAT's, requires storing them in a git credentials file, conventionally
-named ``~/.git-credentials``. It is important to limit access to this file, so
-change the accessibility now and update the git configuration to use this file.
+To use Personal Access Tokens (PATs), store them in a git credentials file,
+typically ``~/.git-credentials``. Restrict access to this file and configure
+git to use it:
 
 .. code-block:: shell
 
