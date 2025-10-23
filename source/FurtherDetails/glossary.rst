@@ -10,34 +10,20 @@ Closed Release:
     this way, and the rest free for changes.
 
 Code Review Deadline:
-    The date by which all tickets aiming to be included in a release have been
+    The date by which all PRs aiming to be included in a release have been
     moved into code review.
 
-Colon Keyword:
-    The formatting pattern for certain ticket keywords. For example CR:user to
-    indicate that "user" will be performing the Code System Review.
-
 CodeSys Review:
-    A technical review of the changes involved in the ticket, including checks
+    A technical review of the changes involved in the PR, including checks
     that code standards have been upheld and that the working practices have
     been followed. These reviews are generally completed by a member of the
-    Simulation Systems and Deployment Team. Once a review has been approved
-    the Code Systems Reviewer is then responsible for committing the change to
-    the trunk.
-
-..
-    or the Core Capability Development Team (for LFRic only reviews).
+    Simulation IT Team. Once a review has been approved the Code Systems
+    Reviewer is then responsible for committing the change to the trunk.
 
 Development Window:
     The period of time between the release of one software version and the code
     review deadline for the following release in which new developments are
     accepted for review.
-
-Further Commit:
-    Where a problem is found with a ticket after it has been committed, any
-    additional commits needed are associated with the same ticket and labelled
-    as a "Further Commit". Only essential and immediate fixes are treated this
-    way.
 
 Known Good Output (KGO):
     In order to verify that the model output hasn't been modified by a set of
@@ -50,14 +36,14 @@ Head of Trunk:
     when the work being done *has* to be built on top of changes already made
     since the last revision.
 
-Linked Ticket:
-    Work that spans two or more repositories, requiring tickets that should be
+Linked PR:
+    Work that spans two or more repositories, requiring PRs that should be
     treated together and committed as a group.
 
-Overarching Ticket:
-    Where a piece of work has been split into multiple sections and tickets an
-    extra ticket can be used to track this work. It should be closed when the
-    whole arc has been completed.
+Overarching Issue:
+    Where a piece of work has been split into multiple sections an overarching
+    issue can be used to track this work. It should be closed when the whole arc
+    has been completed.
 
 Regression:
     A set of tests that prove that a set of code changes have not degraded the

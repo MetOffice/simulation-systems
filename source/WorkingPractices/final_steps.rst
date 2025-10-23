@@ -3,8 +3,8 @@ Final Steps
 
 Once your change is approved, the code reviewer will follow the
 :ref:`howtocommit` process on any branches in order to commit them to the trunk
-of each project. Depending on any linked tickets and documentation updates,
-there may be several commits to different trunks involved.
+of each project. Depending on any linked PRs and documentation updates, there
+may be several commits to different trunks involved.
 
 .. note::
 
@@ -24,13 +24,13 @@ usually based on the rose stem system.
 In addition, most projects run weekly tests, which involve some longer jobs not
 normally tested in the nightly tests.
 
-Closing Tickets
----------------
+Closing Pull Requests
+---------------------
 
-If the test suite runs overnight without issues, the CodeSys reviewer will
-close the ticket(s) as 'fixed' and reassign them back to the developer. This
-is usually the end of the process and the code changes will form part of the
-next release.
+GitHub will automatically close PRs upon merge. The code reviewer will check the
+output of nightly testing, and if this shows errors may begin a discussion on
+the pull request. Some testing is only run weekly, so some issues may take
+longer to show up.
 
 
 When the Trunk is Broken
@@ -41,26 +41,13 @@ immediately solved, the trunk(s) of affected projects will be closed to new
 changes. The relevant teams will investigate and aim to resolve the issue and
 reopen the trunk(s) as soon as possible. Two possible scenarios may occur:
 
-  #. For **simple or obvious fixes**, a second commit is the preferred
-     solution, allowing the change to be fixed, while remaining on the trunk.
+  #. For **simple or obvious fixes**, a trivial PR to fix the trunk is
+     preferred.
 
   #. If the reason for the failure is complex or less obvious, the team will
      revert the offending change off the trunk(s).
 
-In the first case, if the test suite comes back clean, the ticket will be
-closed, as above. In the second case, the ticket will be returned to the
-original developer, allowing them to fix the issue for a later commit, either
-during the current release if time permits, or alternatively during a later
-release cycle.
-
-Reopening Tickets
------------------
-
-Very rarely, an issue will be discovered with a ticket some time after it has
-been committed to the trunk. The most common case is when the nightly tests
-pass, but the weekly tests fail. In this case, either the initial ticket will
-be either be reopened and a fix found, or a further ticket will be created to
-investigate the issue.
+In both cases any further PRs should link back to the original.
 
 
 Changes to the Working Practices

@@ -50,7 +50,7 @@ groups, and that you can specify more than one at once, e.g.
 | all                | The complete test suite, including all longer runs and   |
 |                    | less commonly used configs. This is run automatically    |
 |                    | every week and monitored by the SSD team. All            |
-|                    | :ref:`KGO <kgo>` changing tickets need to run this group.|
+|                    | :ref:`KGO <kgo>` changing PRs need to run this group.    |
 +--------------------+----------------------------------------------------------+
 +--------------------+----------------------------------------------------------+
 | build              | Compile tasks for all applications and science areas     |

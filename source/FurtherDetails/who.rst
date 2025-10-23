@@ -79,7 +79,7 @@ of model evolution.
 Sci/Tech Reviewer
 -----------------
 
-A Sci/Tech reviewer is assigned for every ticket and comprises the first stage
+A Sci/Tech reviewer is assigned for every PR and comprises the first stage
 of review that considers the change as a whole. Further details are found in
 the :ref:`Scitech Reviewers Guide<scitech_review>`. In some cases, the reviewer
 can delegate parts of the work to another person.
@@ -96,7 +96,7 @@ most relevant code owner.
 Code Reviewer
 -------------
 
-The Code Reviewer performs the 2nd stage of review for every ticket. Further
+The Code Reviewer performs the 2nd stage of review for every PR. Further
 details are described in the :ref:`Code Reviewers Guide<code_review>`.
 
 Reviews should be turned around on a reasonable timescale and follow the Code

@@ -13,7 +13,7 @@ may also be required to simply add a new job to the test suite or to port the
 rose stem suite to new HPC architecture.
 
 **LFRic** KGO checksums are stored in the repository. As such with LFRic
-tickets the expectation is that you, as the developer, will include updated
+PRs the expectation is that you, as the developer, will include updated
 KGO files as part of your branch.
 
 **UM and JULES** KGO output files are stored outside of the repository. Access
@@ -25,16 +25,16 @@ the commit process.
 KGO Update Process
 ------------------
 
-Getting the process right for KGO changing tickets significantly helps get such
+Getting the process right for KGO changing PRs significantly helps get such
 changes onto the trunk. When preparing your change for review:
 
 1. Run the ``all`` rose-stem group in order to make sure that all
    changes to answers have been found.
 
    * Include the :ref:`trac.log <traclog>` output from this testing in your
-     ticket summary.
+     PR summary.
 
-2. Add the ``kgo`` keyword to your ticket.
+2. Add the ``kgo`` label to your PR.
 
 .. tab-set::
 

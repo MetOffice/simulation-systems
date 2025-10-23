@@ -44,7 +44,7 @@ on Met Office systems.
 +----------------------+----------------------------------------------------------+
 | all                  | The complete test suite. This is run automatically       |
 |                      | every night and monitored by the SSD team. All           |
-|                      | :ref:`KGO <kgo>` changing tickets need to run this group.|
+|                      | :ref:`KGO <kgo>` changing PRs need to run this group.    |
 +----------------------+----------------------------------------------------------+
 +----------------------+----------------------------------------------------------+
 | loobos               | A set of tests to exercise these science areas.          |

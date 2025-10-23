@@ -126,10 +126,10 @@ The development cycle can be seen below.
     create_pr -> test_change;
     test_change [label="Test Changes\nRose Stem locally + CI in PR"]
 
-    test_change -> scitech -> code_review -> commit_ticket;
+    test_change -> scitech -> code_review -> commit_pr;
     scitech [label="SciTech Review", style=filled, color="#f8c6b4"]
     code_review[label="Code Review", style=filled, color="#f8c6b4"]
-    commit_ticket[label="Commit branch to main", style=filled, color="#f8c6b4"]
+    commit_pr[label="Commit branch to main", style=filled, color="#f8c6b4"]
 
     merge_main -> test_change [style="dashed", label="As Required"];
     merge_main [label="Merge in upstream/main", style=filled, color="#8eb6e8"]
@@ -216,7 +216,7 @@ Consider the timing of your work:
 * Allow contingency time when agreeing broader project deadlines. Trunk
   integrity will not be compromised to meet your deadlines.
 
-Consider bringing planning together using an overarching ticket. It can be very
+Consider bringing planning together using an overarching issue. It can be very
 helpful for documenting and monitoring progress of your work.
 
 .. tip::

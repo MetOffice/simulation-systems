@@ -1,16 +1,16 @@
 .. _committinglinkedtickets:
 
-Committing Linked Tickets
-=========================
+Committing Linked Pull Requests
+===============================
 
-How do linked tickets work?
----------------------------
+How do linked pull requests work?
+---------------------------------
 
-Linked tickets contain changes that all need to be committed together to work
+Linked PRs contain changes that all need to be committed together to work
 successfully. With only some of the changes committed the repositories are
 considered "out of sync", with some of the test suites likely to fail as the
 api between the codebases is broken. For this reason, where possible, all
-parts of a linked ticket should be committed on the same day to avoid nightly
+parts of a linked PR should be committed on the same day to avoid nightly
 tests failing.
 
 :ref:`Multi-repository <multirepo>` changes are nested, and the different
@@ -38,18 +38,18 @@ the key places where these overlap.
 
     3. Install KGO files for all repositories requiring them
 
-    4. Commit the tickets as described below.
+    4. Commit the PRs as described below.
 
 
 .. _testinglinked:
 
-Testing linked tickets
-----------------------
+Testing linked Pulls Requests
+-----------------------------
 
-With the branches from all the tickets merged into a working copy of their
+With the branches from all the PRs merged into a working copy of their
 respective Head of Trunk these can all be used together to test the change.
 
-Details for testing multi-repository tickets are included on the
+Details for testing multi-repository PRs are included on the
 :ref:`Working with Multiple Repositories page<multirepo>`.
 
 **In summary:**
@@ -81,7 +81,7 @@ to update the source being used.
 
 .. tip::
 
-    If some of the changes in this set of tickets have already been committed
+    If some of the changes in this set of PRs have already been committed
     then see steps 2 and 4 below on how to include those changes in your
     testing. This is instead of the steps described above.
 
@@ -91,8 +91,8 @@ to update the source being used.
 
 .. _committinglinked:
 
-Committing linked tickets
--------------------------
+Committing linked Pull Requests
+-------------------------------
 
 Once you are happy with all your testing then the commit sequence is as
 follows:
@@ -108,8 +108,8 @@ follows:
         * Ensure the ``source`` entry points at the MetOffice ssh url.
         * Modify ``ref`` entry for all updated repositories points to the full
           hash for the relevant commit.
-        * e.g. If a JULES ticket has been committed with hash starting abc123
-          and a UKCA ticket starting at 456def, the UM dependencies file will
+        * e.g. If a JULES PR has been committed with hash starting abc123
+          and a UKCA PR starting at 456def, the UM dependencies file will
           have these entries (amongst others):
 
         .. code-block:: yaml
