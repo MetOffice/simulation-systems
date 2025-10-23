@@ -79,8 +79,9 @@ One way to do this is via ssh keys. For creating and adding a new ssh key to
 github, `see the github documentation
 <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_.
 In order to use this ssh key with MetOffice organisations, it must be authorised
-for single sign on access. First, ensure you are part of the MetOffice
-organisation, and then `configure the SSH key for SSO
+If you are a member of the MetOffice GitHub organisation you will need to
+authorise the key for single sign on access. First, ensure you are part of the
+MetOffice organisation, and then `configure the SSH key for SSO
 <https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-single-sign-on/authorizing-an-ssh-key-for-use-with-single-sign-on>`_.
 
 
@@ -133,7 +134,7 @@ Github Personal Access Tokens
 
 Using GitHub tokens is optional for most test suites, as SSH authentication is
 used by default. However, Monsoon users must use GitHub tokens because SSH
-access to GitHub is unavailable from Monsoon, for now.
+access to GitHub is unavailable from Monsoon.
 
 To use Personal Access Tokens (PATs), store them in a git credentials file,
 typically ``~/.git-credentials``. Restrict access to this file and configure
@@ -149,9 +150,10 @@ Next, `create a Classic Token
 <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic>`_.
 To read from or write to a repository, ensure your token has at least the
 ``repo`` scope. For security reasons, avoid using tokens without an expiry
-date. Additionally, authorise your token for use with the MetOffice
-organisation via Single Sign On. See the GitHub documentation for details:
-`Authorizing a personal access token for use with Single Sign-On <https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-single-sign-on/authorizing-a-personal-access-token-for-use-with-single-sign-on>`_.
+date. If you are a member of the MetOffice GitHub organisation, authorise your
+token for use with the MetOffice Single Sign On. See the GitHub documentation
+for details: `Authorizing a personal access token for use with Single Sign-On
+<https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-single-sign-on/authorizing-a-personal-access-token-for-use-with-single-sign-on>`_.
 
 .. important::
 
