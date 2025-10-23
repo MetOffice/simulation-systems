@@ -69,10 +69,19 @@ Simulation Systems Review Tracker
 ---------------------------------
 
 All open pull requests will be added to a GitHub Project called
-``Simulation Systems Review Tracker``. This is used to give pull requests a
-status that distinguishes between the different review states, and to monitor
-who is doing the reviews. The review names will be automatically filled in
-once the user IDs have been added to the pull request description.
+``Simulation Systems Review Tracker``, which causes this box to appear in the
+sidebar of the pull request:
+
+.. image:: images/gh_screenshots/project_scitech_light.png
+    :class: only-light border
+
+.. image:: images/gh_screenshots/project_scitech_dark.png
+    :class: only-dark border
+
+The project is used to give pull requests a status that distinguishes between
+the different review states, and to monitor who is doing the reviews. The review
+names will be automatically filled in once the user IDs have been added to the
+pull request description.
 
 Some states are achieved automatically, some require changing manually:
 
@@ -86,12 +95,6 @@ Some states are achieved automatically, some require changing manually:
 
 * When the Code Review has been completed the state should be **manually**
   changed to Approved.
-
-.. image:: images/gh_screenshots/project_scitech_light.png
-    :class: only-light border
-
-.. image:: images/gh_screenshots/project_scitech_dark.png
-    :class: only-dark border
 
 Automatic changes include:
 
