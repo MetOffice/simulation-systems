@@ -238,5 +238,6 @@ helpful for documenting and monitoring progress of your work.
     multi_repository
     approvals
     pull_requests
+    reviews
     final_steps
     branch_migration
