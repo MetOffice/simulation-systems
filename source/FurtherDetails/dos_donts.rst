@@ -36,7 +36,7 @@ Please Do Not
 -------------
 
 **Do not merge ``main`` into your branch** during the development process. To
-aid scientific evaluation changes should be kept in standalone branches based
+aid scientific evaluation, changes should be kept in standalone branches based
 on the last stable version.
 
 When your change is ready for Code Review, we then suggest merging in ``main``
