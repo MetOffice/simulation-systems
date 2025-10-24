@@ -27,7 +27,7 @@ not helpful.
 may be very different to yours. All changes are visible to all users
 worldwide.
 
-**Link to issues/PRs in other repositories**, eg ``MetOffice/jules#1``,
+**Link to issues/pull requests in other repositories**, eg ``MetOffice/jules#1``,
 ``MetOffice/ukca:#72``
 
 Please Do Not
