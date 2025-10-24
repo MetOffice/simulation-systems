@@ -63,7 +63,7 @@ more details including what should be in `jules-shared
 <https://code.metoffice.gov.uk/trac/jules/wiki/SharingJULESmetadata#Whatsinjules-shared>`__
 and in `jules-standalone, jules-lfric or um-atmos
 <https://code.metoffice.gov.uk/trac/jules/wiki/SharingJULESmetadata#Whatsinjules-standalonejules-lfricorum-atmos>`__.
-When developing shared JULES metadata, you will need :ref:`linked PRs
+When developing shared JULES metadata, you will need :ref:`linked pull requests
 <multirepo>`. The metadata migration is currently dictated by LFRic porting of
 science, although the ultimate aim is to have a single source of truth.
 
