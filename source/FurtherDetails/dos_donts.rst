@@ -19,8 +19,9 @@ sometimes years later.
 <docs>` and code comments. These help others and your future-self understand
 your work.
 
-**Meaningful names** for issues, PRs, branches and variables. These help others
-and your future-self understand your work. "My_Branch", "Fix" are not helpful.
+**Meaningful names** for issues, pull requests, branches and variables. These 
+help others and your future-self understand your work. "My_Branch", "Fix" are
+not helpful.
 
 **Be considerate** of other users/developers. Their skill-sets and working days
 may be very different to yours. All changes are visible to all users
