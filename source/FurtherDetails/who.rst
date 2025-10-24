@@ -96,8 +96,9 @@ most relevant code owner.
 Code Reviewer
 -------------
 
-The Code Reviewer performs the 2nd stage of review for every PR. Further
-details are described in the :ref:`Code Reviewers Guide<code_review>`.
+The Code Reviewer performs the 2nd stage of review for every pull 
+request. Further details are described in the :ref:`Code Reviewers 
+Guide<code_review>`.
 
 Reviews should be turned around on a reasonable timescale and follow the Code
 Review guidance.
