@@ -44,7 +44,7 @@ Then upgrade each suite by doing the following,
 
   .. code-block::
 
-    rose app-upgrade -C app/APP -M /path/to/um_meta/clone/main vnX.Y
+    rose app-upgrade -C app/APP -M /path/to/um_meta/clone vnX.Y
 
 * Finally run the validator macros. If everything is fine the command will
   report nothing, however the SCM suite will raise some warnings about Openmp
