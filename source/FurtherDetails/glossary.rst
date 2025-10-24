@@ -46,7 +46,7 @@ Known Good Output (KGO):
     treatment. For more information see :ref:`kgo`.
 
 Head of ``Main``:
-    The most recent code revision on ``main``. Branches are taken from here
+    The most recent commit hash on ``main``. Branches are taken from here
     when the work being done *has* to be built on top of changes already made
     since the last revision.
 
