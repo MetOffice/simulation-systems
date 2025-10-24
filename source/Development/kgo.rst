@@ -32,7 +32,7 @@ changes onto the trunk. When preparing your change for review:
    changes to answers have been found.
 
    * Include the :ref:`trac.log <traclog>` output from this testing in your
-     PR summary.
+     pull request summary.
 
 2. Add the ``kgo`` label to your PR.
 
