@@ -60,7 +60,7 @@ module leaders in this case will also act as configuration owners for their
 science settings.
 
 A list of current config owners for the UM is found in
-``trunk/ConfigOwners.txt``. Others are combined with the Code Owner lists
+``main/ConfigOwners.txt``. Others are combined with the Code Owner lists
 above.
 
 Other Approvals

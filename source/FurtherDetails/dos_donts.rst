@@ -33,9 +33,12 @@ worldwide.
 Please Do Not
 -------------
 
-**Do not develop using head of main branching if not needed.** Using version
-branching enables development of scientific suites, so please branch from a tag
-or the ``stable`` branch wherever possible.
+**Do not merge ``main`` into your branch** during the development process. To
+aid scientific evaluation, changes should be kept in standalone branches based
+on the last stable version.
+
+When your change is ready for Code Review, we then suggest merging in ``main``
+and resolving any conflicts.
 
 **Licensing** - Don't add code to any project (or to any branch thereof) that
 has been developed under a different license without agreement from the

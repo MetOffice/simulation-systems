@@ -23,8 +23,7 @@ Developer
 Developers, in general, build on the User role:
 
 * Write and edit source code
-* Follow the Working Practices, even if their work is not intended for the
-  trunk.
+* Follow the Working Practices, even if their work is not intended for ``main``.
 * Manage their work to allow reasonable time for approvals and reviews.
 
 Notably, the Working Practices encourage and require engagement with other

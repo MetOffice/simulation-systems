@@ -2,14 +2,14 @@ Final Steps
 ===========
 
 Once your change is approved, the code reviewer will follow the
-:ref:`howtocommit` process on any branches in order to commit them to the trunk
-of each project. Depending on any linked PRs and documentation updates, there
-may be several commits to different trunks involved.
+:ref:`howtocommit` process on any branches in order to commit them to the
+``main`` of each project. Depending on any linked PRs and documentation updates,
+there may be several commits to different trunks involved.
 
 .. note::
 
     Sometimes there can be a delay between a code change being approved and the
-    commit to trunk. This can be for a number of reasons and rarely will be
+    commit to ``main``. This can be for a number of reasons and rarely will be
     due to your change. If you have any concerns, please contact your CodeSys
     Reviewer in the first instance.
 
@@ -18,8 +18,8 @@ Overnight and Weekly Testing
 
 Each project is tested overnight. This includes several related repositories
 being tested together (e.g. the UM and JULES repositories are related, so the
-head of the UM trunk is tested with the head of the JULES trunk). Testing is
-usually based on the rose stem system.
+head of the UM ``main`` is tested with the head of the JULES ``main``). Testing
+is usually based on the rose stem system.
 
 In addition, most projects run weekly tests, which involve some longer jobs not
 normally tested in the nightly tests.
@@ -33,19 +33,18 @@ the pull request. Some testing is only run weekly, so some issues may take
 longer to show up.
 
 
-When the Trunk is Broken
-------------------------
+When Main is Broken
+-------------------
 
 Occasionally, the overnight testing will fail. If the issue can't be
-immediately solved, the trunk(s) of affected projects will be closed to new
+immediately solved, the ``main`` of affected projects will be closed to new
 changes. The relevant teams will investigate and aim to resolve the issue and
-reopen the trunk(s) as soon as possible. Two possible scenarios may occur:
+reopen the ``main`` as soon as possible. Two possible scenarios may occur:
 
-  #. For **simple or obvious fixes**, a trivial PR to fix the trunk is
-     preferred.
+  #. For **simple or obvious fixes**, a trivial PR to fix ``main`` is preferred.
 
   #. If the reason for the failure is complex or less obvious, the team will
-     revert the offending change off the trunk(s).
+     revert the offending change off ``main`` .
 
 In both cases any further PRs should link back to the original.
 

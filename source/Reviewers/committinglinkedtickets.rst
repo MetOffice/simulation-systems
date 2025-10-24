@@ -47,7 +47,7 @@ Testing linked Pulls Requests
 -----------------------------
 
 With the branches from all the PRs merged into a working copy of their
-respective Head of Trunk these can all be used together to test the change.
+respective Head of ``main`` these can all be used together to test the change.
 
 Details for testing multi-repository PRs are included on the
 :ref:`Working with Multiple Repositories page<multirepo>`.
@@ -61,7 +61,7 @@ UM and LFRic Apps changes will require modifying the ``dependencies.yaml`` file
 to update the source being used.
 
 * In the UM/Apps clone, edit the relevant sources and refs in the
-  ``dependencies.yaml`` file. These can be either local clones or github urls.
+  ``dependencies.yaml`` file. These can be either local clones or GitHub urls.
   See :ref:`Multi-Repo Testing <multi-repo_testing>` for more details
 
 

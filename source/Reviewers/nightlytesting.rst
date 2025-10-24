@@ -14,7 +14,7 @@ Modifying and Installing Testing
 Nightly testing is controlled by 2 cronfiles, ``auto-gen_testing.cron`` and
 ``manual.cron`` both located in ``~/Crontabs/``. The first is automatically
 generated the script ``generate_test_suite_cron.py`` which is stored in the
-SimSys_Scripts github repo and controls the launching and clean up of the
+SimSys_Scripts GitHub repo and controls the launching and clean up of the
 nightly rose-stem suites. The second is intended for manually adding tasks
 which don't fit the pattern of the regular rose-stem suites.
 
@@ -59,7 +59,7 @@ a suite:
 
 The cronjobs are installed by running the ``generate_test_suite_cron.py``
 script with the ``--install`` command line option. This script is stored in
-the SimSys_Scripts github repo. It will read a config file, generate a cron
+the SimSys_Scripts GitHub repo. It will read a config file, generate a cron
 file and then install the cronjobs from all files with extension .cron in a
 specified location. The script has the following command line arguments:
 
