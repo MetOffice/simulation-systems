@@ -10,7 +10,7 @@ Closed Release:
     this way, and the rest free for changes.
 
 Code Review Deadline:
-    The date by which all PRs aiming to be included in a release have been
+    The date by which all pull requests aiming to be included in a release have been
     moved into code review.
 
 CodeSys Review:
