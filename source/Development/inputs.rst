@@ -42,7 +42,7 @@ The project metadata can be found in the following locations:
         ``<branch_name>/<sub-module>/rose-meta/*/HEAD/rose-meta.conf``
 
 In addition to the above locations, the rose metadata is centrally mirrored on
-Met Office systems. This means that metadata that has been committed to the
+Met Office systems. This means that metadata that has been committed to
 ``main`` can be accessed without a clone. This may be of use when
 upgrading scientific suites between versions.
 
