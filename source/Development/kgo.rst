@@ -25,7 +25,7 @@ the commit process.
 KGO Update Process
 ------------------
 
-Getting the process right for KGO changing PRs significantly helps get such
+Getting the process right for KGO changing pull requests significantly helps get such
 changes onto the trunk. When preparing your change for review:
 
 1. Run the ``all`` rose-stem group in order to make sure that all
