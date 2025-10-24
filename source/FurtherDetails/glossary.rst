@@ -37,8 +37,8 @@ Head of Trunk:
     since the last revision.
 
 Linked Pull Request (Linked PR):
-    Work that spans two or more repositories, requiring PRs that should be
-    treated together and committed as a group.
+    Work that spans two or more repositories, requiring pull requests that 
+    should be treated together and committed as a group.
 
 Overarching Issue:
     Where a piece of work has been split into multiple sections an overarching
