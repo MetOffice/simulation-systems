@@ -18,7 +18,7 @@ lfric_core as an example):
 .. code-block:: yaml
 
     lfric_core:
-        source: git@GitHub.com:MetOffice/lfric_core.git
+        source: git@github.com:MetOffice/lfric_core.git
         ref: <Long Hash / Tag>
 
 The ``source`` setting sets the location of the repository on GitHub. By
