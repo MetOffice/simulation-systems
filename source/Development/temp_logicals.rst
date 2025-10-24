@@ -156,7 +156,7 @@ temporary logical should be removed from the code base.
 
 .. important::
 
-    Prior to a ticket containing a temporary logical being committed to the
-    trunk, the developers is expected to open a new ticket which removes the
+    Prior to a ticket containing a temporary logical being committed to
+    ``main``, the developers is expected to open a new ticket which removes the
     logical after a fixed period. This acts as an memory aid that the logical
     needs to be removed in due course.

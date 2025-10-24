@@ -42,7 +42,7 @@ UMDP Release
 
 .. * To Publish the docs:
 
-..   * Get a new copy of the head of the docs trunk
+..   * Get a new copy of the head of the docs ``main``
 ..   * From the top level, run ``build_umdoc.py all`` to build everything
 ..   * Remove the output logs in ``output/log/*`` - just to save a bit of space.
 ..   * Checkout a copy of the published documentation - just take the UM part of it as the whole thing is massive! i.e. ``fcm co https://code.metoffice.gov.uk/svn/doc/um published_um``

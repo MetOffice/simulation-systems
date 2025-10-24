@@ -167,7 +167,7 @@ To add upgrade macros to LFRic the following steps can be followed:
    in the same ``rose-meta`` directory as the metadata being changed.
 
 3. Run the Upgrade Macro script in a test branch(see :ref:`testing`). This is
-   located in the `SimSys_Scripts github repo
+   located in the `SimSys_Scripts GitHub repo
    <https://github.com/MetOffice/SimSys_Scripts>`__ (at the MetOffice an up to
    date clone is available in $UMDIR/SimSys_Scripts). The syntax for running is:
 

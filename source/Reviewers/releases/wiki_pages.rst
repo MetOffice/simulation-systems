@@ -8,7 +8,7 @@ Standard Jobs Page
 
 This involves creating a new `Standard Jobs <https://code.metoffice.gov.uk/trac/um/wiki/StandardJobs>`_ for the new release. First update the index page with the new release, then copy the previous release page to the new one, deleting the jobs table within. Check through for all references to the previous release, updating them. Also update the links to the resources pages - we will create these later. Complete a review of the rest of the standard jobs page, updating anything that requires it.
 
-Checkout a copy of the UM trunk at release and then run the following command to create the new standard jobs table,
+Checkout a copy of the UM ``main`` at release and then run the following command to create the new standard jobs table,
 
 .. code-block::
 

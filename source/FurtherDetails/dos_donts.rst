@@ -10,7 +10,7 @@ Please Do
 mitigate problems early on. This is the most common root cause of problems,
 sometimes years later.
 
-**Plan** your work aimed at the trunk across single or multiple tickets:
+**Plan** your work aimed at the ``main`` across single or multiple tickets:
     * Ensure tickets are not too big or small.
     * Coherent parts of the overall change are contained in a single ticket
     * Consider using an overarching ticket to link everything together
@@ -35,16 +35,12 @@ conflicts.
 Please Do Not
 -------------
 
-**Do not use svn commands.** Please use `FCM
-<http://metomi.github.io/fcm/doc/user_guide/>`__ for all development work.
+**Do not merge ``main`` into your branch** during the development process. To
+aid scientific evaluation, changes should be kept in standalone branches based
+on the last stable version.
 
-**Do not merge the trunk into your branch** for UM, JULES, UKCA and LFRic Apps
-changes as this breaks many aspects of how TRAC and fcm work. This will cause
-diffs to display incorrectly and causes database problems when merging.
-Instead, please create a head of trunk branch and merge in your old branch.
-
-**Do not develop using head of trunk branching if not needed.** Many aspects of
-the UM, JULES and UKCA workflows rely on version branching.
+When your change is ready for Code Review, we then suggest merging in ``main``
+and resolving any conflicts.
 
 **Licensing** - Don't add code to any project (or to any branch thereof) that
 has been developed under a different license without agreement from the

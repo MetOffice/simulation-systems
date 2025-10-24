@@ -127,7 +127,7 @@ Release Notes
 
     Jules Release Documentation
 
-These are done with a PR in `this github repo
+These are done with a PR in `this GitHub repo
 <https://github.com/jules-lsm/jules-lsm.github.io>`__
 
 Often the release notes will have been prepared beforehand and have their own
@@ -140,7 +140,7 @@ detail any major commits.
 
 #. Create a new file at ``user_guide/doc/source/release_notes/JULESX-X.rst``,
    probably by copying from a previous release
-#. Go through the trunk commits since the last release and decide whether the
+#. Go through the ``main`` commits since the last release and decide whether the
    change is worth noting
 #. Use the ticket details to describe the change
 #. For some large commits, it is worth contacting the original author for a few

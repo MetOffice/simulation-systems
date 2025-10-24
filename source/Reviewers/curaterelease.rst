@@ -71,7 +71,7 @@ developed the release branch and the other will review it (**developer** and
 * The admin **must** now revert the 2 settings above.
 * Finally, the release can be created and tagged,
 
-  * From the github repo, select ``releases`` and then ``Draft a new release``.
+  * From the GitHub repo, select ``releases`` and then ``Draft a new release``.
   * Create a new tag and title the release with the same name, eg. ``vn14.0``.
   * Select to ``Generate release notes``.
   * Then ``Publish release``.
@@ -89,7 +89,7 @@ before we have to do it for real. Typically aim for 1-2 weeks before release
 day. However, before a test release can be done, all changes to fcm-make
 config files, major rose-stem changes (things like basic upgrade macro or KGO
 updates don't necessarily need to be included) and modifications to the
-release_new_version.py script need to be on trunk, so this will cause some
+release_new_version.py script need to be on ``main``, so this will cause some
 variation as to when the test release is done from release to release.
 
 
@@ -97,7 +97,7 @@ variation as to when the test release is done from release to release.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
-All source code changes must be on trunk along with any rose-stem changes that
+All source code changes must be on ``main`` along with any rose-stem changes that
 affect multiple sites before partner testing can start. Ideally the test
 release will also have been completed.
 
@@ -187,8 +187,8 @@ UM Release, Standard Suites Upgrade
 UM + Apps Releases
 
 
-:ref:`Trunk and Shared Account Permissions <shared_accounts>`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:ref:`GitHub and Shared Account Permissions <shared_accounts>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 None
