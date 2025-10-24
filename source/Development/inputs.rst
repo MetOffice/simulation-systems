@@ -43,8 +43,8 @@ The project metadata can be found in the following locations:
 
 In addition to the above locations, the rose metadata is centrally mirrored on
 Met Office systems. This means that metadata that has been committed to the
-trunk can be accessed without a working copy. This may be of use when
-upgrading scientific suites between versions.
+trunk can be accessed without a clone. This may be of use when upgrading
+scientific suites between versions.
 
 All new namelist variables need a new entry so that the metadata loads into the
 Rose GUI for users to switch it on. Additionally, sometimes the metadata needs

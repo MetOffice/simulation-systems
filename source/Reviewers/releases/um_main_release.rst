@@ -95,8 +95,8 @@ Checking Metadata and Rose Apps
 Running the Release Script
 --------------------------
 
-Move into the rose-stem directory in the UM working copy where the release new
-version script will be run from. The syntax is,
+Move into the rose-stem directory in the UM clone. This is where the release
+new version script will be run from. The syntax is,
 
 .. code-block:: shell
 
@@ -220,8 +220,8 @@ Preparing to Test
 Testing and KGO Generation
 --------------------------
 
-As yourself, and in the working copy of the UM branch run rose stem, be sure
-not to forget the source argument to the UM metadata branch,
+As yourself, and in the clone of the UM branch run rose stem - ensure the
+metadata branch has been set in the dependencies.yaml file
 
 .. code-block:: shell
 

@@ -43,8 +43,8 @@ Spice and EXAB.
 Running the Release Script
 --------------------------
 
-As yourself, move into the rose-stem directory in the UM working copy where the
-release new version script will be run from. The syntax is,
+Move into the rose-stem directory in the UM clone. This is where the release
+new version script will be run from. The syntax is,
 
 .. code-block:: shell
 

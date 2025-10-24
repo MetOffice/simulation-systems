@@ -188,7 +188,7 @@ To update the test suite for an upgrade macro, please run:
     .. note::
 
         LFRic Apps tickets will require an LFRic Core source to use. You can do
-        this by checking out an appropriate working copy, and exporting the
+        this by checking out an appropriate clone, and exporting the
         environment variable ``ROSE_META_PATH=/path/to/core``.
 
         For UM tickets, if there are linked `jules-shared
@@ -369,8 +369,8 @@ KGO differently*
 
             cylc vip -z group=all -n <name/of/suite> ./rose-stem
 
-        #. You will need access to both your merged working copy and a clone of
-           the `SimSys_Scripts github repo
+        #. You will need access to both a clone with the branch active, and
+           up to date with main, and a clone of the `SimSys_Scripts github repo
            <https://github.com/MetOffice/SimSys_Scripts>`__ (one is available
            in $UMDIR). Run the script ``kgo_updates/meto_update_kgo.sh`` which
            is located in SimSys_Scripts.
@@ -401,11 +401,11 @@ KGO differently*
         .. dropdown:: More details on KGO update script
 
             * This script will login as the relevant admin user as needed
-            * After running for a platform, the newly created variables.rc and
+            * After running for a platform, the newly created variables.cylc and
               shell script will be moved to Azspice
               $UMDIR/kgo_update_files/<new_kgo_directory>.
-            * Having run on each requested platform the new variables.rc files
-              will be copied into your working copy
+            * Having run on each requested platform the new variables.cylc files
+              will be copied into your clone
               rose-stem/site/meto/variables_<PLATFORM>.cylc.
 
         .. dropdown:: Updating KGO manually (rarely needed!)
@@ -471,7 +471,7 @@ KGO differently*
         .. code-block:: shell
 
             python3 ./rose-stem/bin/update_branch_kgos.py \
-                -s <suite name/runX> -w <path to working copy>
+                -s <suite name/runX> -w <path to clone>
 
         .. note::
 
@@ -484,7 +484,7 @@ KGO differently*
            (there is no need to retigger azspice). You may need to change the
            maximum window extent of the gui in order to see the succeeded
            tasks. Now you can retrigger the failed checksums - these should
-           now pass if the kgo was updated in the working copy correctly.
+           now pass if the kgo was updated in the clone correctly.
 
 .. important::
 
@@ -552,7 +552,7 @@ stage, to:
 #. Wait for the daily ``cron`` job to run to synchronise data between Azure
    Spice and ``EXAB`` + ``EXCD``.
 #. Ensure that you are in charge of the trunk for the repositories involved.
-#. Update your working copy if other commits have happened.
+#. Update your clone if other commits have happened.
 #. Rerun relevant tests
 
 If the requirement is to update existing files, then further care is required.

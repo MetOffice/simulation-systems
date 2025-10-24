@@ -46,8 +46,8 @@ the key places where these overlap.
 Testing linked tickets
 ----------------------
 
-With the branches from all the tickets merged into a working copy of their
-respective Head of Trunk these can all be used together to test the change.
+To test the change, ensure that all branches are up to date with the main branch
+of each repository, and get clones of these branches.
 
 Details for testing multi-repository tickets are included on the
 :ref:`Working with Multiple Repositories page<multirepo>`.
@@ -84,10 +84,6 @@ to update the source being used.
     If some of the changes in this set of tickets have already been committed
     then see steps 2 and 4 below on how to include those changes in your
     testing. This is instead of the steps described above.
-
-    e.g. If JULES changes have been committed and the revision number modified
-    in rose-suite.conf then the working copy no longer needs supplying as a
-    `source` to the UM testing.
 
 .. _committinglinked:
 

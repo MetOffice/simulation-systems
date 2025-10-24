@@ -135,10 +135,9 @@ etc.
 
 It is expected that all metadata changes in LFRic Core will require change to
 the rose-apps in LFRic Apps, but changes to Apps must not affect Core.
-Therefore, the apply_macros script requires a working copy of LFRic Apps to
-work, but will source it's own copy of Core if required. If your only changes
-are to LFRic Core metadata, then you will require a linked LFRic Apps ticket
-and test branch, but potentially not a development branch.
+Therefore, the apply_macros script requires a clone of LFRic Apps to work, but
+will source it's own copy of Core if required. If your only changes are to LFRic
+Core metadata, then you will also require an LFRic Apps branch and pull request.
 
 .. important::
 
@@ -152,11 +151,10 @@ and test branch, but potentially not a development branch.
 
 .. tip::
 
-    The wrapper script will read the ``dependencies.yaml`` file in your LFRic
-    Apps working copy and will checkout a temporary copy of the LFRic Core
-    source if required. Some Core metadata changes will also modify the Core
-    rose apps. In this case make sure to also commit these changes back to the
-    core branch.
+    The script will read the ``dependencies.yaml`` file in your LFRic Apps clone
+    and will checkout a temporary copy of the LFRic Core source if required.
+    Some Core metadata changes will also modify the Core rose apps. In this case
+    make sure to also commit these changes back to the core branch.
 
 To add upgrade macros to LFRic the following steps can be followed:
 
@@ -185,8 +183,8 @@ To add upgrade macros to LFRic the following steps can be followed:
 
 The Apps, Core and Jules options are paths to sources for each of these. Apps
 will default to the present location (so it is recommended to launch from an
-Apps working copy). Core and Jules will default to reading the
-``dependencies.yaml`` file in the Apps source if not provided.
+Apps clone). Core and Jules will default to reading the ``dependencies.yaml``
+file in the Apps source if not provided.
 
 The ``vnXX.Y_tTTTT`` option must match the After Tag of your upgrade macro.
 When setting this, the version is the last released version of LFRic Apps. If
