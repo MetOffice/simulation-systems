@@ -254,7 +254,7 @@ navigate to ``$UMDIR/SimSys_Scripts/kgo_updates`` directory and run
 * You will need to supply the username and suitename of the suite you ran
   above. This will need to include the ``runX`` directory.
 * The version number should be the new version.
-* The ticket number won't be used but can be entered as the ticket associated
+* The PR number won't be used but can be entered as the PR associated
   with the release.
 * When asked how the new kgo directory should be named overwrite the default
   with the name ``vnX.Y`` where this is the new version number.

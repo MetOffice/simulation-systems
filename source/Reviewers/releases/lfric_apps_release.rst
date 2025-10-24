@@ -6,7 +6,7 @@ LFRic Apps Release
 LFRic Inputs KGO Install
 ------------------------
 
-* This can be done at any point once all tickets that change lfricinputs kgo
+* This can be done at any point once all PRs that change lfricinputs kgo
   have been committed.
 * It's easiest to use the umtest nightly testing for this and will save having
   to run the suite twice.
@@ -17,7 +17,7 @@ LFRic Inputs KGO Install
 
   * The script will ask for a working copy path - this can be any lfric apps
     working copy as it will not be modified.
-  * The version number and ticket number are not required, although an entry
+  * The version number and PR number are not required, although an entry
     is required.
   * The kgo install directory must be updated to vnX.Y
 
@@ -43,7 +43,7 @@ LFRic Release
 
   * ``A.B`` - the previous version
   * ``X.Y`` - the new version
-  * ``TTTT`` - the apps release ticket number
+  * ``TTTT`` - the apps release PR number
   * ``/path/to/core`` - path to the lfric core clone
 
 * Check the output looks sensible. It should:

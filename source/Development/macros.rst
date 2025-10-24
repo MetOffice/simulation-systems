@@ -54,7 +54,9 @@ Within the file a blank upgrade macro will typically look like this:
 
 Note: The BEFORE_TAG should match the AFTER_TAG of the previous macro in the
 chain. So if this is not the first macro since the release then the BEFORE_TAG
-will be the version number with an added ticket number as well. For example:
+will be the version number with an added ticket number as well. For github
+developments, the ticket number can be either an Issue or PR number. For
+example:
 
 .. code-block:: python
 
@@ -137,8 +139,10 @@ It is expected that all metadata changes in LFRic Core will require change to
 the rose-apps in LFRic Apps, but changes to Apps must not affect Core.
 Therefore, the apply_macros script requires a working copy of LFRic Apps to
 work, but will source it's own copy of Core if required. If your only changes
-are to LFRic Core metadata, then you will require a linked LFRic Apps ticket
-and test branch, but potentially not a development branch.
+are to LFRic Core metadata, then you will require a linked LFRic Apps PR and
+test branch, but potentially not a development branch. In order to avoid
+potential ticket number clashes between LFRic Core and LFRic Apps, we recommend
+using LFRic Apps Issue/PR number for the macro tag.
 
 .. important::
 
@@ -190,5 +194,6 @@ Apps working copy). Core and Jules will default to reading the
 
 The ``vnXX.Y_tTTTT`` option must match the After Tag of your upgrade macro.
 When setting this, the version is the last released version of LFRic Apps. If
-it's a linked Apps-Core ticket, then set the ticket number as the one where
-the most metadata changes are being made.
+it's a linked Apps-Core PR, then set the ticket number based on the Apps
+Issue or PR. This avoids potential ticket number clashes between the
+repositories.

@@ -15,7 +15,7 @@ Releasing Mule
 .. tip::
 
     See `PR#2 <https://github.com/MetOffice/mule/pull/2>`__ for an example mule
-    release ticket.
+    release PR.
 
 There's no hard rule on whether a mule release is required - it comes down to
 whether there have been any notable changes to mule since the last release. If

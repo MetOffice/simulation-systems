@@ -4,11 +4,10 @@ Multi-Repository Testing
 ========================
 
 Multi-repository changes are expected to pass the regression tests for all the
-repositories involved. To carry out the tests involved in a linked ticket it
-can be helpful to refer to the :ref:`repository figure <multirepo>`; testing
-both child and parent repositories as needed. Further details of how testing
-in each repository is handled can be found on the :ref:`Testing
-page<testing>`.
+repositories involved. To carry out the tests involved in a linked pull request
+it can be helpful to refer to the :ref:`repository figure <multirepo>`; testing
+both child and parent repositories as needed. Further details of how testing in
+each repository is handled can be found on the :ref:`Testing page<testing>`.
 
 All Simulation Systems repositories containing a test suite will also contain a
 ``dependencies.yaml`` file in the top directory of the repository. This file

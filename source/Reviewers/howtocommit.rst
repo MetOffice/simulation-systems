@@ -3,7 +3,7 @@
 Merge, Test & Commit
 ====================
 
-The process for committing a ticket follows this sequence with details for each
+The process for committing a PR follows this sequence with details for each
 of these steps outlined below.
 
 .. image:: images/commit_process.png
@@ -26,9 +26,9 @@ of these steps outlined below.
 
 
 .. important::
-    **Linked Tickets?**
+    **Linked PRs?**
 
-    If this is a set of linked tickets then the commit process will need to be
+    If this is a set of linked PRs then the commit process will need to be
     followed for each repository in parallel.
     See :ref:`committinglinkedtickets` for more details of how this works.
 
@@ -41,7 +41,7 @@ of these steps outlined below.
 .. important::
 
     All changes made by the reviewer (e.g. for upgrade macros, KGOs or linked
-    tickets) will be committed to the developers branch in their fork. All
+    PRs) will be committed to the developers branch in their fork. All
     testing should be run on this branch too. Once this is all complete then
     GitHub can complete the merge of this branch to ``main``.
 
@@ -51,7 +51,7 @@ of these steps outlined below.
 
 .. note::
 
-    If this is a linked ticket, then do these steps for all pull requests
+    If this is a linked PR, then do these steps for all pull requests
 
 Ensure that the source branch is :ref:`up to date with main <updating_branch>`.
 Only resolve conflicts that appear simple and you are comfortable with. If
@@ -68,7 +68,7 @@ Then switch to the up to date branch, e.g.
 2. Macros (if required)
 -----------------------
 
-**If** the ticket includes metadata changes, upgrade macro changes or a new
+**If** the PR includes metadata changes, upgrade macro changes or a new
 rose-stem app then you will need to upgrade the test-suite.
 
 Update the versions.py file
@@ -76,11 +76,12 @@ Update the versions.py file
 
 ``versions.py`` contains a sequence of upgrade macros. Each macro contains a
 ``BEFORE_TAG`` and an ``AFTER_TAG`` which should create a single chain, starting
-at the last release and finishing with the ticket you are committing. The tags
-have the format version_ticket, i.e. ``vnXX.Y_tZZZZ``.
+at the last release and finishing with the PR you are committing. The tags
+have the format version_ticket, i.e. ``vnXX.Y_tZZZZ``. The ticket value can be
+either the Issue number of the PR number.
 
 When resolving conflicts in this file make sure that the new macro being added
-by your ticket is added to the end of the file. Modify the ``BEFORE_TAG`` to
+by your PR is added to the end of the file. Modify the ``BEFORE_TAG`` to
 match the ``AFTER_TAG`` of the previous macro in the chain.
 
 If this is the first macro since the release then the ``BEFORE_TAG`` will be the
@@ -150,17 +151,12 @@ To update the test suite for an upgrade macro, please run:
 
         .. note::
 
-            All LFRic Core tickets with macros are expected to be linked
-            with LFRic Apps, though they may not have required an LFRic
-            Apps development branch (although an Apps ticket should be
-            provided). This is fine - if there is no LFRic Apps branch
-            just checkout the LFRic Apps main. Then run the apply_macros
-            script as described above and this will share the upgrade
-            macro across both LFRic Apps and LFRic Core as needed.
+            All LFRic Core PRs with macros are expected to be linked with an
+            LFRic Apps change.
 
 .. dropdown:: New rose-stem app?
 
-    If the ticket introduces a new rose-stem app, but doesn't otherwise have a
+    If the PR introduces a new rose-stem app, but doesn't otherwise have a
     macro then that app will need to be updated to match the metadata at the
     head of ``main``.
 
@@ -187,11 +183,11 @@ To update the test suite for an upgrade macro, please run:
 
     .. note::
 
-        LFRic Apps tickets will require an LFRic Core source to use. You can do
+        LFRic Apps PRs will require an LFRic Core source to use. You can do
         this by checking out an appropriate working copy, and exporting the
         environment variable ``ROSE_META_PATH=/path/to/core``.
 
-        For UM tickets, if there are linked `jules-shared
+        For UM PRs, if there are linked `jules-shared
         <https://code.metoffice.gov.uk/trac/jules/browser/main/trunk/rose-meta/jules-shared>`__
         metadata changes then a suitable Jules source will need to be included
         in the `ROSE_META_PATH` as described above.
@@ -214,21 +210,21 @@ To update the test suite for an upgrade macro, please run:
 --------------------
 
 The amount of testing to be done at this stage depends on the complexity of the
-ticket, and what has already been done. A minimum level is required for even
-trivial tickets to check that the merge has not caused issues, or that there
-are no clashes with what else has gone on ``main``.
+PR, and what has already been done. A minimum level is required for even
+trivial PRs to check that the merge has not caused issues, or that there
+are no clashes with what else has gone onto ``main``.
 
 .. note::
 
-    Linked tickets will need to be tested together as discussed on
-    the :ref:`Committing Linked Tickets page<testinglinked>`.
+    Linked PRs will need to be tested together as discussed on
+    the :ref:`Committing Linked PRs page<testinglinked>`.
 
 .. tab-set::
 
     .. tab-item:: UM
 
         Run any necessary testing; at the very least run a compile group,
-        generally run developer, and more complex tickets warrant running
+        generally run developer, and more complex PRs warrant running
         everything:
 
         .. code-block:: shell
@@ -247,7 +243,7 @@ are no clashes with what else has gone on ``main``.
     .. tab-item:: JULES
 
         The JULES test suite is quick to run, so it's usual to test ``all`` for
-        any ticket. If you have the appropriate environment setup then include
+        any PR. If you have the appropriate environment setup then include
         the ``fab`` group too.
 
         .. code-block:: shell
@@ -265,7 +261,7 @@ are no clashes with what else has gone on ``main``.
             cylc vip -z group=all -n <name/of/suite> ./rose-stem
 
         UKCA testing should also be carried out using the UM rose stem. See
-        :ref:`Linked Tickets page<testinglinked>` for advice on how to set this
+        :ref:`Linked PRs page<testinglinked>` for advice on how to set this
         up.
 
 
@@ -375,7 +371,7 @@ KGO differently*
            in $UMDIR). Run the script ``kgo_updates/meto_update_kgo.sh`` which
            is located in SimSys_Scripts.
 
-        #. The script will ask you to enter some details regarding the ticket.
+        #. The script will ask you to enter some details regarding the PR.
             * Platforms: enter each platform which has a kgo change, lower case
               and space seperated, e.g. `azspice ex1a`
             * If running on the EX's it will ask for the host you ran on - this
@@ -383,7 +379,7 @@ KGO differently*
             * Path to your local clone - the script will check this exists and
               will fail if it can't be found.
             * KGO directory: this will default to vnXX.X_tYYYY where XX.X is
-              the version number and YYYY is the ticket number.
+              the version number and YYYY is the PR number.
             * There are further prompts to the user through the script - in
               particular to check the shell script produced.
 
@@ -411,7 +407,7 @@ KGO differently*
         .. dropdown:: Updating KGO manually (rarely needed!)
 
             * Create a new directory for the new KGO. The naming convention is
-              vnXX.X_tNNNN, where NNNN is the ticket number. The location of
+              vnXX.X_tNNNN, where NNNN is the PR number. The location of
               the KGO for the nightly is $UMDIR/standard_jobs.
             * Copy the new KGO from your rose-stem run into the directory
               vnXX.X_tNNNN created above. Note that you need to provide a
@@ -597,13 +593,13 @@ branch and then push the changes back to the remote branch.
 
 .. important::
 
-    Linked tickets will also need to update the relevant hashes for sub-repos
-    before pushing back to the fork. See :ref:`Committing Linked Tickets
+    Linked PRs will also need to update the relevant hashes for sub-repos
+    before pushing back to the fork. See :ref:`Committing Linked PRs
     <committinglinked>` for details.
 
 Once the remote branch has been updated, the pull request continuous
 integration will relaunch. Make sure this all passes and then you can commit
-the ticket via the GitHub interface,
+the PR via the GitHub interface,
 
 .. image:: images/gh_screenshots/merge_light.png
     :class: only-light border

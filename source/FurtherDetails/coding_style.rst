@@ -327,8 +327,8 @@ S2. Headers
   same and thus it need not be repeated in the latter. If a ``MODULE``
   contains more than one subroutine then further descriptions are required.
 
-- History comments should not be included in the header or routine code. FCM
-  TRAC provides the history of our codes.
+- History comments should not be included in the header or routine code. Version
+  control provides the history of our codes.
 
 - Code author names should NOT be included explicitly within the code as they
   quickly become out of date and are sometimes misleading. Instead we

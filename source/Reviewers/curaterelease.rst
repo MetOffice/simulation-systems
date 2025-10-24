@@ -116,21 +116,21 @@ Main Release
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
-Partner Testing, All Jules tickets committed
+Partner Testing, All Jules PRs committed
 
 
 :ref:`Shumlib Release<shumlib_release>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
-All shumlib tickets
+All shumlib PRs
 
 
 :ref:`Mule Release<mule_release>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
-All mule tickets, Shumlib release (if required), UM release (to actually
+All mule PRs, Shumlib release (if required), UM release (to actually
 install)
 
 
@@ -138,14 +138,14 @@ install)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
-All UM Tickets, Test Release, Partner Testing, Jules Release
+All UM PRs, Test Release, Partner Testing, Jules Release
 
 
 :ref:`LFRic Apps Release<lfric_apps_release>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
-All LFRic Tickets (Apps + Core), Jules Release
+All LFRic PRs (Apps + Core), Jules Release
 
 
 Post Release Tasks

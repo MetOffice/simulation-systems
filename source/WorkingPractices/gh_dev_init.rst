@@ -140,7 +140,7 @@ Create a Branch
 Branches for developing Simulation Systems repositories should generally be
 branched from ``stable`` where this exists (some smaller repositories only
 contain a ``main`` branch). Creating a branch from ``main`` may be acceptable
-if the development is continuing on from a ticket already committed at that
+if the development is continuing on from a PR already committed at that
 release.
 
 To create a branch and switch to it from the command line, the syntax is,
