@@ -4,7 +4,7 @@ Simulation Systems Glossary
 Please suggest new entries to the Simulation Systems and Deployment Team
 
 Closed Release:
-    A release cycle where the only accepted changes to the trunk relate to a
+    A release cycle where the only accepted changes to ``main`` relate to a
     particular piece of work, either technical or scientific. A release can
     also be partially closed, with only one area of a code base locked down in
     this way, and the rest free for changes.
@@ -23,7 +23,7 @@ CodeSys Review:
     been followed. These reviews are generally completed by a member of the
     Simulation Systems and Deployment Team. Once a review has been approved
     the Code Systems Reviewer is then responsible for committing the change to
-    the trunk.
+    the ``main``.
 
 ..
     or the Core Capability Development Team (for LFRic only reviews).
@@ -45,8 +45,8 @@ Known Good Output (KGO):
     This is known as the KGO and changes that alter this require special
     treatment. For more information see :ref:`kgo`.
 
-Head of Trunk:
-    The most recent code revision on the trunk. Branches are taken from here
+Head of ``Main``:
+    The most recent code revision on ``main``. Branches are taken from here
     when the work being done *has* to be built on top of changes already made
     since the last revision.
 
@@ -80,6 +80,6 @@ Simulation Systems Governance Group:
 
 Version:
     Each release of the codebase is completed by tagging the latest revision of
-    the trunk with a version number. This version should be used for creating
+    ``stable`` with a version number. This version should be used for creating
     code branches from and will also be used by the parallel suite teams as a
     starting point for creating the next operational suite.

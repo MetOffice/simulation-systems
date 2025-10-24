@@ -57,7 +57,7 @@ Do:
     tagged with suitable keywords, e.g. um13.0 to work with UM vn13.0, or apps2.
     0 to work with LFRic Apps vn2.0.
 
-    For head of trunk revisions make sure that all branches/revisions being
+    For head of ``main`` revisions make sure that all branches/revisions being
     used are at least as recent as the commits associated with the hash in the
     ``dependencies.yaml`` file.
 

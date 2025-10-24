@@ -11,8 +11,11 @@ of the area being developed. Once satisfied they then pass the ticket to a
 code reviewer who takes a bigger picture and system view of the change.
 Trivial tickets can bypass the scitech review.
 
-Once the reviews are complete the code reviewer is then responsible for merging
-the change to trunk and committing it.
+The change then passes to the Code Reviewer and in this stage the developer is
+encouraged to merge ``main`` into their branch and resolve any conflicts.
+
+Once the reviews are complete the code reviewer is then responsible for the
+final merge of the change to ``main``.
 
 
 

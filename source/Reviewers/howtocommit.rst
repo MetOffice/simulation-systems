@@ -13,11 +13,11 @@ of these steps outlined below.
     Before You Start:
         * Is anyone else committing?
 
-            * `Main Status`_ is used to coordinate trunk commits all projects.
+            * `Main Status`_ is used to coordinate ``main`` commits for all
+               projects.
             * Simple, not conflicting commits can be done in parallel if
               reviewers all agree.
-            * Changes with KGO or Macros usually require sole access to the
-              trunk.
+            * Changes with KGO or Macros usually require sole access to ``main``.
         * Check how many commits have happened today. Suggested limit per day,
           per repository is 4.
 
@@ -100,9 +100,9 @@ To update the test suite for an upgrade macro, please run:
         .. code-block:: shell
 
             ./admin/rose-stem/update_all.py \
-                --path=/path/to/working/copy/of/trunk \
+                --path=/path/to/clone/of/main \
                 --um=vnXX.Y_tZZZZ \
-                [--jules-path=/path/to/working/copy/of/jules/trunk]
+                [--jules-path=/path/to/clone/of/jules/main]
 
         where ``-\-um=vnXX.Y_tZZZZ`` is the ``AFTER_TAG`` of the latest
         upgrade macro.
@@ -162,7 +162,7 @@ To update the test suite for an upgrade macro, please run:
 
     If the ticket introduces a new rose-stem app, but doesn't otherwise have a
     macro then that app will need to be updated to match the metadata at the
-    Head Of Trunk.
+    head of ``main``.
 
     #. In the new app directory get a list of all available upgrade points by
        running
@@ -179,7 +179,7 @@ To update the test suite for an upgrade macro, please run:
             rose app-upgrade -a -y -M path/to/working_copy/rose-meta vnX.Y_tZZZZ
 
     The app should now be updated to the same metadata version as the rest of
-    the apps on the Trunk. This can be checked with:
+    the apps on the ``main``. This can be checked with:
 
         .. code-block:: shell
 
@@ -216,7 +216,7 @@ To update the test suite for an upgrade macro, please run:
 The amount of testing to be done at this stage depends on the complexity of the
 ticket, and what has already been done. A minimum level is required for even
 trivial tickets to check that the merge has not caused issues, or that there
-are no clashes with what else has gone on trunk.
+are no clashes with what else has gone on ``main``.
 
 .. note::
 
@@ -331,7 +331,7 @@ are no clashes with what else has gone on trunk.
 --------------------------------------
 
 **If** your change is known to alter answers, you need to update rose-stem KGO
-for all affected tests before you commit to the trunk.
+for all affected tests before you commit to the ``main``.
 
 Supporting data is stored in the filesystems of our machines and changes to use
 will require the reviewer to update those files (BIG DATA).
@@ -551,13 +551,13 @@ stage, to:
 #. Run relevant tests on Azure Spice.
 #. Wait for the daily ``cron`` job to run to synchronise data between Azure
    Spice and ``EXAB`` + ``EXCD``.
-#. Ensure that you are in charge of the trunk for the repositories involved.
+#. Ensure that you are in charge of ``main`` for the repositories involved.
 #. Update your working copy if other commits have happened.
 #. Rerun relevant tests
 
 If the requirement is to update existing files, then further care is required.
 
-#. Ensure that you are in charge of the in charge of the trunk for the
+#. Ensure that you are in charge of the in charge of ``main`` for the
    repositories involved.
 #. Retain a temporary copy of the existing files, using a `.old` suffix.
 #. Place updated files in the appropriate location on Azure Spice under

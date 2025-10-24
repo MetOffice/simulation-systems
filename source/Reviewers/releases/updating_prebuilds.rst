@@ -20,8 +20,8 @@ To update prebuilds:
 * In ``rose-stem/rose-suite.conf``:
 
     * Update the ``BASE_UM_REV`` variable to the latest version of the UM
-      trunk.
-    * Update any other ``BASE_*_REV`` variables if those trunks have more
+      ``main``.
+    * Update any other ``BASE_*_REV`` variables if those ``main`` have more
       recent commits that the revision listed.
 
 * In ``rose-stem/site/meto/variables.rc``:

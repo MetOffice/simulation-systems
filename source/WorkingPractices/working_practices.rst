@@ -213,7 +213,7 @@ Consider the timing of your work:
 * Be aware of others doing work in similar areas
 * Be aware of code review deadlines
 * Be aware of closed releases or planned outages
-* Allow contingency time when agreeing broader project deadlines. Trunk
+* Allow contingency time when agreeing broader project deadlines. ``Main``
   integrity will not be compromised to meet your deadlines.
 
 Consider bringing planning together using an overarching ticket. It can be very

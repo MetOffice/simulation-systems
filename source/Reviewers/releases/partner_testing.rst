@@ -4,7 +4,7 @@ Partner Testing
 ===============
 
 This is intended to allow partners to determine if there are any undetected
-problems with the head of the UM trunk (and its dependencies) before the
+problems with the head of the UM ``main`` (and its dependencies) before the
 release process gets started in earnest.
 
 The partner testing period should be 72 hours (3 working days). All tickets

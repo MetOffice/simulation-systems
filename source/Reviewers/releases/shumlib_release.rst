@@ -15,7 +15,7 @@ Releasing Shumlib
 There's no hard rule on whether a shumlib release is required - it comes down
 to whether there have been any notable changes to shumlib since the last
 release. If there haven't, then a release isn't necessary. In this case, the
-shumlib trunk will get a ``umX.Y`` tag during the UM release but that is all.
+shumlib ``main`` will get a ``umX.Y`` tag during the UM release but that is all.
 
 If you are doing a release then do the following,
 

@@ -20,8 +20,8 @@ the ``dependencies.yaml`` file to point at your metadata branch.
     changes from the past release.
 
 
-Tagging Feeder Trunks
----------------------
+Tagging Feeder Repositories
+---------------------------
 
 * Add a ``umX.Y`` tag to each of the feeder repositories
 
@@ -32,7 +32,7 @@ Tagging Feeder Trunks
   * UKCA
 
 Send an email to all repository owners to let them know that the the head of
-the trunk has been tagged.
+the ``main`` has been tagged.
 
 .. note::
 
@@ -82,7 +82,7 @@ Checking Metadata and Rose Apps
       Running config-dump will move the location of these comments to the
       bottom of the that item's metadata. Check for any moved references
       to "issue 2107" (there should be 4 of them) and put them back in the
-      right places by hand, by referring to an unaltered copy of the trunk.
+      right places by hand, by referring to an unaltered copy of ``main``.
 
 * Check rose-stem meets the Rose standards: run ``rose config-dump -C
   rose-stem/app``. The version upgrade macro should have reformatted all the
@@ -143,7 +143,7 @@ Final Checks
 
 **UM AUX Changes**
 
-If there are changes to the AUX trunk in this release, then add a new tag to the
+If there are changes to the AUX ``main`` in this release, then add a new tag to the
 ``um_aux`` repository and then update the ``ref`` in the UM
 ``dependencies.yaml`` file - commit this to the branch.
 

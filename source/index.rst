@@ -17,7 +17,7 @@ to test those developments. There is guidance on making changes that span multip
 projects and how to progress your change through review.
 
 There are then notes for reviewers on how to tackle the different types of review
-and how to commit to the trunk.
+and how to merge to ``main``.
 
 
 
