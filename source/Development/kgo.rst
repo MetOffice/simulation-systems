@@ -13,8 +13,8 @@ may also be required to simply add a new job to the test suite or to port the
 rose stem suite to new HPC architecture.
 
 **LFRic** KGO checksums are stored in the repository. As such with LFRic
-PRs the expectation is that you, as the developer, will include updated
-KGO files as part of your branch.
+pull requests the expectation is that you, as the developer, will include 
+updated KGO files as part of your branch.
 
 **UM and JULES** KGO output files are stored outside of the repository. Access
 to this area is restricted to members of the Simulation Systems and Deployment
