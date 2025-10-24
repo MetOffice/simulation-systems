@@ -4,7 +4,7 @@ Adding to Rose Stem Suites
 .. tip::
 
     This page is for advice on adding new tasks to a rose-stem suite. For advice
-    on running the test suite following the move to github, please see
+    on running the test suite following the move to GitHub, please see
     :ref:`testing your change <testing>`.
 
 All new changes are strongly encouraged to come with an update to the rose stem

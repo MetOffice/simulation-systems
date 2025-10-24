@@ -54,7 +54,9 @@ Within the file a blank upgrade macro will typically look like this:
 
 Note: The BEFORE_TAG should match the AFTER_TAG of the previous macro in the
 chain. So if this is not the first macro since the release then the BEFORE_TAG
-will be the version number with an added ticket number as well. For example:
+will be the version number with an added ticket number as well. For github
+developments, the ticket number can be either an Issue or PR number. For
+example:
 
 .. code-block:: python
 
@@ -165,7 +167,7 @@ To add upgrade macros to LFRic the following steps can be followed:
    in the same ``rose-meta`` directory as the metadata being changed.
 
 3. Run the Upgrade Macro script in a test branch(see :ref:`testing`). This is
-   located in the `SimSys_Scripts github repo
+   located in the `SimSys_Scripts GitHub repo
    <https://github.com/MetOffice/SimSys_Scripts>`__ (at the MetOffice an up to
    date clone is available in $UMDIR/SimSys_Scripts). The syntax for running is:
 
@@ -188,5 +190,6 @@ file in the Apps source if not provided.
 
 The ``vnXX.Y_tTTTT`` option must match the After Tag of your upgrade macro.
 When setting this, the version is the last released version of LFRic Apps. If
-it's a linked Apps-Core ticket, then set the ticket number as the one where
-the most metadata changes are being made.
+it's a linked Apps-Core PR, then set the ticket number based on the Apps
+Issue or PR. This avoids potential ticket number clashes between the
+repositories.

@@ -15,7 +15,7 @@ Releasing Mule
 .. tip::
 
     See `PR#2 <https://github.com/MetOffice/mule/pull/2>`__ for an example mule
-    release ticket.
+    release PR.
 
 There's no hard rule on whether a mule release is required - it comes down to
 whether there have been any notable changes to mule since the last release. If
@@ -45,7 +45,7 @@ you are doing a release then do the following,
 .. note::
 
     Check that the mule and um_utils docs have built and deployed correctly to
-    github pages.
+    GitHub pages.
 
 Installing Mule
 ---------------
@@ -76,7 +76,7 @@ To install at the Met Office
 * Login as umadmin
 * Move to or create ``$UMDIR/mule/mule-YYYY.MM.V``
 * Get a clone of the mule repo. Use the https source for this as the shared
-  account doesn't have ssh access to github.
+  account doesn't have ssh access to GitHub.
 * Run the install script without any modules loaded (this will install for the
   system python), ``./mule/admin/meto_install_mule.sh``
 * For all desired scitools modules, load the module and then rerun the install

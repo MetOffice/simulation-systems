@@ -127,11 +127,11 @@ Release Notes
 
     Jules Release Documentation
 
-These are done with a PR in `this github repo
+These are done with a PR in `this GitHub repo
 <https://github.com/jules-lsm/jules-lsm.github.io>`__
 
 Often the release notes will have been prepared beforehand and have their own
-ticket. In this case it makes more sense for you to review and commit that
+PR. In this case it makes more sense for you to review and commit that
 branch. See below for the relevant steps and the how to commit page for
 instructions.
 
@@ -140,9 +140,9 @@ detail any major commits.
 
 #. Create a new file at ``user_guide/doc/source/release_notes/JULESX-X.rst``,
    probably by copying from a previous release
-#. Go through the trunk commits since the last release and decide whether the
+#. Go through the ``main`` commits since the last release and decide whether the
    change is worth noting
-#. Use the ticket details to describe the change
+#. Use the PR details to describe the change
 #. For some large commits, it is worth contacting the original author for a few
    sentences
 #. Add the new file to the contents, at the top -
@@ -173,7 +173,7 @@ Update the wiki:
 * Create a new standard jobs page for the upcoming release cycle - compare the
   list of apps in the table to that in the rose-stem/apps directory.
 * Mark the wiki milestone for the release as completed (this should give the
-  option to move open tickets to a different milestone)
+  option to move open PRs to a different milestone)
 
 Notify the JULES community:
 

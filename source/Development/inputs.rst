@@ -42,8 +42,8 @@ The project metadata can be found in the following locations:
         ``<branch_name>/<sub-module>/rose-meta/*/HEAD/rose-meta.conf``
 
 In addition to the above locations, the rose metadata is centrally mirrored on
-Met Office systems. This means that metadata that has been committed to the
-trunk can be accessed without a clone. This may be of use when upgrading
+Met Office systems. This means that metadata that has been committed to
+``main`` can be accessed without a clone. This may be of use when upgrading
 scientific suites between versions.
 
 All new namelist variables need a new entry so that the metadata loads into the
@@ -102,9 +102,9 @@ whether an upgrade macro is necessary.
     cd rose-meta
     rose edit -C ../rose-stem/app/APP-NAME --no-warn version
 
-  If you have a linked LFRic Core or Jules ticket with metadata changes, you
-  can load their metadata by adding ``-M /path/to/working_copy/rose-meta`` to
-  the ``rose-edit`` command.
+  If you have a linked LFRic Core or Jules development with metadata changes,
+  you can load their metadata by adding
+  ``-M /path/to/working_copy/rose-meta`` to the ``rose-edit`` command.
 
 
 Adding a new LFRic Metadata Section
@@ -123,14 +123,14 @@ Adding a new metadata section requires:
   (see existing ones for examples)
 
 The ``vnX.Y`` and ``HEAD`` metadata should be identical for this initial
-ticket, other than any import statements, which should point at vnX.Y or HEAD
+change, other than any import statements, which should point at vnX.Y or HEAD
 respectively. Other ``vnX.Y`` and ``versionAB_CD.py`` files shouldn't be
 modified or added (these are a snapshot of the metadata at a release).
 
 If a new rose-stem app using the new metadata is also being added, then
 a "blank" upgrade macro will also need to be added with a ``BEFORE_TAG=vnX.Y``
 and a standard ``AFTER_TAG=vnX.Y_tTTTT``. This upgrade macro will allow the
-new app to be updated to the Head metadata when the branch is merged to trunk.
+new app to be updated to the Head metadata when the branch is merged to ``main``.
 The ``rose-app.conf`` for this app will require a metadata import line of
 format, ``meta=META-NAME/vnX.Y``.
 

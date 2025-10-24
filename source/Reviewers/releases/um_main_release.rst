@@ -20,8 +20,8 @@ the ``dependencies.yaml`` file to point at your metadata branch.
     changes from the past release.
 
 
-Tagging Feeder Trunks
----------------------
+Tagging Feeder Repositories
+---------------------------
 
 * Add a ``umX.Y`` tag to each of the feeder repositories
 
@@ -32,7 +32,7 @@ Tagging Feeder Trunks
   * UKCA
 
 Send an email to all repository owners to let them know that the the head of
-the trunk has been tagged.
+the ``main`` has been tagged.
 
 .. note::
 
@@ -82,7 +82,7 @@ Checking Metadata and Rose Apps
       Running config-dump will move the location of these comments to the
       bottom of the that item's metadata. Check for any moved references
       to "issue 2107" (there should be 4 of them) and put them back in the
-      right places by hand, by referring to an unaltered copy of the trunk.
+      right places by hand, by referring to an unaltered copy of ``main``.
 
 * Check rose-stem meets the Rose standards: run ``rose config-dump -C
   rose-stem/app``. The version upgrade macro should have reformatted all the
@@ -143,7 +143,7 @@ Final Checks
 
 **UM AUX Changes**
 
-If there are changes to the AUX trunk in this release, then add a new tag to the
+If there are changes to the AUX ``main`` in this release, then add a new tag to the
 ``um_aux`` repository and then update the ``ref`` in the UM
 ``dependencies.yaml`` file - commit this to the branch.
 
@@ -254,7 +254,7 @@ navigate to ``$UMDIR/SimSys_Scripts/kgo_updates`` directory and run
 * You will need to supply the username and suitename of the suite you ran
   above. This will need to include the ``runX`` directory.
 * The version number should be the new version.
-* The ticket number won't be used but can be entered as the ticket associated
+* The PR number won't be used but can be entered as the PR associated
   with the release.
 * When asked how the new kgo directory should be named overwrite the default
   with the name ``vnX.Y`` where this is the new version number.
@@ -285,7 +285,7 @@ rose-stem/site/meto/variables*``
     Has the ability to reload the test suite been enabled yet? If so ``cylc
     vr`` can likely be used to restart the original suite.
 
-    This is likely the case after moving to github - try and update these WPs if
+    This is likely the case after moving to GitHub - try and update these WPs if
     so.
 
 The test suite should now be rerun to confirm the kgo has been installed
@@ -367,7 +367,7 @@ First, log into Monsoon as ``umadmin.mon`` and then clone the ``um`` repo.
 
 .. note::
 
-    At time of writing, the solution for extracting from github on Monsoon has
+    At time of writing, the solution for extracting from GitHub on Monsoon has
     not been announced.
 
 Next, symlink the input data as was done for other platforms,

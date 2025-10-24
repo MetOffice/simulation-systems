@@ -4,7 +4,7 @@ Beginning a Github Development
 ==============================
 
 This section will guide you through the development process assuming you are
-already authorised with github (:ref:`gh_authorisation`) and have already
+already authorised with GitHub (:ref:`gh_authorisation`) and have already
 created a fork (:ref:`forking`).
 
 .. _create_issue:
@@ -12,7 +12,7 @@ created a fork (:ref:`forking`).
 Create an Issue
 ---------------
 
-An issue in github can be used to document a new feature, bug, or other problem
+An issue in GitHub can be used to document a new feature, bug, or other problem
 in the codebase. There are issue templates provided to help capture all the
 relevant information in each case.
 
@@ -121,7 +121,7 @@ general development, you should now get a clone of your fork.
         where ``CLONE_NAME`` is the desired directory name of the clone. It
         will default to the name of the repository.
 
-        The ``URL`` can be found from github,
+        The ``URL`` can be found from GitHub,
 
         .. image:: images/gh_screenshots/clone_button_light.png
             :class: only-light border
@@ -140,7 +140,7 @@ Create a Branch
 Branches for developing Simulation Systems repositories should generally be
 branched from ``stable`` where this exists (some smaller repositories only
 contain a ``main`` branch). Creating a branch from ``main`` may be acceptable
-if the development is continuing on from a ticket already committed at that
+if the development is continuing on from a PR already committed at that
 release.
 
 To create a branch and switch to it from the command line, the syntax is,
@@ -149,7 +149,7 @@ To create a branch and switch to it from the command line, the syntax is,
 
     .. tab-item:: Web Browser
 
-        Navigate to the github repository where you would like to create a
+        Navigate to the GitHub repository where you would like to create a
         branch. You will need ``write`` permission for that repository in
         order to create the branch.
 

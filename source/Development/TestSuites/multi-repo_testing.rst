@@ -4,11 +4,10 @@ Multi-Repository Testing
 ========================
 
 Multi-repository changes are expected to pass the regression tests for all the
-repositories involved. To carry out the tests involved in a linked ticket it
-can be helpful to refer to the :ref:`repository figure <multirepo>`; testing
-both child and parent repositories as needed. Further details of how testing
-in each repository is handled can be found on the :ref:`Testing
-page<testing>`.
+repositories involved. To carry out the tests involved in a linked pull request
+it can be helpful to refer to the :ref:`repository figure <multirepo>`; testing
+both child and parent repositories as needed. Further details of how testing in
+each repository is handled can be found on the :ref:`Testing page<testing>`.
 
 All Simulation Systems repositories containing a test suite will also contain a
 ``dependencies.yaml`` file in the top directory of the repository. This file
@@ -21,8 +20,8 @@ lfric_core as an example):
         source: git@github.com:MetOffice/lfric_core.git
         ref: <Long Hash / Tag>
 
-The ``source`` setting sets the location of the repository on github. By
-default, the test suite will access github repositories by using ssh, as shown
+The ``source`` setting sets the location of the repository on GitHub. By
+default, the test suite will access GitHub repositories by using ssh, as shown
 by the ``git@github.com`` part of the source. This line can be modified to point
 at users fork of the repository instead, eg.
 ``source: git@github.com:UserName/lfric_core.git``. The ``source`` can also be a
@@ -36,7 +35,7 @@ commit hash as part of linked pull requests.
 
 If left blank the behaviour depends on the source:
 
-* **a github source:** the Head of the repositories default branch will be used.
+* **a GitHub source:** the Head of the repositories default branch will be used.
 * **a local clone:** the state of the repository at source extraction time will be used.
   It is recommened to set a ref when setting the source to a local clone.  That way
   if you switch branches in the clone, the correct branch for testing will be used.

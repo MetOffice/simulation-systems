@@ -23,8 +23,7 @@ Developer
 Developers, in general, build on the User role:
 
 * Write and edit source code
-* Follow the Working Practices, even if their work is not intended for the
-  trunk.
+* Follow the Working Practices, even if their work is not intended for ``main``.
 * Manage their work to allow reasonable time for approvals and reviews.
 
 Notably, the Working Practices encourage and require engagement with other
@@ -79,10 +78,10 @@ of model evolution.
 Sci/Tech Reviewer
 -----------------
 
-A Sci/Tech reviewer is assigned for every ticket and comprises the first stage
-of review that considers the change as a whole. Further details are found in
-the :ref:`Scitech Reviewers Guide<scitech_review>`. In some cases, the reviewer
-can delegate parts of the work to another person.
+A Sci/Tech reviewer is assigned for every pull request and comprises the first
+stage of review that considers the change as a whole. Further details are found
+in the :ref:`Scitech Reviewers Guide<scitech_review>`. In some cases, the
+reviewer can delegate parts of the work to another person.
 
 Reviews should be turned around on a reasonable timescale and follow the
 SciTech review guidance.
@@ -96,8 +95,9 @@ most relevant code owner.
 Code Reviewer
 -------------
 
-The Code Reviewer performs the 2nd stage of review for every ticket. Further
-details are described in the :ref:`Code Reviewers Guide<code_review>`.
+The Code Reviewer performs the 2nd stage of review for every pull
+request. Further details are described in the :ref:`Code Reviewers
+Guide<code_review>`.
 
 Reviews should be turned around on a reasonable timescale and follow the Code
 Review guidance.

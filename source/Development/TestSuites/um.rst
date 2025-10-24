@@ -56,7 +56,7 @@ groups, and that you can specify more than one at once, e.g.
 | all                | The complete test suite, including all longer runs and   |
 |                    | less commonly used utilites. This is run automatically   |
 |                    | every week and monitored by the SSD team. All            |
-|                    | :ref:`KGO <kgo>` changing tickets need to run this group.|
+|                    | :ref:`KGO <kgo>` changing PRs need to run this group.    |
 +--------------------+----------------------------------------------------------+
 +--------------------+----------------------------------------------------------+
 | rigorous_compile   | A build-only group that will sense-check the code for a  |

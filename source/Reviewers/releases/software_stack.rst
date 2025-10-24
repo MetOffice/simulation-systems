@@ -7,7 +7,7 @@ Scientific Software Stack Update
   ``rose-stem/site/meto/variables.cylc`` file and in ``admin/search_stash.sh``
 * Decide whether this needs updating - using the latest production scitools
   environment is recommended.
-* If you decide to update then complete with an associated ticket.
+* If you decide to update then complete with an associated PR.
 
 .. note::
 

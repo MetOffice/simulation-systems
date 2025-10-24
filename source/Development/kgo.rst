@@ -13,8 +13,8 @@ may also be required to simply add a new job to the test suite or to port the
 rose stem suite to new HPC architecture.
 
 **LFRic** KGO checksums are stored in the repository. As such with LFRic
-tickets the expectation is that you, as the developer, will include updated
-KGO files as part of your branch.
+pull requests the expectation is that you, as the developer, will include
+updated KGO files as part of your branch.
 
 **UM and JULES** KGO output files are stored outside of the repository. Access
 to this area is restricted to members of the Simulation Systems and Deployment
@@ -25,16 +25,16 @@ the commit process.
 KGO Update Process
 ------------------
 
-Getting the process right for KGO changing tickets significantly helps get such
-changes onto the trunk. When preparing your change for review:
+Getting the process right for KGO changing pull requests significantly helps get
+such changes onto ``main``. When preparing your change for review:
 
 1. Run the ``all`` rose-stem group in order to make sure that all
    changes to answers have been found.
 
    * Include the :ref:`trac.log <traclog>` output from this testing in your
-     ticket summary.
+     pull request summary.
 
-2. Add the ``kgo`` keyword to your ticket.
+2. Add the ``kgo`` label to your pull request.
 
 .. tab-set::
 
@@ -69,10 +69,10 @@ changes onto the trunk. When preparing your change for review:
 
 
         Once all the above is in place and the science and code reviews have
-        been completed then the Code Reviewer will merge your change to the
-        head of trunk. If there are merge conflicts in the checksum files then
+        been completed then the Code Reviewer will merge head of ``main`` onto
+        your branch. If there are merge conflicts in the checksum files then
         the reviewer will repeat step 3 to refresh these files. Your change is
-        then committed to trunk.
+        then merged and committed to ``main``.
 
     .. tab-item:: UM & JULES
 
@@ -85,10 +85,10 @@ changes onto the trunk. When preparing your change for review:
            details of this process.
 
         Once all of the above is in place and the science and code reviews have
-        been completed the Code Reviewer will merge the branch to the head of
-        trunk, run the tests that have changed answers and use those results
-        to install KGO files to the filesystem. Your change is then committed
-        to trunk.
+        been completed the Code Reviewer will merge head of ``main`` onto
+        your branch, run the tests that have changed answers and use those
+        results to install KGO files to the filesystem. Your branch is then
+        merged and committed to ``main``.
 
 .. tip::
 

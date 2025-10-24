@@ -166,7 +166,7 @@ previous section except for the group which should now be ``ex1a``.
 
 .. note::
 
-    At the time of writing, the solution for extracting from github on monsoon
+    At the time of writing, the solution for extracting from GitHub on monsoon
     is unknown
 
 

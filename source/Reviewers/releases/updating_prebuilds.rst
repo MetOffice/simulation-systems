@@ -1,7 +1,7 @@
 .. _updating_prebuilds:
 
 **This page is left in case prebuilds become required again, but at the move to
-github, prebuilds are no longer functional, so these instructions are no longer
+GitHub, prebuilds are no longer functional, so these instructions are no longer
 required**
 
 Mid-Release Prebuilds
@@ -20,8 +20,8 @@ To update prebuilds:
 * In ``rose-stem/rose-suite.conf``:
 
     * Update the ``BASE_UM_REV`` variable to the latest version of the UM
-      trunk.
-    * Update any other ``BASE_*_REV`` variables if those trunks have more
+      ``main``.
+    * Update any other ``BASE_*_REV`` variables if those ``main`` have more
       recent commits that the revision listed.
 
 * In ``rose-stem/site/meto/variables.cylc``:
