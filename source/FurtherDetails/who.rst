@@ -79,10 +79,10 @@ of model evolution.
 Sci/Tech Reviewer
 -----------------
 
-A Sci/Tech reviewer is assigned for every PR and comprises the first stage
-of review that considers the change as a whole. Further details are found in
-the :ref:`Scitech Reviewers Guide<scitech_review>`. In some cases, the reviewer
-can delegate parts of the work to another person.
+A Sci/Tech reviewer is assigned for every pull request and comprises the first 
+stage of review that considers the change as a whole. Further details are found 
+in the :ref:`Scitech Reviewers Guide<scitech_review>`. In some cases, the 
+reviewer can delegate parts of the work to another person.
 
 Reviews should be turned around on a reasonable timescale and follow the
 SciTech review guidance.
