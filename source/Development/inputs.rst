@@ -102,9 +102,9 @@ whether an upgrade macro is necessary.
     cd rose-meta
     rose edit -C ../rose-stem/app/APP-NAME --no-warn version
 
-  If you have a linked LFRic Core or Jules PR with metadata changes, you
-  can load their metadata by adding ``-M /path/to/working_copy/rose-meta`` to
-  the ``rose-edit`` command.
+  If you have a linked LFRic Core or Jules development with metadata changes, 
+  you can load their metadata by adding 
+  ``-M /path/to/working_copy/rose-meta`` to the ``rose-edit`` command.
 
 
 Adding a new LFRic Metadata Section
