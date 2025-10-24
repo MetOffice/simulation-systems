@@ -34,7 +34,7 @@ next release.
 
 
 When Main is Broken
-------------------------
+-------------------
 
 Occasionally, the overnight testing will fail. If the issue can't be
 immediately solved, the ``main`` of affected projects will be closed to new
