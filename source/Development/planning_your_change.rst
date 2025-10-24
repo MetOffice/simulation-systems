@@ -98,7 +98,7 @@ upgrade macro to include the switch into the upgraded configuration.
 vital to make sure your code changes work when switched **on** and give the
 same answer when the code is run over different processor configurations.
 Producing a quick plot or plots to show the impact of your code and including
-them on your PR can aid your SciTech reviewer in showing that your code
+them on your pull request can aid your SciTech reviewer in showing that your code
 works properly.
 
 **Does the change need any new diagnostics to make sense of the code?** Many
