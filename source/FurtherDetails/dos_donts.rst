@@ -10,7 +10,7 @@ Please Do
 mitigate problems early on. This is the most common root cause of problems,
 sometimes years later.
 
-**Plan** your work aimed at the``main`` across single or multiple tickets:
+**Plan** your work aimed at the ``main`` across single or multiple tickets:
     * Ensure tickets are not too big or small.
     * Coherent parts of the overall change are contained in a single ticket
     * Consider using an overarching ticket to link everything together

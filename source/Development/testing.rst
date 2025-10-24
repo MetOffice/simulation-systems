@@ -71,7 +71,7 @@ for you to choose from:
 Rose-stem:
     Every repository has a rose-stem test suite that provides integration and
     regression testing - and in some cases unit tests as well. Committing
-    changes to the``main`` of each repository is dependant on these tests
+    changes to the ``main`` of each repository is dependant on these tests
     passing; they are there to ensure the integrity of the codebase.
 
 Standard suites:
@@ -107,10 +107,10 @@ Test branches & Upgrade Macros
     distinguish between 2 branches.
 
 There are a few cases where testing your change will require you to make changes
-to your branch that don't want committing to``main``. To do this you can create a
-test branch. This is a branch-of-branch from your development branch and allows
-you to make those changes in an isolated environment while leaving your original
-development clean.
+to your branch that don't want committing to ``main``. To do this you can create
+a test branch. This is a branch-of-branch from your development branch and
+allows you to make those changes in an isolated environment while leaving your
+original development clean.
 
 To create a test branch:
 
