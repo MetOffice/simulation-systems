@@ -15,7 +15,7 @@ sometimes years later.
     * Each pull request should contain a single coherent change.
     * Consider using an overarching issue to link everything together
 
-**Document your work** using Issues and PRs pages, :ref:`formal documentation
+**Document your work** using Issues and pull requests, :ref:`formal documentation
 <docs>` and code comments. These help others and your future-self understand
 your work.
 
