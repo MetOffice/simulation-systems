@@ -77,7 +77,7 @@ approvals to take place.
 
 **Is the code you need to alter on a single repository or is it spread over
 multiple repositories?** If it's over multiple repositories you need to use
-linked PRs. See :ref:`multirepo` for further details.
+linked pull requests. See :ref:`multirepo` for further details.
 
 **Does similar code functionality already exist in the model?** It's a good
 idea **not** to re-invent the wheel or have code duplication! Speaking to code
