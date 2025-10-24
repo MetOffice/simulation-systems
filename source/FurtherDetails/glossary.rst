@@ -14,9 +14,9 @@ Code Review Deadline:
     moved into code review.
 
 CodeSys Review:
-    A technical review of the changes involved in the PR, including checks
-    that code standards have been upheld and that the working practices have
-    been followed. These reviews are generally completed by a member of the
+    A technical review of the changes involved in the pull request, including
+    checks that code standards have been upheld and that the working practices
+    have been followed. These reviews are generally completed by a member of the
     Simulation IT Team. Once a review has been approved the Code Systems
     Reviewer is then responsible for committing the change to the trunk.
 
@@ -37,13 +37,14 @@ Head of Trunk:
     since the last revision.
 
 Linked Pull Request (Linked PR):
-    Work that spans two or more repositories, requiring pull requests that 
+    Work that spans two or more repositories, requiring pull requests that
     should be treated together and committed as a group.
 
 Overarching Issue:
     Where a piece of work has been split into multiple sections an overarching
     issue can be used to track this work. It should be closed when the whole arc
-    has been completed.
+    has been completed. GitHub also allows subissues which can be created from
+    the overarching issue.
 
 Regression:
     A set of tests that prove that a set of code changes have not degraded the

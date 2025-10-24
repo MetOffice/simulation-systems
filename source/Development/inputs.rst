@@ -102,8 +102,8 @@ whether an upgrade macro is necessary.
     cd rose-meta
     rose edit -C ../rose-stem/app/APP-NAME --no-warn version
 
-  If you have a linked LFRic Core or Jules development with metadata changes, 
-  you can load their metadata by adding 
+  If you have a linked LFRic Core or Jules development with metadata changes,
+  you can load their metadata by adding
   ``-M /path/to/working_copy/rose-meta`` to the ``rose-edit`` command.
 
 
@@ -123,7 +123,7 @@ Adding a new metadata section requires:
   (see existing ones for examples)
 
 The ``vnX.Y`` and ``HEAD`` metadata should be identical for this initial
-PR, other than any import statements, which should point at vnX.Y or HEAD
+change, other than any import statements, which should point at vnX.Y or HEAD
 respectively. Other ``vnX.Y`` and ``versionAB_CD.py`` files shouldn't be
 modified or added (these are a snapshot of the metadata at a release).
 

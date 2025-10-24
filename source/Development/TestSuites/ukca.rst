@@ -2,7 +2,7 @@ Testing UKCA
 ============
 
 Changes in UKCA that touch `src/science` or `src/control/core` must be tested
-with both the UM and LFRic by following the :ref:`linked pull requests 
+with both the UM and LFRic by following the :ref:`linked pull requests
 guidance <multirepo>`.
 
 For further guidance on testing and working with UKCA, including standard

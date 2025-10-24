@@ -64,7 +64,7 @@ aware of these.
 
 **Who will SciTech review the change?** This is a useful consideration as not
 everyone who uses the repository has the knowledge or experience to review
-every PR that is being developed. Get in touch with your SciTech reviewer
+every change that is being developed. Get in touch with your SciTech reviewer
 early in the process as they will have valuable insights that can help to shape
 your change.
 
