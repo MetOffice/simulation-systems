@@ -100,7 +100,7 @@ To update the test suite for an upgrade macro, please run:
         .. code-block:: shell
 
             ./admin/rose-stem/update_all.py \
-                --path=/path/to/clone/of/main \
+                --path=/path/to/um/clone \
                 --um=vnXX.Y_tZZZZ \
                 [--jules-path=/path/to/clone/of/jules/main]
 
