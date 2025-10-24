@@ -36,7 +36,7 @@ Head of Trunk:
     when the work being done *has* to be built on top of changes already made
     since the last revision.
 
-Linked PR:
+Linked Pull Request (Linked PR):
     Work that spans two or more repositories, requiring PRs that should be
     treated together and committed as a group.
 
