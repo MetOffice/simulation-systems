@@ -102,7 +102,7 @@ To update the test suite for an upgrade macro, please run:
             ./admin/rose-stem/update_all.py \
                 --path=/path/to/um/clone \
                 --um=vnXX.Y_tZZZZ \
-                [--jules-path=/path/to/clone/of/jules/main]
+                [--jules-path=/path/to/jules/clone]
 
         where ``-\-um=vnXX.Y_tZZZZ`` is the ``AFTER_TAG`` of the latest
         upgrade macro.
