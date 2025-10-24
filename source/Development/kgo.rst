@@ -34,7 +34,7 @@ changes onto the trunk. When preparing your change for review:
    * Include the :ref:`trac.log <traclog>` output from this testing in your
      pull request summary.
 
-2. Add the ``kgo`` label to your PR.
+2. Add the ``kgo`` label to your pull request.
 
 .. tab-set::
 
