@@ -73,11 +73,11 @@ to update the source being used.
     repository but not another which will cause tests to fail.
 
     The developer will likely have used branches taken from the last releases
-    which are a known set of stable revisions which work together.
+    which are a known set of stable commits which work together.
 
     Make sure the testing done here (just prior to commit) is using the latest
     head of all the trunks. Assuming nightly tests are passing then this is
-    also a known set of revisions that work together.
+    also a known set of commits that work together.
 
 .. tip::
 

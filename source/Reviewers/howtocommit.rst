@@ -417,9 +417,8 @@ KGO differently*
             * If a file hasn't changed you can optionally symlink forwards from
               the previous version (i.e. move the old file to the new KGO
               directory and replace it with a sym-link to the updated version)
-              But do not do this if the old version was a major release
-              revision(vnX.X), this is to allow intermediate revisions to be
-              deleted later.
+              But do not do this if the old version was a major release (vnX.X),
+              this is to allow intermediate kgo installs to be deleted later.
             * Remember to RSync and update the bitcomparison table(see above).
 
     .. tab-item:: JULES

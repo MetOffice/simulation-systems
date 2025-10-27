@@ -56,7 +56,7 @@ LFRic Release
   * Add a ``version_ab_xy.py`` upgrade file - a copy of the versions.py file
   * Reset the ``versions.py`` file with no upgrade macros
 
-* Tag other repositories and update dependencies.sh:
+* Tag other repositories and update dependencies.yaml:
 
   * Add an ``appsX.Y`` tag to each of the feeder repositories
 

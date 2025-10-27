@@ -34,7 +34,7 @@ Known Good Output (KGO):
 Head of ``Main``:
     The most recent commit hash on ``main``. Branches are taken from here
     when the work being done *has* to be built on top of changes already made
-    since the last revision.
+    since the last release.
 
 Linked Pull Request (Linked PR):
     Work that spans two or more repositories, requiring pull requests that
@@ -66,7 +66,7 @@ Simulation Systems Governance Group:
     Deployment Team.
 
 Version:
-    Each release of the codebase is completed by tagging the latest revision of
-    ``stable`` with a version number. This version should be used for creating
-    code branches from and will also be used by the parallel suite teams as a
+    Each release of the codebase is completed by tagging the ``stable`` branch
+    with a version number. This version should be used for creating code
+    branches from and will also be used by the parallel suite teams as a
     starting point for creating the next operational suite.

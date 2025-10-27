@@ -160,7 +160,7 @@ If there are changes to the AUX ``main`` in this release, then add a new tag to 
     shouldn't (the correct thing to do is to reference
     ``$UM_INSTALL_DIR``).
 
-* ``grep`` for any instances of the old version keyword(s). Fix as required and
+* ``grep`` for any instances of the old version number. Fix as required and
   add any corrections to the instructions on this page too.
 
 Commit any changes resulting from these final checks.
@@ -276,7 +276,7 @@ navigate to ``$UMDIR/SimSys_Scripts/kgo_updates`` directory and run
     command can be launched manually from the command line. Ask the team if
     for help if required.
 
-Once you believe you have installed the KGO you should fcm revert the changes
+Once you believe you have installed the KGO you should revert the changes
 you made to the variables*.cylc files to reset the KGO variables, ``git restore
 rose-stem/site/meto/variables*``
 
