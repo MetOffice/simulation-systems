@@ -110,16 +110,9 @@ will include areas such as:
     Generally this is about making sure the code complies with the relevant
     style guides, and is consistent with the design of the code it sits in.
 
-    * `UMDP3 (UM and JULES FORTRAN)
-      <https://code.metoffice.gov.uk/doc/um/latest/umdp.html#003>`__,
+    * :ref:`UMDP3 (UM and JULES FORTRAN) <umdp3>`
     * `LFRic Coding Styles
-      <https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicTechnical/CodingStandards>`__
-    * `PEP 8 (Python) <https://legacy.python.org/dev/peps/pep-0008/>`__
-
-    `This page
-    <https://code.metoffice.gov.uk/trac/um/wiki/CodeReviewCribSheet>`__
-    provides some common (though UM-centric) things to confirm and think
-    about. It is not an exhaustive list, just a starting point.
+      <https://metoffice.github.io/lfric_core/how_to_contribute/coding_standards/fortran_coding_standards.html>`__
 
 Final decision points and actions
 ---------------------------------

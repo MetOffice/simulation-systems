@@ -116,9 +116,8 @@ To update the test suite for an upgrade macro, please run:
         .. note::
 
             The ``-\-jules-path`` option is only required if there are
-            linked `jules-shared
-            <https://code.metoffice.gov.uk/trac/jules/browser/main/trunk/rose-meta/jules-shared>`__
-            metadata changes.
+            linked changes to the ``rose-meta/jules-shared`` directory in the
+            Jules repository.
 
     .. tab-item:: JULES
 
@@ -187,10 +186,10 @@ To update the test suite for an upgrade macro, please run:
         this by checking out an appropriate working copy, and exporting the
         environment variable ``ROSE_META_PATH=/path/to/core``.
 
-        For UM PRs, if there are linked `jules-shared
-        <https://code.metoffice.gov.uk/trac/jules/browser/main/trunk/rose-meta/jules-shared>`__
-        metadata changes then a suitable Jules source will need to be included
-        in the `ROSE_META_PATH` as described above.
+        For UM PRs, if there are linked changes to the
+        ``rose-meta/jules-shared`` directory in the Jules repository, then a
+        suitable Jules source will need to be included in the `ROSE_META_PATH`
+        as described above.
 
 
 .. dropdown:: Temporary Logical?
@@ -434,7 +433,7 @@ KGO differently*
         #. Copy the new KGO to the correct locations:
 
             `JULES KGO commands
-            <https://code.metoffice.gov.uk/trac/jules/wiki/KGOInstall>`__
+            <https://github.com/MetOffice/git_playground/wiki/Jules-KGO-Instructions>`__
 
         #. Rerun the rose-stem tests to make sure nothing is broken.
 
