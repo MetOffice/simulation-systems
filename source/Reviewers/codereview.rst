@@ -38,6 +38,7 @@ will include areas such as:
 .. dropdown:: Is the pull request and testing complete?
 
   * The Pull Request Template should be filled in. This includes:
+
     * Proof of :ref:`testing <testing>` completed. All tests should pass
       with the exception of any known changes in answers.
     * Approvals from the code owners for every file changed.
@@ -45,6 +46,7 @@ will include areas such as:
       affected configurations.
     * If the change modifies OMP code sections then approval from the
       optimisation team.
+
   * It should be possible to understand the purpose of the pull request from
     the details provided.
 
