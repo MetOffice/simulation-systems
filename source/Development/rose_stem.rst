@@ -78,7 +78,7 @@ manually configured, such as JULES.
 
             .. note::
 
-                LFRic Apps has a `detailed set of wiki pages
+                LFRic Apps has a `detailed set of pages
                 <https://metoffice.github.io/lfric_apps/developer_guide/lfric_apps_rose_stem/index.html>`__
                 that document the structure and options available for their
                 suite.
