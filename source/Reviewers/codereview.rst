@@ -99,8 +99,8 @@ will include areas such as:
     .. tip::
 
         All linked pull requests are reviewed as a group. Each pull request in
-        the group should contain links to all the others and the correct
-        keywords applied to make it easier to keep track of them all.
+        the group should contain links to all the others and labels applied to
+        make it easier to keep track of them all.
 
         Care is needed when :ref:`committing these pull requests
         <committinglinkedtickets>`.

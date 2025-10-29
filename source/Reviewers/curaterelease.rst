@@ -155,8 +155,8 @@ Post Release Tasks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
-Most of this can be done pre-release but some details of revision numbers will
-be dependent on the main release being done.
+Most of this can be done pre-release but some details of commit hashes will be
+dependent on the main release being done.
 
 
 :ref:`Updating Standard Suites <standard_suites>`

@@ -43,7 +43,7 @@ Do:
     * Make sure every PR has a cross reference to the others in the set. A
       section will exist in the PR template for this. Use the format
       ``MetOffice/um#1234``
-    * Use keywords to show which other repositories are involved
+    * Use labels to show which other repositories are involved
     * Get the PRs ready for review at the same time
     * Ask for help testing if you don't have access to all the codebases
       involved
@@ -51,11 +51,10 @@ Do:
 .. important::
 
     Code branches in linked PRs will require branching from compatible
-    revisions to ensure they work together.
+    commit hashes to ensure they work together.
 
-    If working with branches from a release then all repositories will  be
-    tagged with suitable keywords, e.g. um13.0 to work with UM vn13.0, or apps2.
-    0 to work with LFRic Apps vn2.0.
+    It is recommended to work with branches created from a specific release.
+    These are guaranteed to work together.
 
     For head of ``main`` branches make sure that all branches/hashes being
     used are at least as recent as the commits associated with the hash in the

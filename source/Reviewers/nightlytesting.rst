@@ -23,8 +23,7 @@ Rose-stem testing is controlled by a config file located at
 will be regularly launched. The following options are available when defining
 a suite:
 
-* ``repo``: Required, The fcm repo being run. This string should be match the
-  fcm repo name such that ``fcm:REPO.xm_tr`` is a valid url.
+* ``repo``: Required, The name of the git repo being run.
 
 * ``period``: Required, The period with which the job repeats. Options are:
 

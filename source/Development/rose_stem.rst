@@ -63,7 +63,7 @@ manually configured, such as JULES.
     .. tab-item:: Templated
 
         2. Task definitions
-            Task definitions should be added to the ``tasks.rc`` for all sites
+            Task definitions should be added to the ``tasks.cylc`` for all sites
             who will run this app.
 
             The tasks are defined in a dictionary format, with one entry per
@@ -88,15 +88,15 @@ manually configured, such as JULES.
 
         2. Task definitions
             Task definitions for the following tasks should be added to the
-            ``runtime.rc`` for all sites who will run this app.
+            ``runtime.cylc`` for all sites who will run this app.
 
             * run the app
             * perform a KGO comparison
             * perform housekeeping
 
         3. Graph definitions
-            Graph definitions should be added to the graph.rc for all sites who
-            will run this app. These should connect together your new tasks
+            Graph definitions should be added to the graph.cylc for all sites
+            who will run this app. These should connect together your new tasks
             created above with an appropriate build task.
 
 .. tip::
