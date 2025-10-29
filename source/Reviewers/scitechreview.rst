@@ -36,8 +36,9 @@ The Science / Technical reviewer should
 * Ensure that the code has no unwanted side-effects
 
 * Ensure that the code is written to the standards laid out in
-  :ref:`UMDP3 <umdp3>` or `LFRic Coding Styles
-  <https://metoffice.github.io/lfric_core/how_to_contribute/coding_standards/fortran_coding_standards.html>`__.
+  :ref:`Fortran Coding Standards <standards>` or `LFRic Coding Styles
+  <https://metoffice.github.io/lfric_core/how_to_contribute/coding_standards/fortran_coding_standards.html>`__
+  (which build on the first).
 
 * Make sure that the in-line documentation is accurate and sufficient.
 

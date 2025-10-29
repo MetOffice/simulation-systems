@@ -110,8 +110,8 @@ will include areas such as:
     Generally this is about making sure the code complies with the relevant
     style guides, and is consistent with the design of the code it sits in.
 
-    * :ref:`UMDP3 (UM and JULES FORTRAN) <umdp3>`
-    * `LFRic Coding Styles
+    * :ref:`Fortran Coding Styles <standards>`
+    * `LFRic Coding Styles (which build on the above)
       <https://metoffice.github.io/lfric_core/how_to_contribute/coding_standards/fortran_coding_standards.html>`__
 
 Final decision points and actions
