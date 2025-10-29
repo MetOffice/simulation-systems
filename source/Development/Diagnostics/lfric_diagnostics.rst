@@ -149,19 +149,19 @@ A field definition looks like this:
 
 The components of this definition are:
 
-   * The ``id`` string is used in the model code to identify the diagnostic.
-     The naming convention used by the LFRic atmosphere is the section name
-     followed by a double-understroke followed by a descriptive name.
-   * The name and long name are only seen in the diagnostic output. The names
-     may be formally assigned such as by the CF naming convention. In this
-     case, the name is the same as the suffix of the ID, but it is not always
-     so.
-   * The units should be SI units. Again, these are only seen in the diagnostic
-     output file.
-   * The ``grid_ref`` attribute of this definition describes the domain of the
-     field. The example field above is represented in the model as
-     a :math:`\mathbb{W}_{theta}` field. Other field types have different
-     attributes as shown in the following table.
+* The ``id`` string is used in the model code to identify the diagnostic.
+  The naming convention used by the LFRic atmosphere is the section name
+  followed by a double-understroke followed by a descriptive name.
+* The name and long name are only seen in the diagnostic output. The names
+  may be formally assigned such as by the CF naming convention. In this
+  case, the name is the same as the suffix of the ID, but it is not always
+  so.
+* The units should be SI units. Again, these are only seen in the diagnostic
+  output file.
+* The ``grid_ref`` attribute of this definition describes the domain of the
+  field. The example field above is represented in the model as
+  a :math:`\mathbb{W}_{theta}` field. Other field types have different
+  attributes as shown in the following table.
 
 +-----------------------------------+----------------------------------------+
 |  Model field type                 |  Domain attributes                     |

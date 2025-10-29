@@ -28,14 +28,14 @@ If you still require assistance, then contact the appropriate support team.
 Please respect the clear demarcations between the scope for different teams.
 
 Core Capability Development Team (formally LFRic Team):
-    * Support windows for LFRic releases TBC
+  * Support windows for LFRic releases TBC
 
 Simulation Systems and Deployment Team (formerly UM System Team and CRUM team)
 supports:
 
-    * UM, Shumlib and JULES versions released in the last 12 months,
-    * main version used in the Met Office Operational Suite.
-    * specific climate configurations .. todo - details of which configs
+  * UM, Shumlib and JULES versions released in the last 12 months,
+  * main version used in the Met Office Operational Suite.
+  * specific climate configurations .. todo - details of which configs
 
 
 Escalation

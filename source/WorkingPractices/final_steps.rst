@@ -41,10 +41,10 @@ immediately solved, the ``main`` of affected projects will be closed to new
 changes. The relevant teams will investigate and aim to resolve the issue and
 reopen the ``main`` as soon as possible. Two possible scenarios may occur:
 
-  #. For **simple or obvious fixes**, a trivial PR to fix ``main`` is preferred.
+#. For **simple or obvious fixes**, a trivial PR to fix ``main`` is preferred.
 
-  #. If the reason for the failure is complex or less obvious, the team will
-     revert the offending change off ``main`` .
+#. If the reason for the failure is complex or less obvious, the team will
+   revert the offending change off ``main`` .
 
 In both cases any further PRs should link back to the original.
 
