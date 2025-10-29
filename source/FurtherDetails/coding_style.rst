@@ -1,4 +1,4 @@
-.. _umdp3:
+.. _standards:
 
 ==================
 Software standards
