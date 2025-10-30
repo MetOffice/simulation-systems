@@ -21,7 +21,7 @@ UMDP Release
   * For the x-series documentation, you will at minimum need to check and
     update:
 
-    * ``source/X04/X4-fcm.tex`` Revision number and version number
+    * ``source/X04/X4-fcm.tex`` Commit hash and version number
     * ``source/X04/X4-prerequisites.tex`` rose and cylc versions (found in the
       release notes).
     * ``source/X04/X4.tex`` UM, gcom, shumlib and UKCA versions (found in the

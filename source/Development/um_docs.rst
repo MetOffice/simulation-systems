@@ -1,3 +1,5 @@
+.. _umdp:
+
 Unified Model Documentation Papers (UMDPs)
 ==========================================
 

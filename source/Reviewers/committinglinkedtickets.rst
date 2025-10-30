@@ -46,8 +46,8 @@ the key places where these overlap.
 Testing linked Pulls Requests
 -----------------------------
 
-With the branches from all the PRs merged into a working copy of their
-respective Head of ``main`` these can all be used together to test the change.
+To test the change, ensure that all branches are up to date with the main branch
+of each repository, and get clones of these branches.
 
 Details for testing multi-repository PRs are included on the
 :ref:`Working with Multiple Repositories page<multirepo>`.
@@ -73,21 +73,17 @@ to update the source being used.
     repository but not another which will cause tests to fail.
 
     The developer will likely have used branches taken from the last releases
-    which are a known set of stable revisions which work together.
+    which are a known set of stable commits which work together.
 
     Make sure the testing done here (just prior to commit) is using the latest
     head of all the trunks. Assuming nightly tests are passing then this is
-    also a known set of revisions that work together.
+    also a known set of commits that work together.
 
 .. tip::
 
     If some of the changes in this set of PRs have already been committed
     then see steps 2 and 4 below on how to include those changes in your
     testing. This is instead of the steps described above.
-
-    e.g. If JULES changes have been committed and the revision number modified
-    in rose-suite.conf then the working copy no longer needs supplying as a
-    `source` to the UM testing.
 
 .. _committinglinked:
 

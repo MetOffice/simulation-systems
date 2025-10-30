@@ -36,9 +36,8 @@ alongside the code. This is then compiled using Sphinx into the webpages above.
 
     The UM documentation papers are written in LaTeX and stored in a separate
     repository. Guidelines for editing the UM documentation papers are available
-    `here <umdp>`_
+    :ref:`here <umdp>`.
 
-.._ umdp: https://code.metoffice.gov.uk/trac/um/wiki/WorkingPractices/Documentation/UpdatingUMDPs
 
 LFRic Apps and Core also use doxygen to document the code and all changes
 should include appropriate doxygen changes to go with them. Doxygen guidelines

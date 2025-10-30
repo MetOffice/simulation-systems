@@ -1,3 +1,5 @@
+.. _standards:
+
 ==================
 Software standards
 ==================
@@ -62,7 +64,7 @@ Working practices
 
 The preparation of new files and of changes to existing files should, meet this
 UM standard documentation and must be developed following the stages outlined
-in `Working Practices for UM Development under FCM and Git
+in `Working Practices for UM Development
 <https://metoffice.github.io/simulation-systems>`__.
 
 Examples
@@ -263,7 +265,7 @@ UM programming standards; Code Layout, Formatting, Style and Fortran features
 This section outlines the programming standards you should adhere to when
 developing code for inclusion within the Unified Model. The rules set out in
 this section aim to improve code readability and ensure that UM code is
-compatible with both the Fortran 2003 standard and FCM.
+compatible with the Fortran 2003 standard.
 
 
 .. _`S1`:
@@ -1371,7 +1373,7 @@ In particular:
 - When removing scientific sections, remove variables that were only needed for
   that section.
 
-- Do not wrap a routine within CPP flags. Let FCM work out when it is
+- Do not wrap a routine within CPP flags. Let the compiler work out when it is
   required.
 
 - Please refrain from using consecutive question marks (``??``) in the source
@@ -1392,8 +1394,8 @@ preprocessing directive is recommended by adhering the following rules:
   file cannot be used in multiple modules or routines. Consider creating a
   special routine with the shared code if needed.
 
-- Use ``*.h`` as a file extension for ``#include`` files since the FCM make
-  system will automatically recognise it.
+- Use ``*.h`` as a file extension for ``#include`` files since the build system
+  will automatically recognise it.
 
 - File name should always be ``modulename_routinename.h``. An accepted
   exception is when the module name and the routine name are the same, e.g.

@@ -43,18 +43,13 @@ The project metadata can be found in the following locations:
 
 In addition to the above locations, the rose metadata is centrally mirrored on
 Met Office systems. This means that metadata that has been committed to
-``main`` can be accessed without a clone. This may be of use when
-upgrading scientific suites between versions.
+``main`` can be accessed without a clone. This may be of use when upgrading
+scientific suites between versions.
 
 All new namelist variables need a new entry so that the metadata loads into the
 Rose GUI for users to switch it on. Additionally, sometimes the metadata needs
 to be modified without changing a namelist variable. Guidance for updating the
 metadata :ref:`is available <metadata_guidance>`.
-
-..
-  Could do with thinking about how the JULES metadata could be included in this
-  document in the future, rather than the JULES wiki page
-  (https://code.metoffice.gov.uk/trac/jules/wiki/WorkingPractices#NamelistsUpgradeMacrosMetadata)
 
 .. note::
 

@@ -41,12 +41,12 @@ such changes onto ``main``. When preparing your change for review:
   .. tab-item:: LFRic Apps
 
     3. Update the checksum files on your branch. To do so run rose stem and
-       then the following from the head of your working copy
+       then the following from the head of your clone.
 
        .. code-block:: shell
 
          python3 ./rose-stem/bin/update_branch_kgos.py \
-                     -s <suite name/runX> -w <path to working copy>
+             -s <suite name/runX> -w <path to clone>
 
        .. note::
 
@@ -61,7 +61,7 @@ such changes onto ``main``. When preparing your change for review:
        (there is no need to retigger spice). You may need to change the
        maximum window extent of the gui in order to see the succeeded
        tasks. Now you can retrigger the failed checksums - these should now
-       pass if the kgo was updated in the working copy correctly.
+       pass if the kgo was updated in the clone correctly.
 
     6. The changes in answers should be science reviewed by someone
        familiar with the failing tests - if unsure then start with the Code

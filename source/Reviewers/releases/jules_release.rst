@@ -104,7 +104,7 @@ Rose Stem Updates
 
     ./bin/upgrade_jules_test_apps vn5.9
 
-* Update ``KGO_VERSION`` in ``rose-stem/include/variables.rc`` to the release
+* Update ``KGO_VERSION`` in ``rose-stem/include/variables.cylc`` to the release
   version, making a note of original version number.
 * Login as julesadmin and create new KGO directories for the release by copying
   the old kgo to a new directory named ``vnX.Y``. See `the kgo install
