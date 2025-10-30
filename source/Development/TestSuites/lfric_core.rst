@@ -31,10 +31,3 @@ developer suite).
 
 It is also possible to run on a single platform, eg. ``-z group=ex1a``. To
 select which meto EX machine is used, add ``-S USE_EX<AB/CD/Z>=true``.
-
-.. tip::
-
-    For more details on LFRic testing including details of unit tests please
-    visit the `LFRic testing trac wiki page
-    <https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicTechnical/Testing>`__.
-

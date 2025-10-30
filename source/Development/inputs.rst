@@ -51,11 +51,6 @@ Rose GUI for users to switch it on. Additionally, sometimes the metadata needs
 to be modified without changing a namelist variable. Guidance for updating the
 metadata :ref:`is available <metadata_guidance>`.
 
-..
-  Could do with thinking about how the JULES metadata could be included in this
-  document in the future, rather than the JULES wiki page
-  (https://code.metoffice.gov.uk/trac/jules/wiki/WorkingPractices#NamelistsUpgradeMacrosMetadata)
-
 .. note::
 
     JULES developers also need to :doc:`update the JULES documentation

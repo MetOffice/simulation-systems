@@ -6,7 +6,7 @@ Mule Release
 .. note::
 
     Additional details for the shumlib/mule releases can be seen `here
-    <https://code.metoffice.gov.uk/trac/um/wiki/mule_shumlib_install_details>`__
+    <https://github.com/MetOffice/git_playground/wiki/Shumlib-and-Mule-Additional-Install-Details>`__
 
 
 Releasing Mule

@@ -1,3 +1,5 @@
+.. _standards:
+
 ==================
 Software standards
 ==================

@@ -56,9 +56,8 @@ something wrong. Please do seek advice.
 coding standards and things to avoid, so it is useful for the developer to be
 aware of these.
 
-* `UMDP3 (UM and JULES FORTRAN)
-  <https://code.metoffice.gov.uk/doc/um/latest/umdp.html#003>`__
-* `LFRic Coding Styles
+* :ref:`Fortran Coding Styles <standards>`
+* `LFRic Coding Styles (which build on the above)
   <https://metoffice.github.io/lfric_core/how_to_contribute/index.html#how-to-contribute-index>`__
 * `PEP 8 (Python) <https://legacy.python.org/dev/peps/pep-0008/>`__
 
