@@ -35,7 +35,7 @@ supports:
 
   * UM, Shumlib and JULES versions released in the last 12 months,
   * main version used in the Met Office Operational Suite.
-  * specific climate configurations .. todo - details of which configs
+  * specific climate configurations ...
 
 
 Escalation
