@@ -10,19 +10,20 @@ of these steps outlined below.
     :class: dark-light
 
 .. important::
-    Before You Start:
-        * Is anyone else committing?
+  Before You Start:
+    * Is anyone else committing?
 
-            * `Main Status`_ is used to coordinate ``main`` commits for all
-               projects.
-            * Simple, not conflicting commits can be done in parallel if
-              reviewers all agree.
-            * Changes with KGO or Macros usually require sole access to ``main``.
-        * Check how many commits have happened today. Suggested limit per day,
-          per repository is 4.
+      * `Main Status`_ is used to coordinate ``main`` commits for all
+         projects.
+      * Simple, not conflicting commits can be done in parallel if
+        reviewers all agree.
+      * Changes with KGO or Macros usually require sole access to ``main``.
 
-            * More than 4 can be committed if ``all`` groups have been run by a
-              team member.
+    * Check how many commits have happened today. Suggested limit per day,
+      per repository is 4.
+
+      * More than 4 can be committed if ``all`` groups have been run by a
+        team member.
 
 
 .. important::
@@ -155,41 +156,41 @@ To update the test suite for an upgrade macro, please run:
 
 .. dropdown:: New rose-stem app?
 
-    If the PR introduces a new rose-stem app, but doesn't otherwise have a
-    macro then that app will need to be updated to match the metadata at the
-    head of ``main``.
+  If the PR introduces a new rose-stem app, but doesn't otherwise have a
+  macro then that app will need to be updated to match the metadata at the
+  head of ``main``.
 
-    #. In the new app directory get a list of all available upgrade points by
-       running
+  #. In the new app directory get a list of all available upgrade points by
+     running
 
-        .. code-block:: shell
+     .. code-block:: shell
 
-            rose app-upgrade -a -y -M path/to/working_copy/rose-meta
+       rose app-upgrade -a -y -M path/to/working_copy/rose-meta
 
-    #. Select the latest upgrade point from the list provided and then run the
-       command again, adding this to the end
+  #. Select the latest upgrade point from the list provided and then run the
+     command again, adding this to the end
 
-        .. code-block:: shell
+     .. code-block:: shell
 
-            rose app-upgrade -a -y -M path/to/working_copy/rose-meta vnX.Y_tZZZZ
+       rose app-upgrade -a -y -M path/to/working_copy/rose-meta vnX.Y_tZZZZ
 
-    The app should now be updated to the same metadata version as the rest of
-    the apps on the ``main``. This can be checked with:
+  The app should now be updated to the same metadata version as the rest of
+  the apps on the ``main``. This can be checked with:
 
-        .. code-block:: shell
+  .. code-block:: shell
 
-            rose macro --validate -M path/to/working_copy/rose-meta
+    rose macro --validate -M path/to/working_copy/rose-meta
 
-    .. note::
+  .. note::
 
-        LFRic Apps PRs will require an LFRic Core source to use. You can do
-        this by checking out an appropriate clone, and exporting the
-        environment variable ``ROSE_META_PATH=/path/to/core``.
+    LFRic Apps PRs will require an LFRic Core source to use. You can do
+    this by checking out an appropriate clone, and exporting the
+    environment variable ``ROSE_META_PATH=/path/to/core``.
 
-        For UM PRs, if there are linked changes to the
-        ``rose-meta/jules-shared`` directory in the Jules repository, then a
-        suitable Jules source will need to be included in the `ROSE_META_PATH`
-        as described above.
+    For UM PRs, if there are linked changes to the
+    ``rose-meta/jules-shared`` directory in the Jules repository, then a
+    suitable Jules source will need to be included in the `ROSE_META_PATH`
+    as described above.
 
 
 .. dropdown:: Temporary Logical?
@@ -432,8 +433,8 @@ KGO differently*
         #. Update KGO_VERSION in `rose-stem/include/variables.cylc`.
         #. Copy the new KGO to the correct locations:
 
-            `JULES KGO commands
-            <https://github.com/MetOffice/git_playground/wiki/Jules-KGO-Instructions>`__
+           `JULES KGO commands
+           <https://github.com/MetOffice/git_playground/wiki/Jules-KGO-Instructions>`__
 
         #. Rerun the rose-stem tests to make sure nothing is broken.
 
@@ -559,19 +560,19 @@ If the requirement is to update existing files, then further care is required.
    ``/data/users/lfricadmin/data/``
 #. Run all tests on Azure Spice only
 
-    - revert changes immediately if there are any issues, and consult with the
-      developer.
+   - revert changes immediately if there are any issues, and consult with the
+     developer.
 
 #. Manually trigger the synchronisation script to synchronise data between
    platforms
 
-    - Waiting for the daily ``cron`` job to run can introduce a misalignment or
-      race condition for scheduled testing.
+   - Waiting for the daily ``cron`` job to run can introduce a misalignment or
+     race condition for scheduled testing.
 
 #. Rerun relevant tests on EX machines
 
-    - revert changes immediately if there are any issues, and consult with the
-      developer.
+   - revert changes immediately if there are any issues, and consult with the
+     developer.
 
 #. Remove any ``.old`` files that you created on Azure Spice.
 
@@ -622,11 +623,11 @@ If something is broken:
 * Announce to the team and on `Main Status`_.
 * There are a few possibilities for how to proceed,
 
-    * If the fix is obvious and trivial then create a quick PR on a branch from
-      ``main`` and find someone to review it. If the developer is available
-      and able to fix it then they can make the pr and you can review.
-    * If there isn't an easy fix then reverse the change to allow time for
-      investigation.
+  * If the fix is obvious and trivial then create a quick PR on a branch from
+    ``main`` and find someone to review it. If the developer is available
+    and able to fix it then they can make the pr and you can review.
+  * If there isn't an easy fix then reverse the change to allow time for
+    investigation.
 
 .. dropdown:: Reversing Commits to Main
 

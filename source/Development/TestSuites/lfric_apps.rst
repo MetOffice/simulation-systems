@@ -5,21 +5,21 @@ Testing LFRic Apps
 
 Rose stem:
 
-    The LFRic Apps rose-stem test suite can be run from the top directory of a
-    local clone:
+  The LFRic Apps rose-stem test suite can be run from the top directory of a
+  local clone:
 
-    .. code-block:: shell
+  .. code-block:: shell
 
-        cylc vip -z group=developer -n <name/of/suite> ./rose-stem
+    cylc vip -z group=developer -n <name/of/suite> ./rose-stem
 
 Local testing:
 
-    Alternatively, a single application can be built and run locally using
-    `these instructions
-    <https://metoffice.github.io/lfric_apps/developer_guide/local_builds.html>`__
+  Alternatively, a single application can be built and run locally using
+  `these instructions
+  <https://metoffice.github.io/lfric_apps/developer_guide/local_builds.html>`__
 
-    This test does not use rose or cylc and is particularly useful for checking
-    for compile errors while developing.
+  This test does not use rose or cylc and is particularly useful for checking
+  for compile errors while developing.
 
 
 Rose stem

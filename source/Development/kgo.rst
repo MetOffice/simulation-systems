@@ -38,57 +38,57 @@ such changes onto ``main``. When preparing your change for review:
 
 .. tab-set::
 
-    .. tab-item:: LFRic Apps
+  .. tab-item:: LFRic Apps
 
-        3. Update the checksum files on your branch. To do so run rose stem and
-           then the following from the head of your clone.
+    3. Update the checksum files on your branch. To do so run rose stem and
+       then the following from the head of your clone.
 
-            .. code-block:: shell
+       .. code-block:: shell
 
-                python3 ./rose-stem/bin/update_branch_kgos.py \
-                    -s <suite name/runX> -w <path to clone>
+         python3 ./rose-stem/bin/update_branch_kgos.py \
+             -s <suite name/runX> -w <path to clone>
 
-            .. note::
+       .. note::
 
-                This script requires at least python 3.9. This can be achieved
-                on Met Office machines by running ``module load scitools``
+         This script requires at least python 3.9. This can be achieved
+         on Met Office machines by running ``module load scitools``
 
-        4. If you are adding new checksums, ``git add`` the files.
+    4. If you are adding new checksums, ``git add`` the files.
 
-        5. You can check the new kgo updated properly by retiggering tasks in
-           the test suite. First retrigger ``export-source``, and then when
-           complete ``export-source_ex1a`` if new checksums are present there
-           (there is no need to retigger spice). You may need to change the
-           maximum window extent of the gui in order to see the succeeded
-           tasks. Now you can retrigger the failed checksums - these should now
-           pass if the kgo was updated in the clone correctly.
+    5. You can check the new kgo updated properly by retiggering tasks in
+       the test suite. First retrigger ``export-source``, and then when
+       complete ``export-source_ex1a`` if new checksums are present there
+       (there is no need to retigger spice). You may need to change the
+       maximum window extent of the gui in order to see the succeeded
+       tasks. Now you can retrigger the failed checksums - these should now
+       pass if the kgo was updated in the clone correctly.
 
-        6. The changes in answers should be science reviewed by someone
-           familiar with the failing tests - if unsure then start with the Code
-           Owner for the affected application.
+    6. The changes in answers should be science reviewed by someone
+       familiar with the failing tests - if unsure then start with the Code
+       Owner for the affected application.
 
 
-        Once all the above is in place and the science and code reviews have
-        been completed then the Code Reviewer will merge head of ``main`` onto
-        your branch. If there are merge conflicts in the checksum files then
-        the reviewer will repeat step 3 to refresh these files. Your change is
-        then merged and committed to ``main``.
+       Once all the above is in place and the science and code reviews have
+       been completed then the Code Reviewer will merge head of ``main`` onto
+       your branch. If there are merge conflicts in the checksum files then
+       the reviewer will repeat step 3 to refresh these files. Your change is
+       then merged and committed to ``main``.
 
-    .. tab-item:: UM & JULES
+  .. tab-item:: UM & JULES
 
-        3. Contact the configuration owners of all affected configurations. A
-           list is provided in the trac.log . See :ref:`approvals` for details.
+    3. Contact the configuration owners of all affected configurations. A
+       list is provided in the trac.log . See :ref:`approvals` for details.
 
-           Configuration owners will review the change and will either accept
-           the change as it is, or will request the use of a temporary
-           variable to switch the change off. See :ref:`templogicals` for
-           details of this process.
+       Configuration owners will review the change and will either accept
+       the change as it is, or will request the use of a temporary
+       variable to switch the change off. See :ref:`templogicals` for
+       details of this process.
 
-        Once all of the above is in place and the science and code reviews have
-        been completed the Code Reviewer will merge head of ``main`` onto
-        your branch, run the tests that have changed answers and use those
-        results to install KGO files to the filesystem. Your branch is then
-        merged and committed to ``main``.
+       Once all of the above is in place and the science and code reviews have
+       been completed the Code Reviewer will merge head of ``main`` onto
+       your branch, run the tests that have changed answers and use those
+       results to install KGO files to the filesystem. Your branch is then
+       merged and committed to ``main``.
 
 .. tip::
 

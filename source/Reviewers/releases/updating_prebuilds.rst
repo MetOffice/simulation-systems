@@ -19,15 +19,15 @@ To update prebuilds:
 * Open a new UM ticket, create a branch and check it out.
 * In ``rose-stem/rose-suite.conf``:
 
-    * Update the ``BASE_UM_REV`` variable to the latest version of the UM
-      ``main``.
-    * Update any other ``BASE_*_REV`` variables if those ``main`` have more
-      recent commits that the revision listed.
+  * Update the ``BASE_UM_REV`` variable to the latest version of the UM
+    ``main``.
+  * Update any other ``BASE_*_REV`` variables if those ``main`` have more
+    recent commits that the revision listed.
 
 * In ``rose-stem/site/meto/variables.cylc``:
 
-    * Update the prebuilds paths with the name, ``rXXXXXX_prebuilds`` where
-      ``XXXXXX`` should match the ``BASE_UM_REV`` variable from earlier.
+  * Update the prebuilds paths with the name, ``rXXXXXX_prebuilds`` where
+    ``XXXXXX`` should match the ``BASE_UM_REV`` variable from earlier.
 
 * Commit these changes to the branch.
 * Login as ``umadmin`` and check out the branch (this will need to be from the

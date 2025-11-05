@@ -179,7 +179,7 @@ Notify the JULES community:
 
 * Post a message to the JULES Users mailing list:
 
-    * JULES-USERS@MAILLISTS.READING.AC.UK
-    * JULES@MAILLISTS.READING.AC.UK
+  * JULES-USERS@MAILLISTS.READING.AC.UK
+  * JULES@MAILLISTS.READING.AC.UK
 
 * Post a message to the simulation-systems GitHub Discussions board

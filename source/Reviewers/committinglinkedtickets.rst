@@ -98,30 +98,30 @@ follows:
 
 * For each of LFRic Apps and UM as required,
 
-    * In a clone of the developers branch, edit the ``dependencies.yaml`` file:
+  * In a clone of the developers branch, edit the ``dependencies.yaml`` file:
 
-        * Ensure the entry for the repository this file is in is fully blank.
-        * Ensure the ``source`` entry points at the MetOffice ssh url.
-        * Modify ``ref`` entry for all updated repositories points to the full
-          hash for the relevant commit.
-        * e.g. If a JULES PR has been committed with hash starting abc123
-          and a UKCA PR starting at 456def, the UM dependencies file will
-          have these entries (amongst others):
+    * Ensure the entry for the repository this file is in is fully blank.
+    * Ensure the ``source`` entry points at the MetOffice ssh url.
+    * Modify ``ref`` entry for all updated repositories points to the full
+      hash for the relevant commit.
+    * e.g. If a JULES PR has been committed with hash starting abc123
+      and a UKCA PR starting at 456def, the UM dependencies file will
+      have these entries (amongst others):
 
-        .. code-block:: yaml
+      .. code-block:: yaml
 
-            jules:
-                source=git@github.com:MetOffice/jules.git
-                ref=abc123##################################
+        jules:
+            source=git@github.com:MetOffice/jules.git
+            ref=abc123##################################
 
-            ukca:
-                source=git@github.com:MetOffice/UKCA.git
-                ref=456def##################################
+        ukca:
+            source=git@github.com:MetOffice/UKCA.git
+            ref=456def##################################
 
-            um:
-                source=
-                ref=
+        um:
+            source=
+            ref=
 
-    * Commit these changes and push back to the developers branch, along with
-      any changes to macros and KGO. Finally you can :ref:`commit <commit>`
-      the pull request.
+  * Commit these changes and push back to the developers branch, along with
+    any changes to macros and KGO. Finally you can :ref:`commit <commit>`
+    the pull request.

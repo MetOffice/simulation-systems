@@ -88,26 +88,26 @@ For each suite, do the following:
 
 * Get a copy of each of these suites and move into the working copy.
 
-    .. code-block::
+  .. code-block::
 
-        rosie co u-dn704
-        cd ~/roses/u-dn704
+    rosie co u-dn704
+    cd ~/roses/u-dn704
 
 * In ``rose-suite.conf`` update the version number
 * Upgrade the metadata for the mesh and lfric_atm apps
 
-    .. code-block::
+  .. code-block::
 
 
-        rose app-upgrade -a -y -C app/lfric_atm vnX.Y
-        rose app-upgrade -a -y -C app/mesh vnX.Y
+    rose app-upgrade -a -y -C app/lfric_atm vnX.Y
+    rose app-upgrade -a -y -C app/mesh vnX.Y
 
 * Check the modules loaded in the ``flow.cylc`` for any changes vs. the Apps
   ``main``.
 
-    * See ``rose-stem/site/meto/common/suite_config_PLATFORM.cylc``
-    * The lfric software stack moves more quickly than the UM, so it is more
-      likely these have changed.
+  * See ``rose-stem/site/meto/common/suite_config_PLATFORM.cylc``
+  * The lfric software stack moves more quickly than the UM, so it is more
+    likely these have changed.
 
 * Test - ``cylc vip``
 * :ref:`Commit and Tag <suite_commit>` the suite once the test suite has

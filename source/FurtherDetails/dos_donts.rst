@@ -12,8 +12,8 @@ sometimes years later.
 
 **Plan** your work aimed across single or multiple Issues and Pull Requests:
 
-    * Each pull request should contain a single coherent change.
-    * Consider using an overarching issue to link everything together
+  * Each pull request should contain a single coherent change.
+  * Consider using an overarching issue to link everything together
 
 **Document your work** using Issues and pull requests, :ref:`formal documentation
 <docs>` and code comments. These help others and your future-self understand
