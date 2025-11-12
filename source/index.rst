@@ -8,6 +8,13 @@
 Simulation Systems Working Practices
 ====================================
 
+.. important::
+
+    These working practices have recently been updated for working with git and
+    github. The old fcm working practices are available via the source history.
+    An internal build is available to Met Office staff `here
+    <https://wwwspice/~umadmin/fcm_wps/index.html>`_
+
 **These pages describe the working practices of the following simulation and
 model codes owned by the Met Office:** `LFRic Applications`_, `LFRic Core`_, `UM`_, `JULES`_, `SOCRATES`_,
 `CASIM`_ and `UKCA`_.

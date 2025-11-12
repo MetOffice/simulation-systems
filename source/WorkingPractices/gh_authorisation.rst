@@ -25,15 +25,11 @@ should also be enabled. This will be a requirement to accesses certain
 repositories, but is encouraged for all users. When signed in, account security
 settings can be found at `<https://github.com/settings/security>`_.
 
-.. admonition:: todo
-
-    External access to MO org
-
 .. important::
 
-    To access some private repositories (eg.
-    UM) will require access to the MetOffice GitHub organisation. Internal Met
-    Office employees can request this through ServiceNow.
+    To access some private repositories (eg. UM) will require access to the
+    MetOffice GitHub organisation. Internal Met Office employees can request
+    this through ServiceNow.
 
 Before starting to use GitHub, you will also need to configure your `user name
 <https://docs.github.com/en/get-started/git-basics/setting-your-username-in-git?platform=linux>`_
