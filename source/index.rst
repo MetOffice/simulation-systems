@@ -10,9 +10,9 @@ Simulation Systems Working Practices
 
 .. important::
 
-    These working practices have recently been updated for working with git and
-    github. The old fcm working practices are available via the source history.
-    An internal build is available to Met Office staff `here
+    The working practices for working with git and GitHub have recently been updated.
+    The previous FCM working practices can still be accessed through the source history.
+    Met Office staff can find an internal build `here
     <https://wwwspice/~umadmin/fcm_wps/index.html>`_
 
 **These pages describe the working practices of the following simulation and
