@@ -5,7 +5,7 @@ Migrating a branch from fcm to git
 
 .. important::
 
-    If migrating an old trac  ticket, please make sure to,
+    If migrating an old trac ticket, please make sure to,
 
     * Link from the trac ticket to the new PR/Issue
     * Link from the new PR/Issue back to the trac ticket
