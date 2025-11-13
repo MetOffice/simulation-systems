@@ -3,6 +3,14 @@
 Migrating a branch from fcm to git
 ==================================
 
+.. important::
+
+    If migrating an old trac ticket, please make sure to,
+
+    * Cross-link between both the trac ticket and github PR/Issue
+    * Add a ``git_migration:#NNN`` keyword to the trac ticket to avoid duplicate
+      migrated tickets
+
 This page is intended to act as a guide when migrating branches from fcm to git
 after the initial git release. It assumes that you have already :ref:`created
 a fork <forking>` of the repo you are migrating to.
