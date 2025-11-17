@@ -14,9 +14,9 @@ import datetime
 
 # -- Project information -----------------------------------------------------
 
-project = 'Simulation Systems'
-copyright = f'Met Office 2023'
-author = 'Simulation Systems and Deployment Team'
+project = "Simulation Systems"
+copyright = "Met Office 2023"
+author = "Simulation Systems and Deployment Team"
 
 
 # -- General configuration ---------------------------------------------------
@@ -24,17 +24,15 @@ author = 'Simulation Systems and Deployment Team'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [
-    'sphinx_sitemap'
-]
+extensions = ["sphinx_sitemap"]
 
 language = "en"
 
 # Added to use dropdowns with command: pip install sphinx-design
-extensions = ['sphinx_design']
+extensions = ["sphinx_design"]
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ["_templates"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -48,7 +46,7 @@ html_css_files = ["custom.css"]
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'pydata_sphinx_theme'
+html_theme = "pydata_sphinx_theme"
 
 html_theme_options = {
     "footer_start": ["crown-copyright", "sphinx-version"],
