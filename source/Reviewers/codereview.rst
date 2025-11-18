@@ -1,7 +1,7 @@
 .. _code_review:
 
-Code and System Review
-======================
+Code Review
+===========
 
 .. tip::
 
@@ -12,7 +12,7 @@ Code and System Review
 
 Purpose of the review
 ---------------------
-The purpose of the code/system review is to analyse a change for its impact and
+The purpose of the Code Review is to analyse a change for its impact and
 to ensure that all concerned parties are made aware of changes that are
 required.
 
@@ -32,7 +32,7 @@ contains a Code Review section with questions to help you think through all the
 areas of concern. This Code Review section should be completed once you are
 finished.
 
-Work through the code review template considering each question in turn. These
+Work through the review template considering each question in turn. These
 will include areas such as:
 
 .. dropdown:: Is the pull request and testing complete?
@@ -120,7 +120,7 @@ Final decision points and actions
 ---------------------------------
 
 The pull request will likely iterate between the reviewer and the developer
-during the review process while retaining it's code review status. The Code
+during the review process while retaining it's Code Review status. The Code
 Reviewer can `Resolve Conversations` when they feel each query has been
 satisfactorily answered.
 

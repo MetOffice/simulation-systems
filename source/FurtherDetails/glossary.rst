@@ -13,7 +13,7 @@ Code Review Deadline:
     The date by which all pull requests aiming to be included in a release have been
     moved into code review.
 
-CodeSys Review:
+Code Review:
     A technical review of the changes involved in the pull request, including
     checks that code standards have been upheld and that the working practices
     have been followed. These reviews are generally completed by a member of the

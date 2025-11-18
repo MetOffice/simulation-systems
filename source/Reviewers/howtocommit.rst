@@ -442,8 +442,8 @@ KGO differently*
     .. tab-item:: LFRic Apps + LFRic Core
 
         KGO Checksums are stored in the repository alongside the code and can
-        be updated using a script. This can be done by either the code
-        reviewer or by the developer (before submitting their changes for
+        be updated using a script. This can be done by either the Code
+        Reviewer or by the developer (before submitting their changes for
         review). In the latter case, the update will need redoing by the
         reviewer before commit if there are merge conflicts in the checksum
         files.

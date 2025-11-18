@@ -26,7 +26,7 @@ Reviewer responsibilities and checkpoints
 
 The pull request template that populates the pull request description box
 contains a SciTech Review section with questions to help you think through all
-the areas of concern. This SciTech review section should be completed once you are finished.
+the areas of concern. This SciTech Review section should be completed once you are finished.
 
 The Science / Technical reviewer should
 
@@ -59,10 +59,10 @@ The science/technical reviewer must demand that non-compliance is corrected
 before a change is passed onto the next level of review.
 
 The pull request will likely iterate between the reviewer and the developer during
-the review process while retaining it's sci/tech review status.
+the review process while retaining it's SciTech Review status.
 
-Once you are happy that the change is appropriate and correct, and the sci-tech
-review parts of the pull request template have been completed then change
+Once you are happy that the change is appropriate and correct, and the SciTech
+Review parts of the pull request template have been completed then change
 the review state to Code Review and leave an approving review.
 
 .. image:: ../WorkingPractices/images/gh_screenshots/project_scitech_light.png

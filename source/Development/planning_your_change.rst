@@ -61,9 +61,9 @@ aware of these.
   <https://metoffice.github.io/lfric_core/how_to_contribute/index.html#how-to-contribute-index>`__
 * `PEP 8 (Python) <https://legacy.python.org/dev/peps/pep-0008/>`__
 
-**Who will SciTech review the change?** This is a useful consideration as not
+**Who will SciTech Review the change?** This is a useful consideration as not
 everyone who uses the repository has the knowledge or experience to review
-every change that is being developed. Get in touch with your SciTech reviewer
+every change that is being developed. Get in touch with your SciTech Reviewer
 early in the process as they will have valuable insights that can help to shape
 your change.
 
@@ -97,7 +97,7 @@ upgrade macro to include the switch into the upgraded configuration.
 vital to make sure your code changes work when switched **on** and give the
 same answer when the code is run over different processor configurations.
 Producing a quick plot or plots to show the impact of your code and including
-them on your pull request can aid your SciTech reviewer in showing that your code
+them on your pull request can aid your SciTech Reviewer in showing that your code
 works properly.
 
 **Does the change need any new diagnostics to make sense of the code?** Many

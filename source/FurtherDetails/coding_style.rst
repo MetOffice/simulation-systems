@@ -1906,7 +1906,7 @@ rules are imposed.
 
 .. _`sec:reviews`:
 
-Code reviews
+Code Reviews
 ============
 
 In order to ensure that these standards are adhered to and are having the
@@ -1921,12 +1921,11 @@ performed in the order below:
    <https://metoffice.github.io/simulation-systems/Reviewers/scitechreview.html>`__
    page on the UM homepage.
 
-#. A code/system review is performed to analyse the change for its impact,
+#. A Code Review is performed to analyse the change for its impact,
    ensure that it meets this coding standard and to ensure that all concerned
    parties are made aware of changes that are required. Guidance for reviewers
-   is outlined in `Code/System Review Guidance
-   <https://metoffice.github.io/simulation-systems/Reviewers/codereview.html>`__
-   page on the UM homepage.
+   is outlined in `Code Review Guidance page
+   <https://metoffice.github.io/simulation-systems/Reviewers/codereview.html>`__.
 
 
 .. _Appendix A:

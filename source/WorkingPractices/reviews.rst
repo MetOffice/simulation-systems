@@ -12,8 +12,8 @@ Selecting Reviewers
 -------------------
 
 There is a space in the pull request template to list the GitHub user ID of the
-scitech and code reviewers. Github will automatically copy these into the
-appropriate :ref:`project spaces <review_project>`.
+scitech and code reviewers. These can also be filled into the appropriate
+:ref:`project spaces <review_project>`.
 
 SciTech Review
 ^^^^^^^^^^^^^^
@@ -38,9 +38,10 @@ assigned a reviewer on a regular basis. If you need your pull request looking at
 more urgently than that, or think your pull request has been overlooked, then
 leave a comment for ``@ssdteam`` on the pull request.
 
-The assigned person will be listed in the pull request description. Once the
-SciTech review has been completed either the developer or SciTech reviewer
-should request the review of the assigned Code Reviewer.
+The assigned person will be listed in the pull request description and
+:ref:`Review Tracking project <review_project>`. Once the SciTech review has
+been completed either the developer or SciTech reviewer should request the
+review of the assigned Code Reviewer.
 
 Guidance for the Code reviewer can be found on the
 :ref:`Code review page <code_review>`.
@@ -59,8 +60,8 @@ Guidance for the Code reviewer can be found on the
     .. image:: images/gh_screenshots/review_cog_dark.png
         :class: only-dark border
 
-    Code owners will automatically be added to this reviewers section based on
-    the files being changed.
+    Code owners in some repositories will automatically be added to this
+    reviewers section based on the files being changed.
 
 
 .. _review_project:
@@ -79,9 +80,7 @@ sidebar of the pull request:
     :class: only-dark border
 
 The project is used to give pull requests a status that distinguishes between
-the different review states, and to monitor who is doing the reviews. The review
-names will be automatically filled in once the user IDs have been added to the
-pull request description.
+the different review states, and to monitor who is doing the reviews.
 
 Some states are achieved automatically, some require changing manually:
 
