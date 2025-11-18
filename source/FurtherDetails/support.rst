@@ -28,14 +28,14 @@ If you still require assistance, then contact the appropriate support team.
 Please respect the clear demarcations between the scope for different teams.
 
 Core Capability Development Team (formally LFRic Team):
-    * Support windows for LFRic releases TBC
+  * Support windows for LFRic releases TBC
 
 Simulation Systems and Deployment Team (formerly UM System Team and CRUM team)
 supports:
 
-    * UM, Shumlib and JULES versions released in the last 12 months,
-    * main version used in the Met Office Operational Suite.
-    * specific climate configurations .. todo - details of which configs
+  * UM, Shumlib and JULES versions released in the last 12 months,
+  * main version used in the Met Office Operational Suite.
+  * specific climate configurations ...
 
 
 Escalation
@@ -47,4 +47,4 @@ it should be escalated to the manager of the Simulation Systems and Deployment
 Team in the first instance. They will consult appropriately to make the best
 balanced and impartial decision. If this is unsuccessful, the ultimate
 (but very rarely used) decision authority about code that may be committed to
-the trunk lies with the Simulation Systems Governance Group.
+``main`` lies with the LFRic Apps Governance Group.

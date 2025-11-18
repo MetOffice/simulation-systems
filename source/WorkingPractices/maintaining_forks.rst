@@ -27,7 +27,7 @@ It is possible to set another repository as a remote source using the syntax,
 
     git remote add <name> <url>
 
-The URL for the desired repository can be found from the Code button on github
+The URL for the desired repository can be found from the Code button on GitHub
 (see :ref:`Cloning a Repository <clone_repo>`).
 
 .. tip::
@@ -84,7 +84,7 @@ contains the newly released code.
 
     .. tab-item:: Web Browser
 
-        Navigate to your fork in github that you wish to sync. Select the
+        Navigate to your fork in GitHub that you wish to sync. Select the
         ``Sync Fork`` button and if required, update the branch. This will
         only sync the branch you are currently on - to sync other branches
         select one from the branch dropdown menu. You may want to sync both

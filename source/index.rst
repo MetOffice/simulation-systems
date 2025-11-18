@@ -8,6 +8,13 @@
 Simulation Systems Working Practices
 ====================================
 
+.. important::
+
+    The working practices for working with git and GitHub have recently been updated.
+    The previous FCM working practices can still be accessed through the source history.
+    Met Office staff can find an internal build `here
+    <https://wwwspice/~umadmin/fcm_wps/index.html>`_
+
 **These pages describe the working practices of the following simulation and
 model codes owned by the Met Office:** `LFRic Applications`_, `LFRic Core`_, `UM`_, `JULES`_, `SOCRATES`_,
 `CASIM`_ and `UKCA`_.
@@ -17,7 +24,7 @@ to test those developments. There is guidance on making changes that span multip
 projects and how to progress your change through review.
 
 There are then notes for reviewers on how to tackle the different types of review
-and how to commit to the trunk.
+and how to merge to ``main``.
 
 
 
@@ -26,7 +33,7 @@ and how to commit to the trunk.
     .. grid-item-card::
         :text-align: center
 
-        Working with git and github to contribute to the simulation models.
+        Working with git and GitHub to contribute to the simulation models.
 
         +++
         .. button-ref:: working_practices_index

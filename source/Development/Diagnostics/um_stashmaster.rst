@@ -18,9 +18,6 @@ The UM's ``STASHmaster_A`` and associated help text file
 
 The following principles apply when altering the STASHmaster:
 
-..
-  JW suggest need to include STASH entry guidance here. Maybe an issue for this would be useful?
-
 * If you add a new diagnostic to the ``STASHmaster_A`` file then you **must**
   also add to the stash master help text in :ref:`stashmaster-meta`.
 * If you are altering the stashmaster, this may be referred to the FFPP
@@ -29,7 +26,7 @@ The following principles apply when altering the STASHmaster:
 * If your change has new stash items or changed/added attributes as an option
   code, versions mask etc., then first you have to get them reserved and
   recorded (published) on the reservation web page STASH/ReservedCodes
-* Note that every reservation should be linked to a ticket with the correct
+* Note that every reservation should be linked to an Issue with the correct
   explanation and a milestone. This rule applies to all stash related tables
   placed on this page.
 * Although reservations could be some kind of self-service, contact the section

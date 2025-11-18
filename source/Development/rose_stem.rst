@@ -4,7 +4,7 @@ Adding to Rose Stem Suites
 .. tip::
 
     This page is for advice on adding new tasks to a rose-stem suite. For advice
-    on running the test suite following the move to github, please see
+    on running the test suite following the move to GitHub, please see
     :ref:`testing your change <testing>`.
 
 All new changes are strongly encouraged to come with an update to the rose stem
@@ -63,7 +63,7 @@ manually configured, such as JULES.
     .. tab-item:: Templated
 
         2. Task definitions
-            Task definitions should be added to the ``tasks.rc`` for all sites
+            Task definitions should be added to the ``tasks.cylc`` for all sites
             who will run this app.
 
             The tasks are defined in a dictionary format, with one entry per
@@ -78,8 +78,8 @@ manually configured, such as JULES.
 
             .. note::
 
-                LFRic Apps has a `detailed set of wiki pages
-                <https://code.metoffice.gov.uk/trac/lfric_apps/wiki/rose-stem>`__
+                LFRic Apps has a `detailed set of pages
+                <https://metoffice.github.io/lfric_apps/developer_guide/lfric_apps_rose_stem/index.html>`__
                 that document the structure and options available for their
                 suite.
 
@@ -88,15 +88,15 @@ manually configured, such as JULES.
 
         2. Task definitions
             Task definitions for the following tasks should be added to the
-            ``runtime.rc`` for all sites who will run this app.
+            ``runtime.cylc`` for all sites who will run this app.
 
             * run the app
             * perform a KGO comparison
             * perform housekeeping
 
         3. Graph definitions
-            Graph definitions should be added to the graph.rc for all sites who
-            will run this app. These should connect together your new tasks
+            Graph definitions should be added to the graph.cylc for all sites
+            who will run this app. These should connect together your new tasks
             created above with an appropriate build task.
 
 .. tip::

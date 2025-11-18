@@ -56,15 +56,14 @@ something wrong. Please do seek advice.
 coding standards and things to avoid, so it is useful for the developer to be
 aware of these.
 
-* `UMDP3 (UM and JULES FORTRAN)
-  <https://code.metoffice.gov.uk/doc/um/latest/umdp.html#003>`__
-* `LFRic Coding Styles
+* :ref:`Fortran Coding Styles <standards>`
+* `LFRic Coding Styles (which build on the above)
   <https://metoffice.github.io/lfric_core/how_to_contribute/index.html#how-to-contribute-index>`__
 * `PEP 8 (Python) <https://legacy.python.org/dev/peps/pep-0008/>`__
 
 **Who will SciTech review the change?** This is a useful consideration as not
 everyone who uses the repository has the knowledge or experience to review
-every ticket that is being developed. Get in touch with your SciTech reviewer
+every change that is being developed. Get in touch with your SciTech reviewer
 early in the process as they will have valuable insights that can help to shape
 your change.
 
@@ -77,7 +76,7 @@ approvals to take place.
 
 **Is the code you need to alter on a single repository or is it spread over
 multiple repositories?** If it's over multiple repositories you need to use
-linked tickets. See :ref:`multirepo` for further details.
+linked pull requests. See :ref:`multirepo` for further details.
 
 **Does similar code functionality already exist in the model?** It's a good
 idea **not** to re-invent the wheel or have code duplication! Speaking to code
@@ -98,7 +97,7 @@ upgrade macro to include the switch into the upgraded configuration.
 vital to make sure your code changes work when switched **on** and give the
 same answer when the code is run over different processor configurations.
 Producing a quick plot or plots to show the impact of your code and including
-them on your ticket can aid your SciTech reviewer in showing that your code
+them on your pull request can aid your SciTech reviewer in showing that your code
 works properly.
 
 **Does the change need any new diagnostics to make sense of the code?** Many
@@ -124,6 +123,6 @@ intends to optimise code, be prepared to provide evidence of how things have
 improved.
 
 ..
-    Comment: Are there any more that can be thought of? These tickets will
+    Comment: Are there any more that can be thought of? These PRs will
     mostly be done by experienced developers and usually inside the Met
     Office.

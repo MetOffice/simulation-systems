@@ -21,7 +21,7 @@ UMDP Release
   * For the x-series documentation, you will at minimum need to check and
     update:
 
-    * ``source/X04/X4-fcm.tex`` Revision number and version number
+    * ``source/X04/X4-fcm.tex`` Commit hash and version number
     * ``source/X04/X4-prerequisites.tex`` rose and cylc versions (found in the
       release notes).
     * ``source/X04/X4.tex`` UM, gcom, shumlib and UKCA versions (found in the
@@ -42,7 +42,7 @@ UMDP Release
 
 .. * To Publish the docs:
 
-..   * Get a new copy of the head of the docs trunk
+..   * Get a new copy of the head of the docs ``main``
 ..   * From the top level, run ``build_umdoc.py all`` to build everything
 ..   * Remove the output logs in ``output/log/*`` - just to save a bit of space.
 ..   * Checkout a copy of the published documentation - just take the UM part of it as the whole thing is massive! i.e. ``fcm co https://code.metoffice.gov.uk/svn/doc/um published_um``

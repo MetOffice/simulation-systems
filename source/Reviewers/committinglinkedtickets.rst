@@ -1,16 +1,16 @@
 .. _committinglinkedtickets:
 
-Committing Linked Tickets
-=========================
+Committing Linked Pull Requests
+===============================
 
-How do linked tickets work?
----------------------------
+How do linked pull requests work?
+---------------------------------
 
-Linked tickets contain changes that all need to be committed together to work
+Linked PRs contain changes that all need to be committed together to work
 successfully. With only some of the changes committed the repositories are
 considered "out of sync", with some of the test suites likely to fail as the
 api between the codebases is broken. For this reason, where possible, all
-parts of a linked ticket should be committed on the same day to avoid nightly
+parts of a linked PR should be committed on the same day to avoid nightly
 tests failing.
 
 :ref:`Multi-repository <multirepo>` changes are nested, and the different
@@ -38,18 +38,18 @@ the key places where these overlap.
 
     3. Install KGO files for all repositories requiring them
 
-    4. Commit the tickets as described below.
+    4. Commit the PRs as described below.
 
 
 .. _testinglinked:
 
-Testing linked tickets
-----------------------
+Testing linked Pulls Requests
+-----------------------------
 
-With the branches from all the tickets merged into a working copy of their
-respective Head of Trunk these can all be used together to test the change.
+To test the change, ensure that all branches are up to date with the main branch
+of each repository, and get clones of these branches.
 
-Details for testing multi-repository tickets are included on the
+Details for testing multi-repository PRs are included on the
 :ref:`Working with Multiple Repositories page<multirepo>`.
 
 **In summary:**
@@ -61,7 +61,7 @@ UM and LFRic Apps changes will require modifying the ``dependencies.yaml`` file
 to update the source being used.
 
 * In the UM/Apps clone, edit the relevant sources and refs in the
-  ``dependencies.yaml`` file. These can be either local clones or github urls.
+  ``dependencies.yaml`` file. These can be either local clones or GitHub urls.
   See :ref:`Multi-Repo Testing <multi-repo_testing>` for more details
 
 
@@ -73,26 +73,22 @@ to update the source being used.
     repository but not another which will cause tests to fail.
 
     The developer will likely have used branches taken from the last releases
-    which are a known set of stable revisions which work together.
+    which are a known set of stable commits which work together.
 
     Make sure the testing done here (just prior to commit) is using the latest
     head of all the trunks. Assuming nightly tests are passing then this is
-    also a known set of revisions that work together.
+    also a known set of commits that work together.
 
 .. tip::
 
-    If some of the changes in this set of tickets have already been committed
+    If some of the changes in this set of PRs have already been committed
     then see steps 2 and 4 below on how to include those changes in your
     testing. This is instead of the steps described above.
 
-    e.g. If JULES changes have been committed and the revision number modified
-    in rose-suite.conf then the working copy no longer needs supplying as a
-    `source` to the UM testing.
-
 .. _committinglinked:
 
-Committing linked tickets
--------------------------
+Committing linked Pull Requests
+-------------------------------
 
 Once you are happy with all your testing then the commit sequence is as
 follows:
@@ -102,30 +98,30 @@ follows:
 
 * For each of LFRic Apps and UM as required,
 
-    * In a clone of the developers branch, edit the ``dependencies.yaml`` file:
+  * In a clone of the developers branch, edit the ``dependencies.yaml`` file:
 
-        * Ensure the entry for the repository this file is in is fully blank.
-        * Ensure the ``source`` entry points at the MetOffice ssh url.
-        * Modify ``ref`` entry for all updated repositories points to the full
-          hash for the relevant commit.
-        * e.g. If a JULES ticket has been committed with hash starting abc123
-          and a UKCA ticket starting at 456def, the UM dependencies file will
-          have these entries (amongst others):
+    * Ensure the entry for the repository this file is in is fully blank.
+    * Ensure the ``source`` entry points at the MetOffice ssh url.
+    * Modify ``ref`` entry for all updated repositories points to the full
+      hash for the relevant commit.
+    * e.g. If a JULES PR has been committed with hash starting abc123
+      and a UKCA PR starting at 456def, the UM dependencies file will
+      have these entries (amongst others):
 
-        .. code-block:: yaml
+      .. code-block:: yaml
 
-            jules:
-                source=git@github.com:MetOffice/jules.git
-                ref=abc123##################################
+        jules:
+            source=git@github.com:MetOffice/jules.git
+            ref=abc123##################################
 
-            ukca:
-                source=git@github.com:MetOffice/UKCA.git
-                ref=456def##################################
+        ukca:
+            source=git@github.com:MetOffice/UKCA.git
+            ref=456def##################################
 
-            um:
-                source=
-                ref=
+        um:
+            source=
+            ref=
 
-    * Commit these changes and push back to the developers branch, along with
-      any changes to macros and KGO. Finally you can :ref:`commit <commit>`
-      the pull request.
+  * Commit these changes and push back to the developers branch, along with
+    any changes to macros and KGO. Finally you can :ref:`commit <commit>`
+    the pull request.

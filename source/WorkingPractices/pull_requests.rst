@@ -4,7 +4,7 @@ Pull Requests
 =============
 
 Once you are happy with your development and the :ref:`test suites <testing>`
-pass then you are ready to pass your ticket to review. Reviews in github are
+pass then you are ready to pass your ticket to review. Reviews in GitHub are
 done through pull requests.
 
 Changes will usually go through a 2-stage review process:
@@ -45,14 +45,14 @@ Trivial pull requests are an exception and do not require a SciTech review.
 Opening a Pull Request
 ----------------------
 
-The first step to the begin the review process in github is to open a pull
+The first step to the begin the review process in GitHub is to open a pull
 request. A pull request shows the proposed changes to the target branch and
 provides a space for reviews and discussion to take place. There a number of
 ways of opening a pull request. If your branch has had recent changes, then a
-box may appear in the either of the Upstream or Fork github pages, with a
+box may appear in the either of the Upstream or Fork GitHub pages, with a
 button to ``Compare & pull request``.
 
-Alternatively, navigate to the github page of your fork and select the
+Alternatively, navigate to the GitHub page of your fork and select the
 ``Contribute`` button,
 
 .. image:: images/gh_screenshots/contribute_light.png

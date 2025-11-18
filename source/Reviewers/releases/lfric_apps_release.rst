@@ -6,7 +6,7 @@ LFRic Apps Release
 LFRic Inputs KGO Install
 ------------------------
 
-* This can be done at any point once all tickets that change lfricinputs kgo
+* This can be done at any point once all PRs that change lfricinputs kgo
   have been committed.
 * It's easiest to use the umtest nightly testing for this and will save having
   to run the suite twice.
@@ -15,10 +15,10 @@ LFRic Inputs KGO Install
 * Install the kgo by running
   ``$UMDIR/SimSys_Scripts/kgo_updates/meto_update_kgo.sh --new-release``
 
-  * The script will ask for a working copy path - this can be any lfric apps
-    working copy as it will not be modified.
-  * The version number and ticket number are not required, although an entry
-    is required.
+  * The script will ask for a clone path - this can be any lfric apps clone as
+    it will not be modified.
+  * The version number and PR number are not used, although an entry is
+    required.
   * The kgo install directory must be updated to vnX.Y
 
 
@@ -43,7 +43,7 @@ LFRic Release
 
   * ``A.B`` - the previous version
   * ``X.Y`` - the new version
-  * ``TTTT`` - the apps release ticket number
+  * ``TTTT`` - the apps release PR number
   * ``/path/to/core`` - path to the lfric core clone
 
 * Check the output looks sensible. It should:
@@ -56,7 +56,7 @@ LFRic Release
   * Add a ``version_ab_xy.py`` upgrade file - a copy of the versions.py file
   * Reset the ``versions.py`` file with no upgrade macros
 
-* Tag other repositories and update dependencies.sh:
+* Tag other repositories and update dependencies.yaml:
 
   * Add an ``appsX.Y`` tag to each of the feeder repositories
 

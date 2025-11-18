@@ -14,7 +14,7 @@ Modifying and Installing Testing
 Nightly testing is controlled by 2 cronfiles, ``auto-gen_testing.cron`` and
 ``manual.cron`` both located in ``~/Crontabs/``. The first is automatically
 generated the script ``generate_test_suite_cron.py`` which is stored in the
-SimSys_Scripts github repo and controls the launching and clean up of the
+SimSys_Scripts GitHub repo and controls the launching and clean up of the
 nightly rose-stem suites. The second is intended for manually adding tasks
 which don't fit the pattern of the regular rose-stem suites.
 
@@ -23,14 +23,13 @@ Rose-stem testing is controlled by a config file located at
 will be regularly launched. The following options are available when defining
 a suite:
 
-* ``repo``: Required, The fcm repo being run. This string should be match the
-  fcm repo name such that ``fcm:REPO.xm_tr`` is a valid url.
+* ``repo``: Required, The name of the git repo being run.
 
 * ``period``: Required, The period with which the job repeats. Options are:
 
-    * ``weekly``: Runs on Mondays, cleans on Sundays.
-    * ``nightly``: Runs Tue-Fri, cleans Wed-Sat.
-    * ``nightly_all``: Runs Mon-Fri, cleans Tue-Sat.
+  * ``weekly``: Runs on Mondays, cleans on Sundays.
+  * ``nightly``: Runs Tue-Fri, cleans Wed-Sat.
+  * ``nightly_all``: Runs Mon-Fri, cleans Tue-Sat.
 
 * ``time_launch``: Required, 24 hour time format for the time to launch the
   suite.
@@ -59,7 +58,7 @@ a suite:
 
 The cronjobs are installed by running the ``generate_test_suite_cron.py``
 script with the ``--install`` command line option. This script is stored in
-the SimSys_Scripts github repo. It will read a config file, generate a cron
+the SimSys_Scripts GitHub repo. It will read a config file, generate a cron
 file and then install the cronjobs from all files with extension .cron in a
 specified location. The script has the following command line arguments:
 

@@ -53,17 +53,15 @@ have identical metadata regardless of the repository where they reside
 (e.g. UM).
 
 Shared JULES metadata is in the process of being migrated to
-`rose-meta/jules-shared
-<https://code.metoffice.gov.uk/trac/jules/browser/main/trunk/rose-meta/jules-shared>`__,
-which resides in the JULES repository. The sub-directories are imported
-by **rose-meta/um-atmos** and **rose-meta/jules-standalone** and is manually
-synced with a copy in LFRic. Please see `Sharing JULES metadata
-<https://code.metoffice.gov.uk/trac/jules/wiki/SharingJULESmetadata>`__ for
+``rose-meta/jules-shared``, in the JULES repository. The sub-directories are
+imported by **rose-meta/um-atmos** and **rose-meta/jules-standalone** and is
+manually synced with a copy in LFRic. Please see `Sharing JULES metadata
+<https://github.com/MetOffice/jules/wiki/sharing_jules_metadata>`__ for
 more details including what should be in `jules-shared
-<https://code.metoffice.gov.uk/trac/jules/wiki/SharingJULESmetadata#Whatsinjules-shared>`__
+<https://github.com/MetOffice/jules/wiki/sharing_jules_metadata#whats-in-jules-shared>`__
 and in `jules-standalone, jules-lfric or um-atmos
-<https://code.metoffice.gov.uk/trac/jules/wiki/SharingJULESmetadata#Whatsinjules-standalonejules-lfricorum-atmos>`__.
-When developing shared JULES metadata, you will need :ref:`linked tickets
+<http://github.com/MetOffice/jules/wiki/sharing_jules_metadata#whats-in-jules-standalone_-jules-lfric-or-_um-atmos>`__.
+When developing shared JULES metadata, you will need :ref:`linked pull requests
 <multirepo>`. The metadata migration is currently dictated by LFRic porting of
 science, although the ultimate aim is to have a single source of truth.
 

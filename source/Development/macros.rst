@@ -54,7 +54,9 @@ Within the file a blank upgrade macro will typically look like this:
 
 Note: The BEFORE_TAG should match the AFTER_TAG of the previous macro in the
 chain. So if this is not the first macro since the release then the BEFORE_TAG
-will be the version number with an added ticket number as well. For example:
+will be the version number with an added ticket number as well. For github
+developments, the ticket number can be either an Issue or PR number. For
+example:
 
 .. code-block:: python
 
@@ -135,10 +137,9 @@ etc.
 
 It is expected that all metadata changes in LFRic Core will require change to
 the rose-apps in LFRic Apps, but changes to Apps must not affect Core.
-Therefore, the apply_macros script requires a working copy of LFRic Apps to
-work, but will source it's own copy of Core if required. If your only changes
-are to LFRic Core metadata, then you will require a linked LFRic Apps ticket
-and test branch, but potentially not a development branch.
+Therefore, the apply_macros script requires a clone of LFRic Apps to work, but
+will source it's own copy of Core if required. If your only changes are to LFRic
+Core metadata, then you will also require an LFRic Apps branch and pull request.
 
 .. important::
 
@@ -152,11 +153,10 @@ and test branch, but potentially not a development branch.
 
 .. tip::
 
-    The wrapper script will read the ``dependencies.yaml`` file in your LFRic
-    Apps working copy and will checkout a temporary copy of the LFRic Core
-    source if required. Some Core metadata changes will also modify the Core
-    rose apps. In this case make sure to also commit these changes back to the
-    core branch.
+    The script will read the ``dependencies.yaml`` file in your LFRic Apps clone
+    and will checkout a temporary copy of the LFRic Core source if required.
+    Some Core metadata changes will also modify the Core rose apps. In this case
+    make sure to also commit these changes back to the core branch.
 
 To add upgrade macros to LFRic the following steps can be followed:
 
@@ -167,7 +167,7 @@ To add upgrade macros to LFRic the following steps can be followed:
    in the same ``rose-meta`` directory as the metadata being changed.
 
 3. Run the Upgrade Macro script in a test branch(see :ref:`testing`). This is
-   located in the `SimSys_Scripts github repo
+   located in the `SimSys_Scripts GitHub repo
    <https://github.com/MetOffice/SimSys_Scripts>`__ (at the MetOffice an up to
    date clone is available in $UMDIR/SimSys_Scripts). The syntax for running is:
 
@@ -185,10 +185,11 @@ To add upgrade macros to LFRic the following steps can be followed:
 
 The Apps, Core and Jules options are paths to sources for each of these. Apps
 will default to the present location (so it is recommended to launch from an
-Apps working copy). Core and Jules will default to reading the
-``dependencies.yaml`` file in the Apps source if not provided.
+Apps clone). Core and Jules will default to reading the ``dependencies.yaml``
+file in the Apps source if not provided.
 
 The ``vnXX.Y_tTTTT`` option must match the After Tag of your upgrade macro.
 When setting this, the version is the last released version of LFRic Apps. If
-it's a linked Apps-Core ticket, then set the ticket number as the one where
-the most metadata changes are being made.
+it's a linked Apps-Core PR, then set the ticket number based on the Apps
+Issue or PR. This avoids potential ticket number clashes between the
+repositories.

@@ -115,21 +115,7 @@ examining existing variables in the subroutines listed in the table above.
 
 An upgrade macro and Rose metadata will be required to add the temporary
 logical into the GUI and make it available to model users. See :ref:`inputs`
-for further information. UM developers are also expected to fill in a
-`temporary fixes summary template
-<https://code.metoffice.gov.uk/trac/um/wiki/PageTemplates/TempFixesSummary>`__
-and `the temporary logical table
-<https://code.metoffice.gov.uk/trac/um/wiki/TempUMlogicals>`__ prior to the
-review process.
-
-..
-    Note: Have we got a page on upgrade macros? (i.e. brief instructions on how
-    to write one?) I wonder if we need one - I can only see a discussion on
-    what they are and how to apply one!
-
-    Should the temporary logical page and the summary wiki page be extended to
-    all repositories? I can't see one for JULES at the moment. This is
-    something to think about making consistent.
+for further information.
 
 
 After the release cycle
@@ -156,7 +142,7 @@ temporary logical should be removed from the code base.
 
 .. important::
 
-    Prior to a ticket containing a temporary logical being committed to the
-    trunk, the developers is expected to open a new ticket which removes the
+    Prior to a pull request containing a temporary logical being committed to
+    ``main``, the developer is expected to open a new Issue which removes the
     logical after a fixed period. This acts as an memory aid that the logical
     needs to be removed in due course.

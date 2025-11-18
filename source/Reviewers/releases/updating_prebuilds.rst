@@ -1,7 +1,7 @@
 .. _updating_prebuilds:
 
 **This page is left in case prebuilds become required again, but at the move to
-github, prebuilds are no longer functional, so these instructions are no longer
+GitHub, prebuilds are no longer functional, so these instructions are no longer
 required**
 
 Mid-Release Prebuilds
@@ -19,22 +19,22 @@ To update prebuilds:
 * Open a new UM ticket, create a branch and check it out.
 * In ``rose-stem/rose-suite.conf``:
 
-    * Update the ``BASE_UM_REV`` variable to the latest version of the UM
-      trunk.
-    * Update any other ``BASE_*_REV`` variables if those trunks have more
-      recent commits that the revision listed.
+  * Update the ``BASE_UM_REV`` variable to the latest version of the UM
+    ``main``.
+  * Update any other ``BASE_*_REV`` variables if those ``main`` have more
+    recent commits that the revision listed.
 
-* In ``rose-stem/site/meto/variables.rc``:
+* In ``rose-stem/site/meto/variables.cylc``:
 
-    * Update the prebuilds paths with the name, ``rXXXXXX_prebuilds`` where
-      ``XXXXXX`` should match the ``BASE_UM_REV`` variable from earlier.
+  * Update the prebuilds paths with the name, ``rXXXXXX_prebuilds`` where
+    ``XXXXXX`` should match the ``BASE_UM_REV`` variable from earlier.
 
 * Commit these changes to the branch.
 * Login as ``umadmin`` and check out the branch (this will need to be from the
   mirror, so ensure it has updated).
 * Install the prebuilds, first on azure spice and EXAB, then on the EXCD and
   finally the EXZ. Ensure the name of the suite matches the path that was set
-  in the ``variables.rc`` file.
+  in the ``variables.cylc`` file.
 
 .. code-block:: shell
 
