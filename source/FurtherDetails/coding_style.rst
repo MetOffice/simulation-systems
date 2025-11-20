@@ -1615,7 +1615,7 @@ The routine, ``chk_var``, is available for developers to more easily check
 their inputs. Checks made by ``chk_var`` should match any checks made by Rose,
 however checks by ``chk_var`` are made by the code and will by default, abort
 the run. Developers should refer to the `um-training
-<https://code.metoffice.gov.uk/doc/um/latest/um-training/index.html>`__ for
+<https://metoffice.github.io/um_doc/um-training/index.html>`__ for
 more information on ``chk_var``.
 
 Optimised namelist reading procedures

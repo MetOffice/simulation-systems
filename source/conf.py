@@ -76,6 +76,11 @@ html_theme_options = {
             "url": "https://github.com/MetOffice/simulation-systems/discussions",
             "icon": "far fa-comments",
         },
+        {
+            "name": "GitHub",
+            "url": "https://github.com/MetOffice/simulation-systems",
+            "icon": "fa-brands fa-github",
+        },
     ],
 }
 

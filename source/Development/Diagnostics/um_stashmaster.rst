@@ -44,7 +44,7 @@ The following principles apply when altering the STASHmaster:
 
     Complete details of the STASH system (including the syntax used in the
     ``STASHmaster_A`` file) can be found in `UMDP C04
-    <https://code.metoffice.gov.uk/doc/um/latest/papers/umdp_C04.pdf>`__
+    <https://metoffice.github.io/um_doc/papers/umdp_C04.pdf>`__
 
 .. _stashmaster-meta:
 
