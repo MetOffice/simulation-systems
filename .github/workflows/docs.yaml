@@ -1,0 +1,22 @@
+name: Docs
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: MetOffice/growss/.github/workflows/build-sphinx-docs.yaml@main
+    with:
+      requirements: .github/workflows/requirements.txt
+      runner: ubuntu-24.04
+      timeout: 10
+      docs-directory: ./source
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    uses: MetOffice/growss/.github/workflows/deploy-sphinx-docs.yaml@main
