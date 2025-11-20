@@ -1,3 +1,9 @@
+.. -----------------------------------------------------------------------------
+    (c) Crown copyright Met Office. All rights reserved.
+    The file LICENCE, distributed with this code, contains details of the terms
+    under which the code may be used.
+   -----------------------------------------------------------------------------
+
 .. _updating_prebuilds:
 
 **This page is left in case prebuilds become required again, but at the move to
