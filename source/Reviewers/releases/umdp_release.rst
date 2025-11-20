@@ -32,24 +32,5 @@ UMDP Release
 
 * It is also worth checking no URLs are out of date.
 * With a reviewer, follow the :ref:`release process <github-releases>`.
-
-.. admonition:: todo
-
-    How are we publishing these docs?
-
-
-.. The old method of publishing the docs to fcm is documented here:
-
-.. * To Publish the docs:
-
-..   * Get a new copy of the head of the docs ``main``
-..   * From the top level, run ``build_umdoc.py all`` to build everything
-..   * Remove the output logs in ``output/log/*`` - just to save a bit of space.
-..   * Checkout a copy of the published documentation - just take the UM part of it as the whole thing is massive! i.e. ``fcm co https://code.metoffice.gov.uk/svn/doc/um published_um``
-..   * We keep the 3 most recent UM versions so delete one, ``fcm del vnXX.Y-2``
-..   * Edit the ``index.html`` file to remove the oldest version and add a new line for the new one.
-..   * Copy the ``output`` directory that was created by the build script earlier into a ``vnXX.Y`` directory and make sure it is added to the version control.
-..   * Finally, update the ``latest`` symlink to point to the newest version, ``ln -s vnXX.Y latest``
-..   * Finally, commit the changes and check the output at https://code.metoffice.gov.uk/doc/
-
-
+* Ensure the action to publish the documentation has successfully completed and
+  the `new documentation is available <https://metoffice.github.io/um_doc/>`_.
