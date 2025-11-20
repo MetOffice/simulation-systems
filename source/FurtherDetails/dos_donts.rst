@@ -1,53 +1,55 @@
+.. -----------------------------------------------------------------------------
+    (c) Crown copyright Met Office. All rights reserved.
+    The file LICENCE, distributed with this code, contains details of the terms
+    under which the code may be used.
+   -----------------------------------------------------------------------------
+
 .. _dos_donts:
 
 Do's and Don'ts
 ===============
+
 Please Do
 ---------
+
 **Consult** Code Owners and system team. This will help maintain awareness and
 mitigate problems early on. This is the most common root cause of problems,
 sometimes years later.
 
-**Plan** your work aimed at the trunk across single or multiple tickets:
-    * Ensure tickets are not too big or small.
-    * Coherent parts of the overall change are contained in a single ticket
-    * Consider using an overarching ticket to link everything together
+**Plan** your work aimed across single or multiple Issues and Pull Requests:
 
-**Document your work** using tickets, TRAC pages, :ref:`formal documentation <docs>`
-and code comments. These help others and your future-self understand your work.
+  * Each pull request should contain a single coherent change.
+  * Consider using an overarching issue to link everything together
 
-**Meaningful names** for tickets, branches and variables. These help others and
-your future-self understand your work. "My_Branch", "Fix" are not helpful.
+**Document your work** using Issues and pull requests, :ref:`formal documentation
+<docs>` and code comments. These help others and your future-self understand
+your work.
 
-**Be considerate** of other users/developers. Their skill-sets and working days may be very different to yours. All changes are visible to all users worldwide.
+**Meaningful names** for issues, pull requests, branches and variables. These
+help others and your future-self understand your work. "My_Branch", "Fix" are
+not helpful.
 
-**Keep the ticket status up to date.** This enables the Simulation Systems
-and Deployment Team to monitor the progress of your ticket and potential conflicts.
+**Be considerate** of other users/developers. Their skill-sets and working days
+may be very different to yours. All changes are visible to all users
+worldwide.
 
-**Link to tickets in other MOSRS repositories**, eg jules:#1, ukca:#72
+**Link to issues/pull requests in other repositories**, eg ``MetOffice/jules#1``,
+``MetOffice/ukca:#72``
 
 Please Do Not
 -------------
 
-**Do not use svn commands.** Please use `FCM <http://metomi.github.io/fcm/doc/user_guide/>`_ for all development work.
+**Do not merge ``main`` into your branch** during the development process. To
+aid scientific evaluation, changes should be kept in standalone branches based
+on the last stable version.
 
-**Do not merge the trunk into your branch** for UM, JULES, UKCA and LFRic Apps changes as this breaks many aspects of how
-TRAC and fcm work. This will cause diffs to display incorrectly and causes
-database problems when merging. Instead, please create a head of trunk branch
-and merge in your old branch.
-
-**Do not develop using head of trunk branching if not needed.** Many aspects of
-the UM, JULES and UKCA workflows rely on version branching.
+When your change is ready for Code Review, we then suggest merging in ``main``
+and resolving any conflicts.
 
 **Licensing** - Don't add code to any project (or to any branch thereof) that
 has been developed under a different license without agreement from the
 Simulation Systems and Deployment Team. This includes lifting Fortran code or
 text from books. Our repositiories must not infringe copyright.
 
-**Add or link to old code** or tickets that predate MOSRS, for example...
-
-* Link to tickets in old internal repositories- links will either not resolve or be incorrect
-* Add a version of the UM code older than UM 9.2 as a branch to the UM repository
-
-**Request support by raising a ticket**. Newly raised tickets are not monitored.
-Use the appropriate :ref:`support` channels.
+**Request support by raising an issue**. Newly raised issues are not
+monitored. Use the appropriate :ref:`support` channels.

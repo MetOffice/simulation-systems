@@ -4,8 +4,9 @@ on:
   push:
     branches:
     - main
+    - github_wps
   pull_request:
-    types: [opened,reopened,review_requested]
+    types: [opened, reopened, synchronize]
   workflow_dispatch:
 
 permissions:
@@ -20,18 +21,23 @@ jobs:
       run: |
         git config --global user.email "umsysteam@metoffice.gov.uk"
         git config --global user.name "SSD Developers"
+
     - name: Check out source
       uses: actions/checkout@v4
-    - uses: actions/setup-python@v5
-      with:
-        python-version: '3.x'
-    - name: Install Dependencies
-      run: |
-        pip install -r .github/workflows/requirements.txt
 
-    - name: build docs
-      run: |
-        make clean html
+    - name: Setup uv
+      uses: astral-sh/setup-uv@v6
+      with:
+        python-version: '3.12'
+
+    - name: Install Dependencies
+      run: uv sync
+
+    - name: Lint Docs
+      run: uv run sphinx-lint source
+
+    - name: Build Docs
+      run: uv run make clean html
 
     - name: commit docs to gh-pages branch
       if: ${{ github.event_name == 'push' && github.ref_name == 'main' }}

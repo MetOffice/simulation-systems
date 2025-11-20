@@ -1,3 +1,9 @@
+.. -----------------------------------------------------------------------------
+    (c) Crown copyright Met Office. All rights reserved.
+    The file LICENCE, distributed with this code, contains details of the terms
+    under which the code may be used.
+   -----------------------------------------------------------------------------
+
 .. _standard_suites:
 
 Standard Suites
@@ -13,14 +19,22 @@ For the UM the following Suites must be updated:
 * SCM - `u-aa741 <https://code.metoffice.gov.uk/trac/roses-u/browser/a/a/7/4/1/trunk>`_
 * CreateBC - `u-aa258 <https://code.metoffice.gov.uk/trac/roses-u/browser/a/a/2/5/8/trunk>`_
 
-First get a copy of the UM meta trunk, ``fcm co fcm:um_meta.x_tr /path/to/meta/trunk``. Similarly, get a copy of Jules at the most recent release. Then upgrade each suite by doing the following,
+Ensure you have a :ref:`fork <forking>` of both the ``um_meta`` and ``jules``
+repositories, and that the ``stable`` branches in each are up to date with the
+upstream repository.
+
+Then upgrade each suite by doing the following,
 
 * Checkout the suite. ``rosie checkout u-xxNNN`` will put a copy in ``~/roses``.
-* Check whether the ``access-list`` in the ``rose-suite.conf`` needs updating - if you are not on it, ask someone to add you now and update your copy once done.
+* Check whether the ``access-list`` in the ``rose-suite.conf`` needs updating -
+  if you are not on it, ask someone to add you now and update your copy once
+  done.
 * Move into the suite and edit the ``rose-suite.conf`` file,
 
   * If it has a ``VN`` setting, update it to the new version.
-  * If it has a ``prebuild`` path, update that now. If there are prebuilds, check the ``flow.cylc`` for any prebuild path overrides. These exist particularly on the EXs.
+  * If it has a ``prebuild`` path, update that now. If there are prebuilds,
+    check the ``flow.cylc`` for any prebuild path overrides. These exist
+    particularly on the EXs.
 
 * Validate the existing apps by running,
 
@@ -28,18 +42,24 @@ First get a copy of the UM meta trunk, ``fcm co fcm:um_meta.x_tr /path/to/meta/t
 
     rose macro --fix -C app/APP
 
-  where ``APP`` should be replaced by each available app in turn. It should report that 0 changes were made.
-* Now upgrade the apps to the new version, using the metadata trunk checked out earlier. Again, replace ``APP`` with each app in turn. This will prompt you to confirm while running.
+  where ``APP`` should be replaced by each available app in turn. It should
+  report that 0 changes were made.
+* Now upgrade the apps to the new version, using the metadata ``main`` checked
+  out earlier. Again, replace ``APP`` with each app in turn. This will prompt
+  you to confirm while running.
 
   .. code-block::
 
-    rose app-upgrade -C app/APP -M /path/to/the/meta/trunk vnX.Y
+    rose app-upgrade -C app/APP -M /path/to/um_meta/clone vnX.Y
 
-* Finally run the validator macros. If everything is fine the command will report nothing, however the SCM suite will raise some warnings about Openmp and "global rows" - these can be ignored.
+* Finally run the validator macros. If everything is fine the command will
+  report nothing, however the SCM suite will raise some warnings about Openmp
+  and "global rows" - these can be ignored.
 
   .. code-block::
 
-    rose macro metomi.rose.macros.DefaultValidators -M /path/to/the/meta/trunk:/path/to/the/jules/hot/rose-meta
+    rose macro metomi.rose.macros.DefaultValidators -M
+    /path/to/um_meta/clone/main: /path/to/the/jules/hot/rose-meta
 
 * Check that the changes look sensible and then run the suite,
 
@@ -50,7 +70,9 @@ First get a copy of the UM meta trunk, ``fcm co fcm:um_meta.x_tr /path/to/meta/t
 
 .. _suite_commit:
 
-* Once the suite has succeeded, commit the changes (``fcm ci``) with a suitable message and note the revision it was committed at. Then tag the suite and commit the tag,
+* Once the suite has succeeded, commit the changes (``fcm ci``) with a suitable
+  message and note the revision it was committed at. Then tag the suite and
+  commit the tag,
 
   .. code-block::
 
@@ -72,25 +94,28 @@ For each suite, do the following:
 
 * Get a copy of each of these suites and move into the working copy.
 
-    .. code-block::
+  .. code-block::
 
-        rosie co u-dn704
-        cd ~/roses/u-dn704
+    rosie co u-dn704
+    cd ~/roses/u-dn704
 
 * In ``rose-suite.conf`` update the version number
 * Upgrade the metadata for the mesh and lfric_atm apps
 
-    .. code-block::
+  .. code-block::
 
 
-        rose app-upgrade -a -y -C app/lfric_atm vnX.Y
-        rose app-upgrade -a -y -C app/mesh vnX.Y
+    rose app-upgrade -a -y -C app/lfric_atm vnX.Y
+    rose app-upgrade -a -y -C app/mesh vnX.Y
 
-* Check the modules loaded in the ``flow.cylc`` for any changes vs. the Apps trunk.
+* Check the modules loaded in the ``flow.cylc`` for any changes vs. the Apps
+  ``main``.
 
-    * See ``rose-stem/site/meto/common/suite_config_PLATFORM.cylc``
-    * The lfric software stack moves more quickly than the UM, so it is more likely these have changed.
+  * See ``rose-stem/site/meto/common/suite_config_PLATFORM.cylc``
+  * The lfric software stack moves more quickly than the UM, so it is more
+    likely these have changed.
 
 * Test - ``cylc vip``
-* :ref:`Commit and Tag <suite_commit>` the suite once the test suite has succeeded.
+* :ref:`Commit and Tag <suite_commit>` the suite once the test suite has
+  succeeded.
 

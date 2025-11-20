@@ -1,48 +1,85 @@
+.. -----------------------------------------------------------------------------
+    (c) Crown copyright Met Office. All rights reserved.
+    The file LICENCE, distributed with this code, contains details of the terms
+    under which the code may be used.
+   -----------------------------------------------------------------------------
+
 .. _scitech_review:
 
 Science and Technical Review
 ============================
 
+.. tip::
+
+  GitHub documentation on the review process and interface:
+  `Reviewing Proposed Changes in a Pull Request <https://docs.github.com/en/pull
+  -requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/
+  reviewing-proposed-changes-in-a-pull-request>`_
+
 Purpose of the review
 ---------------------
+
 The purpose of code review is to ensure that the code does the job it says it
 performs, is standards compliant and well documented.
 
+Focus on the code, not the contributor; providing constructive, respectful and
+actionable feedback. Critique the implementation, not the individual and always
+explain the reasoning behind your suggestions.
+
+
 Reviewer responsibilities and checkpoints
 -----------------------------------------
-The Sci/Tech review template exists to help you think through all the following
-areas. A completed :ref:`review template <template>` should be appended to the ticket once you are
-finished.
+
+The pull request template that populates the pull request description box
+contains a SciTech Review section with questions to help you think through all
+the areas of concern. This SciTech Review section should be completed once you are finished.
 
 The Science / Technical reviewer should
 
-* Understand the area of code and check that the changeset satisfies the purpose of the change.
+* Understand the area of code and check that the changeset satisfies the
+  purpose of the change.
 
 * Ensure that the code has no unwanted side-effects
 
-* Ensure that the code is written to the standards laid out in `UMDP3 <https://code.metoffice.gov.uk/doc/um/latest/papers/umdp_003.pdf>`_
-  or `LFRic Coding Styles <https://code.metoffice.gov.uk/trac/lfric/wiki/LFRicTechnical/CodingStandards>`_.
+* Ensure that the code is written to the standards laid out in
+  :ref:`Fortran Coding Standards <standards>` or `LFRic Coding Styles
+  <https://metoffice.github.io/lfric_core/how_to_contribute/coding_standards/fortran_coding_standards.html>`__
+  (which build on the first).
 
 * Make sure that the in-line documentation is accurate and sufficient.
 
-* Ensure that any related :ref:`external documentation <docs>` is updated as necessary.
+* Ensure that any related :ref:`external documentation <docs>` is updated as
+  necessary.
 
-* Check that the Trac ticket has been completed fully and accurately with sufficient detail for others to understand the impact of the change.
+* Check that the pull request has been completed fully and accurately with
+  sufficient detail for others to understand the impact of the change.
 
-* Ensure that testing has been carried out satisfactorily (and recorded on the Trac ticket), and that there is no impact for configurations outside the required scope of the changeset.
+* Ensure that testing has been carried out satisfactorily (and recorded on the
+  pull request), and that there is no impact for configurations outside the
+  required scope of the changeset.
 
 Final decision points and actions
 ---------------------------------
-The science/technical reviewer must demand that non-compliance is corrected
+
+The SciTech reviewer must demand that non-compliance is corrected
 before a change is passed onto the next level of review.
 
-The ticket will likely iterate between the reviewer and the developer during the
-review process while retaining it's sci/tech review status. However, the reviewer
-has the option to "reject and assign" back to the code author should the
-documentation or code not meet the required standards and major alterations/improvements
-are required.
+The pull request will likely iterate between the reviewer and the developer during
+the review process while retaining it's SciTech Review status.
 
-Once you are happy that the change is appropriate and correct, complete the
-approval section of the Sci/Tech review template and re-assign the ticket to the
-system/code reviewer. If need be ask the code author for the agreed system/code
-reviewer's name.
+Once you are happy that the change is appropriate and correct:
+
+#. Ensure the the SciTech parts of the pull request template have been completed.
+#. Leave an approving review
+#. Change the review state to Code Review
+#. Request the review of the nominated Code Reviewer (or leave them a
+   message with ``@username`` if their review has already been requested)
+
+These steps are covered in more detail as part of the :ref:`review_process`
+
+.. image:: ../WorkingPractices/images/gh_screenshots/project_scitech_light.png
+    :class: only-light border
+
+.. image:: ../WorkingPractices/images/gh_screenshots/project_scitech_dark.png
+    :class: only-dark border.
+

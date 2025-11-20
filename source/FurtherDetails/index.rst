@@ -1,3 +1,9 @@
+.. -----------------------------------------------------------------------------
+    (c) Crown copyright Met Office. All rights reserved.
+    The file LICENCE, distributed with this code, contains details of the terms
+    under which the code may be used.
+   -----------------------------------------------------------------------------
+
 .. _further_details:
 
 Further Details
@@ -11,5 +17,8 @@ Further Details
     support
     glossary
     code_of_conduct
+    contributing
+    ai
     dos_donts
     change_notes
+    coding_style

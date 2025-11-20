@@ -1,63 +1,58 @@
+.. -----------------------------------------------------------------------------
+    (c) Crown copyright Met Office. All rights reserved.
+    The file LICENCE, distributed with this code, contains details of the terms
+    under which the code may be used.
+   -----------------------------------------------------------------------------
+
 Final Steps
 ===========
 
 Once your change is approved, the code reviewer will follow the
-:ref:`howtocommit` process on any branches in order to commit them
-to the trunk of each project. Depending on any linked tickets and
-documentation updates, there may be several commits to different
-trunks involved.
+:ref:`howtocommit` process on any branches in order to commit them to the
+``main`` of each project. Depending on any linked PRs and documentation updates,
+there may be several commits to different trunks involved.
 
 .. note::
-   Sometimes there can be a delay between a code change being approved
-   and the commit to trunk. This can be for a number of reasons and rarely
-   will be due to your change. If you have any concerns, please contact your
-   CodeSys Reviewer in the first instance.
+
+    Sometimes there can be a delay between a code change being approved and the
+    commit to ``main``. This can be for a number of reasons and rarely will be
+    due to your change. If you have any concerns, please contact your Code
+    Reviewer in the first instance.
 
 Overnight and Weekly Testing
 ----------------------------
 
-Each project is tested overnight. This includes several related
-repositories being tested together (e.g. the UM and JULES repositories
-are related, so the head of the UM trunk is tested with the head of the
-JULES trunk). Testing is usually based on the rose stem system.
+Each project is tested overnight. This includes several related repositories
+being tested together (e.g. the UM and JULES repositories are related, so the
+head of the UM ``main`` is tested with the head of the JULES ``main``). Testing
+is usually based on the rose stem system.
 
-In addition, most projects run weekly tests, which involve
-some longer jobs not normally tested in the nightly tests.
+In addition, most projects run weekly tests, which involve some longer jobs not
+normally tested in the nightly tests.
 
-Closing Tickets
----------------
+Closing Pull Requests
+---------------------
 
-If the test suite runs overnight without issues, the CodeSys reviewer will
-close the ticket(s) as 'fixed' and reassign them back to the developer. This is
-usually the end of the process and the code changes will form part of the
-next release.
+GitHub will automatically close PRs upon merge. The code reviewer will check the
+output of nightly testing, and if this shows errors may begin a discussion on
+the pull request. Some testing is only run weekly, so some issues may take
+longer to show up.
 
 
-When the Trunk is Broken
-------------------------
+When Main is Broken
+-------------------
 
 Occasionally, the overnight testing will fail. If the issue can't be
-immediately solved, the trunk(s) of affected projects will be closed to new
+immediately solved, the ``main`` of affected projects will be closed to new
 changes. The relevant teams will investigate and aim to resolve the issue and
-reopen the trunk(s) as soon as possible. Two possible scenarios may occur:
+reopen the ``main`` as soon as possible. Two possible scenarios may occur:
 
-  #. For **simple or obvious fixes**, a second commit is the preferred solution, allowing the change to be fixed, while remaining on the trunk.
+#. For **simple or obvious fixes**, a trivial PR to fix ``main`` is preferred.
 
-  #. If the reason for the failure is complex or less obvious, the team will revert the offending change off the trunk(s).
+#. If the reason for the failure is complex or less obvious, the team will
+   revert the offending change off ``main`` .
 
-In the first case, if the test suite comes back clean, the ticket will be closed,
-as above. In the second case, the ticket will be returned to the original developer,
-allowing them to fix the issue for a later commit, either during the current
-release if time permits, or alternatively during a later release cycle.
-
-Reopening Tickets
------------------
-
-Very rarely, an issue will be discovered with a ticket some time after it has been
-committed to the trunk. The most common case is when the nightly tests pass, but
-the weekly tests fail. In this case, either the initial ticket will be either be
-reopened and a fix found, or a further ticket will be created to investigate
-the issue.
+In both cases any further PRs should link back to the original.
 
 
 Changes to the Working Practices
