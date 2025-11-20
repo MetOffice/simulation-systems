@@ -55,18 +55,25 @@ The Science / Technical reviewer should
 Final decision points and actions
 ---------------------------------
 
-The science/technical reviewer must demand that non-compliance is corrected
+The SciTech reviewer must demand that non-compliance is corrected
 before a change is passed onto the next level of review.
 
 The pull request will likely iterate between the reviewer and the developer during
 the review process while retaining it's SciTech Review status.
 
-Once you are happy that the change is appropriate and correct, and the SciTech
-Review parts of the pull request template have been completed then change
-the review state to Code Review and leave an approving review.
+Once you are happy that the change is appropriate and correct:
+
+#. Ensure the the SciTech parts of the pull request template have been completed.
+#. Leave an approving review
+#. Change the review state to Code Review
+#. Request the review of the nominated Code Reviewer (or leave them a
+   message with ``@username`` if their review has already been requested)
+
+These steps are covered in more detail as part of the :ref:`review_process`
 
 .. image:: ../WorkingPractices/images/gh_screenshots/project_scitech_light.png
     :class: only-light border
 
 .. image:: ../WorkingPractices/images/gh_screenshots/project_scitech_dark.png
     :class: only-dark border.
+
