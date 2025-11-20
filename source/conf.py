@@ -37,7 +37,7 @@ extensions = [
     'sphinx_design',
     'sphinx_copybutton',
     'sphinxcontrib.rsvgconverter',
-    'sphinx.ext.graphviz'
+    'sphinxcontrib.mermaid',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

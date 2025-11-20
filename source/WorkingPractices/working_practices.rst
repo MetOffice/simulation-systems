@@ -120,34 +120,40 @@ to maintain their own fork. See :ref:`forking` for advice on forking.
 
 The development cycle can be seen below.
 
-.. graphviz::
+.. mermaid::
 
-  digraph {
-    create_issue -> create_branch -> development -> create_pr;
-    create_issue [label="Create an Issue", style=filled, color="#f8c6b4"]
-    create_branch [label="Create a Development Branch", style=filled, color="#8eb6e8"]
-    development [label="Develop Changes on Branch", style=filled, color="#8eb6e8"]
-    create_pr [label="Create a PR for the change", style=filled, color="#f8c6b4"]
+  ---
+  config:
+    theme: neutral
+    themeVariables: {lineColor: '#58a6ff', fontSize: 20px}
+  ---
+  flowchart TD
+    classDef upstream fill:#f8c6b4,stroke:#d9534f,stroke-width:2px,color:#000
+    classDef fork fill:#8eb6e8,stroke:#5bc0de,stroke-width:2px,color:#000
+    classDef neutral fill:#d4a5a5,stroke:#8b4513,stroke-width:2px,color:#000
 
-    create_pr -> test_change;
-    test_change [label="Test Changes\nRose Stem locally + CI in PR"]
+    create_issue[Create an Issue]:::upstream
+    create_branch[Create a Development Branch]:::fork
+    development[Develop Changes on Branch]:::fork
+    create_pr[Create a PR for the change]:::upstream
+    test_change[Test Changes<br>Rose Stem locally + CI in PR]:::neutral
+    scitech[SciTech Review]:::upstream
+    code_review[Code Review]:::upstream
+    commit_pr[Commit branch to main]:::upstream
+    merge_main[Merge in upstream/main]:::fork
 
-    test_change -> scitech -> code_review -> commit_pr;
-    scitech [label="SciTech Review", style=filled, color="#f8c6b4"]
-    code_review[label="Code Review", style=filled, color="#f8c6b4"]
-    commit_pr[label="Commit branch to main", style=filled, color="#f8c6b4"]
+    create_issue --> create_branch --> development --> create_pr -->
+    test_change --> scitech --> code_review --> commit_pr
 
-    merge_main -> test_change [style="dashed", label="As Required"];
-    merge_main [label="Merge in upstream/main", style=filled, color="#8eb6e8"]
+    merge_main -.As Required.-> test_change
+    code_review -.Changes Required.-> test_change
 
-    test_change -> code_review [dir=back, style="dashed", label="Changes\nRequired", color="#8eb6e8"];
+    subgraph legend[" "]
+      direction LR
+      upstream_box[Upstream repository]:::upstream
+      fork_box[Forked repository]:::fork
+    end
 
-    subgraph cluster0 {
-      upstream -> fork [style=invis];
-      upstream [label="Takes place in the\nupstream repository", style=filled, color="#f8c6b4", shape=box]
-      fork [label="Takes place in the\nforked repository", style=filled, color="#8eb6e8", shape=box]
-    }
-  }
 
 #. :ref:`Create an Issue <create_issue>` in the upstream repository to document
    your changes.
