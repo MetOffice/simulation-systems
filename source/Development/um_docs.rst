@@ -16,12 +16,8 @@ documentation will therefore require their own pull request.
 The latest documentation gets automatically built by CI.
 The same action will run when a pull request is opened to ensure that the
 requested changes builds correctly. The build script is available in the
-repository and can be used to test that the finished documentation looks as you
-intend before submitting it for review.
-
-.. admonition:: todo
-
-  update publishing and CI details
+repository and should be used to test that the finished documentation looks as
+you intend before submitting it for review.
 
 Standards
 ---------
