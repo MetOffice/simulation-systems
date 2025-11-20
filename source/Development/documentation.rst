@@ -16,7 +16,7 @@ notably:
 | LFRic Apps                 |`view LFRic Apps`_           |
 +----------------------------+-----------------------------+
 
-.. _view UM: https://code.metoffice.gov.uk/doc/um/latest/umdp.html
+.. _view UM: https://metoffice.github.io/um_doc/
 .. _view JULES: https://jules-lsm.github.io/latest/index.html
 .. _view LFRic Core: https://metoffice.github.io/lfric_core/
 .. _view LFRic Apps: https://metoffice.github.io/lfric_apps/
@@ -30,13 +30,6 @@ alongside the code. This is then compiled using Sphinx into the webpages above.
     sphinx_docs
     um_docs
     jules_docs
-
-.. admonition::
-    update with relevant UM details. Add a page to the toctree above?
-
-    The UM documentation papers are written in LaTeX and stored in a separate
-    repository. Guidelines for editing the UM documentation papers are available
-    :ref:`here <umdp>`.
 
 
 LFRic Apps and Core also use doxygen to document the code and all changes
