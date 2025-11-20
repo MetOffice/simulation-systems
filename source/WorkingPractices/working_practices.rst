@@ -92,7 +92,7 @@ Remote
 
 Upstream
   The primary or parent repository, owned by the MetOffice GitHub
-  organisation. Only code reviewers are able to directly interact with this
+  organisation. Only Code Reviewers are able to directly interact with this
   repository, rather than being required to use forks.
 
 
@@ -162,13 +162,13 @@ The development cycle can be seen below.
      and you have included proof of local testing.
 
 #. Pass the pull request for review. Usually this will involve first a
-   :ref:`Sci Tech review <scitech_review>` and then a :ref:`Code review
+   :ref:`SciTech review <scitech_review>` and then a :ref:`Code Review
    <code_review>`. If any changes are required ensure the testing still passes.
 
-   * Once in code review, you will likely need to update your branch to the
+   * Once in Code Review, you will likely need to update your branch to the
      :ref:`head of main <merge_main>`. This may involve solving merge conflicts.
 
-#. Once the pull request has been approved, the code reviewer will merge it to
+#. Once the pull request has been approved, the Code Reviewer will merge it to
    `main`.
 
 For detailed explanation of these steps, see the subsequent pages, particularly
@@ -244,5 +244,6 @@ helpful for documenting and monitoring progress of your work.
     multi_repository
     approvals
     pull_requests
+    reviews
     final_steps
     branch_migration

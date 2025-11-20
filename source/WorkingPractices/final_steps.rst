@@ -16,7 +16,7 @@ there may be several commits to different trunks involved.
 
     Sometimes there can be a delay between a code change being approved and the
     commit to ``main``. This can be for a number of reasons and rarely will be
-    due to your change. If you have any concerns, please contact your CodeSys
+    due to your change. If you have any concerns, please contact your Code
     Reviewer in the first instance.
 
 Overnight and Weekly Testing

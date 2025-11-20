@@ -29,7 +29,7 @@ for two reasons:
 Neither of these statements suggest that the fix shouldn't be included --- in
 fact the opposite is true. The decision as to whether to include a temporary
 logical normally rests with the configuration owner, but with guidance from
-the CodeSys reviewer and the Simulation Systems and Deployment team. In such
+the Code Reviewer and the Simulation Systems and Deployment team. In such
 cases, the following guidance is followed:
 
 * Essential bug fixes (e.g. something which would on occasions cause the model

@@ -112,17 +112,17 @@ To update the test suite for an upgrade macro, please run:
                 --um=vnXX.Y_tZZZZ \
                 [--jules-path=/path/to/jules/clone]
 
-        where ``-\-um=vnXX.Y_tZZZZ`` is the ``AFTER_TAG`` of the latest
+        where ``--um=vnXX.Y_tZZZZ`` is the ``AFTER_TAG`` of the latest
         upgrade macro.
 
         If there is a macro for fcm_make or createbc then check that the
         makes ``version*_*.py`` has the correct BEFORE and AFTER tags and
-        append ``-\-makeum=vnXX.Y_tZZZZ`` and/or
-        ``-\-createbc=vnXX.Y_tZZZZ`` to the above command.
+        append ``--makeum=vnXX.Y_tZZZZ`` and/or
+        ``--createbc=vnXX.Y_tZZZZ`` to the above command.
 
         .. note::
 
-            The ``-\-jules-path`` option is only required if there are
+            The ``--jules-path`` option is only required if there are
             linked changes to the ``rose-meta/jules-shared`` directory in the
             Jules repository.
 
@@ -448,8 +448,8 @@ KGO differently*
     .. tab-item:: LFRic Apps + LFRic Core
 
         KGO Checksums are stored in the repository alongside the code and can
-        be updated using a script. This can be done by either the code
-        reviewer or by the developer (before submitting their changes for
+        be updated using a script. This can be done by either the Code
+        Reviewer or by the developer (before submitting their changes for
         review). In the latter case, the update will need redoing by the
         reviewer before commit if there are merge conflicts in the checksum
         files.
