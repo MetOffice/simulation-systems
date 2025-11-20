@@ -106,17 +106,17 @@ To update the test suite for an upgrade macro, please run:
                 --um=vnXX.Y_tZZZZ \
                 [--jules-path=/path/to/jules/clone]
 
-        where ``-\-um=vnXX.Y_tZZZZ`` is the ``AFTER_TAG`` of the latest
+        where ``--um=vnXX.Y_tZZZZ`` is the ``AFTER_TAG`` of the latest
         upgrade macro.
 
         If there is a macro for fcm_make or createbc then check that the
         makes ``version*_*.py`` has the correct BEFORE and AFTER tags and
-        append ``-\-makeum=vnXX.Y_tZZZZ`` and/or
-        ``-\-createbc=vnXX.Y_tZZZZ`` to the above command.
+        append ``--makeum=vnXX.Y_tZZZZ`` and/or
+        ``--createbc=vnXX.Y_tZZZZ`` to the above command.
 
         .. note::
 
-            The ``-\-jules-path`` option is only required if there are
+            The ``--jules-path`` option is only required if there are
             linked changes to the ``rose-meta/jules-shared`` directory in the
             Jules repository.
 
