@@ -12,7 +12,7 @@ Repo and Shared Accounts Permissions
 Modify SSD Team Github Permissions:
 
 * https://github.com/orgs/jules-lsm/teams/system-managers
-* ​https://github.com/orgs/MetOffice/teams/ssdteam
+* https://github.com/orgs/MetOffice/teams/ssdteam
 
 The ssd team should propagate to all relevant repos, but also check the
 permissions for all of,
