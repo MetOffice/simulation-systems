@@ -8,6 +8,8 @@ on:
     types: [opened, reopened, synchronize]
   workflow_dispatch:
 
+timeout-minutes: 5
+
 permissions:
   contents: read
   pages: write
