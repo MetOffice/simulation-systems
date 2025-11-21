@@ -14,7 +14,7 @@ permissions:
   id-token: write
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     env:
       PYTHON_VRSN: '3.12'
@@ -49,23 +49,21 @@ jobs:
       - name: Minimize uv cache
         run: uv cache prune --ci
 
+      # -- Deploy to GitHub Pages only on push to upstream main
+      # github.ref_name == 'main' && (github.event_name == 'push' || github.event_name == 'merge_group')
+      - name: Setup GitHub Pages
+        if: ${{ github.repository == 'MetOffice/simulation-systems' }}
+        uses: actions/configure-pages@v5
+
       - name: Upload artifact to GitHub Pages
-        if: ${{ github.ref_name == 'main' }}
+        if: ${{ github.repository == 'MetOffice/simulation-systems' }}
         uses: actions/upload-pages-artifact@v4
         with:
           name: github-pages
           path: build/html
           retention-days: 1
 
-  deploy:
-    if: ${{ github.ref_name == 'main' }}
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-      - name: Deploy GitHub Pages
+      - name: Deploy to GitHub Pages
         id: deployment
+        if: ${{ github.repository == 'MetOffice/simulation-systems' }}
         uses: actions/deploy-pages@v4
