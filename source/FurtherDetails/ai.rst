@@ -11,13 +11,13 @@ AI Policy
 
 Please ensure that when using Generative AI tools, appropriate guardrails are
 in place and contributions have correct attribution. For Met Office
-contributors, this includes adhering to the ​Use of Generative AI policy.
+contributors, this includes adhering to the Use of Generative AI policy.
 Contributors from other institutions should check if their institution has
 similar policies, and follow the local policy.
 
 Code where Generative AI tools have been used needs to have clear attribution to
 meet the Met Office Generative AI policy. This includes attribution in the
-​commit message and in each modified file. Any file where a modification has been
+commit message and in each modified file. Any file where a modification has been
 made with Generative AI assistance must have a comment immediately before the
 module level docstring, containing:
 
