@@ -1,0 +1,71 @@
+name: Docs
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    types: [opened, reopened, synchronize]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      PYTHON_VRSN: '3.12'
+      VENV_PATH: '.venv'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup uv with Python ${{ env.PYTHON_VRSN }}
+        uses: astral-sh/setup-uv@v7
+        with:
+          python-version: ${{ env.PYTHON_VRSN }}
+
+      - name: Cache uv venv
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.VENV_PATH }}
+          key: ${{ runner.os }}-uv-${{ env.PYTHON_VRSN }}-${{ hashFiles('pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-uv-${{ env.PYTHON_VRSN }}-
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Lint Sphinx docs
+        run: uv run sphinx-lint source
+
+      - name: Build HTML docs
+        run: uv run make clean html
+
+      - name: Minimize uv cache
+        run: uv cache prune --ci
+
+      - name: Upload artifact to GitHub Pages
+        if: ${{ github.ref_name == 'main' }}
+        uses: actions/upload-pages-artifact@v4
+        with:
+          name: github-pages
+          path: build/html
+          retention-days: 1
+
+  deploy:
+    if: ${{ github.ref_name == 'main' }}
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
