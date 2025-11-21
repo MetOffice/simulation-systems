@@ -170,6 +170,6 @@ again. Add the token to the git credentials file in the following format,
 
     echo "https://<gh-username>:<PAT>@github.com" >> ~/.git-credentials
 
-To use you token to authenticate with GitHub when running the `:ref:rose-stem
+To use your token to authenticate with GitHub when running the :ref:`rose-stem
 suite <github_testing>`, include the command line option ``-S USE_TOKENS=true``.
 For Monsoon users, this option is automatically enabled.
