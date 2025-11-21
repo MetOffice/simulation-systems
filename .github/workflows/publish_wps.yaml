@@ -8,8 +8,6 @@ on:
     types: [opened, reopened, synchronize]
   workflow_dispatch:
 
-timeout-minutes: 5
-
 permissions:
   contents: read
   pages: write
@@ -18,6 +16,7 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     env:
       PYTHON_VRSN: '3.12'
       VENV_PATH: '.venv'
