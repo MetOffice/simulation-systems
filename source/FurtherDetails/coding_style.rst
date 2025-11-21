@@ -284,7 +284,7 @@ S1. Source files should only contain a single program unit
 
 - The name of the file should reflect the name of the programming unit.
   Multiple versions of the same file should be named ``filename-#ver`` where
-  ``#ver`` is the section/version number (e.g. 1a,2a,2b…). For example:
+  ``#ver`` is the section/version number (e.g. 1a,2a,2b...). For example:
 
   - ``<filename-#ver>.F90`` when writing a ``<subroutine>``
 
@@ -1727,7 +1727,7 @@ Copyright and Code Owner Comments
 
 Copyright and code owner comments follow the same rules as in Fortran, except
 with slight modification for the differing comment delimiters in the two
-languages — using ``/* */`` instead of ``!``. An example of a compliant
+languages - using ``/* */`` instead of ``!``. An example of a compliant
 comment header detailing copyright and code owner comments is given below.
 
 .. container:: minipage
@@ -1748,7 +1748,7 @@ Deprecated identifiers
 ~~~~~~~~~~~~~~~~~~~~~~
 
 In addition to the identifiers deprecated by the C99 standard, the following
-table lists identifiers which should be considered deprecated within UM code —
+table lists identifiers which should be considered deprecated within UM code -
 and where appropriate, what to replace them with.
 
 ========================== =====================
