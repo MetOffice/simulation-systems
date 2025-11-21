@@ -139,13 +139,12 @@ The development cycle can be seen below.
     test_change[Test Changes<br>Rose Stem locally + CI in PR]:::neutral
     scitech[SciTech Review]:::upstream
     code_review[Code Review]:::upstream
+    merge_main[Merge in upstream/main<br>Retest as necessary]:::fork
     commit_pr[Commit branch to main]:::upstream
-    merge_main[Merge in upstream/main]:::fork
 
     create_issue --> create_branch --> development --> create_pr -->
-    test_change --> scitech --> code_review --> commit_pr
+    test_change --> scitech --> code_review --> merge_main --> commit_pr
 
-    merge_main -.As Required.-> test_change
     code_review -.Changes Required.-> test_change
 
     subgraph legend[" "]
