@@ -4,7 +4,6 @@ on:
   push:
     branches:
     - main
-    - github_wps
   pull_request:
     types: [opened, reopened, synchronize]
   workflow_dispatch:
