@@ -26,7 +26,7 @@ be able to use this website. For example, that means you should be able to:
 - navigate most of the website using a keyboard
 - navigate most of the website using speech recognition software
 - use most of the website using a screen reader on supported browsers
-- we’ve also made the website text as simple as possible to understand
+- we've also made the website text as simple as possible to understand
 
 `AbilityNet`_ has advice on making your device easier to use if you have a
 disability.
