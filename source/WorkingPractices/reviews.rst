@@ -38,7 +38,7 @@ Code reviewers are assigned by the Simulation Systems and Deployment Team from
 a pool of repository maintainers. New ``ready for review`` pull requests will be
 assigned a reviewer on a regular basis. If you need your pull request looking at
 more urgently than that, or think your pull request has been overlooked, then
-leave a comment for ``@ssdteam`` on the pull request.
+leave a comment for ``@MetOffice/ssdteam`` on the pull request.
 
 The assigned person will be listed in the pull request description and
 :ref:`Review Tracking project <review_project>`. Once the SciTech review has
