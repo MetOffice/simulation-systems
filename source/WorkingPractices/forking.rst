@@ -141,3 +141,10 @@ normally cloning a fork.
 
     # Checkout the forked branch
     git checkout FETCH_HEAD
+
+To use the mirrors, you will likely need to run the following once, from the
+command line:
+
+.. code-block:: shell
+
+    git config --global --add safe.directory "/path/to/mirrors/MetOffice/*"

@@ -31,7 +31,9 @@ following syntax,
   need to be run separately.
 * ``-z g=`` or ``-z group=`` - This sets the test suite groups to run, and
   takes a comma separated list of groups. For example, ``-z g=developer,
-  lfric_atm`` will run the ``developer`` and ``lfric_atm`` groups.
+  lfric_atm`` will run the ``developer`` and ``lfric_atm`` groups. This option
+  can be excluded which will result in the ``developer`` group being run for
+  most use repositories.
 * ``-S VALUE=SETTING`` - these options behave as they did before, and can be
   added to the ``cylc vip`` command. See the table below for some suggestions.
 * ``-S USE_MIRRORS=`` - An example of the above settings, this is newly added
