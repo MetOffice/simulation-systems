@@ -58,11 +58,18 @@ a fork <forking>` of the repo you are migrating to.
      git switch -c <branch name> <tag to branch from>
      e.g. git switch -c new_migrated_branch git_migration
 
-#. Apply the patch file onto the git branch,
+#. Apply the patch file onto the git branch.
 
    .. code-block::
 
      git apply --reject /path/to/branch_diff.patch
+
+   .. note::
+
+     The paths in the patch file will be as short as possible to show all files
+     changed, so you may need to change directory. eg. if you branch only
+     contains changes in the ``rose-stem`` directory, then you will need to move
+     into the ``rose-stem`` directory to successfully apply the patch.
 
 #. If your fcm and git branches are from an equivalent branch point, there
    shouldn't be any conflicts applying the patch file. If there are conflicts
