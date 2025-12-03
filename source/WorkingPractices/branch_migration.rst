@@ -49,7 +49,8 @@ a fork <forking>` of the repo you are migrating to.
    .. code-block::
 
      fcm diff --git --force --diff-cmd /usr/bin/diff -x "-au" \
-       fcm:REPO.x_tr@BRANCH_REVISION fcm:REPO.x_br/dev/USER/BRANCH_NAME > \
+       fcm:REPO.x_tr@BRANCH_REVISION \
+       fcm:REPO.x_br/dev/USER/BRANCH_NAME > \
        /path/to/branch_diff.patch
 
 #. Move into your git clone and :ref:`create a new branch <create_branch>` with
@@ -71,7 +72,8 @@ a fork <forking>` of the repo you are migrating to.
 #. If your fcm and git branches are from an equivalent branch point, there
    shouldn't be any conflicts applying the patch file. Check carefully the
    output of the patch application, ``git status``. If you have new files on
-   your branch these will need adding via ``git add``.
+   your branch these will need adding via ``git add``. Deleted files will also
+   need deleting via ``git rm``.
 #. Finally, all branches will **need** to update to the initial git release in
    order to run the test suites. This can be done by merging the ``stable``
    branch into your new branch. See :ref:`updating a branch <updating_branch>`
