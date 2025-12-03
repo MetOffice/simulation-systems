@@ -113,6 +113,43 @@ signing.
     Run ``git config --global commit.gpgsign true`` in order to automatically
     sign each commit.
 
+There are numerous ways to set up signature verification. To use SSH key for signing, then you can configure your git repositories, either individually, as per this guide, or using `git config --global` if you are happy to have one configuration for all repositories.
+
+It is recommended to use your `ID+username@users.noreply.github.com` email for this.
+
+At https://github.com/settings/keys :
+* add `New SSH key`
+* Select `signing key` for `Key type`
+* Add public key that you are using for authentication.
+
+Then configure git locally at the command line:
+
+.. code-block::
+
+    # create a configuration location for git
+    mkdir ~/.config/git`
+    # create a configuration for allowed signers - this only needs to be done once.
+    # substituting your git no reply email and your own ssh key
+    echo "ID+username@users.noreply.github.com $(cat ~/.ssh/{correct-ssh-key.pub})" > ~/.config/git/allowed-signers
+
+    # This assume a by-respoitory configuration, and doesn't use `git config --global`
+    cd {aGitRepo}
+    git config gpg.format ssh
+    git config user.signingkey {/path/to/key}
+    git config gpg.ssh.allowedSignersFile ~/.config/git/allowed-signers
+    git config commit.gpgsign true
+
+From then on new commits should be signed.
+One can retrospectively change commits with a `git rebase -i HEAD~{N}` and some commit editing, if required.
+
+To check this is working locally, then:
+
+.. code-block::
+
+    git log --show-signature
+
+To check that this is working on Github, then push a commit to a branch on Github, then browse to the commit list.
+There should be a green `Verified` label beside each commit.
 
 gh Command Line Interface
 -------------------------
