@@ -49,7 +49,7 @@ a fork <forking>` of the repo you are migrating to.
    .. code-block::
 
      fcm diff --git --force --diff-cmd /usr/bin/diff -x "-au" \
-       fcm:REPO.x_tr@BRANCH_REVISION fcm:REPO.x_br/dev/USER/BRANCH_NAME >> \
+       fcm:REPO.x_tr@BRANCH_REVISION fcm:REPO.x_br/dev/USER/BRANCH_NAME > \
        /path/to/branch_diff.patch
 
 #. Move into your git clone and :ref:`create a new branch <create_branch>` with
