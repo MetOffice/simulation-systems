@@ -42,11 +42,16 @@ a fork <forking>` of the repo you are migrating to.
 
    Resolve any conflicts and then commit these changes to this branch,
    ``fcm ci``.
-#. Create a patch file from your new branch at the migration point,
+#. Create a patch file from your new branch at the migration point. To do this
+   you will need to know the branch point of your fcm branch, which can be found
+   from the ``fcm binfo`` command
 
    .. code-block::
 
-     fcm bdiff >> /path/to/branch_diff.patch
+     fcm diff --git --force --diff-cmd /usr/bin/diff -x "-au" \
+       fcm:REPO.x_tr@BRANCH_REVISION \
+       fcm:REPO.x_br/dev/USER/BRANCH_NAME > \
+       /path/to/branch_diff.patch
 
 #. Move into your git clone and :ref:`create a new branch <create_branch>` with
    the same start point as your fcm branch. If you are branching from an
@@ -62,21 +67,13 @@ a fork <forking>` of the repo you are migrating to.
 
    .. code-block::
 
-     git apply --reject /path/to/branch_diff.patch
-
-   .. note::
-
-     The paths in the patch file will be as short as possible to show all files
-     changed, so you may need to change directory. eg. if you branch only
-     contains changes in the ``rose-stem`` directory, then you will need to move
-     into the ``rose-stem`` directory to successfully apply the patch.
+     patch -p0 -s < /path/to/branch_diff.patch
 
 #. If your fcm and git branches are from an equivalent branch point, there
-   shouldn't be any conflicts applying the patch file. If there are conflicts
-   then these will be recorded in ``*.rej`` files. The output of the ``apply``
-   command will note any failures, or you can find them by running
-   ``find . -name *.rej``. Fix any failures you find and then commit the
-   changes.
+   shouldn't be any conflicts applying the patch file. Check carefully the
+   output of the patch application, ``git status``. If you have new files on
+   your branch these will need adding via ``git add``. Deleted files will also
+   need deleting via ``git rm``.
 #. Finally, all branches will **need** to update to the initial git release in
    order to run the test suites. This can be done by merging the ``stable``
    branch into your new branch. See :ref:`updating a branch <updating_branch>`
