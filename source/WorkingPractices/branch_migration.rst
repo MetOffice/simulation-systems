@@ -23,15 +23,15 @@ a fork <forking>` of the repo you are migrating to.
 
 .. important::
 
+    The process below involves rsyncing the changes in your fcm working copy to
+    a git clone. This requires that the two branches have equivalent branch
+    points, so ensure this is the case.
+
     For convenience, the ``git_migration`` tag is provided as a branch point in
     both fcm and git. However all ``fcm`` revisions and tags have a direct
     equivalent commit on git - tags will have the same name on both, revisions
     of specific commits will need to be manually aligned with a commit hash by
     comparing commit messages.
-
-    The process below involves rsyncing the changes in your fcm working copy to
-    a git clone. This requires that the two branches have equivalent branch
-    points, so ensure this is the case.
 
 #. Optionally, create a new branch in ``fcm`` using the tag ``git_migration``.
    Then merge your development branch onto this one, eg.
