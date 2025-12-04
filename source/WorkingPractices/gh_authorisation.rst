@@ -108,11 +108,11 @@ verification key
 If you have setup an ssh key for authenticating, then this can be reused for
 signing.
 
-There are numerous ways to set up signature verification. 
+There are numerous ways to set up signature verification.
 
 To use SSH key for signing, then you can configure your git repositories,
 either globally, as per this guide, if you are happy to have one
-configuration for all repositories, 
+configuration for all repositories,
 or individually by replacing all calls to
 `git config --global` with `git config`  in each local git repository
 that you want to configure.
@@ -163,7 +163,7 @@ There should be a green `Verified` label beside each signed commit.
 
 ..tip ::
 
-    One can retrospectively change commits in a repository, if required, with 
+    One can retrospectively change commits in a repository, if required, with
     `git rebase -i HEAD~<N>` # where <N> is the number of commits back to change
                              # and setting each commit to `edit` or `reword`
                              # (see git documentation for more details).
