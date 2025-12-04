@@ -55,8 +55,9 @@ a fork <forking>` of the repo you are migrating to.
      e.g. git switch -c new_migrated_branch git_migration
 
 #. Rsync the changes over from the fcm export to the git clone. Use ``--delete``
-   to remove any files you have deleted in your branch. Use ``--exclude=.git``
-   so that the ``.git`` directory isn't also deleted.
+   to remove any files you have deleted in your branch. Use
+   ``--exclude=.git --exclude=.svn`` so that the version control directories
+   aren't modified.
 
    .. code-block::
 
