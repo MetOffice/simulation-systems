@@ -61,7 +61,7 @@ a fork <forking>` of the repo you are migrating to.
 
    .. code-block::
 
-     # NOTE: You the trailing backslash on the fcm source path
+     # NOTE: You need the trailing backslash on the fcm source path
      rsync -av --delete --exclude=.git --exclude=.svn path/to/fcm/export/ path/to/git/clone
 
 #. Check carefully the output of the rsync via ``git status``. If you have new
