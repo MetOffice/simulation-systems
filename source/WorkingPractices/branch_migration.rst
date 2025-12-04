@@ -21,15 +21,11 @@ This page is intended to act as a guide when migrating branches from fcm to git
 after the initial git release. It assumes that you have already :ref:`created
 a fork <forking>` of the repo you are migrating to.
 
-.. tip::
+.. important::
 
-    The process below involves creating a patch file based on your fcm branch,
-    and then applying it to git branch taken from the same branching point. For
-    convenience, the ``git_migration`` tag is provided as a branch point in both
-    fcm and git. However all ``fcm`` revisions and tags have a direct equivalent
-    commit on git - tags will have the same name on both, revisions of specific
-    commits will need to be manually aligned with a commit hash by comparing
-    commit messages.
+    The process below involves rsyncing the changes in your fcm working copy to
+    a git clone. This requires that the two branches have equivalent branch
+    points, so ensure this is the case.
 
 #. Optionally, create a new branch in ``fcm`` using the tag ``git_migration``.
    Then merge your development branch onto this one, eg.
@@ -42,16 +38,11 @@ a fork <forking>` of the repo you are migrating to.
 
    Resolve any conflicts and then commit these changes to this branch,
    ``fcm ci``.
-#. Create a patch file from your new branch at the migration point. To do this
-   you will need to know the branch point of your fcm branch, which can be found
-   from the ``fcm binfo`` command
+#. Get an export of the branch you wish to migrate (the one above in this case).
+   You can also delete the ``.svn`` directory in a working copy.
 
    .. code-block::
-
-     fcm diff --git --force --diff-cmd /usr/bin/diff -x "-au" \
-       fcm:REPO.x_tr@BRANCH_REVISION \
-       fcm:REPO.x_br/dev/USER/BRANCH_NAME > \
-       /path/to/branch_diff.patch
+     fcm export fcm:lfric_apps.x_br/dev/USER/BRANCH
 
 #. Move into your git clone and :ref:`create a new branch <create_branch>` with
    the same start point as your fcm branch. If you are branching from an
@@ -63,17 +54,16 @@ a fork <forking>` of the repo you are migrating to.
      git switch -c <branch name> <tag to branch from>
      e.g. git switch -c new_migrated_branch git_migration
 
-#. Apply the patch file onto the git branch.
+#. Rsync the changes over from the fcm export to the git clone. Use ``--delete``
+   to remove any files you have deleted in your branch. Use ``--exclude=.git``
+   so that the ``.git`` directory isn't also deleted.
 
    .. code-block::
 
-     patch -p0 -s < /path/to/branch_diff.patch
+     rsync -av --delete --exclude=.git path/to/fcm/export path/to/git/clone
 
-#. If your fcm and git branches are from an equivalent branch point, there
-   shouldn't be any conflicts applying the patch file. Check carefully the
-   output of the patch application, ``git status``. If you have new files on
-   your branch these will need adding via ``git add``. Deleted files will also
-   need deleting via ``git rm``.
+#. Check carefully the output of the rsync via ``git status``. If you have new
+   files on your branch these will need adding via ``git add``.
 #. Finally, all branches will **need** to update to the initial git release in
    order to run the test suites. This can be done by merging the ``stable``
    branch into your new branch. See :ref:`updating a branch <updating_branch>`
