@@ -23,6 +23,12 @@ a fork <forking>` of the repo you are migrating to.
 
 .. important::
 
+    For convenience, the ``git_migration`` tag is provided as a branch point in
+    both fcm and git. However all ``fcm`` revisions and tags have a direct
+    equivalent commit on git - tags will have the same name on both, revisions
+    of specific commits will need to be manually aligned with a commit hash by
+    comparing commit messages.
+
     The process below involves rsyncing the changes in your fcm working copy to
     a git clone. This requires that the two branches have equivalent branch
     points, so ensure this is the case.
@@ -38,12 +44,6 @@ a fork <forking>` of the repo you are migrating to.
 
    Resolve any conflicts and then commit these changes to this branch,
    ``fcm ci``.
-#. Get an export of the branch you wish to migrate (the one above in this case).
-   You can also delete the ``.svn`` directory in a working copy.
-
-   .. code-block::
-     fcm export fcm:lfric_apps.x_br/dev/USER/BRANCH
-
 #. Move into your git clone and :ref:`create a new branch <create_branch>` with
    the same start point as your fcm branch. If you are branching from an
    untagged revision, you will need to manually find the relevant hash for that
@@ -51,7 +51,7 @@ a fork <forking>` of the repo you are migrating to.
 
    .. code-block::
 
-     git switch -c <branch name> <tag to branch from>
+     git switch -c <branch name> <tag/hash to branch from>
      e.g. git switch -c new_migrated_branch git_migration
 
 #. Rsync the changes over from the fcm export to the git clone. Use ``--delete``
@@ -60,7 +60,8 @@ a fork <forking>` of the repo you are migrating to.
 
    .. code-block::
 
-     rsync -av --delete --exclude=.git path/to/fcm/export path/to/git/clone
+     # NOTE: You the trailing backslash on the fcm source path
+     rsync -av --delete --exclude=.git --exclude=.svn path/to/fcm/export/ path/to/git/clone
 
 #. Check carefully the output of the rsync via ``git status``. If you have new
    files on your branch these will need adding via ``git add``.
