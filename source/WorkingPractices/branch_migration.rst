@@ -54,6 +54,9 @@ a fork <forking>` of the repo you are migrating to.
      git switch -c <branch name> <tag/hash to branch from>
      e.g. git switch -c new_migrated_branch git_migration
 
+   If the ``git_migration`` tag doesn't exist in your clone, then you may need
+   to :ref:`sync tags <sync_fork_tags>`.
+
 #. Rsync the changes over from the fcm export to the git clone. Use ``--delete``
    to remove any files you have deleted in your branch. Use
    ``--exclude=.git --exclude=.svn`` so that the version control directories
