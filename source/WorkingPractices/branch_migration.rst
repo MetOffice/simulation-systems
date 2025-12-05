@@ -44,6 +44,9 @@ a fork <forking>` of the repo you are migrating to.
 
    Resolve any conflicts and then commit these changes to this branch,
    ``fcm ci``.
+
+   For Jules users, upgrading to the ``git_migration`` tag is required.
+
 #. Move into your git clone and :ref:`create a new branch <create_branch>` with
    the same start point as your fcm branch. If you are branching from an
    untagged revision, you will need to manually find the relevant hash for that
@@ -57,18 +60,24 @@ a fork <forking>` of the repo you are migrating to.
    If the ``git_migration`` tag doesn't exist in your clone, then you may need
    to :ref:`sync tags <sync_fork_tags>`.
 
-#. Rsync the changes over from the fcm export to the git clone. Use ``--delete``
-   to remove any files you have deleted in your branch. Use
+#. Rsync the changes over from the fcm working copy to the git clone. Use
+   ``--delete`` to remove any files you have deleted in your branch. Use
    ``--exclude=.git --exclude=.svn`` so that the version control directories
    aren't modified.
 
    .. code-block::
 
      # NOTE: You need the trailing backslash on the fcm source path
-     rsync -av --delete --exclude=.git --exclude=.svn path/to/fcm/export/ path/to/git/clone
+     rsync -av --delete --exclude=.git --exclude=.svn path/to/fcm/working/copy/ path/to/git/clone
 
 #. Check carefully the output of the rsync via ``git status``. If you have new
    files on your branch these will need adding via ``git add``.
+
+   .. note::
+
+     For lfric_core a minor source code change has been added to github, which
+     may result in conflicts in ``components/lfric-xios/source/lfric_xios_file_mod.f90``
+
 #. Finally, all branches will **need** to update to the initial git release in
    order to run the test suites. This can be done by merging the ``stable``
    branch into your new branch. See :ref:`updating a branch <updating_branch>`
