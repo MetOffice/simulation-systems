@@ -72,12 +72,6 @@ a fork <forking>` of the repo you are migrating to.
 
 #. Check carefully the output of the rsync via ``git status``. If you have new
    files on your branch these will need adding via ``git add``.
-
-   .. note::
-
-     For lfric_core a minor source code change has been added to github, which
-     may result in conflicts in ``components/lfric-xios/source/lfric_xios_file_mod.f90``
-
 #. Finally, all branches will **need** to update to the initial git release in
    order to run the test suites. This can be done by merging the ``stable``
    branch into your new branch. See :ref:`updating a branch <updating_branch>`
@@ -93,3 +87,6 @@ a fork <forking>` of the repo you are migrating to.
     are expected when updating rose-stem changes to the initial release. The UM,
     Jules and UKCA test suites have all had file extensions renamed from ``.rc``
     to ``.cylc``.
+
+    For lfric_core a minor source code change has been added to github, which
+    may result in conflicts in ``components/lfric-xios/source/lfric_xios_file_mod.f90``
