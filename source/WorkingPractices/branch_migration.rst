@@ -77,6 +77,11 @@ a fork <forking>` of the repo you are migrating to.
    branch into your new branch. See :ref:`updating a branch <updating_branch>`
    for more details, noting that you will need to use one of the options
    using ``git commands`` for this step.
+
+   If you have a linked ticket you will manually need to :ref:`update the
+   dependencies.yaml <multi-repo_testing>` to point at your linked branches. For
+   lfric_apps branches, ensure that the ``dependencies.sh`` file hasn't been
+   readded to the branch.
 #. It may be worth running the :ref:`test suite <testing>` to ensure the branch
    has been properly migrated.
 
