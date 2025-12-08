@@ -24,3 +24,16 @@ Why can't I push or create a branch in the repository?
 Why won't the rose-stem command work?
   The syntax to launch the test suite has changed with the move to git. Please
   see our :ref:`testing pages <testing>`.
+
+How do I run with an older version?
+  The entire history of each trunk branch from the MOSRS repository has been
+  migrated (for the UM this is from vn9.2). If you need a specific release, then
+  you can checkout the tag of that release, eg. ``git checkout <TAG>``. If you
+  require a specific commit, you will need to find the relevant hash from the
+  history of the main branch.
+
+Why can't I see the full history of Jules and MONC?
+  Due to licencing issues we were unable to make the history of these
+  repositories public. We have a copy of the repository with all the previous
+  releases internal to the MetOffice. Please ask if you need help accessing
+  that.
