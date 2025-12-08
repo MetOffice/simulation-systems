@@ -59,6 +59,10 @@ developed the release branch and the other will review it (**developer** and
 
 * Once development and local testing has been completed, the **developer**
   should open a PR, targetting the ``stable`` branch.
+
+  * **Make Sure** that all the sources in the dependencies.yaml file are as they
+    should be.
+
 * The **reviewer** will then review and commit the branch. When committing the
   branch, ensure that the merge method is ``merge``. This should be the default
   for the ``stable`` branch as we want to keep the history of ``main`` in the
