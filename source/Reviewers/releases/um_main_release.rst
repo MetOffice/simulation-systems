@@ -26,29 +26,21 @@ the ``dependencies.yaml`` file to point at your metadata branch.
     changes from the past release.
 
 
-Tagging Feeder Repositories
----------------------------
-
-* Add a ``umX.Y`` tag to each of the feeder repositories
-
-  * Casim
-  * Jules
-  * Shumlib
-  * Socrates
-  * UKCA
-
-Send an email to all repository owners to let them know that the the head of
-the ``main`` has been tagged.
-
-.. note::
-
-    Jules should already have been done by the Jules release, but this is worth
-    checking.
+Dependencies
+------------
 
 For each of these repositories, modify the ``ref`` in the UM
-``dependencies.yaml`` file, to point at the new ``umX.Y`` tag. Commit this
-change to the branch.
+``dependencies.yaml`` file, to point at the new Simulation Systems release tag.
 
+* JULES
+* SOCRATES
+* UKCA
+* CASIM
+* MOCI
+
+Also update the ``ref`` for Mule and SHUMLIB to point to their latest releases.
+
+Commit this change to the branch.
 
 Apply Code Styling
 ------------------
@@ -304,11 +296,12 @@ reasonable range of rose-ana tasks have passed.
 Review and Commit
 -----------------
 
-Ensure all changes are committed to both branches and then create a PR for each
-of the ``um`` and ``um_meta`` branches and pass along for a review and commit.
+Ensure all changes are committed to both branches and then create a PR
+targeting main for each of the ``um`` and ``um_meta`` branches and pass
+along for a review and commit.
 
-You and the reviewer should work through the process of committing the branches
-together - :ref:`see here for details page<github-releases>`.
+You and the reviewer should then work through the process of merging main and
+stable together - :ref:`see here for details page<github-releases>`.
 
 
 Install the Release

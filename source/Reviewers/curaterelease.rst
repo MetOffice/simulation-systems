@@ -16,6 +16,7 @@ Curating a Release
     releases/jules_release
     releases/shumlib_release
     releases/mule_release
+    releases/feeder_repos
     releases/um_main_release
     releases/lfric_apps_release
     releases/release_notes
@@ -39,36 +40,38 @@ Issue template.
 Stable + Main Release
 ---------------------
 
-This section describes the process of merging a release branch onto main and
-stable. It assumes that a branch has been created from main, and that any
-changes required for the release have been committed to it and tested. This
-section is relevant for all repositories with a stable and main branch setup.
-
-.. note::
-
-    Some repos (Socrates, Casim) do not require release changes, so a PR should
-    just be opened to merge the ``main`` branch into the ``stable`` branch. Then
-    a second PR should be opened to merge ``stable`` back into ``main`` to
-    ensure ``main`` is never behind. Any tags required can then be made at this
-    point.
+This section describes the process of merging main and stable. It assumes that
+any required release changes have already been merged into main and that all
+sources in the dependencies.yaml file are as they should be. This section is
+relevant for all repositories with a stable and main branch setup.
 
 The release process will be completed by 2 people with commit privilege to the
 relevant repository, at least one of whom must be an ``admin``. One will have
 developed the release branch and the other will review it (**developer** and
 **reviewer** below).
 
-* Once development and local testing has been completed, the **developer**
-  should open a PR, targetting the ``stable`` branch.
+* The **developer** should open a PR directly in the MetOffice repository,
+  targeting the ``stable`` branch.
 
-  * **Make Sure** that all the sources in the dependencies.yaml file are as they
-    should be.
+    .. image:: images/gh_screenshots/main_stable_light.png
+       :class: only-light border
 
-* The **reviewer** will then review and commit the branch. When committing the
+    .. image:: images/gh_screenshots/main_stable_dark.png
+        :class: only-dark border
+
+* The **reviewer** will then review and commit the PR. When committing the
   branch, ensure that the merge method is ``merge``. This should be the default
   for the ``stable`` branch as we want to keep the history of ``main`` in the
   ``stable`` branch.
 * The **developer** will then create a new PR, to merge the ``stable`` branch
   into ``main``.
+
+    .. image:: images/gh_screenshots/stable_main_light.png
+       :class: only-light border
+
+    .. image:: images/gh_screenshots/stable_main_dark.png
+        :class: only-dark border
+
 * At this point an admin will need to modify the branch protection rules for the
   ``main`` branch, so that the commit can be performed with a normal merge. This
   keeps ``main`` and ``stable`` with an identical history.
@@ -79,7 +82,16 @@ developed the release branch and the other will review it (**developer** and
 
 * The **reviewer** can now ``merge`` the second PR.
 * The admin **must** now revert the 2 settings above.
-* Finally, the release can be created and tagged,
+* The repository can be tagged with the Simulation Systems release tag in the
+  format YYYY.MM.X.
+  * In an upto-date clone of the repository:
+
+  .. code-block:: shell
+
+    git tag <tag_name>
+    git push origin <tag_name>
+
+* Finally, if appropriate, a release can be created and tagged,
 
   * From the GitHub repo, select ``releases`` and then ``Draft a new release``.
   * Create a new tag and title the release with the same name, eg. ``vn14.0``.
@@ -142,6 +154,13 @@ All shumlib PRs
 **Dependencies**
 All mule PRs, Shumlib release (if required), UM release (to actually
 install)
+
+
+:ref:`feeder`
+^^^^^^^^^^^^^^^^^^^
+
+**Dependencies**
+All PRs for each repository.
 
 
 :ref:`UM Main Release<um_main_release>`
