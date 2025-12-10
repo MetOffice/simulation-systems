@@ -34,6 +34,8 @@ LFRic Release
 * Ensure you have a :ref:`fork <forking>` of both the ``lfric_apps`` and
   ``lfric_core`` repositories, and that the ``main`` branches in each are up to
   date with the upstream repository.
+* Create an LFRic Apps Issue for the release to provide a number for the release
+  script.
 * In a clone of these forks, :ref:`create a branch <create_branch>` using the
   ``main`` branch as the parent.
 
@@ -49,7 +51,7 @@ LFRic Release
 
   * ``A.B`` - the previous version
   * ``X.Y`` - the new version
-  * ``TTTT`` - the apps release PR number
+  * ``TTTT`` - the apps release issue number
   * ``/path/to/core`` - path to the lfric core clone
 
 * Check the output looks sensible. It should:
@@ -64,18 +66,15 @@ LFRic Release
 
 * Tag other repositories and update dependencies.yaml:
 
-  * Add an ``appsX.Y`` tag to each of the feeder repositories
-
-    * Casim
-    * Jules
-    * Socrates
-    * UKCA
+  Ensure that the :ref:`feeder repositories have all been tagged<feeder>`.
 
   * In dependencies.yaml:
 
     * Ensure the ``lfric_core`` ``source`` is pointing at the local clone of
       your branch.
-    * Update ``ref`` for above repositories to be ``appsX.Y``
+    * Update ``ref`` for above repositories to be the Simulation Systems tag
+      ``YYYY.MM.1``
+
 
 * Commit your changes to both Apps and Core branches.
 

@@ -9,13 +9,25 @@
 Feeder Repositories
 ===================
 
-Follow the process of updating :ref:`Stable and Main<github-releases>`, and
-tagging with the Simulation Systems release tag for each of:
+Follow the process of updating :ref:`Stable and Main<github-releases>` for
+these repositories:
 
-* UKCA
-* CASIM
-* SOCRATES
-* MOCI
+* ukca
+* casim
+* socrates
+* moci
+
+Applying a Simulation Systems release tag for each of:
+
+* ukca
+* casim
+* socrates
+* moci
+* um_aux
+* socrates-spectral
+* jules (if not done already)
 
 Send an email to all repository owners to let them know that the repository has
 been tagged.
+
+
