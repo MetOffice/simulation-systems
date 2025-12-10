@@ -133,11 +133,11 @@ Then configure git locally at the command line:
     # create a configuration for allowed signers - this only needs to be done once.
     # create a configuration location for git
     mkdir ~/.config/git
-    # Then< substituting the email you used for the git config (above)
+    # Then substituting the email you used for the git config (above)
     # and your own ssh key (noting that this is linking to the `.pub` public part)
     echo "<email_address> $(cat ~/.ssh/<correct-ssh-key.pub>)" > ~/.config/git/allowed-signers
 
-    # This assumes a global configuration>
+    # This assumes a global configuration
     # Substitute `git config` for `git config --global` for by-repository configuration
     git config --global gpg.format ssh
     # Noting that the </path/to/key> is to the private part, and must match
