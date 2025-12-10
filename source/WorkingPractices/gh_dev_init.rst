@@ -192,6 +192,13 @@ To create a branch and switch to it from the command line, the syntax is,
             git branch <branch_name> <start_point>
             git switch <branch_name>
 
+.. tip::
+
+    If you're creating a branch to use to migrate an fcm branch across to git,
+    you'll need to branch from either the git_migration tag or the hash that
+    matches your fcm branch origin. For more information see
+    :ref:`branch_migration`.
+
 Developing a Change
 -------------------
 
