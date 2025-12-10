@@ -132,7 +132,7 @@ Then configure git locally at the command line:
 
     # create a configuration for allowed signers - this only needs to be done once.
     # create a configuration location for git
-    mkdir ~/.config/git`
+    mkdir ~/.config/git
     # Then< substituting the email you used for the git config (above)
     # and your own ssh key (noting that this is linking to the `.pub` public part)
     echo "<email_address> $(cat ~/.ssh/<correct-ssh-key.pub>)" > ~/.config/git/allowed-signers
@@ -161,7 +161,7 @@ a branch on Github (on a personal fork), then browse to the commit list.
 
 There should be a green `Verified` label beside each signed commit.
 
-..tip ::
+.. tip::
 
     One can retrospectively change commits in a repository, if required, with
     `git rebase -i HEAD~<N>` # where <N> is the number of commits back to change
