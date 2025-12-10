@@ -66,7 +66,7 @@ LFRic Release
 
 * Tag other repositories and update dependencies.yaml:
 
-  Ensure that the :ref:`feeder repositories have all been tagged<feeder>`.
+  * Ensure that the :ref:`feeder repositories have all been tagged<feeder>`.
 
   * In dependencies.yaml:
 
