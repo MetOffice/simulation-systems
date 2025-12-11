@@ -72,7 +72,7 @@ LFRic Release
 
     * Ensure the ``lfric_core`` ``source`` is pointing at the local clone of
       your branch.
-    * Update ``ref`` for all repositories to be the Simulation Systems tag
+    * Update ``ref`` for all other repositories to be the Simulation Systems tag
       ``YYYY.MM.1``, checking that the dependencies look as they should.
 
 
