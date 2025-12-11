@@ -26,6 +26,20 @@ uv run make clean html
 firefox build/html/index.html
 ```
 
+#### Clone anywhere, deploy to user `~/public_html/simulation-systems/<branch-name>`
+
+```shell
+git clone https://github.com/MetOffice/simulation-systems
+cd simulation-systems
+
+# Install dependencies (see pyproject.toml) in project .venv
+uv sync
+uv run make clean deploy
+
+# Verify documentation
+`https://wwwspice/~<an.user>/simulation-systems/<branch-name>`
+```
+
 ### using pip
 
 Alternatively, if your have Python-3.11 or higher installed (sphinx==8.2.3

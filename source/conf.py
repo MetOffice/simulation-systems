@@ -19,9 +19,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Simulation Systems'
-copyright = 'Met Office'
-author = 'Simulation Systems and Deployment Team'
+project = "Simulation Systems"
+copyright = "Met Office"
+author = "Simulation Systems and Deployment Team"
 
 
 # -- General configuration ---------------------------------------------------
@@ -34,14 +34,14 @@ language = "en"
 
 # Added to use dropdowns with command: pip install sphinx-design
 extensions = [
-    'sphinx_design',
-    'sphinx_copybutton',
-    'sphinxcontrib.rsvgconverter',
-    'sphinxcontrib.mermaid',
+    "sphinx_design",
+    "sphinx_copybutton",
+    "sphinxcontrib.rsvgconverter",
+    "sphinxcontrib.mermaid",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ["_templates"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -55,7 +55,7 @@ html_css_files = ["custom.css"]
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'pydata_sphinx_theme'
+html_theme = "pydata_sphinx_theme"
 
 html_theme_options = {
     "footer_start": ["crown-copyright"],
@@ -93,6 +93,6 @@ html_show_sourcelink = False
 # -- Options for linkcheck builder -------------------------------------------
 linkcheck_anchors = False
 linkcheck_ignore = [
-    r'.*\.py$',  # Ignores URLs ending with .py
-    r'https://github.com/MetOffice/um*',
+    r".*\.py$",  # Ignores URLs ending with .py
+    r"https://github.com/MetOffice/um*",
 ]
