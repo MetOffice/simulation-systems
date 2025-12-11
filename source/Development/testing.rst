@@ -217,15 +217,15 @@ included when passing a pull request for review.
 .. tip::
 
     If your suite has finished and no trac.log has been generated then it is
-    possible to do so manually using `suite_report.py
-    <https://github.com/MetOffice/SimSys_Scripts/blob/main/suite_report.py>`__
+    possible to do so manually using `suite_report_git.py
+    <https://github.com/MetOffice/SimSys_Scripts/blob/main/github_scripts/suite_report_git.py>`__
 
     On Met Office desktops a copy is stored locally allowing this to be done
     with:
 
     .. code-block:: shell
 
-        python3 $UMDIR/SimSys_Scripts/suite_report_git/suite_report_git.py -S <workflow path>
+        python3 $UMDIR/SimSys_Scripts/github_scripts/suite_report_git.py -S <workflow path>
 
     If this is a regular problem then get in touch with the :ref:`SSD team
     <simIT>` so we can investigate. Thanks.
