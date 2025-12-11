@@ -4,30 +4,34 @@
     under which the code may be used.
    -----------------------------------------------------------------------------
 
-.. _feeder:
+.. _small_repo_release:
 
-Feeder Repositories
-===================
+Other Repositories
+==================
 
-Follow the process of updating :ref:`Stable and Main<github-releases>` for
-these repositories:
+1. Apply a Simulation Systems release tag to SimSys_Scripts.
 
-* ukca
-* casim
-* socrates
-* moci
+2. Create a UKCA branch updating the SimSys_Scripts tag in the dependencies.yaml
+   and get this reviewed and committed.
 
-Applying a Simulation Systems release tag for each of:
+3. Follow the process of updating :ref:`Stable and Main<github-releases>` for
+   these repositories:
 
-* ukca
-* casim
-* socrates
-* moci
-* um_aux
-* socrates-spectral
-* jules (if not done already)
+  * ukca
+  * casim
+  * socrates
+  * moci
 
-Send an email to all repository owners to let them know that the repository has
+4. Apply a Simulation Systems release tag to each of:
+
+  * ukca
+  * casim
+  * socrates
+  * moci
+  * um_aux
+  * socrates-spectral
+
+5. Send an email to all repository owners to let them know that the repository has
 been tagged.
 
 

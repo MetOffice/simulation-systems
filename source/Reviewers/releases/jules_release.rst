@@ -134,9 +134,8 @@ Rose Stem Updates
 
 Code Review and Commit
 ^^^^^^^^^^^^^^^^^^^^^^
-Open a pull request, targeting `main` and proceed with the usual review process.
 
-With a reviewer, follow the :ref:`release process <github-releases>`.
+Open a pull request, targeting `main` and proceed with the usual review process.
 
 Release Notes
 -------------

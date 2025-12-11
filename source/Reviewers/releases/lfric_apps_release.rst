@@ -66,14 +66,14 @@ LFRic Release
 
 * Tag other repositories and update dependencies.yaml:
 
-  * Ensure that the :ref:`feeder repositories have all been tagged<feeder>`.
+  * Ensure that the :ref:`other repositories have all been tagged<small_repo_release>`.
 
   * In dependencies.yaml:
 
     * Ensure the ``lfric_core`` ``source`` is pointing at the local clone of
       your branch.
-    * Update ``ref`` for above repositories to be the Simulation Systems tag
-      ``YYYY.MM.1``
+    * Update ``ref`` for all repositories to be the Simulation Systems tag
+      ``YYYY.MM.1``, checking that the dependencies look as they should.
 
 
 * Commit your changes to both Apps and Core branches.

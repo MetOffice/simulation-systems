@@ -13,10 +13,10 @@ Curating a Release
     releases/um_test_release
     releases/partner_testing
     releases/software_stack
-    releases/jules_release
     releases/shumlib_release
     releases/mule_release
     releases/feeder_repos
+    releases/jules_release
     releases/um_main_release
     releases/lfric_apps_release
     releases/release_notes
@@ -82,7 +82,12 @@ developed the release branch and the other will review it (**developer** and
 
 * The **reviewer** can now ``merge`` the second PR.
 * The admin **must** now revert the 2 settings above.
-* The repository can be tagged with the Simulation Systems release tag in the
+
+
+Tags and Releases
+^^^^^^^^^^^^^^^^^
+
+* All repositories will be tagged with the Simulation Systems release tag in the
   format YYYY.MM.X.
   * In an upto-date clone of the repository:
 
@@ -91,7 +96,7 @@ developed the release branch and the other will review it (**developer** and
     git tag <tag_name>
     git push origin <tag_name>
 
-* Finally, if appropriate, a release can be created and tagged,
+* If appropriate, a release can be created and tagged,
 
   * From the GitHub repo, select ``releases`` and then ``Draft a new release``.
   * Create a new tag and title the release with the same name, eg. ``vn14.0``.
@@ -134,13 +139,6 @@ Any potential changes to platform software stacks
 Main Release
 ------------
 
-:ref:`Jules Release <jules_release>`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-**Dependencies**
-Partner Testing, All Jules PRs committed
-
-
 :ref:`Shumlib Release<shumlib_release>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -156,11 +154,18 @@ All mule PRs, Shumlib release (if required), UM release (to actually
 install)
 
 
-:ref:`feeder`
-^^^^^^^^^^^^^^^^^^^
+:ref:`Tag Other Repositories<small_repo_release>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 All PRs for each repository.
+
+
+:ref:`Jules Release <jules_release>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Dependencies**
+Partner Testing, All Jules PRs committed
 
 
 :ref:`UM Main Release<um_main_release>`
@@ -180,8 +185,8 @@ All LFRic PRs (Apps + Core), Jules Release
 Post Release Tasks
 ------------------
 
-`Release Notes <release_notes>`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:ref:`Release Notes <release_notes>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 Most of this can be done pre-release but some details of commit hashes will be
@@ -195,15 +200,15 @@ dependent on the main release being done.
 UM + Apps Releases
 
 
-`Stash Browser <stash_browser>`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:ref:`Stash Browser <stash_browser>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 UM Release
 
 
-`UMDP Release <umdp_release>`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:ref:`UMDP Release <umdp_release>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Dependencies**
 UM Release, Standard Suites Upgrade
