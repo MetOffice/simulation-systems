@@ -12,7 +12,7 @@ A quick and clean way to get the package dependencies is via
 Ps: Optional system dependencies for PDF generation may require LaTeX
 distributions and other third-party libraries.
 
-### using uv
+### 1. Using uv
 
 ```shell
 git clone https://github.com/MetOffice/simulation-systems
@@ -32,17 +32,16 @@ firefox build/html/index.html
 git clone https://github.com/MetOffice/simulation-systems
 cd simulation-systems
 
-# Install dependencies (see pyproject.toml) in project .venv
 uv sync
 uv run make clean deploy
-
-# Verify documentation
-`https://wwwspice/~<an.user>/simulation-systems/<branch-name>`
 ```
 
-### using pip
+Verify documentation (replace `<an.user>` and `<branch-name>` as required):
+`https://wwwspice/~<an.user>/simulation-systems/<branch-name>/html`
 
-Alternatively, if your have Python-3.11 or higher installed (sphinx==8.2.3
+### 2. Using pip
+
+Alternatively, if your have Python-3.11 or higher installed (`sphinx==8.2.3`
 requirement), you can install the dependencies in a virtual environment via pip,
 and build the documentation like:
 
@@ -55,7 +54,7 @@ pip install .
 make clean html
 ```
 
-### using conda
+### 3. Using conda
 
 ```shell
 conda env create -f env.yml
