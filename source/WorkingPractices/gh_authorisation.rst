@@ -140,9 +140,9 @@ Then configure git locally at the command line:
     # This assumes a global configuration
     # Substitute `git config` for `git config --global` for by-repository configuration
     git config --global gpg.format ssh
-    # Noting that the </path/to/key> is to the private part, and must match
+    # Noting that the </path/to/key> is to the public (`.pub`) part, and must match
     # the Github registered public key and the allowed-signers key.
-    git config --global user.signingkey </path/to/key>
+    git config --global user.signingkey </path/to/key>.pub
     git config --global gpg.ssh.allowedSignersFile ~/.config/git/allowed-signers
     git config --global commit.gpgsign true
 
