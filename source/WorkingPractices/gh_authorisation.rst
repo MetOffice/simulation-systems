@@ -164,9 +164,13 @@ There should be a green `Verified` label beside each signed commit.
 .. tip::
 
     One can retrospectively change commits in a repository, if required, with
-    `git rebase -i HEAD~<N>` # where <N> is the number of commits back to change
-                             # and setting each commit to `edit` or `reword`
-                             # (see git documentation for more details).
+
+    .. code-block::
+
+        git rebase -i HEAD~<N>
+
+    where <N> is the number of commits back to change and setting each commit
+    to `edit` or `reword` (see git documentation for more details).
 
 gh Command Line Interface
 -------------------------
