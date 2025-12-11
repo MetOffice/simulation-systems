@@ -15,7 +15,7 @@ Curating a Release
     releases/software_stack
     releases/shumlib_release
     releases/mule_release
-    releases/feeder_repos
+    releases/other_repos
     releases/jules_release
     releases/um_main_release
     releases/lfric_apps_release
