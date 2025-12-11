@@ -50,8 +50,9 @@ relevant repository, at least one of whom must be an ``admin``. One will have
 developed the release branch and the other will review it (**developer** and
 **reviewer** below).
 
-* The **developer** should open a PR directly in the MetOffice repository,
-  targeting the ``stable`` branch.
+* The **developer** should open a PR directly in the MetOffice repository by
+  going to the Pull Requests tab and selecting the New Pull Request button.
+  Target the ``stable`` branch.
 
     .. image:: images/gh_screenshots/main_stable_light.png
        :class: only-light border
@@ -63,8 +64,8 @@ developed the release branch and the other will review it (**developer** and
   branch, ensure that the merge method is ``merge``. This should be the default
   for the ``stable`` branch as we want to keep the history of ``main`` in the
   ``stable`` branch.
-* The **developer** will then create a new PR, to merge the ``stable`` branch
-  into ``main``.
+* The **developer** will then create another new PR as above, to merge the
+  ``stable`` branch into ``main``.
 
     .. image:: images/gh_screenshots/stable_main_light.png
        :class: only-light border
