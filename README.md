@@ -9,7 +9,8 @@ owned by the Met Office.
 
 The documentation in the repository can be compiled in different ways.
 
-> [!NOTE] Optional system dependencies for PDF generation may require LaTeX
+> [!NOTE]
+> Optional system dependencies for PDF generation may require LaTeX
 > distributions and other third-party libraries.
 
 ## Setup environment
@@ -79,6 +80,8 @@ make clean deploy  # pip or conda env
 ```
 
 ## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md)
 
 The documentation is written in Sphinx markup. To propose changes:
 
