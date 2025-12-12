@@ -81,7 +81,7 @@ make clean deploy  # pip or conda env
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md)
+Please follow the project's [Code of Conduct](CONTRIBUTING.md)
 
 The documentation is written in Sphinx markup. To propose changes:
 
