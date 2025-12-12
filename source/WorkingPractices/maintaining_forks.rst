@@ -160,6 +160,20 @@ contains the newly released code.
     local clone while using ``git`` commands will not update the remote
     repository without pushing. ``gh`` can be used to update either.
 
+.. _sync_fork_tags:
+
+Syncing Fork Tags
+-----------------
+
+If you wish to sync tags to your fork, this requires using git commands. Ensure
+that the upstream repository is set as a :ref:`remote source <git_remote>`. Then
+run the following,
+
+.. code-block::
+
+    git fetch --tags upstream
+    git push --tags
+
 .. _updating_branch:
 
 Updating Branches

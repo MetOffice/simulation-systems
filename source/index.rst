@@ -127,9 +127,17 @@ and how to merge to ``main``.
 
     FurtherDetails/index
 
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+
+    git_faq
+
 
 More detailed, project specific, documentation is also available. See the wiki pages in each repository as well as
 the :ref:`docs` page for more information on what is available and how to contribute to it.
+
+Please see our :ref:`Git Migration Frequently Asked Questions <git_faq>`.
 
 .. _LFRic Applications: https://github.com/MetOffice/lfric_apps
 .. _LFRic Core: https://github.com/MetOffice/lfric_core

@@ -9,8 +9,11 @@
 Jules Release
 =============
 
+Pre Release Changes
+-------------------
+
 Create Branch
--------------
+^^^^^^^^^^^^^
 
 Ensure you have a :ref:`fork <forking>` of the ``jules`` repository, and that
 the ``main`` branch is up to date with the upstream repository.
@@ -25,7 +28,7 @@ In a clone of this fork, :ref:`create a branch <create_branch>` using the
 
 
 Metadata Changes
-----------------
+^^^^^^^^^^^^^^^^
 
 * First, change the user guide URLs in the ``HEAD`` metadata for
   ``jules-fcm-make`` and ``jules-standalone`` from "latest". This is done
@@ -99,8 +102,16 @@ Metadata Changes
 * Commit the metadata changes
 
 
+Dependencies
+^^^^^^^^^^^^
+
+* Update `dependencies.yaml` to include the `SimSys_Scripts` tag for the new
+  release.
+
+
+
 Rose Stem Updates
------------------
+^^^^^^^^^^^^^^^^^
 
 * Update the ``VN`` variable in ``rose-stem/rose-suite.conf``.
 * Upgrade the rose-stem apps as normal, using the upgrade macro added earlier,
@@ -122,9 +133,9 @@ Rose Stem Updates
 
 
 Code Review and Commit
-----------------------
+^^^^^^^^^^^^^^^^^^^^^^
 
-With a reviewer, follow the :ref:`release process <github-releases>`.
+Open a pull request, targeting `main` and proceed with the usual review process.
 
 Release Notes
 -------------
@@ -169,6 +180,11 @@ To build the docs, move into the ``user_guide/doc`` directory. At meto,
     make latexpdf
     gio open build/latex/JULES_User_Guide.pdf
 
+
+Release
+-------
+
+With a reviewer, follow the :ref:`release process <github-releases>`.
 
 Publicise the Release
 ---------------------
