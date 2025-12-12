@@ -14,9 +14,9 @@ jobs:
       requirements: .github/workflows/requirements.txt
       runner: ubuntu-24.04
       timeout: 10
-      docs-directory: ./source
+      docs-directory: .
 
   deploy:
-    if: github.ref == 'refs/heads/main'
+    if: ${{ github.repository == 'MetOffice/simulation-systems' }}
     needs: build
     uses: MetOffice/growss/.github/workflows/deploy-sphinx-docs.yaml@main
