@@ -108,7 +108,7 @@ Copying the metadata and upgrade macros to the um_meta branch
 The next step is to move the macros and metadata into the meta branch. The
 metadata will have been created already by the release script. For each of the
 ``um-atmos``, ``um-fcm-make`` and ``um-createbc`` metadata sections (there is
-not need to edit the um-crmstyle metadata), move the new ``vnX.Y`` directory
+no need to edit the um-crmstyle metadata), move the new ``vnX.Y`` directory
 into the ``um_meta`` clone, eg.
 
 .. code-block:: shell
