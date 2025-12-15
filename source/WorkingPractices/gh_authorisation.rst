@@ -88,6 +88,13 @@ MetOffice organisation, and then `configure the SSH key for SSO
 <https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-single-sign-on/authorizing-an-ssh-key-for-use-with-single-sign-on>`_.
 
 
+.. tip::
+
+    In order to work non-interactively with the test suite, your ssh key will
+    need to be setup without a passphrase. If you prefer to use a passphrase
+    with ssh, then :ref:`Personal Access Tokens <github_path>` can act as an
+    alternative.
+
 Verified Commits
 ----------------
 
