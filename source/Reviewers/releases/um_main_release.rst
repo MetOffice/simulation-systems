@@ -42,16 +42,6 @@ Also update the ``ref`` for Mule and SHUMLIB to point to their latest releases.
 
 Commit this change to the branch.
 
-Apply Code Styling
-------------------
-
-* Switch to the UM branch
-* Set ``export RUNFULL=1`` then run ./admin/code_styling/apply_styling
-* If any files have changed, check nothing has gone wrong with a quick compile
-  ``cylc vip -z g=fcm_make_ex1a_gnu_um_rigorous_omp -n um_release_style_check
-  ./rose-stem``
-* Commit any changes
-
 
 Checking Metadata and Rose Apps
 -------------------------------
@@ -117,16 +107,21 @@ Copying the metadata and upgrade macros to the um_meta branch
 
 The next step is to move the macros and metadata into the meta branch. The
 metadata will have been created already by the release script. For each of the
-``um-atmos``, ``um-fcm-make`` and ``um-createbc`` metadata sections, move the
-new ``vnX.Y`` directory into the ``um_meta`` clone, eg.
+``um-atmos``, ``um-fcm-make`` and ``um-createbc`` metadata sections (there is
+no need to edit the um-crmstyle metadata), move the new ``vnX.Y`` directory
+into the ``um_meta`` clone, eg.
 
 .. code-block:: shell
 
     mv rose-meta/um-atmos/vnX.Y /path/to/meta_clone/um-atmos/
+    mv rose-meta/um-atmos/versionsXXX_YYY.py /path/to/meta_clone/um-atmos/
     cd /path/to/meta_clone
     git add um-atmos/vnX.Y
 
-Note, there is no need to move um-crmstyle as it only contains HEAD metadata.
+.. important::
+
+    Make sure that those moved files/directories have not been added to the
+    version control in the UM branch. Use ``git rm`` if so.
 
 In the ``um_meta`` clone, manually add a line to each of the
 ``um-atmos/versions.py``, ``um-fcm-make/versions.py`` and
@@ -141,9 +136,9 @@ Final Checks
 
 **UM AUX Changes**
 
-If there are changes to the AUX ``main`` in this release, then add a new tag to the
-``um_aux`` repository and then update the ``ref`` in the UM
-``dependencies.yaml`` file - commit this to the branch.
+If there are changes to the AUX ``main`` in this release, then add a new
+``YYYY.MM.N`` tag to the ``um_aux`` repository and then update the ``ref`` in
+the UM ``dependencies.yaml`` file - commit this to the branch.
 
 **Other Points**
 
@@ -155,8 +150,9 @@ If there are changes to the AUX ``main`` in this release, then add a new tag to 
   * Does the minimum version of Rose/Cylc need to be increased? (Do any
     rose-ana changes require new functionality?)
   * Do any of the apps or parts of the suites reference ``$UMDIR`` - they
-    shouldn't (the correct thing to do is to reference
-    ``$UM_INSTALL_DIR``).
+    shouldn't (other than for ancil paths). The correct thing to do is to
+    reference ``$UM_INSTALL_DIR`` - if there are $UMDIR references this will
+    likely fail testing later.
 
 * ``grep`` for any instances of the old version number. Fix as required and
   add any corrections to the instructions on this page too.
@@ -169,8 +165,8 @@ Preparing to Test
 
 .. important::
 
-    When referring to **all** platforms below, this means Azure Spice, EXAB, EXCD, EXZ
-
+    When referring to **all** platforms below, this means Azure Spice, EXAB,
+    EXCD, EXZ
 
 * Check that a ``$UMDIR/standard_jobs/inputs/vnX.Y`` input data directory
   exists in UMDIR on **all** platforms - this should have been done as part of
@@ -268,11 +264,15 @@ navigate to ``$UMDIR/SimSys_Scripts/kgo_updates`` directory and run
 
 .. important::
 
-    The authentication for running as the shared user via ``sudo`` will likely
-    have expired before each of the 2 rsync commands, so pay attention as the
-    script nears these points. If you forget and the command times out, the
-    command can be launched manually from the command line. Ask the team if
-    for help if required.
+    * The authentication for running as the shared user via ``sudo`` will likely
+      have expired before each of the 2 rsync commands, so pay attention as the
+      script nears these points. If you forget and the command times out, the
+      command can be launched manually from the command line. Ask the team if
+      for help if required.
+
+    * Once the rsync to the first platform has begun, you can continue with the
+      steps below. There is no need to wait until the rsyncs have fully finished
+      as this takes quite some time.
 
 Once you believe you have installed the KGO you should revert the changes
 you made to the variables*.cylc files to reset the KGO variables, ``git restore
@@ -290,7 +290,8 @@ The test suite should now be rerun to confirm the kgo has been installed
 properly. As we can't restart Cylc8 rose-stem suites, the entire thing needs
 to be rerun. We're just checking that the kgo has been installed, so it's
 probably unnecessary to wait for the entire thing - instead just ensure a
-reasonable range of rose-ana tasks have passed.
+reasonable range of rose-ana tasks have passed. Make sure to target the same EX
+host zone as above.
 
 
 Review and Commit
@@ -321,28 +322,28 @@ appear in the correct place. Do this by running,
 
 .. code-block:: shell
 
-    cylc vip -z g=install -S CENTRAL_INSTALL=false -S USE_EXAB=true -z umx.y_install ./rose-stem
+    cylc vip -z g=install -S CENTRAL_INSTALL=false -S USE_EXAB=true -n umx.y_install ./rose-stem
 
-and check that ``~umadmin/cylc_run/<working_copy_name>/runN/share/vnX.Y``
+and check that ``~umadmin/cylc_run/umx.y_install/runN/share/vnX.Y``
 exists and is the new version number. If that has worked, change the
 CENTRALL_INSTALL flag to true and rerun,
 
 .. code-block:: shell
 
-    cylc vip -z g=install -S CENTRAL_INSTALL=true -S USE_EXAB=true -z umx.y_install ./rose-stem
+    cylc vip -z g=install -S CENTRAL_INSTALL=true -S USE_EXAB=true -n umx.y_install ./rose-stem
 
 
 Next, rerun the install for the 2nd host zone,
 
 .. code-block:: shell
 
-    cylc vip -z g=ex1a_install -S CENTRAL_INSTALL=true -S USE_EXCD=true -z umx.y_install ./rose-stem
+    cylc vip -z g=ex1a_install -S CENTRAL_INSTALL=true -S USE_EXCD=true -n umx.y_install ./rose-stem
 
 Finally, rerun the install for the EXZ,
 
 .. code-block:: shell
 
-    cylc vip -z g=ex1a_install -S CENTRAL_INSTALL=true -S USE_EXZ=true -z umx.y_install ./rose-stem
+    cylc vip -z g=ex1a_install -S CENTRAL_INSTALL=true -S USE_EXZ=true -n umx.y_install ./rose-stem
 
 The release is now installed and can be announced.
 
@@ -379,10 +380,7 @@ Now run the central install group,
 
 .. code-block:: shell
 
-    cylc vip -z g=ex1a_install -S CENTRAL_INSTALL=true -z umx.y_install ./rose-stem
-
-Install prebuilds on Monsoon. Note the ``--no-run-name`` is required to force
-the install location to be consistent with other platforms.
+    cylc vip -z g=ex1a_install -S CENTRAL_INSTALL=true -n umx.y_install ./rose-stem
 
 Finally we need to install the kgo for the release. Do this by running the
 ``ex1a`` group. Once that is finished, run the kgo install script(sourced from
