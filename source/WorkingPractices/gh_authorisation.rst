@@ -93,7 +93,7 @@ One way to do this is via ssh keys.
      First ensure you are a member of the MetOffice GitHub organisation and then
      authorise the key for single sign on access.
 
-4. Add a GitHub entry in your ~.ssh/config:
+4. Add a GitHub entry in your ~/.ssh/config:
 
 .. code-block::
 
