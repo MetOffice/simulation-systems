@@ -32,14 +32,8 @@ see our :ref:`testing pages <testing>`.
 .. rubric:: Rose-stem is giving the following error while trying to fetch code
   from other repositories: `git@github.com: Permission denied (publickey).`
 
-This is a sign of SSH setup issues. Please see the :ref:`GitHub setup page for
-details<gh_authorisation>`, making sure you've covered the following:
-* Generate a new SSH key leaving the passphrase empty
-* Add your new key to the ssh-agent
-* Add your public key to GitHub (using the GitHub CLI or on the website)
-* Add a github entry to your ssh config
-* Configure the key on GitHub for SSO access
-* Test your key with ``ssh -T git@github.com``
+This is a sign of SSH setup issues. Please make sure you've followed all the
+steps on the :ref:`GitHub Authorisations page<ssh>`.
 
 .. rubric:: How do I run with an older version?
 

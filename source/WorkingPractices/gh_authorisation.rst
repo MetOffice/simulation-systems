@@ -62,6 +62,8 @@ and `commit email address
       ``ID+username@users.noreply.github.com``.
     * Use this email address instead in the command above.
 
+.. _ssh:
+
 SSH Key Setup
 -------------
 
@@ -78,14 +80,28 @@ SSH Key Setup
 
 You will require a way of `authenticating with GitHub from git
 <https://docs.github.com/en/get-started/git-basics/set-up-git#authenticating-with-github-from-git>`_.
-One way to do this is via ssh keys. For creating and adding a new ssh key to
-GitHub, `see the GitHub documentation
-<https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_.
-In order to use this ssh key with MetOffice organisations, it must be authorised
-If you are a member of the MetOffice GitHub organisation you will need to
-authorise the key for single sign on access. First, ensure you are part of the
-MetOffice organisation, and then `configure the SSH key for SSO
-<https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-single-sign-on/authorizing-an-ssh-key-for-use-with-single-sign-on>`_.
+One way to do this is via ssh keys.
+
+1. `Generate a new ssh key and add it to the ssh-agent.
+   <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_.
+2. `Add the public key to your GitHub Account.
+   <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account>`_
+3. `Configure the SSH key for SSO
+   <https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-single-sign-on/authorizing-an-ssh-key-for-use-with-single-sign-on>`_.
+
+   * In order to use this ssh key with MetOffice organisations, it must be authorised.
+     First ensure you are a member of the MetOffice GitHub organisation and then
+     authorise the key for single sign on access.
+
+4. Add a GitHub entry in your ~.ssh/config:
+
+.. code-block::
+
+  Host github github.com
+    User git
+    IdentityFile %d/.ssh/<ssh-key-paired-with-GitHub>
+    IdentitiesOnly yes
+    ForwardX11 no
 
 
 .. tip::
