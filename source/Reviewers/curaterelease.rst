@@ -60,6 +60,8 @@ developed the release branch and the other will review it (**developer** and
     .. image:: images/gh_screenshots/main_stable_dark.png
         :class: only-dark border
 
+* An admin will need to enable updates to the ``stable`` branch by adding it as
+  an exception to the target branches in the ``prevent updates`` ruleset.
 * The **reviewer** will then review and commit the PR. When committing the
   branch, ensure that the merge method is ``merge``. This should be the default
   for the ``stable`` branch as we want to keep the history of ``main`` in the
@@ -82,7 +84,8 @@ developed the release branch and the other will review it (**developer** and
   * Set ``merge`` as an allowed merge strategy and disable ``squash``.
 
 * The **reviewer** can now ``merge`` the second PR.
-* The admin **must** now revert the 2 settings above.
+* The admin **must** now revert the 2 settings above in ``main`` and remove the
+  exception for ``stable`` in the ``prevent updates`` ruleset from earlier.
 
 
 Tags and Releases
