@@ -1,0 +1,12 @@
+name: Trigger Review Project
+
+on:
+  pull_request_target:
+    types: ["opened", "synchronize", "reopened", "edited", "review_requested", "review_request_removed"]
+  pull_request_review:
+  pull_request_review_comment:
+
+jobs:
+  trigger_project_workflow:
+    uses: MetOffice/growss/.github/workflows/trigger-project-workflow.yaml@main
+    secrets: inherit
