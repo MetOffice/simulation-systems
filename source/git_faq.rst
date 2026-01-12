@@ -64,13 +64,17 @@ Pushing from your clone will connect to the new fork. However this will delete
 any pull requests you had open from the previous fork.
 
 If you already have a lots of develop branches/PRs, its probably best to
-contact GitHub Support and Submit a ticket to reattach your fork with
-upstream with the following message:
+contact `GitHub Support and Submit a ticket
+<https://support.github.com/contact?legacy&subject=Attach%20Fork&tags=rr-forks>`_
+to reattach your fork. Select your personal account from the drop down menu
+(as that is where your fork is, not the enterprise account) and use the
+following message:
 
   My upstream private repo became public, which detached my fork. I have open
   PRs I need to preserve. Please reattach my fork to the original network.
 
   Upstream URL: https://github.com/MetOffice/{repo-name}
+
   Fork URL: https://github.com/{user}/{repo-name}
 
 This process should usually get resolved within a day.
