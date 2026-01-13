@@ -6,6 +6,11 @@ on:
   pull_request_review:
   pull_request_review_comment:
 
+permissions:
+  actions: read
+  contents: read
+  pull-requests: write
+
 jobs:
   trigger_project_workflow:
     uses: MetOffice/growss/.github/workflows/trigger-project-workflow.yaml@main
