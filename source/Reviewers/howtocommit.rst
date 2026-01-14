@@ -66,11 +66,16 @@ there are more complicated conflicts ask the developer to solve them
 themselves. If there are conflicts in versions.py then see the details in the
 macro section below.
 
-Then switch to the up to date branch, e.g.
+Then clone the up to date branch. There are many ways to do this, eg.
 
 .. code-block:: shell
 
     gh repo clone <developer>/<fork_name> <clone_name> -- -b <branch_name>
+
+    # OR
+
+    cd /path/to/upstream/clone
+    gh pr checkout <pr_number>
 
 2. Macros (if required)
 -----------------------
