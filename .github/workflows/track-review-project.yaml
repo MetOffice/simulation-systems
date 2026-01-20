@@ -1,0 +1,17 @@
+name: Track Review Project
+
+on:
+  workflow_run:
+    workflows: [Trigger Review Project]
+    types:
+      - completed
+
+permissions:
+  actions: read
+  contents: read
+  pull-requests: write
+
+jobs:
+  track_review_project:
+    uses: MetOffice/growss/.github/workflows/track-review-project.yaml@main
+    secrets: inherit
