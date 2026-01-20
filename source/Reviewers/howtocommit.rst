@@ -19,8 +19,13 @@ of these steps outlined below.
   Before You Start:
     * Is anyone else committing?
 
-      * `Main Status`_ is used to coordinate ``main`` commits for all
+      * `Repository Status`_ is used to coordinate ``main`` commits for all
          projects.
+
+        * This operates on a first-come-first-served queing system.
+        *  To join the queue use the ``Add Item`` button.
+        * Do not move yourself up the queue unless agreed with others.
+
       * Simple, not conflicting commits can be done in parallel if
         reviewers all agree.
       * Changes with KGO or Macros usually require sole access to ``main``.
@@ -376,24 +381,27 @@ KGO differently*
 
             cylc vip -z group=all -n <name/of/suite> ./rose-stem
 
-        #. You will need access to both a clone with the branch active, and
-           up to date with ``main``, and a clone of the `SimSys_Scripts github
-           repo <https://github.com/MetOffice/SimSys_Scripts>`__ (one is
-           available in $UMDIR). Run the script
-           ``kgo_updates/meto_update_kgo.sh`` which is located in
-           SimSys_Scripts.
+        #. You will need access to both:
+
+           * The PR branch, up to date with ``main`` and cloned locally. You
+             likely already have this.
+           * A clone of the `SimSys_Scripts github repo
+             <https://github.com/MetOffice/SimSys_Scripts>`__ (one is available
+             in $UMDIR). Run the script ``kgo_updates/meto_update_kgo.sh`` which
+             is located in SimSys_Scripts.
 
         #. The script will ask you to enter some details regarding the PR.
-            * Platforms: enter each platform which has a kgo change, lower case
-              and space seperated, e.g. `azspice ex1a`
-            * If running on the EX's it will ask for the host you ran on - this
-              can be found from Cylc Review.
-            * Path to your local clone - the script will check this exists and
-              will fail if it can't be found.
-            * KGO directory: this will default to vnXX.X_tYYYY where XX.X is
-              the version number and YYYY is the PR number.
-            * There are further prompts to the user through the script - in
-              particular to check the shell script produced.
+
+           * Platforms: enter each platform which has a kgo change, lower case
+             and space seperated, e.g. `azspice ex1a`
+           * If running on the EX's it will ask for the host you ran on - this
+             can be found from Cylc Review.
+           * Path to your local clone - the script will check this exists and
+             will fail if it can't be found.
+           * KGO directory: this will default to vnXX.X_tYYYY where XX.X is
+             the version number and YYYY is the PR number.
+           * There are further prompts to the user through the script - in
+             particular to check the shell script produced.
 
         #. If running on EX's the script will ask whether to rsync UM files or
            lfricinputs files to the other EX hosts. Select the appropriate
@@ -625,13 +633,13 @@ the PR via the GitHub interface,
 6. Close
 --------
 
-Nightly testing results are usually checked with a status posted on `Main
+Nightly testing results are usually checked with a status posted on `Repository
 Status`_. If this hasn't been done then :ref:`check the nightly results
 <nightlytesting>`.
 
 If something is broken:
 
-* Announce to the team and on `Main Status`_.
+* Announce to the team and on the `Repository Status`_.
 * There are a few possibilities for how to proceed,
 
   * If the fix is obvious and trivial then create a quick PR on a branch from
@@ -696,4 +704,4 @@ If something is broken:
     * You can then access other machines as the admin user via ``ssh -Y
       <HOSTNAME>``.
 
-.. _Main Status: https://code.metoffice.gov.uk/trac/lfric_apps/wiki/TrunkStatus
+.. _Repository Status: https://wwwspice/~umadmin/simsys_commit_status/index.html
