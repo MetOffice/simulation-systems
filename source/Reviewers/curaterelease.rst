@@ -86,14 +86,55 @@ developed the release branch and the other will review it (**developer** and
 * The **reviewer** can now ``merge`` the second PR.
 * The admin **must** now revert the 2 settings above in ``main`` and remove the
   exception for ``stable`` in the ``prevent updates`` ruleset from earlier.
+* :ref:`Tag <tagging>` the release.
 
+Hotfix Release
+--------------
+
+This section describes the process of applying a hotfix to the most recent
+release. This section is relevant for all repositories with a stable and main
+branch setup. The hotfix process will be completed by 2 people with commit
+privilege to the relevant repository, at least one of whom must be an ``admin``.
+One will have developed the hotfix branch and the other will review it
+(**developer** and **reviewer** below).
+
+* An admin will need to enable updates to the ``stable`` branch by adding it as
+  an exception to the target branches in the ``prevent updates`` ruleset. They
+  should also enable ``squash`` as a merge option in the ``stable`` ruleset.
+* The **developer** will make the hotfix change, making sure the branch has been
+  created from ``stable``. Open a PR for this change targetting ``stable`` and
+  get it reviewed and committed. The **reviewer** should squash this change into
+  ``stable``.
+* The admin should now update the ``main`` ruleset:
+
+  * Disable ``Require linear history``.
+  * Set ``merge`` as an allowed merge strategy and disable ``squash``.
+  * Uncheck the ``Require branches to be up to date`` box.
+
+* The **developer** will then create another new PR, to merge the
+  ``stable`` branch into ``main``.
+
+    .. image:: images/gh_screenshots/stable_main_light.png
+       :class: only-light border
+
+    .. image:: images/gh_screenshots/stable_main_dark.png
+        :class: only-dark border
+
+* The **reviewer** can now ``merge`` the second PR.
+* The admin **must** now revert the 3 settings above in ``main`` and remove the
+  exception for ``stable`` in the ``prevent updates`` ruleset from earlier.
+* :ref:`Tag <tagging>` the hotfix.
+
+.. _tagging:
 
 Tags and Releases
 ^^^^^^^^^^^^^^^^^
 
 * All repositories will be tagged with the Simulation Systems release tag in the
   format YYYY.MM.X.
-  * In an upto-date clone of the repository:
+
+* In an upto-date clone of the repository, switch to the commit that you would
+  like to create a tag from (probably ``git switch stable``):
 
   .. code-block:: shell
 

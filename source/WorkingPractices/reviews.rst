@@ -14,8 +14,30 @@ Selecting Reviewers
 -------------------
 
 There is a space in the pull request template to list the GitHub user ID of the
-scitech and code reviewers. These can also be filled into the appropriate
+scitech and code reviewers - these will also be filled into the appropriate
 :ref:`project spaces <review_project>`.
+
+.. admonition:: Requesting a Review
+
+    Review requests are handled in the ``Reviewers`` pane on the right hand
+    side of a pull request.
+
+    In Simulation Systems repositories, SciTech and Code Reviewers will be
+    automatically requested by a workflow, based on entries in the Pull Request
+    Template.
+
+    To request a review manually, select the cog, and then search for the person
+    you wish to review by either name or GitHub user ID.
+
+    .. image:: images/gh_screenshots/review_cog_light.png
+       :class: only-light border
+
+    .. image:: images/gh_screenshots/review_cog_dark.png
+        :class: only-dark border
+
+    Code owners in some repositories will automatically be added to this
+    reviewers section based on the files being changed.
+
 
 SciTech Review
 ^^^^^^^^^^^^^^
@@ -25,8 +47,9 @@ owner(s) for the area affected. If they don't want to then they may have
 suggestions for other suitable reviewers or you can approach anyone who would
 have good insight into the changes made.
 
-Once you have found a reviewer add their GitHub user ID to the pull request
-description and request their review.
+Once you have found a reviewer and are ready for review, add their GitHub user
+ID to the pull request description. Their review will automatically be
+requested by the :ref:`review project workflow <review_project>`.
 
 Guidance for the SciTech reviewer can be found on the
 :ref:`SciTech review page <scitech_review>`.
@@ -42,29 +65,12 @@ leave a comment for ``@MetOffice/ssdteam`` on the pull request.
 
 The assigned person will be listed in the pull request description and
 :ref:`Review Tracking project <review_project>`. Once the SciTech review has
-been completed either the developer or SciTech reviewer should request the
-review of the assigned Code Reviewer.
+been completed, the Code Reviewer will be automatically requested (unless they
+are already requested as a Code Owner - in this case you may want to tag them to
+make them aware).
 
 Guidance for the Code reviewer can be found on the
 :ref:`Code review page <code_review>`.
-
-.. admonition:: Requesting a Review
-
-    Review requests are handled in the ``Reviewers`` pane on the right hand
-    side of a pull request.
-
-    Select the cog, and then search for the person you wish to review by
-    either name or GitHub user ID.
-
-    .. image:: images/gh_screenshots/review_cog_light.png
-       :class: only-light border
-
-    .. image:: images/gh_screenshots/review_cog_dark.png
-        :class: only-dark border
-
-    Code owners in some repositories will automatically be added to this
-    reviewers section based on the files being changed.
-
 
 .. _review_project:
 
@@ -82,45 +88,27 @@ sidebar of the pull request:
     :class: only-dark border
 
 The project is used to give pull requests a status that distinguishes between
-the different review states, and to monitor who is doing the reviews.
+the different review states, and to monitor who is doing the reviews. The state
+and fields of the project are automatically updated by github actions.
 
-Some states are achieved automatically, some require changing manually:
+* The developer should tag the SciTech Reviewer in the Pull Request template
+  when you are ready for review. This will request a review from them and update
+  the state to SciTech Review.
+* The SSD team will add a Code Reviewer. When the Scitech Review has been
+  completed a review from the Code Reviewer will automatically be requested, and
+  the project state updated. If the Pull Request is trivial, you will need to
+  manually request a review from the Code Reviewer.
+* As reviews are completed the state will move to ``Changes Requested`` and
+  ``Approved`` as appropriate. Re-request a review once any changes have been
+  made.
 
-* When the developer feels a PR is ready for the SciTech or Code Reviewer to
-  look at (either initially, or after changes have been made) the state should
-  be **manually** changed to ``SciTech Review`` or ``Code Review`` as
-  appropriate.
+  .. image:: images/gh_screenshots/rerequest_light.png
+    :class: only-light border
 
-* When the SciTech Review has been completed the state should be **manually**
-  changed to Code Review.
+  .. image:: images/gh_screenshots/rerequest_dark.png
+    :class: only-dark border
 
-* When the Code Review has been completed the state should be **manually**
-  changed to Approved.
-
-Automatic changes include:
-
-* When changes are requested by a reviewer the state becomes ``Changes Requested``
-* When the pull request has been merged, or otherwise closed, the state becomes
-  ``Done``
-
-.. important::
-  Changing the project status **does not** notify the reviewer. To do this:
-
-  * When the SciTech Review has been completed you should add the assigned Code
-    Reviewer to the list of reviewers. This will notify them that their review is
-    required.
-
-  * If a reviewer has requested changes then you can alert them that you are
-    ready for another review by using GitHubs ``rerequest review`` option;
-    selecting the circling arrows to the right of the reviewers name.
-
-    .. image:: images/gh_screenshots/rerequest_light.png
-        :class: only-light border
-
-    .. image:: images/gh_screenshots/rerequest_dark.png
-        :class: only-dark border
-
-  * You can ``@username`` in any comment to draw that persons attention to the
+* You can ``@username`` in any comment to draw that persons attention to the
     pull request.
 
 
