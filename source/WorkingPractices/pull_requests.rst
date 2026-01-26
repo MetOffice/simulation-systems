@@ -44,7 +44,7 @@ Trivial pull requests are an exception and do not require a SciTech review.
     close that part of the review. The developer should **not** resolve
     conversations themselves.
 
-  * Feedback on code is not a refection of personal ability. All code can be
+  * Feedback on code is not a reflection of personal ability. All code can be
     improved and reviews are an opportunity for shared learning and collaboration.
 
 
