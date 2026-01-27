@@ -4,8 +4,16 @@
 
 This repository contains the working practices documentation common to the
 various
-[simulation and modelling repositories](https://github.com/MetOffice/simulation-systems/wiki)
-owned by the Met Office.
+[simulation and modelling repositories](#repositories) owned by the Met Office.
+
+## Repositories
+
+|Access|Repos|
+|:-----|:----|
+|**Open Source**|[casim](https://github.com/MetOffice/casim), [lfric_apps](https://github.com/MetOffice/lfric_apps), [lfric_core](https://github.com/MetOffice/lfric_core), [moci](https://github.com/MetOffice/moci), [monc](https://github.com/MetOffice/monc), [mule](https://github.com/MetOffice/mule), [rose_picker](https://github.com/MetOffice/rose_picker), [shumlib](https://github.com/MetOffice/shumlib), [socrates-spectral](https://github.com/MetOffice/socrates-spectral), [socrates](https://github.com/MetOffice/socrates), [ukca](https://github.com/MetOffice/ukca)|
+|**Private**|[gcom](https://github.com/MetOffice/gcom), [jules](https://github.com/MetOffice/jules), [jules-internal](https://github.com/MetOffice/jules-internal), [um](https://github.com/MetOffice/um), [um_aux](https://github.com/MetOffice/um_aux), [um_doc](https://github.com/MetOffice/um_doc), [um_meta](https://github.com/MetOffice/um_meta)|
+
+---
 
 The documentation in the repository can be compiled in different ways.
 
