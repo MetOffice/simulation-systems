@@ -89,13 +89,21 @@ Actions/General. There select the option to ``Disable actions`` and save.
 Optional - Adding the MetOffice Mirror Bot
 ------------------------------------------
 
+.. important::
+
+    While this step is optional, the suggested approach for extracting code for
+    scientific suites uses these Git Mirrors. If you are likely to use branches
+    in these suites, then this step is recommended.
+
 The ``mo-gitassist-bot`` is a user which can be granted read access to a
 repository, allowing it to mirror the repository to a central location on
 MetOffice platforms. This repository can then be cloned using the local mirror,
-avoiding the need to authenticate with GitHub. This may be useful, eg. for
-shared accounts which do not have a GitHub account themselves. The mirrors are
-read only - committing and pushing back to the remote repository will require a
-GitHub account.
+avoiding the need to authenticate with GitHub.
+
+This is the recommended approach for extracting code for scientific suites and
+may be useful for shared accounts which do not have a GitHub account themselves.
+The mirrors are read only - committing and pushing back to the remote repository
+will require a GitHub account.
 
 All simulation systems repositories have granted access to this bot, allowing
 them to be cloned from the mirrors by running,
