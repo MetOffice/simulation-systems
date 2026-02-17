@@ -43,7 +43,7 @@ work before the release happens.
 
 .. code-block::
 
-    python SimSys_Scripts/gh_review/project/cr_deadline.py --milestone=<title>
+    python SimSys_Scripts/gh_review_project/cr_deadline.py --milestone=<title>
 
     with an optional argument ``--dry`` to dry run the changes before doing them
     for real.
