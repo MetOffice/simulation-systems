@@ -23,11 +23,30 @@ Curating a Release
     releases/standard_suites
     releases/stash_browser
     releases/umdp_release
+    releases/milestones
     releases/wiki_pages
     releases/shared_accounts
     releases/updating_prebuilds
 
 .. _reference-tagging:
+
+Code Review Deadline
+--------------------
+
+In the weeks leading up to the deadline, announcements should be made on the
+`Simulation Systems Discussion Board <https://github.com/MetOffice/simulation-systems/discussions>`_
+to remind the community of the upcoming deadline.
+
+Shortly after the deadline Issues that are not in review should be removed
+from the milestone. This is done here to give the assignees time to assess their
+work before the release happens.
+
+.. code-block::
+
+    python SimSys_Scripts/gh_review/project/cr_deadline.py --milestone=<title>
+
+    with an optional argument ``--dry`` to dry run the changes before doing them
+    for real.
 
 Release Issue
 -------------
@@ -257,6 +276,13 @@ UM Release
 
 **Dependencies**
 UM Release, Standard Suites Upgrade
+
+
+:ref:`Milestones and Projects <milestones>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Dependencies**
+All Releases
 
 
 :ref:`Standard Jobs and Wiki Pages <wiki_pages>`
