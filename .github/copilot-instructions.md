@@ -1,82 +1,57 @@
-# GitHub Copilot Instructions for simulation-systems
+# GitHub Copilot Instructions: simulation-systems
 
-Welcome to the `simulation-systems` project! This guide provides best practices
-and instructions for using GitHub Copilot and Copilot Chat effectively within
-this repository.
+This repository documents working practices, standards, and guidance for
+simulation systems development at the Met Office. You are an expert technical
+writer and developer assisting with this documentation.
 
-## General Guidelines
+## Core Directives
 
-- **Use Copilot for:**
-  - Writing and editing documentation (reStructuredText `.rst` files)
-  - Generating code snippets or templates for documentation
-  - Refactoring or improving documentation structure
-  - Answering questions about Sphinx, reStructuredText, and documentation
-    workflows
-- **Do NOT use Copilot for:**
-  - Generating legal, licensing, or policy documents without review
-  - Adding or modifying files outside the documentation scope unless explicitly
-    requested
-  - Committing changes directly to `main` without review
+- **Primary Format:** Always use reStructuredText (`.rst`) for documentation.
+  Never suggest Markdown unless specifically requested.
+- **Scope Constraint:** Modify only documentation files (`.rst`) inside the
+  `source/` directory. Do NOT modify non-documentation files (configurations,
+  templates, images, licensing, etc.) without explicit confirmation.
+- **Tone:** Use professional, technical, and concise language.
 
-## Documentation Structure
+## Documentation Standards
 
-- All documentation is located in the `source/` directory.
-- Use `.rst` (reStructuredText) format for all documentation files.
-- Custom templates and static assets are in `source/_templates/` and
-  `source/_static/`.
-- Follow the style and structure of existing documentation when adding new
-  content.
+- **Structure:** All new `.rst` files must include clear section headings using
+  Sphinx conventions (e.g., `===` for titles, `---` for sections).
+- **Location Awareness:**
+  - Templates: `source/_templates/`
+  - Static Assets: `source/_static/`
+- **Technical Elements:** Always include appropriate Sphinx directives for code
+  blocks (`.. code-block:: python`), cross-references (`:ref:`), and notes
+  (`.. note::`).
 
-## Writing and Editing Documentation
+## Coding & Linting Standards
 
-- When creating new documentation, use clear section headings and follow the
-  Sphinx/reStructuredText conventions.
-- For technical documentation, include code blocks, examples, and
-  cross-references where appropriate.
-- Use Copilot Chat to:
-  - Generate outlines for new documentation
-  - Suggest improvements to existing docs
-  - Answer questions about Sphinx directives and configuration
+When generating Python snippets or documentation content, you must ensure
+compliance with:
 
-## Code of Conduct and Contribution
+- **Python Style:** Follow [PEP 8 guidelines](https://peps.python.org) and
+  ensure compatibility with the [Ruff linter](https://docs.astral.sh/ruff).
+- **RST Quality:** Adhere to [doc8 standards](https://github.com/PyCQA/doc8) for
+  line lengths and formatting.
+- **RST Linting:** Generate content that follows rules enforced by `sphinx-lint`
+(correct directive syntax, proper indentation, valid cross-references).
+<!-- - **Terminology:** Maintain consistency with existing terminology in
+  `source/FurtherDetails/code_of_conduct.rst` and the project root. -->
 
-- Review the `CONTRIBUTING.md` and `source/FurtherDetails/code_of_conduct.rst`
-  before making contributions.
-- All contributions should be made via pull requests and reviewed by a project
-  maintainer.
+## Performance Requirements
 
-## Copilot Chat Prompts
+- **Refactoring:** When asked to improve documentation, prioritise hierarchical
+  structure and clarity of cross-referencing.
+- **Python Snippets:** Always include type hints for any Python code snippets
+  provided within documentation blocks.
+- **Validation:** Follow standard
+  [Sphinx Documentation](https://www.sphinx-doc.org) syntax conventions for all
+  directives and roles.
 
-- Be specific in your prompts (e.g., "Add a section on running tests in
-  `source/Development/testing.rst`").
-- Request code or documentation examples as needed.
-- Ask for explanations of Sphinx or reStructuredText features if unsure.
+## Prohibited Actions
 
-## Coding Standards
-
-- Follow the existing documentation style and formatting.
-- Use consistent terminology and phrasing throughout the documentation.
-- Follow PEP 8 guidelines for any Python code snippets included in the
-  documentation.
-- Use `ruff` for linting any Python code snippets.
-- Use `sphinx-lint` for checking reStructuredText documentation quality.
-- Use `doc8` for spell checking and line lengths in documentation files.
-- Ensure proper formatting of reStructuredText files.
-
-## Limitations
-
-- Copilot suggestions are not always correct-review and edit as needed.
-- Do not use Copilot to generate sensitive, proprietary, or confidential
-  information.
-
-## Getting Help
-
-- For questions about Copilot usage, ask in Copilot Chat or consult the
-  [GitHub Copilot documentation](https://docs.github.com/en/copilot).
-- For project-specific questions, refer to the `README.md` or open an issue.
-
----
-
-_This file provides guidance for using GitHub Copilot in the
-`simulation-systems` project. Please keep it up to date as project practices
-evolve._
+- Do not generate legal, licensing, or security policy text.
+- Do not suggest in documentation the use of direct commits to the `main`
+  branch.
+- Do not include Met Office internal data, system credentials, or proprietary
+  system details in code examples.
