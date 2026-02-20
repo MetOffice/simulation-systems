@@ -42,6 +42,8 @@ Before starting to use GitHub, you will also need to configure your `user name
 <https://docs.github.com/en/get-started/git-basics/setting-your-username-in-git?platform=linux>`_
 and `commit email address
 <https://docs.github.com/en/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address>`_.
+This is worth doing on all platforms you have access to where git is available
+(eg. EX HPCs for Met Office staff).
 
 .. code-block::
 

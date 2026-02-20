@@ -192,6 +192,20 @@ To create a branch and switch to it from the command line, the syntax is,
             git branch <branch_name> <start_point>
             git switch <branch_name>
 
+        .. tip::
+
+            When cloning a repository only the default branch, ``main``, is
+            included in your local environment. To use ``stable`` as your
+            start_point for a branch then running
+
+            ``git switch stable``
+
+            will clone the stable branch, and it will then be available for
+            future branch creation.
+
+            Alternatively you can use ``origin/stable`` as your start_point
+            which reads directly from the remote copy of your fork.
+
 .. tip::
 
     If you're creating a branch to use to
