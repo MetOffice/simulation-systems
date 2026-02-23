@@ -9,82 +9,88 @@
 Release Notes
 =============
 
-The below shows the trac release notes template previously used. This will want
-editing and the exact location needs deciding for the move to GitHub. However it
-can be used as an initial guide to the sort of information included.
+Release notes are included in each repository that has a release. An overarching
+set of release notes in also included in the simulation-systems wiki pages.
+
+Ask key people for input on what should be included. This might include managers
+of involved teams, developers who have contributed multiple PRs, and the Code
+Reviewer pool.
+
+* The repository releases are versioned with ``vnX.Y``. The number varies by repository.
+* The Simulation Systems releases are versioned as ``YYYY.MM.N``.
+
+Repository Release Notes
+------------------------
+
+When creating a release, use the ``Generate Release Notes`` button to create a
+full list of changes being included. Then above this add a summary section that
+is formatted like this:
 
 .. code-block::
 
-    [[PageOutline]]
-    -----
-    = UM vnXX.Y User Release Notes =
+    # <Repository Name> vnX.Y release notes
 
-    == Summary ==
+    Summary statement if appropriate
 
-    * Release date:
-    * Number of tickets:
+    ## Key Changes
+        * ...
 
-    === Science highlights ===
+        Tip: If lots of these, split into subsections as appropriate
 
-    === Technical highlights ===
+    ## Breaking Changes
+    _These changes will affect suites upgrading to this release_
+        * ...
 
-    === Optimisation highlights ===
+        No known breaking changes at this release.
 
-    == Known Issues ==
+    ## Known Issues
+        * ....
 
-    None
+        No known issues at this release.
 
-    == Revisions and Keywords ==
-
-    || Repository || !Keyword/Revision ||
-    || [browser:main UM]                                                    || vnXX.Y = NNNN ||
-    || [https://code.metoffice.gov.uk/trac/jules/browser/main JULES]        || vnA.B = umXX.y = NNNN ||
-    || [https://code.metoffice.gov.uk/trac/monc/browser/casim CASIM]        || etc ||
-    || [https://code.metoffice.gov.uk/trac/socrates/browser/main SOCRATES]  ||     ||
-    || [https://code.metoffice.gov.uk/trac/ukca/browser/main UKCA]          ||     ||
-    || [browser:aux Aux]                                                    ||     ||
-
-    GCOM and SHUMlib installations should be built using revisions:
-
-    || Repository || !Keyword/Revision ||
-    || [https://code.metoffice.gov.uk/trac/gcom/browser/main GCOM]          || vnXX.Y = NNNN ||
-    || [https://code.metoffice.gov.uk/trac/utils/browser/shumlib SHUMlib]   || YYYY.MM.N = NNNN ||
-
-    Note that SHUMlib may not be released at every UM release.
-
-    For testing purposes, the LFRic Apps and MOCI repositories:
-
-    || Repository || Revision ||
-    || [browser:main/trunk/rose-stem/rose-suite.conf MOCI]           ||  NNNN  ||
-    || [https://code.metoffice.gov.uk/trac/lfric_apps/browser/main LFRic Apps] ||  vnA.B = umXX.Y = NNNN ||
-
-    Required for rose-stem:
-
-    {{{#!comment
-    Obtain these by grepping, for example:
-    grep -r CYLC_VERSION ~frzz/cylc-run/um_heads_nightly_YYYY-MM-DD/log/job
-    }}}
-
-    * Rose vn YYYY.MM.N
-    * Cylc vn YYYY.MM.N
-
-    == Ticket Overview ==
-
-    * Tickets marked as closed/fixed below may not be associated with a ``main`` commit
-    * Only tickets with a UM element are displayed below. Sub-repositories may contain additional standalone tickets that will have been implicitly tested and included in the release.
-
-    [[TicketQuery(milestone^=UMXX.Y (MMM-YY),status=closed,resolution=fixed,format=table,col=summary|reporter|keywords)]]
-
-    == Platforms ==
-
-    Testing:
-    * Met Office SPICE: [wiki:ReleaseNotesXX.Y/ReleaseTestingAZSPICE]
-    * Met Office EX1A: [wiki:ReleaseNotesXX.Y/ReleaseTestingEX1A]
+    ## Linked Changes
+    This release is part of the [YYYY.MM.N Simulation Systems Release.]
+    (https://github.com/MetOffice/simulation-systems/wiki/YYYY.MM.N). All
+    codebases required by <repository>, including <some other repositories>
+    etc, have been tagged ``YYYY.MM.N``.
 
 
-For the highlights section:
+Simulation Systems Release Notes
+--------------------------------
 
-* Contact HPC Optimisation team (usually AM) to request details for the optimisation section
-* Take some time to think about the 'big picture' relevance of tickets for the science and technical highlights
-* Copy the 'head of ``main``' section and paste underneath, changing the section title to the release.
-* Paste trac.logs into the relevant sub-pages. You'll likely be able to use some nightly testing runs.
+Create a new wiki page:
+
+.. image:: images/gh_screenshots/release_notes_light.png
+    :class: only-light border
+
+.. image:: images/gh_screenshots/release_notes_dark.png
+    :class: only-dark border
+
+#. Click the pencil in the `wiki sidebar <https://github.com/MetOffice/simulation-systems/wiki>`_
+   to edit it.
+
+#. Add the new release YYYY.MM.N to the release notes section and save.
+
+#. Click the link in the sidebar you just created to add the new page.
+
+#. The contents of this page should be formatted like this:
+
+.. code-block::
+
+    # Simulation Systems YYYY.MM.N Release
+
+    Release date:
+
+    ## Included Releases
+    * [LFRic Apps vnX.Y](https://github.com/MetOffice/lfric_apps/releases/tag/vnX.Y)
+    * [LFRic Core vnX.Y](https://github.com/MetOffice/lfric_core/releases/tag/vnX.Y)
+    * [UM vnX.Y](https://github.com/MetOffice/um/releases/tag/vnX.Y) (private within the MetOffice organisation)
+    * [JULES vnX.Y](https://github.com/MetOffice/jules/releases/tag/vnX.Y) (currently private, will hopefully soon be publically available)
+
+    ## Key Highlights
+    * A few highlights the affect multiple repositories
+    * or that are particularly special and are worth raising the profile of at this level
+
+    ## Software Stack Updates
+    * Any package changes to the software stack
+    [Full LFRic Software Stack details](https://metoffice.github.io/lfric_core/getting_started/installation/software_dependencies.html)
