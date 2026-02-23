@@ -13,13 +13,13 @@ Curating a Release
     releases/um_test_release
     releases/partner_testing
     releases/software_stack
+    releases/release_notes
     releases/shumlib_release
     releases/mule_release
     releases/other_repos
     releases/jules_release
     releases/um_main_release
     releases/lfric_apps_release
-    releases/release_notes
     releases/standard_suites
     releases/stash_browser
     releases/umdp_release
@@ -164,7 +164,7 @@ Tags and Releases
 
   * From the GitHub repo, select ``releases`` and then ``Draft a new release``.
   * Create a new tag and title the release with the same name, eg. ``vn14.0``.
-  * Select to ``Generate release notes``.
+  * Follow the instructions for :ref:`release_notes`.
   * Then ``Publish release``.
 
 
@@ -198,6 +198,14 @@ release will also have been completed.
 
 **Dependencies**
 Any potential changes to platform software stacks
+
+
+:ref:`Release Notes <release_notes>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Dependencies**
+These should be prepared just before the release, ready to be included with
+each release.
 
 
 Main Release
@@ -248,14 +256,6 @@ All LFRic PRs (Apps + Core), Jules Release
 
 Post Release Tasks
 ------------------
-
-:ref:`Release Notes <release_notes>`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-**Dependencies**
-Most of this can be done pre-release but some details of commit hashes will be
-dependent on the main release being done.
-
 
 :ref:`Updating Standard Suites <standard_suites>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
