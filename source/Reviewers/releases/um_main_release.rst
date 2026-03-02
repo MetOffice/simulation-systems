@@ -17,8 +17,7 @@ repositories, and that the ``main`` branches in each are up to date with the
 upstream repository.
 
 In a clone of these forks, :ref:`create a branch <create_branch>` using the
-``main`` branch as the parent. In the UM branch, update the ``um_meta`` entry in
-the ``dependencies.yaml`` file to point at your metadata branch.
+``main`` branch as the parent.
 
 .. important::
 
@@ -29,18 +28,13 @@ the ``dependencies.yaml`` file to point at your metadata branch.
 Dependencies
 ------------
 
-For each of these repositories, modify the ``ref`` in the UM
-``dependencies.yaml`` file, to point at the new Simulation Systems release tag.
+For all repositories (other than the exceptions below) in the
+``dependencies.yaml`` file, modify the ``ref`` to point at the new Simulation
+Systems release tag.
 
-* JULES
-* SOCRATES
-* UKCA
-* CASIM
-* MOCI
-
-Also update the ``ref`` for Mule and SHUMLIB to point to their latest releases.
-
-Commit this change to the branch.
+* ``mule`` and ``shumlib`` may have a slightly different tag depending on when
+  their latest releases were completed.
+* ``um_meta`` should be pointed at your release branch, created above.
 
 
 Checking Metadata and Rose Apps
@@ -131,16 +125,20 @@ file (see the existing line).
 Commit the changes to both the UM and Meta branches.
 
 
+Update the UM Module
+--------------------
+
+The UM external libraries on azspice are loaded with a ``um`` module, with two
+module load commands in ``rose-stem/site/meto/family-azspice.cylc``.
+
+The module for this file lives in ``$UMDIR/modules/modulefiles/um``. If there
+isn't already a new modulefile for this release then copy the previous one,
+updating the name and a few examples of the release number inside. Then update
+the module load commands in ``family-azspice.cylc``.
+
+
 Final Checks
 ------------
-
-**UM AUX Changes**
-
-If there are changes to the AUX ``main`` in this release, then add a new
-``YYYY.MM.N`` tag to the ``um_aux`` repository and then update the ``ref`` in
-the UM ``dependencies.yaml`` file - commit this to the branch.
-
-**Other Points**
 
 * Check rose-stem/rose-suite.conf?
 
@@ -233,10 +231,7 @@ version from the comparison as we did with tests that use mule-cumf.
 
   .. code-block:: shell
 
-      find ~cylc-run/<suite name>/runN/log/job -path "*rose_ana*" -type f \
-          -name job.status \
-          | xargs grep -l CYLC_JOB_EXIT=ERR \
-          | grep -vE "(scm|netcdf)"
+      find ~/cylc-run/<suite name>/runN/log/job -path "*rose_ana*" -type f -name job.status | xargs grep -l CYLC_JOB_EXIT=ERR | grep -vE "(scm|netcdf)"
 
 The ``meto_update_kgo.sh`` script is stored in SimSys_Scripts. As yourself,
 navigate to ``$UMDIR/SimSys_Scripts/kgo_updates`` directory and run
