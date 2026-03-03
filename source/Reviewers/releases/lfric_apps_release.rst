@@ -90,7 +90,7 @@ LFRic Release
 * Once testing is complete, update LFRic Core in ``dependencies.yaml``
 
   * ``source`` should be the MetOffice ssh url
-  * ``ref`` should be ``coreX.Y``
+  * ``ref`` should be the SimSys Tag ``YYYY.MM.X``
 
 * Open a PR for each and with a reviewer, follow the
   :ref:`review process <github-releases>`
