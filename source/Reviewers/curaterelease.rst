@@ -65,42 +65,49 @@ sources in the dependencies.yaml file are as they should be. This section is
 relevant for all repositories with a stable and main branch setup.
 
 The release process will be completed by 2 people with commit privilege to the
-relevant repository, at least one of whom must be an ``admin``. One will have
-developed the release branch and the other will review it (**developer** and
-**reviewer** below).
+relevant repository. One will have developed the release branch and the other
+will review it (**developer** and **reviewer** below). It's also worth making
+sure both people have signed the relevant CONTRIBUTORS file - do this in a
+separate PR first if not.
+
+* Before starting, an ``admin`` on the repository will need to update some
+  rulesets:
+
+  * ``prevent_updates``
+
+    * Set ``stable`` as an excluded branch
+
+  * ``main``
+
+    * Disable the ``Require Linear History`` setting
+    * Set the only allowed merge method as ``merge`` (remove ``squash``)
 
 * The **developer** should open a PR directly in the MetOffice repository by
   going to the Pull Requests tab and selecting the New Pull Request button.
   Target the ``stable`` branch.
 
-    .. image:: images/gh_screenshots/main_stable_light.png
-       :class: only-light border
+  .. image:: images/gh_screenshots/main_stable_light.png
+    :class: only-light border
 
-    .. image:: images/gh_screenshots/main_stable_dark.png
-        :class: only-dark border
+  .. image:: images/gh_screenshots/main_stable_dark.png
+    :class: only-dark border
 
-* An admin will need to enable updates to the ``stable`` branch by adding it as
-  an exception to the target branches in the ``prevent updates`` ruleset.
 * The **reviewer** will then review and commit the PR. When committing the
   branch, ensure that the merge method is ``merge``. This should be the default
   for the ``stable`` branch as we want to keep the history of ``main`` in the
   ``stable`` branch.
+
+  If there have been any changes to the CONTRIBUTORS file during the release,
+  the CLA Check action will fail in this PR. It is not a required status check
+  when merging to ``stable`` so it can be safely ignored.
 * The **developer** will then create another new PR as above, to merge the
   ``stable`` branch into ``main``.
 
-    .. image:: images/gh_screenshots/stable_main_light.png
-       :class: only-light border
+  .. image:: images/gh_screenshots/stable_main_light.png
+    :class: only-light border
 
-    .. image:: images/gh_screenshots/stable_main_dark.png
-        :class: only-dark border
-
-* At this point an admin will need to modify the branch protection rules for the
-  ``main`` branch, so that the commit can be performed with a normal merge. This
-  keeps ``main`` and ``stable`` with an identical history.
-
-  * Navigate to the ``main`` ruleset.
-  * Disable ``Require linear history``.
-  * Set ``merge`` as an allowed merge strategy and disable ``squash``.
+  .. image:: images/gh_screenshots/stable_main_dark.png
+    :class: only-dark border
 
 * The **reviewer** can now ``merge`` the second PR.
 * The admin **must** now revert the 2 settings above in ``main`` and remove the
@@ -113,35 +120,40 @@ Hotfix Release
 This section describes the process of applying a hotfix to the most recent
 release. This section is relevant for all repositories with a stable and main
 branch setup. The hotfix process will be completed by 2 people with commit
-privilege to the relevant repository, at least one of whom must be an ``admin``.
-One will have developed the hotfix branch and the other will review it
-(**developer** and **reviewer** below).
+privilege to the relevant repository. One will have developed the hotfix branch
+and the other will review it (**developer** and **reviewer** below).
 
-* An admin will need to enable updates to the ``stable`` branch by adding it as
-  an exception to the target branches in the ``prevent updates`` ruleset. They
-  should also enable ``squash`` as a merge option in the ``stable`` ruleset.
+* Before starting, an ``admin`` on the repository will need to update some
+  rulesets:
+
+  * ``prevent_updates``
+
+    * Set ``stable`` as an excluded branch
+
+  * ``stable``
+
+    * Set the only allowed merge method as ``squash`` (remove ``main``)
+
+  * ``main``
+
+    * Disable the ``Require Linear History`` setting
+    * Set the only allowed merge method as ``merge`` (remove ``squash``)
+
 * The **developer** will make the hotfix change, making sure the branch has been
   created from ``stable``. Open a PR for this change targetting ``stable`` and
-  get it reviewed and committed. The **reviewer** should squash this change into
-  ``stable``.
-* The admin should now update the ``main`` ruleset:
-
-  * Disable ``Require linear history``.
-  * Set ``merge`` as an allowed merge strategy and disable ``squash``.
-  * Uncheck the ``Require branches to be up to date`` box.
-
+  get it reviewed and committed. The **reviewer** should ``squash`` this change
+  into ``stable``.
 * The **developer** will then create another new PR, to merge the
   ``stable`` branch into ``main``.
 
-    .. image:: images/gh_screenshots/stable_main_light.png
-       :class: only-light border
+  .. image:: images/gh_screenshots/stable_main_light.png
+    :class: only-light border
 
-    .. image:: images/gh_screenshots/stable_main_dark.png
-        :class: only-dark border
+  .. image:: images/gh_screenshots/stable_main_dark.png
+    :class: only-dark border
 
 * The **reviewer** can now ``merge`` the second PR.
-* The admin **must** now revert the 3 settings above in ``main`` and remove the
-  exception for ``stable`` in the ``prevent updates`` ruleset from earlier.
+* The admin **must** now revert the ruleset changes made above.
 * :ref:`Tag <tagging>` the hotfix.
 
 .. _tagging:

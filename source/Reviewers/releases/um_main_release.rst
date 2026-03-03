@@ -292,12 +292,18 @@ host zone as above.
 Review and Commit
 -----------------
 
+Before passing for review, change the ``um_meta`` entry in the
+``dependencies.yaml`` file so that it points back to the MetOffice repo and the
+``YYYY.MM.X`` tag (this won't exist yet but that's fine temporarily).
+
 Ensure all changes are committed to both branches and then create a PR
 targeting main for each of the ``um`` and ``um_meta`` branches and pass
-along for a review and commit.
+along for a review and commit. Once the ``um_meta`` PR has been committed then
+:ref:`tag<tagging>` with ``YYYY.MM.X``.
 
 You and the reviewer should then work through the process of merging main and
-stable together - :ref:`see here for details page<github-releases>`.
+stable together for the UM - :ref:`see here for details page<github-releases>`.
+Finally add the ``YYYY.MM.X`` :ref:`tag<tagging>` to the UM.
 
 
 Install the Release
@@ -375,7 +381,7 @@ Now run the central install group,
 
 .. code-block:: shell
 
-    cylc vip -z g=ex1a_install -S CENTRAL_INSTALL=true -n umx.y_install ./rose-stem
+    cylc vip -z g=ex1a_install -S CENTRAL_INSTALL=true -S USE_MIRRORS=true -n umx.y_install ./rose-stem
 
 Finally we need to install the kgo for the release. Do this by running the
 ``ex1a`` group. Once that is finished, run the kgo install script(sourced from
@@ -383,7 +389,7 @@ the SimSys_Scripts repo).
 
 .. code-block:: shell
 
-    cylc vip -z g=ex1a -n umx.y_kgo ./rose-stem
+    cylc vip -z g=ex1a -S USE_MIRRORS=true -n umx.y_kgo ./rose-stem
 
     # Wait for tests to complete
     python3 SimSys_Scripts/kgo_updates/kgo_update/kgo_update.py -N vnX.Y \
