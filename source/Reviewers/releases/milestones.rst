@@ -41,7 +41,7 @@ Milestones and Projects
 
    .. code-block:: shell
 
-      ./SimSyS_Scripts/sbin/gh_manage_milestones -t <title> -d YYYY-MM-DDT00:00:00Z -p <description>
+      ./SimSyS_Scripts/sbin/gh_manage_milestones -t <title> -d YYYY-MM-DDT00:00:01Z -p <description>
 
    * the title is ``Spring YYYY``, ``Summer YYYY`` or ``Autumn YYYY``
    * the date is the first Wednesday in March, July or November
