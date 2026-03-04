@@ -17,8 +17,7 @@ repositories, and that the ``main`` branches in each are up to date with the
 upstream repository.
 
 In a clone of these forks, :ref:`create a branch <create_branch>` using the
-``main`` branch as the parent. In the UM branch, update the ``um_meta`` entry in
-the ``dependencies.yaml`` file to point at your metadata branch.
+``main`` branch as the parent.
 
 .. important::
 
@@ -29,18 +28,13 @@ the ``dependencies.yaml`` file to point at your metadata branch.
 Dependencies
 ------------
 
-For each of these repositories, modify the ``ref`` in the UM
-``dependencies.yaml`` file, to point at the new Simulation Systems release tag.
+For all repositories (other than the exceptions below) in the
+``dependencies.yaml`` file, modify the ``ref`` to point at the new Simulation
+Systems release tag.
 
-* JULES
-* SOCRATES
-* UKCA
-* CASIM
-* MOCI
-
-Also update the ``ref`` for Mule and SHUMLIB to point to their latest releases.
-
-Commit this change to the branch.
+* ``mule`` and ``shumlib`` may have a slightly different tag depending on when
+  their latest releases were completed.
+* ``um_meta`` should be pointed at your release branch, created above.
 
 
 Checking Metadata and Rose Apps
@@ -131,16 +125,20 @@ file (see the existing line).
 Commit the changes to both the UM and Meta branches.
 
 
+Update the UM Module
+--------------------
+
+The UM external libraries on azspice are loaded with a ``um`` module, with two
+module load commands in ``rose-stem/site/meto/family-azspice.cylc``.
+
+The module for this file lives in ``$UMDIR/modules/modulefiles/um``. If there
+isn't already a new modulefile for this release then copy the previous one,
+updating the name and a few examples of the release number inside. Then update
+the module load commands in ``family-azspice.cylc``.
+
+
 Final Checks
 ------------
-
-**UM AUX Changes**
-
-If there are changes to the AUX ``main`` in this release, then add a new
-``YYYY.MM.N`` tag to the ``um_aux`` repository and then update the ``ref`` in
-the UM ``dependencies.yaml`` file - commit this to the branch.
-
-**Other Points**
 
 * Check rose-stem/rose-suite.conf?
 
@@ -233,10 +231,7 @@ version from the comparison as we did with tests that use mule-cumf.
 
   .. code-block:: shell
 
-      find ~cylc-run/<suite name>/runN/log/job -path "*rose_ana*" -type f \
-          -name job.status \
-          | xargs grep -l CYLC_JOB_EXIT=ERR \
-          | grep -vE "(scm|netcdf)"
+      find ~/cylc-run/<suite name>/runN/log/job -path "*rose_ana*" -type f -name job.status | xargs grep -l CYLC_JOB_EXIT=ERR | grep -vE "(scm|netcdf)"
 
 The ``meto_update_kgo.sh`` script is stored in SimSys_Scripts. As yourself,
 navigate to ``$UMDIR/SimSys_Scripts/kgo_updates`` directory and run
@@ -297,12 +292,18 @@ host zone as above.
 Review and Commit
 -----------------
 
+Before passing for review, change the ``um_meta`` entry in the
+``dependencies.yaml`` file so that it points back to the MetOffice repo and the
+``YYYY.MM.X`` tag (this won't exist yet but that's fine temporarily).
+
 Ensure all changes are committed to both branches and then create a PR
 targeting main for each of the ``um`` and ``um_meta`` branches and pass
-along for a review and commit.
+along for a review and commit. Once the ``um_meta`` PR has been committed then
+:ref:`tag<tagging>` with ``YYYY.MM.X``.
 
 You and the reviewer should then work through the process of merging main and
-stable together - :ref:`see here for details page<github-releases>`.
+stable together for the UM - :ref:`see here for details page<github-releases>`.
+Finally add the ``YYYY.MM.X`` :ref:`tag<tagging>` to the UM.
 
 
 Install the Release
@@ -380,7 +381,7 @@ Now run the central install group,
 
 .. code-block:: shell
 
-    cylc vip -z g=ex1a_install -S CENTRAL_INSTALL=true -n umx.y_install ./rose-stem
+    cylc vip -z g=ex1a_install -S CENTRAL_INSTALL=true -S USE_MIRRORS=true -n umx.y_install ./rose-stem
 
 Finally we need to install the kgo for the release. Do this by running the
 ``ex1a`` group. Once that is finished, run the kgo install script(sourced from
@@ -388,7 +389,7 @@ the SimSys_Scripts repo).
 
 .. code-block:: shell
 
-    cylc vip -z g=ex1a -n umx.y_kgo ./rose-stem
+    cylc vip -z g=ex1a -S USE_MIRRORS=true -n umx.y_kgo ./rose-stem
 
     # Wait for tests to complete
     python3 SimSys_Scripts/kgo_updates/kgo_update/kgo_update.py -N vnX.Y \

@@ -75,6 +75,11 @@ LFRic Release
     * Update ``ref`` for all other repositories to be the Simulation Systems tag
       ``YYYY.MM.1``, checking that the dependencies look as they should.
 
+* If required, update the lfric modules for the Azspice and EX1A in
+  ``rose-stem/site/meto/common/suite_config_*.cylc`` in both Apps and Core.
+  These may already have been updated as part of a software stack upgrade, but
+  if not, increase the version number here. If the modules don't exist then ask
+  the spack admins to create copies of the previous versions.
 
 * Commit your changes to both Apps and Core branches.
 
@@ -85,7 +90,7 @@ LFRic Release
 * Once testing is complete, update LFRic Core in ``dependencies.yaml``
 
   * ``source`` should be the MetOffice ssh url
-  * ``ref`` should be ``coreX.Y``
+  * ``ref`` should be the SimSys Tag ``YYYY.MM.X``
 
 * Open a PR for each and with a reviewer, follow the
   :ref:`review process <github-releases>`
