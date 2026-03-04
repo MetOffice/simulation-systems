@@ -23,6 +23,14 @@ Milestones and Projects
    `Simulation Systems Review Tracker`_ and
    `Simulation Systems Issue Tracker`_ to manually sort them.
 
+   .. note::
+
+      The github review project page can take a
+      `long time <https://github.com/orgs/community/discussions/186349>`_ (> 30
+      minutes) to update after running this script. Check that a given PR has
+      been archived on the PR page, then feel free to carry on if this is the
+      case.
+
 #. As prompted by the above script, close the current milestone using:
 
    .. code-block:: shell

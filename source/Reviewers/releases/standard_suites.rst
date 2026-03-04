@@ -32,9 +32,12 @@ Then upgrade each suite by doing the following,
 * Move into the suite and edit the ``rose-suite.conf`` file,
 
   * If it has a ``VN`` setting, update it to the new version.
-  * If it has a ``prebuild`` path, update that now. If there are prebuilds,
-    check the ``flow.cylc`` for any prebuild path overrides. These exist
-    particularly on the EXs.
+
+* Edit the ``dependencies.yaml`` file so that each ``ref`` points at the
+  SimSys release tag.
+
+  * Take care with shumlib as this may have a different tag associated with it's
+    most recent release.
 
 * Validate the existing apps by running,
 
@@ -100,6 +103,8 @@ For each suite, do the following:
     cd ~/roses/u-dn704
 
 * In ``rose-suite.conf`` update the version number
+* Edit the ``dependencies.yaml`` file so that each ``ref`` points at the
+  SimSys release tag.
 * Upgrade the metadata for the mesh and lfric_atm apps
 
   .. code-block::
