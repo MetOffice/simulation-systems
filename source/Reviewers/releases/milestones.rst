@@ -9,17 +9,6 @@
 Milestones and Projects
 =======================
 
-#. In the `Review <https://github.com/orgs/MetOffice/projects/376/archive>`_ and
-   `Issue <https://github.com/orgs/MetOffice/projects/418/archive>`_ Archive
-   pages, delete all existing archived items from the project.
-
-   .. image:: images/gh_screenshots/delete_archive_light.png
-      :class: only-light border
-
-   .. image:: images/gh_screenshots/delete_archive_dark.png
-      :class: only-dark border
-
-   repeating as many times as required.
 
 #. Tidy up all pull requests and issues for the completed milestone in the
    Simulation Systems Review and Issues Trackers.

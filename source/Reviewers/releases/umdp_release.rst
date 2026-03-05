@@ -37,6 +37,8 @@ UMDP Release
       URL.
 
 * It is also worth checking no URLs are out of date.
-* With a reviewer, follow the :ref:`release process <github-releases>`.
+* Open a PR for this branch, targetting ``main`` and get this reviewed and
+  committed.
+* Once on, follow the :ref:`release process <github-releases>` with a reviewer.
 * Ensure the action to publish the documentation has successfully completed and
   the `new documentation is available <https://metoffice.github.io/um_doc/>`_.
