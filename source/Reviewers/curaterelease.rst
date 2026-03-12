@@ -138,6 +138,9 @@ and the other will review it (**developer** and **reviewer** below).
 
     * Disable the ``Require Linear History`` setting
     * Set the only allowed merge method as ``merge`` (remove ``squash``)
+    * Disable the ``Require branches to be up to date before merging`` setting
+      (if commits have been pushed to ``main`` since the release, this would
+      require ``stable`` to be updated with those, which isn't desired).
 
 * The **developer** will make the hotfix change, making sure the branch has been
   created from ``stable``. Open a PR for this change targetting ``stable`` and

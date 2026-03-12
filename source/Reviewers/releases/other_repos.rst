@@ -37,6 +37,8 @@ Other Repositories
    * moci
    * um_aux
    * socrates-spectral
+   * gcom
+   * rose_picker
    * mule (if not already done as part of a release)
    * shumlib (if not already done as part of a release)
 
