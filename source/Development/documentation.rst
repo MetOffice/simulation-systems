@@ -23,7 +23,7 @@ notably:
 +----------------------------+-----------------------------+
 
 .. _view UM: https://metoffice.github.io/um_doc/
-.. _view JULES: https://jules-lsm.github.io/latest/index.html
+.. _view JULES: https://metoffice.github.io/jules/latest/index.html
 .. _view LFRic Core: https://metoffice.github.io/lfric_core/
 .. _view LFRic Apps: https://metoffice.github.io/lfric_apps/
 

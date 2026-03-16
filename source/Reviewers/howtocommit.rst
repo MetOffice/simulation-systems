@@ -317,7 +317,7 @@ are no clashes with what else has gone onto ``main``.
     .. tab-item:: JULES docs
 
         JULES documentation is hosted within the `JULES GitHub repository
-        <https://github.com/jules-lsm/jules-lsm.github.io>`__. To review and
+        <https://metoffice.github.io/jules>`__. To review and
         build the documentation branch locally, move to your local clone of
         the JULES GitHub, then:
 

@@ -14,8 +14,8 @@ The JULES User Guide is built using the :ref:`Sphinx Documentation Generator
 in the `JULES GitHub repository`_, with the plain text files contained in the
 `source`_ directory.
 
-.. _JULES GitHub repository: https://github.com/jules-lsm/jules-lsm.github.io
-.. _source: https://github.com/jules-lsm/jules-lsm.github.io/tree/master/user_guide/doc/source
+.. _JULES GitHub repository: https://metoffice.github.io/jules
+.. _source: https://github.com/MetOffice/jules/tree/main/doc/source
 
 The JULES User Guide uses some custom extensions to reStructuredText to allow
 it to represent Fortran namelists more effectively - these are discussed in
@@ -27,10 +27,10 @@ reStructuredText Extension for Fortran Namelists
 
 The JULES User Guide uses a custom extension to reStructuredText to allow a
 more natural expression of Fortran namelists
-(see `user_guide/doc/sphinxext/sphinx_nml_domain.py`_ if you are interested in
+(see `doc/sphinxext/sphinx_nml_domain.py`_ if you are interested in
 the implementation).
 
-.. _user_guide/doc/sphinxext/sphinx_nml_domain.py: https://github.com/jules-lsm/jules-lsm.github.io/blob/master/user_guide/doc/sphinxext/sphinx_nml_domain.py
+.. doc/sphinxext/sphinx_nml_domain.py: https://github.com/MetOffice/jules/blob/main/doc/sphinxext/sphinx_nml_domain.py
 
 Documenting namelists
 ---------------------
@@ -91,8 +91,8 @@ For an example of how ``nml:group`` might be used, see the documentation of
 ``JULES_INPUT_GRID`` in `model_grid.nml`_. To see how the nml:group directive
 is rendered, see `JULES_INPUT_GRID namelist members`_.
 
-.. _model_grid.nml: https://jules-lsm.github.io/latest/namelists/model_grid.nml.html
-.. _JULES_INPUT_GRID namelist members: https://jules-lsm.github.io/latest/namelists/model_grid.nml.html#jules-input-grid-namelist-members
+.. _model_grid.nml: https://github.com/MetOffice/jules/blob/main/doc/source/namelists/model_grid.nml.rst
+.. _JULES_INPUT_GRID namelist members: https://github.com/MetOffice/jules/blob/main/doc/source/namelists/model_grid.nml.rst#jules-input-grid-namelist-members
 
 Note - If you are adding a completely new namelist then the namelist name also
 needs to be added to the contents page in source/namelists/contents.rst in

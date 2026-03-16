@@ -144,8 +144,8 @@ Release Notes
 
     Jules Release Documentation
 
-These are done with a PR in `this GitHub repo
-<https://github.com/jules-lsm/jules-lsm.github.io>`__
+These are done with a PR in JULES github repository, `with the docs deployed
+here <https://metoffice.github.io/jules/>`__
 
 Often the release notes will have been prepared beforehand and have their own
 PR. In this case it makes more sense for you to review and commit that

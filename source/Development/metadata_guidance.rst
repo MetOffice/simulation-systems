@@ -30,7 +30,7 @@ as follows:
    description=<what is the variable for?>
    help=<detailed information about the variable>
    sort-key=<XY>
-   url=<http://jules-lsm.github.io/latest/namelists/<namelist>.nml.html#<NAMELIST>::<item>>
+   url=<https://metoffice.github.io/jules/latest/namelists/<namelist>.nml.html#<NAMELIST>::<item>>
    etc
 
 where JULES namelist items should only contain the ``url=`` field and not the
