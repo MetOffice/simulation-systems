@@ -26,3 +26,6 @@ help:
 
 deploy:
 	@$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(DEPLOYDIR)/$(REPO)/$(BRANCH)" $(SPHINXOPTS) $(O)
+
+lint:
+	sphinx-lint --d "horizontal-tab" --max-line-length 80 "$(SOURCEDIR)"
