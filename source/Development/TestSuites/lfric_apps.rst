@@ -85,3 +85,5 @@ below, with ``name`` matching the directory name of the area.
 |                    | e.g. gungho_developer or lfric_atm_spice                 |
 +--------------------+----------------------------------------------------------+
 
+
+:doc:`Instructions for resolving fortitude lint errors: <../../FurtherDetails/fortitude_linter>`
