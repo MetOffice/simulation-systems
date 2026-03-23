@@ -246,6 +246,7 @@ helpful for documenting and monitoring progress of your work.
     forking
     gh_dev_init
     maintaining_forks
+    maintaining_branches
     multi_repository
     approvals
     pull_requests
