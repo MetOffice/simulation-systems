@@ -24,14 +24,14 @@ Lint Rules and their Codes:
 Re-running Fortitude to fix lint errors
 ========================================
 
-Lint errors go to job.err and in that report you can also see the: rule code, rule name, 
+Lint errors go to job.err and in that report you can also see the: rule code, rule name,
 auto-fix options, and a summary of the repositories with errors at the bottom of the report.
 
-When you have resolved the lint issue, see the instructions below on how to 
+When you have resolved the lint issue, see the instructions below on how to
 re-test quickly.
 
-N.B. Some errors can be :ref:`fixed automatically <auto-fix>` by fortitude. 
-This is rule dependent and Fortitude will let you know if the specific failure has this 
+N.B. Some errors can be :ref:`fixed automatically <auto-fix>` by fortitude.
+This is rule dependent and Fortitude will let you know if the specific failure has this
 option under each error listed.
 
 Testing with Test Suite:
@@ -55,18 +55,18 @@ Run these commands from the inside the top directory of the codebase:
 Testing manually from the terminal:
 ----------------------------------------
 
-The following commands run fortitude on specific files and specify the rule or 
-configuration file. 
-Fortitude can be run without specifying these things but it may pick up existing 
+The following commands run fortitude on specific files and specify the rule or
+configuration file.
+Fortitude can be run without specifying these things but it may pick up existing
 errors in the codebase that are unrelated to your changes.
 
 The rule code associated with the error is given in the job.err report.
 
-If the repository with the error uses the universal configuration 
-(*lfric_apps/rose-stem/app/check_fortitude_linter/file/fortitude.toml*) 
-for its fortitude tests, the job.out specifies that in that repo’s output 
+If the repository with the error uses the universal configuration
+(*lfric_apps/rose-stem/app/check_fortitude_linter/file/fortitude.toml*)
+for its fortitude tests, the job.out specifies that in that repo’s output
 section.
-Otherwise, it will use its own configuration file, located in its top 
+Otherwise, it will use its own configuration file, located in its top
 directory e.g. *lfric_apps/lfricinputs/fortitude.toml*.
 
 Run the following commands from the inside the top directory of the codebase:
@@ -119,12 +119,3 @@ Add ``--fix`` after the "check" in the command:
 where S101, or S101 and PORT011 are the lint rule(s) you want to test with.
 
 ``fortitude --config-file ./applications/lfricinputs/fortitude.toml check ./applications/lfricinputs``
-
-
-
-
-
-
-
-
-
