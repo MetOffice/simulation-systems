@@ -62,7 +62,7 @@ errors in the codebase that are unrelated to your changes.
 
 The rule code associated with the error is given in the job.err report.
 
-If the repository with the error uses the universal configuration
+For the LFRic repositories, if the application with the error uses the universal configuration
 (*lfric_apps/rose-stem/app/check_fortitude_linter/file/fortitude.toml*)
 for its fortitude tests, the job.out specifies that in that repo’s output
 section.
