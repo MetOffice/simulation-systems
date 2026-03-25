@@ -71,11 +71,12 @@ directory e.g. *lfric_apps/lfricinputs/fortitude.toml*.
 
 Run the following commands from the inside the top directory of the codebase:
 
-**First, load an environment with fortitude available**
+**First, load an environment with fortitude available.**
+
+E.g. For Met Office VDI's:
 
 .. code-block:: shell
 
-    # eg. For Met Office VDI's
     ml use ~lfricadmin/lmod
     module load lfric
 
