@@ -71,7 +71,7 @@ directory e.g. *lfric_apps/lfricinputs/fortitude.toml*.
 
 Run the following commands from the inside the top directory of the codebase:
 
-**First, load the lfric environment:**
+**First, load an environment with fortitude available**
 
 .. code-block:: shell
 
