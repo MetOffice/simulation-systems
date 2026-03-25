@@ -75,6 +75,7 @@ Run the following commands from the inside the top directory of the codebase:
 
 .. code-block:: shell
 
+    # eg. For Met Office VDI's
     ml use ~lfricadmin/lmod
     module load lfric
 
