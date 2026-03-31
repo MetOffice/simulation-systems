@@ -22,7 +22,7 @@ of these steps outlined below.
       * `Repository Status`_ is used to coordinate ``main`` commits for all
          projects.
 
-        * This operates on a first-come-first-served queing system.
+        * This operates on a first-come-first-served queuing system.
         *  To join the queue use the ``Add Item`` button.
         * Do not move yourself up the queue unless agreed with others.
 
@@ -223,7 +223,7 @@ To update the test suite for an upgrade macro, please run:
     Do not push the changes at this stage.
 
 3. Test (if no KGO)
---------------------
+-------------------
 
 The amount of testing to be done at this stage depends on the complexity of the
 PR, and what has already been done. A minimum level is required for even
@@ -324,19 +324,28 @@ are no clashes with what else has gone onto ``main``.
         .. code-block:: shell
 
             git pull
-            git switch <branch name>
-            cd <path_to>/user_guide/doc
-            conda activate jules-user-guide
-            make html
-            firefox build/html/index.html
+            git switch <branch name>  # optional
+            cd doc
 
-        To build and check the LaTeX PDF:
+            # Create and activate virtual environment
+            python3.12 -m venv .venv
+            .venv/bin/pip install .
+            source .venv/bin/activate
+
+            # Generate html documentation in ./build/html
+            make clean html
+
+            # At the Met Office you can also run the following to
+            # deploy the documents directly into ~/public_html/jules/<branch>/
+            make clean deploy
+
+        To generate PDF documentation, ensure you have a LaTeX distribution
+        installed and run the following command. The pdf will be generated as
+        ``./build/latex/JULES_User_Guide.pdf``:
 
         .. code-block:: shell
 
             make latexpdf
-            evince build/latex/JULES_User_Guide.pdf
-
 
 
 4. KGO & Supporting Data (if required)
@@ -347,6 +356,25 @@ for all affected tests before you commit to the ``main``.
 
 Supporting data is stored in the filesystems of our machines and changes to use
 will require the reviewer to update those files (BIG DATA).
+
+.. important:: **Attribution Metadata Policy**
+
+    If the change requires a new or updated BIG DATA file then you will need
+    to work with the developer to ensure that data in BIG_DATA_DIR must include
+    clear attribution and licence metadata. Where possible, this should follow
+    existing UM ``ANCILDIR`` conventions, with ``.attribution`` and ``.license``
+    files or equivalent NetCDF **global attributes** (at least, ``references``,
+    ``license``, ``source``, and ``history``). Attribution must reflect the
+    original data source and be provided by the data creators before deployment,
+    share, or distribution.
+
+    It is treated as an **Information Asset / licensing requirement**, not just
+    a best practice.
+
+    Please refer to the
+    `Prerequisites section of the ANCILDIR-Deploy document
+    <https://github.com/MetOffice/ANCILDIR-Deploy?tab=readme-ov-file#prerequisites>`__.
+
 
 *NB: These instructions are Met Office specific, other sites may manage their
 KGO differently*
@@ -392,8 +420,8 @@ KGO differently*
 
         #. The script will ask you to enter some details regarding the PR.
 
-           * Platforms: enter each platform which has a kgo change, lower case
-             and space seperated, e.g. `azspice ex1a`
+           * Platforms: enter each platform which has a KGO change, lower case
+             and space separated, e.g. `azspice ex1a`
            * If running on the EX's it will ask for the host you ran on - this
              can be found from Cylc Review.
            * Path to your local clone - the script will check this exists and
@@ -419,16 +447,16 @@ KGO differently*
             * This script will login as the relevant admin user as needed
             * After running for a platform, the newly created variables.cylc and
               shell script will be moved to Azspice
-              $UMDIR/kgo_update_files/<new_kgo_directory>.
+              ``$UMDIR/kgo_update_files/<new_kgo_directory>``.
             * Having run on each requested platform the new variables.cylc files
               will be copied into your clone
-              rose-stem/site/meto/variables_<PLATFORM>.cylc.
+              ``rose-stem/site/meto/variables_<PLATFORM>.cylc``.
 
         .. dropdown:: Updating KGO manually (rarely needed!)
 
             * Create a new directory for the new KGO. The naming convention is
               vnXX.X_tNNNN, where NNNN is the PR number. The location of
-              the KGO for the nightly is $UMDIR/standard_jobs.
+              the KGO for the nightly is ``$UMDIR/standard_jobs``.
             * Copy the new KGO from your rose-stem run into the directory
               vnXX.X_tNNNN created above. Note that you need to provide a
               complete set of files, not just ones which have changed answers.
@@ -437,8 +465,8 @@ KGO differently*
               the previous version (i.e. move the old file to the new KGO
               directory and replace it with a sym-link to the updated version)
               But do not do this if the old version was a major release (vnX.X),
-              this is to allow intermediate kgo installs to be deleted later.
-            * Remember to RSync and update the bitcomparison table(see above).
+              this is to allow intermediate KGO installs to be deleted later.
+            * Remember to RSync and update the bit comparison table(see above).
 
     .. tab-item:: JULES
 
@@ -496,10 +524,10 @@ KGO differently*
         #. Verify the checksums updated properly by retriggering the failed
            checksums. First retrigger ``export-source``, and then when
            complete ``export-source_ex1a`` if new checksums are present there
-           (there is no need to retigger azspice). You may need to change the
+           (there is no need to retrigger azspice). You may need to change the
            maximum window extent of the gui in order to see the succeeded
            tasks. Now you can retrigger the failed checksums - these should
-           now pass if the kgo was updated in the clone correctly.
+           now pass if the KGO was updated in the clone correctly.
 
 .. important::
 
@@ -511,14 +539,14 @@ KGO differently*
 .. tip::
 
     Between running any required testing and installing the KGO check that the
-    failing rose-ana tasks match those in the developers trac.log. If any have
-    failed for other reasons (e.g. timeout) then these should be re-triggered
-    before attempting to install the KGO files.
+    failing rose-ana tasks match those in the developers ``trac.log``. If any
+    have failed for other reasons (e.g. timeout) then these should be
+    re-triggered before attempting to install the KGO files.
 
 4.1 Managing BIG DATA
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
-Static input data, such as initialisations and ancilliaries, are required by
+Static input data, such as initialisations and ancillaries, are required by
 many tests.
 
 .. tab-set::
@@ -601,7 +629,7 @@ If the requirement is to update existing files, then further care is required.
 ---------
 
 Once testing has passed on the local Met Office machines then ensure all
-changes for macros and kgos have been committed to the local copy of the
+changes for macros and KGOs have been committed to the local copy of the
 branch and then push the changes back to the remote branch.
 
 .. tip::
