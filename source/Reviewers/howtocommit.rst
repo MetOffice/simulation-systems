@@ -357,25 +357,6 @@ for all affected tests before you commit to the ``main``.
 Supporting data is stored in the filesystems of our machines and changes to use
 will require the reviewer to update those files (BIG DATA).
 
-.. important:: **Attribution Metadata Policy**
-
-    If the change requires a new or updated BIG DATA file then you will need
-    to work with the developer to ensure that data in BIG_DATA_DIR must include
-    clear attribution and licence metadata. Where possible, this should follow
-    existing UM ``ANCILDIR`` conventions, with ``.attribution`` and ``.license``
-    files or equivalent NetCDF **global attributes** (at least, ``references``,
-    ``license``, ``source``, and ``history``). Attribution must reflect the
-    original data source and be provided by the data creators before deployment,
-    share, or distribution.
-
-    It is treated as an **Information Asset / licensing requirement**, not just
-    a best practice.
-
-    Please refer to the
-    `Prerequisites section of the ANCILDIR-Deploy document
-    <https://github.com/MetOffice/ANCILDIR-Deploy?tab=readme-ov-file#prerequisites>`__.
-
-
 *NB: These instructions are Met Office specific, other sites may manage their
 KGO differently*
 
