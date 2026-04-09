@@ -59,6 +59,9 @@ Some commonly used git/GitHub definitions. Further definitions can be found in
 the `GitHub Glossary
 <https://docs.github.com/en/get-started/learning-about-github/github-glossary>`__.
 
+Commit
+  A change to a set of files that, associated with a commit hash created by git.
+
 Clone
   A local copy of either the upstream or the forked repository.
 
@@ -89,6 +92,13 @@ Pull Request
 Remote
   The version of either the upstream or the forked repository that is hosted
   by Github.
+
+.. _tags:
+
+Tag
+  A 'label' to a commit hash. This allows a human readable name rather than a
+  hexadecimal string. They can be used instead of hashes when branching or
+  referencing a specific commit to checkout.
 
 Upstream
   The primary or parent repository, owned by the MetOffice GitHub
@@ -246,6 +256,7 @@ helpful for documenting and monitoring progress of your work.
     forking
     gh_dev_init
     maintaining_forks
+    maintaining_branches
     multi_repository
     approvals
     pull_requests
