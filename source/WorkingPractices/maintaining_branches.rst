@@ -131,7 +131,7 @@ closed and a new one opened as new branches are created.
 
     * If no commit hash is included then the latest commit will be tagged.
     * If tagging a branch for use with a specific revision we recommend the format
-      ``vnX.Y_branch_name``.
+      ``tagX.Y_branch_name``.
     * Including a message with further details is optional
     * ``-f`` can be included to move an existing tag to a new commit.
 
