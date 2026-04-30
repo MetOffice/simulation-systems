@@ -74,7 +74,7 @@ NetCDF Files
 NetCDF files should have the relevant metadata included in the file itself.
 The metadata should include the following information:
 
-* If there is a licence, it should be in a ``license`` global attribute as per
+* The licence should be in a ``license`` global attribute as per
   `ESIP Attribute Convention for Data Discovery <https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3#Recommended>`_.
 
 * If there is a paper attribution requirement, the relevant paper(s) should be
