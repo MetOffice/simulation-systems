@@ -58,7 +58,7 @@ without information about the licencing terms.
 Metadata
 ~~~~~~~~
 
-Any file requirements should be recorded in or alongside the files being
+All file requirements should be recorded in or alongside the files being
 deployed.
 
 Note that if a source file has a licence that imposes requirements on derived
