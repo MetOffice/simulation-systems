@@ -52,8 +52,8 @@ All files require a licence and a record of where they have come from, both
 for legal and auditing purposes. In your request please describe where and how the
 data was generated, and the terms and conditions of its licence.
 
-Before files can be deployed we must get IAO approval, we cannot do this without
-knowing the licence of the files to be deployed.
+Before any files can be deployed, they must be approved by an IAO and this cannot be done
+without information about the licencing terms.
 
 Metadata
 ~~~~~~~~
