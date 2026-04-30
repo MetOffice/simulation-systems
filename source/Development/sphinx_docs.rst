@@ -53,7 +53,7 @@ documentation (first time users only), and then activate it.
         /documentation_style_guide.html>`_ that should be followed for both
         these repositories.
 
-    .. tab-item:: Working Practices
+    .. tab-item:: Simulation Systems
 
         From the top level of the repository:
 
