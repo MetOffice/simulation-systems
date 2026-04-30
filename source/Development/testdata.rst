@@ -49,9 +49,8 @@ Licenses
 ~~~~~~~~
 
 All files require a licence and a record of where they have come from, both
-for legal and auditing purposes. In your request please mention how the files
-was generated/produced and where as well as what licence it has, and what the
-conditions of the licence are.
+for legal and auditing purposes. In your request please describe where and how the
+data was generated, and the terms and conditions of its licence.
 
 Before files can be deployed we must get IAO approval, we cannot do this without
 knowing the licence of the files to be deployed.
