@@ -65,8 +65,9 @@ If a source file has a licence that imposes requirements on derived
 works, then any ancillary file (or an intermediate file used to generate an
 ancillary) counts as a derived work for the purposes of recording metadata.
 
-In cases where a file has been generated from multiple sources, it should be
-made clear where each licence/attribution/acknowledgement has come from.
+In cases where a file has been generated from multiple sources, the licences
+must be compatible with each other and it should be made clear where each
+licence/attribution/acknowledgement has come from.
 
 NetCDF Files
 ^^^^^^^^^^^^
