@@ -61,9 +61,9 @@ Metadata
 All file requirements should be recorded in or alongside the files being
 deployed.
 
-Note that if a source file has a licence that imposes requirements on derived
-works, then an ancillary file (or an intermediate file used to generate an
-ancillary) does count as a derived work for the purpose of recording metadata.
+If a source file has a licence that imposes requirements on derived
+works, then any ancillary file (or an intermediate file used to generate an
+ancillary) counts as a derived work for the purposes of recording metadata.
 
 In cases where a file has been generated from multiple sources, it should be
 made clear where each licence/attribution/acknowledgement has come from.
