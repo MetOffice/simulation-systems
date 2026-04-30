@@ -21,7 +21,7 @@ Adding Test Data
 
     If the change requires a new or updated file in ``LFRIC_DATA_DIR`` then you
     will need to work with the Information Asset Owner (IAO) to ensure that data
-    in ``LFRIC_DATA_DIR`` must include clear attribution and licence metadata.
+    in ``LFRIC_DATA_DIR`` includes clear attribution and licence metadata.
     Where possible, this should follow existing UM ``ANCILDIR`` conventions (`see
     below <prerequisites-section_>`_), with ``.attribution`` and ``.license``
     files or equivalent NetCDF **global attributes** (at least, ``references``,
