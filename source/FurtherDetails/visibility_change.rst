@@ -9,7 +9,7 @@ Changing fork visibility
 ========================
 
 Technical Guide: Re-linking to a Public Repository
-===========================================================
+--------------------------------------------------
 
 Once the repository is public, contributors must re-establish their forks to continue submitting pull requests.
 
