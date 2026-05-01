@@ -33,7 +33,8 @@ the new public upstream and your new fork. Use the following commands:
 **Step 3: Migrating unfinished work**
 If you have work in progress on a branch from your old private fork, you can push it to your new public fork easily:
 
-code-block::sh
+.. code-block::sh
+
    # Switch to your working branch
    git checkout feature-branch-name
    # Push the branch to your new public fork (origin)
