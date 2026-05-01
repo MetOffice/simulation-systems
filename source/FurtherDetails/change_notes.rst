@@ -8,3 +8,5 @@
 
 Recent Changes
 ==============
+
+01/05/26 - Advice on for JULES being switched to `public visibility <visibility_changes.rst>`_
