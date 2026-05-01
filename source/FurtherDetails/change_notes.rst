@@ -46,5 +46,5 @@ If you have work in progress on a branch from your old private fork, you can pus
 
 # Re-submit Pull Requests
 As existing PRs will be closed or disconnected,
-you will need to `re-submit any open PRs <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork>`_
-from your new public fork.
+you will need to re-submit any open PRs from your new public fork.
+For further details on how this is done please refer to the following `page <https://metoffice.github.io/simulation-systems/git_faq.html>`_
