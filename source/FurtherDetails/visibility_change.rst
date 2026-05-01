@@ -21,7 +21,7 @@ Once the repository is public, contributors must re-establish their forks to con
 In your existing local clone, you must update your remote URLs to point to
 the new public upstream and your new fork. Use the following commands:
 
-code-block::sh
+.. code-block::sh
 
    # 1. Update the 'upstream' remote to point to the new public repository
    git remote set-url upstream git@github.com:MetOffice/<repo>
