@@ -31,19 +31,10 @@ Once the repository is public, contributors must re-establish their forks to con
     # 3. Verify the changes
     git remote -v
 
-#. Migrating unfinished work
-    If you have work in progress on a branch from your old private fork, you can push it to your new public fork easily:
-
-    .. code-block::sh
-
-    # Switch to your working branch
-    git checkout feature-branch-name
-    # Push the branch to your new public fork (origin)
-    git push -u origin feature-branch-name
-
-#. Re-submit Pull Requests
+#.  Migrating unfinished work
     As existing PRs will be closed or disconnected,
     you will need to re-submit any open PRs from your new public fork.
+
     The "detached" state is a security feature to isolate private forks when the
     upstream parent becomes public. Only GitHub staff have the administrative
     privileges required to manually re-link the repository network while
