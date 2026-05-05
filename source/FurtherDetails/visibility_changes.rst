@@ -44,4 +44,28 @@ Once the repository is public, contributors must re-establish their forks to con
 #. Re-submit Pull Requests
     As existing PRs will be closed or disconnected,
     you will need to re-submit any open PRs from your new public fork.
-    For further details on how this is done please refer to the following `page <https://metoffice.github.io/simulation-systems/git_faq.html>`_
+    The "detached" state is a security feature to isolate private forks when the
+    upstream parent becomes public. Only GitHub staff have the administrative
+    privileges required to manually re-link the repository network while
+    preserving existing PR data and history.
+
+    One option is to make sure any work you wish to preserve is in a clone of your
+    fork. Then recreate the fork from upstream using the same name as before.
+    Pushing from your clone will connect to the new fork. However this will delete
+    any pull requests you had open from the previous fork.
+
+    If you already have a lots of develop branches/PRs, its probably best to
+    contact `GitHub Support and Submit a ticket
+    <https://support.github.com/contact?legacy&subject=Attach%20Fork&tags=rr-forks>`_
+    to reattach your fork. Select your personal account from the drop down menu
+    (as that is where your fork is, not the enterprise account) and use the
+    following message:
+
+    My upstream private repo became public, which detached my fork. I have open
+    PRs I need to preserve. Please reattach my fork to the original network.
+
+    Upstream URL: https://github.com/MetOffice/{repo-name}
+
+    Fork URL: https://github.com/{user}/{repo-name}
+
+    This process should usually get resolved within a day.
