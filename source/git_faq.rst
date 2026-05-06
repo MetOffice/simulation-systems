@@ -51,5 +51,6 @@ releases internal to the MetOffice. Please ask if you need help accessing
 that.
 
 .. rubric:: My forked repository got detached from upstream repository following
+  
   For further details on how to migrate a detached upstream repository
   see the following `page <visibility_changes.rst#34>`_
