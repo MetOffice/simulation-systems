@@ -50,7 +50,8 @@ repositories public. We have a copy of the repository with all the previous
 releases internal to the MetOffice. Please ask if you need help accessing
 that.
 
-.. rubric:: My forked repository got detached from upstream repository following
-  
-  For further details on how to migrate a detached upstream repository
-  see the following `page <visibility_changes.rst#34>`_
+.. rubric:: My forked repository got detached from upstream following a visibility change
+
+For further details on how to migrate a detached fork after an upstream
+repository changes from private to public, see the :ref:`visibility_changes`
+guide.
