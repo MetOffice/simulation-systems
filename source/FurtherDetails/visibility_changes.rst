@@ -6,7 +6,7 @@
 
 .. _visibility_changes:
 
-Changing fork visibility
+Changing Fork Visibility
 ========================
 
 Technical Guide: Re-linking to a Public Repository
