@@ -22,14 +22,14 @@ Once the repository is public, contributors must re-establish their forks to con
     In your existing local clone, you must update your remote URLs to point to
     the new public upstream and your new fork. Use the following commands:
 
-    .. code-block::sh
+    .. code-block:: sh
 
-    1. Update the 'upstream' remote to point to the new public repository
-    git remote set-url upstream git@github.com:MetOffice/<repo>
-    2. Update your 'origin' remote to point to your NEW public fork
-    git remote set-url origin git@github.com:<user>/<repo>
-    3. Verify the changes
-    git remote -v
+        # 1. Update the 'upstream' remote to point to the new public repository
+        git remote set-url upstream git@github.com:MetOffice/<repo>
+        # 2. Update your 'origin' remote to point to your NEW public fork
+        git remote set-url origin git@github.com:<user>/<repo>
+        # 3. Verify the changes
+        git remote -v
 
 #. Migrating unfinished work
     As existing PRs will be closed or disconnected,
