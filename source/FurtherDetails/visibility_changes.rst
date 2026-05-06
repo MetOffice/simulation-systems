@@ -52,11 +52,11 @@ to reattach your fork. Select your personal account from the drop down menu
 (as that is where your fork is, not the enterprise account) and use the
 following message:
 
-My upstream private repo became public, which detached my fork. I have open
-PRs I need to preserve. Please reattach my fork to the original network.
+  My upstream private repo became public, which detached my fork. I have open
+  PRs I need to preserve. Please reattach my fork to the original network.
 
-Upstream URL: https://github.com/MetOffice/{repo-name}
+  Upstream URL: https://github.com/MetOffice/{repo-name}
 
-Fork URL: https://github.com/{user}/{repo-name}
+  Fork URL: https://github.com/{user}/{repo-name}
 
 This process should usually get resolved within a day.
