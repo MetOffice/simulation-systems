@@ -24,14 +24,14 @@ Once the repository is public, contributors must re-establish their forks to con
 
     .. code-block::sh
 
-    # 1. Update the 'upstream' remote to point to the new public repository
+    1. Update the 'upstream' remote to point to the new public repository
     git remote set-url upstream git@github.com:MetOffice/<repo>
-    # 2. Update your 'origin' remote to point to your NEW public fork
+    2. Update your 'origin' remote to point to your NEW public fork
     git remote set-url origin git@github.com:<user>/<repo>
-    # 3. Verify the changes
+    3. Verify the changes
     git remote -v
 
-#.  Migrating unfinished work
+#. Migrating unfinished work
     As existing PRs will be closed or disconnected,
     you will need to re-submit any open PRs from your new public fork.
 
