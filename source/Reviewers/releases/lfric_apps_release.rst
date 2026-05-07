@@ -103,7 +103,8 @@ LFRic Release
 
   In each of these, update the ``lfric_*_release_version`` parameter such that
   it is now ``.false.``.
-  Open a new PR for each and have them committed before announcing the release.
+  Open a new PR for each targetting ``main`` and have them committed before
+  announcing the release.
 
   .. note::
 
