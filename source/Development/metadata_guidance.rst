@@ -88,7 +88,7 @@ your metadata.
 .. important::
 
     If modifying ``jules-shared`` metadata, this will require a linked PR with
-    and upgrade macro in **both** UM and LFRic Apps.
+    and upgrade macro in **both** UM (um-atmos) and LFRic Apps (jules-lsm).
 
 Number of panels
 ----------------
