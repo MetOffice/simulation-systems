@@ -199,3 +199,12 @@ When setting this, the version is the last released version of LFRic Apps. If
 it's a linked Apps-Core PR, then set the ticket number based on the Apps
 Issue or PR. This avoids potential ticket number clashes between the
 repositories.
+
+Shared JULES Metadata Changes
+-----------------------------
+
+:ref:`jules-shared<shared-namelists>` metadata resides in the JULES repository
+and is imported by both the UM and LFRic. If changes are being made to the
+``jules-shared`` metadata then a linked UM and LFRic Apps PR will be required to
+add a macro. This macro should live in the ``um-atmos`` and ``jules-lsm``
+versions.py files respectively.
