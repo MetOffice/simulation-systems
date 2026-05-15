@@ -60,7 +60,7 @@ have identical metadata regardless of the repository where they reside
 
 Shared JULES metadata is in the process of being migrated to
 ``rose-meta/jules-shared``, in the JULES repository. The sub-directories are
-imported by **rose-meta/um-atmos** (UM), **rose-meta/jules-standalone** (Jules)
+imported by **rose-meta/um-atmos** (UM), **rose-meta/jules-standalone** (JULES)
 and **rose-meta/jules-lsm** (LFRic Apps). Please see `Sharing JULES metadata
 <https://github.com/MetOffice/jules/wiki/sharing_jules_metadata>`__ for
 more details including what should be in `jules-shared
