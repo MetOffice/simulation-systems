@@ -418,10 +418,9 @@ KGO differently*
 
         #. Check that the new KGO has been installed correctly by restarting
            your suite, retriggering the failed rose-ana tasks and checking
-           they now pass.
-
-        #. Once committed, update the `bit comparison table
-           <https://code.metoffice.gov.uk/trac/um/wiki/LoseBitComparison>`__.
+           they now pass. The suite can be reloaded by running
+           ``cylc vr <name-of-suite> -S USE_EX<AB|CD>``, selecting the host zone
+           where the suite originally ran.
 
         .. dropdown:: More details on KGO update script
 
@@ -464,7 +463,11 @@ KGO differently*
            `JULES KGO commands
            <https://github.com/MetOffice/git_playground/wiki/Jules-KGO-Instructions>`__
 
-        #. Rerun the rose-stem tests to make sure nothing is broken.
+        #. Check that the new KGO has been installed correctly by restarting
+           your suite, retriggering the failed rose-ana tasks and checking
+           they now pass. The suite can be reloaded by running
+           ``cylc vr <name-of-suite> -S USE_EX<AB|CD>``, selecting the host zone
+           where the suite originally ran.
 
 
     .. tab-item:: LFRic Apps + LFRic Core
