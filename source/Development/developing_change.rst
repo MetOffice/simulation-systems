@@ -27,8 +27,8 @@ development that did work.
 
 .. note::
 
-    Do not add AI-generated code, e.g., from GitHub CoPilot to any branches or
-    forks.
+    For advice on the use of AI within simulations systems, please see the
+    :ref:`AI policy <ai>`.
 
 Code changes should conform to the coding standards of the project.
 Remember to ensure that your changes are easy to read and follow, using
