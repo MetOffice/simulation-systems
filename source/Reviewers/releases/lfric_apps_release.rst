@@ -94,3 +94,22 @@ LFRic Release
 
 * Open a PR for each and with a reviewer, follow the
   :ref:`review process <github-releases>`
+
+* Finally, the first PR post-release for both LFRic Apps and Core should now be
+  made to update the version identifier back to False. This is done in:
+
+  * LFRic Apps - ``science/shared/source/utilities/lfric_apps_version_mod.f90``
+  * LFRic Core - ``lfric_core/infrastructure/source/utilities/lfric_core_version_mod.f90``
+
+  In each of these, update the ``lfric_*_release_version`` parameter such that
+  it is now ``.false.``.
+  Open a new PR for each targetting ``main`` and have them committed before
+  announcing the release.
+
+  .. note::
+
+    The ``lfric_*_release_version`` parameter will always be ``.true.`` for the
+    ``stable`` branch and therefore any branches branched from here. Anyone
+    looking to utilise this functionality on a version branch will need to
+    update the variable for themselves.
+
