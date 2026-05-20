@@ -61,11 +61,6 @@ explanation of each,
         source: git@github.com:MetOffice/lfric_core.git
         ref: a1b2c3d4e5f67890abcdef1234567890abcdef12
 
-    # As above, but with a shortened form of the hash (7 characters in this case)
-    lfric_core:
-        source: git@github.com:MetOffice/lfric_core.git
-        ref: a1b2c3d
-
     # The upstream lfric_core repository, with the default branch (main) at Head
     lfric_core:
         source: git@github.com:MetOffice/lfric_core.git
@@ -79,7 +74,7 @@ explanation of each,
     # A Users fork of the lfric_core repository at a specific hash
     lfric_core:
         source: git@github.com:UserName/lfric_core.git
-        ref: f9e8d7c
+        ref: a1b2c3d4e5f67890abcdef1234567890abcdef12
 
     # A local clone of the lfric_core repository, pointing at my_branch
     lfric_core:
@@ -89,7 +84,7 @@ explanation of each,
     # A local clone of the lfric_core repository, pointing at a specific hash
     lfric_core:
         source: hostname:/path/to/lfric_core
-        ref: f9e8d7c
+        ref: a1b2c3d4e5f67890abcdef1234567890abcdef12
 
 
 .. note::
