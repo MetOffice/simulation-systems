@@ -46,14 +46,21 @@ are making and the tests you will be adding. You should also have a good
 understanding of the codebase and the testing framework you will be using.
 
 Licenses
-~~~~~~~~
+All files require a licence and a record of where they have come
+from, both for legal and auditing purposes. In your request
+please describe where and how the data was generated, and the
+terms and conditions of its licence.
 
-All files require a licence and a record of where they have come from, both
-for legal and auditing purposes. In your request please describe where and how the
-data was generated, and the terms and conditions of its licence.
+Before any files can be deployed, they must be approved by an IAO
+and this cannot be done without information about the licencing
+terms. It is your responsibility as a developer to obtain this
+approval.
 
-Before any files can be deployed, they must be approved by an IAO and this cannot be done
-without information about the licencing terms.
+Where the data is in netCDF format, it should use the global
+attributes described in the section below; data files in other
+formats should follow the existing UM ANCILDIR conventions.
+Attribution must reflect the original data source and be provided
+by the data creators before deployment, share, or distribution.
 
 Metadata
 ~~~~~~~~
