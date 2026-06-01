@@ -14,23 +14,30 @@ Adding Test Data
     This page is a placeholder for information about test data. It is not yet
     complete and will be updated in due course.
 
-    *The instructions here are Met Office specific, other sites may manage their
-    test data differently.*
+    *These instructions apply to all Met Office managed systems and related
+    external platforms (such as JULES data on JASMIN), though other sites may
+    manage their test data differently.*
 
-.. important:: **Attribution Metadata Policy**
+.. important::
 
-    If the change requires a new or updated file in ``LFRIC_DATA_DIR`` then you
-    will need to work with the Information Asset Owner (IAO) to ensure that data
-    in ``LFRIC_DATA_DIR`` includes clear attribution and licence metadata.
-    Where possible, this should follow existing UM ``ANCILDIR`` conventions (`see
-    below <prerequisites-section_>`_), with ``.attribution`` and ``.license``
-    files or equivalent NetCDF **global attributes** (at least, ``references``,
-    ``license``, ``source``, and ``history``). Attribution must reflect the
-    original data source and be provided by the data creators before deployment,
-    share, or distribution.
+    If you have questions about the process or concerns about the provenance of
+    the data you want to include, please engage with the IAO as early as
+    possible to prevent delays to your change later on.
 
-    It is treated as an **Information Asset / licensing requirement**, not just
-    a best practice.
+.. .. important:: **Attribution Metadata Policy**
+
+..     If the change requires a new or updated file in ``LFRIC_DATA_DIR`` then you
+..     will need to work with the Information Asset Owner (IAO) to ensure that data
+..     in ``LFRIC_DATA_DIR`` includes clear attribution and licence metadata.
+..     Where possible, this should follow existing UM ``ANCILDIR`` conventions (`see
+..     below <prerequisites-section_>`_), with ``.attribution`` and ``.license``
+..     files or equivalent NetCDF **global attributes** (at least, ``references``,
+..     ``license``, ``source``, and ``history``). Attribution must reflect the
+..     original data source and be provided by the data creators before deployment,
+..     share, or distribution.
+
+..     It is treated as an **Information Asset / licensing requirement**, not just
+..     a best practice.
 
 
 For UM related datasets, please Email the `MIAO team <mailto:miao@metoffice.gov.uk>`_
@@ -45,7 +52,9 @@ Before adding test data, you should have a good understanding of the change you
 are making and the tests you will be adding. You should also have a good
 understanding of the codebase and the testing framework you will be using.
 
-Licenses
+Licensing and Attribution
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
 All files require a licence and a record of where they have come
 from, both for legal and auditing purposes. In your request
 please describe where and how the data was generated, and the
@@ -58,7 +67,7 @@ approval.
 
 Where the data is in netCDF format, it should use the global
 attributes described in the section below; data files in other
-formats should follow the existing UM ANCILDIR conventions.
+formats should follow the existing UM ``ANCILDIR`` conventions.
 Attribution must reflect the original data source and be provided
 by the data creators before deployment, share, or distribution.
 
@@ -111,6 +120,3 @@ Other Files
   plain text file with the same name as the data file, but with a
   ``.restrictions`` suffix.
 
-If you have questions about the process or concerns about the provenance of the
-data you want to include, please engage with the IAO as early as possible to
-prevent delays to your change later on.
