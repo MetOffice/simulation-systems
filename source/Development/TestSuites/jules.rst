@@ -34,13 +34,6 @@ stored :ref:`KGO files <kgo>`.
 
     See :ref:`multirepo` for details on how to carry out this testing.
 
-    .. important::
-
-        For **jules-shared** changes, when LFRic testing, the
-        changes need to be manually synced to the LFRic location. When UM
-        testing, this is not required as **jules-shared** is imported from the
-        JULES branch.
-
 Below is a (by no means comprehensive) set of groups that you may wish to use
 on Met Office systems.
 
