@@ -54,6 +54,7 @@ carefully:
     kgo
     diagnostics
     rose_stem
+    testdata
     testing
 
 .. important::
