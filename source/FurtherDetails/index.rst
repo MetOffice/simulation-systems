@@ -20,5 +20,7 @@ Further Details
     contributing
     ai
     dos_donts
+    fortitude_linter
     change_notes
+    visibility_changes
     coding_style

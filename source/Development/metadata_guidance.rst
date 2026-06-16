@@ -60,8 +60,8 @@ have identical metadata regardless of the repository where they reside
 
 Shared JULES metadata is in the process of being migrated to
 ``rose-meta/jules-shared``, in the JULES repository. The sub-directories are
-imported by **rose-meta/um-atmos** and **rose-meta/jules-standalone** and is
-manually synced with a copy in LFRic. Please see `Sharing JULES metadata
+imported by **rose-meta/um-atmos** (UM), **rose-meta/jules-standalone** (JULES)
+and **rose-meta/jules-lsm** (LFRic Apps). Please see `Sharing JULES metadata
 <https://github.com/MetOffice/jules/wiki/sharing_jules_metadata>`__ for
 more details including what should be in `jules-shared
 <https://github.com/MetOffice/jules/wiki/sharing_jules_metadata#whats-in-jules-shared>`__
@@ -84,6 +84,11 @@ your metadata.
 ..
     This is largely based on how the UM does everything, so should be revisited
     after the CA2 activity is finished. The following sections have been
+
+.. important::
+
+    If modifying ``jules-shared`` metadata, this will require a linked PR with
+    and upgrade macro in **both** UM (um-atmos) and LFRic Apps (jules-lsm).
 
 Number of panels
 ----------------

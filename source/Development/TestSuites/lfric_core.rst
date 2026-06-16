@@ -37,3 +37,12 @@ developer suite).
 
 It is also possible to run on a single platform, eg. ``-z group=ex1a``. To
 select which meto EX machine is used, add ``-S USE_EX<AB/CD/Z>=true``.
+
+
+Fortitude Linter
+----------------
+
+The rose-stem suite has a job that runs Fortitude which will fail if your
+fortran code introduces lint or style errors. The job can be re-run on its own
+through the test suite or separately:
+:doc:`Instructions for resolving fortitude lint errors <../../FurtherDetails/fortitude_linter>`

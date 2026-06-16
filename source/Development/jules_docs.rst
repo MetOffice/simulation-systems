@@ -27,10 +27,10 @@ reStructuredText Extension for Fortran Namelists
 
 The JULES User Guide uses a custom extension to reStructuredText to allow a
 more natural expression of Fortran namelists
-(see `doc/sphinxext/sphinx_nml_domain.py`_ if you are interested in
-the implementation).
+(see `doc/sphinxext/sphinx_nml_domain.py`_ if you are interested in the
+implementation).
 
-.. doc/sphinxext/sphinx_nml_domain.py: https://github.com/MetOffice/jules/blob/main/doc/sphinxext/sphinx_nml_domain.py
+.. _doc/sphinxext/sphinx_nml_domain.py: https://github.com/MetOffice/jules/blob/main/doc/sphinxext/sphinx_nml_domain.py
 
 Documenting namelists
 ---------------------
