@@ -232,6 +232,12 @@ git to use it:
     chmod 0600 ~/.git-credentials
     git config --global credential.helper 'store --file ~/.git-credentials'
 
+.. warning::
+    Beware that this setup will store all credentials in clear text, including
+    passwords that you might use for other git-based services in the future.
+    See https://git-scm.com/doc/credential-helpers for further details and
+    other options.
+
 Next, `create a Classic Token
 <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic>`_.
 To read from or write to a repository, ensure your token has at least the
