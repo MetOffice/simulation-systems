@@ -167,12 +167,12 @@ appropriate, from the matrix below:
 9. ``refactor``: for code restructuring, modularization, or architectural
    reorganisation without altering external behavior.
 
-Exclusion Categories (Hide from Release Changelogs)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Exclusion Categories
+^^^^^^^^^^^^^^^^^^^^
 
 If your Pull Request does not contain user-facing impact or meaningful logic
-shifts, apply one of the following labels. These options completely suppress the
-PR line item from the final release logs:
+shifts, apply one of the following labels to hide it from the release changelog.
+These options completely suppress the PR line item from the final release logs:
 
 * ``build``: Changes modifying external compiler toolchains, package setups, or build scripts.
 * ``chore``: Housekeeping sweeps, licence file updates, or minor administrative tasks.
