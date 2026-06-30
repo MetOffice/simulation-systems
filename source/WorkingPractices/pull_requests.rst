@@ -164,7 +164,7 @@ appropriate, from the matrix below:
 7. ``performance``: for direct speed execution metrics or runtime tuning.
 8. ``optimization``: for memory footprint reductions, storage improvements,
    or resource tuning.
-9. ``refactor``: for code restructuring, modularization, or architectural
+9. ``refactor``: for code restructuring, modularisation, or architectural
    reorganisation without altering external behavior.
 
 Exclusion Categories
@@ -180,7 +180,7 @@ These options completely suppress the PR line item from the final release logs:
 * ``dependencies``: Automated third-party package version upgrades (e.g., Dependabot alert patches).
 * ``ignore-changelog``: A manual escape-hatch label used to explicitly hide any specific PR from logs.
 * ``test``: Unit test framework additions, test assertions expansion, or mock suite adjustments.
-* ``wip``: Work-in-progress snapshots or incomplete development branch saves.
+
 
 .. _CI:
 
