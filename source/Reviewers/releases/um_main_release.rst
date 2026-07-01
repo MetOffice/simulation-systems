@@ -273,21 +273,10 @@ Once you believe you have installed the KGO you should revert the changes
 you made to the variables*.cylc files to reset the KGO variables, ``git restore
 rose-stem/site/meto/variables*``
 
-.. tip::
-
-    Has the ability to reload the test suite been enabled yet? If so ``cylc
-    vr`` can likely be used to restart the original suite.
-
-    This is likely the case after moving to GitHub - try and update these WPs if
-    so.
-
-The test suite should now be rerun to confirm the kgo has been installed
-properly. As we can't restart Cylc8 rose-stem suites, the entire thing needs
-to be rerun. We're just checking that the kgo has been installed, so it's
-probably unnecessary to wait for the entire thing - instead just ensure a
-reasonable range of rose-ana tasks have passed. Make sure to target the same EX
-host zone as above.
-
+Check that the new KGO has been installed correctly by restarting your suite,
+retriggering the failed rose-ana tasks and checking they now pass. The suite can
+be reloaded by running ``cylc vr <name-of-suite> -S USE_EX<AB|CD>``, selecting
+the host zone where the suite originally ran.
 
 Review and Commit
 -----------------
