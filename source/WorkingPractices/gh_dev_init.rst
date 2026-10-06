@@ -6,7 +6,7 @@
 
 .. _gh_dev_init:
 
-Beginning a Github Development
+Beginning a GitHub Development
 ==============================
 
 This section will guide you through the development process assuming you are

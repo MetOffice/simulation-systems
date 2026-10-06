@@ -68,7 +68,7 @@ the owner.
             Add ``--clone`` to immediately clone the forked repo
 
 
-Disable Github Actions in your fork
+Disable GitHub Actions in your fork
 -----------------------------------
 
 It is a good idea to disable GitHub actions on your fork otherwise you will

@@ -52,7 +52,7 @@ The release cycle is overseen by the Simulation Systems and Deployment Team
 with the oversight and support of the LFRic Apps Governance Group, who
 impartially consider the needs of all developers and users.
 
-Git/Github Definitions
+Git/GitHub Definitions
 ----------------------
 
 Some commonly used git/GitHub definitions. Further definitions can be found in
@@ -64,7 +64,7 @@ Clone
 
 Continuous Integration
   Testing that is run on GitHub based on the changes in a pull request. For
-  simulation-sytems repositories, this is run in addition to local rose-stem
+  simulation-systems repositories, this is run in addition to local rose-stem
   testing. It is commonly referred to as CI.
 
 Fork
@@ -88,7 +88,7 @@ Pull Request
 
 Remote
   The version of either the upstream or the forked repository that is hosted
-  by Github.
+  by GitHub.
 
 Upstream
   The primary or parent repository, owned by the MetOffice GitHub
@@ -111,10 +111,10 @@ branches to be added).
   branch, but will regularly be ahead.
 * ``stable`` - This branch represents the codebase at a version release and
   will generally remain unchanged throughout a release cycle. New branches
-  should be made from this branch (or from a release tag.) Only new releases
+  should be made from this branch (or from a release tag). Only new releases
   and small hotfixes to a release will be merged back into this branch.
 
-All general development for Simulation Systems Github repositories will take
+All general development for Simulation Systems GitHub repositories will take
 place on forks of that repository. It is the responsibility of the developer
 to maintain their own fork. See :ref:`forking` for advice on forking.
 
@@ -185,7 +185,7 @@ Before You Start
 .. note::
 
     In the following Working Practices, we will endeavour to provide options
-    for using the Github Web Interface and the ``gh`` cli where possible.
+    for using the GitHub Web Interface and the ``gh`` cli where possible.
     Further information will be available in the GitHub documentation.
 
     To get started with the ``gh`` cli, see the `gh quickstart guide
