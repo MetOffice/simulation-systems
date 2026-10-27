@@ -1,0 +1,36 @@
+name: Refresh internal dashboard
+
+# Send the `public-issues-updated` repository dispatch event to 
+# simulation-systems-internal
+
+on:
+  issues:
+    types:
+      - opened
+      - edited
+      - reopened
+      - closed
+      - deleted
+      - labeled
+      - unlabeled
+      - assigned
+      - unassigned
+      - transferred
+      - field_added
+      - field_removed
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  notify:
+    if: github.repository == 'MetOffice/simulation-systems'
+    runs-on: ubuntu-slim
+    steps:
+      - name: Request dashboard refresh
+        env:
+          GH_TOKEN: ${{ secrets.DASHBOARD_DISPATCH_TOKEN }}
+        run: >-
+          gh api --method POST
+          repos/MetOffice/simulation-systems-internal/dispatches
+          -f event_type=public-issues-updated
