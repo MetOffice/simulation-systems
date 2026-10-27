@@ -61,10 +61,10 @@ such changes onto ``main``. When preparing your change for review:
 
     4. If you are adding new checksums, ``git add`` the files.
 
-    5. You can check the new kgo updated properly by retiggering tasks in
+    5. You can check the new kgo updated properly by retriggering tasks in
        the test suite. First retrigger ``export-source``, and then when
        complete ``export-source_ex1a`` if new checksums are present there
-       (there is no need to retigger spice). You may need to change the
+       (there is no need to retrigger spice). You may need to change the
        maximum window extent of the gui in order to see the succeeded
        tasks. Now you can retrigger the failed checksums - these should now
        pass if the kgo was updated in the clone correctly.
@@ -98,7 +98,7 @@ such changes onto ``main``. When preparing your change for review:
 
 .. tip::
 
-    More details on the KGO update proceedures for all repositories can be
+    More details on the KGO update procedures for all repositories can be
     found on the :ref:`How to Commit page<kgo_instructions>`.
 
 .. toctree::

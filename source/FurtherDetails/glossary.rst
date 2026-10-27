@@ -49,7 +49,7 @@ Linked Pull Request (Linked PR):
 Overarching Issue:
     Where a piece of work has been split into multiple sections an overarching
     issue can be used to track this work. It should be closed when the whole arc
-    has been completed. GitHub also allows subissues which can be created from
+    has been completed. GitHub also allows sub-issues which can be created from
     the overarching issue.
 
 Regression:

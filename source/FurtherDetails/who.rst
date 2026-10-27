@@ -143,7 +143,7 @@ Core Capability Development Team:
 
 Tools and Collaborative Development Team:
     The TCD Team is responsible for the development and integration of third
-    party tools with LFRic including Psyclone, XIOS and LFRic Inputs.
+    party tools with LFRic including PSyclone, XIOS and LFRic Inputs.
 
     The team can be contacted at ToolsCollabDevTeam@metoffice.gov.uk
 
@@ -154,7 +154,7 @@ Tools and Collaborative Development Team:
 HPC Optimisation Team
 ---------------------
 
-The HPC optimistation team take a general lead in matters relating to compute
+The HPC optimisation team take a general lead in matters relating to compute
 performance of the UM, LFRic and other systems.
 
 * Examine and improve the performance and scalability of the UM and coupled

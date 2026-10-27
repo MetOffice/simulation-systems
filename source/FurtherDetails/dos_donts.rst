@@ -49,7 +49,7 @@ and resolving any conflicts.
 **Licensing** - Don't add code to any project (or to any branch thereof) that
 has been developed under a different license without agreement from the
 Simulation Systems and Deployment Team. This includes lifting Fortran code or
-text from books. Our repositiories must not infringe copyright.
+text from books. Our repositories must not infringe copyright.
 
 **Request support by raising an issue**. Newly raised issues are not
 monitored. Use the appropriate :ref:`support` channels.

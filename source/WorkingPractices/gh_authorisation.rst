@@ -6,7 +6,7 @@
 
 .. _gh_authorisation:
 
-Setting Up Github Authorisations
+Setting Up GitHub Authorisations
 ================================
 
 Initial Setup
@@ -56,7 +56,7 @@ This is worth doing on all platforms you have access to where git is available
 
 .. tip::
 
-    Github has functionality that can keep your email address private.
+    GitHub has functionality that can keep your email address private.
 
     * Navigate to `<https://github.com/settings/emails>`_
     * Enable the **Keep my email addresses private** setting. This should
@@ -142,7 +142,7 @@ or individually by replacing all calls to
 `git config --global` with `git config`  in each local git repository
 that you want to configure.
 
-First configure your Github SSH keys to include a signing key,
+First configure your GitHub SSH keys to include a signing key,
 if this isn't already set up.
 
 At https://github.com/settings/keys :
@@ -166,7 +166,7 @@ Then configure git locally at the command line:
     # Substitute `git config` for `git config --global` for by-repository configuration
     git config --global gpg.format ssh
     # Noting that the </path/to/key> is to the public (`.pub`) part, and must match
-    # the Github registered public key and the allowed-signers key.
+    # the GitHub registered public key and the allowed-signers key.
     git config --global user.signingkey </path/to/key>.pub
     git config --global gpg.ssh.allowedSignersFile ~/.config/git/allowed-signers
     git config --global commit.gpgsign true
@@ -181,8 +181,8 @@ To check this is working locally, add a commit, then check the commit log:
 
 which should show details of the signed commit.
 
-To check that this is working on Github, then push a commit to
-a branch on Github (on a personal fork), then browse to the commit list.
+To check that this is working on GitHub, then push a commit to
+a branch on GitHub (on a personal fork), then browse to the commit list.
 
 There should be a green `Verified` label beside each signed commit.
 
@@ -215,7 +215,7 @@ for details of authenticating.
 
 .. _github_pat:
 
-Github Personal Access Tokens
+GitHub Personal Access Tokens
 -----------------------------
 
 Using GitHub tokens is optional for most test suites, as SSH authentication is

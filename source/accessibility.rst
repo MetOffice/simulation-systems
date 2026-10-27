@@ -10,7 +10,7 @@
 .. _accessibility:
 
 Accessibility statement for the Simulation Systems website
-##########################################################
+==========================================================
 
 Details on producing an accessibility statement can be found on the `Central
 Digital & Data Office government website`_.
@@ -55,7 +55,7 @@ Reporting accessibility problems with this website
 
 We're always looking to improve the accessibility of this website. If you find
 any problems not listed on this page or think we're not meeting accessibility
-requirements, emailML-Simulation_Systems_and_Deployment@metoffice.gov.uk.
+requirements, email ML-Simulation_Systems_and_Deployment@metoffice.gov.uk.
 
 Enforcement procedure
 ---------------------
@@ -135,16 +135,13 @@ This statement was prepared on 24 September 2025. It was last reviewed on 24 Sep
    https://www.gov.uk/government/publications/sample-accessibility-statement/sample-accessibility-statement-for-a-fictional-public-sector-website
 .. _Met Office: https://www.metoffice.gov.uk/
 .. _AbilityNet: https://abilitynet.org.uk/
-
-.. _Public Sector Bodies (Websites and Mobile Applications) (No. 2)
-   Accessibility Regulations 2018 legislation:
+.. _Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 legislation:
    https://www.legislation.gov.uk/uksi/2018/952/regulation/4
 
 .. _Equality Advisory and Support Service:
    https://www.equalityadvisoryservice.com/
-
-.. _Github issue: https://github.com/MetOffice/simulation-systems/issues/new
-.. _metoffice.github.io/simulation-systems: https://metoffice.github.io/simulation-systems
+.. _metoffice.github.io/simulation-systems:
+   https://metoffice.github.io/simulation-systems
 
 .. _Web Content Accessibility Guidelines version 2.2:
    https://www.w3.org/TR/WCAG22/

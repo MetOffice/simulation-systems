@@ -5,7 +5,7 @@ Review Process
 
 .. tip::
 
-    Github allows reviewers to directly make suggestions to the code. This is
+    GitHub allows reviewers to directly make suggestions to the code. This is
     very useful for easily suggesting changes. However, the developer should
     always check carefully that the change is sensible and doesn't contain any
     errors or bugs.
