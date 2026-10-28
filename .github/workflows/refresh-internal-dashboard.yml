@@ -27,10 +27,28 @@ jobs:
     if: github.repository == 'MetOffice/simulation-systems'
     runs-on: ubuntu-slim
     steps:
+      - name: Create dashboard dispatch token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.DASHBOARD_APP_CLIENT_ID }}
+          private-key: ${{ secrets.DASHBOARD_APP_PRIVATE_KEY }}
+          owner: MetOffice
+          repositories: simulation-systems-internal
+          permission-contents: write
+
       - name: Request dashboard refresh
         env:
-          GH_TOKEN: ${{ secrets.DASHBOARD_DISPATCH_TOKEN }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: >-
           gh api --method POST
           repos/MetOffice/simulation-systems-internal/dispatches
           -f event_type=public-issues-updated
+      
+      # - name: Request dashboard refresh
+      #   env:
+      #     GH_TOKEN: ${{ secrets.DASHBOARD_DISPATCH_TOKEN }}
+      #   run: >-
+      #     gh api --method POST
+      #     repos/MetOffice/simulation-systems-internal/dispatches
+      #     -f event_type=public-issues-updated
