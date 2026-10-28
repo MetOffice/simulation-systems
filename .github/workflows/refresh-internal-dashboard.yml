@@ -1,7 +1,12 @@
-name: Refresh internal dashboard
-
+# -----------------------------------------------------------------------------
+# (C) Crown copyright Met Office. All rights reserved.
+# The file LICENCE, distributed with this code, contains details of the terms
+# under which the code may be used.
+# -----------------------------------------------------------------------------
 # Send the `public-issues-updated` repository dispatch event to 
 # simulation-systems-internal
+
+name: Refresh internal dashboard
 
 on:
   issues:
@@ -29,7 +34,7 @@ jobs:
     steps:
       - name: Create dashboard dispatch token
         id: app-token
-        uses: actions/create-github-app-token@v3
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
         with:
           client-id: ${{ vars.DASHBOARD_APP_CLIENT_ID }}
           private-key: ${{ secrets.DASHBOARD_APP_PRIVATE_KEY }}
@@ -43,12 +48,4 @@ jobs:
         run: >-
           gh api --method POST
           repos/MetOffice/simulation-systems-internal/dispatches
-          -f event_type=public-issues-updated
-      
-      # - name: Request dashboard refresh
-      #   env:
-      #     GH_TOKEN: ${{ secrets.DASHBOARD_DISPATCH_TOKEN }}
-      #   run: >-
-      #     gh api --method POST
-      #     repos/MetOffice/simulation-systems-internal/dispatches
-      #     -f event_type=public-issues-updated
+          -f event_type=public-issues-updated     
