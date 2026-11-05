@@ -1,0 +1,61 @@
+name: Feature request
+description: Suggest an improvement or new capability for a simulation system.
+title: "[<system>] <short summary>"
+labels:
+  - enhancement
+  - needs-triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        After submitting, you can optionally set the **Priority** field
+        (Urgent, High, Medium, Low) in the issue sidebar. The triage team
+        will review it.
+  - type: dropdown
+    id: system
+    attributes:
+      label: Affected system(s)
+      description: Which repository or system does this feature request affect?
+      multiple: true
+      options:
+        - casim
+        - lfric_apps
+        - lfric_core
+        - moci
+        - monc
+        - mule
+        - rose_picker
+        - shumlib
+        - socrates
+        - socrates-spectral
+        - ukca
+        - um
+        - gcom
+        - jules
+        - jules-internal
+        - um_aux
+        - um_doc
+        - um_meta
+        - other / not sure
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the motivation or limitation you have run into.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe the change you would like to see, if you have one in mind.
+    validations:
+      required: false
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+    validations:
+      required: false

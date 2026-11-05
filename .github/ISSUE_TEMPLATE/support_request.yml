@@ -1,0 +1,57 @@
+name: Support / triage request
+description: Ask for help, or flag something that needs to be routed to the right team.
+title: "[<system>] <short summary>"
+labels:
+  - question
+  - needs-triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form if you are not sure whether something is a bug, which
+        system it belongs to, or who should pick it up. The triage team will
+        label and route it appropriately — see the
+        [triage process](../../docs/triage/index.md) for details.
+
+        After submitting, you can optionally set the **Priority** field
+        (Urgent, High, Medium, Low) in the issue sidebar.
+  - type: dropdown
+    id: system
+    attributes:
+      label: Affected system (if known)
+      options:
+        - casim
+        - lfric_apps
+        - lfric_core
+        - moci
+        - monc
+        - mule
+        - rose_picker
+        - shumlib
+        - socrates
+        - socrates-spectral
+        - ukca
+        - um
+        - gcom
+        - jules
+        - jules-internal
+        - um_aux
+        - um_doc
+        - um_meta
+        - not sure
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: What do you need help with, or what needs triaging?
+    validations:
+      required: true
+  - type: input
+    id: urgency
+    attributes:
+      label: Urgency / deadline
+      description: Is there a date this needs to be resolved by (e.g. a release)? Triage uses this to set the Priority field.
+    validations:
+      required: false
