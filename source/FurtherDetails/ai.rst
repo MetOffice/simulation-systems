@@ -55,6 +55,13 @@ Core Principles and Tool Restrictions
     For guidance specific to the Met Office, consult the
     `central Met Office AI Policy <https://metoffice.sharepoint.com/sites/AICommsSite/SitePages/Met-Office-AI-Policy.aspx>`__.
 
+    Where applicable Met Office information-governance or data-handling
+    requirements call for approval from an Information Asset Owner (IAO) or
+    Information Asset Manager (IAM) for information or data used with an AI
+    tool, obtain that approval before merging and record it in the pull request
+    description. This is not a blanket IAO/IAM approval requirement for every
+    AI-assisted change.
+
 Approved enterprise-tier tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -84,7 +91,25 @@ Attribution Requirements
 If an approved Generative AI tool is used, you **must** provide attribution in
 two places:
 
-**1. the source file header**
+**1. the pull request description**
+
+The pull request description **must** identify the tool and what it assisted
+with, for example:
+
+.. code-block:: text
+
+  Assisted-by: [Institution Name] [Tool / Agent Context] ([Model Version])
+  for spatial interpolation optimisation.
+
+Commit messages are easy to forget, especially across multiple commits, and are
+not reliably enforceable before merge. Repeating the same note in individual
+commit messages is encouraged for traceability, but is not a substitute for the
+pull request description, which is what reviewers check before merge.
+
+Attribution must be specific enough for later audit. Include tool name,
+model/version where available, and PR number in the source file header.
+
+**2. the source file header**
 
 Add a comment near the top of the file, including documentation-only files
 (for example ``.rst`` files with no code examples). Use the native comment
@@ -97,21 +122,21 @@ style for the language or markup, for example:
       .. code-block:: f90
 
          ! Some content in this file was generated or refactored with assistance from
-         ! - [Tool Name] ([Model Version]).
+         ! - [Institution Name] [Tool / Agent Context] ([Model Version]); PR #123.
 
    .. tab-item:: Python
 
       .. code-block:: python
 
          # Some content in this file was generated or refactored with assistance from
-         # - [Tool Name] ([Model Version]).
+         # - [Institution Name] [Tool / Agent Context] ([Model Version]); PR #123.
 
    .. tab-item:: C++
 
       .. code-block:: cpp
 
          // Some content in this file was generated or refactored with assistance from
-         // - [Tool Name] ([Model Version]).
+         // - [Institution Name] [Tool / Agent Context] ([Model Version]); PR #123.
 
    .. tab-item:: reStructuredText
 
@@ -119,57 +144,34 @@ style for the language or markup, for example:
 
          ..
             Some content in this file was generated or refactored with assistance from
-            - [Tool Name] ([Model Version]).
+            - [Institution Name] [Tool / Agent Context] ([Model Version]); PR #123.
 
 .. dropdown:: Internal example (non-normative)
 
-    For Met Office contributors, the following is an acceptable example tool
-    identifier: ``Met Office GitHub Copilot Enterprise (Claude Sonnet 5)``.
+    For Met Office contributors, these examples show how to identify the tool
+    and model-selection mode used:
+
+    * ``Met Office GitHub Copilot Business (Claude Sonnet 5)`` identifies
+      Copilot Business and the specific model used.
+    * ``Met Office Claude Code via AI Foundry (Agent-selected model)`` identifies
+      Claude Code via AI Foundry when it automatically selects a model for each
+      task. This selection mode may be used in a local or cloud environment.
+      When the specific model or models used are known, name them instead.
 
     This example is provided for convenience. It does not change the
     requirement that only approved enterprise-tier tools may be used.
 
-Do not repeat attribution or the tool name in the file header if it is already
-included. If you use a new tool or version, add it to the list instead. For
-example, on first use:
+List each distinct tool and model/version once in the file header, followed by
+the PR number or numbers for the contributions it assisted. Add PR numbers to
+the existing entry when the same tool and model/version are used again. Use a
+separate entry for a different tool or model/version. For example:
 
 .. code-block:: text
 
   Some content in this file was generated or refactored with assistance from
-  - [Institution Name] [Tool Name] (Claude Haiku 4.7)
-
-After a newer version of the same tool is used:
-
-.. code-block:: text
-
-  Some content in this file was generated or refactored with assistance from
-  - [Institution Name] [Tool Name] (Claude Haiku 4.7/4.8)
-
-After a second tool is also used:
-
-.. code-block:: text
-
-  Some content in this file was generated or refactored with assistance from
-  - [Institution Name] [Tool Name] (Claude Haiku 4.7/4.8)
-  - [Other Institution Name] [Other Tool Name] (Claude Opus 4.8)
-
-**2. the pull request description**
-
-Commit messages are easy to forget, especially across multiple commits, and
-are not reliably enforceable before merge. The pull request description
-**must** therefore identify the tool and what it assisted with, for example:
-
-.. code-block:: text
-
-  Assisted-by: [Tool Name] ([Model Version])
-  for spatial interpolation optimisation.
-
-Repeating the same note in individual commit messages is encouraged for
-traceability, but is not a substitute for the pull request description, which
-is what reviewers check before merge.
-
-Attribution must be specific enough for later audit. Include tool name,
-model/version where available, and date in the source file header.
+  - [Institution Name] [Tool / Agent Context] ([Model Version]); PRs #123, #456
+  - [Institution Name] [Tool / Agent Context] ([Other Model Version]); PR #789
+  - [Other Institution Name] [Other Tool / Agent Context] ([Model Version]); PR #987
 
 Code Review Guidelines
 ----------------------
@@ -197,6 +199,11 @@ Reviewer Checklist Matrix
 | 4    | Run Test Suite     | Code passes all unit,        | Block merge until      |
 |      |                    | integration, and             | tests pass natively    |
 |      |                    | regression tests             |                        |
++------+--------------------+------------------------------+------------------------+
+| 5    | Check IAO/IAM      | If applicable rules require  | Hold merge until       |
+|      | approval needs     | approval for information or  | required approval is   |
+|      |                    | data used with AI, confirm   | obtained and recorded  |
+|      |                    | approval is recorded in PR   | in the PR              |
 +------+--------------------+------------------------------+------------------------+
 
 Enforcement and Remediation
