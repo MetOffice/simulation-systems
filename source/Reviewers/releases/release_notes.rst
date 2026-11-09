@@ -85,7 +85,7 @@ Create a new wiki page:
     * [LFRic Apps vnX.Y](https://github.com/MetOffice/lfric_apps/releases/tag/vnX.Y)
     * [LFRic Core vnX.Y](https://github.com/MetOffice/lfric_core/releases/tag/vnX.Y)
     * [UM vnX.Y](https://github.com/MetOffice/um/releases/tag/vnX.Y) (private within the MetOffice organisation)
-    * [JULES vnX.Y](https://github.com/MetOffice/jules/releases/tag/vnX.Y) (currently private, will hopefully soon be publically available)
+    * [JULES vnX.Y](https://github.com/MetOffice/jules/releases/tag/vnX.Y)
 
     ## Key Highlights
     * A few highlights the affect multiple repositories

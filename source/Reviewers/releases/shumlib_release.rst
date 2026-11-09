@@ -62,7 +62,7 @@ First install on azspice,
 
 .. code-block:: shell
 
-    export SPACKDIR= # Set this as the Spackadmin Data Directory (no trailing slash)
+    export SPACKDIR= # Set this as the spackadmin Data Directory (no trailing slash)
     BUILD_DESTINATION=$UMDIR/shumlib/shumlib-YYYY.MM.V scripts/meto_install_shumlib.sh azspice
 
 Then ssh to each of EXAB, EXCD and EXZ and install there,

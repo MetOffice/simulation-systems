@@ -316,7 +316,7 @@ appear in the correct place. Do this by running,
 
 and check that ``~umadmin/cylc_run/umx.y_install/runN/share/vnX.Y``
 exists and is the new version number. If that has worked, change the
-CENTRALL_INSTALL flag to true and rerun,
+``CENTRAL_INSTALL`` flag to ``true`` and rerun,
 
 .. code-block:: shell
 

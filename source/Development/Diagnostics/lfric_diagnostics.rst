@@ -69,7 +69,7 @@ Field requests can be grouped to be output to different file streams.
    included in the ``iodef.xml`` file for a given application configuration.
 
 XIOS is a highly complex and flexible parallel IO system with post-processing
-capabilites, including the ability to apply time and spatial processing as
+capabilities, including the ability to apply time and spatial processing as
 well as combine multiple fields. It is developed at IPSL.
 
 .. caution::

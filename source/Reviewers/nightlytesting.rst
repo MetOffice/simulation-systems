@@ -17,7 +17,7 @@ Nightly Testing
 Modifying and Installing Testing
 --------------------------------
 
-Nightly testing is controlled by 2 cronfiles, ``auto-gen_testing.cron`` and
+Nightly testing is controlled by 2 cron files, ``auto-gen_testing.cron`` and
 ``manual.cron`` both located in ``~/Crontabs/``. The first is automatically
 generated the script ``generate_test_suite_cron.py`` which is stored in the
 SimSys_Scripts GitHub repo and controls the launching and clean up of the
@@ -151,6 +151,6 @@ items can be added/edited. When done click ``submit`` and then ``Trigger``
 .. important::
 
     When finished Keyboard terminate the cylc url command and choose y when
-    prompted. This shutsdown the cylc server and prevents multiple connections
+    prompted. This shuts down the cylc server and prevents multiple connections
     opening.
 

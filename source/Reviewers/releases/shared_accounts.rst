@@ -9,7 +9,7 @@
 Repo and Shared Accounts Permissions
 ====================================
 
-Modify SSD Team Github Permissions:
+Modify SSD Team GitHub Permissions:
 
 * https://github.com/orgs/MetOffice/teams/ssdteam
 

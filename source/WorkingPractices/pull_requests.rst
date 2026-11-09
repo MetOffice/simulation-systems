@@ -168,7 +168,7 @@ Updating a branch
 
 Most development work in simulation-systems repositories will take place on a
 branch created from ``stable``. Therefore it will need to be updated to match
-the latest changes from ``main`` when a pull request is open. Github provides
+the latest changes from ``main`` when a pull request is open. GitHub provides
 functionality to do this in the browser, with the ability to fix merge
 conflicts. Alternatively, you can do this from a terminal using git. For more
 details see :ref:`updating a branch <updating_branch>`.

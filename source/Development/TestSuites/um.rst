@@ -60,7 +60,7 @@ groups, and that you can specify more than one at once, e.g.
 |                    | team.                                                    |
 +--------------------+----------------------------------------------------------+
 | all                | The complete test suite, including all longer runs and   |
-|                    | less commonly used utilites. This is run automatically   |
+|                    | less commonly used utilities. This is run automatically  |
 |                    | every week and monitored by the SSD team. All            |
 |                    | :ref:`KGO <kgo>` changing PRs need to run this group.    |
 +--------------------+----------------------------------------------------------+
