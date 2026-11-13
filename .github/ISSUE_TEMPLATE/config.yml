@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Simulation Systems working practices
+    url: https://metoffice.github.io/simulation-systems
+    about: Community working practices, open-source repositories and general guidance.
+  - name: Met Office Service Desk
+    url: https://metoffice.service-now.com
+    about: IT access problems, account requests and other service-desk matters not related to a specific repository.

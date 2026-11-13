@@ -1,0 +1,89 @@
+name: Code Upload Request
+description: Request for Code Upload
+title: "UM Code Upload Request for Academic Peer Review"
+labels: ["code-upload"]
+type: "task"
+projects: ["MetOffice/376"]
+
+body:
+  # === SECTION 1: AUTHOR ===
+  - type: markdown
+    id: request-details
+    attributes:
+      value: |
+        ## ✍️ Section 1: Metadata & Submission Details
+        _To be completed by the author requesting the code upload._
+
+  - type: input
+    id: journal
+    attributes:
+      label: Journal
+      description: "⚠️ **Important:** We presently have licence agreements for the Geoscientific Model Development (GMD) journals only."
+      placeholder: Geoscientific Model Development (GMD)
+    validations:
+      required: true
+
+  - type: input
+    id: paper-title
+    attributes:
+      label: Manuscript Title
+      placeholder: Enter the full title of the manuscript...
+    validations:
+      required: true
+
+  - type: textarea
+    id: author-list
+    attributes:
+      label: Author list
+      placeholder: List all authors...
+    validations:
+      required: true
+
+  - type: input
+    id: um-version
+    attributes:
+      label: UM version or commit reference
+      description: Provide a specific UM version, Tag, a commit on UM main, or a branch path with revision.
+      placeholder: vnXX.Y, tag-name, main@commit-sha, or user/branch@commit-sha
+    validations:
+      required: true
+
+  - type: input
+    id: um-pr
+    attributes:
+      label: UM PR referring to branch development
+      placeholder: "#NNN / NA"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: branch-confirm
+    attributes:
+      label: Confirm that the branch revision(s) refer to that used in the paper
+      multiple: false
+      options:
+        - " "
+        - "YES"
+        - "NO"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: code-include-confirm
+    attributes:
+      label: Confirm that all code for the paper is included (committed to) in the UM and/or referenced branch(es)
+      multiple: false
+      options:
+        - " "
+        - "YES"
+        - "NO"
+    validations:
+      required: true
+
+  - type: input
+    id: submission-date
+    attributes:
+      label: Expected submission date
+      placeholder: YYYY-MM-DD
+    validations:
+      required: true

@@ -1,0 +1,561 @@
+# -----------------------------------------------------------------------------
+# (C) Crown copyright Met Office. All rights reserved.
+# The file LICENCE, distributed with this code, contains details of the terms
+# under which the code may be used.
+# -----------------------------------------------------------------------------
+name: Process Code Upload Issue
+
+on:
+  issues:
+    types: [opened, labeled, edited]
+
+# Allow concurrent runs per issue — jobs are idempotent and guard against
+# loops via sender checks. cancel-in-progress would risk discarding an
+# important event (e.g. IAO approval) that arrives while another run is live.
+concurrency:
+  group: code-upload-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+# No permissions at the workflow level — granted per job only.
+permissions: {}
+
+jobs:
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # Job 1: When a code-upload issue is first opened, append the uploader
+  # preparation checklist and notify the code uploader team.
+  # The checklist items are rendered as interactive checkboxes in the GitHub UI
+  # and can be ticked by any repository collaborator with write access.
+  # ────────────────────────────────────────────────────────────────────────────
+  initialise-issue:
+    name: Start Code Uploader Preparation
+    runs-on: ubuntu-slim
+    # Fire on 'opened'/'labeled' (normal creation path) OR on any human 'edited'
+    # event (self-heal: catches issues created before the label existed, or when
+    # the 'opened' event payload arrived before labels were applied).
+    # The shell step is idempotent — it exits early if uploader preparation is present.
+    if: >-
+      contains(github.event.issue.labels.*.name, 'code-upload') &&
+      (github.event.action == 'opened' ||
+       (github.event.action == 'labeled' && github.event.label.name == 'code-upload') ||
+       (github.event.action == 'edited' && github.event.sender.login != 'github-actions[bot]'))
+    permissions:
+      issues: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+
+    steps:
+      - name: Ensure required labels exist
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          gh label create "code-upload" \
+            --color "e4e669" \
+            --description "Code upload request for academic peer review" \
+            --repo "$GITHUB_REPOSITORY" 2>/dev/null || true
+
+      - name: Append IAO/IAG checklist to issue body
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUM: ${{ github.event.issue.number }}
+        shell: bash
+        run: |
+          # Fetch the current body (contains the author-filled Section 1)
+          gh issue view "$ISSUE_NUM" --json body --jq '.body' > current_body.txt
+
+          # Idempotency: skip if uploader preparation is already present.
+          if grep -q '<!-- uploader-preparation -->' current_body.txt; then
+            echo "Uploader preparation already present — skipping."
+            exit 0
+          fi
+
+          # Append Section 2 — uploader preparation and archive handoff.
+          cat << 'CHECKLIST' >> current_body.txt
+
+          ---
+
+          ## 📦 Section 2: Code Uploader Preparation
+
+          <!-- uploader-preparation -->
+
+          _@MetOffice/ssdteam: review the request, prepare the archive, and provide its inspection details below._
+
+          ### UM revision prepared
+
+          _Edit to fill in the exact release or commit SHA used to create the archive:_
+
+          >
+
+          ### Copyright statement type
+
+          <!-- uploader-copyright-type -->
+
+          _Select **ONE**. The Action will post the generated text for `COPYRIGHT.txt`:_
+
+          - [ ] VERSION
+          - [ ] COMM_BR
+          - [ ] UNCOMM_BR
+
+          ### Archive location and details for IAO inspection
+
+          _Provide the archive filename, storage location or link, UM revision, and checksum. Replace the repository `COPYRIGHT.txt` with the generated text before finalising the archive._
+
+          >
+
+          ### Archive prepared with only the required source code and updated `COPYRIGHT.txt`?
+
+          - [ ] YES
+
+          ### Submit the prepared archive for IAO inspection
+
+          _After filling in the archive details above, check this box. The workflow will assign the IAO and request inspection._
+
+          <!-- uploader-submit-for-iao -->
+          - [ ] READY FOR IAO REVIEW
+
+          ### Citation/footnote sent to the author and confirmed in the manuscript?
+
+          - [ ] YES
+
+          ### After IAO approval, has the approved archive been uploaded to JASMIN?
+
+          - [ ] YES
+
+          ### Reminder for deletion date set
+
+          _Edit to fill in (YYYY-MM-DD):_
+
+          >
+          CHECKLIST
+
+          gh issue edit "$ISSUE_NUM" --body-file current_body.txt
+
+      - name: Post archive preparation instructions
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUM: ${{ github.event.issue.number }}
+        shell: bash
+        run: |
+          cat << 'ARCHIVE_INSTRUCTIONS' > archive_instructions.md
+          ## Prepare the UM archive for IAO inspection
+
+          @MetOffice/ssdteam — review the request and prepare an archive from the exact release or commit used for the paper. Select the copyright statement type in Section 2; this Action will post the generated text. Replace the checked-out repository's `COPYRIGHT.txt` with that text before finalising the archive. Because `git archive` reads the commit tree, explicitly replace the ZIP's `COPYRIGHT.txt` with the updated file:
+
+          ```bash
+          git clone git@github.com:MetOffice/um
+          cd um
+          git checkout <release-or-commit-sha>
+          # Replace COPYRIGHT.txt with the generated text posted by this Action.
+          git archive --format=zip -o ../um-<issue>.zip <release-or-commit-sha>
+          zip -d ../um-<issue>.zip COPYRIGHT.txt
+          zip -j ../um-<issue>.zip COPYRIGHT.txt
+          ```
+
+          Add the archive filename, location or link, exact UM revision, and checksum to Section 2. Check READY FOR IAO REVIEW when it is ready; the workflow will assign the IAO and request inspection. Do not upload to JASMIN until the IAO approves. After approval, follow the repository Wiki instructions for uploading the archive to the JASMIN server.
+          ARCHIVE_INSTRUCTIONS
+
+          gh issue comment "$ISSUE_NUM" --body-file archive_instructions.md
+
+      - name: Notify code uploader team
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUM: ${{ github.event.issue.number }}
+        shell: bash
+        run: |
+          gh issue comment "$ISSUE_NUM" --body \
+            "📦 @MetOffice/ssdteam, a code upload request is ready for review and archive preparation. Please follow the archive instructions and complete Section 2 before requesting IAO inspection."
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # Job 2: When the uploader marks the prepared archive ready, assign the IAO,
+  # append the inspection checklist, and request a review of the archive details.
+  # ────────────────────────────────────────────────────────────────────────────
+  submit-archive-to-iao:
+    name: Assign IAO for Archive Inspection
+    runs-on: ubuntu-latest
+    if: >-
+      github.event.action == 'edited' &&
+      github.event.sender.login != 'github-actions[bot]' &&
+      contains(github.event.issue.labels.*.name, 'code-upload') &&
+      !contains(github.event.issue.labels.*.name, 'IAO Approved') &&
+      !contains(github.event.issue.labels.*.name, 'IAO Rejected')
+    permissions:
+      issues: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+
+    steps:
+      - name: Check uploader handoff
+        id: handoff
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUM: ${{ github.event.issue.number }}
+        shell: bash
+        run: |
+          gh issue view "$ISSUE_NUM" --json body --jq '.body' > issue_body.txt
+
+          if grep -q '<!-- iao-overall-verdict -->' issue_body.txt; then
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          READY=$(awk '
+            /<!-- uploader-submit-for-iao -->/ { found=1; next }
+            found && /- \[x\] READY FOR IAO REVIEW/ { print "true"; exit }
+            found && /^###/ { exit }
+          ' issue_body.txt)
+          echo "ready=${READY:-false}" >> "$GITHUB_OUTPUT"
+
+      - name: Assign the IAO
+        if: steps.handoff.outputs.ready == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUM: ${{ github.event.issue.number }}
+        shell: bash
+        run: |
+          gh issue edit "$ISSUE_NUM" --add-assignee benfitzpatrick
+
+      - name: Append IAO archive inspection checklist
+        if: steps.handoff.outputs.ready == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUM: ${{ github.event.issue.number }}
+        shell: bash
+        run: |
+          gh issue view "$ISSUE_NUM" --json body --jq '.body' > review_body.txt
+
+          if grep -q '<!-- iao-overall-verdict -->' review_body.txt; then
+            echo "IAO inspection checklist already present — skipping."
+            exit 0
+          fi
+
+          cat << 'IAO_REVIEW' >> review_body.txt
+
+          ---
+
+          ## 🔍 Section 3: IAO Archive Inspection
+
+          _The assigned IAO should inspect the archive and the uploader-provided details in Section 2._
+
+          ### Have all request fields and author confirmations been checked?
+
+          - [ ] YES
+
+          ### Do the collab keywords correctly reflect author affiliations?
+
+          _Confirm via the [user list](https://code.metoffice.gov.uk/trac/home/wiki/UserList) or add a note on the issue._
+
+          - [ ] YES
+
+          ### Does the archive use the revision stated in the paper, contain only the required source code, and include the generated `COPYRIGHT.txt`?
+
+          - [ ] YES
+
+          ### If the revision differs from that used in the paper, or contains uncommitted changes, reject the archive.
+
+          - [ ] CONFIRMED
+
+          ### Determine the UM reference type
+
+          _Select **ONE**:_
+
+          - [ ] VERSION
+          - [ ] COMM_BR
+          - [ ] UNCOMM_BR
+
+          ### If COMM_BR, are there significant commits after the manuscript revision?
+
+          - [ ] YES
+          - [ ] NO
+          - [ ] NA
+
+          ### If YES, should the revision be classified as UNCOMM_BR?
+
+          - [ ] COMM_BR
+          - [ ] UNCOMM_BR
+          - [ ] NA
+
+          ### Overall archive verdict
+
+          <!-- iao-overall-verdict -->
+
+          - [ ] ✅ APPROVE
+          - [ ] ❌ REJECT
+          IAO_REVIEW
+
+          gh issue edit "$ISSUE_NUM" --body-file review_body.txt
+
+      - name: Request IAO archive inspection
+        if: steps.handoff.outputs.ready == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUM: ${{ github.event.issue.number }}
+        shell: bash
+        run: |
+          gh issue comment "$ISSUE_NUM" --body \
+            "🔎 @benfitzpatrick, @MetOffice/ssdteam has prepared the archive and provided its revision and location/checksum in Section 2. Please inspect the archive and record APPROVE or REJECT in Section 3. Do not approve until the archive contents, including COPYRIGHT.txt, have been checked."
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # Job 3: Process the IAO verdict. Only approval unlocks the JASMIN upload.
+  # ────────────────────────────────────────────────────────────────────────────
+  handle-iao-verdict:
+    name: Handle IAO Archive Verdict
+    runs-on: ubuntu-latest
+    if: >-
+      github.event.action == 'edited' &&
+      github.event.sender.login != 'github-actions[bot]' &&
+      contains(github.event.issue.labels.*.name, 'code-upload') &&
+      !contains(github.event.issue.labels.*.name, 'IAO Approved') &&
+      !contains(github.event.issue.labels.*.name, 'IAO Rejected')
+    permissions:
+      issues: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+
+    steps:
+      - name: Fetch issue body
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUM: ${{ github.event.issue.number }}
+        shell: bash
+        run: |
+          gh issue view "$ISSUE_NUM" --json body --jq '.body' > issue_body.txt
+
+      - name: Check IAO archive verdict
+        id: verdict
+        shell: bash
+        run: |
+          # Accept exactly one decision in the anchored IAO verdict block.
+          VERDICT=$(awk '
+            /<!-- iao-overall-verdict -->/ { found=1; next }
+            found && /^##/ { exit }
+            found && /- \[x\] ✅ APPROVE/ { approved=1 }
+            found && /- \[x\] ❌ REJECT/  { rejected=1 }
+            END {
+              if (approved && !rejected) print "approved"
+              else if (rejected && !approved) print "rejected"
+            }
+          ' issue_body.txt)
+          echo "verdict=${VERDICT:-none}" >> "$GITHUB_OUTPUT"
+
+      - name: Create IAO Approved label if absent
+        if: steps.verdict.outputs.verdict == 'approved'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          gh label create "IAO Approved" \
+            --color "0075ca" \
+            --description "Approved by the Information Asset Guardian" \
+            --repo "$GITHUB_REPOSITORY" 2>/dev/null || true
+
+      - name: Create IAO Rejected label if absent
+        if: steps.verdict.outputs.verdict == 'rejected'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          gh label create "IAO Rejected" \
+            --color "b60205" \
+            --description "Archive rejected by the Information Asset Guardian" \
+            --repo "$GITHUB_REPOSITORY" 2>/dev/null || true
+
+      - name: Apply IAO decision label to issue
+        if: steps.verdict.outputs.verdict == 'approved' || steps.verdict.outputs.verdict == 'rejected'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUM: ${{ github.event.issue.number }}
+          IAO_VERDICT: ${{ steps.verdict.outputs.verdict }}
+        shell: bash
+        run: |
+          if [[ "$IAO_VERDICT" == "approved" ]]; then
+            gh issue edit "$ISSUE_NUM" --add-label "IAO Approved"
+          elif [[ "$IAO_VERDICT" == "rejected" ]]; then
+            gh issue edit "$ISSUE_NUM" --add-label "IAO Rejected"
+          fi
+
+      - name: Notify uploader of IAO decision
+        if: steps.verdict.outputs.verdict == 'approved' || steps.verdict.outputs.verdict == 'rejected'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUM: ${{ github.event.issue.number }}
+          IAO_VERDICT: ${{ steps.verdict.outputs.verdict }}
+        shell: bash
+        run: |
+          if [[ "$IAO_VERDICT" == "approved" ]]; then
+            gh issue comment "$ISSUE_NUM" --body \
+              "✅ **Archive approved by the IAO.** @MetOffice/ssdteam may now upload the inspected archive to the JASMIN server by following the repository Wiki instructions. Upload the same archive that was reviewed and complete the remaining Section 2 items."
+          else
+            gh issue comment "$ISSUE_NUM" --body \
+              "❌ **Archive rejected by the IAO.** @MetOffice/ssdteam, do not upload this archive to JASMIN. Review the IAO's feedback and prepare a corrected archive for inspection."
+          fi
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # Job 4: Generate the copyright statement during uploader preparation so it
+  # can be included in the archive sent to the IAO for inspection.
+  # ────────────────────────────────────────────────────────────────────────────
+  post-copyright:
+    name: Post copyright statement
+    runs-on: ubuntu-latest
+    if: >-
+      github.event.action == 'edited' &&
+      github.event.sender.login != 'github-actions[bot]' &&
+      contains(github.event.issue.labels.*.name, 'code-upload')
+    permissions:
+      contents: read  # required by the GitHub CLI to resolve repo context
+      issues: write   # required to post and delete comments on the issue
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+
+    steps:
+      - name: Fetch and parse issue body
+        id: parse_issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUM: ${{ github.event.issue.number }}
+        shell: bash
+        run: |
+          gh issue view "$ISSUE_NUM" --json body --template '{{.body}}' > raw_body.txt
+
+          # Helper: extract text between rendered GitHub form headers
+          extract_field() {
+            local label="$1"
+            sed -n "/### $label/,/###/p" raw_body.txt | sed '1d;$d' | sed '/^---/d' | xargs
+          }
+
+          # Parse author fields from Section 1 (always present in the issue body)
+          TITLE=$(extract_field "Manuscript Title")
+          AUTHORS=$(extract_field "Author list")
+          JOURNAL=$(extract_field "Journal")
+
+          # Detect copyright type from the uploader preparation section only.
+          # The marker prevents the IAO reference-type selection from triggering this job.
+          CHOICE=$(awk '
+            /<!-- uploader-copyright-type -->/ { found=1; next }
+            found && /- \[x\] VERSION/          { print "VERSION";   exit }
+            found && /- \[x\] COMM_BR/          { print "COMM_BR";   exit }
+            found && /- \[x\] UNCOMM_BR/        { print "UNCOMM_BR"; exit }
+            found && /^##/                       { exit }
+          ' raw_body.txt)
+
+          # Sanitise: strip newlines to prevent GITHUB_OUTPUT injection
+          {
+            printf 'choice=%s\n'  "$(printf '%s' "$CHOICE"  | tr -d '\n\r')"
+            printf 'title=%s\n'   "$(printf '%s' "$TITLE"   | tr -d '\n\r')"
+            printf 'authors=%s\n' "$(printf '%s' "$AUTHORS" | tr -d '\n\r')"
+            printf 'journal=%s\n' "$(printf '%s' "$JOURNAL" | tr -d '\n\r')"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Purge older automated copyright comments
+        if: >-
+          steps.parse_issue.outputs.choice == 'VERSION' ||
+          steps.parse_issue.outputs.choice == 'COMM_BR' ||
+          steps.parse_issue.outputs.choice == 'UNCOMM_BR'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUM: ${{ github.event.issue.number }}
+        shell: bash
+        run: |
+          echo "Scanning for previous automated copyright statements..."
+
+          COMMENTS_JSON=$(gh api "repos/{owner}/{repo}/issues/$ISSUE_NUM/comments" --paginate)
+
+          echo "$COMMENTS_JSON" \
+            | jq -c '.[] | select(
+                .user.login == "github-actions[bot]" and
+                (.body | contains("Auto-Generated Copyright Statement"))
+              )' > targets.txt
+
+          if [ -s targets.txt ]; then
+            while IFS= read -r row; do
+              COMMENT_ID=$(echo "$row" | jq '.id')
+              echo "Purging outdated comment ID: $COMMENT_ID..."
+              gh api --method DELETE "repos/{owner}/{repo}/issues/comments/$COMMENT_ID"
+            done < targets.txt
+            echo "Thread cleanup complete."
+          else
+            echo "No matching historical statements found. Moving forward safely."
+          fi
+
+      # zizmor: outputs are passed via env, never interpolated directly into run scripts.
+      # envsubst with a quoted heredoc safely substitutes $JOURNAL/$TITLE/$AUTHORS
+      # without any shell expansion of the values themselves.
+
+      - name: Generate VERSION statement
+        if: steps.parse_issue.outputs.choice == 'VERSION'
+        env:
+          JOURNAL: ${{ steps.parse_issue.outputs.journal }}
+          TITLE: ${{ steps.parse_issue.outputs.title }}
+          AUTHORS: ${{ steps.parse_issue.outputs.authors }}
+        shell: bash
+        run: |
+          envsubst '$JOURNAL $TITLE $AUTHORS' << 'EOF' > statement.txt
+          ### 📄 Auto-Generated Copyright Statement (VERSION)
+          ```text
+          (C) British Crown Copyright 2022, the Met Office.
+
+          All rights reserved.
+
+          The software is provided by the Met Office to the Topical Editor at $JOURNAL under the Software Licence for Peer Review.
+          (Use, duplication or disclosure of this code is subject to the restrictions as set forth in the aforementioned Software Licence for Peer Review.)
+          The software is provided to facilitate the peer review of submitted manuscript "$TITLE" by $AUTHORS and should be used and distributed to Authorised Persons for this purpose only.
+          The software is extracted from the UM at the revisions of the GitHub repositories corresponding to the stated version having passed both science and code reviews according to the Simulation Systems Working Practices.
+          ```
+          EOF
+
+      - name: Generate COMM_BR statement
+        if: steps.parse_issue.outputs.choice == 'COMM_BR'
+        env:
+          JOURNAL: ${{ steps.parse_issue.outputs.journal }}
+          TITLE: ${{ steps.parse_issue.outputs.title }}
+          AUTHORS: ${{ steps.parse_issue.outputs.authors }}
+        shell: bash
+        run: |
+          envsubst '$JOURNAL $TITLE $AUTHORS' << 'EOF' > statement.txt
+          ### 🌿 Auto-Generated Copyright Statement (COMM_BR)
+          ```text
+          (C) British Crown Copyright 2022, the Met Office.
+
+          All rights reserved.
+
+          The software is provided by the Met Office to the Topical Editor at $JOURNAL under the Software Licence for Peer Review.
+          (Use, duplication or disclosure of this code is subject to the restrictions as set forth in the aforementioned Software Licence for Peer Review.)
+          The software is provided to facilitate the peer review of submitted manuscript "$TITLE" by $AUTHORS and should be used and distributed to Authorised Persons for this purpose only.
+          The software is extracted from a branch(es) of the UM at a specific revision of the GitHub repositories. The code changes have subsequently passed both science and code reviews according to the Simulation Systems Working Practices and have been included in the UM main branch.
+          ```
+          EOF
+
+      - name: Generate UNCOMM_BR statement
+        if: steps.parse_issue.outputs.choice == 'UNCOMM_BR'
+        env:
+          JOURNAL: ${{ steps.parse_issue.outputs.journal }}
+          TITLE: ${{ steps.parse_issue.outputs.title }}
+          AUTHORS: ${{ steps.parse_issue.outputs.authors }}
+        shell: bash
+        run: |
+          envsubst '$JOURNAL $TITLE $AUTHORS' << 'EOF' > statement.txt
+          ### ⚠️ Auto-Generated Copyright Statement (UNCOMM_BR)
+          ```text
+          (C) British Crown Copyright 2022, the Met Office.
+
+          All rights reserved.
+
+          The software is provided by the Met Office to the Topical Editor at $JOURNAL under the Software Licence for Peer Review.
+          (Use, duplication or disclosure of this code is subject to the restrictions as set forth in the aforementioned Software Licence for Peer Review.)
+          The software is provided to facilitate the peer review of submitted manuscript "$TITLE" by $AUTHORS and should be used and distributed to Authorised Persons for this purpose only.
+          The software is extracted from branch(es) of the UM at a specific revision of the GitHub repositories. The UM code branch(es) used in the publication have not all been submitted for review and inclusion in the UM main branch or released for general use.
+          ```
+          EOF
+
+      - name: Post copyright comment
+        if: hashFiles('statement.txt') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUM: ${{ github.event.issue.number }}
+        shell: bash
+        run: |
+          gh issue comment "$ISSUE_NUM" --body-file statement.txt

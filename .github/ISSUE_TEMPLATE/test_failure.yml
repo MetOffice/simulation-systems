@@ -1,0 +1,110 @@
+name: Test failure (nightly / weekly)
+description: Report a failure from the scheduled head-of-main builds and tests on managed platforms.
+title: "[<system>] <nightly/weekly> <build/test> failure on <EX/Spice>"
+labels:
+  - testing
+  - needs-triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to report a failure found by the scheduled nightly or
+        weekly testing that checks the integrity of all repositories at the
+        head of their main branches on the EX and Spice platforms.
+
+        After submitting, you can optionally set the **Priority** field
+        (Urgent, High, Medium, Low) in the issue sidebar. The triage team
+        will review it.
+  - type: dropdown
+    id: cycle
+    attributes:
+      label: Testing cycle
+      options:
+        - Nightly
+        - Weekly
+    validations:
+      required: true
+  - type: checkboxes
+    id: platforms
+    attributes:
+      label: Platform(s) affected
+      options:
+        - label: EXAB (Prod)
+        - label: EXCD (Prod)
+        - label: EXZ (Test)
+        - label: Monsoon (Collab)
+        - label: Spice (Dev)
+  - type: dropdown
+    id: system
+    attributes:
+      label: Affected system
+      description: Which repository does this failure belong to?
+      multiple: true
+      options:
+        - casim
+        - lfric_apps
+        - lfric_core
+        - moci
+        - monc
+        - mule
+        - rose_picker
+        - shumlib
+        - socrates
+        - socrates-spectral
+        - ukca
+        - um
+        - gcom
+        - jules
+        - jules-internal
+        - um_aux
+        - um_doc
+        - um_meta
+        - multiple / not sure
+    validations:
+      required: true
+  - type: input
+    id: branch
+    attributes:
+      label: Branch / revision tested
+      placeholder: main, at revision, or commit <sha>
+    validations:
+      required: false
+  - type: input
+    id: run_date
+    attributes:
+      label: Date of test run
+      placeholder: YYYY-MM-DD
+    validations:
+      required: true
+  - type: input
+    id: reference
+    attributes:
+      label: Suite / job / task reference
+      description: Rose suite ID, Cylc task name, or CI job link.
+      placeholder: e.g. u-ab123/nightly, run_um_atmos_N48
+    validations:
+      required: false
+  - type: textarea
+    id: summary
+    attributes:
+      label: Failure summary
+      description: What failed, and any error messages or links to logs.
+    validations:
+      required: true
+  - type: dropdown
+    id: regression
+    attributes:
+      label: Is this a new failure?
+      options:
+        - "Yes - previously passing"
+        - "No - known/recurring failure"
+        - Not sure
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched existing issues to avoid filing a duplicate.
+          required: true
