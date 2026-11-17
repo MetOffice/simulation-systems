@@ -121,12 +121,66 @@ is selected (see :ref:`reviewer_edits` for details).
     tracking-your-work-with-issues/using-issues/
     linking-a-pull-request-to-an-issue>`_
 
-
-
 Once you are happy with the pull request details open the pull request.
 Initially you can choose to do this in draft mode, to allow you time to do any
-final fixes based on continuous integration. **If you use draft mode mark the
-pull request as ``ready for review`` once you are satisfied.**
+final fixes based on continuous integration. **If you use draft mode, mark the
+pull request as "Ready for review" once you are satisfied.**
+
+
+Labeling a Pull Request
+-----------------------
+
+Every time a new version tag is published, a centralised pipeline scans the
+merged Pull Requests since the previous release. The engine parses the labels
+attached to your PR to categorise it under the correct visual section of our
+changelog.
+
+.. important::
+
+    Labels should be applied to your Pull Request before it is merged into the
+    main branch. The release engine evaluates metadata at the moment of merge;
+    labeling a closed or already-merged PR after release deployment will cause
+    it to be missed.
+
+Active Classification Categories
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When opening a Pull Request, apply exactly one primary category label, as
+appropriate, from the matrix below:
+
+1. ``breaking-change``: for critical infrastructure changes, breaking
+   dependency adjustments, or public API modifications and removals.
+2. ``bugfix``: for code corrections, patches, or hotfixes that resolve an
+   active functional issue. This label takes highest precedence over general
+   features and technical updates.
+3. ``feature``: for new functionality, enhancements, or improvements to
+   existing features.
+4. ``science``: for domain-specific mathematical changes,
+   physics calculations, or scientific model updates.
+5. ``technical``: for deep backend algorithmic optimizations or internal
+   background logic shifts.
+6. ``documentation``: for updates isolated to READMEs,
+   inline code docstrings, wikis, user guides, or scientific working practices.
+7. ``performance``: for direct speed execution metrics or runtime tuning.
+8. ``optimization``: for memory footprint reductions, storage improvements,
+   or resource tuning.
+9. ``refactor``: for code restructuring, modularisation, or architectural
+   reorganisation without altering external behavior.
+
+Exclusion Categories
+^^^^^^^^^^^^^^^^^^^^
+
+If your Pull Request does not contain user-facing impact or meaningful logic
+shifts, apply one of the following labels to hide it from the release changelog.
+These options completely suppress the PR line item from the final release logs:
+
+* ``build``: Changes modifying external compiler toolchains, package setups, or build scripts.
+* ``chore``: Housekeeping sweeps, licence file updates, or minor administrative tasks.
+* ``ci``: Continuous Integration modifications, GitHub Actions workflow adjustments, or runner tuning.
+* ``dependencies``: Automated third-party package version upgrades (e.g., Dependabot alert patches).
+* ``ignore-changelog``: A manual escape-hatch label used to explicitly hide any specific PR from logs.
+* ``test``: Unit test framework additions, test assertions expansion, or mock suite adjustments.
+
 
 .. _CI:
 
