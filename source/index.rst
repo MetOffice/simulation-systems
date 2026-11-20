@@ -41,28 +41,28 @@ and how to merge to ``main``.
 
         Working with git and GitHub to contribute to the simulation models.
 
-        +++
-        .. button-ref:: working_practices_index
-            :ref-type: ref
-            :color: primary
-            :outline:
-            :expand:
+        .. card-footer::
+            .. button-ref:: working_practices_index
+                :ref-type: ref
+                :color: primary
+                :outline:
+                :expand:
 
-                Working Practices
+                    Working Practices
 
     .. grid-item-card::
         :text-align: center
 
         Guides to planning, developing and testing changes to the simulation models
 
-        +++
-        .. button-ref:: development_index
-            :ref-type: ref
-            :color: primary
-            :outline:
-            :expand:
+        .. card-footer::
+            .. button-ref:: development_index
+                :ref-type: ref
+                :color: primary
+                :outline:
+                :expand:
 
-                Developing Your Change
+                    Developing Your Change
 
 .. grid:: 1 1 2 2
 
@@ -71,28 +71,28 @@ and how to merge to ``main``.
 
         Information on reviewing for, committing to and releasing these projects.
 
-        +++
-        .. button-ref:: reviewers_index
-            :ref-type: ref
-            :color: primary
-            :outline:
-            :expand:
+        .. card-footer::
+            .. button-ref:: reviewers_index
+                :ref-type: ref
+                :color: primary
+                :outline:
+                :expand:
 
-                Guides for Reviewers
+                    Guides for Reviewers
 
     .. grid-item-card::
         :text-align: center
 
         Support information, glossary and code of conduct.
 
-        +++
-        .. button-ref:: further_details
-            :ref-type: ref
-            :color: primary
-            :outline:
-            :expand:
+        .. card-footer::
+            .. button-ref:: further_details
+                :ref-type: ref
+                :color: primary
+                :outline:
+                :expand:
 
-                Further Details
+                    Further Details
 
 
 
