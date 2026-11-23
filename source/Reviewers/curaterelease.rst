@@ -139,8 +139,8 @@ up until the :ref:`Tag <tagging>` final step.
   ``Release Candidate`` tag.  This shall follow the tagging rules, and
   then append ``-rc1`` to the release candidate tag string.
 
-  * A Github ``pre-release`` is created using this tag. 
-  
+  * A Github ``pre-release`` is created using this tag.
+
 * Immediately a branch is cut, for each code base that is part of the release
   candidate, on the ``MetOffice`` organisation repository.
 
