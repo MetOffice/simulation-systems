@@ -114,6 +114,89 @@ separate PR first if not.
   exception for ``stable`` in the ``prevent updates`` ruleset from earlier.
 * :ref:`Tag <tagging>` the release.
 
+Release Branch
+++++++++++++++
+
+In some circumstances Simulation Systems may decide to manage a release via a
+release branch.
+
+This can help with:
+
+* extended testing windows for suite owners and partners;
+* managing major releases with known backwards incompatibilities.
+* ``stable`` and ``main`` are available to developers whilst the release branch
+  is progressed to the actual release.
+
+If it is decided to manage a release branch release, then this shall be
+communicated, prior to the release, on the ``Release Curation`` issue and via the
+discussion forum, linking to the issue.
+
+A release branch release follows all of the process described for the
+``Stable + Main Release``,
+up until the :ref:`Tag <tagging>` final step.
+
+* The :ref:`Tag <tagging>` step is done, but the Tag provided is is a designated
+  ``Release Candidate`` tag.  This shall follow the tagging rules, and
+  then append ``-rc1`` to the release candidate tag string.
+
+  * A Github ``pre-release`` is created using this tag. 
+  
+* Immediately a branch is cut, for each code base that is part of the release
+  candidate, on the ``MetOffice`` organisation repository.
+
+  * The branch shall be named by the intended release tag with ``-rc`` appended.
+  * This branch is now a permanent part of the repository on Github.
+  * Branch protection rules to ensure it is not deleted are added.
+
+* The release candidate tag is distributed for enhanced testing.
+* Pull Requests may be raised to the release branch.
+
+  * These shall adhere to :ref:`Release Branch Protection Rules <releaseBranch>`
+
+* More than one release candidate tag may be added to the release branch during
+  testing.
+
+  * For each new release candidate tag, a new Pull Request shall be raised to
+    ``main`` to merge in any additions made to the release branch.
+
+* Once a release candidate has completed adoption evaluation then any remaining
+  changes shall be sent to ``main`` via a Pull Request.
+* The release is finalised using the release branch:
+
+  * Internal version identifiers updates
+  * Release Tagged :ref:`Tag <tagging>` the release.
+
+Release Patch Releases
+^^^^^^^^^^^^^^^^^^^^^^
+
+With a release branch, it is possible to manage specific-release patch releases.
+
+This involves back porting a change from ``main`` onto the release branch, then
+preparing a new release.
+
+This patch release would only contain the original release and the back-ported
+features.
+
+This process should only be undertaken in exceptional circumstances, in general
+release branches shall not be used to provide patch releases.
+
+This would only be allowed via a specific exemption process, negotiated with
+the Simulation Systems Team.
+
+.. _releaseBranch:
+
+Release Branch Protection Rules
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Only specific change sets shall be accepted onto a release branch
+
+  * Code changes that improve the release's ability to be adopted by
+    suite owners and partners
+  * Bug fixes that directly affect the release candidate.
+
+* No new features shall be added to the release branch.
+* No macros may be added to the release branch.
+
 Hotfix Release
 --------------
 
