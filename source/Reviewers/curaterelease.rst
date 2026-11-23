@@ -115,7 +115,7 @@ separate PR first if not.
 * :ref:`Tag <tagging>` the release.
 
 Release Branch
-++++++++++++++
+^^^^^^^^^^^^^^
 
 In some circumstances Simulation Systems may decide to manage a release via a
 release branch.
@@ -167,7 +167,7 @@ up until the :ref:`Tag <tagging>` final step.
   * Release Tagged :ref:`Tag <tagging>` the release.
 
 Release Patch Releases
-^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""
 
 With a release branch, it is possible to manage specific-release patch releases.
 
@@ -186,7 +186,7 @@ the Simulation Systems Team.
 .. _releaseBranch:
 
 Release Branch Protection Rules
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""""
 
 * Only specific change sets shall be accepted onto a release branch
 
