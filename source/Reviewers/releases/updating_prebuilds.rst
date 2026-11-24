@@ -44,8 +44,6 @@ To update prebuilds:
 
 .. code-block:: shell
 
-    export CYLC_VERSION=7
-
     # EXAB and Azure Spice
     rose stem --group=prebuilds --source=fcm:um.xm_tr@XXXXXX \
         --name=rXXXXXX_prebuilds --config=./rose-stem -S MAKE_PREBUILDS=true \

@@ -23,7 +23,7 @@ infrastructure will continue to live in a ``rose-stem`` directory, and we will
 continue referring to the test suite as the ``rose-stem`` suite in these working
 practices.
 
-Running the rose-stem suite will now directly call cylc commands with the
+Running the rose-stem suite will now directly call Cylc commands with the
 following syntax,
 
 * ``cylc vip`` - This will install and launch the test suite. If desired, it
@@ -170,11 +170,6 @@ commands, noting that ``--jules-path`` is only required if you have
     The ``apply_macros.py`` script is located in the `SimSys_Scripts GitHub
     repo <https://github.com/MetOffice/SimSys_Scripts>`__ (at meto an up to
     date clone is available in $UMDIR/SimSys_Scripts).
-
-.. warning::
-
-    Please ensure that Cylc7 is used with ``update_all.py`` @vn13.5. This is
-    fixed at HoT and either Cylc7 or Cylc8 can be used.
 
 .. Note::
 

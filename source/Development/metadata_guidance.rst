@@ -75,9 +75,6 @@ Please see the :ref:`rose config-edit example<metadata_changes>` for an
 illustration of how to pick up **jules-shared** changes from a JULES working
 copy.
 
-..
-    We need to check if this is all still the case with cylc 8.
-
 The following sections provide some general guidance as to how to structure
 your metadata.
 

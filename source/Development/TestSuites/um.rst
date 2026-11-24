@@ -96,7 +96,7 @@ by the Meto EX machines. To run on here, users should follow the process laid
 out in the Monsoon User Guide. This involves logging onto the ``cazccylc1``
 server to launch jobs.
 
-The UM test suite is set up to run on Monsoon with Cylc 8 by running,
+The UM test suite is set up to run on Monsoon with Cylc by running,
 
 .. code-block:: shell
 
