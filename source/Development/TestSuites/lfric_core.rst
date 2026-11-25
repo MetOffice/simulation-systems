@@ -9,12 +9,6 @@
 Testing LFRic Core
 ==================
 
-.. note::
-
-    At the LFRic Apps vn2.0 release, the cylc7 LFRic Core suite was deprecated
-    and the make test-suite functionality removed. Only the cylc8 suite is now
-    maintained.
-
 LFRic testing can be launched from the top directory of a local clone,
 
 .. code-block:: shell
@@ -25,7 +19,7 @@ LFRic testing can be launched from the top directory of a local clone,
 
 The minimum requirement for testing a branch that is to be sent for review is
 that the system level developer tests pass on all the applications. These are
-launched from make and utilise rose and cylc.
+launched from make and utilise Rose and Cylc.
 
 While developing your change, for expediency you may want to run the tests for
 only some applications. This can be done by changing the group you run, eg

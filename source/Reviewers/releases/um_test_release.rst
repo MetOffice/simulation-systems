@@ -153,7 +153,7 @@ version from the comparison as we did with tests that use mule-cumf.
 
 .. tip::
 
-  Check the test results by running something like
+  Check the test results using the Cylc Tui or GUI or by running something like
 
   .. code-block::
 

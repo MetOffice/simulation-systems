@@ -404,7 +404,7 @@ KGO differently*
            * Platforms: enter each platform which has a KGO change, lower case
              and space separated, e.g. `azspice ex1a`
            * If running on the EX's it will ask for the host you ran on - this
-             can be found from Cylc Review.
+             can be found from :ref:`Cylc Review <cylc:UI_Server_config>`
            * Path to your local clone - the script will check this exists and
              will fail if it can't be found.
            * KGO directory: this will default to vnXX.X_tYYYY where XX.X is

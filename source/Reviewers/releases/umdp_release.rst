@@ -28,7 +28,7 @@ UMDP Release
     update:
 
     * ``source/X04/X4-fcm.tex`` Commit hash and version number
-    * ``source/X04/X4-prerequisites.tex`` rose and cylc versions (found in the
+    * ``source/X04/X4-prerequisites.tex`` Rose and Cylc versions (found in the
       release notes).
     * ``source/X04/X4.tex`` UM, gcom, shumlib and UKCA versions (found in the
       release notes).

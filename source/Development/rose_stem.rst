@@ -107,12 +107,6 @@ manually configured, such as JULES.
 
 .. tip::
 
-    The site specific information is held in:
-        * JULES: rose-stem/include
-        * LFRic Apps & UM: rose-stem/site
-
-.. tip::
-
     All ``.cylc`` files mentioned are frequently split into
     platform specific variants depending on the complexity of the sites
     suite.
@@ -120,3 +114,66 @@ manually configured, such as JULES.
     e.g. `runtime.cylc` may be spread across ``runtime-platform1.cylc`` and
     ``runtime-platform2.cylc``. If a task should be run on both platform1 and
     platform2 then both of these will need the task definition adding.
+
+
+Site Specific Configuration
+---------------------------
+
+The rose-stem workflows contain some site-specific configuration, such as
+platform names and directives for the relevant batch systems.
+
+The site specific information is held in:
+
+JULES:
+  rose-stem/include
+LFRic Apps & UM:
+  rose-stem/site
+
+The relevant site-specific configuration is loaded according to the value
+of the ``CYLC_SITE`` Jinja2 variable.
+
+Each "site", (meaning separate institutional deployment) has its own "code",
+setting ``CYLC_SITE`` to this code causes its configuration to be loaded.
+
+
+.. rubric:: Momentum Site Codes
+
+These are the site codes currently in use within Momentum:
+
+.. _Metomi VMS: https://github.com/metomi/metomi-vms
+
+bom
+   Bureau of Meteorology - AUS
+cehwl1
+   Centre for Ecology & Hydrology - UK
+ecmwf
+   ECMWF - Europe
+esnz
+   Earth Sciences New Zealand - NZ
+icm
+   Meteo - PL
+meto
+   Met Office - UK
+mss
+   Meteorological Service Singapore - SN
+ncas
+   National Centre for Atmospheric Science - UK
+nci
+   National Coastwatch Institution - UK
+psc
+   Pittsburgh Supercomputing Center - US
+uoe
+   University of Exeter - UK
+vm
+   `Metomi VMS`_ virtual machine
+
+Raise a PR to register new codes.
+
+
+.. rubric:: Automatic Site Configuration
+
+To save having to manually set the ``CYLC_SITE`` Jinja2 variable for each
+rose-stem run, it can be centrally configured in the Cylc
+:ref:`cylc:global-configuration`.
+
+For more information, please see :ref:`cylc:changes.global_template_variables`.

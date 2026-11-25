@@ -24,7 +24,7 @@ Local testing:
   `these instructions
   <https://metoffice.github.io/lfric_apps/developer_guide/local_builds.html>`__
 
-  This test does not use rose or cylc and is particularly useful for checking
+  This test does not use Rose or Cylc and is particularly useful for checking
   for compile errors while developing.
 
 

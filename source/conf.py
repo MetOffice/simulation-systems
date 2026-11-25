@@ -34,10 +34,11 @@ language = "en"
 
 # Added to use dropdowns with command: pip install sphinx-design
 extensions = [
-    "sphinx_design",
     "sphinx_copybutton",
-    "sphinxcontrib.rsvgconverter",
+    "sphinx_design",
     "sphinxcontrib.mermaid",
+    "sphinxcontrib.rsvgconverter",
+    'sphinx.ext.intersphinx',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -96,3 +97,8 @@ linkcheck_ignore = [
     r".*\.py$",  # Ignores URLs ending with .py
     r"https://github.com/MetOffice/um*",
 ]
+
+# -- Options for intersphinx -------------------------------------------
+intersphinx_mapping = {
+    'cylc': (f'https://cylc.github.io/cylc-doc/stable/html/', None),
+}

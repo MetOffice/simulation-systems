@@ -56,11 +56,7 @@ a suite:
 * ``monitoring``: Controls whether to launch the monitoring script on this
   suite. If true, the monitoring script will be launched at 06:00.
 
-* ``cylc_version``: Controls which cylc_version to use. The suite is now set up
-  to use primarily cylc8 with some suites being launched at Cylc7 for the UM
-  and Jules. Can be any string beginning "7" or "8" that is a valid cylc
-  install at the site, such that ``export CYLC_VERSION=<cylc_version>``
-  works.
+* ``cylc_version``: Controls which cylc_version to use.
 
 The cronjobs are installed by running the ``generate_test_suite_cron.py``
 script with the ``--install`` command line option. This script is stored in
@@ -110,25 +106,25 @@ Full Explanation
 
 To retrigger the nightlies a script is available at
 ``$UMDIR/SimSys_Scripts/nightly_testing/retrigger_nightlies.py``. To run this
-use the alias ``rs8`` which will load the required modules and set the cylc
-version to 8. The script will detect any suites from the previous night with
+use the alias ``rs8`` which will load the required modules
+The script will detect any suites from the previous night with
 failed tasks and ask whether to retrigger them. It will restart requested
 suites, sleep, and then individually retrigger any failed tasks. Running ``rs8
 PATTERN`` will only launch suites which match that pattern (no wildcard
 matching is currently setup), eg. ``rs8 lfric_apps`` will restart suites
 with "lfric_apps" in their name.
 
-To interact with the nightlies open a cylc8 gui by:
+To monitor / interact with the nightlies:
 
 .. code-block:: shell
 
-    export CYLC_VERSION=8
-    cylc gui --ip=0.0.0.0 --no-browser --debug --Application.log_level=WARN
+   # use the Cylc in-terninal GUI
+   cylc tui
 
-or the meto user has an alias defined as ``cylc_url``. Copy the 2nd url that
-appears into your browser.
+   # use the Cylc in-browser GUI
+   cylc gui
 
-Suites can also be triggered without using the script. In the gui, select the
+Suites can also be triggered without using the script. In the GUI, select the
 suite on the left and then click the play triangle at the top. This can also
 be done on the command line by:
 
@@ -150,7 +146,7 @@ items can be added/edited. When done click ``submit`` and then ``Trigger``
 
 .. important::
 
-    When finished Keyboard terminate the cylc url command and choose y when
-    prompted. This shuts down the cylc server and prevents multiple connections
-    opening.
+    When finished Keyboard terminate the Cylc url command and choose y when
+    prompted. This shuts down the Cylc scheduler and prevents multiple
+    connections opening.
 
