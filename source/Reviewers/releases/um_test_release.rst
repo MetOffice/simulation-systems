@@ -22,28 +22,38 @@ UM Test Release
 Preparing Test Release Branches and Keyword Files
 -------------------------------------------------
 
-This will involve switching between your own and the umadmin account on Azure
-Spice and EXAB.
+.. note::
 
-* As yourself, create a UM Issue to track the test release.
-* Ensure you have a :ref:`fork <forking>` of both the ``um`` and ``um_meta``
-  repositories, and that the ``main`` branches in each are up to date with the
-  upstream repository.
-* In a clone of these forks, :ref:`create a branch <create_branch>` using the
-  ``main`` branch as the parent. In the UM branch, update the ``um_meta`` entry
-  in the ``dependencies.yaml`` file to point at your metadata branch. Add a link
-  to both branches from your issue.
-* In the UM branch ``dependencies.yaml`` file, update the ``um_meta`` entry to
-  point at your new branch. Update all other entries to point at ``main``. This
-  will use the Heads of each of those repositories for testing.
-* As yourself, add the following to ``~/.metomi/rose.conf`` on Azure Spice and
-  EXAB. This prevents kgo failures due to the new version number when we test
-  later.
+    These steps require switching between your own account and the ``umadmin``
+    account on Azure Spice and EXAB/CD.
 
-.. code-block::
+1. **Create a tracking issue**:   Using your own account,
+   `open a new UM Issue <https://github.com/MetOffice/um/issues/new>`_
+   to track the test release.
 
-    [rose-ana]
-    bypass-version-check=.true.
+2. **Sync your forks**:   Ensure you have :ref:`forks <forking>` of both the
+   ``um`` and ``um_meta`` repositories, and :ref:`update <syncing_fork>`
+   the ``main`` branch in each to match the upstream repository.
+
+3. **Create your working branches**: In a local clone of each fork,
+   :ref:`create a new branch <create_branch>` off ``main``. Link both branches
+   to your UM Issue.
+
+4. **Update dependencies.yaml**: In your new ``um`` branch,
+   open ``dependencies.yaml`` and make the following changes so testing uses the
+   latest repository heads:
+
+   - Point ``um_meta`` to your new ``um_meta`` branch.
+   - Point all other entries to ``main``.
+
+5. **Configure Rose to bypass version checks**: Using your own account on both
+   Azure Spice and EXAB/CD, add the following lines to ``~/.metomi/rose.conf``
+   to prevent KGO failures from the new version number during testing:
+
+   .. code-block:: ini
+
+      [rose-ana]
+      bypass-version-check=.true.
 
 
 Running the Release Script
@@ -103,10 +113,13 @@ Commit the changes to both the UM and Meta branches.
 Installing Ctldata, Utilities and Prebuilds
 -------------------------------------------
 
-These steps are all done as umadmin
+.. note::
 
-Take a copy of the ``um`` and ``um_meta`` branches. umadmin can only access the
-mirrors so this may be more easily done by copying your own clones.
+   Run all steps in this section as the ``umadmin`` user. Log in with your own
+   account first, then switch users by running ``sudo -iu umadmin``.
+
+Copy your local ``um`` and ``um_meta`` repository clones into the ``umadmin``
+workspace (preferably in ``~umadmin/umX.Y_test_release``).
 
 First check that the upgrade has gone successfully and the new install will
 appear in the correct place. Do this by running,
